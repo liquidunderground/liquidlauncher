@@ -94,7 +94,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="lb2.qrc">
+          <iconset resource="ll.qrc">
            <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
          </property>
          <property name="iconSize">
@@ -126,7 +126,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="lb2.qrc">
+          <iconset resource="ll.qrc">
            <normaloff>:/assets/img/icons/srb2.png</normaloff>:/assets/img/icons/srb2.png</iconset>
          </property>
          <property name="iconSize">
@@ -155,7 +155,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="lb2.qrc">
+          <iconset resource="ll.qrc">
            <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
          </property>
          <property name="iconSize">
@@ -181,7 +181,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="lb2.qrc">
+          <iconset resource="ll.qrc">
            <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
          </property>
          <property name="iconSize">
@@ -267,8 +267,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>190</width>
-                <height>42</height>
+                <width>994</width>
+                <height>574</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -453,7 +453,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>Host game</string>
+                     <string>Host Netgame</string>
                     </property>
                    </widget>
                   </item>
@@ -466,7 +466,7 @@
                      </size>
                     </property>
                     <property name="text">
-                     <string>Join game</string>
+                     <string>Join Netgame</string>
                     </property>
                     <property name="iconSize">
                      <size>
@@ -517,7 +517,7 @@
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -639,7 +639,7 @@
                       </item>
                      </layout>
                     </widget>
-                    <widget class="QWidget" name="FilesPage">
+                    <widget class="QWidget" name="ModsPage">
                      <layout class="QVBoxLayout" name="verticalLayout_5">
                       <property name="spacing">
                        <number>6</number>
@@ -659,9 +659,9 @@
                       <item>
                        <widget class="QTabWidget" name="tabWidget">
                         <property name="currentIndex">
-                         <number>1</number>
+                         <number>2</number>
                         </property>
-                        <widget class="QWidget" name="tab_3">
+                        <widget class="QWidget" name="ModFiles">
                          <attribute name="title">
                           <string>Files</string>
                          </attribute>
@@ -697,7 +697,7 @@
                               <string>place.wad</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="lb2.qrc">
+                              <iconset resource="ll.qrc">
                                <normaloff>:/assets/img/filetypes/wad.png</normaloff>:/assets/img/filetypes/wad.png</iconset>
                              </property>
                             </item>
@@ -706,7 +706,7 @@
                               <string>hold.pk3</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="lb2.qrc">
+                              <iconset resource="ll.qrc">
                                <normaloff>:/assets/img/filetypes/pk3.png</normaloff>:/assets/img/filetypes/pk3.png</iconset>
                              </property>
                             </item>
@@ -715,7 +715,7 @@
                               <string>er.lua</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="lb2.qrc">
+                              <iconset resource="ll.qrc">
                                <normaloff>:/assets/img/filetypes/lua.png</normaloff>:/assets/img/filetypes/lua.png</iconset>
                              </property>
                             </item>
@@ -760,7 +760,7 @@
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset resource="lb2.qrc">
+                                <iconset resource="ll.qrc">
                                  <normaloff>:/assets/img/uparrow.png</normaloff>:/assets/img/uparrow.png</iconset>
                                </property>
                               </widget>
@@ -857,7 +857,7 @@
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset resource="lb2.qrc">
+                                <iconset resource="ll.qrc">
                                  <normaloff>:/assets/img/combobox-dropdown.png</normaloff>:/assets/img/combobox-dropdown.png</iconset>
                                </property>
                               </widget>
@@ -983,9 +983,9 @@
                           </item>
                          </layout>
                         </widget>
-                        <widget class="QWidget" name="tab_4">
+                        <widget class="QWidget" name="ModBrowse">
                          <attribute name="title">
-                          <string>Download Mods</string>
+                          <string>Browse Mods</string>
                          </attribute>
                          <layout class="QVBoxLayout" name="verticalLayout_26">
                           <item>
@@ -1093,7 +1093,7 @@
                                   </widget>
                                  </item>
                                  <item>
-                                  <widget class="QWebEngineView" name="ModBrowser">
+                                  <widget class="QWebEngineView" name="ModBrowser" native="true">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                                      <horstretch>0</horstretch>
@@ -1143,7 +1143,7 @@
                                    <property name="styleSheet">
                                     <string notr="true">* {background-color: 1f1f1f;}</string>
                                    </property>
-                                   <property name="url">
+                                   <property name="url" stdset="0">
                                     <url>
                                      <string>about:blank</string>
                                     </url>
@@ -1230,6 +1230,76 @@
                              </widget>
                             </item>
                            </layout>
+                          </item>
+                         </layout>
+                        </widget>
+                        <widget class="QWidget" name="ModSources">
+                         <attribute name="title">
+                          <string>Mod Sources</string>
+                         </attribute>
+                         <layout class="QVBoxLayout" name="verticalLayout_29">
+                          <item>
+                           <widget class="QLabel" name="label_11">
+                            <property name="text">
+                             <string>DISCLAIMER</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QTextBrowser" name="textBrowser">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="html">
+                             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board. &lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid Underground has no influence over, nor takes responsibility for the quality or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction. &lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_10">
+                            <property name="text">
+                             <string>MOD SOURCES</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBox">
+                            <property name="text">
+                             <string>Official SRB2 Message Board</string>
+                            </property>
+                            <property name="checked">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBox_2">
+                            <property name="text">
+                             <string>SRB2 Workshop (unofficial)</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="verticalSpacer_8">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                           </spacer>
                           </item>
                          </layout>
                         </widget>
@@ -1672,7 +1742,7 @@ font-size: 12pt;</string>
                                <string/>
                               </property>
                               <property name="pixmap">
-                               <pixmap resource="lb2.qrc">:/assets/img/sonic.png</pixmap>
+                               <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
                               </property>
                               <property name="scaledContents">
                                <bool>true</bool>
@@ -2084,8 +2154,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>324</width>
-                           <height>686</height>
+                           <width>829</width>
+                           <height>682</height>
                           </rect>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2126,40 +2196,71 @@ font-size: 12pt;</string>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="RoomLabel">
-                            <property name="text">
-                             <string>ROOM</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QComboBox" name="RoomInput">
-                            <item>
-                             <property name="text">
-                              <string>Offline</string>
-                             </property>
+                           <layout class="QGridLayout" name="gridLayout">
+                            <item row="1" column="1">
+                             <widget class="QLabel" name="RoomLabel">
+                              <property name="text">
+                               <string>ROOM</string>
+                              </property>
+                             </widget>
                             </item>
-                            <item>
-                             <property name="text">
-                              <string>Standard</string>
-                             </property>
+                            <item row="2" column="1">
+                             <widget class="QComboBox" name="RoomInput">
+                              <property name="editable">
+                               <bool>false</bool>
+                              </property>
+                              <item>
+                               <property name="text">
+                                <string>Offline</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>Standard</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>Casual</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>Hugs</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>OLDC</string>
+                               </property>
+                              </item>
+                             </widget>
                             </item>
-                            <item>
-                             <property name="text">
-                              <string>Casual</string>
-                             </property>
+                            <item row="2" column="2">
+                             <widget class="QComboBox" name="comboBox">
+                              <property name="editable">
+                               <bool>true</bool>
+                              </property>
+                              <item>
+                               <property name="text">
+                                <string>https://ms.srb2.org/MS/0</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </item>
+                             </widget>
                             </item>
-                            <item>
-                             <property name="text">
-                              <string>Hugs</string>
-                             </property>
+                            <item row="1" column="2">
+                             <widget class="QLabel" name="label_5">
+                              <property name="text">
+                               <string>MASTER SERVER</string>
+                              </property>
+                             </widget>
                             </item>
-                            <item>
-                             <property name="text">
-                              <string>OLDC</string>
-                             </property>
-                            </item>
-                           </widget>
+                           </layout>
                           </item>
                           <item>
                            <widget class="QLabel" name="GametypeLabel">
@@ -2170,6 +2271,9 @@ font-size: 12pt;</string>
                           </item>
                           <item>
                            <widget class="QComboBox" name="GametypeInput">
+                            <property name="editable">
+                             <bool>true</bool>
+                            </property>
                             <item>
                              <property name="text">
                               <string>Co-op</string>
@@ -2208,6 +2312,11 @@ font-size: 12pt;</string>
                             <item>
                              <property name="text">
                               <string>Capture the Flag</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string/>
                              </property>
                             </item>
                            </widget>
@@ -2501,8 +2610,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>587</width>
-                           <height>330</height>
+                           <width>850</width>
+                           <height>510</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
@@ -2525,18 +2634,119 @@ font-size: 12pt;</string>
                            <number>9</number>
                           </property>
                           <item>
-                           <widget class="QTabWidget" name="SaveButton">
+                           <widget class="QTabWidget" name="GameTabView">
                             <property name="tabShape">
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
                              <number>0</number>
                             </property>
-                            <widget class="QWidget" name="tab_2">
+                            <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
-                              <string>Master Server</string>
+                              <string>Browse</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_23">
+                              <item>
+                               <widget class="QTableWidget" name="BrowseNetgameTable">
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                                </property>
+                                <property name="editTriggers">
+                                 <set>QAbstractItemView::DoubleClicked</set>
+                                </property>
+                                <property name="selectionBehavior">
+                                 <enum>QAbstractItemView::SelectRows</enum>
+                                </property>
+                                <attribute name="verticalHeaderVisible">
+                                 <bool>false</bool>
+                                </attribute>
+                                <row>
+                                 <property name="text">
+                                  <string/>
+                                 </property>
+                                </row>
+                                <column>
+                                 <property name="text">
+                                  <string>Title</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>Gametype</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>Version</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>Room</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>Origin</string>
+                                 </property>
+                                </column>
+                                <item row="0" column="0">
+                                 <property name="text">
+                                  <string>Earless Adventure</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="1">
+                                 <property name="text">
+                                  <string>Battle CTF</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="2">
+                                 <property name="text">
+                                  <string>2.2.10</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="3">
+                                 <property name="text">
+                                  <string>Standard</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="4">
+                                 <property name="text">
+                                  <string>mb.srb2.org</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                               </widget>
+                              </item>
                               <item>
                                <widget class="QListWidget" name="MasterServerList"/>
                               </item>
@@ -2545,7 +2755,7 @@ font-size: 12pt;</string>
                                 <item>
                                  <widget class="QLabel" name="MSStatusLabel">
                                   <property name="text">
-                                   <string>Click &quot;Refresh&quot; to download a list of servers.</string>
+                                   <string>Click &quot;Update&quot; to download a list of servers.</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -2565,12 +2775,12 @@ font-size: 12pt;</string>
                                 <item>
                                  <widget class="QPushButton" name="RefreshButton">
                                   <property name="text">
-                                   <string>Refresh</string>
+                                   <string>Update</string>
                                   </property>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="SaveMSButton">
+                                 <widget class="QPushButton" name="SaveNetgameButton">
                                   <property name="text">
                                    <string>Save</string>
                                   </property>
@@ -2587,15 +2797,15 @@ font-size: 12pt;</string>
                               </item>
                              </layout>
                             </widget>
-                            <widget class="QWidget" name="tab">
+                            <widget class="QWidget" name="SavedNetgamesTab">
                              <attribute name="title">
-                              <string>Saved Servers</string>
+                              <string>Saved Netgames</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_22">
                               <item>
                                <widget class="QLabel" name="JoinServerLabel">
                                 <property name="text">
-                                 <string>JOIN SERVER</string>
+                                 <string>JOIN NETGAME</string>
                                 </property>
                                </widget>
                               </item>
@@ -2644,7 +2854,7 @@ font-size: 12pt;</string>
                               <item>
                                <widget class="QLabel" name="ServerListLabel">
                                 <property name="text">
-                                 <string>SERVER LIST</string>
+                                 <string>NETGAMES</string>
                                 </property>
                                </widget>
                               </item>
@@ -2678,6 +2888,69 @@ font-size: 12pt;</string>
                                 <item>
                                  <property name="text">
                                   <string>who needs utau when you have srb2</string>
+                                 </property>
+                                </item>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTableWidget" name="SavedNetgameTable">
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                                </property>
+                                <attribute name="verticalHeaderVisible">
+                                 <bool>false</bool>
+                                </attribute>
+                                <row>
+                                 <property name="text">
+                                  <string/>
+                                 </property>
+                                </row>
+                                <column>
+                                 <property name="text">
+                                  <string>Title</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>IP</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>Port</string>
+                                 </property>
+                                </column>
+                                <item row="0" column="0">
+                                 <property name="text">
+                                  <string>Baleena Marunhanaja Barmejo</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="1">
+                                 <property name="text">
+                                  <string>localhost</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="2">
+                                 <property name="text">
+                                  <string>5029</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
                                  </property>
                                 </item>
                                </widget>
@@ -2763,6 +3036,131 @@ font-size: 12pt;</string>
                                  </item>
                                 </layout>
                                </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                            <widget class="QWidget" name="masterservers">
+                             <property name="minimumSize">
+                              <size>
+                               <width>824</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <attribute name="title">
+                              <string>Master Servers</string>
+                             </attribute>
+                             <layout class="QVBoxLayout" name="verticalLayout_28">
+                              <item>
+                               <widget class="QTableWidget" name="MasterServersTable">
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                                </property>
+                                <property name="editTriggers">
+                                 <set>QAbstractItemView::DoubleClicked</set>
+                                </property>
+                                <attribute name="verticalHeaderVisible">
+                                 <bool>false</bool>
+                                </attribute>
+                                <row>
+                                 <property name="text">
+                                  <string/>
+                                 </property>
+                                </row>
+                                <column>
+                                 <property name="text">
+                                  <string>Name</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>URL</string>
+                                 </property>
+                                </column>
+                                <column>
+                                 <property name="text">
+                                  <string>API</string>
+                                 </property>
+                                </column>
+                                <item row="0" column="0">
+                                 <property name="text">
+                                  <string>mb.srb2.org</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="1">
+                                 <property name="text">
+                                  <string>http://mb.srb2.org/MS/0</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                </item>
+                                <item row="0" column="2">
+                                 <property name="text">
+                                  <string>default</string>
+                                 </property>
+                                 <property name="textAlignment">
+                                  <set>AlignCenter</set>
+                                 </property>
+                                 <property name="flags">
+                                  <set>ItemIsSelectable|ItemIsEnabled</set>
+                                 </property>
+                                </item>
+                               </widget>
+                              </item>
+                              <item>
+                               <layout class="QHBoxLayout" name="horizontalLayout_22">
+                                <item>
+                                 <widget class="QLabel" name="label_9">
+                                  <property name="text">
+                                   <string>Master Server API</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QComboBox" name="comboBox_2">
+                                  <item>
+                                   <property name="text">
+                                    <string>Default</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Snitch</string>
+                                   </property>
+                                  </item>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <spacer name="horizontalSpacer_9">
+                                  <property name="orientation">
+                                   <enum>Qt::Horizontal</enum>
+                                  </property>
+                                  <property name="sizeHint" stdset="0">
+                                   <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                 </spacer>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="pushButton_2">
+                                  <property name="text">
+                                   <string>Remove</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="pushButton">
+                                  <property name="text">
+                                   <string>Add</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
                               </item>
                              </layout>
                             </widget>
@@ -2949,8 +3347,8 @@ font-size: 12pt;</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>78</height>
+                <width>994</width>
+                <height>574</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -2970,7 +3368,7 @@ font-size: 12pt;</string>
                 <number>0</number>
                </property>
                <item>
-                <widget class="QTextEdit" name="textEdit">
+                <widget class="QTextEdit" name="AboutText">
                  <property name="readOnly">
                   <bool>true</bool>
                  </property>
@@ -2978,42 +3376,55 @@ font-size: 12pt;</string>
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Built in PyQt5&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#7777ff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in player nicknames&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The console no longer opens with the launcher&lt;/li&gt;
-&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Added new icon for the launcher&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;About Launcherblast2&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;built by Liquid Underground&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Contributers&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PixL&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquid-banner.png&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;discord.gg/HVTzVfAWG6&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00d3b8;&quot;&gt;Join our Discord&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Based on LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Built in PyQt5&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#7777ff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in player nicknames&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The console no longer opens with the launcher&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Added new icon for the launcher&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;About Launcherblast2&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -3053,8 +3464,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>261</width>
-                <height>172</height>
+                <width>994</width>
+                <height>574</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -3148,8 +3559,7 @@ p, li { white-space: pre-wrap; }
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="lb2.qrc"/>
-  <include location="lb2.qrc"/>
+  <include location="ll.qrc"/>
  </resources>
  <connections/>
 </ui>

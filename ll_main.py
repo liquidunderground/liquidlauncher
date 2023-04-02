@@ -15,8 +15,8 @@ from PySide6.QtCore import Signal
 
 import edit_server_main
 import char_text
-from lb2_threading import QueryMessageBoard, QueryMasterServer, ModDownloader
-from lb2_ui import *
+from ll_threading import QueryMessageBoard, QueryMasterServer, ModDownloader
+from ll_ui import *
 from qss import themes
 
 fool = date.today() == date(date.today().year, 4, 1)
@@ -125,6 +125,7 @@ class MainWindow(QMainWindow):
 
         # clear servers list ========================================================= #
         self.ui.ServerList.clear()
+        self.ui.SavedNetgameTable.clearContents()
 
         # dock "tabs" ================================================================ #
         self.ui.NewsTabButton.clicked.connect(lambda: self.change_main_tab(0))
@@ -167,7 +168,7 @@ class MainWindow(QMainWindow):
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
         self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
-        self.ui.SaveMSButton.clicked.connect(self.save_ms_selection)
+        self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
@@ -478,6 +479,7 @@ class MainWindow(QMainWindow):
     def query_ms(self):
         self.ui.MSStatusLabel.setText("Downloading servers list...")
         self.ui.MasterServerList.clear()
+        self.ui.BrowseNetgameTable.clearContents()
         print("query_ms")
         self.query_ms_sig.emit(True)
     
@@ -495,16 +497,39 @@ class MainWindow(QMainWindow):
             new_item = QtWidgets.QListWidgetItem()
             new_item.setText(entry_label)
             self.ui.MasterServerList.addItem(new_item)
+            # Create new row & fill with data
+            #new_row = QtWidgets.QTableWidgetItem()
+            #self.ui.BrowseNetgameTable.addItem(new_row)
+            self.ui.BrowseNetgameTable.insertRow( self.ui.BrowseNetgameTable.rowCount() )
+            twi_name = QtWidgets.QTableWidgetItem(server.get("name"))
+            twi_room = QtWidgets.QTableWidgetItem(server.get("room"))
+            twi_version = QtWidgets.QTableWidgetItem(server.get("version"))
+            twi_gametype = QtWidgets.QTableWidgetItem(server.get("gametype"))
+            twi_origin = QtWidgets.QTableWidgetItem("vanilla") 
+
+            twi_name.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+            twi_room.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+            twi_version.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+            twi_gametype.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+            twi_origin.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+
+            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 0, twi_name )
+            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 3, twi_room )
+            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 2, twi_version )
+            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 1, twi_gametype )
+            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 4, twi_origin)
             self.master_server_list[entry_label] = server
 
     def join_ms_selection(self):
         selection = self.ui.MasterServerList.currentItem().text()
+        selection = self.ui.BrowseNetgameTable.currentItem().text()
         ip_string = self.master_server_list[selection].get("ip")
         os.system(self.get_launch_command() + " -connect " + ip_string)
         return
 
     def save_ms_selection(self):
         selection = self.ui.MasterServerList.currentItem().text()
+        selection = self.ui.BrowseNetgameTable.currentItem().text()
         server = self.master_server_list[selection]
         ip = server.get("ip")
         name = server.get("name")
@@ -516,6 +541,7 @@ class MainWindow(QMainWindow):
         serv_list = []
         for i in range(len(self.saved_server_ips)):
             data = {"name": self.ui.ServerList.item(i).text(), "ip": self.saved_server_ips[i]}
+            #data = {"name": self.ui.SavedNetgameTable.item(i, 1), "ip": self.ui.SavedNetgameTable.item(i, 2)}
             serv_list.append(data)
         with open("lb2ServerList.json", "w") as f:
             json.dump(serv_list, f)
@@ -538,36 +564,46 @@ class MainWindow(QMainWindow):
         new_item.setText(name)
         self.saved_server_ips.append(ip)
         self.ui.ServerList.addItem(new_item)
+        # Stub until I can fill the data
+        self.ui.SavedNetgameTable.insertRow(0)
         self.save_server_list()
         return
 
     def open_server_editor(self):
         ip = self.saved_server_ips[self.ui.ServerList.selectedIndexes()[0].row()]
         name = self.ui.ServerList.selectedItems()[0].text()
+        #ip = self.saved_server_ips[self.ui.SavedNetgameTable.selectedIndexes()[0].row()]
+        #name = self.ui.SavedNetgameTable.selectedItems()[0].text()
         self.childWindow = edit_server_main.ChildWindow(self, name, ip, False)
         self.childWindow.show()
         return
 
     def edit_selected_server(self, name, ip):
         self.saved_server_ips[self.ui.ServerList.selectedIndexes()[0].row()] = ip
-        self.ui.ServerList.selectedItems()[0].setText(name)
+        # Is this even necessary if the table is editable?
+        self.ui.ServerList.currentRow().setText(name)
+        #self.saved_server_ips[self.ui.SavedNetgameTable.selectedIndexes()[0].row()] = ip
+        #self.ui.SavedNetgameTable.selectedItems()[0].setText(name)
         self.save_server_list()
         return
 
     def delete_server_from_list(self, index):
         self.saved_server_ips.pop(index)
         self.ui.ServerList.takeItem(index)
+        self.ui.SavedNetgameTable.removeRow(index)
         self.save_server_list()
         return
 
     def delete_selected_server(self):
         self.delete_server_from_list(self.ui.ServerList.selectedIndexes()[0].row())
+        #self.delete_server_from_list(self.ui.SavedNetgameTable.selectionModel().selectedRows()[0])
         return
 
     def join_selected_server(self):
         """Join current selected server in list
         """
         ipString = self.saved_server_ips[self.ui.ServerList.selectedIndexes()[0].row()]
+        #ipString = self.ui.SavedNetgameTable.currentRow()
         os.system(self.get_launch_command() + " -connect " + ipString)
         return
 

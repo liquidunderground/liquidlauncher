@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="assets">
+    <file>img/liquid-banner.png</file>
     <file>img/icons/multiplayer.png</file>
     <file>img/icons/about.png</file>
     <file>img/icons/news.png</file>
