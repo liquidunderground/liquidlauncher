@@ -85,6 +85,8 @@ class QueryMasterServer(QtCore.QThread):
         while self.running:
             if self.query_ms:
                 server_list = get_server_list(ms_url)
+                # TODO: Pass API from user config
+                #server_list = get_server_list(ms_url, api)
                 self.server_list_sig1.emit(server_list)
                 self.query_ms = False                    
             time.sleep(1)

@@ -659,7 +659,7 @@
                       <item>
                        <widget class="QTabWidget" name="tabWidget">
                         <property name="currentIndex">
-                         <number>2</number>
+                         <number>0</number>
                         </property>
                         <widget class="QWidget" name="ModFiles">
                          <attribute name="title">
@@ -2639,7 +2639,7 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>0</number>
+                             <number>1</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
@@ -2657,6 +2657,9 @@ font-size: 12pt;</string>
                                 <property name="selectionBehavior">
                                  <enum>QAbstractItemView::SelectRows</enum>
                                 </property>
+                                <attribute name="horizontalHeaderCascadingSectionResizes">
+                                 <bool>true</bool>
+                                </attribute>
                                 <attribute name="verticalHeaderVisible">
                                  <bool>false</bool>
                                 </attribute>
@@ -2897,14 +2900,15 @@ font-size: 12pt;</string>
                                 <property name="sizeAdjustPolicy">
                                  <enum>QAbstractScrollArea::AdjustToContents</enum>
                                 </property>
+                                <attribute name="horizontalHeaderCascadingSectionResizes">
+                                 <bool>true</bool>
+                                </attribute>
                                 <attribute name="verticalHeaderVisible">
                                  <bool>false</bool>
                                 </attribute>
-                                <row>
-                                 <property name="text">
-                                  <string/>
-                                 </property>
-                                </row>
+                                <attribute name="verticalHeaderCascadingSectionResizes">
+                                 <bool>true</bool>
+                                </attribute>
                                 <column>
                                  <property name="text">
                                   <string>Title</string>
@@ -2920,39 +2924,6 @@ font-size: 12pt;</string>
                                   <string>Port</string>
                                  </property>
                                 </column>
-                                <item row="0" column="0">
-                                 <property name="text">
-                                  <string>Baleena Marunhanaja Barmejo</string>
-                                 </property>
-                                 <property name="textAlignment">
-                                  <set>AlignCenter</set>
-                                 </property>
-                                 <property name="flags">
-                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
-                                 </property>
-                                </item>
-                                <item row="0" column="1">
-                                 <property name="text">
-                                  <string>localhost</string>
-                                 </property>
-                                 <property name="textAlignment">
-                                  <set>AlignCenter</set>
-                                 </property>
-                                 <property name="flags">
-                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
-                                 </property>
-                                </item>
-                                <item row="0" column="2">
-                                 <property name="text">
-                                  <string>5029</string>
-                                 </property>
-                                 <property name="textAlignment">
-                                  <set>AlignCenter</set>
-                                 </property>
-                                 <property name="flags">
-                                  <set>ItemIsSelectable|ItemIsEditable|ItemIsEnabled</set>
-                                 </property>
-                                </item>
                                </widget>
                               </item>
                               <item>

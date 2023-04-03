@@ -1,6 +1,7 @@
 import requests
 import urllib.parse
 
+# TODO: Get MS data from UI/Config
 ms_kart_url = "https://ms.kartkrew.org/ms/api/games/SRB2Kart/7/servers?v=2"
 ms_url = "https://mb.srb2.org/MS/0/servers"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -12,11 +13,14 @@ def parse_server_line(server_string, room):
     port = server_data[1]
     name = urllib.parse.unquote(server_data[2]).encode('ascii', errors='ignore').decode()
     version = server_data[3]
+    origin = "mb.srb2.org"
     server = {"ip": ip,
             "port": port,
             "name": name,
             "version": version,
-            "room": room}
+            "room": room,
+            "origin": origin
+            }
     return server
 
 def parse_ms_data(ms_data):
@@ -66,6 +70,7 @@ def get_server_list(url):
         print("Could not get master server data. Not updating server information.")
         return
     
+    # TODO: Check for API
     if url == ms_kart_url:
         return parse_kart_data(ms_data)
     else:

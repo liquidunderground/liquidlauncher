@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'llkSRyFd.ui'
+## Form generated from reading UI file 'llCVwyzV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -1194,14 +1194,10 @@ class Ui_MainWindow(object):
         self.BrowseNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.BrowseNetgameTable.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.BrowseNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.BrowseNetgameTable.verticalHeader().setVisible(False)
 
         self.verticalLayout_23.addWidget(self.BrowseNetgameTable)
-
-        self.MasterServerList = QListWidget(self.BrowseTab)
-        self.MasterServerList.setObjectName(u"MasterServerList")
-
-        self.verticalLayout_23.addWidget(self.MasterServerList)
 
         self.horizontalLayout_18 = QHBoxLayout()
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
@@ -1272,18 +1268,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_22.addWidget(self.ServerListLabel)
 
-        self.ServerList = QListWidget(self.SavedNetgamesTab)
-        QListWidgetItem(self.ServerList)
-        QListWidgetItem(self.ServerList)
-        QListWidgetItem(self.ServerList)
-        self.ServerList.setObjectName(u"ServerList")
-        self.ServerList.setStyleSheet(u"")
-        self.ServerList.setDragEnabled(True)
-        self.ServerList.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.ServerList.setIconSize(QSize(32, 32))
-
-        self.verticalLayout_22.addWidget(self.ServerList)
-
         self.SavedNetgameTable = QTableWidget(self.SavedNetgamesTab)
         if (self.SavedNetgameTable.columnCount() < 3):
             self.SavedNetgameTable.setColumnCount(3)
@@ -1293,25 +1277,11 @@ class Ui_MainWindow(object):
         self.SavedNetgameTable.setHorizontalHeaderItem(1, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
         self.SavedNetgameTable.setHorizontalHeaderItem(2, __qtablewidgetitem13)
-        if (self.SavedNetgameTable.rowCount() < 1):
-            self.SavedNetgameTable.setRowCount(1)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        self.SavedNetgameTable.setVerticalHeaderItem(0, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        __qtablewidgetitem15.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem15.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsEnabled);
-        self.SavedNetgameTable.setItem(0, 0, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        __qtablewidgetitem16.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem16.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsEnabled);
-        self.SavedNetgameTable.setItem(0, 1, __qtablewidgetitem16)
-        __qtablewidgetitem17 = QTableWidgetItem()
-        __qtablewidgetitem17.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem17.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsEnabled);
-        self.SavedNetgameTable.setItem(0, 2, __qtablewidgetitem17)
         self.SavedNetgameTable.setObjectName(u"SavedNetgameTable")
         self.SavedNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.SavedNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.SavedNetgameTable.verticalHeader().setVisible(False)
+        self.SavedNetgameTable.verticalHeader().setCascadingSectionResizes(True)
 
         self.verticalLayout_22.addWidget(self.SavedNetgameTable)
 
@@ -1365,26 +1335,26 @@ class Ui_MainWindow(object):
         self.MasterServersTable = QTableWidget(self.masterservers)
         if (self.MasterServersTable.columnCount() < 3):
             self.MasterServersTable.setColumnCount(3)
-        __qtablewidgetitem18 = QTableWidgetItem()
-        self.MasterServersTable.setHorizontalHeaderItem(0, __qtablewidgetitem18)
-        __qtablewidgetitem19 = QTableWidgetItem()
-        self.MasterServersTable.setHorizontalHeaderItem(1, __qtablewidgetitem19)
-        __qtablewidgetitem20 = QTableWidgetItem()
-        self.MasterServersTable.setHorizontalHeaderItem(2, __qtablewidgetitem20)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.MasterServersTable.setHorizontalHeaderItem(0, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        self.MasterServersTable.setHorizontalHeaderItem(1, __qtablewidgetitem15)
+        __qtablewidgetitem16 = QTableWidgetItem()
+        self.MasterServersTable.setHorizontalHeaderItem(2, __qtablewidgetitem16)
         if (self.MasterServersTable.rowCount() < 1):
             self.MasterServersTable.setRowCount(1)
-        __qtablewidgetitem21 = QTableWidgetItem()
-        self.MasterServersTable.setVerticalHeaderItem(0, __qtablewidgetitem21)
-        __qtablewidgetitem22 = QTableWidgetItem()
-        __qtablewidgetitem22.setTextAlignment(Qt.AlignCenter);
-        self.MasterServersTable.setItem(0, 0, __qtablewidgetitem22)
-        __qtablewidgetitem23 = QTableWidgetItem()
-        __qtablewidgetitem23.setTextAlignment(Qt.AlignCenter);
-        self.MasterServersTable.setItem(0, 1, __qtablewidgetitem23)
-        __qtablewidgetitem24 = QTableWidgetItem()
-        __qtablewidgetitem24.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem24.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEnabled);
-        self.MasterServersTable.setItem(0, 2, __qtablewidgetitem24)
+        __qtablewidgetitem17 = QTableWidgetItem()
+        self.MasterServersTable.setVerticalHeaderItem(0, __qtablewidgetitem17)
+        __qtablewidgetitem18 = QTableWidgetItem()
+        __qtablewidgetitem18.setTextAlignment(Qt.AlignCenter);
+        self.MasterServersTable.setItem(0, 0, __qtablewidgetitem18)
+        __qtablewidgetitem19 = QTableWidgetItem()
+        __qtablewidgetitem19.setTextAlignment(Qt.AlignCenter);
+        self.MasterServersTable.setItem(0, 1, __qtablewidgetitem19)
+        __qtablewidgetitem20 = QTableWidgetItem()
+        __qtablewidgetitem20.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem20.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEnabled);
+        self.MasterServersTable.setItem(0, 2, __qtablewidgetitem20)
         self.MasterServersTable.setObjectName(u"MasterServersTable")
         self.MasterServersTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.MasterServersTable.setEditTriggers(QAbstractItemView.DoubleClicked)
@@ -1600,7 +1570,7 @@ class Ui_MainWindow(object):
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.GameTabView.setCurrentIndex(0)
+        self.GameTabView.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1883,55 +1853,33 @@ class Ui_MainWindow(object):
         self.JoinAddressInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"IP Address", None))
         self.JoinAddressButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
         self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"NETGAMES", None))
-
-        __sortingEnabled2 = self.ServerList.isSortingEnabled()
-        self.ServerList.setSortingEnabled(False)
-        ___qlistwidgetitem3 = self.ServerList.item(0)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("MainWindow", u"not hitcoder", None));
-        ___qlistwidgetitem4 = self.ServerList.item(1)
-        ___qlistwidgetitem4.setText(QCoreApplication.translate("MainWindow", u"maybe manic", None));
-        ___qlistwidgetitem5 = self.ServerList.item(2)
-        ___qlistwidgetitem5.setText(QCoreApplication.translate("MainWindow", u"who needs utau when you have srb2", None));
-        self.ServerList.setSortingEnabled(__sortingEnabled2)
-
         ___qtablewidgetitem10 = self.SavedNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem11 = self.SavedNetgameTable.horizontalHeaderItem(1)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem12 = self.SavedNetgameTable.horizontalHeaderItem(2)
         ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Port", None));
-
-        __sortingEnabled3 = self.SavedNetgameTable.isSortingEnabled()
-        self.SavedNetgameTable.setSortingEnabled(False)
-        ___qtablewidgetitem13 = self.SavedNetgameTable.item(0, 0)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Baleena Marunhanaja Barmejo", None));
-        ___qtablewidgetitem14 = self.SavedNetgameTable.item(0, 1)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"localhost", None));
-        ___qtablewidgetitem15 = self.SavedNetgameTable.item(0, 2)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"5029", None));
-        self.SavedNetgameTable.setSortingEnabled(__sortingEnabled3)
-
         self.JoinServerButton.setText(QCoreApplication.translate("MainWindow", u"Join server", None))
         self.AddServerButton.setText(QCoreApplication.translate("MainWindow", u"Add server", None))
         self.EditServerButton.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
         self.DeleteServerButton.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Saved Netgames", None))
-        ___qtablewidgetitem16 = self.MasterServersTable.horizontalHeaderItem(0)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Name", None));
-        ___qtablewidgetitem17 = self.MasterServersTable.horizontalHeaderItem(1)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"URL", None));
-        ___qtablewidgetitem18 = self.MasterServersTable.horizontalHeaderItem(2)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"API", None));
+        ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
+        ___qtablewidgetitem14 = self.MasterServersTable.horizontalHeaderItem(1)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"URL", None));
+        ___qtablewidgetitem15 = self.MasterServersTable.horizontalHeaderItem(2)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"API", None));
 
-        __sortingEnabled4 = self.MasterServersTable.isSortingEnabled()
+        __sortingEnabled2 = self.MasterServersTable.isSortingEnabled()
         self.MasterServersTable.setSortingEnabled(False)
-        ___qtablewidgetitem19 = self.MasterServersTable.item(0, 0)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"mb.srb2.org", None));
-        ___qtablewidgetitem20 = self.MasterServersTable.item(0, 1)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"http://mb.srb2.org/MS/0", None));
-        ___qtablewidgetitem21 = self.MasterServersTable.item(0, 2)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"default", None));
-        self.MasterServersTable.setSortingEnabled(__sortingEnabled4)
+        ___qtablewidgetitem16 = self.MasterServersTable.item(0, 0)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"mb.srb2.org", None));
+        ___qtablewidgetitem17 = self.MasterServersTable.item(0, 1)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"http://mb.srb2.org/MS/0", None));
+        ___qtablewidgetitem18 = self.MasterServersTable.item(0, 2)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"default", None));
+        self.MasterServersTable.setSortingEnabled(__sortingEnabled2)
 
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Master Server API", None))
         self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"Default", None))
