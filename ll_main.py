@@ -21,8 +21,8 @@ from qss import themes
 
 fool = date.today() == date(date.today().year, 4, 1)
 
-versionString = "reBoot-2.0"
-global_settings_file = "LauncherBlast2_settings.toml"
+versionString = "0.1"
+global_settings_file = "settings.toml"
 
 
 class MainWindow(QMainWindow):
@@ -53,7 +53,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.app = app
-        self.setWindowTitle("Launcherblast2 reBoot-2.0")
+        self.setWindowTitle("LiquidLauncher "+versionString)
 
         # server ips stored internally so u don't dox people's ips if you're streaming or smth
         self.saved_server_ips = []
@@ -159,16 +159,20 @@ class MainWindow(QMainWindow):
         self.ui.DownloadModButton.clicked.connect(self.download_mod)
         self.ui.ModsList.itemSelectionChanged.connect(self.load_mod_page)
         self.ui.OpenPageButton.clicked.connect(self.open_mod_page)
-
         # server list buttons ======================================================== #
         self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
         self.ui.JoinServerButton.clicked.connect(self.join_selected_server)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
-        self.ui.EditServerButton.clicked.connect(self.open_server_editor)
+        #self.ui.EditServerButton.clicked.connect(self.open_server_editor)
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
         self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
+
+        # MS table buttons ======================================================== #
+        self.ui.MSAddButton.clicked.connect(self.add_ms_to_list)
+        self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
+        self.ui.MasterServersTable.cellChanged.connect(self.change_ms_in_list)
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
@@ -714,6 +718,60 @@ class MainWindow(QMainWindow):
         os.system(launch_command)
         return
 
+    # Saved Master Servers
+    def update_ms_list_in_ui(self): 
+        print("update_ms_in_ui")
+        self.ui.BrowseMSComboBox.clear()
+        self.ui.HostMSComboBox.clear()
+        # We only need the first column (names)
+        rows = self.ui.MasterServersTable.rowCount()
+        for i in range(0, rows):
+            ms_name = self.ui.MasterServersTable.item(i, 0).text()
+            ms_url = self.ui.MasterServersTable.item(i, 1).text()
+            self.ui.BrowseMSComboBox.insertItem( self.ui.BrowseMSComboBox.count(), ms_name)
+            self.ui.HostMSComboBox.insertItem( self.ui.HostMSComboBox.count(), ms_url)
+
+        self.ui.MasterServersTable.resizeColumnsToContents()
+        return
+
+    def load_ms_list(self, row, column): 
+        print("load_ms_list")
+        self.update_ms_in_ui()
+        return
+
+    def save_ms_list(self): 
+        print("save_ms_list")
+        return
+
+    def add_ms_to_list(self): 
+        print("add_ms_to_list")
+        self.ui.MasterServersTable.insertRow( self.ui.MasterServersTable.rowCount() )
+
+        twi_tmp1 = QtWidgets.QTableWidgetItem()
+        twi_tmp2 = QtWidgets.QTableWidgetItem()
+        twi_tmp3 = QtWidgets.QTableWidgetItem()
+        twi_tmp1.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+        twi_tmp2.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+        twi_tmp3.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 0, twi_tmp1 )
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 1, twi_tmp2 )
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 2, twi_tmp3 )
+        self.update_ms_list_in_ui()
+        return
+
+    def remove_ms_from_list(self): 
+        print("remove_ms_from_list")
+        self.ui.MasterServersTable.removeRow( self.ui.MasterServersTable.currentRow() )
+        self.update_ms_list_in_ui()
+        return
+
+    def change_ms_in_list(self, row, column): 
+        print("change_ms_in_ui: {} {}".format(row,column))
+        self.save_ms_list();
+        self.update_ms_list_in_ui()
+        return
+
     # Settings and profiles
 
     def closeEvent(self, e):
@@ -1093,9 +1151,9 @@ class MainWindow(QMainWindow):
         if float(ver_num) > float(versionString.replace("reBoot-", "")):
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Information)
-            msg.setText("There is a new version available. Please check the SRB2 Message Board.")
-            msg.setWindowTitle("Launcher update")
-            msg.setDetailedText("Running: " + versionString + "\nLatest: " + version_got)
+            msg.setText("Your version of LiquidLauncher seems to be outdated. Please download version {} from our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.".format(version_got) )
+            msg.setWindowTitle("Version {} available".format(version_got))
+            msg.setDetailedText("Latest version of LiquidLauncher: " + version_got + "\nYou are currently running: " + versionString)
             msg.setStandardButtons(QMessageBox.Ok)
             msg.exec_()
         elif float(ver_num) < float(versionString.replace("reBoot-", "")):

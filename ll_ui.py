@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'llCVwyzV.ui'
+## Form generated from reading UI file 'llqfKRIa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1002, 638)
+        MainWindow.resize(852, 586)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -922,7 +922,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 829, 682))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 699, 682))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(9, 9, 9, 9)
@@ -965,13 +965,13 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.RoomInput, 2, 1, 1, 1)
 
-        self.comboBox = QComboBox(self.scrollAreaWidgetContents_4)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setEditable(True)
+        self.HostMSComboBox = QComboBox(self.scrollAreaWidgetContents_4)
+        self.HostMSComboBox.addItem("")
+        self.HostMSComboBox.addItem("")
+        self.HostMSComboBox.setObjectName(u"HostMSComboBox")
+        self.HostMSComboBox.setEditable(True)
 
-        self.gridLayout.addWidget(self.comboBox, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.HostMSComboBox, 2, 2, 1, 1)
 
         self.label_5 = QLabel(self.scrollAreaWidgetContents_4)
         self.label_5.setObjectName(u"label_5")
@@ -1136,11 +1136,10 @@ class Ui_MainWindow(object):
         self.scrollArea_3 = QScrollArea(self.JoinGamePage)
         self.scrollArea_3.setObjectName(u"scrollArea_3")
         self.scrollArea_3.setStyleSheet(u"")
-        self.scrollArea_3.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 850, 510))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 850, 437))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"")
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_13.setSpacing(6)
@@ -1153,6 +1152,11 @@ class Ui_MainWindow(object):
         self.BrowseTab.setObjectName(u"BrowseTab")
         self.verticalLayout_23 = QVBoxLayout(self.BrowseTab)
         self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.label_13 = QLabel(self.BrowseTab)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout_23.addWidget(self.label_13)
+
         self.BrowseNetgameTable = QTableWidget(self.BrowseTab)
         if (self.BrowseNetgameTable.columnCount() < 5):
             self.BrowseNetgameTable.setColumnCount(5)
@@ -1201,14 +1205,28 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_18 = QHBoxLayout()
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.MSStatusLabel = QLabel(self.BrowseTab)
-        self.MSStatusLabel.setObjectName(u"MSStatusLabel")
+        self.label_12 = QLabel(self.BrowseTab)
+        self.label_12.setObjectName(u"label_12")
 
-        self.horizontalLayout_18.addWidget(self.MSStatusLabel)
+        self.horizontalLayout_18.addWidget(self.label_12)
+
+        self.BrowseMSComboBox = QComboBox(self.BrowseTab)
+        self.BrowseMSComboBox.addItem("")
+        self.BrowseMSComboBox.setObjectName(u"BrowseMSComboBox")
+        sizePolicy4.setHeightForWidth(self.BrowseMSComboBox.sizePolicy().hasHeightForWidth())
+        self.BrowseMSComboBox.setSizePolicy(sizePolicy4)
+        self.BrowseMSComboBox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+
+        self.horizontalLayout_18.addWidget(self.BrowseMSComboBox)
 
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_18.addItem(self.horizontalSpacer_6)
+
+        self.MSStatusLabel = QLabel(self.BrowseTab)
+        self.MSStatusLabel.setObjectName(u"MSStatusLabel")
+
+        self.horizontalLayout_18.addWidget(self.MSStatusLabel)
 
         self.RefreshButton = QPushButton(self.BrowseTab)
         self.RefreshButton.setObjectName(u"RefreshButton")
@@ -1292,39 +1310,28 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9 = QHBoxLayout(self.frame_10)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.JoinServerButton = QPushButton(self.frame_10)
-        self.JoinServerButton.setObjectName(u"JoinServerButton")
-        self.JoinServerButton.setSizeIncrement(QSize(0, 0))
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_9.addWidget(self.JoinServerButton)
+        self.horizontalLayout_9.addItem(self.horizontalSpacer_10)
+
+        self.DeleteServerButton = QPushButton(self.frame_10)
+        self.DeleteServerButton.setObjectName(u"DeleteServerButton")
+
+        self.horizontalLayout_9.addWidget(self.DeleteServerButton)
 
         self.AddServerButton = QPushButton(self.frame_10)
         self.AddServerButton.setObjectName(u"AddServerButton")
 
         self.horizontalLayout_9.addWidget(self.AddServerButton)
 
+        self.JoinServerButton = QPushButton(self.frame_10)
+        self.JoinServerButton.setObjectName(u"JoinServerButton")
+        self.JoinServerButton.setSizeIncrement(QSize(0, 0))
+
+        self.horizontalLayout_9.addWidget(self.JoinServerButton)
+
 
         self.verticalLayout_22.addWidget(self.frame_10)
-
-        self.frame_13 = QFrame(self.SavedNetgamesTab)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setFrameShape(QFrame.StyledPanel)
-        self.frame_13.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_15 = QHBoxLayout(self.frame_13)
-        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.horizontalLayout_15.setContentsMargins(0, 0, 0, 0)
-        self.EditServerButton = QPushButton(self.frame_13)
-        self.EditServerButton.setObjectName(u"EditServerButton")
-
-        self.horizontalLayout_15.addWidget(self.EditServerButton)
-
-        self.DeleteServerButton = QPushButton(self.frame_13)
-        self.DeleteServerButton.setObjectName(u"DeleteServerButton")
-
-        self.horizontalLayout_15.addWidget(self.DeleteServerButton)
-
-
-        self.verticalLayout_22.addWidget(self.frame_13)
 
         self.GameTabView.addTab(self.SavedNetgamesTab, "")
         self.masterservers = QWidget()
@@ -1364,31 +1371,31 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.label_9 = QLabel(self.masterservers)
-        self.label_9.setObjectName(u"label_9")
+        self.MSAPILabel = QLabel(self.masterservers)
+        self.MSAPILabel.setObjectName(u"MSAPILabel")
 
-        self.horizontalLayout_22.addWidget(self.label_9)
+        self.horizontalLayout_22.addWidget(self.MSAPILabel)
 
-        self.comboBox_2 = QComboBox(self.masterservers)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.MSAPICombobox = QComboBox(self.masterservers)
+        self.MSAPICombobox.addItem("")
+        self.MSAPICombobox.addItem("")
+        self.MSAPICombobox.setObjectName(u"MSAPICombobox")
 
-        self.horizontalLayout_22.addWidget(self.comboBox_2)
+        self.horizontalLayout_22.addWidget(self.MSAPICombobox)
 
         self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_22.addItem(self.horizontalSpacer_9)
 
-        self.pushButton_2 = QPushButton(self.masterservers)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.MSRemoveButton = QPushButton(self.masterservers)
+        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
 
-        self.horizontalLayout_22.addWidget(self.pushButton_2)
+        self.horizontalLayout_22.addWidget(self.MSRemoveButton)
 
-        self.pushButton = QPushButton(self.masterservers)
-        self.pushButton.setObjectName(u"pushButton")
+        self.MSAddButton = QPushButton(self.masterservers)
+        self.MSAddButton.setObjectName(u"MSAddButton")
 
-        self.horizontalLayout_22.addWidget(self.pushButton)
+        self.horizontalLayout_22.addWidget(self.MSAddButton)
 
 
         self.verticalLayout_28.addLayout(self.horizontalLayout_22)
@@ -1570,7 +1577,7 @@ class Ui_MainWindow(object):
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.GameTabView.setCurrentIndex(1)
+        self.GameTabView.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1777,8 +1784,8 @@ class Ui_MainWindow(object):
         self.RoomInput.setItemText(3, QCoreApplication.translate("MainWindow", u"Hugs", None))
         self.RoomInput.setItemText(4, QCoreApplication.translate("MainWindow", u"OLDC", None))
 
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"https://ms.srb2.org/MS/0", None))
-        self.comboBox.setItemText(1, "")
+        self.HostMSComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"https://ms.srb2.org/MS/0", None))
+        self.HostMSComboBox.setItemText(1, "")
 
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"MASTER SERVER", None))
         self.GametypeLabel.setText(QCoreApplication.translate("MainWindow", u"GAMETYPE", None))
@@ -1819,6 +1826,7 @@ class Ui_MainWindow(object):
         self.SuddenDeathToggle.setText(QCoreApplication.translate("MainWindow", u"SUDDEN DEATH", None))
         self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"DEDICATED", None))
         self.UploadToggle.setText(QCoreApplication.translate("MainWindow", u"ENABLE DOWNLOADING", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"NETGAMES", None))
         ___qtablewidgetitem = self.BrowseNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem1 = self.BrowseNetgameTable.horizontalHeaderItem(1)
@@ -1844,6 +1852,9 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"mb.srb2.org", None));
         self.BrowseNetgameTable.setSortingEnabled(__sortingEnabled1)
 
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.BrowseMSComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"ms.srb2.org", None))
+
         self.MSStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Update\" to download a list of servers.", None))
         self.RefreshButton.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.SaveNetgameButton.setText(QCoreApplication.translate("MainWindow", u"Save", None))
@@ -1852,17 +1863,16 @@ class Ui_MainWindow(object):
         self.JoinServerLabel.setText(QCoreApplication.translate("MainWindow", u"JOIN NETGAME", None))
         self.JoinAddressInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"IP Address", None))
         self.JoinAddressButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
-        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"NETGAMES", None))
+        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"FAVORITES", None))
         ___qtablewidgetitem10 = self.SavedNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem11 = self.SavedNetgameTable.horizontalHeaderItem(1)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem12 = self.SavedNetgameTable.horizontalHeaderItem(2)
         ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Port", None));
-        self.JoinServerButton.setText(QCoreApplication.translate("MainWindow", u"Join server", None))
-        self.AddServerButton.setText(QCoreApplication.translate("MainWindow", u"Add server", None))
-        self.EditServerButton.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
         self.DeleteServerButton.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
+        self.AddServerButton.setText(QCoreApplication.translate("MainWindow", u"Add server", None))
+        self.JoinServerButton.setText(QCoreApplication.translate("MainWindow", u"Join server", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Saved Netgames", None))
         ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
@@ -1881,12 +1891,12 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"default", None));
         self.MasterServersTable.setSortingEnabled(__sortingEnabled2)
 
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Master Server API", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"Default", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"Snitch", None))
+        self.MSAPILabel.setText(QCoreApplication.translate("MainWindow", u"Master Server API", None))
+        self.MSAPICombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Default", None))
+        self.MSAPICombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Snitch", None))
 
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
+        self.MSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
+        self.MSAddButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.masterservers), QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameProfileComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New profile...", None))
 

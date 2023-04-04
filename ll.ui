@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1002</width>
-    <height>638</height>
+    <width>852</width>
+    <height>586</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -2154,7 +2154,7 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>829</width>
+                           <width>699</width>
                            <height>682</height>
                           </rect>
                          </property>
@@ -2599,9 +2599,6 @@ font-size: 12pt;</string>
                         <property name="styleSheet">
                          <string notr="true"/>
                         </property>
-                        <property name="verticalScrollBarPolicy">
-                         <enum>Qt::ScrollBarAsNeeded</enum>
-                        </property>
                         <property name="widgetResizable">
                          <bool>true</bool>
                         </property>
@@ -2611,7 +2608,7 @@ font-size: 12pt;</string>
                            <x>0</x>
                            <y>0</y>
                            <width>850</width>
-                           <height>510</height>
+                           <height>437</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
@@ -2639,13 +2636,20 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>1</number>
+                             <number>0</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
                               <string>Browse</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_23">
+                              <item>
+                               <widget class="QLabel" name="label_13">
+                                <property name="text">
+                                 <string>NETGAMES</string>
+                                </property>
+                               </widget>
+                              </item>
                               <item>
                                <widget class="QTableWidget" name="BrowseNetgameTable">
                                 <property name="sizeAdjustPolicy">
@@ -2751,15 +2755,30 @@ font-size: 12pt;</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QListWidget" name="MasterServerList"/>
-                              </item>
-                              <item>
                                <layout class="QHBoxLayout" name="horizontalLayout_18">
                                 <item>
-                                 <widget class="QLabel" name="MSStatusLabel">
+                                 <widget class="QLabel" name="label_12">
                                   <property name="text">
-                                   <string>Click &quot;Update&quot; to download a list of servers.</string>
+                                   <string>Master Server</string>
                                   </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QComboBox" name="MSComboBox">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="sizeAdjustPolicy">
+                                   <enum>QComboBox::AdjustToContents</enum>
+                                  </property>
+                                  <item>
+                                   <property name="text">
+                                    <string>ms.srb2.org</string>
+                                   </property>
+                                  </item>
                                  </widget>
                                 </item>
                                 <item>
@@ -2774,6 +2793,13 @@ font-size: 12pt;</string>
                                    </size>
                                   </property>
                                  </spacer>
+                                </item>
+                                <item>
+                                 <widget class="QLabel" name="MSStatusLabel">
+                                  <property name="text">
+                                   <string>Click &quot;Update&quot; to download a list of servers.</string>
+                                  </property>
+                                 </widget>
                                 </item>
                                 <item>
                                  <widget class="QPushButton" name="RefreshButton">
@@ -2857,42 +2883,8 @@ font-size: 12pt;</string>
                               <item>
                                <widget class="QLabel" name="ServerListLabel">
                                 <property name="text">
-                                 <string>NETGAMES</string>
+                                 <string>FAVORITES</string>
                                 </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QListWidget" name="ServerList">
-                                <property name="styleSheet">
-                                 <string notr="true"/>
-                                </property>
-                                <property name="dragEnabled">
-                                 <bool>true</bool>
-                                </property>
-                                <property name="selectionMode">
-                                 <enum>QAbstractItemView::SingleSelection</enum>
-                                </property>
-                                <property name="iconSize">
-                                 <size>
-                                  <width>32</width>
-                                  <height>32</height>
-                                 </size>
-                                </property>
-                                <item>
-                                 <property name="text">
-                                  <string>not hitcoder</string>
-                                 </property>
-                                </item>
-                                <item>
-                                 <property name="text">
-                                  <string>maybe manic</string>
-                                 </property>
-                                </item>
-                                <item>
-                                 <property name="text">
-                                  <string>who needs utau when you have srb2</string>
-                                 </property>
-                                </item>
                                </widget>
                               </item>
                               <item>
@@ -2948,15 +2940,22 @@ font-size: 12pt;</string>
                                   <number>0</number>
                                  </property>
                                  <item>
-                                  <widget class="QPushButton" name="JoinServerButton">
-                                   <property name="sizeIncrement">
+                                  <spacer name="horizontalSpacer_10">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
                                     <size>
-                                     <width>0</width>
-                                     <height>0</height>
+                                     <width>40</width>
+                                     <height>20</height>
                                     </size>
                                    </property>
+                                  </spacer>
+                                 </item>
+                                 <item>
+                                  <widget class="QPushButton" name="DeleteServerButton">
                                    <property name="text">
-                                    <string>Join server</string>
+                                    <string>Delete</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -2967,41 +2966,16 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_13">
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_15">
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
                                  <item>
-                                  <widget class="QPushButton" name="EditServerButton">
-                                   <property name="text">
-                                    <string>Edit</string>
+                                  <widget class="QPushButton" name="JoinServerButton">
+                                   <property name="sizeIncrement">
+                                    <size>
+                                     <width>0</width>
+                                     <height>0</height>
+                                    </size>
                                    </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QPushButton" name="DeleteServerButton">
                                    <property name="text">
-                                    <string>Delete</string>
+                                    <string>Join server</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3084,14 +3058,14 @@ font-size: 12pt;</string>
                               <item>
                                <layout class="QHBoxLayout" name="horizontalLayout_22">
                                 <item>
-                                 <widget class="QLabel" name="label_9">
+                                 <widget class="QLabel" name="MSAPILabel">
                                   <property name="text">
                                    <string>Master Server API</string>
                                   </property>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QComboBox" name="comboBox_2">
+                                 <widget class="QComboBox" name="MSAPICombobox">
                                   <item>
                                    <property name="text">
                                     <string>Default</string>
@@ -3118,14 +3092,14 @@ font-size: 12pt;</string>
                                  </spacer>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="pushButton_2">
+                                 <widget class="QPushButton" name="MSRemoveButton">
                                   <property name="text">
                                    <string>Remove</string>
                                   </property>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="pushButton">
+                                 <widget class="QPushButton" name="MSAddButton">
                                   <property name="text">
                                    <string>Add</string>
                                   </property>
