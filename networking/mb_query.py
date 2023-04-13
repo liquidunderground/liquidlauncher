@@ -1,13 +1,24 @@
 from lxml import html
 import requests
 
-mb_url = "https://mb.srb2.org"
+## Original MB values
+#mb_url = "https://mb.srb2.org"
+#mb_link = mb_url
+#maps_sublink = mb_link + "/addons/categories/maps.4/"
+#characters_sublink = mb_link + "/addons/categories/characters.5/"
+#lua_sublink = mb_link + "/addons/categories/lua.7/"
+#misc_sublink = mb_link + "/addons/categories/miscellaneous.8/"
+#assets_sublink = mb_link + "/addons/categories/assets.6/"
+
+## Workshop for testing
+mb_url = "https://srb2workshop.org"
 mb_link = mb_url
-maps_sublink = mb_link + "/addons/categories/maps.4/"
-characters_sublink = mb_link + "/addons/categories/characters.5/"
-lua_sublink = mb_link + "/addons/categories/lua.7/"
-misc_sublink = mb_link + "/addons/categories/miscellaneous.8/"
-assets_sublink = mb_link + "/addons/categories/assets.6/"
+maps_sublink = mb_link + "/forums/maps.31/"
+characters_sublink = mb_link + "/forums/characters.33/"
+lua_sublink = mb_link + "/forums/lua.32/"
+misc_sublink = mb_link + "/forums/miscellaneous.52/"
+assets_sublink = mb_link + "/forums/assets.48/"
+
 # Oh so sneaky:
 headers =  {'User-Agent':
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) '

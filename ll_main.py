@@ -125,7 +125,7 @@ class MainWindow(QMainWindow):
 
         # clear servers list ========================================================= #
         #self.ui.ServerList.clear()
-        self.ui.SavedNetgameTable.clearContents()
+        self.ui.SavedNetgameTable.setRowCount(0)
 
         # dock "tabs" ================================================================ #
         self.ui.NewsTabButton.clicked.connect(lambda: self.change_main_tab(0))
@@ -160,9 +160,11 @@ class MainWindow(QMainWindow):
         self.ui.ModsList.itemSelectionChanged.connect(self.load_mod_page)
         self.ui.OpenPageButton.clicked.connect(self.open_mod_page)
         # server list buttons ======================================================== #
-        self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
+        #self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
+        self.ui.AddServerButton.clicked.connect(self.add_new_server_to_list)
         self.ui.JoinServerButton.clicked.connect(self.join_selected_server)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
+        self.ui.BrowseMSComboBox.currentIndexChanged.connect(self.query_ms)
         #self.ui.EditServerButton.clicked.connect(self.open_server_editor)
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
@@ -231,6 +233,11 @@ class MainWindow(QMainWindow):
     def show_add_server_dialog(self):
         self.childWindow = edit_server_main.ChildWindow(self, "", "", True)
         self.childWindow.show()
+        return
+
+    def add_new_server_to_list(self): 
+        print("add_new_server_to_list")
+        self.add_server_to_list("Dummy Server", "127.0.0.1", "5029")
         return
 
     def change_skin_image(self):
@@ -483,7 +490,7 @@ class MainWindow(QMainWindow):
     def query_ms(self):
         self.ui.MSStatusLabel.setText("Downloading servers list...")
         #self.ui.MasterServerList.clear()
-        self.ui.BrowseNetgameTable.clearContents()
+        self.ui.BrowseNetgameTable.setRowCount(0)
         print("query_ms")
         self.query_ms_sig.emit(True)
     

@@ -1,12 +1,12 @@
 <RCC>
   <qresource prefix="assets">
     <file>img/liquid-banner.png</file>
-    <file>img/icons/multiplayer.png</file>
-    <file>img/icons/about.png</file>
-    <file>img/icons/news.png</file>
-    <file>img/icons/srb2.png</file>
-    <file>img/icons/settings.png</file>
     <file>img/combobox-dropdown-light.png</file>
+    <file>img/icons/about.png</file>
+    <file>img/icons/gamepad.png</file>
+    <file>img/icons/news.png</file>
+    <file>img/icons/settings.png</file>
+    <file>img/icons/sonichead.png</file>
     <file>img/srb2-title-new.png</file>
     <file>img/srb2-title.png</file>
     <file>img/filetypes/kart.png</file>
