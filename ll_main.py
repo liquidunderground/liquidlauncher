@@ -172,7 +172,7 @@ class MainWindow(QMainWindow):
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
         # MS table buttons ======================================================== #
-        self.ui.MSAddButton.clicked.connect(self.add_ms_to_list)
+        self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MasterServersTable.cellChanged.connect(self.change_ms_in_list)
 
@@ -190,6 +190,9 @@ class MainWindow(QMainWindow):
         # and then add the spacer at the bottom
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.ui.verticalLayout_20.addItem(spacerItem)
+
+        # Load MSes to be used
+        self.load_ms_list()
         
     def open_url(self, url):
         webbrowser.open(url)
@@ -741,29 +744,54 @@ class MainWindow(QMainWindow):
         self.ui.MasterServersTable.resizeColumnsToContents()
         return
 
-    def load_ms_list(self, row, column): 
+    def load_ms_list(self): 
         print("load_ms_list")
-        self.update_ms_in_ui()
+        self.ui.MasterServersTable.setRowCount(0)
+        ms_list = []
+        fpath = os.path.join(os.getcwd(), "masterservers.json")
+        if not os.path.isfile(fpath):
+            return
+        with open(fpath, "r") as f:
+            ms_list = json.load(f)
+
+        for ms in ms_list:
+            self.add_ms_to_list(ms["name"], ms["url"], ms["api"])
+
+        self.update_ms_list_in_ui()
         return
 
     def save_ms_list(self): 
         print("save_ms_list")
+        ms_list = []
+        for i in range(self.ui.MasterServersTable.rowCount()):
+            #data = {"name": self.ui.ServerList.item(i).text(), "ip": self.saved_server_ips[i]}
+            data = {"name": self.ui.MasterServersTable.item(i, 0).text(),
+                    "url": self.ui.MasterServersTable.item(i, 1).text(),
+                    "api": self.ui.MasterServersTable.item(i, 2).text()}
+            ms_list.append(data)
+        with open("masterservers.json", "w") as f:
+            json.dump(ms_list, f)
         return
 
-    def add_ms_to_list(self): 
+    def add_new_ms_to_list(self): 
+        print("add_new_ms_to_list")
+        self.add_ms_to_list("Dummy MS", "http://localhost/v1", "v1")
+        return
+
+    def add_ms_to_list(self, name, url, api): 
         print("add_ms_to_list")
         self.ui.MasterServersTable.insertRow( self.ui.MasterServersTable.rowCount() )
 
-        twi_tmp1 = QtWidgets.QTableWidgetItem()
-        twi_tmp2 = QtWidgets.QTableWidgetItem()
-        twi_tmp3 = QtWidgets.QTableWidgetItem()
-        twi_tmp1.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
-        twi_tmp2.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
-        twi_tmp3.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+        twi_name = QtWidgets.QTableWidgetItem(name)
+        twi_url = QtWidgets.QTableWidgetItem(url)
+        twi_api = QtWidgets.QTableWidgetItem(api)
+        twi_name.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+        twi_url.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
+        twi_api.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
 
-        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 0, twi_tmp1 )
-        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 1, twi_tmp2 )
-        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 2, twi_tmp3 )
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 0, twi_name )
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 1, twi_url )
+        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 2, twi_api )
         self.update_ms_list_in_ui()
         return
 
