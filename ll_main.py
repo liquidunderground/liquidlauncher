@@ -746,7 +746,6 @@ class MainWindow(QMainWindow):
 
     def load_ms_list(self): 
         print("load_ms_list")
-        self.ui.MasterServersTable.setRowCount(0)
         ms_list = []
         fpath = os.path.join(os.getcwd(), "masterservers.json")
         if not os.path.isfile(fpath):
@@ -754,6 +753,7 @@ class MainWindow(QMainWindow):
         with open(fpath, "r") as f:
             ms_list = json.load(f)
 
+        self.ui.MasterServersTable.setRowCount(0)
         for ms in ms_list:
             self.add_ms_to_list(ms["name"], ms["url"], ms["api"])
 
