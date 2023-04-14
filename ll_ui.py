@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'llZFnSNG.ui'
+## Form generated from reading UI file 'llQvtRCi.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(852, 586)
+        MainWindow.resize(852, 594)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 832, 504))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 516))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.verticalLayout_20 = QVBoxLayout(self.NewsScrollAreaContent)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
@@ -1073,7 +1073,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 850, 431))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 850, 439))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"")
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_13.setSpacing(6)
@@ -1276,49 +1276,27 @@ class Ui_MainWindow(object):
         self.masterservers = QWidget()
         self.masterservers.setObjectName(u"masterservers")
         self.masterservers.setMinimumSize(QSize(824, 0))
-        self.verticalLayout_28 = QVBoxLayout(self.masterservers)
-        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
-        self.label_9 = QLabel(self.masterservers)
-        self.label_9.setObjectName(u"label_9")
-
-        self.verticalLayout_28.addWidget(self.label_9)
-
-        self.gridLayout_5 = QGridLayout()
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.MSAPICombobox = QComboBox(self.masterservers)
-        self.MSAPICombobox.addItem("")
-        self.MSAPICombobox.addItem("")
-        self.MSAPICombobox.setObjectName(u"MSAPICombobox")
-
-        self.gridLayout_5.addWidget(self.MSAPICombobox, 1, 2, 1, 1)
-
-        self.MSRemoveButton = QPushButton(self.masterservers)
-        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
-
-        self.gridLayout_5.addWidget(self.MSRemoveButton, 1, 5, 1, 1)
-
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_9, 1, 3, 1, 1)
-
-        self.MSAPILabel = QLabel(self.masterservers)
-        self.MSAPILabel.setObjectName(u"MSAPILabel")
-
-        self.gridLayout_5.addWidget(self.MSAPILabel, 1, 0, 1, 1)
-
-        self.MSAddButton = QPushButton(self.masterservers)
+        self.verticalLayout_30 = QVBoxLayout(self.masterservers)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.splitter_3 = QSplitter(self.masterservers)
+        self.splitter_3.setObjectName(u"splitter_3")
+        self.splitter_3.setOrientation(Qt.Horizontal)
+        self.gridLayoutWidget = QWidget(self.splitter_3)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayout_6 = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.MSAddButton = QPushButton(self.gridLayoutWidget)
         self.MSAddButton.setObjectName(u"MSAddButton")
 
-        self.gridLayout_5.addWidget(self.MSAddButton, 1, 6, 1, 1)
+        self.gridLayout_6.addWidget(self.MSAddButton, 2, 3, 1, 1)
 
-        self.textBrowser_2 = QTextBrowser(self.masterservers)
-        self.textBrowser_2.setObjectName(u"textBrowser_2")
-        sizePolicy1.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
-        self.textBrowser_2.setSizePolicy(sizePolicy1)
+        self.label_14 = QLabel(self.gridLayoutWidget)
+        self.label_14.setObjectName(u"label_14")
 
-        self.gridLayout_5.addWidget(self.textBrowser_2, 0, 7, 2, 1)
+        self.gridLayout_6.addWidget(self.label_14, 2, 0, 1, 1)
 
-        self.MasterServersTable = QTableWidget(self.masterservers)
+        self.MasterServersTable = QTableWidget(self.gridLayoutWidget)
         if (self.MasterServersTable.columnCount() < 3):
             self.MasterServersTable.setColumnCount(3)
         __qtablewidgetitem14 = QTableWidgetItem()
@@ -1357,10 +1335,56 @@ class Ui_MainWindow(object):
         self.MasterServersTable.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
-        self.gridLayout_5.addWidget(self.MasterServersTable, 0, 0, 1, 7)
+        self.gridLayout_6.addWidget(self.MasterServersTable, 1, 0, 1, 4)
 
+        self.label_9 = QLabel(self.gridLayoutWidget)
+        self.label_9.setObjectName(u"label_9")
+        font = QFont()
+        font.setPointSize(14)
+        self.label_9.setFont(font)
 
-        self.verticalLayout_28.addLayout(self.gridLayout_5)
+        self.gridLayout_6.addWidget(self.label_9, 0, 0, 1, 1)
+
+        self.MSRemoveButton = QPushButton(self.gridLayoutWidget)
+        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
+
+        self.gridLayout_6.addWidget(self.MSRemoveButton, 2, 2, 1, 1)
+
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_9, 2, 1, 1, 1)
+
+        self.splitter_3.addWidget(self.gridLayoutWidget)
+        self.verticalLayoutWidget = QWidget(self.splitter_3)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayout_28 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.label_15 = QLabel(self.verticalLayoutWidget)
+        self.label_15.setObjectName(u"label_15")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
+        self.label_15.setSizePolicy(sizePolicy5)
+        self.label_15.setFont(font)
+
+        self.verticalLayout_28.addWidget(self.label_15)
+
+        self.textBrowser_2 = QTextBrowser(self.verticalLayoutWidget)
+        self.textBrowser_2.setObjectName(u"textBrowser_2")
+        sizePolicy1.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
+        self.textBrowser_2.setSizePolicy(sizePolicy1)
+
+        self.verticalLayout_28.addWidget(self.textBrowser_2)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_28.addItem(self.verticalSpacer_9)
+
+        self.splitter_3.addWidget(self.verticalLayoutWidget)
+
+        self.verticalLayout_30.addWidget(self.splitter_3)
 
         self.GameTabView.addTab(self.masterservers, "")
 
@@ -1394,11 +1418,11 @@ class Ui_MainWindow(object):
         self.GameProfileComboBox = QComboBox(self.GamePlayFrame)
         self.GameProfileComboBox.addItem("")
         self.GameProfileComboBox.setObjectName(u"GameProfileComboBox")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
-        self.GameProfileComboBox.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
+        self.GameProfileComboBox.setSizePolicy(sizePolicy6)
 
         self.horizontalLayout_3.addWidget(self.GameProfileComboBox)
 
@@ -1444,7 +1468,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 522))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 516))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -1472,7 +1496,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 522))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 516))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.ProfileDirLabel = QLabel(self.scrollAreaWidgetContents)
@@ -1553,11 +1577,11 @@ class Ui_MainWindow(object):
 
         self.GameTabButton = QRadioButton(self.DockTabFrame)
         self.GameTabButton.setObjectName(u"GameTabButton")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
-        self.GameTabButton.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
+        self.GameTabButton.setSizePolicy(sizePolicy7)
         self.GameTabButton.setMaximumSize(QSize(16777215, 16777215))
         icon6 = QIcon()
         icon6.addFile(u":/assets/img/icons/gamepad.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1664,7 +1688,7 @@ class Ui_MainWindow(object):
         self.ModTypeCombo.setItemText(3, QCoreApplication.translate("MainWindow", u"Assets", None))
         self.ModTypeCombo.setItemText(4, QCoreApplication.translate("MainWindow", u"Misc", None))
 
-        self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Open Page", None))
+        self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.RefreshModsButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.ModBrowse), QCoreApplication.translate("MainWindow", u"Browse Mods", None))
@@ -1885,25 +1909,8 @@ class Ui_MainWindow(object):
         self.AddServerButton.setText(QCoreApplication.translate("MainWindow", u"Add server", None))
         self.JoinServerButton.setText(QCoreApplication.translate("MainWindow", u"Join server", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Saved Netgames", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"MASTER SERVERS", None))
-        self.MSAPICombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Default", None))
-        self.MSAPICombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Snitch", None))
-
-        self.MSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
-        self.MSAPILabel.setText(QCoreApplication.translate("MainWindow", u"Master Server API", None))
         self.MSAddButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
-        self.textBrowser_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Valid API values</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">v1</span>: Official SRB2 API</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" f"
-                        "ont-weight:600;\">kartv2</span>: SRB2Kart API</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">snitch</span>: LiquidMS Snitch API</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Please respect your master servers' rules.</p></body></html>", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Please respect your master servers' rules", None))
         ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem14 = self.MasterServersTable.horizontalHeaderItem(1)
@@ -1927,6 +1934,19 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"kartv2", None));
         self.MasterServersTable.setSortingEnabled(__sortingEnabled2)
 
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"MASTER SERVERS", None))
+        self.MSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Valid APIs", None))
+        self.textBrowser_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">v1</span>: Official SRB2 API</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">kartv2</span>: SRB2Kart API</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">snitch</span>: LiquidMS Snitch API</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin"
+                        "-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">All other APIs will be ignored</p></body></html>", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.masterservers), QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameProfileComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New profile...", None))
 
