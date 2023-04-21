@@ -2,22 +2,47 @@ from lxml import html
 import requests
 
 ## Original MB values
-#mb_url = "https://mb.srb2.org"
-#mb_link = mb_url
-#maps_sublink = mb_link + "/addons/categories/maps.4/"
-#characters_sublink = mb_link + "/addons/categories/characters.5/"
-#lua_sublink = mb_link + "/addons/categories/lua.7/"
-#misc_sublink = mb_link + "/addons/categories/miscellaneous.8/"
-#assets_sublink = mb_link + "/addons/categories/assets.6/"
+srb2mb = {
+    "main_url": "https://mb.srb2.org",
+    "maps_sublink": "/addons/categories/maps.4",
+    "characters_sublink": "/addons/categories/characters.5",
+    "lua_sublink": "/addons/categories/lua.7",
+    "misc_sublink": "/addons/categories/miscellaneous.8",
+    "assets_sublink": "/addons/categories/assets.6",
+    "thread_base": "/addons",
+    "download_base": "/addons",
+    "download_suffix": "/download",
+    "vendor": "stjr"
+}
 
 ## Workshop for testing
-mb_url = "https://srb2workshop.org"
-mb_link = mb_url
-maps_sublink = mb_link + "/forums/maps.31/"
-characters_sublink = mb_link + "/forums/characters.33/"
-lua_sublink = mb_link + "/forums/lua.32/"
-misc_sublink = mb_link + "/forums/miscellaneous.52/"
-assets_sublink = mb_link + "/forums/assets.48/"
+workshop_blue = {
+    "main_url": "https://srb2workshop.org",
+    "maps_sublink": "/forums/maps.18/",
+    "characters_sublink": "/forums/characters.19/",
+    "lua_sublink": "/forums/lua.20/",
+    "misc_sublink": "/forums/miscellaneous.21/",
+    "assets_sublink": "/forums/assets.29/",
+    "thread_base": "/threads",
+    #"thread_base": "/resources",
+    "download_base": "/resources",
+    "download_suffix": "/download",
+    "vendor": "workshop"
+}
+
+workshop_red = {
+    "main_url": "https://srb2workshop.org",
+    "maps_sublink": "/forums/maps.31/",
+    "characters_sublink": "/forums/characters.33/",
+    "lua_sublink": "/forums/lua.32/",
+    "misc_sublink": "/forums/miscellaneous.52/",
+    "assets_sublink": "/forums/assets.48/",
+    "thread_base": "/threads",
+    #"thread_base": "/resources",
+    "download_base": "/resources",
+    "download_suffix": "/download",
+    "vendor": "workshop"
+}
 
 # Oh so sneaky:
 headers =  {'User-Agent':
@@ -26,21 +51,28 @@ headers =  {'User-Agent':
             'Chrome/39.0.2171.95 Safari/537.36'}
 
 class Mod:
-    def __init__(self, name, thread_url):
-        self.mb_base_url = mb_url
+    def __init__(self, name, mb_info, thread_url):
+        self.mb = mb_info
+        self.base_url = mb_info["main_url"]
         self.name = name
-        self.thread_base_url = thread_url
+        self.thread_name = thread_url
         self.description = None
         self.download_url = None
-        self.url = self.mb_base_url + self.thread_base_url
+        self.url = self.base_url + self.thread_name
         self.set_download_url()
         self.html = None
 
     def set_download_url(self):
-        self.url = self.mb_base_url + self.thread_base_url
-        if not self.thread_base_url:
+
+        #self.url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name
+        self.url = self.mb["main_url"] + self.mb["thread_base"] + self.thread_name
+        if not self.thread_name:
             return None
-        self.download_url = self.url + "download"
+
+        #self.download_url = self.url + self.mb["download_suffix"]
+        self.download_url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name
+        print("Download URL:"+self.download_url)
+
         return self.download_url
     
     def get_html(self):
@@ -60,12 +92,13 @@ class Mod:
             '//div[@class="bbWrapper"]/text()'))
         return self.description
 
-def get_mods(addons_subforum_url):
+def get_mods(addons_subforum_url, modsource):
     """
     Gets a list of all mods from addons subforum URL
     :param download_url: The URL of the SRB2 MB sub-forum to search
     :return: Returns a list containing Mod class instances
     """
+    print("mb_query.get_mods("+addons_subforum_url+")")
     last_page = False
     mod_list = []
     mod_links = []
@@ -74,6 +107,7 @@ def get_mods(addons_subforum_url):
     previous_data = None
     # Iterate through pages grabbing thread names and their links:
     while not last_page:
+        print("Querying page ", page_counter )
         tree = get_addons_page_html(addons_subforum_url, page_counter)
         current_mod_links = get_list_of_thread_links(tree)
         current_mod_names = get_list_of_thread_names(tree)
@@ -82,15 +116,22 @@ def get_mods(addons_subforum_url):
             #   the MB will send you back to the last valid page,
             #   making you get the same data twice
             last_page = True
+            print("Last page reached!")
         else:
+            # Filter out prefices
+            current_mod_links  = [ link.removeprefix(modsource["thread_base"]) for link in current_mod_links ]
+
             mod_names.extend(current_mod_names)
             mod_links.extend(current_mod_links)
         previous_data = current_mod_names
         page_counter += 1
 
+    print("Mod links: ", mod_links )
+
     # Make our list of mods
     for index in range(len(mod_names)):
-        mod = Mod(mod_names[index], mod_links[index])
+        #mod = Mod(mod_names[index], mod_links[index])
+        mod = Mod(mod_names[index], modsource, mod_links[index])
         mod_list.append(mod)
 
     return mod_list
@@ -118,7 +159,7 @@ def get_mod_by_name(name, mod_list):
     for mod in mod_list:
         if mod.name == name:
             return mod
-    return Mod("blank", "blank")  # Return a blank mod so functions that rely on this function don't crash
+    return Mod("blank", None, "blank")  # Return a blank mod so functions that rely on this function don't crash
 
 def get_list_of_thread_names(parsed_html):
     """
