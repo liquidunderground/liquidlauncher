@@ -61,7 +61,7 @@ def parse_kart_data(data):
     # TODO
     return server_list
 
-def get_server_list(url):
+def get_server_list(url, api="v1"):
     print("get_server_list")
     # first get a list of all servers from the master server     
     try:
@@ -71,7 +71,11 @@ def get_server_list(url):
         return
     
     # TODO: Check for API
-    if url == ms_kart_url:
-        return parse_kart_data(ms_data)
-    else:
+    if api == "v1":
         return parse_ms_data(ms_data)
+    elif url == "kartv2":
+        return parse_kart_data(ms_data)
+    elif url == "snitch":
+        return parse_snitch_data(ms_data)
+    else:
+        return []

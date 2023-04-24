@@ -70,8 +70,8 @@ class Mod:
             return None
 
         #self.download_url = self.url + self.mb["download_suffix"]
-        self.download_url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name
-        print("Download URL:"+self.download_url)
+        self.download_url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name + self.mb["download_suffix"] 
+        #print("Download URL:"+self.download_url)
 
         return self.download_url
     
@@ -119,7 +119,8 @@ def get_mods(addons_subforum_url, modsource):
             print("Last page reached!")
         else:
             # Filter out prefices
-            current_mod_links  = [ link.removeprefix(modsource["thread_base"]) for link in current_mod_links ]
+            current_mod_links  = [
+            link.removeprefix(modsource["thread_base"]).rstrip('/') for link in current_mod_links ]
 
             mod_names.extend(current_mod_names)
             mod_links.extend(current_mod_links)
@@ -175,6 +176,7 @@ def get_list_of_thread_links(parsed_html):
 def download_mod(base_path, download_url):
     # TODO: apparently https://.../download isn't the actual download URL! It crashes this function.
     filepath = base_path + download_url.split('/')[-1]
+    print("Proceeding to download file ", download_url,  "into", filepath)
     # NOTE the stream=True parameter below
     with requests.get(download_url, stream=True, headers=headers) as r:
         r.raise_for_status()
