@@ -765,9 +765,18 @@ class MainWindow(QMainWindow):
         ms_list = []
         for i in range(self.ui.MasterServersTable.rowCount()):
             #data = {"name": self.ui.ServerList.item(i).text(), "ip": self.saved_server_ips[i]}
-            data = {"name": self.ui.MasterServersTable.item(i, 0).text(),
-                    "url": self.ui.MasterServersTable.item(i, 1).text(),
-                    "api": self.ui.MasterServersTable.item(i, 2).text()}
+            shim_name = ""
+            shim_url = ""
+            shim_api = ""
+
+            if self.ui.MasterServersTable.item(i, 0) != None:
+                shim_name = self.ui.MasterServersTable.item(i, 0).text()
+            if self.ui.MasterServersTable.item(i, 1) != None:
+                shim_url = self.ui.MasterServersTable.item(i, 1).text()
+            if self.ui.MasterServersTable.item(i, 2) != None:
+                shim_api = self.ui.MasterServersTable.item(i, 2).text()
+
+            data = {"name": shim_name, "url": shim_url, "api": shim_api }
             ms_list.append(data)
         with open("masterservers.json", "w") as f:
             json.dump(ms_list, f)

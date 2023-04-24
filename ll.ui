@@ -99,7 +99,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>516</height>
+                <height>524</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -348,7 +348,7 @@
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>5</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1055,6 +1055,9 @@
                             </item>
                             <item>
                              <widget class="QPushButton" name="DownloadModButton">
+                              <property name="enabled">
+                               <bool>false</bool>
+                              </property>
                               <property name="text">
                                <string>Download</string>
                               </property>
@@ -1089,9 +1092,13 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board. &lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid Underground has no influence over, nor takes responsibility for the quality or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction. &lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid Underground has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
@@ -1103,7 +1110,7 @@ p, li { white-space: pre-wrap; }
                            </widget>
                           </item>
                           <item>
-                           <widget class="QCheckBox" name="checkBox">
+                           <widget class="QCheckBox" name="ModsourceMBCheckbox">
                             <property name="text">
                              <string>Official SRB2 Message Board</string>
                             </property>
@@ -1113,9 +1120,16 @@ p, li { white-space: pre-wrap; }
                            </widget>
                           </item>
                           <item>
-                           <widget class="QCheckBox" name="checkBox_2">
+                           <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
                             <property name="text">
-                             <string>SRB2 Workshop (unofficial)</string>
+                             <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
+                            <property name="text">
+                             <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
                             </property>
                            </widget>
                           </item>
@@ -2473,7 +2487,7 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>2</number>
+                             <number>0</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
@@ -3220,7 +3234,7 @@ p, li { white-space: pre-wrap; }
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>516</height>
+                <height>524</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -3337,7 +3351,7 @@ p, li { white-space: pre-wrap; }
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>516</height>
+                <height>524</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">

@@ -33,20 +33,44 @@ class QueryMessageBoard(QtCore.QThread):
             if self.get_mods:
                 self.mods_list = {}
                 subforum_url = None
-                if self.mods_type == "Maps":
-                    subforum_url = mb_query.maps_sublink
-                if self.mods_type == "Characters":
-                    subforum_url = mb_query.characters_sublink
-                if self.mods_type == "Lua":
-                    subforum_url = mb_query.lua_sublink
-                if self.mods_type == "Assets":
-                    subforum_url = mb_query.assets_sublink
-                if self.mods_type == "Misc":
-                    subforum_url = mb_query.misc_sublink
-                mods = mb_query.get_mods(subforum_url)
+                #mb = mb_query.srb2mb
+                mods = []
+                modsources = []
+                mb = mb_query.workshop_red
+
+                # Compose mod sources
+                modsources.append( mb_query.srb2mb )
+                modsources.append( mb_query.workshop_blue )
+                modsources.append( mb_query.workshop_red )
+
+                #if ui.ModsourceMBCheckbox.isChecked()
+                    #modsources.append( mb_query.srb2mb )
+                #if ui.ModsourceWSBlueCheckbox.isChecked()
+                    #modsources.append( mb_query.workshop_blue )
+                #if ui.ModsourceWSBlueCheckbox.isChecked()
+                    #modsources.append( mb_query.workshop_red )
+
+                for src in modsources:
+                    if self.mods_type == "Maps":
+                        subforum_url = src["main_url"] + src["maps_sublink"]
+                    if self.mods_type == "Characters":
+                        subforum_url = src["main_url"] + src["characters_sublink"]
+                    if self.mods_type == "Lua":
+                        subforum_url = src["main_url"] + src["lua_sublink"]
+                    if self.mods_type == "Assets":
+                        subforum_url = src["main_url"] + src["assets_sublink"]
+                    if self.mods_type == "Misc":
+                        subforum_url = src["main_url"] + src["misc_sublink"]
+                    print("Querying subforum "+subforum_url);
+                    #mods.append(mb_query.get_mods(subforum_url, src))
+                    mods = mods + mb_query.get_mods(subforum_url, src)
+
+                #print("Mods: ", mods)
                 for mod in mods:
                     entry_text = mod.name
                     self.mods_list[entry_text] = mod
+                    #print("Parsing mod "+entry_text);
+
 
                 self.mod_list_sig1.emit(self.mods_list)
 
@@ -84,7 +108,7 @@ class QueryMasterServer(QtCore.QThread):
     def run(self):
         while self.running:
             if self.query_ms:
-                server_list = get_server_list(ms_url)
+                server_list = get_server_list(ms_url, "v1")
                 # TODO: Pass API from user config
                 #server_list = get_server_list(ms_url, api)
                 self.server_list_sig1.emit(server_list)
@@ -103,11 +127,15 @@ class ModDownloader(QtCore.QThread):
         
     def on_download_button(self, download_url):
         self.download_url = download_url
+        print("ModDownloader.download_url = ", self.download_url)
         
     def on_filepath_emit(self, filepath):
         self.filepath = filepath
+        print("ModDownloader.filepath = ", self.filepath)
         
     def run(self):
+        print("ModDownloader.download_url = ", self.download_url)
+        print("ModDownloader.filepath = ", self.filepath)
         while self.running:
             if self.download_url and self.filepath:
                 filepath = mb_query.download_mod(self.filepath, self.download_url)

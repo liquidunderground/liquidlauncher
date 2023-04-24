@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'llQvtRCi.ui'
+## Form generated from reading UI file 'llZXdiow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 516))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 524))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.verticalLayout_20 = QVBoxLayout(self.NewsScrollAreaContent)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
@@ -498,6 +498,7 @@ class Ui_MainWindow(object):
 
         self.DownloadModButton = QPushButton(self.ModBrowse)
         self.DownloadModButton.setObjectName(u"DownloadModButton")
+        self.DownloadModButton.setEnabled(False)
 
         self.horizontalLayout_20.addWidget(self.DownloadModButton)
 
@@ -529,16 +530,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_29.addWidget(self.label_10)
 
-        self.checkBox = QCheckBox(self.ModSources)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setChecked(True)
+        self.ModsourceMBCheckbox = QCheckBox(self.ModSources)
+        self.ModsourceMBCheckbox.setObjectName(u"ModsourceMBCheckbox")
+        self.ModsourceMBCheckbox.setChecked(True)
 
-        self.verticalLayout_29.addWidget(self.checkBox)
+        self.verticalLayout_29.addWidget(self.ModsourceMBCheckbox)
 
-        self.checkBox_2 = QCheckBox(self.ModSources)
-        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.ModsourceWSBlueCheckbox = QCheckBox(self.ModSources)
+        self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
 
-        self.verticalLayout_29.addWidget(self.checkBox_2)
+        self.verticalLayout_29.addWidget(self.ModsourceWSBlueCheckbox)
+
+        self.ModsourceWSRedCheckbox = QCheckBox(self.ModSources)
+        self.ModsourceWSRedCheckbox.setObjectName(u"ModsourceWSRedCheckbox")
+
+        self.verticalLayout_29.addWidget(self.ModsourceWSRedCheckbox)
 
         self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1468,7 +1474,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 516))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 524))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -1496,7 +1502,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 516))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 524))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.ProfileDirLabel = QLabel(self.scrollAreaWidgetContents)
@@ -1623,12 +1629,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(5)
+        self.GameContentStackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(1)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.GameTabView.setCurrentIndex(2)
+        self.GameTabView.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1697,13 +1703,19 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-weight:600;\"> </span>The use of mods from unofficial sources on the official Master Server [<a href=\"https://mb.srb2.org/MS/0\"><span style=\" text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a>] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board. <span style=\" font-weight:600;\">USE"
-                        " THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-weight:600;\"> </span>The use of mods from unofficial sources on the official Master Server [<a href=\"https://mb.srb2.org/MS/0\"><span style=\" text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a>] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.</p>\n"
+"<p align=\"center\" style=\" "
+                        "margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Additionally, Liquid Underground has no influence over, nor takes responsibility for the quality or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction. <span style=\" font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p></body></html>", None))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Additionally, Liquid Underground has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
+"<p a"
+                        "lign=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p></body></html>", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"MOD SOURCES", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
-        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop (unofficial)", None))
+        self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
+        self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
+        self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.ModSources), QCoreApplication.translate("MainWindow", u"Mod Sources", None))
         self.GameResolutionLabel.setText(QCoreApplication.translate("MainWindow", u"RESOLUTION", None))
         self.GameHorizontalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
