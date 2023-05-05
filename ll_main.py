@@ -171,6 +171,11 @@ class MainWindow(QMainWindow):
         self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
+        # modsources checkboxes ================================================================ #
+        self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
+        self.ui.ModsourceWSBlueCheckbox.clicked.connect(self.update_modsources)
+        self.ui.ModsourceWSRedCheckbox.clicked.connect(self.update_modsources)
+
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
@@ -860,6 +865,16 @@ class MainWindow(QMainWindow):
 
         return config_data
 
+    def update_modsources(self):
+        print("update_modsources()")
+        # kludge. dunno where else to stuff it
+        self.global_settings["modsources"] = {
+            "srb2mb": self.ui.ModsourceMBCheckbox.isChecked(),
+            "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
+            "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked()
+        }
+        print(self.global_settings["modsources"])
+
     def set_current_profile(self, profile):
         self.global_settings["current_profile"] = profile.key()
     
@@ -948,6 +963,7 @@ class MainWindow(QMainWindow):
         
         toml_settings = self.read_config_file(global_settings_file)
         self.global_settings = toml_settings
+        # Profiles combobox
         self.add_profiles_to_combobox()
         current_profile_file = self.get_current_profile_file()
         self.current_profile_settings = self.read_config_file(
@@ -1011,7 +1027,12 @@ class MainWindow(QMainWindow):
     def create_settings_on_first_run(self):
         self.global_settings = {"current_profile": "Default",
                                 "profiles": 
-                                    {"Default": "default_profile.toml"}
+                                    {"Default": "default_profile.toml"},
+                                "modsources": {
+                                    "srb2mb": True,
+                                    "workshop_blue": False,
+                                    "workshop_red": False
+                                    }
                                 }
         self.save_global_settings_file()
         self.save_profile_file(self.get_current_profile_file())
@@ -1078,6 +1099,16 @@ class MainWindow(QMainWindow):
         if self.ui.SaveFilesToConfigToggle.isChecked:
             for f in profile_settings_dict["files"]:
                 self.add_file(f)
+
+        print("read_modsources")
+        # Reset modsources
+        #self.ui.ModsourceMBCheckbox.checked = False
+        #self.ui.ModsourceWSBlueCheckbox.checked = False
+        #self.ui.ModsourceWSRedCheckbox.checked = False
+        # Load modsources from global_settings
+        self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
+        self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
+        self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
 
         self.change_skin_image()
     
