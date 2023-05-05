@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         self.mods_list = {}
 
         # MB Query Multithreading
-        self.mb_qthread = QueryMessageBoard()
+        self.mb_qthread = QueryMessageBoard(self)
         self.mb_qthread.start()
         self.mod_list_sig.connect(self.mb_qthread.on_request_mod_list)
         self.mod_description_sig.connect(self.mb_qthread.on_request_mod_desc)

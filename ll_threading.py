@@ -12,12 +12,13 @@ class QueryMessageBoard(QtCore.QThread):
     # Emits a list of mods
     mod_list_sig1 = Signal(dict)
 
-    def __init__(self, parent=None):
+    def __init__(self, host, parent=None):
         QtCore.QThread.__init__(self, parent)
         self.mod = None
         self.get_mod_description = False
         self.get_mods = False
         self.mods_type = None
+        self.host = host
 
     def on_request_mod_list(self, mods_type):
         self.get_mods = True
@@ -39,16 +40,16 @@ class QueryMessageBoard(QtCore.QThread):
                 mb = mb_query.workshop_red
 
                 # Compose mod sources
-                modsources.append( mb_query.srb2mb )
-                modsources.append( mb_query.workshop_blue )
-                modsources.append( mb_query.workshop_red )
+                #modsources.append( mb_query.srb2mb )
+                #modsources.append( mb_query.workshop_blue )
+                #modsources.append( mb_query.workshop_red )
 
-                #if ui.ModsourceMBCheckbox.isChecked()
-                    #modsources.append( mb_query.srb2mb )
-                #if ui.ModsourceWSBlueCheckbox.isChecked()
-                    #modsources.append( mb_query.workshop_blue )
-                #if ui.ModsourceWSBlueCheckbox.isChecked()
-                    #modsources.append( mb_query.workshop_red )
+                if self.host.global_settings["modsources"]["srb2mb"]:
+                   modsources.append( mb_query.srb2mb )
+                if self.host.global_settings["modsources"]["workshop_blue"]:
+                   modsources.append( mb_query.workshop_blue )
+                if self.host.global_settings["modsources"]["workshop_red"]:
+                   modsources.append( mb_query.workshop_red )
 
                 for src in modsources:
                     if self.mods_type == "Maps":
