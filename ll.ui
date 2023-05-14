@@ -98,8 +98,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>524</height>
+                <width>182</width>
+                <height>35</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -348,7 +348,7 @@
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>1</number>
+                     <number>5</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -490,7 +490,7 @@
                       <item>
                        <widget class="QTabWidget" name="tabWidget">
                         <property name="currentIndex">
-                         <number>1</number>
+                         <number>0</number>
                         </property>
                         <widget class="QWidget" name="ModFiles">
                          <attribute name="title">
@@ -591,8 +591,7 @@
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/uparrow.png</normaloff>:/assets/img/uparrow.png</iconset>
+                                <iconset theme="go-up"/>
                                </property>
                               </widget>
                              </item>
@@ -628,6 +627,9 @@
                                   <property name="text">
                                    <string>Clear list</string>
                                   </property>
+                                  <property name="icon">
+                                   <iconset theme="edit-delete"/>
+                                  </property>
                                  </widget>
                                 </item>
                                 <item>
@@ -640,6 +642,9 @@
                                   </property>
                                   <property name="text">
                                    <string>Delete selected files</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset theme="list-remove"/>
                                   </property>
                                  </widget>
                                 </item>
@@ -688,8 +693,7 @@
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/combobox-dropdown.png</normaloff>:/assets/img/combobox-dropdown.png</iconset>
+                                <iconset theme="go-down"/>
                                </property>
                               </widget>
                              </item>
@@ -728,6 +732,9 @@
                                   <property name="text">
                                    <string>Save list</string>
                                   </property>
+                                  <property name="icon">
+                                   <iconset theme="document-save"/>
+                                  </property>
                                  </widget>
                                 </item>
                                 <item>
@@ -756,6 +763,9 @@
                                   </property>
                                   <property name="text">
                                    <string>Add file</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset theme="list-add"/>
                                   </property>
                                  </widget>
                                 </item>
@@ -1044,12 +1054,18 @@
                               <property name="text">
                                <string>Visit Page</string>
                               </property>
+                              <property name="icon">
+                               <iconset theme="globe"/>
+                              </property>
                              </widget>
                             </item>
                             <item>
                              <widget class="QPushButton" name="RefreshModsButton">
                               <property name="text">
                                <string>Refresh</string>
+                              </property>
+                              <property name="icon">
+                               <iconset theme="media-playlist-repeat"/>
                               </property>
                              </widget>
                             </item>
@@ -1060,6 +1076,9 @@
                               </property>
                               <property name="text">
                                <string>Download</string>
+                              </property>
+                              <property name="icon">
+                               <iconset theme="download"/>
                               </property>
                              </widget>
                             </item>
@@ -1367,6 +1386,9 @@ font-size: 12pt;</string>
                            </property>
                            <property name="text">
                             <string>Browse...</string>
+                           </property>
+                           <property name="icon">
+                            <iconset theme="folder"/>
                            </property>
                           </widget>
                          </item>
@@ -2083,6 +2105,9 @@ font-size: 12pt;</string>
                             </item>
                             <item row="2" column="2">
                              <widget class="QComboBox" name="HostMSComboBox">
+                              <property name="enabled">
+                               <bool>false</bool>
+                              </property>
                               <property name="editable">
                                <bool>true</bool>
                               </property>
@@ -2450,31 +2475,16 @@ font-size: 12pt;</string>
                         <widget class="QWidget" name="scrollAreaWidgetContents_3">
                          <property name="geometry">
                           <rect>
-                           <x>0</x>
+                           <x>-116</x>
                            <y>0</y>
-                           <width>850</width>
+                           <width>844</width>
                            <height>439</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
                           <string notr="true"/>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_13">
-                          <property name="spacing">
-                           <number>6</number>
-                          </property>
-                          <property name="leftMargin">
-                           <number>9</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>9</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>9</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>9</number>
-                          </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
                           <item>
                            <widget class="QTabWidget" name="GameTabView">
                             <property name="sizePolicy">
@@ -2487,7 +2497,7 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>0</number>
+                             <number>1</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
@@ -2657,19 +2667,28 @@ font-size: 12pt;</string>
                                   <property name="text">
                                    <string>Update</string>
                                   </property>
+                                  <property name="icon">
+                                   <iconset theme="media-playlist-repeat"/>
+                                  </property>
                                  </widget>
                                 </item>
                                 <item>
                                  <widget class="QPushButton" name="SaveNetgameButton">
                                   <property name="text">
-                                   <string>Save</string>
+                                   <string>Bookmark</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset theme="bookmark-new"/>
                                   </property>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="JoinMasterServerButton">
+                                 <widget class="QPushButton" name="BrowseNetgameJoinButton">
                                   <property name="text">
                                    <string>Join</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset theme="media-playback-start"/>
                                   </property>
                                  </widget>
                                 </item>
@@ -2679,7 +2698,7 @@ font-size: 12pt;</string>
                             </widget>
                             <widget class="QWidget" name="SavedNetgamesTab">
                              <attribute name="title">
-                              <string>Saved Netgames</string>
+                              <string>Bookmarks</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_22">
                               <item>
@@ -2806,19 +2825,25 @@ font-size: 12pt;</string>
                                  <item>
                                   <widget class="QPushButton" name="DeleteServerButton">
                                    <property name="text">
-                                    <string>Delete</string>
+                                    <string>Remove Bookmark</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset theme="list-remove"/>
                                    </property>
                                   </widget>
                                  </item>
                                  <item>
                                   <widget class="QPushButton" name="AddServerButton">
                                    <property name="text">
-                                    <string>Add server</string>
+                                    <string>Add Boookmark</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset theme="list-add"/>
                                    </property>
                                   </widget>
                                  </item>
                                  <item>
-                                  <widget class="QPushButton" name="JoinServerButton">
+                                  <widget class="QPushButton" name="JoinBookmarkButton">
                                    <property name="sizeIncrement">
                                     <size>
                                      <width>0</width>
@@ -2827,6 +2852,9 @@ font-size: 12pt;</string>
                                    </property>
                                    <property name="text">
                                     <string>Join server</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset theme="media-playback-start"/>
                                    </property>
                                   </widget>
                                  </item>
@@ -2853,13 +2881,6 @@ font-size: 12pt;</string>
                                 </property>
                                 <widget class="QWidget" name="gridLayoutWidget">
                                  <layout class="QGridLayout" name="gridLayout_6">
-                                  <item row="2" column="3">
-                                   <widget class="QPushButton" name="MSAddButton">
-                                    <property name="text">
-                                     <string>Add</string>
-                                    </property>
-                                   </widget>
-                                  </item>
                                   <item row="2" column="0">
                                    <widget class="QLabel" name="label_14">
                                     <property name="text">
@@ -2867,7 +2888,62 @@ font-size: 12pt;</string>
                                     </property>
                                    </widget>
                                   </item>
-                                  <item row="1" column="0" colspan="4">
+                                  <item row="2" column="1">
+                                   <spacer name="horizontalSpacer_9">
+                                    <property name="orientation">
+                                     <enum>Qt::Horizontal</enum>
+                                    </property>
+                                    <property name="sizeHint" stdset="0">
+                                     <size>
+                                      <width>40</width>
+                                      <height>20</height>
+                                     </size>
+                                    </property>
+                                   </spacer>
+                                  </item>
+                                  <item row="0" column="0">
+                                   <widget class="QLabel" name="label_9">
+                                    <property name="font">
+                                     <font>
+                                      <pointsize>14</pointsize>
+                                     </font>
+                                    </property>
+                                    <property name="text">
+                                     <string>MASTER SERVERS</string>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="2" column="2">
+                                   <widget class="QPushButton" name="MSRemoveButton">
+                                    <property name="text">
+                                     <string>Remove</string>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset theme="list-remove"/>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="2" column="3">
+                                   <widget class="QPushButton" name="MSAddButton">
+                                    <property name="text">
+                                     <string>Add</string>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset theme="list-add"/>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="2" column="4">
+                                   <widget class="QPushButton" name="MSListSaveButton">
+                                    <property name="text">
+                                     <string>Save List</string>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset theme="document-save"/>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="1" column="0" colspan="5">
                                    <widget class="QTableWidget" name="MasterServersTable">
                                     <property name="sizeAdjustPolicy">
                                      <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -2955,38 +3031,6 @@ font-size: 12pt;</string>
                                      </property>
                                     </item>
                                    </widget>
-                                  </item>
-                                  <item row="0" column="0">
-                                   <widget class="QLabel" name="label_9">
-                                    <property name="font">
-                                     <font>
-                                      <pointsize>14</pointsize>
-                                     </font>
-                                    </property>
-                                    <property name="text">
-                                     <string>MASTER SERVERS</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item row="2" column="2">
-                                   <widget class="QPushButton" name="MSRemoveButton">
-                                    <property name="text">
-                                     <string>Remove</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item row="2" column="1">
-                                   <spacer name="horizontalSpacer_9">
-                                    <property name="orientation">
-                                     <enum>Qt::Horizontal</enum>
-                                    </property>
-                                    <property name="sizeHint" stdset="0">
-                                     <size>
-                                      <width>40</width>
-                                      <height>20</height>
-                                     </size>
-                                    </property>
-                                   </spacer>
                                   </item>
                                  </layout>
                                 </widget>
@@ -3151,6 +3195,9 @@ p, li { white-space: pre-wrap; }
                 <property name="text">
                  <string>PLAY</string>
                 </property>
+                <property name="icon">
+                 <iconset theme="media-playback-start"/>
+                </property>
                </widget>
               </item>
               <item>
@@ -3169,6 +3216,9 @@ p, li { white-space: pre-wrap; }
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="icon">
+                 <iconset theme="go-up"/>
                 </property>
                </widget>
               </item>
@@ -3350,8 +3400,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>524</height>
+                <width>253</width>
+                <height>164</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">

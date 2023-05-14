@@ -4,7 +4,7 @@ from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
 from networking import mb_query
-from networking.ms_query import get_server_list, ms_url, ms_kart_url
+from networking.ms_query import get_server_list
 
 class QueryMessageBoard(QtCore.QThread):
     # Emits a string describing the mod
@@ -93,10 +93,11 @@ class QueryMessageBoard(QtCore.QThread):
 class QueryMasterServer(QtCore.QThread):
     server_list_sig1 = Signal(list)
 
-    def __init__(self, parent=None):
+    def __init__(self, host, parent=None):
         QtCore.QThread.__init__(self, parent)
         self.query_ms = False
         self.running = True
+        self.host = host
     
     def on_refresh(self):
         """Refresh button clicked
@@ -109,9 +110,13 @@ class QueryMasterServer(QtCore.QThread):
     def run(self):
         while self.running:
             if self.query_ms:
-                server_list = get_server_list(ms_url, "v1")
+                #server_list = get_server_list(ms_url, "v1")
                 # TODO: Pass API from user config
-                #server_list = get_server_list(ms_url, api)
+                print("QThread.current_ms = ", self.host.global_settings["current_ms"])
+                server_list = get_server_list(
+                    self.host.global_settings["current_ms"]["url"],
+                    self.host.global_settings["current_ms"]["api"]
+                    )
                 self.server_list_sig1.emit(server_list)
                 self.query_ms = False                    
             time.sleep(1)

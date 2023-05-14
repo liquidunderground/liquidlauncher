@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import webbrowser
+from packaging import version # for version checks
 import urllib
 import urllib.parse
 import toml
@@ -60,6 +61,7 @@ class MainWindow(QMainWindow):
 
         # Dict associate master server widget items with server data
         self.master_server_list = {}
+        self.ms_list = {}
 
         # Dict associating mod list widget items with mods:
         self.mods_list = {}
@@ -83,7 +85,7 @@ class MainWindow(QMainWindow):
         download_mod_path_sig = Signal(str)
         
         # Master Server Multithreading
-        self.ms_qthread = QueryMasterServer()
+        self.ms_qthread = QueryMasterServer(self)
         self.ms_qthread.start()
         self.query_ms_sig.connect(self.ms_qthread.on_refresh)
         self.ms_qthread.server_list_sig1.connect(self.on_server_list)
@@ -162,13 +164,19 @@ class MainWindow(QMainWindow):
         # server list buttons ======================================================== #
         #self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
         self.ui.AddServerButton.clicked.connect(self.add_new_server_to_list)
-        self.ui.JoinServerButton.clicked.connect(self.join_selected_server)
+        self.ui.JoinBookmarkButton.clicked.connect(self.join_selected_netgame_bookmark)
+        self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
-        self.ui.BrowseMSComboBox.currentIndexChanged.connect(self.query_ms)
+        self.ui.BrowseMSComboBox.textActivated.connect(self.change_current_ms)
+        self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
+        # Stubbed to make it editable
+        #self.ui.SavedNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_bookmark)
+        #
+        #self.ui.BrowseMSComboBox.clicked.connect(self.change_current_ms)
         #self.ui.EditServerButton.clicked.connect(self.open_server_editor)
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
-        self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
+        #self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
         # modsources checkboxes ================================================================ #
@@ -179,7 +187,7 @@ class MainWindow(QMainWindow):
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
-        self.ui.MasterServersTable.cellChanged.connect(self.change_ms_in_list)
+        self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
@@ -495,11 +503,29 @@ class MainWindow(QMainWindow):
 
     # Master server browser
 
+    def change_current_ms(self, newText):
+        # Anti-noid safeguard
+        print("change_current_ms({})".format(newText))
+        try:
+            if newText == "":
+                return
+            print("> old current_ms: ", self.global_settings["current_ms"])
+            #print("ms_list: ", self.ms_list)
+            #print("BrowseMSComboBox: ", self.ui.BrowseMSComboBox)
+            self.global_settings["current_ms"] = self.ms_list[newText];
+            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentText()];
+            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentData()];
+            print("> new current_ms: ", self.global_settings["current_ms"])
+            #self.query_ms()
+        except Exception as e:
+            print("Unable to change MS: ",e)
+
+
     def query_ms(self):
-        self.ui.MSStatusLabel.setText("Downloading servers list...")
+        print("query_ms")
+        self.ui.MSStatusLabel.setText("Downloading netgame list...")
         #self.ui.MasterServerList.clear()
         self.ui.BrowseNetgameTable.setRowCount(0)
-        print("query_ms")
         self.query_ms_sig.emit(True)
     
     def on_server_list(self, server_list):
@@ -548,7 +574,7 @@ class MainWindow(QMainWindow):
 
         self.ui.BrowseNetgameTable.resizeColumnsToContents()
 
-    def join_ms_selection(self):
+    def join_selected_netgame_browse(self):
         #selection = self.ui.BrowseNetgameTable.currentRow().text()
         #selection = '{}:{}'.format(
             #self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 3).text(),
@@ -661,7 +687,7 @@ class MainWindow(QMainWindow):
         self.delete_server_from_list( self.ui.SavedNetgameTable.currentRow() )
         return
 
-    def join_selected_server(self):
+    def join_selected_netgame_bookmark(self):
         """Join current selected server in list
         """
         #ipString = self.saved_server_ips[self.ui.ServerList.selectedIndexes()[0].row()]
@@ -735,11 +761,12 @@ class MainWindow(QMainWindow):
 
     # Saved Master Servers
     def update_ms_list_in_ui(self): 
-        print("update_ms_in_ui")
+        print("update_ms_list_in_ui")
         self.ui.BrowseMSComboBox.clear()
         self.ui.HostMSComboBox.clear()
         # We only need the first column (names)
         rows = self.ui.MasterServersTable.rowCount()
+        self.ui.BrowseMSComboBox.insertItem( 0, "All")
         for i in range(0, rows):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
@@ -751,23 +778,29 @@ class MainWindow(QMainWindow):
 
     def load_ms_list(self): 
         print("load_ms_list")
-        ms_list = []
+        self.ms_list = {}
         fpath = os.path.join(os.getcwd(), "masterservers.json")
         if not os.path.isfile(fpath):
             return
         with open(fpath, "r") as f:
-            ms_list = json.load(f)
+            self.ms_list = json.load(f)
 
         self.ui.MasterServersTable.setRowCount(0)
-        for ms in ms_list:
-            self.add_ms_to_list(ms["name"], ms["url"], ms["api"])
+        for ms in self.ms_list:
+            print("MS list:", self.ms_list)
+            self.add_ms_to_list(
+                self.ms_list[ms]["name"],
+                self.ms_list[ms]["url"],
+                self.ms_list[ms]["api"]
+                )
 
         self.update_ms_list_in_ui()
+        #self.load_ms_list()
         return
 
     def save_ms_list(self): 
         print("save_ms_list")
-        ms_list = []
+        self.ms_list = {}
         for i in range(self.ui.MasterServersTable.rowCount()):
             #data = {"name": self.ui.ServerList.item(i).text(), "ip": self.saved_server_ips[i]}
             shim_name = ""
@@ -782,9 +815,10 @@ class MainWindow(QMainWindow):
                 shim_api = self.ui.MasterServersTable.item(i, 2).text()
 
             data = {"name": shim_name, "url": shim_url, "api": shim_api }
-            ms_list.append(data)
+            self.ms_list[shim_name] = data
         with open("masterservers.json", "w") as f:
-            json.dump(ms_list, f)
+            json.dump(self.ms_list, f)
+        self.load_ms_list()
         return
 
     def add_new_ms_to_list(self): 
@@ -806,20 +840,16 @@ class MainWindow(QMainWindow):
         self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 0, twi_name )
         self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 1, twi_url )
         self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 2, twi_api )
-        self.update_ms_list_in_ui()
         return
 
     def remove_ms_from_list(self): 
         print("remove_ms_from_list")
         self.ui.MasterServersTable.removeRow( self.ui.MasterServersTable.currentRow() )
-        self.update_ms_list_in_ui()
         return
 
-    def change_ms_in_list(self, row, column): 
-        print("change_ms_in_ui: {} {}".format(row,column))
-        self.save_ms_list();
-        self.update_ms_list_in_ui()
-        return
+    #def change_ms_in_list(self, row, column): 
+        #print("change_ms_in_ui: {} {}".format(row,column))
+        ##return
 
     # Settings and profiles
 
@@ -1092,6 +1122,7 @@ class MainWindow(QMainWindow):
         self.ui.DisableWeaponsToggle.setChecked(profile_settings_dict["host"]["disableweaponrings"])
         self.ui.SuddenDeathToggle.setChecked(profile_settings_dict["host"]["suddendeath"])
         self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
+        self.ui.HostMSComboBox.setCurrentText(profile_settings_dict["host"]["masterserver"])
         self.ui.WineToggle.setChecked(profile_settings_dict["settings"]["wine"])
         self.ui.LauncherThemeInput.setCurrentIndex(profile_settings_dict["settings"]["theme"])
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
@@ -1139,6 +1170,7 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["disableweaponrings"] = self.ui.DisableWeaponsToggle.isChecked()
         toml_settings["host"]["suddendeath"] = self.ui.SuddenDeathToggle.isChecked()
         toml_settings["host"]["dedicated"] = self.ui.DedicatedServerToggle.isChecked()
+        toml_settings["host"]["masterserver"] = self.ui.HostMSComboBox.currentText()
         toml_settings["settings"]["wine"] = self.ui.WineToggle.isChecked()
         toml_settings["settings"]["theme"] = self.ui.LauncherThemeInput.currentIndex()
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
@@ -1207,34 +1239,35 @@ class MainWindow(QMainWindow):
         return
 
     def check_version(self):
-        print("checking version")
+        print("check_version")
 
-        link = "https://hitcoder-test.neocities.org/launcherblast-version.html"
+        link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
+        
         try:
-            f = urllib.request.urlopen(link, timeout=100)
-        except:
-            print("Version check error")
+            f = json.load(urllib.request.urlopen(link, timeout=100))
+
+            latest_version = f["tag_name"]
+            print("Latest: " + latest_version)
+            print("Current: " + versionString)
+
+            # check launcher version ============================================= #
+            #if float(ver_num) > float(versionString.replace("reBoot-", "")):
+            if version.parse(latest_version) > version.parse(versionString):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Information)
+                msg.setText("Your version of LiquidLauncher seems to be outdated. Please download version {} from our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.".format(latest_version) )
+                msg.setWindowTitle("Version {} available".format(latest_version))
+                msg.setDetailedText("Latest version of LiquidLauncher: " + latest_version+ "\nYou are currently running: " + versionString)
+                msg.setStandardButtons(QMessageBox.Ok)
+                msg.exec()
+            #elif float(ver_num) < float(versionString.replace("reBoot-", "")):
+            elif version.parse(latest_version) < version.parse(versionString):
+                print("Greetings, time traveller.")
+            else:
+                print("up-to-date (" + versionString + ")")
+        except Exception as e:
+            print("Version check error: ",e)
             return
-
-        my_file = f.read()
-        version_got = (str(my_file).replace("b'", "").replace("\\n'", ""))
-        print("Latest: " + version_got)
-        print("Current: " + versionString)
-        ver_num = version_got.replace("reBoot-", "")
-
-        # check launcher version ============================================= #
-        if float(ver_num) > float(versionString.replace("reBoot-", "")):
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("Your version of LiquidLauncher seems to be outdated. Please download version {} from our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.".format(version_got) )
-            msg.setWindowTitle("Version {} available".format(version_got))
-            msg.setDetailedText("Latest version of LiquidLauncher: " + version_got + "\nYou are currently running: " + versionString)
-            msg.setStandardButtons(QMessageBox.Ok)
-            msg.exec_()
-        elif float(ver_num) < float(versionString.replace("reBoot-", "")):
-            print("Greetings, time traveller.")
-        else:
-            print("up-to-date (" + versionString + ")")
 
 
 def main():

@@ -4,8 +4,6 @@ import urllib.parse
 import urllib.request
 
 # TODO: Remove old values
-ms_kart_url = "https://ms.kartkrew.org/ms/api/games/SRB2Kart/7/servers?v=2"
-ms_url = "https://mb.srb2.org/MS/0/servers"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
                          'Chrome/39.0.2171.95 Safari/537.36'}
 
@@ -27,6 +25,11 @@ def parse_server_line(url, server_string, room):
     return server
 
 def parse_ms_data(url):
+    # TODO: Make room system MS agnostic
+    # Two step system:
+    #   1. Query /rooms to get info
+    #   2. Query /servers and parse servers
+
     print("parse_v1_data ", url)
     ms_data = requests.get(url+"/servers", headers=headers)
     server_list = []
@@ -112,15 +115,21 @@ def parse_snitch_data(url):
     return server_list
 
 def get_server_list(url, api="v1"):
-    print("get_server_list({}, {})".format(url, api))
+    # TODO: multi-server query. 
+    # - Change API from URL+API to List of URL+API elements
+    # - use foreach loop to accumulate results
+    # (- Rewrite the calls to this function ofc)
+
+    url_sanitized = url.rstrip("/ \t");
+    print("get_server_list({}, {})".format(url_sanitized, api))
     # first get a list of all servers from the master server     
     try:
         if api == "v1":
-            return parse_ms_data(url)
+            return parse_ms_data(url_sanitized)
         elif api == "kartv2":
-            return parse_kart_data(url)
+            return parse_kart_data(url_sanitized)
         elif api == "snitch":
-            return parse_snitch_data(url)
+            return parse_snitch_data(url_sanitized)
         else:
             return []
     except Exception as e:
