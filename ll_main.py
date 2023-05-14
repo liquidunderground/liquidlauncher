@@ -509,13 +509,13 @@ class MainWindow(QMainWindow):
         try:
             if newText == "":
                 return
-            print("> old current_ms: ", self.global_settings["current_ms"])
+            print("> old current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
             #print("ms_list: ", self.ms_list)
             #print("BrowseMSComboBox: ", self.ui.BrowseMSComboBox)
             self.global_settings["current_ms"] = self.ms_list[newText];
             #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentText()];
             #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentData()];
-            print("> new current_ms: ", self.global_settings["current_ms"])
+            print("> new current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
             #self.query_ms()
         except Exception as e:
             print("Unable to change MS: ",e)
@@ -779,19 +779,21 @@ class MainWindow(QMainWindow):
     def load_ms_list(self): 
         print("load_ms_list")
         self.ms_list = {}
-        fpath = os.path.join(os.getcwd(), "masterservers.json")
+        fpath = os.path.join(os.getcwd(), "masterservers.toml")
         if not os.path.isfile(fpath):
             return
         with open(fpath, "r") as f:
-            self.ms_list = json.load(f)
+            self.ms_list = toml.load(f)["masterservers"]
+            print("TOML Data: ", self.ms_list)
 
         self.ui.MasterServersTable.setRowCount(0)
         for ms in self.ms_list:
             print("MS list:", self.ms_list)
             self.add_ms_to_list(
-                self.ms_list[ms]["name"],
+                #self.ms_list[ms]["name"],
+                ms,
                 self.ms_list[ms]["url"],
-                self.ms_list[ms]["api"]
+                self.ms_list[ms]["api"],
                 )
 
         self.update_ms_list_in_ui()
@@ -814,10 +816,10 @@ class MainWindow(QMainWindow):
             if self.ui.MasterServersTable.item(i, 2) != None:
                 shim_api = self.ui.MasterServersTable.item(i, 2).text()
 
-            data = {"name": shim_name, "url": shim_url, "api": shim_api }
+            data = {"url": shim_url, "api": shim_api }
             self.ms_list[shim_name] = data
-        with open("masterservers.json", "w") as f:
-            json.dump(self.ms_list, f)
+        with open("masterservers.toml", "w") as f:
+            toml.dump({"masterservers": self.ms_list}, f)
         self.load_ms_list()
         return
 
