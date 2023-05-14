@@ -1067,6 +1067,8 @@ class MainWindow(QMainWindow):
                                     }
                                 }
         self.save_global_settings_file()
+        self.save_ms_list()
+        self.save_server_list()
         self.save_profile_file(self.get_current_profile_file())
     
     def load_current_profile(self):
