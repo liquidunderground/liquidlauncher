@@ -33,6 +33,8 @@ def parse_ms_data(url):
     print("parse_v1_data ", url)
     ms_data = requests.get(url+"/servers", headers=headers)
     server_list = []
+    if ms_data.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
 
         #elif url == "kartv2":
         #elif url == "snitch":
@@ -72,6 +74,8 @@ def parse_kart_data(url):
     print("parse_kart_data ", url)
     ms_data = requests.get(url+"/servers?v=2", headers=headers)
     server_list = []
+    if ms_data.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
     rows = ms_data.text.split("\n")
     rows = filter(None, rows)
     # TODO: Parse kartv2
@@ -97,6 +101,8 @@ def parse_snitch_data(url):
     ms_data = requests.get(url+"/liquidms/snitch", headers=headers)
     lines = ms_data.text.splitlines()
     server_list = []
+    if ms_data.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
     reader = csv.reader(lines, delimiter=',', quotechar='"')
     for row in lines:
         row_parsed = row.split(',')
