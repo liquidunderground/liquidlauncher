@@ -649,6 +649,7 @@ class MainWindow(QMainWindow):
         self.ui.BrowseNetgameTable.resizeColumnsToContents()
 
         self.save_server_list()
+        self.ui.MSStatusLabel.setText('"{}" successfully bookmarked.'.format(name))
         return
 
     def open_server_editor(self):
