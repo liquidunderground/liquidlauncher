@@ -1,3 +1,4 @@
+import re
 import csv
 import requests
 import urllib.parse
@@ -24,6 +25,17 @@ def parse_server_line(url, server_string, room):
             }
     return server
 
+def v1_parse_rooms(txt):
+    out = {}
+    roomblocks = re.split("\n{3,}", txt)
+    roomblocks = filter(lambda blk: len(blk)>1, roomblocks)
+
+    for block in roomblocks:
+        roomlines = re.split("\n", block)
+        out[roomlines[0]] = roomlines[1]
+
+    return out
+
 def parse_ms_data(url):
     # TODO: Make room system MS agnostic
     # Two step system:
@@ -31,43 +43,29 @@ def parse_ms_data(url):
     #   2. Query /servers and parse servers
 
     print("parse_v1_data ", url)
-    ms_data = requests.get(url+"/servers", headers=headers)
+    ms_rooms = requests.get(url+"/rooms", headers=headers)
+    ms_netgames = requests.get(url+"/servers", headers=headers)
     server_list = []
-    if ms_data.status_code != requests.codes.ok:
-        raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
 
-        #elif url == "kartv2":
-        #elif url == "snitch":
-            #ms_data = requests.get(url+"/snitch", headers=headers)
-    
-    if "\n33\n" in ms_data.text:
-        ms_standard_data = ms_data.text.split("\n33\n")[1].split("\n\n")[0].split("\n")
-        ms_standard_data = filter(None, ms_standard_data)
-        for server_line in ms_standard_data:
-            server = parse_server_line(url, server_line, "standard")
-            server_list.append(server)
+    # Query sanity check
+    if ms_rooms.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response in /rooms request ({})'.format(ms_rooms.status_code))
+    if ms_netgames.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response in /servers request ({})'.format(ms_netgames.status_code))
 
-    if "\n28\n" in ms_data.text:
-        ms_casual_data = ms_data.text.split("\n28\n")[1].split("\n\n")[0].split("\n")
-        ms_casual_data = filter(None, ms_casual_data)
-        for server_line in ms_casual_data:
-            server = parse_server_line(url, server_line, "casual")
-            server_list.append(server)
+    rooms = v1_parse_rooms(ms_rooms.text)
+    netgameblocks = re.split("\n{2,}", ms_netgames.text)
+    netgameblocks = filter(lambda blk: len(blk)>1, netgameblocks)
 
-    if "\n31\n" in ms_data.text:
-        ms_oldc_data = ms_data.text.split("\n31\n")[1].split("\n\n")[0].split("\n")
-        ms_oldc_data = filter(None, ms_oldc_data)
-        for server_line in ms_oldc_data:
-            server = parse_server_line(url, server_line, "oldc")
-            server_list.append(server)
-
-    if "\n38\n" in ms_data.text:
-        ms_custom_data = ms_data.text.split("\n38\n")[1].split("\n\n")[0].split("\n")
-        ms_custom_data = filter(None, ms_custom_data)
-        for server_line in ms_custom_data:
-            server = parse_server_line(url, server_line, "custom")
-            server_list.append(server)
-            
+    for ngb in netgameblocks:
+        netgamelines = re.split("\n", ngb)
+        roomno = netgamelines[0]
+        netgamelines.pop(0)
+        netgamelines = filter(lambda ln: len(ln)>1, netgamelines)
+        for ngl in netgamelines:
+            netgame = parse_server_line(url, ngl, rooms[roomno])
+            server_list.append(netgame)
+        
     return server_list
 
 def parse_kart_data(url):
