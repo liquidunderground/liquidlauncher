@@ -39,7 +39,173 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item row="1" column="0">
+    <item row="0" column="0">
+     <widget class="QFrame" name="DockTabFrame">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>128</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="NewsTabButton">
+         <property name="toolTip">
+          <string>News</string>
+         </property>
+         <property name="text">
+          <string>News</string>
+         </property>
+         <property name="icon">
+          <iconset resource="ll.qrc">
+           <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="GameTabButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Game</string>
+         </property>
+         <property name="text">
+          <string>Game</string>
+         </property>
+         <property name="icon">
+          <iconset resource="ll.qrc">
+           <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="HelpTabButton">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Help</string>
+         </property>
+         <property name="text">
+          <string>About</string>
+         </property>
+         <property name="icon">
+          <iconset resource="ll.qrc">
+           <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="SettingsTabButton">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Launcher Settings</string>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+         <property name="icon">
+          <iconset resource="ll.qrc">
+           <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
      <widget class="QFrame" name="MainAreaFrame">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -98,8 +264,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>182</width>
-                <height>35</height>
+                <width>844</width>
+                <height>524</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -177,6 +343,41 @@
                <number>0</number>
               </property>
               <item>
+               <widget class="QListWidget" name="GamePageTabList">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Game</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Modding</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Host Netgame</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Join Netgame</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
                <widget class="QSplitter" name="splitter">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -184,144 +385,6 @@
                 <property name="handleWidth">
                  <number>1</number>
                 </property>
-                <widget class="QFrame" name="GamePageTabsFrame">
-                 <property name="maximumSize">
-                  <size>
-                   <width>160</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_2">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QRadioButton" name="ProfileTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Profile</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QRadioButton" name="FilesTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Mods</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QRadioButton" name="GameSettingsTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Game settings</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="Line" name="line">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QRadioButton" name="PlayerSetupTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Player setup</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QRadioButton" name="HostGameTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Host Netgame</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QRadioButton" name="JoinGameTabButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>36</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Join Netgame</string>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>32</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
                 <widget class="QFrame" name="GamePageContentFrame">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -348,42 +411,52 @@
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>5</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
-                     <layout class="QVBoxLayout" name="verticalLayout_10">
-                      <item>
-                       <widget class="QLabel" name="label">
-                        <property name="text">
-                         <string>PROFILE NAME</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
+                     <layout class="QGridLayout" name="gridLayout_5">
+                      <item row="1" column="0">
                        <widget class="QLineEdit" name="ProfileNameInput">
                         <property name="text">
                          <string>Default</string>
                         </property>
                        </widget>
                       </item>
-                      <item>
-                       <widget class="QLabel" name="label_8">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="ProfileNameLabel">
                         <property name="text">
-                         <string>FILENAME</string>
+                         <string>PROFILE NAME</string>
                         </property>
                        </widget>
                       </item>
-                      <item>
-                       <widget class="QLineEdit" name="ProfileFilenameInput"/>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_2">
+                      <item row="4" column="0">
+                       <widget class="QLabel" name="ProfileGameLabel">
                         <property name="text">
                          <string>GAME</string>
                         </property>
                        </widget>
                       </item>
-                      <item>
+                      <item row="8" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_19">
+                        <item>
+                         <spacer name="verticalSpacer_3">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="ProfileFilenameInput"/>
+                      </item>
+                      <item row="5" column="0">
                        <widget class="QComboBox" name="ProfileGameSetting">
                         <item>
                          <property name="text">
@@ -397,14 +470,14 @@
                         </item>
                        </widget>
                       </item>
-                      <item>
-                       <widget class="QLabel" name="label_3">
+                      <item row="0" column="1">
+                       <widget class="QLabel" name="label">
                         <property name="text">
-                         <string>VERSION</string>
+                         <string>FILENAME</string>
                         </property>
                        </widget>
                       </item>
-                      <item>
+                      <item row="5" column="1">
                        <widget class="QComboBox" name="ProfileVersionSetting">
                         <item>
                          <property name="text">
@@ -438,65 +511,853 @@
                         </item>
                        </widget>
                       </item>
-                      <item>
-                       <spacer name="verticalSpacer_5">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
+                      <item row="4" column="1">
+                       <widget class="QLabel" name="ProfileVersionLabel">
+                        <property name="text">
+                         <string>VERSION</string>
                         </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>40</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_19">
-                        <item>
-                         <spacer name="horizontalSpacer_8">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>40</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                       </layout>
+                       </widget>
                       </item>
                      </layout>
                     </widget>
-                    <widget class="QWidget" name="ModsPage">
-                     <layout class="QVBoxLayout" name="verticalLayout_5">
-                      <property name="spacing">
-                       <number>6</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>9</number>
-                      </property>
+                    <widget class="QWidget" name="GameSettingsPage">
+                     <layout class="QVBoxLayout" name="verticalLayout_27">
                       <item>
-                       <widget class="QTabWidget" name="tabWidget">
+                       <widget class="QTabWidget" name="GameSettingsTabWidget">
                         <property name="currentIndex">
                          <number>0</number>
                         </property>
-                        <widget class="QWidget" name="ModFiles">
+                        <widget class="QWidget" name="PlayerSettingsTab">
                          <attribute name="title">
-                          <string>Files</string>
+                          <string>Player settings</string>
                          </attribute>
-                         <layout class="QVBoxLayout" name="verticalLayout_17">
+                         <layout class="QVBoxLayout" name="verticalLayout_33">
+                          <item>
+                           <widget class="QLabel" name="PlayerNameTitleLabel">
+                            <property name="text">
+                             <string>NICKNAME</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="PlayerNameInput">
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Sonic</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="PlayerSkinTitleLabel">
+                            <property name="text">
+                             <string>SKIN</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="PlayerSkinInput">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="editable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="currentIndex">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <property name="text">
+                              <string/>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sonic</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Tails</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Knuckles</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Amy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Fang</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Metal Sonic</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="PlayerSkinInfoWrapper">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>64</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>234</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_8">
+                             <property name="spacing">
+                              <number>4</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QFrame" name="PlayerSkinImageBox">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>0</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>135</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
+                               </property>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
+                               </property>
+                               <layout class="QVBoxLayout" name="verticalLayout_11">
+                                <property name="spacing">
+                                 <number>0</number>
+                                </property>
+                                <property name="leftMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="topMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="bottomMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <widget class="QLabel" name="PlayerSkinImage">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>135</width>
+                                    <height>217</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>135</width>
+                                    <height>1000007</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true"/>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                  <property name="pixmap">
+                                   <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                                  </property>
+                                  <property name="scaledContents">
+                                   <bool>true</bool>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="PlayerSkinInfoText">
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>1000007</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                               </property>
+                               <property name="textFormat">
+                                <enum>Qt::RichText</enum>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                               </property>
+                               <property name="wordWrap">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="PlayerColorTitleLabel">
+                            <property name="text">
+                             <string>COLOR</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="PlayerColorInput">
+                            <property name="currentIndex">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <property name="text">
+                              <string>None</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>White</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Bone</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Cloudy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Grey</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Silver</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Carbon</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Jet</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Black</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Aether</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Slate</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Pink</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Yoghurt</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Brown</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Tan</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Beige</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Moss</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Azure</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Lavender</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Ruby</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Salmon</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Red</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Crimson</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Flame</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Peachy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Quail</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sunset</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Apricot</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Orange</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Rust</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Gold</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sandy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Yellow</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Olive</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Lime</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Peridot</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Green</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Forest</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Emerald</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Mint</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Seafoam</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Aqua</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Teal</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Wave</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Cyan</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sky</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Cerulean</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Icy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sapphire</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Cornflower</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Blue</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Cobalt</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Vapor</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Dusk</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Pastel</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Purple</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Bubblegum</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Magenta</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Neon</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Violet</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Lilac</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Plum</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Rosy</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="verticalSpacer_5">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </widget>
+                        <widget class="QWidget" name="GameSettingsTab">
+                         <attribute name="title">
+                          <string>Game settings</string>
+                         </attribute>
+                         <layout class="QVBoxLayout" name="verticalLayout_32">
+                          <item>
+                           <widget class="QLabel" name="GameResolutionLabel">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>26</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="text">
+                             <string>RESOLUTION</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="GameResolutionSettingsWrapper">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>48</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QGridLayout" name="gridLayout_3">
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="horizontalSpacing">
+                              <number>6</number>
+                             </property>
+                             <property name="verticalSpacing">
+                              <number>0</number>
+                             </property>
+                             <item row="0" column="0">
+                              <widget class="QLineEdit" name="GameHorizontalResolutionInput">
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="placeholderText">
+                                <string>&lt;auto&gt;</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="1">
+                              <widget class="QLabel" name="GameResMultLabel">
+                               <property name="styleSheet">
+                                <string notr="true">padding: 0;
+font-size: 12pt;</string>
+                               </property>
+                               <property name="text">
+                                <string>x</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="2">
+                              <widget class="QLineEdit" name="GameVerticalResolutionInput">
+                               <property name="placeholderText">
+                                <string>&lt;auto&gt;</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="GameRenderCfgLabel">
+                            <property name="text">
+                             <string>RENDER OPTIONS</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="GameRendererSetting">
+                            <item>
+                             <property name="text">
+                              <string>Software</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>OpenGL</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="GameFullscreenSetting">
+                            <item>
+                             <property name="text">
+                              <string>Fullscreen</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Borderless fullscreen</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Windowed</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="GameSoundOptionsLabel">
+                            <property name="text">
+                             <string>SOUND OPTIONS</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="GameMusicSetting">
+                            <item>
+                             <property name="text">
+                              <string>Digital music</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Midi music</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Load music from a CD</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Disable music</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="GameSoundSetting">
+                            <item>
+                             <property name="text">
+                              <string>Enable sound</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Disable sound</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="GameExecPathLabel">
+                            <property name="text">
+                             <string>EXE PATH</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="GameExecFilePath">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QGridLayout" name="gridLayout_4">
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item row="0" column="0">
+                              <widget class="QLineEdit" name="GameExecFilePathInput">
+                               <property name="text">
+                                <string>srb2win.exe</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="1">
+                              <widget class="QPushButton" name="GameExecFilePathBrowse">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>28</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>Browse...</string>
+                               </property>
+                               <property name="icon">
+                                <iconset theme="folder"/>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="WineToggle">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>RUN SRB2 IN WINE</string>
+                            </property>
+                            <property name="checked">
+                             <bool>false</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="GameArgsLabel">
+                            <property name="text">
+                             <string>CUSTOM CLI PARAMETERS</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="GameArgsInput"/>
+                          </item>
+                          <item>
+                           <spacer name="verticalSpacer_2">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>61</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </widget>
+                        <widget class="QWidget" name="AddonsTab">
+                         <attribute name="title">
+                          <string>Add-ons</string>
+                         </attribute>
+                         <layout class="QVBoxLayout" name="verticalLayout_34">
                           <item>
                            <widget class="QListWidget" name="GameFilesList">
                             <property name="styleSheet">
@@ -824,1170 +1685,281 @@
                           </item>
                          </layout>
                         </widget>
-                        <widget class="QWidget" name="ModBrowse">
-                         <attribute name="title">
-                          <string>Browse Mods</string>
-                         </attribute>
-                         <layout class="QVBoxLayout" name="verticalLayout_26">
-                          <item>
-                           <widget class="QWidget" name="widget_3" native="true">
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="ModsPage">
+                     <layout class="QVBoxLayout" name="verticalLayout_5">
+                      <property name="spacing">
+                       <number>6</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>9</number>
+                      </property>
+                      <item>
+                       <widget class="QWidget" name="widget_3" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_25">
+                         <item>
+                          <widget class="QSplitter" name="splitter_2">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QGroupBox" name="groupBox">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
                             </property>
-                            <layout class="QVBoxLayout" name="verticalLayout_25">
+                            <layout class="QVBoxLayout" name="verticalLayout_24">
+                             <property name="spacing">
+                              <number>6</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
                              <item>
-                              <widget class="QSplitter" name="splitter_2">
+                              <widget class="QLabel" name="ModBrowserLabel">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="text">
+                                <string>Mod List:</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QListWidget" name="ModsList">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                                  <horstretch>0</horstretch>
                                  <verstretch>0</verstretch>
                                 </sizepolicy>
                                </property>
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
-                               </property>
-                               <widget class="QGroupBox" name="groupBox">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <layout class="QVBoxLayout" name="verticalLayout_24">
-                                 <property name="spacing">
-                                  <number>6</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="label_7">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="text">
-                                    <string>Mod List:</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QListWidget" name="ModsList">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                               <widget class="QGroupBox" name="groupBox_2">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <layout class="QVBoxLayout" name="verticalLayout_21">
-                                 <property name="spacing">
-                                  <number>6</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>6</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="label_6">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="text">
-                                    <string>About Mod:</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QWebEngineView" name="ModBrowser" native="true">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="palette">
-                                    <palette>
-                                     <active>
-                                      <colorrole role="WindowText">
-                                       <brush brushstyle="SolidPattern">
-                                        <color alpha="255">
-                                         <red>255</red>
-                                         <green>255</green>
-                                         <blue>255</blue>
-                                        </color>
-                                       </brush>
-                                      </colorrole>
-                                     </active>
-                                     <inactive>
-                                      <colorrole role="WindowText">
-                                       <brush brushstyle="SolidPattern">
-                                        <color alpha="255">
-                                         <red>255</red>
-                                         <green>255</green>
-                                         <blue>255</blue>
-                                        </color>
-                                       </brush>
-                                      </colorrole>
-                                     </inactive>
-                                     <disabled>
-                                      <colorrole role="WindowText">
-                                       <brush brushstyle="SolidPattern">
-                                        <color alpha="255">
-                                         <red>110</red>
-                                         <green>113</green>
-                                         <blue>115</blue>
-                                        </color>
-                                       </brush>
-                                      </colorrole>
-                                     </disabled>
-                                    </palette>
-                                   </property>
-                                   <property name="autoFillBackground">
-                                    <bool>true</bool>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">* {background-color: 1f1f1f;}</string>
-                                   </property>
-                                   <property name="url" stdset="0">
-                                    <url>
-                                     <string>about:blank</string>
-                                    </url>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
                               </widget>
                              </item>
                             </layout>
                            </widget>
-                          </item>
-                          <item>
-                           <layout class="QHBoxLayout" name="horizontalLayout_20">
-                            <item>
-                             <widget class="QLabel" name="ModStatusLabel">
-                              <property name="text">
-                               <string>Click &quot;Refresh&quot; to see a list of available mods.</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <spacer name="horizontalSpacer_7">
-                              <property name="orientation">
-                               <enum>Qt::Horizontal</enum>
-                              </property>
-                              <property name="sizeHint" stdset="0">
-                               <size>
-                                <width>40</width>
-                                <height>20</height>
-                               </size>
-                              </property>
-                             </spacer>
-                            </item>
-                            <item>
-                             <widget class="QComboBox" name="ModTypeCombo">
-                              <item>
-                               <property name="text">
-                                <string>Maps</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>Characters</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>Lua</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>Assets</string>
-                               </property>
-                              </item>
-                              <item>
-                               <property name="text">
-                                <string>Misc</string>
-                               </property>
-                              </item>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QPushButton" name="OpenPageButton">
-                              <property name="text">
-                               <string>Visit Page</string>
-                              </property>
-                              <property name="icon">
-                               <iconset theme="globe"/>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QPushButton" name="RefreshModsButton">
-                              <property name="text">
-                               <string>Refresh</string>
-                              </property>
-                              <property name="icon">
-                               <iconset theme="media-playlist-repeat"/>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QPushButton" name="DownloadModButton">
-                              <property name="enabled">
-                               <bool>false</bool>
-                              </property>
-                              <property name="text">
-                               <string>Download</string>
-                              </property>
-                              <property name="icon">
-                               <iconset theme="download"/>
-                              </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </item>
-                         </layout>
-                        </widget>
-                        <widget class="QWidget" name="ModSources">
-                         <attribute name="title">
-                          <string>Mod Sources</string>
-                         </attribute>
-                         <layout class="QVBoxLayout" name="verticalLayout_29">
-                          <item>
-                           <widget class="QLabel" name="label_11">
-                            <property name="text">
-                             <string>DISCLAIMER</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QTextBrowser" name="textBrowser">
+                           <widget class="QGroupBox" name="groupBox_2">
                             <property name="sizePolicy">
-                             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
                             </property>
-                            <property name="html">
-                             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid Underground has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_21">
+                             <property name="spacing">
+                              <number>6</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>6</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QLabel" name="ModViewerLabel">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="text">
+                                <string>About Mod:</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QWebEngineView" name="ModBrowser" native="true">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="palette">
+                                <palette>
+                                 <active>
+                                  <colorrole role="WindowText">
+                                   <brush brushstyle="SolidPattern">
+                                    <color alpha="255">
+                                     <red>255</red>
+                                     <green>255</green>
+                                     <blue>255</blue>
+                                    </color>
+                                   </brush>
+                                  </colorrole>
+                                 </active>
+                                 <inactive>
+                                  <colorrole role="WindowText">
+                                   <brush brushstyle="SolidPattern">
+                                    <color alpha="255">
+                                     <red>255</red>
+                                     <green>255</green>
+                                     <blue>255</blue>
+                                    </color>
+                                   </brush>
+                                  </colorrole>
+                                 </inactive>
+                                 <disabled>
+                                  <colorrole role="WindowText">
+                                   <brush brushstyle="SolidPattern">
+                                    <color alpha="255">
+                                     <red>110</red>
+                                     <green>113</green>
+                                     <blue>115</blue>
+                                    </color>
+                                   </brush>
+                                  </colorrole>
+                                 </disabled>
+                                </palette>
+                               </property>
+                               <property name="autoFillBackground">
+                                <bool>true</bool>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">* {background-color: 1f1f1f;}</string>
+                               </property>
+                               <property name="url" stdset="0">
+                                <url>
+                                 <string>about:blank</string>
+                                </url>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
-                          </item>
-                          <item>
-                           <widget class="QLabel" name="label_10">
-                            <property name="text">
-                             <string>MOD SOURCES</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QCheckBox" name="ModsourceMBCheckbox">
-                            <property name="text">
-                             <string>Official SRB2 Message Board</string>
-                            </property>
-                            <property name="checked">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
-                            <property name="text">
-                             <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
-                            <property name="text">
-                             <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <spacer name="verticalSpacer_8">
-                            <property name="orientation">
-                             <enum>Qt::Vertical</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>20</width>
-                              <height>40</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
-                         </layout>
-                        </widget>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                    <widget class="QWidget" name="GameSettingsPage">
-                     <layout class="QVBoxLayout" name="verticalLayout_27">
-                      <item>
-                       <widget class="QLabel" name="GameResolutionLabel">
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>26</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="text">
-                         <string>RESOLUTION</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="GameResolutionSettingsWrapper">
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>48</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QGridLayout" name="gridLayout_3">
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="horizontalSpacing">
-                          <number>6</number>
-                         </property>
-                         <property name="verticalSpacing">
-                          <number>0</number>
-                         </property>
-                         <item row="0" column="0">
-                          <widget class="QLineEdit" name="GameHorizontalResolutionInput">
-                           <property name="styleSheet">
-                            <string notr="true"/>
-                           </property>
-                           <property name="placeholderText">
-                            <string>&lt;auto&gt;</string>
-                           </property>
                           </widget>
                          </item>
-                         <item row="0" column="1">
-                          <widget class="QLabel" name="GameResMultLabel">
-                           <property name="styleSheet">
-                            <string notr="true">padding: 0;
-font-size: 12pt;</string>
-                           </property>
-                           <property name="text">
-                            <string>x</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="0" column="2">
-                          <widget class="QLineEdit" name="GameVerticalResolutionInput">
-                           <property name="placeholderText">
-                            <string>&lt;auto&gt;</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="GameRenderCfgLabel">
-                        <property name="text">
-                         <string>RENDER OPTIONS</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="GameRendererSetting">
-                        <item>
-                         <property name="text">
-                          <string>Software</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>OpenGL</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="GameFullscreenSetting">
-                        <item>
-                         <property name="text">
-                          <string>Fullscreen</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Borderless fullscreen</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Windowed</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="GameSoundOptionsLabel">
-                        <property name="text">
-                         <string>SOUND OPTIONS</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="GameMusicSetting">
-                        <item>
-                         <property name="text">
-                          <string>Digital music</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Midi music</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Load music from a CD</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Disable music</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="GameSoundSetting">
-                        <item>
-                         <property name="text">
-                          <string>Enable sound</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Disable sound</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="GameExecPathLabel">
-                        <property name="text">
-                         <string>EXE PATH</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="GameExecFilePath">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QGridLayout" name="gridLayout_4">
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item row="0" column="0">
-                          <widget class="QLineEdit" name="GameExecFilePathInput">
-                           <property name="text">
-                            <string>srb2win.exe</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="0" column="1">
-                          <widget class="QPushButton" name="GameExecFilePathBrowse">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>28</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>Browse...</string>
-                           </property>
-                           <property name="icon">
-                            <iconset theme="folder"/>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QCheckBox" name="WineToggle">
-                        <property name="enabled">
-                         <bool>false</bool>
-                        </property>
-                        <property name="text">
-                         <string>RUN SRB2 IN WINE</string>
-                        </property>
-                        <property name="checked">
-                         <bool>false</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="GameArgsLabel">
-                        <property name="text">
-                         <string>CUSTOM CLI PARAMETERS</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLineEdit" name="GameArgsInput"/>
-                      </item>
-                      <item>
-                       <spacer name="verticalSpacer_2">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>9</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                     </layout>
-                    </widget>
-                    <widget class="QWidget" name="PlayerSetupPage">
-                     <layout class="QVBoxLayout" name="verticalLayout_7">
-                      <item>
-                       <widget class="QLabel" name="PlayerNameTitleLabel">
-                        <property name="text">
-                         <string>NICKNAME</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLineEdit" name="PlayerNameInput">
-                        <property name="text">
-                         <string/>
-                        </property>
-                        <property name="placeholderText">
-                         <string>Sonic</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="PlayerSkinTitleLabel">
-                        <property name="text">
-                         <string>SKIN</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="PlayerSkinInput">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="editable">
-                         <bool>true</bool>
-                        </property>
-                        <property name="currentIndex">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <property name="text">
-                          <string/>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Sonic</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Tails</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Knuckles</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Amy</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Fang</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Metal Sonic</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="PlayerSkinInfoWrapper">
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>64</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>234</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_8">
-                         <property name="spacing">
-                          <number>4</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
                          <item>
-                          <widget class="QFrame" name="PlayerSkinImageBox">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>0</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>135</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="frameShape">
-                            <enum>QFrame::StyledPanel</enum>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Raised</enum>
-                           </property>
-                           <layout class="QVBoxLayout" name="verticalLayout_11">
-                            <property name="spacing">
-                             <number>0</number>
-                            </property>
-                            <property name="leftMargin">
-                             <number>0</number>
-                            </property>
-                            <property name="topMargin">
-                             <number>0</number>
-                            </property>
-                            <property name="rightMargin">
-                             <number>0</number>
-                            </property>
-                            <property name="bottomMargin">
-                             <number>0</number>
-                            </property>
-                            <item>
-                             <widget class="QLabel" name="PlayerSkinImage">
-                              <property name="minimumSize">
-                               <size>
-                                <width>135</width>
-                                <height>217</height>
-                               </size>
-                              </property>
-                              <property name="maximumSize">
-                               <size>
-                                <width>135</width>
-                                <height>1000007</height>
-                               </size>
-                              </property>
-                              <property name="styleSheet">
-                               <string notr="true"/>
-                              </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_20">
+                           <item>
+                            <widget class="QLabel" name="ModStatusLabel">
+                             <property name="text">
+                              <string>Click &quot;Refresh&quot; to see a list of available mods.</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_7">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                           <item>
+                            <widget class="QComboBox" name="ModTypeCombo">
+                             <item>
                               <property name="text">
-                               <string/>
+                               <string>Maps</string>
                               </property>
-                              <property name="pixmap">
-                               <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Characters</string>
                               </property>
-                              <property name="scaledContents">
-                               <bool>true</bool>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Lua</string>
                               </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="PlayerSkinInfoText">
-                           <property name="maximumSize">
-                            <size>
-                             <width>16777215</width>
-                             <height>1000007</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true"/>
-                           </property>
-                           <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                           </property>
-                           <property name="textFormat">
-                            <enum>Qt::RichText</enum>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                           </property>
-                           <property name="wordWrap">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Assets</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Misc</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="OpenPageButton">
+                             <property name="text">
+                              <string>Visit Page</string>
+                             </property>
+                             <property name="icon">
+                              <iconset theme="globe"/>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="RefreshModsButton">
+                             <property name="text">
+                              <string>Refresh</string>
+                             </property>
+                             <property name="icon">
+                              <iconset theme="media-playlist-repeat"/>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="DownloadModButton">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
+                             <property name="text">
+                              <string>Download</string>
+                             </property>
+                             <property name="icon">
+                              <iconset theme="download"/>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
                          </item>
                         </layout>
                        </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="PlayerColorTitleLabel">
-                        <property name="text">
-                         <string>COLOR</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="PlayerColorInput">
-                        <property name="currentIndex">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <property name="text">
-                          <string>None</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>White</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Bone</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Cloudy</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Grey</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Silver</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Carbon</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Jet</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Black</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Aether</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Slate</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Pink</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Yoghurt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Brown</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Tan</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Beige</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Moss</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Azure</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Lavender</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Ruby</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Salmon</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Red</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Crimson</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Flame</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Peachy</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Quail</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Sunset</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Apricot</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Orange</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Rust</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Gold</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Sandy</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Yellow</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Olive</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Lime</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Peridot</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Green</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Forest</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Emerald</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Mint</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Seafoam</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Aqua</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Teal</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Wave</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Cyan</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Sky</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Cerulean</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Icy</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Sapphire</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Cornflower</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Blue</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Cobalt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Vapor</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Dusk</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Pastel</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Purple</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Bubblegum</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Magenta</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Neon</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Violet</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Lilac</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Plum</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Rosy</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item>
-                       <spacer name="verticalSpacer_3">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>20</width>
-                          <height>39</height>
-                         </size>
-                        </property>
-                       </spacer>
                       </item>
                      </layout>
                     </widget>
@@ -2021,7 +1993,7 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>699</width>
+                           <width>728</width>
                            <height>686</height>
                           </rect>
                          </property>
@@ -2124,7 +2096,7 @@ font-size: 12pt;</string>
                              </widget>
                             </item>
                             <item row="1" column="2">
-                             <widget class="QLabel" name="label_5">
+                             <widget class="QLabel" name="HostMSLabel">
                               <property name="text">
                                <string>MASTER SERVER</string>
                               </property>
@@ -2475,7 +2447,7 @@ font-size: 12pt;</string>
                         <widget class="QWidget" name="scrollAreaWidgetContents_3">
                          <property name="geometry">
                           <rect>
-                           <x>-116</x>
+                           <x>0</x>
                            <y>0</y>
                            <width>844</width>
                            <height>439</height>
@@ -2497,7 +2469,7 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>1</number>
+                             <number>2</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
@@ -2505,7 +2477,7 @@ font-size: 12pt;</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_23">
                               <item>
-                               <widget class="QLabel" name="label_13">
+                               <widget class="QLabel" name="BrowseMSLabel">
                                 <property name="text">
                                  <string>NETGAMES</string>
                                 </property>
@@ -2618,7 +2590,7 @@ font-size: 12pt;</string>
                               <item>
                                <layout class="QHBoxLayout" name="horizontalLayout_18">
                                 <item>
-                                 <widget class="QLabel" name="label_12">
+                                 <widget class="QLabel" name="MSSelectionLabel">
                                   <property name="text">
                                    <string>Master Server</string>
                                   </property>
@@ -2737,7 +2709,7 @@ font-size: 12pt;</string>
                                 <item>
                                  <widget class="QLineEdit" name="JoinAddressInput">
                                   <property name="placeholderText">
-                                   <string>IP Address</string>
+                                   <string notr="true">IP Address</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -2882,7 +2854,7 @@ font-size: 12pt;</string>
                                 <widget class="QWidget" name="gridLayoutWidget">
                                  <layout class="QGridLayout" name="gridLayout_6">
                                   <item row="2" column="0">
-                                   <widget class="QLabel" name="label_14">
+                                   <widget class="QLabel" name="MSMessageLabel">
                                     <property name="text">
                                      <string>Please respect your master servers' rules</string>
                                     </property>
@@ -2902,7 +2874,7 @@ font-size: 12pt;</string>
                                    </spacer>
                                   </item>
                                   <item row="0" column="0">
-                                   <widget class="QLabel" name="label_9">
+                                   <widget class="QLabel" name="MSTableLabel">
                                     <property name="font">
                                      <font>
                                       <pointsize>14</pointsize>
@@ -3037,7 +3009,7 @@ font-size: 12pt;</string>
                                 <widget class="QWidget" name="verticalLayoutWidget">
                                  <layout class="QVBoxLayout" name="verticalLayout_28">
                                   <item>
-                                   <widget class="QLabel" name="label_15">
+                                   <widget class="QLabel" name="MSAPILabel">
                                     <property name="sizePolicy">
                                      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                                       <horstretch>0</horstretch>
@@ -3400,64 +3372,187 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>253</width>
-                <height>164</height>
+                <width>844</width>
+                <height>524</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
                <item>
-                <widget class="QLabel" name="ProfileDirLabel">
-                 <property name="text">
-                  <string>PROFILE DIRECTORY</string>
+                <widget class="QTabWidget" name="tabWidget_2">
+                 <property name="currentIndex">
+                  <number>2</number>
                  </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_21">
-                 <item>
-                  <widget class="QLineEdit" name="lineEdit"/>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="ProfileDirBrowseButton">
-                   <property name="text">
-                    <string>Browse</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>LAUNCHER THEME (REQUIRES RESTART)</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="LauncherThemeInput">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Dark</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Light</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="SaveFilesToConfigToggle">
-                 <property name="text">
-                  <string>CLEAR FILES LIST ON STARTUP</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
+                 <widget class="QWidget" name="tab_5">
+                  <attribute name="title">
+                   <string>Profiles</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                   <item>
+                    <widget class="QLabel" name="ProfileDirLabel">
+                     <property name="text">
+                      <string>PROFILE DIRECTORY</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_21">
+                     <item>
+                      <widget class="QLineEdit" name="lineEdit"/>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="ProfileDirBrowseButton">
+                       <property name="text">
+                        <string>Browse</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="LauncherThemeLabel">
+                     <property name="text">
+                      <string>LAUNCHER THEME (REQUIRES RESTART)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="LauncherThemeInput">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Dark</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Light</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="SaveFilesToConfigToggle">
+                     <property name="text">
+                      <string>CLEAR FILES LIST ON STARTUP</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_6">
+                  <attribute name="title">
+                   <string>Mod Sources</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <item>
+                    <widget class="QLabel" name="ModsourceDisclaimerLabel">
+                     <property name="text">
+                      <string>DISCLAIMER</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextBrowser" name="textBrowser">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="html">
+                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid Underground has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="ModsourceCheckLabel">
+                     <property name="text">
+                      <string>MOD SOURCES</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="ModsourceMBCheckbox">
+                     <property name="text">
+                      <string>Official SRB2 Message Board</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
+                     <property name="text">
+                      <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
+                     <property name="text">
+                      <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_9">
+                  <attribute name="title">
+                   <string>News Sources</string>
+                  </attribute>
+                  <layout class="QVBoxLayout" name="verticalLayout_31">
+                   <item>
+                    <widget class="QLabel" name="NewssourceLabel">
+                     <property name="text">
+                      <string>NEWS SOURCES</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="NewssourceDisclaimerLabel">
+                     <property name="text">
+                      <string>Reserved for future use. There are currently no alternative news sources.</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="ModsourceMBCheckbox_2">
+                     <property name="text">
+                      <string>Official SRB2 Newsletter (srb2.org)</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox">
+                     <property name="text">
+                      <string>Whatever else</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </widget>
                </item>
                <item>
@@ -3480,172 +3575,6 @@ p, li { white-space: pre-wrap; }
           </layout>
          </widget>
         </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QFrame" name="DockTabFrame">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>128</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="NewsTabButton">
-         <property name="toolTip">
-          <string>News</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ll.qrc">
-           <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="GameTabButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Game</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ll.qrc">
-           <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="HelpTabButton">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Help</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ll.qrc">
-           <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="SettingsTabButton">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Launcher Settings</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ll.qrc">
-           <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>

@@ -136,12 +136,7 @@ class MainWindow(QMainWindow):
         self.ui.SettingsTabButton.clicked.connect(lambda: self.change_main_tab(3))
 
         # game "tabs" ================================================================ #
-        self.ui.ProfileTabButton.clicked.connect(lambda: self.change_game_tab(0))
-        self.ui.FilesTabButton.clicked.connect(lambda: self.change_game_tab(1))
-        self.ui.GameSettingsTabButton.clicked.connect(lambda: self.change_game_tab(2))
-        self.ui.PlayerSetupTabButton.clicked.connect(lambda: self.change_game_tab(3))
-        self.ui.HostGameTabButton.clicked.connect(lambda: self.change_game_tab(4))
-        self.ui.JoinGameTabButton.clicked.connect(lambda: self.change_game_tab(5))
+        self.ui.GamePageTabList.currentRowChanged.connect(self.change_game_tab)
 
         # profile page buttons ======================================================= #
         self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
