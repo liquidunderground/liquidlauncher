@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>852</width>
-    <height>594</height>
+    <height>605</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -265,7 +265,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>524</height>
+                <height>535</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -279,16 +279,6 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="2">
-                <widget class="QPushButton" name="RSSRefreshButton">
-                 <property name="text">
-                  <string>Refresh</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="view-refresh"/>
-                 </property>
-                </widget>
-               </item>
                <item row="5" column="3">
                 <widget class="QPushButton" name="RSSViewonlineButton">
                  <property name="enabled">
@@ -298,7 +288,8 @@
                   <string>View online</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="globe"/>
+                  <iconset theme="globe">
+                   <normaloff>.</normaloff>.</iconset>
                  </property>
                 </widget>
                </item>
@@ -328,17 +319,11 @@
                    </sizepolicy>
                   </property>
                  </widget>
-                 <widget class="QTextBrowser" name="RSSArticleView"/>
-                </widget>
-               </item>
-               <item row="2" column="3">
-                <widget class="QPushButton" name="RSSSaveButton">
-                 <property name="text">
-                  <string>Save feed</string>
-                 </property>
-                 <property name="icon">
-                  <iconset theme="document-save"/>
-                 </property>
+                 <widget class="QTextBrowser" name="RSSArticleView">
+                  <property name="openExternalLinks">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
                 </widget>
                </item>
                <item row="2" column="1">
@@ -357,6 +342,17 @@
                    <string>http://srb2.org/feed</string>
                   </property>
                  </item>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QPushButton" name="RSSRefreshButton">
+                 <property name="text">
+                  <string>Refresh</string>
+                 </property>
+                 <property name="icon">
+                  <iconset theme="view-refresh">
+                   <normaloff>.</normaloff>.</iconset>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -475,7 +471,7 @@
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -489,14 +485,14 @@
                       <item row="0" column="0">
                        <widget class="QLabel" name="ProfileNameLabel">
                         <property name="text">
-                         <string>PROFILE NAME</string>
+                         <string>Profile Name</string>
                         </property>
                        </widget>
                       </item>
                       <item row="4" column="0">
                        <widget class="QLabel" name="ProfileGameLabel">
                         <property name="text">
-                         <string>GAME</string>
+                         <string>Game</string>
                         </property>
                        </widget>
                       </item>
@@ -537,7 +533,7 @@
                       <item row="0" column="1">
                        <widget class="QLabel" name="label">
                         <property name="text">
-                         <string>FILENAME</string>
+                         <string>Filename</string>
                         </property>
                        </widget>
                       </item>
@@ -578,7 +574,7 @@
                       <item row="4" column="1">
                        <widget class="QLabel" name="ProfileVersionLabel">
                         <property name="text">
-                         <string>VERSION</string>
+                         <string>Version</string>
                         </property>
                        </widget>
                       </item>
@@ -589,7 +585,7 @@
                       <item>
                        <widget class="QTabWidget" name="GameSettingsTabWidget">
                         <property name="currentIndex">
-                         <number>0</number>
+                         <number>2</number>
                         </property>
                         <widget class="QWidget" name="PlayerSettingsTab">
                          <attribute name="title">
@@ -599,7 +595,7 @@
                           <item>
                            <widget class="QLabel" name="PlayerNameTitleLabel">
                             <property name="text">
-                             <string>NICKNAME</string>
+                             <string>Nickname</string>
                             </property>
                            </widget>
                           </item>
@@ -616,7 +612,7 @@
                           <item>
                            <widget class="QLabel" name="PlayerSkinTitleLabel">
                             <property name="text">
-                             <string>SKIN</string>
+                             <string>Skin</string>
                             </property>
                            </widget>
                           </item>
@@ -811,7 +807,7 @@
                           <item>
                            <widget class="QLabel" name="PlayerColorTitleLabel">
                             <property name="text">
-                             <string>COLOR</string>
+                             <string>Color</string>
                             </property>
                            </widget>
                           </item>
@@ -1169,7 +1165,7 @@
                              <string notr="true"/>
                             </property>
                             <property name="text">
-                             <string>RESOLUTION</string>
+                             <string>Resolutions</string>
                             </property>
                            </widget>
                           </item>
@@ -1243,7 +1239,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GameRenderCfgLabel">
                             <property name="text">
-                             <string>RENDER OPTIONS</string>
+                             <string>Render Options</string>
                             </property>
                            </widget>
                           </item>
@@ -1283,7 +1279,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GameSoundOptionsLabel">
                             <property name="text">
-                             <string>SOUND OPTIONS</string>
+                             <string>Audio Options</string>
                             </property>
                            </widget>
                           </item>
@@ -1328,7 +1324,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GameExecPathLabel">
                             <property name="text">
-                             <string>EXE PATH</string>
+                             <string>Executable Path (EXE/ELF)</string>
                             </property>
                            </widget>
                           </item>
@@ -1372,7 +1368,8 @@ font-size: 12pt;</string>
                                 <string>Browse...</string>
                                </property>
                                <property name="icon">
-                                <iconset theme="folder"/>
+                                <iconset theme="folder">
+                                 <normaloff>.</normaloff>.</iconset>
                                </property>
                               </widget>
                              </item>
@@ -1395,7 +1392,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GameArgsLabel">
                             <property name="text">
-                             <string>CUSTOM CLI PARAMETERS</string>
+                             <string>Custom Shell Parameters</string>
                             </property>
                            </widget>
                           </item>
@@ -1516,7 +1513,8 @@ font-size: 12pt;</string>
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset theme="go-up"/>
+                                <iconset theme="go-up">
+                                 <normaloff>.</normaloff>.</iconset>
                                </property>
                               </widget>
                              </item>
@@ -1553,7 +1551,8 @@ font-size: 12pt;</string>
                                    <string>Clear list</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="edit-delete"/>
+                                   <iconset theme="edit-delete">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -1569,7 +1568,8 @@ font-size: 12pt;</string>
                                    <string>Delete selected files</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="list-remove"/>
+                                   <iconset theme="list-remove">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -1618,7 +1618,8 @@ font-size: 12pt;</string>
                                 <string/>
                                </property>
                                <property name="icon">
-                                <iconset theme="go-down"/>
+                                <iconset theme="go-down">
+                                 <normaloff>.</normaloff>.</iconset>
                                </property>
                               </widget>
                              </item>
@@ -1658,7 +1659,8 @@ font-size: 12pt;</string>
                                    <string>Save list</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="document-save"/>
+                                   <iconset theme="document-save">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -1690,7 +1692,8 @@ font-size: 12pt;</string>
                                    <string>Add file</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="list-add"/>
+                                   <iconset theme="list-add">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -1703,7 +1706,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GameFilesExecuteScriptLabel">
                             <property name="text">
-                             <string>EXECUTE SCRIPT</string>
+                             <string>Launch Script</string>
                             </property>
                            </widget>
                           </item>
@@ -1989,11 +1992,15 @@ font-size: 12pt;</string>
                            </item>
                            <item>
                             <widget class="QPushButton" name="OpenPageButton">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="text">
                               <string>Visit Page</string>
                              </property>
                              <property name="icon">
-                              <iconset theme="globe"/>
+                              <iconset theme="globe">
+                               <normaloff>.</normaloff>.</iconset>
                              </property>
                             </widget>
                            </item>
@@ -2003,7 +2010,8 @@ font-size: 12pt;</string>
                               <string>Refresh</string>
                              </property>
                              <property name="icon">
-                              <iconset theme="media-playlist-repeat"/>
+                              <iconset theme="media-playlist-repeat">
+                               <normaloff>.</normaloff>.</iconset>
                              </property>
                             </widget>
                            </item>
@@ -2016,7 +2024,8 @@ font-size: 12pt;</string>
                               <string>Download</string>
                              </property>
                              <property name="icon">
-                              <iconset theme="download"/>
+                              <iconset theme="download">
+                               <normaloff>.</normaloff>.</iconset>
                              </property>
                             </widget>
                            </item>
@@ -2056,8 +2065,8 @@ font-size: 12pt;</string>
                          <property name="geometry">
                           <rect>
                            <x>0</x>
-                           <y>0</y>
-                           <width>728</width>
+                           <y>-215</y>
+                           <width>671</width>
                            <height>686</height>
                           </rect>
                          </property>
@@ -2077,7 +2086,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="ServerNameLabel">
                             <property name="text">
-                             <string>SERVER NAME</string>
+                             <string>Server Name</string>
                             </property>
                            </widget>
                           </item>
@@ -2087,7 +2096,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="AdminPasswordLabel">
                             <property name="text">
-                             <string>ADMIN PASSWORD</string>
+                             <string>Admin Password</string>
                             </property>
                            </widget>
                           </item>
@@ -2103,7 +2112,7 @@ font-size: 12pt;</string>
                             <item row="1" column="1">
                              <widget class="QLabel" name="RoomLabel">
                               <property name="text">
-                               <string>ROOM</string>
+                               <string>Room</string>
                               </property>
                              </widget>
                             </item>
@@ -2162,7 +2171,7 @@ font-size: 12pt;</string>
                             <item row="1" column="2">
                              <widget class="QLabel" name="HostMSLabel">
                               <property name="text">
-                               <string>MASTER SERVER</string>
+                               <string>Master Server</string>
                               </property>
                              </widget>
                             </item>
@@ -2171,7 +2180,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="GametypeLabel">
                             <property name="text">
-                             <string>GAMETYPE</string>
+                             <string>Gametype</string>
                             </property>
                            </widget>
                           </item>
@@ -2230,7 +2239,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="AdvanceMapLabel">
                             <property name="text">
-                             <string>ADVANCE MAP</string>
+                             <string>Map Advancement Policy</string>
                             </property>
                            </widget>
                           </item>
@@ -2259,7 +2268,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="PointLimitLabel">
                             <property name="text">
-                             <string>POINT LIMIT</string>
+                             <string>Point Limit</string>
                             </property>
                            </widget>
                           </item>
@@ -2273,7 +2282,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="TimeLimitLabel">
                             <property name="text">
-                             <string>TIME LIMIT</string>
+                             <string>Time Limit</string>
                             </property>
                            </widget>
                           </item>
@@ -2287,7 +2296,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="MaxPlayersLabel">
                             <property name="text">
-                             <string>MAX PLAYERS</string>
+                             <string>Max. Players</string>
                             </property>
                            </widget>
                           </item>
@@ -2301,7 +2310,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="ForceSkinLabel">
                             <property name="text">
-                             <string>FORCE SKIN</string>
+                             <string>Force Skin</string>
                             </property>
                            </widget>
                           </item>
@@ -2353,7 +2362,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QLabel" name="PortLabel">
                             <property name="text">
-                             <string>PORT</string>
+                             <string>Port</string>
                             </property>
                            </widget>
                           </item>
@@ -2397,7 +2406,7 @@ font-size: 12pt;</string>
                                 </size>
                                </property>
                                <property name="text">
-                                <string>DISABLE WEAPON RINGS</string>
+                                <string>Disable weapon rings</string>
                                </property>
                               </widget>
                              </item>
@@ -2410,7 +2419,7 @@ font-size: 12pt;</string>
                                 </size>
                                </property>
                                <property name="text">
-                                <string>SUDDEN DEATH</string>
+                                <string>Sudden Death</string>
                                </property>
                               </widget>
                              </item>
@@ -2444,7 +2453,7 @@ font-size: 12pt;</string>
                                 <string notr="true"/>
                                </property>
                                <property name="text">
-                                <string>DEDICATED</string>
+                                <string>Dedicated Server</string>
                                </property>
                                <property name="checked">
                                 <bool>false</bool>
@@ -2454,7 +2463,7 @@ font-size: 12pt;</string>
                              <item>
                               <widget class="QCheckBox" name="UploadToggle">
                                <property name="text">
-                                <string>ENABLE DOWNLOADING</string>
+                                <string>Enable Add-On downloads</string>
                                </property>
                                <property name="checked">
                                 <bool>true</bool>
@@ -2514,7 +2523,7 @@ font-size: 12pt;</string>
                            <x>0</x>
                            <y>0</y>
                            <width>844</width>
-                           <height>439</height>
+                           <height>450</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
@@ -2704,7 +2713,8 @@ font-size: 12pt;</string>
                                    <string>Update</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="media-playlist-repeat"/>
+                                   <iconset theme="media-playlist-repeat">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -2714,7 +2724,8 @@ font-size: 12pt;</string>
                                    <string>Bookmark</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="bookmark-new"/>
+                                   <iconset theme="bookmark-new">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -2724,7 +2735,8 @@ font-size: 12pt;</string>
                                    <string>Join</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset theme="media-playback-start"/>
+                                   <iconset theme="media-playback-start">
+                                    <normaloff>.</normaloff>.</iconset>
                                   </property>
                                  </widget>
                                 </item>
@@ -2740,7 +2752,7 @@ font-size: 12pt;</string>
                               <item>
                                <widget class="QLabel" name="JoinServerLabel">
                                 <property name="text">
-                                 <string>JOIN NETGAME</string>
+                                 <string>Join directly</string>
                                 </property>
                                </widget>
                               </item>
@@ -2789,7 +2801,7 @@ font-size: 12pt;</string>
                               <item>
                                <widget class="QLabel" name="ServerListLabel">
                                 <property name="text">
-                                 <string>FAVORITES</string>
+                                 <string>Bookmarks</string>
                                 </property>
                                </widget>
                               </item>
@@ -2864,7 +2876,8 @@ font-size: 12pt;</string>
                                     <string>Remove Bookmark</string>
                                    </property>
                                    <property name="icon">
-                                    <iconset theme="list-remove"/>
+                                    <iconset theme="list-remove">
+                                     <normaloff>.</normaloff>.</iconset>
                                    </property>
                                   </widget>
                                  </item>
@@ -2874,7 +2887,8 @@ font-size: 12pt;</string>
                                     <string>Add Boookmark</string>
                                    </property>
                                    <property name="icon">
-                                    <iconset theme="list-add"/>
+                                    <iconset theme="list-add">
+                                     <normaloff>.</normaloff>.</iconset>
                                    </property>
                                   </widget>
                                  </item>
@@ -2890,7 +2904,8 @@ font-size: 12pt;</string>
                                     <string>Join server</string>
                                    </property>
                                    <property name="icon">
-                                    <iconset theme="media-playback-start"/>
+                                    <iconset theme="media-playback-start">
+                                     <normaloff>.</normaloff>.</iconset>
                                    </property>
                                   </widget>
                                  </item>
@@ -2939,13 +2954,8 @@ font-size: 12pt;</string>
                                   </item>
                                   <item row="0" column="0">
                                    <widget class="QLabel" name="MSTableLabel">
-                                    <property name="font">
-                                     <font>
-                                      <pointsize>14</pointsize>
-                                     </font>
-                                    </property>
                                     <property name="text">
-                                     <string>MASTER SERVERS</string>
+                                     <string>Master Servers</string>
                                     </property>
                                    </widget>
                                   </item>
@@ -2955,7 +2965,8 @@ font-size: 12pt;</string>
                                      <string>Remove</string>
                                     </property>
                                     <property name="icon">
-                                     <iconset theme="list-remove"/>
+                                     <iconset theme="list-remove">
+                                      <normaloff>.</normaloff>.</iconset>
                                     </property>
                                    </widget>
                                   </item>
@@ -2965,7 +2976,8 @@ font-size: 12pt;</string>
                                      <string>Add</string>
                                     </property>
                                     <property name="icon">
-                                     <iconset theme="list-add"/>
+                                     <iconset theme="list-add">
+                                      <normaloff>.</normaloff>.</iconset>
                                     </property>
                                    </widget>
                                   </item>
@@ -2975,7 +2987,8 @@ font-size: 12pt;</string>
                                      <string>Save List</string>
                                     </property>
                                     <property name="icon">
-                                     <iconset theme="document-save"/>
+                                     <iconset theme="document-save">
+                                      <normaloff>.</normaloff>.</iconset>
                                     </property>
                                    </widget>
                                   </item>
@@ -3079,11 +3092,6 @@ font-size: 12pt;</string>
                                       <horstretch>0</horstretch>
                                       <verstretch>0</verstretch>
                                      </sizepolicy>
-                                    </property>
-                                    <property name="font">
-                                     <font>
-                                      <pointsize>14</pointsize>
-                                     </font>
                                     </property>
                                     <property name="text">
                                      <string>Valid APIs</string>
@@ -3232,7 +3240,8 @@ p, li { white-space: pre-wrap; }
                  <string>PLAY</string>
                 </property>
                 <property name="icon">
-                 <iconset theme="media-playback-start"/>
+                 <iconset theme="media-playback-start">
+                  <normaloff>.</normaloff>.</iconset>
                 </property>
                </widget>
               </item>
@@ -3254,7 +3263,8 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset theme="go-up"/>
+                 <iconset theme="go-up">
+                  <normaloff>.</normaloff>.</iconset>
                 </property>
                </widget>
               </item>
@@ -3320,7 +3330,7 @@ p, li { white-space: pre-wrap; }
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>524</height>
+                <height>535</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -3340,7 +3350,7 @@ p, li { white-space: pre-wrap; }
                 <number>0</number>
                </property>
                <item>
-                <widget class="QTextEdit" name="AboutText">
+                <widget class="QTextBrowser" name="AboutText">
                  <property name="readOnly">
                   <bool>true</bool>
                  </property>
@@ -3349,16 +3359,12 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;built by Liquid Underground&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquidlauncher.svg&quot; /&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;built by Liquid&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.gg/HVTzVfAWG6/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Contributers&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PixL&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquid-banner.png&quot; /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;discord.gg/HVTzVfAWG6&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00d3b8;&quot;&gt;Join our Discord&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PixL&lt;br /&gt;&lt;a href=&quot;discord.gg/HVTzVfAWG6&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00d3b8;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Based on LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3397,6 +3403,9 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="openExternalLinks">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -3437,14 +3446,14 @@ p, li { white-space: pre-wrap; }
                 <x>0</x>
                 <y>0</y>
                 <width>844</width>
-                <height>524</height>
+                <height>535</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
                <item>
                 <widget class="QTabWidget" name="tabWidget_2">
                  <property name="currentIndex">
-                  <number>1</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="tab_5">
                   <attribute name="title">
@@ -3454,7 +3463,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QLabel" name="ProfileDirLabel">
                      <property name="text">
-                      <string>PROFILE DIRECTORY</string>
+                      <string>Profile Directory</string>
                      </property>
                     </widget>
                    </item>
@@ -3475,7 +3484,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QLabel" name="LauncherThemeLabel">
                      <property name="text">
-                      <string>LAUNCHER THEME (REQUIRES RESTART)</string>
+                      <string>Launcher Theme (Requires Restart)</string>
                      </property>
                     </widget>
                    </item>
@@ -3546,7 +3555,7 @@ p, li { white-space: pre-wrap; }
                    <item>
                     <widget class="QLabel" name="ModsourceCheckLabel">
                      <property name="text">
-                      <string>MOD SOURCES</string>
+                      <string>Mod sources</string>
                      </property>
                     </widget>
                    </item>
@@ -3574,44 +3583,121 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>SRB2 Wad Archive &quot;2.2 section&quot; (unsupported)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_2">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>SRB2 Gamebanana (unsupported)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_3">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>SRB2 Skybase (unsupported)</string>
+                     </property>
+                    </widget>
+                   </item>
                   </layout>
                  </widget>
                  <widget class="QWidget" name="tab_9">
                   <attribute name="title">
                    <string>News Sources</string>
                   </attribute>
-                  <layout class="QVBoxLayout" name="verticalLayout_31">
-                   <item>
+                  <layout class="QGridLayout" name="gridLayout_8">
+                   <item row="6" column="0">
+                    <widget class="QPushButton" name="RSSMoveUpButton">
+                     <property name="text">
+                      <string>Move up</string>
+                     </property>
+                     <property name="icon">
+                      <iconset theme="go-up"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QPushButton" name="RSSMoveDownButton">
+                     <property name="text">
+                      <string>Move down</string>
+                     </property>
+                     <property name="icon">
+                      <iconset theme="go-down"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
                     <widget class="QLabel" name="NewssourceLabel">
                      <property name="text">
-                      <string>NEWS SOURCES</string>
+                      <string>News Sources (RSS/Atom Feeds)</string>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QLabel" name="NewssourceDisclaimerLabel">
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="RSSRemoveButton">
                      <property name="text">
-                      <string>Reserved for future use. There are currently no alternative news sources.</string>
+                      <string>Remove</string>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                     <property name="icon">
+                      <iconset theme="list-remove"/>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceMBCheckbox_2">
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="RSSAddButton">
                      <property name="text">
-                      <string>Official SRB2 Newsletter (srb2.org)</string>
+                      <string>Add</string>
                      </property>
-                     <property name="checked">
-                      <bool>true</bool>
+                     <property name="icon">
+                      <iconset theme="list-add"/>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox">
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QListWidget" name="RSSFeedList">
+                     <item>
+                      <property name="text">
+                       <string>https://srb2.org/feed</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>https://mb.srb2.org.org/forums/-/index.rss</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>https://srb2workshop.org/forums/-/index.rss</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>https://www.sonicstadium.org/feed/</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item row="8" column="0" colspan="2">
+                    <widget class="QPushButton" name="RSSSaveButton">
                      <property name="text">
-                      <string>Whatever else</string>
+                      <string>Save List</string>
+                     </property>
+                     <property name="icon">
+                      <iconset theme="document-save"/>
                      </property>
                     </widget>
                    </item>

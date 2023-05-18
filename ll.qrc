@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="assets">
+    <file>img/liquidlauncher.svg</file>
     <file>img/liquid-banner.png</file>
     <file>img/combobox-dropdown-light.png</file>
     <file>img/icons/about.png</file>

@@ -22,15 +22,15 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QListView, QListWidget, QListWidgetItem, QMainWindow,
     QPushButton, QRadioButton, QScrollArea, QSizePolicy,
     QSpacerItem, QSplitter, QStackedWidget, QTabWidget,
-    QTableWidget, QTableWidgetItem, QTextBrowser, QTextEdit,
-    QVBoxLayout, QWidget)
+    QTableWidget, QTableWidgetItem, QTextBrowser, QVBoxLayout,
+    QWidget)
 import ll_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(852, 594)
+        MainWindow.resize(852, 605)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 524))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 535))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -139,18 +139,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.RSSStatusLabel, 5, 0, 1, 3)
 
-        self.RSSRefreshButton = QPushButton(self.NewsScrollAreaContent)
-        self.RSSRefreshButton.setObjectName(u"RSSRefreshButton")
-        icon4 = QIcon(QIcon.fromTheme(u"view-refresh"))
-        self.RSSRefreshButton.setIcon(icon4)
-
-        self.gridLayout_7.addWidget(self.RSSRefreshButton, 2, 2, 1, 1)
-
         self.RSSViewonlineButton = QPushButton(self.NewsScrollAreaContent)
         self.RSSViewonlineButton.setObjectName(u"RSSViewonlineButton")
         self.RSSViewonlineButton.setEnabled(False)
-        icon5 = QIcon(QIcon.fromTheme(u"globe"))
-        self.RSSViewonlineButton.setIcon(icon5)
+        icon4 = QIcon()
+        iconThemeName = u"globe"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon4 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon4.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.RSSViewonlineButton.setIcon(icon4)
 
         self.gridLayout_7.addWidget(self.RSSViewonlineButton, 5, 3, 1, 1)
 
@@ -177,16 +176,10 @@ class Ui_MainWindow(object):
         self.splitter_4.addWidget(self.RSSArticleList)
         self.RSSArticleView = QTextBrowser(self.splitter_4)
         self.RSSArticleView.setObjectName(u"RSSArticleView")
+        self.RSSArticleView.setOpenExternalLinks(True)
         self.splitter_4.addWidget(self.RSSArticleView)
 
         self.gridLayout_7.addWidget(self.splitter_4, 4, 0, 1, 4)
-
-        self.RSSSaveButton = QPushButton(self.NewsScrollAreaContent)
-        self.RSSSaveButton.setObjectName(u"RSSSaveButton")
-        icon6 = QIcon(QIcon.fromTheme(u"document-save"))
-        self.RSSSaveButton.setIcon(icon6)
-
-        self.gridLayout_7.addWidget(self.RSSSaveButton, 2, 3, 1, 1)
 
         self.RSSFeedCombobox = QComboBox(self.NewsScrollAreaContent)
         self.RSSFeedCombobox.addItem("")
@@ -199,6 +192,19 @@ class Ui_MainWindow(object):
         self.RSSFeedCombobox.setEditable(True)
 
         self.gridLayout_7.addWidget(self.RSSFeedCombobox, 2, 1, 1, 1)
+
+        self.RSSRefreshButton = QPushButton(self.NewsScrollAreaContent)
+        self.RSSRefreshButton.setObjectName(u"RSSRefreshButton")
+        icon5 = QIcon()
+        iconThemeName = u"view-refresh"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon5 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon5.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.RSSRefreshButton.setIcon(icon5)
+
+        self.gridLayout_7.addWidget(self.RSSRefreshButton, 2, 3, 1, 1)
 
         self.NewsScrollArea.setWidget(self.NewsScrollAreaContent)
 
@@ -580,8 +586,14 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse = QPushButton(self.GameExecFilePath)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        icon7 = QIcon(QIcon.fromTheme(u"folder"))
-        self.GameExecFilePathBrowse.setIcon(icon7)
+        icon6 = QIcon()
+        iconThemeName = u"folder"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon6 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon6.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameExecFilePathBrowse.setIcon(icon6)
 
         self.gridLayout_4.addWidget(self.GameExecFilePathBrowse, 0, 1, 1, 1)
 
@@ -615,18 +627,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_34 = QVBoxLayout(self.AddonsTab)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.GameFilesList = QListWidget(self.AddonsTab)
-        icon8 = QIcon()
-        icon8.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon7 = QIcon()
+        icon7.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem.setIcon(icon8);
-        icon9 = QIcon()
-        icon9.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem.setIcon(icon7);
+        icon8 = QIcon()
+        icon8.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem1 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem1.setIcon(icon9);
-        icon10 = QIcon()
-        icon10.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem1.setIcon(icon8);
+        icon9 = QIcon()
+        icon9.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem2 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem2.setIcon(icon10);
+        __qlistwidgetitem2.setIcon(icon9);
         self.GameFilesList.setObjectName(u"GameFilesList")
         self.GameFilesList.setStyleSheet(u"")
         self.GameFilesList.setDragEnabled(True)
@@ -649,8 +661,14 @@ class Ui_MainWindow(object):
         self.GameFilesUpButton.setObjectName(u"GameFilesUpButton")
         self.GameFilesUpButton.setMinimumSize(QSize(0, 28))
         self.GameFilesUpButton.setMaximumSize(QSize(28, 16777215))
-        icon11 = QIcon(QIcon.fromTheme(u"go-up"))
-        self.GameFilesUpButton.setIcon(icon11)
+        icon10 = QIcon()
+        iconThemeName = u"go-up"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon10 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon10.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameFilesUpButton.setIcon(icon10)
 
         self.horizontalLayout_13.addWidget(self.GameFilesUpButton)
 
@@ -664,16 +682,28 @@ class Ui_MainWindow(object):
         self.GameFilesClearButton = QPushButton(self.GameFilesButtonFrame3)
         self.GameFilesClearButton.setObjectName(u"GameFilesClearButton")
         self.GameFilesClearButton.setMinimumSize(QSize(0, 28))
-        icon12 = QIcon(QIcon.fromTheme(u"edit-delete"))
-        self.GameFilesClearButton.setIcon(icon12)
+        icon11 = QIcon()
+        iconThemeName = u"edit-delete"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon11 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon11.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameFilesClearButton.setIcon(icon11)
 
         self.horizontalLayout_5.addWidget(self.GameFilesClearButton)
 
         self.GameFilesDeleteButton = QPushButton(self.GameFilesButtonFrame3)
         self.GameFilesDeleteButton.setObjectName(u"GameFilesDeleteButton")
         self.GameFilesDeleteButton.setMinimumSize(QSize(0, 28))
-        icon13 = QIcon(QIcon.fromTheme(u"list-remove"))
-        self.GameFilesDeleteButton.setIcon(icon13)
+        icon12 = QIcon()
+        iconThemeName = u"list-remove"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon12 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon12.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameFilesDeleteButton.setIcon(icon12)
 
         self.horizontalLayout_5.addWidget(self.GameFilesDeleteButton)
 
@@ -694,8 +724,14 @@ class Ui_MainWindow(object):
         self.GameFilesDownButton.setObjectName(u"GameFilesDownButton")
         self.GameFilesDownButton.setMinimumSize(QSize(0, 28))
         self.GameFilesDownButton.setMaximumSize(QSize(28, 16777215))
-        icon14 = QIcon(QIcon.fromTheme(u"go-down"))
-        self.GameFilesDownButton.setIcon(icon14)
+        icon13 = QIcon()
+        iconThemeName = u"go-down"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon13 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon13.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameFilesDownButton.setIcon(icon13)
 
         self.horizontalLayout_12.addWidget(self.GameFilesDownButton)
 
@@ -710,7 +746,14 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setObjectName(u"GameFilesSaveButton")
         self.GameFilesSaveButton.setMinimumSize(QSize(0, 28))
         self.GameFilesSaveButton.setStyleSheet(u"")
-        self.GameFilesSaveButton.setIcon(icon6)
+        icon14 = QIcon()
+        iconThemeName = u"document-save"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon14 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon14.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.GameFilesSaveButton.setIcon(icon14)
 
         self.horizontalLayout_6.addWidget(self.GameFilesSaveButton)
 
@@ -724,7 +767,13 @@ class Ui_MainWindow(object):
         self.GameFilesAddButton = QPushButton(self.GameFilesButtonFrame4)
         self.GameFilesAddButton.setObjectName(u"GameFilesAddButton")
         self.GameFilesAddButton.setMinimumSize(QSize(0, 28))
-        icon15 = QIcon(QIcon.fromTheme(u"list-add"))
+        icon15 = QIcon()
+        iconThemeName = u"list-add"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon15 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon15.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
         self.GameFilesAddButton.setIcon(icon15)
 
         self.horizontalLayout_6.addWidget(self.GameFilesAddButton)
@@ -870,13 +919,20 @@ class Ui_MainWindow(object):
 
         self.OpenPageButton = QPushButton(self.widget_3)
         self.OpenPageButton.setObjectName(u"OpenPageButton")
-        self.OpenPageButton.setIcon(icon5)
+        self.OpenPageButton.setEnabled(False)
+        self.OpenPageButton.setIcon(icon4)
 
         self.horizontalLayout_20.addWidget(self.OpenPageButton)
 
         self.RefreshModsButton = QPushButton(self.widget_3)
         self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        icon16 = QIcon(QIcon.fromTheme(u"media-playlist-repeat"))
+        icon16 = QIcon()
+        iconThemeName = u"media-playlist-repeat"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon16 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon16.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
         self.RefreshModsButton.setIcon(icon16)
 
         self.horizontalLayout_20.addWidget(self.RefreshModsButton)
@@ -884,7 +940,13 @@ class Ui_MainWindow(object):
         self.DownloadModButton = QPushButton(self.widget_3)
         self.DownloadModButton.setObjectName(u"DownloadModButton")
         self.DownloadModButton.setEnabled(False)
-        icon17 = QIcon(QIcon.fromTheme(u"download"))
+        icon17 = QIcon()
+        iconThemeName = u"download"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon17 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon17.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
         self.DownloadModButton.setIcon(icon17)
 
         self.horizontalLayout_20.addWidget(self.DownloadModButton)
@@ -908,7 +970,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 728, 686))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, -215, 671, 686))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(9, 9, 9, 9)
@@ -1126,7 +1188,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 439))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 450))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"")
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1226,14 +1288,26 @@ class Ui_MainWindow(object):
 
         self.SaveNetgameButton = QPushButton(self.BrowseTab)
         self.SaveNetgameButton.setObjectName(u"SaveNetgameButton")
-        icon18 = QIcon(QIcon.fromTheme(u"bookmark-new"))
+        icon18 = QIcon()
+        iconThemeName = u"bookmark-new"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon18 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon18.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
         self.SaveNetgameButton.setIcon(icon18)
 
         self.horizontalLayout_18.addWidget(self.SaveNetgameButton)
 
         self.BrowseNetgameJoinButton = QPushButton(self.BrowseTab)
         self.BrowseNetgameJoinButton.setObjectName(u"BrowseNetgameJoinButton")
-        icon19 = QIcon(QIcon.fromTheme(u"media-playback-start"))
+        icon19 = QIcon()
+        iconThemeName = u"media-playback-start"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon19 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon19.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
         self.BrowseNetgameJoinButton.setIcon(icon19)
 
         self.horizontalLayout_18.addWidget(self.BrowseNetgameJoinButton)
@@ -1312,7 +1386,7 @@ class Ui_MainWindow(object):
 
         self.DeleteServerButton = QPushButton(self.frame_10)
         self.DeleteServerButton.setObjectName(u"DeleteServerButton")
-        self.DeleteServerButton.setIcon(icon13)
+        self.DeleteServerButton.setIcon(icon12)
 
         self.horizontalLayout_9.addWidget(self.DeleteServerButton)
 
@@ -1357,15 +1431,12 @@ class Ui_MainWindow(object):
 
         self.MSTableLabel = QLabel(self.gridLayoutWidget)
         self.MSTableLabel.setObjectName(u"MSTableLabel")
-        font = QFont()
-        font.setPointSize(14)
-        self.MSTableLabel.setFont(font)
 
         self.gridLayout_6.addWidget(self.MSTableLabel, 0, 0, 1, 1)
 
         self.MSRemoveButton = QPushButton(self.gridLayoutWidget)
         self.MSRemoveButton.setObjectName(u"MSRemoveButton")
-        self.MSRemoveButton.setIcon(icon13)
+        self.MSRemoveButton.setIcon(icon12)
 
         self.gridLayout_6.addWidget(self.MSRemoveButton, 2, 2, 1, 1)
 
@@ -1377,7 +1448,7 @@ class Ui_MainWindow(object):
 
         self.MSListSaveButton = QPushButton(self.gridLayoutWidget)
         self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon6)
+        self.MSListSaveButton.setIcon(icon14)
 
         self.gridLayout_6.addWidget(self.MSListSaveButton, 2, 4, 1, 1)
 
@@ -1435,7 +1506,6 @@ class Ui_MainWindow(object):
         sizePolicy8.setVerticalStretch(0)
         sizePolicy8.setHeightForWidth(self.MSAPILabel.sizePolicy().hasHeightForWidth())
         self.MSAPILabel.setSizePolicy(sizePolicy8)
-        self.MSAPILabel.setFont(font)
 
         self.verticalLayout_28.addWidget(self.MSAPILabel)
 
@@ -1507,7 +1577,7 @@ class Ui_MainWindow(object):
         self.GameOptionsDropDownButton.setObjectName(u"GameOptionsDropDownButton")
         self.GameOptionsDropDownButton.setMinimumSize(QSize(0, 28))
         self.GameOptionsDropDownButton.setMaximumSize(QSize(16, 38))
-        self.GameOptionsDropDownButton.setIcon(icon11)
+        self.GameOptionsDropDownButton.setIcon(icon10)
 
         self.horizontalLayout_3.addWidget(self.GameOptionsDropDownButton)
 
@@ -1535,14 +1605,15 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 524))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 535))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
-        self.AboutText = QTextEdit(self.scrollAreaWidgetContents_2)
+        self.AboutText = QTextBrowser(self.scrollAreaWidgetContents_2)
         self.AboutText.setObjectName(u"AboutText")
         self.AboutText.setReadOnly(True)
+        self.AboutText.setOpenExternalLinks(True)
 
         self.verticalLayout_19.addWidget(self.AboutText)
 
@@ -1563,7 +1634,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 524))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 535))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.tabWidget_2 = QTabWidget(self.scrollAreaWidgetContents)
@@ -1652,32 +1723,77 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.ModsourceWSRedCheckbox)
 
+        self.checkBox = QCheckBox(self.tab_6)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setEnabled(False)
+
+        self.verticalLayout_6.addWidget(self.checkBox)
+
+        self.checkBox_2 = QCheckBox(self.tab_6)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.checkBox_2.setEnabled(False)
+
+        self.verticalLayout_6.addWidget(self.checkBox_2)
+
+        self.checkBox_3 = QCheckBox(self.tab_6)
+        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.checkBox_3.setEnabled(False)
+
+        self.verticalLayout_6.addWidget(self.checkBox_3)
+
         self.tabWidget_2.addTab(self.tab_6, "")
         self.tab_9 = QWidget()
         self.tab_9.setObjectName(u"tab_9")
-        self.verticalLayout_31 = QVBoxLayout(self.tab_9)
-        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.gridLayout_8 = QGridLayout(self.tab_9)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.RSSMoveUpButton = QPushButton(self.tab_9)
+        self.RSSMoveUpButton.setObjectName(u"RSSMoveUpButton")
+        icon20 = QIcon(QIcon.fromTheme(u"go-up"))
+        self.RSSMoveUpButton.setIcon(icon20)
+
+        self.gridLayout_8.addWidget(self.RSSMoveUpButton, 6, 0, 1, 1)
+
+        self.RSSMoveDownButton = QPushButton(self.tab_9)
+        self.RSSMoveDownButton.setObjectName(u"RSSMoveDownButton")
+        icon21 = QIcon(QIcon.fromTheme(u"go-down"))
+        self.RSSMoveDownButton.setIcon(icon21)
+
+        self.gridLayout_8.addWidget(self.RSSMoveDownButton, 7, 0, 1, 1)
+
         self.NewssourceLabel = QLabel(self.tab_9)
         self.NewssourceLabel.setObjectName(u"NewssourceLabel")
 
-        self.verticalLayout_31.addWidget(self.NewssourceLabel)
+        self.gridLayout_8.addWidget(self.NewssourceLabel, 0, 0, 1, 1)
 
-        self.NewssourceDisclaimerLabel = QLabel(self.tab_9)
-        self.NewssourceDisclaimerLabel.setObjectName(u"NewssourceDisclaimerLabel")
-        self.NewssourceDisclaimerLabel.setAlignment(Qt.AlignCenter)
+        self.RSSRemoveButton = QPushButton(self.tab_9)
+        self.RSSRemoveButton.setObjectName(u"RSSRemoveButton")
+        icon22 = QIcon(QIcon.fromTheme(u"list-remove"))
+        self.RSSRemoveButton.setIcon(icon22)
 
-        self.verticalLayout_31.addWidget(self.NewssourceDisclaimerLabel)
+        self.gridLayout_8.addWidget(self.RSSRemoveButton, 7, 1, 1, 1)
 
-        self.ModsourceMBCheckbox_2 = QCheckBox(self.tab_9)
-        self.ModsourceMBCheckbox_2.setObjectName(u"ModsourceMBCheckbox_2")
-        self.ModsourceMBCheckbox_2.setChecked(True)
+        self.RSSAddButton = QPushButton(self.tab_9)
+        self.RSSAddButton.setObjectName(u"RSSAddButton")
+        icon23 = QIcon(QIcon.fromTheme(u"list-add"))
+        self.RSSAddButton.setIcon(icon23)
 
-        self.verticalLayout_31.addWidget(self.ModsourceMBCheckbox_2)
+        self.gridLayout_8.addWidget(self.RSSAddButton, 6, 1, 1, 1)
 
-        self.checkBox = QCheckBox(self.tab_9)
-        self.checkBox.setObjectName(u"checkBox")
+        self.RSSFeedList = QListWidget(self.tab_9)
+        QListWidgetItem(self.RSSFeedList)
+        QListWidgetItem(self.RSSFeedList)
+        QListWidgetItem(self.RSSFeedList)
+        QListWidgetItem(self.RSSFeedList)
+        self.RSSFeedList.setObjectName(u"RSSFeedList")
 
-        self.verticalLayout_31.addWidget(self.checkBox)
+        self.gridLayout_8.addWidget(self.RSSFeedList, 1, 0, 1, 2)
+
+        self.RSSSaveButton = QPushButton(self.tab_9)
+        self.RSSSaveButton.setObjectName(u"RSSSaveButton")
+        icon24 = QIcon(QIcon.fromTheme(u"document-save"))
+        self.RSSSaveButton.setIcon(icon24)
+
+        self.gridLayout_8.addWidget(self.RSSSaveButton, 8, 0, 1, 2)
 
         self.tabWidget_2.addTab(self.tab_9, "")
 
@@ -1703,13 +1819,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(0)
-        self.GameContentStackedWidget.setCurrentIndex(0)
-        self.GameSettingsTabWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(1)
+        self.GameSettingsTabWidget.setCurrentIndex(2)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1734,12 +1850,11 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.SettingsTabButton.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.RSSStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Select a feed to read and click \"Refresh\"", None))
-        self.RSSRefreshButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.RSSViewonlineButton.setText(QCoreApplication.translate("MainWindow", u"View online", None))
         self.RSSFeedLabel.setText(QCoreApplication.translate("MainWindow", u"Newsfeed URL", None))
-        self.RSSSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save feed", None))
         self.RSSFeedCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"http://srb2.org/feed", None))
 
+        self.RSSRefreshButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
 
         __sortingEnabled = self.GamePageTabList.isSortingEnabled()
         self.GamePageTabList.setSortingEnabled(False)
@@ -1756,12 +1871,12 @@ class Ui_MainWindow(object):
         self.GamePageTabList.setSortingEnabled(__sortingEnabled)
 
         self.ProfileNameInput.setText(QCoreApplication.translate("MainWindow", u"Default", None))
-        self.ProfileNameLabel.setText(QCoreApplication.translate("MainWindow", u"PROFILE NAME", None))
-        self.ProfileGameLabel.setText(QCoreApplication.translate("MainWindow", u"GAME", None))
+        self.ProfileNameLabel.setText(QCoreApplication.translate("MainWindow", u"Profile Name", None))
+        self.ProfileGameLabel.setText(QCoreApplication.translate("MainWindow", u"Game", None))
         self.ProfileGameSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"SRB2", None))
         self.ProfileGameSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"SRB2Kart", None))
 
-        self.label.setText(QCoreApplication.translate("MainWindow", u"FILENAME", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Filename", None))
         self.ProfileVersionSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"2.2", None))
         self.ProfileVersionSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"2.1", None))
         self.ProfileVersionSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"2.0", None))
@@ -1769,11 +1884,11 @@ class Ui_MainWindow(object):
         self.ProfileVersionSetting.setItemText(4, QCoreApplication.translate("MainWindow", u"1.08", None))
         self.ProfileVersionSetting.setItemText(5, QCoreApplication.translate("MainWindow", u"1.07", None))
 
-        self.ProfileVersionLabel.setText(QCoreApplication.translate("MainWindow", u"VERSION", None))
-        self.PlayerNameTitleLabel.setText(QCoreApplication.translate("MainWindow", u"NICKNAME", None))
+        self.ProfileVersionLabel.setText(QCoreApplication.translate("MainWindow", u"Version", None))
+        self.PlayerNameTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Nickname", None))
         self.PlayerNameInput.setText("")
         self.PlayerNameInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Sonic", None))
-        self.PlayerSkinTitleLabel.setText(QCoreApplication.translate("MainWindow", u"SKIN", None))
+        self.PlayerSkinTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Skin", None))
         self.PlayerSkinInput.setItemText(0, "")
         self.PlayerSkinInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Sonic", None))
         self.PlayerSkinInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Tails", None))
@@ -1784,7 +1899,7 @@ class Ui_MainWindow(object):
 
         self.PlayerSkinImage.setText("")
         self.PlayerSkinInfoText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#dddd00;\">Sonic</span> is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.</p><p><span style=\" color:#dddd00;\">Ability:</span> Speed Thok<br/>Double jump to zoom forward with a huge burst of speed</p><p><span style=\" color:#dddd00;\">Tip:</span> Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.</p></body></html>", None))
-        self.PlayerColorTitleLabel.setText(QCoreApplication.translate("MainWindow", u"COLOR", None))
+        self.PlayerColorTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Color", None))
         self.PlayerColorInput.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
         self.PlayerColorInput.setItemText(1, QCoreApplication.translate("MainWindow", u"White", None))
         self.PlayerColorInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Bone", None))
@@ -1850,11 +1965,11 @@ class Ui_MainWindow(object):
         self.PlayerColorInput.setItemText(62, QCoreApplication.translate("MainWindow", u"Rosy", None))
 
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.PlayerSettingsTab), QCoreApplication.translate("MainWindow", u"Player settings", None))
-        self.GameResolutionLabel.setText(QCoreApplication.translate("MainWindow", u"RESOLUTION", None))
+        self.GameResolutionLabel.setText(QCoreApplication.translate("MainWindow", u"Resolutions", None))
         self.GameHorizontalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
         self.GameResMultLabel.setText(QCoreApplication.translate("MainWindow", u"x", None))
         self.GameVerticalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
-        self.GameRenderCfgLabel.setText(QCoreApplication.translate("MainWindow", u"RENDER OPTIONS", None))
+        self.GameRenderCfgLabel.setText(QCoreApplication.translate("MainWindow", u"Render Options", None))
         self.GameRendererSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Software", None))
         self.GameRendererSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"OpenGL", None))
 
@@ -1862,7 +1977,7 @@ class Ui_MainWindow(object):
         self.GameFullscreenSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Borderless fullscreen", None))
         self.GameFullscreenSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"Windowed", None))
 
-        self.GameSoundOptionsLabel.setText(QCoreApplication.translate("MainWindow", u"SOUND OPTIONS", None))
+        self.GameSoundOptionsLabel.setText(QCoreApplication.translate("MainWindow", u"Audio Options", None))
         self.GameMusicSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Digital music", None))
         self.GameMusicSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Midi music", None))
         self.GameMusicSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"Load music from a CD", None))
@@ -1871,11 +1986,11 @@ class Ui_MainWindow(object):
         self.GameSoundSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Enable sound", None))
         self.GameSoundSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Disable sound", None))
 
-        self.GameExecPathLabel.setText(QCoreApplication.translate("MainWindow", u"EXE PATH", None))
+        self.GameExecPathLabel.setText(QCoreApplication.translate("MainWindow", u"Executable Path (EXE/ELF)", None))
         self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
         self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.WineToggle.setText(QCoreApplication.translate("MainWindow", u"RUN SRB2 IN WINE", None))
-        self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"CUSTOM CLI PARAMETERS", None))
+        self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"Custom Shell Parameters", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.GameSettingsTab), QCoreApplication.translate("MainWindow", u"Game settings", None))
 
         __sortingEnabled1 = self.GameFilesList.isSortingEnabled()
@@ -1895,7 +2010,7 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save list", None))
         self.GameFilesLoadButton.setText(QCoreApplication.translate("MainWindow", u"Load list", None))
         self.GameFilesAddButton.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
-        self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"EXECUTE SCRIPT", None))
+        self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"Launch Script", None))
         self.GameFilesExecScrBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.AddonsTab), QCoreApplication.translate("MainWindow", u"Add-ons", None))
         self.ModBrowserLabel.setText(QCoreApplication.translate("MainWindow", u"Mod List:", None))
@@ -1910,9 +2025,9 @@ class Ui_MainWindow(object):
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.RefreshModsButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
-        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"SERVER NAME", None))
-        self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"ADMIN PASSWORD", None))
-        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"ROOM", None))
+        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
+        self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"Admin Password", None))
+        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
         self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Offline", None))
         self.RoomInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Standard", None))
         self.RoomInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Casual", None))
@@ -1922,8 +2037,8 @@ class Ui_MainWindow(object):
         self.HostMSComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"https://ms.srb2.org/MS/0", None))
         self.HostMSComboBox.setItemText(1, "")
 
-        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"MASTER SERVER", None))
-        self.GametypeLabel.setText(QCoreApplication.translate("MainWindow", u"GAMETYPE", None))
+        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.GametypeLabel.setText(QCoreApplication.translate("MainWindow", u"Gametype", None))
         self.GametypeInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Co-op", None))
         self.GametypeInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Competition", None))
         self.GametypeInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Race", None))
@@ -1934,18 +2049,18 @@ class Ui_MainWindow(object):
         self.GametypeInput.setItemText(7, QCoreApplication.translate("MainWindow", u"Capture the Flag", None))
         self.GametypeInput.setItemText(8, "")
 
-        self.AdvanceMapLabel.setText(QCoreApplication.translate("MainWindow", u"ADVANCE MAP", None))
+        self.AdvanceMapLabel.setText(QCoreApplication.translate("MainWindow", u"Map Advancement Policy", None))
         self.AdvanceMapInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
         self.AdvanceMapInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Next", None))
         self.AdvanceMapInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Random", None))
 
-        self.PointLimitLabel.setText(QCoreApplication.translate("MainWindow", u"POINT LIMIT", None))
+        self.PointLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Point Limit", None))
         self.PointLimitInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"1000", None))
-        self.TimeLimitLabel.setText(QCoreApplication.translate("MainWindow", u"TIME LIMIT", None))
+        self.TimeLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Time Limit", None))
         self.TimeLimitInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Off by default", None))
-        self.MaxPlayersLabel.setText(QCoreApplication.translate("MainWindow", u"MAX PLAYERS", None))
+        self.MaxPlayersLabel.setText(QCoreApplication.translate("MainWindow", u"Max. Players", None))
         self.MaxPlayersInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"8", None))
-        self.ForceSkinLabel.setText(QCoreApplication.translate("MainWindow", u"FORCE SKIN", None))
+        self.ForceSkinLabel.setText(QCoreApplication.translate("MainWindow", u"Force Skin", None))
         self.ForceSkinInput.setItemText(0, "")
         self.ForceSkinInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Sonic", None))
         self.ForceSkinInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Tails", None))
@@ -1954,13 +2069,13 @@ class Ui_MainWindow(object):
         self.ForceSkinInput.setItemText(5, QCoreApplication.translate("MainWindow", u"Fang", None))
         self.ForceSkinInput.setItemText(6, QCoreApplication.translate("MainWindow", u"Metal Sonic", None))
 
-        self.PortLabel.setText(QCoreApplication.translate("MainWindow", u"PORT", None))
+        self.PortLabel.setText(QCoreApplication.translate("MainWindow", u"Port", None))
         self.PortInput.setInputMask("")
         self.PortInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"5029", None))
-        self.DisableWeaponsToggle.setText(QCoreApplication.translate("MainWindow", u"DISABLE WEAPON RINGS", None))
-        self.SuddenDeathToggle.setText(QCoreApplication.translate("MainWindow", u"SUDDEN DEATH", None))
-        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"DEDICATED", None))
-        self.UploadToggle.setText(QCoreApplication.translate("MainWindow", u"ENABLE DOWNLOADING", None))
+        self.DisableWeaponsToggle.setText(QCoreApplication.translate("MainWindow", u"Disable weapon rings", None))
+        self.SuddenDeathToggle.setText(QCoreApplication.translate("MainWindow", u"Sudden Death", None))
+        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated Server", None))
+        self.UploadToggle.setText(QCoreApplication.translate("MainWindow", u"Enable Add-On downloads", None))
         self.BrowseMSLabel.setText(QCoreApplication.translate("MainWindow", u"NETGAMES", None))
         ___qtablewidgetitem = self.BrowseNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Title", None));
@@ -1995,9 +2110,9 @@ class Ui_MainWindow(object):
         self.SaveNetgameButton.setText(QCoreApplication.translate("MainWindow", u"Bookmark", None))
         self.BrowseNetgameJoinButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.BrowseTab), QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.JoinServerLabel.setText(QCoreApplication.translate("MainWindow", u"JOIN NETGAME", None))
+        self.JoinServerLabel.setText(QCoreApplication.translate("MainWindow", u"Join directly", None))
         self.JoinAddressButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
-        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"FAVORITES", None))
+        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"Bookmarks", None))
         ___qtablewidgetitem10 = self.SavedNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem11 = self.SavedNetgameTable.horizontalHeaderItem(1)
@@ -2009,7 +2124,7 @@ class Ui_MainWindow(object):
         self.JoinBookmarkButton.setText(QCoreApplication.translate("MainWindow", u"Join server", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Bookmarks", None))
         self.MSMessageLabel.setText(QCoreApplication.translate("MainWindow", u"Please respect your master servers' rules", None))
-        self.MSTableLabel.setText(QCoreApplication.translate("MainWindow", u"MASTER SERVERS", None))
+        self.MSTableLabel.setText(QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.MSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
         self.MSAddButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
         self.MSListSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
@@ -2056,70 +2171,65 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">LiquidLauncher</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">built by Liquid Underground</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; "
-                        "margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Contributers</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">PixL</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquid-banner.png\" /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">built by Liquid<br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" text-decoration: underline; color:#00d3b8"
+                        ";\">Join our Discord</span></a></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p al"
-                        "ign=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"discord.gg/HVTzVfAWG6\"><span style=\" font-size:12pt; text-decoration: underline; color:#00d3b8;\">Join our Discord<br /><br /><br /></span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Contributers</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">PixL<br /><a href=\"discord.gg/HVTzVfAWG6\"><span style=\" font-size:12pt; text-decoration: underline; color:#00d3b8;\"><br /></span></a></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">Based on LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:e"
+                        "mpty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-t"
-                        "op:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><"
+                        "span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#7777ff;\">View the SRB2 Message Board thread</span></a></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; te"
-                        "xt-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#7777ff;\">View the SRB2 Message Board thread</span></a></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for "
-                        "News and Help</li>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;"
+                        " text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sonic Team Jr - SRB2 icon</li></ul>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0p"
-                        "x;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt"
+                        "-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -q"
+                        "t-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justi"
-                        "fy\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; fo"
+                        "nt-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\""
-                        " font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Serve"
-                        "r&quot;. You can only start a server with this tab selected.</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</sp"
+                        "an></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;."
-                        " If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this t"
+                        "rue?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-fami"
-                        "ly:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
+"<p align="
+                        "\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd idea"
+                        "lly like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-righ"
-                        "t:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into"
-                        " creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
-        self.ProfileDirLabel.setText(QCoreApplication.translate("MainWindow", u"PROFILE DIRECTORY", None))
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+                        "indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
+        self.ProfileDirLabel.setText(QCoreApplication.translate("MainWindow", u"Profile Directory", None))
         self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.LauncherThemeLabel.setText(QCoreApplication.translate("MainWindow", u"LAUNCHER THEME (REQUIRES RESTART)", None))
+        self.LauncherThemeLabel.setText(QCoreApplication.translate("MainWindow", u"Launcher Theme (Requires Restart)", None))
         self.LauncherThemeInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Dark", None))
         self.LauncherThemeInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Light", None))
 
@@ -2139,15 +2249,33 @@ class Ui_MainWindow(object):
 "<p a"
                         "lign=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p></body></html>", None))
-        self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"MOD SOURCES", None))
+        self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"Mod sources", None))
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
         self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
         self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
+        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Wad Archive \"2.2 section\" (unsupported)", None))
+        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unsupported)", None))
+        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unsupported)", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Mod Sources", None))
-        self.NewssourceLabel.setText(QCoreApplication.translate("MainWindow", u"NEWS SOURCES", None))
-        self.NewssourceDisclaimerLabel.setText(QCoreApplication.translate("MainWindow", u"Reserved for future use. There are currently no alternative news sources.", None))
-        self.ModsourceMBCheckbox_2.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Newsletter (srb2.org)", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Whatever else", None))
+        self.RSSMoveUpButton.setText(QCoreApplication.translate("MainWindow", u"Move up", None))
+        self.RSSMoveDownButton.setText(QCoreApplication.translate("MainWindow", u"Move down", None))
+        self.NewssourceLabel.setText(QCoreApplication.translate("MainWindow", u"News Sources (RSS/Atom Feeds)", None))
+        self.RSSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
+        self.RSSAddButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
+
+        __sortingEnabled4 = self.RSSFeedList.isSortingEnabled()
+        self.RSSFeedList.setSortingEnabled(False)
+        ___qlistwidgetitem8 = self.RSSFeedList.item(0)
+        ___qlistwidgetitem8.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
+        ___qlistwidgetitem9 = self.RSSFeedList.item(1)
+        ___qlistwidgetitem9.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
+        ___qlistwidgetitem10 = self.RSSFeedList.item(2)
+        ___qlistwidgetitem10.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
+        ___qlistwidgetitem11 = self.RSSFeedList.item(3)
+        ___qlistwidgetitem11.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
+        self.RSSFeedList.setSortingEnabled(__sortingEnabled4)
+
+        self.RSSSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_9), QCoreApplication.translate("MainWindow", u"News Sources", None))
     # retranslateUi
 
