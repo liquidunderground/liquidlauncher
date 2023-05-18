@@ -63,6 +63,9 @@ class MainWindow(QMainWindow):
         self.master_server_list = {}
         self.ms_list = {}
 
+        # RSS Article cache
+        self.news = {}
+
         # Dict associating mod list widget items with mods:
         self.mods_list = {}
 
@@ -174,6 +177,13 @@ class MainWindow(QMainWindow):
         #self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
+        # RSS feed controls ======================================================== #
+        self.ui.RSSRefreshButton.clicked.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
+        self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
+        self.ui.RSSSaveButton.clicked.connect(lambda: print("RSS saved."))
+        self.ui.RSSViewonlineButton.clicked.connect(self.view_article_online)
+        self.ui.RSSArticleList.currentRowChanged.connect(self.load_article)
+
         # modsources checkboxes ================================================================ #
         self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
         self.ui.ModsourceWSBlueCheckbox.clicked.connect(self.update_modsources)
@@ -195,10 +205,6 @@ class MainWindow(QMainWindow):
         # load news feed from srb2.org =============================================== #
         self.load_news()
 
-        # and then add the spacer at the bottom
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.ui.verticalLayout_20.addItem(spacerItem)
-
         # Load MSes to be used
         self.load_ms_list()
         
@@ -210,36 +216,49 @@ class MainWindow(QMainWindow):
         menu.addAction("Save current parameters to script", self.export_script)
         menu.exec()
 
-    def load_news(self):
+    def load_news(self, feed="https://www.srb2.org/feed/"):
         # ok lets uh, get the news feed or something?
-        srb2_rss_url = "https://www.srb2.org/feed/"
+        print("load_news({})".format(feed))
 
-        feed = feedparser.parse(srb2_rss_url)
-        items = feed["items"]
+        self.ui.RSSArticleList.clear()
+        self.ui.RSSStatusLabel.setText("Querying RSS feed...")
+        feed = feedparser.parse(feed)
+        self.news = feed["items"]
 
-        for item in items:
+        print("Parsing articles...")
+        for item in self.news:
+            self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
             # title
-            article_title_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            article_title_label.setStyleSheet("font-size: 14pt;")
-            url_link = "<a href=\"" + item["link"] + "\" style=\"color: #ddd;\">" + item["title"] + "</a>"
-            article_title_label.setText(QtCore.QCoreApplication.translate("MainWindow", url_link))
-            article_title_label.setOpenExternalLinks(True)
-            self.ui.verticalLayout_20.addWidget(article_title_label)
+            #article_title_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
+            #article_title_label.setStyleSheet("font-size: 14pt;")
+            #url_link = "<a href=\"" + item["link"] + "\" style=\"color: #ddd;\">" + item["title"] + "</a>"
+            #article_title_label.setText(QtCore.QCoreApplication.translate("MainWindow", url_link))
+            #article_title_label.setOpenExternalLinks(True)
+            #self.ui.verticalLayout_20.addWidget(article_title_label)
 
             # author name and date
-            author_name_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            author_name_label.setStyleSheet("font-weight: 400;")
-            author_name_label.setText(item["author"] + " - " + item["published"].replace(" +0000", ""))
-            self.ui.verticalLayout_20.addWidget(author_name_label)
+            #author_name_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
+            #author_name_label.setStyleSheet("font-weight: 400;")
+            #author_name_label.setText(item["author"] + " - " + item["published"].replace(" +0000", ""))
+            #self.ui.verticalLayout_20.addWidget(author_name_label)
 
             # snippet
-            info_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            info_label.setStyleSheet("font-weight: 400;")
-            info_label.setText("<div style=\"text-wrap: wrap-word;\">" + item["summary"] + "</div>")
-            info_label.setWordWrap(True)
-            info_label.adjustSize()
-            info_label.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-            self.ui.verticalLayout_20.addWidget(info_label)
+            #info_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
+            #info_label.setStyleSheet("font-weight: 400;")
+            #info_label.setText("<div style=\"text-wrap: wrap-word;\">" + item["summary"] + "</div>")
+            #info_label.setWordWrap(True)
+            #info_label.adjustSize()
+            #info_label.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+            #self.ui.verticalLayout_20.addWidget(info_label)
+
+        self.ui.RSSStatusLabel.setText("Select an article to view.")
+
+    def load_article(self, index):
+        self.ui.RSSArticleView.setHtml(self.news[index].content[0].value)
+        self.ui.RSSViewonlineButton.setEnabled(True);
+
+    def view_article_online(self, index):
+        self.open_url(self.news[index].link)
 
     def show_add_server_dialog(self):
         self.childWindow = edit_server_main.ChildWindow(self, "", "", True)

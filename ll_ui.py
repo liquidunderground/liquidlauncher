@@ -132,17 +132,73 @@ class Ui_MainWindow(object):
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
         self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 524))
         self.NewsScrollAreaContent.setStyleSheet(u"")
-        self.verticalLayout_20 = QVBoxLayout(self.NewsScrollAreaContent)
-        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.NewsTitleLabel = QLabel(self.NewsScrollAreaContent)
-        self.NewsTitleLabel.setObjectName(u"NewsTitleLabel")
-        self.NewsTitleLabel.setStyleSheet(u"")
+        self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.RSSStatusLabel = QLabel(self.NewsScrollAreaContent)
+        self.RSSStatusLabel.setObjectName(u"RSSStatusLabel")
 
-        self.verticalLayout_20.addWidget(self.NewsTitleLabel)
+        self.gridLayout_7.addWidget(self.RSSStatusLabel, 5, 0, 1, 3)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.RSSRefreshButton = QPushButton(self.NewsScrollAreaContent)
+        self.RSSRefreshButton.setObjectName(u"RSSRefreshButton")
+        icon4 = QIcon(QIcon.fromTheme(u"view-refresh"))
+        self.RSSRefreshButton.setIcon(icon4)
 
-        self.verticalLayout_20.addItem(self.verticalSpacer_7)
+        self.gridLayout_7.addWidget(self.RSSRefreshButton, 2, 2, 1, 1)
+
+        self.RSSViewonlineButton = QPushButton(self.NewsScrollAreaContent)
+        self.RSSViewonlineButton.setObjectName(u"RSSViewonlineButton")
+        self.RSSViewonlineButton.setEnabled(False)
+        icon5 = QIcon(QIcon.fromTheme(u"globe"))
+        self.RSSViewonlineButton.setIcon(icon5)
+
+        self.gridLayout_7.addWidget(self.RSSViewonlineButton, 5, 3, 1, 1)
+
+        self.RSSFeedLabel = QLabel(self.NewsScrollAreaContent)
+        self.RSSFeedLabel.setObjectName(u"RSSFeedLabel")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.RSSFeedLabel.sizePolicy().hasHeightForWidth())
+        self.RSSFeedLabel.setSizePolicy(sizePolicy2)
+
+        self.gridLayout_7.addWidget(self.RSSFeedLabel, 2, 0, 1, 1)
+
+        self.splitter_4 = QSplitter(self.NewsScrollAreaContent)
+        self.splitter_4.setObjectName(u"splitter_4")
+        self.splitter_4.setOrientation(Qt.Horizontal)
+        self.RSSArticleList = QListWidget(self.splitter_4)
+        self.RSSArticleList.setObjectName(u"RSSArticleList")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.RSSArticleList.sizePolicy().hasHeightForWidth())
+        self.RSSArticleList.setSizePolicy(sizePolicy3)
+        self.splitter_4.addWidget(self.RSSArticleList)
+        self.RSSArticleView = QTextBrowser(self.splitter_4)
+        self.RSSArticleView.setObjectName(u"RSSArticleView")
+        self.splitter_4.addWidget(self.RSSArticleView)
+
+        self.gridLayout_7.addWidget(self.splitter_4, 4, 0, 1, 4)
+
+        self.RSSSaveButton = QPushButton(self.NewsScrollAreaContent)
+        self.RSSSaveButton.setObjectName(u"RSSSaveButton")
+        icon6 = QIcon(QIcon.fromTheme(u"document-save"))
+        self.RSSSaveButton.setIcon(icon6)
+
+        self.gridLayout_7.addWidget(self.RSSSaveButton, 2, 3, 1, 1)
+
+        self.RSSFeedCombobox = QComboBox(self.NewsScrollAreaContent)
+        self.RSSFeedCombobox.addItem("")
+        self.RSSFeedCombobox.setObjectName(u"RSSFeedCombobox")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.RSSFeedCombobox.sizePolicy().hasHeightForWidth())
+        self.RSSFeedCombobox.setSizePolicy(sizePolicy4)
+        self.RSSFeedCombobox.setEditable(True)
+
+        self.gridLayout_7.addWidget(self.RSSFeedCombobox, 2, 1, 1, 1)
 
         self.NewsScrollArea.setWidget(self.NewsScrollAreaContent)
 
@@ -170,11 +226,8 @@ class Ui_MainWindow(object):
         QListWidgetItem(self.GamePageTabList)
         QListWidgetItem(self.GamePageTabList)
         self.GamePageTabList.setObjectName(u"GamePageTabList")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.GamePageTabList.sizePolicy().hasHeightForWidth())
-        self.GamePageTabList.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.GamePageTabList.sizePolicy().hasHeightForWidth())
+        self.GamePageTabList.setSizePolicy(sizePolicy3)
 
         self.horizontalLayout_4.addWidget(self.GamePageTabList)
 
@@ -288,11 +341,11 @@ class Ui_MainWindow(object):
         self.PlayerSkinInput.addItem("")
         self.PlayerSkinInput.addItem("")
         self.PlayerSkinInput.setObjectName(u"PlayerSkinInput")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.PlayerSkinInput.sizePolicy().hasHeightForWidth())
-        self.PlayerSkinInput.setSizePolicy(sizePolicy3)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.PlayerSkinInput.sizePolicy().hasHeightForWidth())
+        self.PlayerSkinInput.setSizePolicy(sizePolicy5)
         self.PlayerSkinInput.setStyleSheet(u"")
         self.PlayerSkinInput.setEditable(True)
 
@@ -527,8 +580,8 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse = QPushButton(self.GameExecFilePath)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        icon4 = QIcon(QIcon.fromTheme(u"folder"))
-        self.GameExecFilePathBrowse.setIcon(icon4)
+        icon7 = QIcon(QIcon.fromTheme(u"folder"))
+        self.GameExecFilePathBrowse.setIcon(icon7)
 
         self.gridLayout_4.addWidget(self.GameExecFilePathBrowse, 0, 1, 1, 1)
 
@@ -562,18 +615,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_34 = QVBoxLayout(self.AddonsTab)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.GameFilesList = QListWidget(self.AddonsTab)
-        icon5 = QIcon()
-        icon5.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon8 = QIcon()
+        icon8.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem.setIcon(icon5);
-        icon6 = QIcon()
-        icon6.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem.setIcon(icon8);
+        icon9 = QIcon()
+        icon9.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem1 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem1.setIcon(icon6);
-        icon7 = QIcon()
-        icon7.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem1.setIcon(icon9);
+        icon10 = QIcon()
+        icon10.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem2 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem2.setIcon(icon7);
+        __qlistwidgetitem2.setIcon(icon10);
         self.GameFilesList.setObjectName(u"GameFilesList")
         self.GameFilesList.setStyleSheet(u"")
         self.GameFilesList.setDragEnabled(True)
@@ -596,8 +649,8 @@ class Ui_MainWindow(object):
         self.GameFilesUpButton.setObjectName(u"GameFilesUpButton")
         self.GameFilesUpButton.setMinimumSize(QSize(0, 28))
         self.GameFilesUpButton.setMaximumSize(QSize(28, 16777215))
-        icon8 = QIcon(QIcon.fromTheme(u"go-up"))
-        self.GameFilesUpButton.setIcon(icon8)
+        icon11 = QIcon(QIcon.fromTheme(u"go-up"))
+        self.GameFilesUpButton.setIcon(icon11)
 
         self.horizontalLayout_13.addWidget(self.GameFilesUpButton)
 
@@ -611,16 +664,16 @@ class Ui_MainWindow(object):
         self.GameFilesClearButton = QPushButton(self.GameFilesButtonFrame3)
         self.GameFilesClearButton.setObjectName(u"GameFilesClearButton")
         self.GameFilesClearButton.setMinimumSize(QSize(0, 28))
-        icon9 = QIcon(QIcon.fromTheme(u"edit-delete"))
-        self.GameFilesClearButton.setIcon(icon9)
+        icon12 = QIcon(QIcon.fromTheme(u"edit-delete"))
+        self.GameFilesClearButton.setIcon(icon12)
 
         self.horizontalLayout_5.addWidget(self.GameFilesClearButton)
 
         self.GameFilesDeleteButton = QPushButton(self.GameFilesButtonFrame3)
         self.GameFilesDeleteButton.setObjectName(u"GameFilesDeleteButton")
         self.GameFilesDeleteButton.setMinimumSize(QSize(0, 28))
-        icon10 = QIcon(QIcon.fromTheme(u"list-remove"))
-        self.GameFilesDeleteButton.setIcon(icon10)
+        icon13 = QIcon(QIcon.fromTheme(u"list-remove"))
+        self.GameFilesDeleteButton.setIcon(icon13)
 
         self.horizontalLayout_5.addWidget(self.GameFilesDeleteButton)
 
@@ -641,8 +694,8 @@ class Ui_MainWindow(object):
         self.GameFilesDownButton.setObjectName(u"GameFilesDownButton")
         self.GameFilesDownButton.setMinimumSize(QSize(0, 28))
         self.GameFilesDownButton.setMaximumSize(QSize(28, 16777215))
-        icon11 = QIcon(QIcon.fromTheme(u"go-down"))
-        self.GameFilesDownButton.setIcon(icon11)
+        icon14 = QIcon(QIcon.fromTheme(u"go-down"))
+        self.GameFilesDownButton.setIcon(icon14)
 
         self.horizontalLayout_12.addWidget(self.GameFilesDownButton)
 
@@ -657,8 +710,7 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setObjectName(u"GameFilesSaveButton")
         self.GameFilesSaveButton.setMinimumSize(QSize(0, 28))
         self.GameFilesSaveButton.setStyleSheet(u"")
-        icon12 = QIcon(QIcon.fromTheme(u"document-save"))
-        self.GameFilesSaveButton.setIcon(icon12)
+        self.GameFilesSaveButton.setIcon(icon6)
 
         self.horizontalLayout_6.addWidget(self.GameFilesSaveButton)
 
@@ -672,8 +724,8 @@ class Ui_MainWindow(object):
         self.GameFilesAddButton = QPushButton(self.GameFilesButtonFrame4)
         self.GameFilesAddButton.setObjectName(u"GameFilesAddButton")
         self.GameFilesAddButton.setMinimumSize(QSize(0, 28))
-        icon13 = QIcon(QIcon.fromTheme(u"list-add"))
-        self.GameFilesAddButton.setIcon(icon13)
+        icon15 = QIcon(QIcon.fromTheme(u"list-add"))
+        self.GameFilesAddButton.setIcon(icon15)
 
         self.horizontalLayout_6.addWidget(self.GameFilesAddButton)
 
@@ -741,11 +793,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
         self.ModBrowserLabel = QLabel(self.groupBox)
         self.ModBrowserLabel.setObjectName(u"ModBrowserLabel")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.ModBrowserLabel.sizePolicy().hasHeightForWidth())
-        self.ModBrowserLabel.setSizePolicy(sizePolicy4)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.ModBrowserLabel.sizePolicy().hasHeightForWidth())
+        self.ModBrowserLabel.setSizePolicy(sizePolicy6)
 
         self.verticalLayout_24.addWidget(self.ModBrowserLabel)
 
@@ -767,8 +819,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.setContentsMargins(6, 0, 0, 0)
         self.ModViewerLabel = QLabel(self.groupBox_2)
         self.ModViewerLabel.setObjectName(u"ModViewerLabel")
-        sizePolicy4.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
-        self.ModViewerLabel.setSizePolicy(sizePolicy4)
+        sizePolicy6.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
+        self.ModViewerLabel.setSizePolicy(sizePolicy6)
 
         self.verticalLayout_21.addWidget(self.ModViewerLabel)
 
@@ -818,23 +870,22 @@ class Ui_MainWindow(object):
 
         self.OpenPageButton = QPushButton(self.widget_3)
         self.OpenPageButton.setObjectName(u"OpenPageButton")
-        icon14 = QIcon(QIcon.fromTheme(u"globe"))
-        self.OpenPageButton.setIcon(icon14)
+        self.OpenPageButton.setIcon(icon5)
 
         self.horizontalLayout_20.addWidget(self.OpenPageButton)
 
         self.RefreshModsButton = QPushButton(self.widget_3)
         self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        icon15 = QIcon(QIcon.fromTheme(u"media-playlist-repeat"))
-        self.RefreshModsButton.setIcon(icon15)
+        icon16 = QIcon(QIcon.fromTheme(u"media-playlist-repeat"))
+        self.RefreshModsButton.setIcon(icon16)
 
         self.horizontalLayout_20.addWidget(self.RefreshModsButton)
 
         self.DownloadModButton = QPushButton(self.widget_3)
         self.DownloadModButton.setObjectName(u"DownloadModButton")
         self.DownloadModButton.setEnabled(False)
-        icon16 = QIcon(QIcon.fromTheme(u"download"))
-        self.DownloadModButton.setIcon(icon16)
+        icon17 = QIcon(QIcon.fromTheme(u"download"))
+        self.DownloadModButton.setIcon(icon17)
 
         self.horizontalLayout_20.addWidget(self.DownloadModButton)
 
@@ -1081,11 +1132,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.GameTabView = QTabWidget(self.scrollAreaWidgetContents_3)
         self.GameTabView.setObjectName(u"GameTabView")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.GameTabView.sizePolicy().hasHeightForWidth())
-        self.GameTabView.setSizePolicy(sizePolicy5)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.GameTabView.sizePolicy().hasHeightForWidth())
+        self.GameTabView.setSizePolicy(sizePolicy7)
         self.GameTabView.setTabShape(QTabWidget.Rounded)
         self.BrowseTab = QWidget()
         self.BrowseTab.setObjectName(u"BrowseTab")
@@ -1152,8 +1203,8 @@ class Ui_MainWindow(object):
         self.BrowseMSComboBox = QComboBox(self.BrowseTab)
         self.BrowseMSComboBox.addItem("")
         self.BrowseMSComboBox.setObjectName(u"BrowseMSComboBox")
-        sizePolicy3.setHeightForWidth(self.BrowseMSComboBox.sizePolicy().hasHeightForWidth())
-        self.BrowseMSComboBox.setSizePolicy(sizePolicy3)
+        sizePolicy5.setHeightForWidth(self.BrowseMSComboBox.sizePolicy().hasHeightForWidth())
+        self.BrowseMSComboBox.setSizePolicy(sizePolicy5)
         self.BrowseMSComboBox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
 
         self.horizontalLayout_18.addWidget(self.BrowseMSComboBox)
@@ -1169,21 +1220,21 @@ class Ui_MainWindow(object):
 
         self.RefreshButton = QPushButton(self.BrowseTab)
         self.RefreshButton.setObjectName(u"RefreshButton")
-        self.RefreshButton.setIcon(icon15)
+        self.RefreshButton.setIcon(icon16)
 
         self.horizontalLayout_18.addWidget(self.RefreshButton)
 
         self.SaveNetgameButton = QPushButton(self.BrowseTab)
         self.SaveNetgameButton.setObjectName(u"SaveNetgameButton")
-        icon17 = QIcon(QIcon.fromTheme(u"bookmark-new"))
-        self.SaveNetgameButton.setIcon(icon17)
+        icon18 = QIcon(QIcon.fromTheme(u"bookmark-new"))
+        self.SaveNetgameButton.setIcon(icon18)
 
         self.horizontalLayout_18.addWidget(self.SaveNetgameButton)
 
         self.BrowseNetgameJoinButton = QPushButton(self.BrowseTab)
         self.BrowseNetgameJoinButton.setObjectName(u"BrowseNetgameJoinButton")
-        icon18 = QIcon(QIcon.fromTheme(u"media-playback-start"))
-        self.BrowseNetgameJoinButton.setIcon(icon18)
+        icon19 = QIcon(QIcon.fromTheme(u"media-playback-start"))
+        self.BrowseNetgameJoinButton.setIcon(icon19)
 
         self.horizontalLayout_18.addWidget(self.BrowseNetgameJoinButton)
 
@@ -1261,20 +1312,20 @@ class Ui_MainWindow(object):
 
         self.DeleteServerButton = QPushButton(self.frame_10)
         self.DeleteServerButton.setObjectName(u"DeleteServerButton")
-        self.DeleteServerButton.setIcon(icon10)
+        self.DeleteServerButton.setIcon(icon13)
 
         self.horizontalLayout_9.addWidget(self.DeleteServerButton)
 
         self.AddServerButton = QPushButton(self.frame_10)
         self.AddServerButton.setObjectName(u"AddServerButton")
-        self.AddServerButton.setIcon(icon13)
+        self.AddServerButton.setIcon(icon15)
 
         self.horizontalLayout_9.addWidget(self.AddServerButton)
 
         self.JoinBookmarkButton = QPushButton(self.frame_10)
         self.JoinBookmarkButton.setObjectName(u"JoinBookmarkButton")
         self.JoinBookmarkButton.setSizeIncrement(QSize(0, 0))
-        self.JoinBookmarkButton.setIcon(icon18)
+        self.JoinBookmarkButton.setIcon(icon19)
 
         self.horizontalLayout_9.addWidget(self.JoinBookmarkButton)
 
@@ -1314,19 +1365,19 @@ class Ui_MainWindow(object):
 
         self.MSRemoveButton = QPushButton(self.gridLayoutWidget)
         self.MSRemoveButton.setObjectName(u"MSRemoveButton")
-        self.MSRemoveButton.setIcon(icon10)
+        self.MSRemoveButton.setIcon(icon13)
 
         self.gridLayout_6.addWidget(self.MSRemoveButton, 2, 2, 1, 1)
 
         self.MSAddButton = QPushButton(self.gridLayoutWidget)
         self.MSAddButton.setObjectName(u"MSAddButton")
-        self.MSAddButton.setIcon(icon13)
+        self.MSAddButton.setIcon(icon15)
 
         self.gridLayout_6.addWidget(self.MSAddButton, 2, 3, 1, 1)
 
         self.MSListSaveButton = QPushButton(self.gridLayoutWidget)
         self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon12)
+        self.MSListSaveButton.setIcon(icon6)
 
         self.gridLayout_6.addWidget(self.MSListSaveButton, 2, 4, 1, 1)
 
@@ -1379,19 +1430,19 @@ class Ui_MainWindow(object):
         self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
         self.MSAPILabel = QLabel(self.verticalLayoutWidget)
         self.MSAPILabel.setObjectName(u"MSAPILabel")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.MSAPILabel.sizePolicy().hasHeightForWidth())
-        self.MSAPILabel.setSizePolicy(sizePolicy6)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.MSAPILabel.sizePolicy().hasHeightForWidth())
+        self.MSAPILabel.setSizePolicy(sizePolicy8)
         self.MSAPILabel.setFont(font)
 
         self.verticalLayout_28.addWidget(self.MSAPILabel)
 
         self.textBrowser_2 = QTextBrowser(self.verticalLayoutWidget)
         self.textBrowser_2.setObjectName(u"textBrowser_2")
-        sizePolicy4.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
-        self.textBrowser_2.setSizePolicy(sizePolicy4)
+        sizePolicy6.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
+        self.textBrowser_2.setSizePolicy(sizePolicy6)
 
         self.verticalLayout_28.addWidget(self.textBrowser_2)
 
@@ -1435,11 +1486,8 @@ class Ui_MainWindow(object):
         self.GameProfileComboBox = QComboBox(self.GamePlayFrame)
         self.GameProfileComboBox.addItem("")
         self.GameProfileComboBox.setObjectName(u"GameProfileComboBox")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
-        self.GameProfileComboBox.setSizePolicy(sizePolicy7)
+        sizePolicy4.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
+        self.GameProfileComboBox.setSizePolicy(sizePolicy4)
 
         self.horizontalLayout_3.addWidget(self.GameProfileComboBox)
 
@@ -1451,7 +1499,7 @@ class Ui_MainWindow(object):
         self.GamePlayButton.setObjectName(u"GamePlayButton")
         self.GamePlayButton.setMinimumSize(QSize(240, 38))
         self.GamePlayButton.setMaximumSize(QSize(240, 38))
-        self.GamePlayButton.setIcon(icon18)
+        self.GamePlayButton.setIcon(icon19)
 
         self.horizontalLayout_3.addWidget(self.GamePlayButton)
 
@@ -1459,7 +1507,7 @@ class Ui_MainWindow(object):
         self.GameOptionsDropDownButton.setObjectName(u"GameOptionsDropDownButton")
         self.GameOptionsDropDownButton.setMinimumSize(QSize(0, 28))
         self.GameOptionsDropDownButton.setMaximumSize(QSize(16, 38))
-        self.GameOptionsDropDownButton.setIcon(icon8)
+        self.GameOptionsDropDownButton.setIcon(icon11)
 
         self.horizontalLayout_3.addWidget(self.GameOptionsDropDownButton)
 
@@ -1575,11 +1623,11 @@ class Ui_MainWindow(object):
 
         self.textBrowser = QTextBrowser(self.tab_6)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy8)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy9)
 
         self.verticalLayout_6.addWidget(self.textBrowser)
 
@@ -1654,14 +1702,14 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(1)
+        self.MainTabsStackedWidget.setCurrentIndex(0)
         self.GameContentStackedWidget.setCurrentIndex(0)
         self.GameSettingsTabWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.GameTabView.setCurrentIndex(2)
-        self.tabWidget_2.setCurrentIndex(2)
+        self.GameTabView.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1685,7 +1733,13 @@ class Ui_MainWindow(object):
         self.SettingsTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"Launcher Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.SettingsTabButton.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
-        self.NewsTitleLabel.setText(QCoreApplication.translate("MainWindow", u"SONIC ROBO BLAST 2 NEWS", None))
+        self.RSSStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Select a feed to read and click \"Refresh\"", None))
+        self.RSSRefreshButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.RSSViewonlineButton.setText(QCoreApplication.translate("MainWindow", u"View online", None))
+        self.RSSFeedLabel.setText(QCoreApplication.translate("MainWindow", u"Newsfeed URL", None))
+        self.RSSSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save feed", None))
+        self.RSSFeedCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"http://srb2.org/feed", None))
+
 
         __sortingEnabled = self.GamePageTabList.isSortingEnabled()
         self.GamePageTabList.setSortingEnabled(False)
