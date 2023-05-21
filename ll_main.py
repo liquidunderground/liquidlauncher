@@ -180,7 +180,6 @@ class MainWindow(QMainWindow):
         # RSS feed controls ======================================================== #
         self.ui.RSSRefreshButton.clicked.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
-        self.ui.RSSSaveButton.clicked.connect(lambda: print("RSS saved."))
         self.ui.RSSViewonlineButton.clicked.connect(self.view_article_online)
         self.ui.RSSArticleList.currentRowChanged.connect(self.load_article)
 
@@ -194,6 +193,58 @@ class MainWindow(QMainWindow):
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
 
+        # RSS buttons ======================================================== #
+        self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
+        self.ui.RSSFeedList.itemChanged.connect(self.rss_commit)
+        self.ui.RSSMoveupButton.clicked.connect(self.rss_moveup)
+        self.ui.RSSMovedownButton.clicked.connect(self.rss_movedown)
+        self.ui.RSSAddButton.clicked.connect(lambda: self.add_rss_to_list() )
+        self.ui.RSSRemoveButton.clicked.connect( self.remove_rss_from_list )
+
+
+    def rss_enable_edit(self):
+        self.ui.RSSMoveupButton.setEnabled(True)
+        self.ui.RSSMovedownButton.setEnabled(True)
+        self.ui.RSSRemoveButton.setEnabled(True)
+
+    def add_rss_to_list(self, url="https://example.com/feed" ):
+        new_item = QtWidgets.QListWidgetItem()
+        new_item.setText(url)
+        new_item.setFlags(  QtCore.Qt.ItemIsSelectable | 
+                            QtCore.Qt.ItemIsEditable |
+                            QtCore.Qt.ItemIsDragEnabled |
+                            QtCore.Qt.ItemIsDropEnabled |
+                            QtCore.Qt.ItemIsEnabled
+                            )
+        self.ui.RSSFeedList.addItem(new_item)
+        self.ui.RSSFeedList.setCurrentRow(self.ui.RSSFeedList.count()-1)
+        self.rss_commit()
+
+    def remove_rss_from_list(self):
+        # QListWidget.takeItem bc Qt is weird
+        self.ui.RSSFeedList.takeItem( self.ui.RSSFeedList.currentRow() )
+        self.rss_commit()
+
+    def rss_moveup(self):
+        reservedItems = []
+        row = self.ui.RSSFeedList.currentRow()
+        item = self.ui.RSSFeedList.takeItem(row)
+        row -= 1
+        self.ui.RSSFeedList.insertItem(row, item)
+        self.ui.RSSFeedList.setCurrentRow(row)
+        self.rss_commit()
+        return
+
+    def rss_movedown(self):
+        reservedItems = []
+        row = self.ui.RSSFeedList.currentRow()
+        item = self.ui.RSSFeedList.takeItem(row)
+        row += 1
+        self.ui.RSSFeedList.insertItem(row, item)
+        self.ui.RSSFeedList.setCurrentRow(row)
+        self.rss_commit()
+        return
+
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
         # self.ui.GameOptionsDropDownButton.clicked.connect()
@@ -202,6 +253,7 @@ class MainWindow(QMainWindow):
         self.ui.GameOptionsDropDownButton.setMenu(self.gameOptionsDropDownMenu)
         self.ui.GameOptionsDropDownButton.clicked.connect(self.show_game_options_dropdown)
 
+        # ====== Launch section =======
         # load news feed from srb2.org =============================================== #
         self.load_news()
 
@@ -1011,6 +1063,12 @@ class MainWindow(QMainWindow):
         
         toml_settings = self.read_config_file(global_settings_file)
         self.global_settings = toml_settings
+
+        # Update RSS List in UI
+        self.ui.RSSFeedList.clear()
+        for feed in self.global_settings["rss"]:
+            self.add_rss_to_list(feed)
+
         # Profiles combobox
         self.add_profiles_to_combobox()
         current_profile_file = self.get_current_profile_file()
@@ -1072,6 +1130,14 @@ class MainWindow(QMainWindow):
         print("saved config")
         return
     
+    def rss_commit(self):
+        feeds = []
+        self.ui.RSSFeedCombobox.clear()
+        for i in range(self.ui.RSSFeedList.count()):
+            self.ui.RSSFeedCombobox.addItem(self.ui.RSSFeedList.item(i).text())
+            feeds.append(self.ui.RSSFeedList.item(i).text())
+        self.global_settings["rss"] = feeds
+
     def create_settings_on_first_run(self):
         self.global_settings = {"current_profile": "Default",
                                 "profiles": 
@@ -1079,8 +1145,17 @@ class MainWindow(QMainWindow):
                                 "modsources": {
                                     "srb2mb": True,
                                     "workshop_blue": False,
-                                    "workshop_red": False
-                                    }
+                                    "workshop_red": False,
+                                    "wadarchive": False,
+                                    "skybase": False,
+                                    "gamebanana": False
+                                    },
+                                "rss": [
+                                    "https://srb2.org/feed",
+                                    "https://mb.srb2.org/forums/-/index.rss",
+                                    "https://srb2workshop.org/forums/-/index.rss",
+                                    "https://sonicstadium.org/feed"
+                                    ]
                                 }
         self.save_global_settings_file()
         self.save_ms_list()

@@ -1682,6 +1682,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.SaveFilesToConfigToggle)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
         self.tabWidget_2.addTab(self.tab_5, "")
         self.tab_6 = QWidget()
         self.tab_6.setObjectName(u"tab_6")
@@ -1746,38 +1750,41 @@ class Ui_MainWindow(object):
         self.tab_9.setObjectName(u"tab_9")
         self.gridLayout_8 = QGridLayout(self.tab_9)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.RSSMoveUpButton = QPushButton(self.tab_9)
-        self.RSSMoveUpButton.setObjectName(u"RSSMoveUpButton")
-        icon20 = QIcon(QIcon.fromTheme(u"go-up"))
-        self.RSSMoveUpButton.setIcon(icon20)
+        self.RSSRemoveButton = QPushButton(self.tab_9)
+        self.RSSRemoveButton.setObjectName(u"RSSRemoveButton")
+        self.RSSRemoveButton.setEnabled(False)
+        icon20 = QIcon(QIcon.fromTheme(u"list-remove"))
+        self.RSSRemoveButton.setIcon(icon20)
 
-        self.gridLayout_8.addWidget(self.RSSMoveUpButton, 6, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.RSSRemoveButton, 4, 2, 1, 1)
 
-        self.RSSMoveDownButton = QPushButton(self.tab_9)
-        self.RSSMoveDownButton.setObjectName(u"RSSMoveDownButton")
-        icon21 = QIcon(QIcon.fromTheme(u"go-down"))
-        self.RSSMoveDownButton.setIcon(icon21)
+        self.RSSMoveupButton = QPushButton(self.tab_9)
+        self.RSSMoveupButton.setObjectName(u"RSSMoveupButton")
+        self.RSSMoveupButton.setEnabled(False)
+        icon21 = QIcon(QIcon.fromTheme(u"go-up"))
+        self.RSSMoveupButton.setIcon(icon21)
 
-        self.gridLayout_8.addWidget(self.RSSMoveDownButton, 7, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.RSSMoveupButton, 3, 0, 1, 1)
 
         self.NewssourceLabel = QLabel(self.tab_9)
         self.NewssourceLabel.setObjectName(u"NewssourceLabel")
 
-        self.gridLayout_8.addWidget(self.NewssourceLabel, 0, 0, 1, 1)
-
-        self.RSSRemoveButton = QPushButton(self.tab_9)
-        self.RSSRemoveButton.setObjectName(u"RSSRemoveButton")
-        icon22 = QIcon(QIcon.fromTheme(u"list-remove"))
-        self.RSSRemoveButton.setIcon(icon22)
-
-        self.gridLayout_8.addWidget(self.RSSRemoveButton, 7, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.NewssourceLabel, 0, 0, 1, 3)
 
         self.RSSAddButton = QPushButton(self.tab_9)
         self.RSSAddButton.setObjectName(u"RSSAddButton")
-        icon23 = QIcon(QIcon.fromTheme(u"list-add"))
-        self.RSSAddButton.setIcon(icon23)
+        icon22 = QIcon(QIcon.fromTheme(u"list-add"))
+        self.RSSAddButton.setIcon(icon22)
 
-        self.gridLayout_8.addWidget(self.RSSAddButton, 6, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.RSSAddButton, 3, 2, 1, 1)
+
+        self.RSSMovedownButton = QPushButton(self.tab_9)
+        self.RSSMovedownButton.setObjectName(u"RSSMovedownButton")
+        self.RSSMovedownButton.setEnabled(False)
+        icon23 = QIcon(QIcon.fromTheme(u"go-down"))
+        self.RSSMovedownButton.setIcon(icon23)
+
+        self.gridLayout_8.addWidget(self.RSSMovedownButton, 4, 0, 1, 1)
 
         self.RSSFeedList = QListWidget(self.tab_9)
         QListWidgetItem(self.RSSFeedList)
@@ -1786,22 +1793,21 @@ class Ui_MainWindow(object):
         QListWidgetItem(self.RSSFeedList)
         self.RSSFeedList.setObjectName(u"RSSFeedList")
 
-        self.gridLayout_8.addWidget(self.RSSFeedList, 1, 0, 1, 2)
+        self.gridLayout_8.addWidget(self.RSSFeedList, 1, 0, 1, 3)
 
-        self.RSSSaveButton = QPushButton(self.tab_9)
-        self.RSSSaveButton.setObjectName(u"RSSSaveButton")
-        icon24 = QIcon(QIcon.fromTheme(u"document-save"))
-        self.RSSSaveButton.setIcon(icon24)
+        self.RSSStatusLabel_2 = QLabel(self.tab_9)
+        self.RSSStatusLabel_2.setObjectName(u"RSSStatusLabel_2")
+        self.RSSStatusLabel_2.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_8.addWidget(self.RSSSaveButton, 8, 0, 1, 2)
+        self.gridLayout_8.addWidget(self.RSSStatusLabel_2, 3, 1, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_8, 4, 1, 1, 1)
 
         self.tabWidget_2.addTab(self.tab_9, "")
 
         self.verticalLayout_18.addWidget(self.tabWidget_2)
-
-        self.verticalSpacer_6 = QSpacerItem(20, 244, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_18.addItem(self.verticalSpacer_6)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -1820,7 +1826,7 @@ class Ui_MainWindow(object):
 
         self.MainTabsStackedWidget.setCurrentIndex(0)
         self.GameContentStackedWidget.setCurrentIndex(1)
-        self.GameSettingsTabWidget.setCurrentIndex(2)
+        self.GameSettingsTabWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
@@ -2257,11 +2263,11 @@ class Ui_MainWindow(object):
         self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unsupported)", None))
         self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unsupported)", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Mod Sources", None))
-        self.RSSMoveUpButton.setText(QCoreApplication.translate("MainWindow", u"Move up", None))
-        self.RSSMoveDownButton.setText(QCoreApplication.translate("MainWindow", u"Move down", None))
-        self.NewssourceLabel.setText(QCoreApplication.translate("MainWindow", u"News Sources (RSS/Atom Feeds)", None))
         self.RSSRemoveButton.setText(QCoreApplication.translate("MainWindow", u"Remove", None))
+        self.RSSMoveupButton.setText(QCoreApplication.translate("MainWindow", u"Move up", None))
+        self.NewssourceLabel.setText(QCoreApplication.translate("MainWindow", u"News Sources (RSS/Atom Feeds)", None))
         self.RSSAddButton.setText(QCoreApplication.translate("MainWindow", u"Add", None))
+        self.RSSMovedownButton.setText(QCoreApplication.translate("MainWindow", u"Move down", None))
 
         __sortingEnabled4 = self.RSSFeedList.isSortingEnabled()
         self.RSSFeedList.setSortingEnabled(False)
@@ -2275,7 +2281,7 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem11.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
         self.RSSFeedList.setSortingEnabled(__sortingEnabled4)
 
-        self.RSSSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
+        self.RSSStatusLabel_2.setText(QCoreApplication.translate("MainWindow", u"Select or double click an entry to edit.", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_9), QCoreApplication.translate("MainWindow", u"News Sources", None))
     # retranslateUi
 

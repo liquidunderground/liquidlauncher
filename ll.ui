@@ -585,7 +585,7 @@
                       <item>
                        <widget class="QTabWidget" name="GameSettingsTabWidget">
                         <property name="currentIndex">
-                         <number>2</number>
+                         <number>0</number>
                         </property>
                         <widget class="QWidget" name="PlayerSettingsTab">
                          <attribute name="title">
@@ -3515,6 +3515,19 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <spacer name="verticalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                   </layout>
                  </widget>
                  <widget class="QWidget" name="tab_6">
@@ -3620,35 +3633,11 @@ p, li { white-space: pre-wrap; }
                    <string>News Sources</string>
                   </attribute>
                   <layout class="QGridLayout" name="gridLayout_8">
-                   <item row="6" column="0">
-                    <widget class="QPushButton" name="RSSMoveUpButton">
-                     <property name="text">
-                      <string>Move up</string>
-                     </property>
-                     <property name="icon">
-                      <iconset theme="go-up"/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="0">
-                    <widget class="QPushButton" name="RSSMoveDownButton">
-                     <property name="text">
-                      <string>Move down</string>
-                     </property>
-                     <property name="icon">
-                      <iconset theme="go-down"/>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="NewssourceLabel">
-                     <property name="text">
-                      <string>News Sources (RSS/Atom Feeds)</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="1">
+                   <item row="4" column="2">
                     <widget class="QPushButton" name="RSSRemoveButton">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
                      <property name="text">
                       <string>Remove</string>
                      </property>
@@ -3657,7 +3646,27 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="1">
+                   <item row="3" column="0">
+                    <widget class="QPushButton" name="RSSMoveupButton">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Move up</string>
+                     </property>
+                     <property name="icon">
+                      <iconset theme="go-up"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="3">
+                    <widget class="QLabel" name="NewssourceLabel">
+                     <property name="text">
+                      <string>News Sources (RSS/Atom Feeds)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
                     <widget class="QPushButton" name="RSSAddButton">
                      <property name="text">
                       <string>Add</string>
@@ -3667,7 +3676,20 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0" colspan="2">
+                   <item row="4" column="0">
+                    <widget class="QPushButton" name="RSSMovedownButton">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Move down</string>
+                     </property>
+                     <property name="icon">
+                      <iconset theme="go-down"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0" colspan="3">
                     <widget class="QListWidget" name="RSSFeedList">
                      <item>
                       <property name="text">
@@ -3691,32 +3713,32 @@ p, li { white-space: pre-wrap; }
                      </item>
                     </widget>
                    </item>
-                   <item row="8" column="0" colspan="2">
-                    <widget class="QPushButton" name="RSSSaveButton">
+                   <item row="3" column="1">
+                    <widget class="QLabel" name="RSSStatusLabel_2">
                      <property name="text">
-                      <string>Save List</string>
+                      <string>Select or double click an entry to edit.</string>
                      </property>
-                     <property name="icon">
-                      <iconset theme="document-save"/>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
                 </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>244</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </widget>
