@@ -274,38 +274,23 @@ class MainWindow(QMainWindow):
         # ok lets uh, get the news feed or something?
         print("load_news({})".format(feed))
 
-        self.ui.RSSArticleList.clear()
-        self.ui.RSSStatusLabel.setText("Querying RSS feed...")
-        feed = feedparser.parse(feed)
-        self.news = feed["items"]
+        try:
+            msg = "Select an article to view."
+            self.ui.RSSArticleList.clear()
+            self.ui.RSSStatusLabel.setText("Querying RSS feed...")
+            feed = feedparser.parse(feed)
+            if len(feed["items"]) < 1:
+                raise IndexError("No news found. Did you check the URL?")
 
-        print("Parsing articles...")
-        for item in self.news:
-            self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
-            # title
-            #article_title_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            #article_title_label.setStyleSheet("font-size: 14pt;")
-            #url_link = "<a href=\"" + item["link"] + "\" style=\"color: #ddd;\">" + item["title"] + "</a>"
-            #article_title_label.setText(QtCore.QCoreApplication.translate("MainWindow", url_link))
-            #article_title_label.setOpenExternalLinks(True)
-            #self.ui.verticalLayout_20.addWidget(article_title_label)
+            self.news = feed["items"]
 
-            # author name and date
-            #author_name_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            #author_name_label.setStyleSheet("font-weight: 400;")
-            #author_name_label.setText(item["author"] + " - " + item["published"].replace(" +0000", ""))
-            #self.ui.verticalLayout_20.addWidget(author_name_label)
-
-            # snippet
-            #info_label = QtWidgets.QLabel(self.ui.NewsScrollAreaContent)
-            #info_label.setStyleSheet("font-weight: 400;")
-            #info_label.setText("<div style=\"text-wrap: wrap-word;\">" + item["summary"] + "</div>")
-            #info_label.setWordWrap(True)
-            #info_label.adjustSize()
-            #info_label.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-            #self.ui.verticalLayout_20.addWidget(info_label)
-
-        self.ui.RSSStatusLabel.setText("Select an article to view.")
+            print("Parsing articles...")
+            for item in self.news:
+                self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
+        except Exception as e:
+            msg = str(e)
+        self.ui.RSSStatusLabel.setText(msg)
+        print(msg)
 
     def load_article(self, index):
         self.ui.RSSArticleView.setHtml(self.news[index].content[0].value)
@@ -541,7 +526,7 @@ class MainWindow(QMainWindow):
             mod = self.get_selected_mod()
             self.ui.ModBrowser.load(mod.url)
         self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
-        self.ui.OpenPageButton.clicked.setEnabled(True)
+        self.ui.OpenPageButton.setEnabled(True)
             # Alternatively, if we only want a mod description instead
             #   of the full web page:
             #self.mod_description_sig.emit(mod)
