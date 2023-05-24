@@ -181,6 +181,7 @@ class MainWindow(QMainWindow):
         self.ui.RSSRefreshButton.clicked.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSViewonlineButton.clicked.connect(self.view_article_online)
+        self.ui.RSSArticleList.doubleClicked.connect(self.view_article_online)
         self.ui.RSSArticleList.currentRowChanged.connect(self.load_article)
 
         # modsources checkboxes ================================================================ #
@@ -196,6 +197,7 @@ class MainWindow(QMainWindow):
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
         self.ui.RSSFeedList.itemChanged.connect(self.rss_commit)
+        #self.ui.RSSFeedList.dataChanged.connect(self.rss_commit)
         self.ui.RSSMoveupButton.clicked.connect(self.rss_moveup)
         self.ui.RSSMovedownButton.clicked.connect(self.rss_movedown)
         self.ui.RSSAddButton.clicked.connect(lambda: self.add_rss_to_list() )
@@ -310,7 +312,8 @@ class MainWindow(QMainWindow):
         self.ui.RSSViewonlineButton.setEnabled(True);
 
     def view_article_online(self, index):
-        self.open_url(self.news[index].link)
+        idx = self.ui.RSSArticleList.currentRow()
+        self.open_url(self.news[idx].link)
 
     def show_add_server_dialog(self):
         self.childWindow = edit_server_main.ChildWindow(self, "", "", True)
