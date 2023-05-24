@@ -164,3 +164,10 @@ Thumbs.db
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+# Ignore data files
+*.toml
+*.json
+
+# Ignore swap files (Vim)
+*.swp
