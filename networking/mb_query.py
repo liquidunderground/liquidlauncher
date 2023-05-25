@@ -98,7 +98,7 @@ def get_mods(addons_subforum_url, modsource):
     :param download_url: The URL of the SRB2 MB sub-forum to search
     :return: Returns a list containing Mod class instances
     """
-    print("mb_query.get_mods("+addons_subforum_url+")")
+    print("mb_query.get_mods({})".format(addons_subforum_url))
     last_page = False
     mod_list = []
     mod_links = []
@@ -145,7 +145,7 @@ def get_addons_page_html(url, page_num):
     :param page_num: The page number as an integer
     :return: HTML tree: the results of html.parse(requests.get(download_url))
     """
-    response = requests.get(url + "?page={}".format(str(page_num)),
+    response = requests.get("{}?page={}".format(url, str(page_num)),
                             stream=True,
                             headers=headers)
     response.raw.decode_content = True

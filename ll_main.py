@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
     # Emits instance of Mod() class from self.mods_list
     mod_description_sig = Signal(object)
     # Emits self.mods_list
-    mod_list_sig = Signal(dict)
+    mod_list_sig = Signal(str)
     # Emits bool, telling QThread to query the master server
     query_ms_sig = Signal(bool)
     # Emits mod download URL string

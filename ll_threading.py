@@ -21,6 +21,7 @@ class QueryMessageBoard(QtCore.QThread):
         self.host = host
 
     def on_request_mod_list(self, mods_type):
+        print("on_request_mod_list({})".format(mods_type))
         self.get_mods = True
         self.mods_type = mods_type
 
@@ -62,7 +63,7 @@ class QueryMessageBoard(QtCore.QThread):
                         subforum_url = src["main_url"] + src["assets_sublink"]
                     if self.mods_type == "Misc":
                         subforum_url = src["main_url"] + src["misc_sublink"]
-                    print("Querying subforum "+subforum_url);
+                    print("Querying subforum {}".format(subforum_url))
                     #mods.append(mb_query.get_mods(subforum_url, src))
                     mods = mods + mb_query.get_mods(subforum_url, src)
 
