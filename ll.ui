@@ -98,8 +98,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>535</height>
+                <width>365</width>
+                <height>177</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -323,7 +323,7 @@ p, li { white-space: pre-wrap; }
                   <item>
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>4</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -437,7 +437,7 @@ p, li { white-space: pre-wrap; }
                       <item>
                        <widget class="QTabWidget" name="GameSettingsTabWidget">
                         <property name="currentIndex">
-                         <number>0</number>
+                         <number>1</number>
                         </property>
                         <widget class="QWidget" name="PlayerSettingsTab">
                          <attribute name="title">
@@ -1228,7 +1228,7 @@ font-size: 12pt;</string>
                              <bool>false</bool>
                             </property>
                             <property name="text">
-                             <string>RUN SRB2 IN WINE</string>
+                             <string>RUN SRB2 IN WINE (Linux/BSD/Mac only)</string>
                             </property>
                             <property name="checked">
                              <bool>false</bool>
@@ -2285,7 +2285,7 @@ font-size: 12pt;</string>
                              <enum>QTabWidget::Rounded</enum>
                             </property>
                             <property name="currentIndex">
-                             <number>2</number>
+                             <number>0</number>
                             </property>
                             <widget class="QWidget" name="BrowseTab">
                              <attribute name="title">
@@ -3035,8 +3035,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>535</height>
+                <width>87</width>
+                <height>87</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -3162,8 +3162,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>535</height>
+                <width>447</width>
+                <height>462</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
