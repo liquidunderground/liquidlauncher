@@ -165,12 +165,12 @@ class MainWindow(QMainWindow):
         self.ui.JoinBookmarkButton.clicked.connect(self.join_selected_netgame_bookmark)
         self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
-        self.ui.BrowseMSComboBox.textActivated.connect(self.change_current_ms)
+        self.ui.BrowseMSCombobox.textActivated.connect(self.change_current_ms)
         self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
         # Stubbed to make it editable
         #self.ui.SavedNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_bookmark)
         #
-        #self.ui.BrowseMSComboBox.clicked.connect(self.change_current_ms)
+        #self.ui.BrowseMSCombobox.clicked.connect(self.change_current_ms)
         #self.ui.EditServerButton.clicked.connect(self.open_server_editor)
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
@@ -193,6 +193,7 @@ class MainWindow(QMainWindow):
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
+        self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/samples"))
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
@@ -203,6 +204,23 @@ class MainWindow(QMainWindow):
         self.ui.RSSAddButton.clicked.connect(lambda: self.add_rss_to_list() )
         self.ui.RSSRemoveButton.clicked.connect( self.remove_rss_from_list )
 
+        # play button ================================================================ #
+        self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
+        # self.ui.GameOptionsDropDownButton.clicked.connect()
+        self.gameOptionsDropDownMenu = QMenu()
+        self.gameOptionsDropDownMenu.addAction("Save current parameters to script", self.export_script)
+        self.ui.GameOptionsDropDownButton.setMenu(self.gameOptionsDropDownMenu)
+        self.ui.GameOptionsDropDownButton.clicked.connect(self.show_game_options_dropdown)
+
+        # ====== Launch section =======
+        # load news feed from srb2.org =============================================== #
+        self.load_news()
+
+        # Load MSes to be used
+        self.load_ms_list()
+        
+
+    # RSS Functions
 
     def rss_enable_edit(self):
         self.ui.RSSMoveupButton.setEnabled(True)
@@ -247,21 +265,8 @@ class MainWindow(QMainWindow):
         self.rss_commit()
         return
 
-        # play button ================================================================ #
-        self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
-        # self.ui.GameOptionsDropDownButton.clicked.connect()
-        self.gameOptionsDropDownMenu = QMenu()
-        self.gameOptionsDropDownMenu.addAction("Save current parameters to script", self.export_script)
-        self.ui.GameOptionsDropDownButton.setMenu(self.gameOptionsDropDownMenu)
-        self.ui.GameOptionsDropDownButton.clicked.connect(self.show_game_options_dropdown)
+    # Default functions
 
-        # ====== Launch section =======
-        # load news feed from srb2.org =============================================== #
-        self.load_news()
-
-        # Load MSes to be used
-        self.load_ms_list()
-        
     def open_url(self, url):
         webbrowser.open(url)
 
@@ -293,8 +298,18 @@ class MainWindow(QMainWindow):
         print(msg)
 
     def load_article(self, index):
-        self.ui.RSSArticleView.setHtml(self.news[index].content[0].value)
         self.ui.RSSViewonlineButton.setEnabled(True);
+        if hasattr(self.news[index], "content"):
+            self.ui.RSSArticleView.setHtml(self.news[index].content[0].value)
+        else:
+            self.ui.RSSArticleView.setHtml("<h1>{}</h1>"
+                                           "<p><img src=\":/assets/img/icons/about.png\" /></p>"
+                                           "<p>No content available. This "
+                                           "is most likely an issue with "
+                                           "your RSS/Atom feed, not with "
+                                           "your Liquid Launcher</p>"
+                                           "<a href={}>View online</a>"
+                                           .format(self.news[index].title, self.news[index].link))
 
     def view_article_online(self, index):
         idx = self.ui.RSSArticleList.currentRow()
@@ -336,7 +351,7 @@ class MainWindow(QMainWindow):
                                             QtCore.Qt.FastTransformation))
         return
 
-    def get_launch_command(self):
+    def get_client_launch_command(self):
         """
         This converts all of the launcher inputs to a single-string command to 
         launch SRB2
@@ -381,7 +396,65 @@ class MainWindow(QMainWindow):
         if ui.GameArgsInput.text() != "": 
             com += " " + ui.GameArgsInput.text()
 
+        print("CLIENT COMMAND: {}".format(com))
         return com
+
+    def get_server_launch_command(self):
+        """Launch server
+        """
+        launch_command = self.ui.GameExecFilePathInput.text() + " -server"
+        if not self.ui.DedicatedServerToggle.isChecked:
+            launch_command = self.get_client_launch_command()
+
+        if self.ui.ServerNameInput.text() != "": launch_command += " +servername  \"{}\"".format(self.ui.ServerNameInput.text())
+        if self.ui.AdminPasswordInput.text() != "": launch_command += " +password \"{}\"".format(self.ui.AdminPasswordInput.text())
+        if self.ui.HostMSCombobox.currentText() != "": launch_command += " +masterserver \"{}\"".format(self.ui.HostMSCombobox.currentText())
+        # TODO: Live Master Server room queries
+        if self.ui.RoomInput.currentIndex() != 0:
+            launch_command += " -id "
+            if self.ui.RoomInput.currentIndex() == 1: launch_command += "33"
+            if self.ui.RoomInput.currentIndex() == 2: launch_command += "28"
+            if self.ui.RoomInput.currentIndex() == 3: launch_command += "38"
+            if self.ui.RoomInput.currentIndex() == 4: launch_command += "31"
+        launch_command += " -gametype " + str(self.ui.GametypeInput.currentIndex())
+        launch_command += " +advancemap " + str(self.ui.AdvanceMapInput.currentIndex())
+        if "" != self.ui.PointLimitInput.text():
+            launch_command += " +pointlimit " + self.ui.PointLimitInput.text()
+        else:
+            launch_command += " +pointlimit 1000"
+        if self.ui.TimeLimitInput.text() != "":
+            launch_command += " +timelimit " + self.ui.TimeLimitInput.text()
+        else:
+            launch_command += " +timelimit 0"
+        if self.ui.MaxPlayersInput.text() != "":
+            launch_command += " +maxplayers " + self.ui.MaxPlayersInput.text()
+        else:
+            launch_command += " +maxplayers 8"
+        if (
+                self.ui.ForceSkinInput.currentText() != ""):
+            launch_command += " +forceskin " + self.ui.ForceSkinInput.currentText().lower().replace(
+            " ", "")
+        if self.ui.PortInput.text() != "":
+            launch_command += " -port " + self.ui.PortInput.text()
+        else:
+            launch_command += " -port 5029"
+        if self.ui.DisableWeaponsToggle.isChecked():
+            launch_command += " +specialrings 1"
+        else:
+            launch_command += " +specialrings 0"
+        if self.ui.SuddenDeathToggle.isChecked():
+            launch_command += " +suddendeath 1"
+        else:
+            launch_command += " +suddendeath 0"
+        if self.ui.DedicatedServerToggle.isChecked(): launch_command += " -dedicated"
+        if self.ui.UploadToggle.isChecked():
+            launch_command += " +downloading 1"
+        else:
+            launch_command += " +downloading 0"
+
+        print("SERVER COMMAND: {}".format(launch_command))
+        os.system(launch_command)
+        return
 
     def set_game_path(self):
         f, _ = QFileDialog.getExistingDirectory()
@@ -480,8 +553,14 @@ class MainWindow(QMainWindow):
             self.ui.GameFilesExecScriptInput.setText(f)
 
     def launch_game_normally(self):
-        launchCommand = self.get_launch_command()
-        os.system(launchCommand)
+        launchCommand_client = self.get_client_launch_command()
+        launchCommand_server = self.get_server_launch_command()
+
+        # Check mode: Hosting?
+        if self.ui.GamePageTabList.currentRow() == 3:
+            os.system(launchCommand_server)
+        else:
+            os.system(launchCommand_client)
         return
 
     def change_main_tab(self, index):
@@ -490,6 +569,11 @@ class MainWindow(QMainWindow):
 
     def change_game_tab(self, index):
         self.ui.GameContentStackedWidget.setCurrentIndex(index)
+        # Check mode: Hosting? -> Adjust GamePlayButton text
+        if self.ui.GamePageTabList.currentRow() == 3:
+            self.ui.GamePlayButton.setText("LAUNCH SERVER")
+        else:
+            self.ui.GamePlayButton.setText("PLAY")
         return
 
     # Mods browser
@@ -566,10 +650,10 @@ class MainWindow(QMainWindow):
                 return
             print("> old current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
             #print("ms_list: ", self.ms_list)
-            #print("BrowseMSComboBox: ", self.ui.BrowseMSComboBox)
+            #print("BrowseMSCombobox: ", self.ui.BrowseMSCombobox)
             self.global_settings["current_ms"] = self.ms_list[newText];
-            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentText()];
-            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSComboBox.currentData()];
+            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSCombobox.currentText()];
+            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSCombobox.currentData()];
             print("> new current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
             #self.query_ms()
         except Exception as e:
@@ -761,73 +845,19 @@ class MainWindow(QMainWindow):
         os.system(self.get_launch_command() + " -connect " + ipString)
         return
 
-    def start_server(self):
-        """Join current selected server in list
-        """
-        launch_command = self.ui.GameExecFilePathInput.text() + " -server"
-        if not self.ui.DedicatedServerToggle.isChecked:
-            launch_command = self.get_launch_command()
-
-        if self.ui.ServerNameInput.text() != "": launch_command += " +servername " + self.ui.ServerNameInput.text()
-        if self.ui.AdminPasswordInput.text() != "": launch_command += " +password " + self.ui.AdminPasswordInput.text()
-        if self.ui.RoomInput.currentIndex() != 0:
-            launch_command += " -id "
-            if self.ui.RoomInput.currentIndex() == 1: launch_command += "33"
-            if self.ui.RoomInput.currentIndex() == 2: launch_command += "28"
-            if self.ui.RoomInput.currentIndex() == 3: launch_command += "38"
-            if self.ui.RoomInput.currentIndex() == 4: launch_command += "31"
-        launch_command += " -gametype " + str(self.ui.GametypeInput.currentIndex())
-        launch_command += " +advancemap " + str(self.ui.AdvanceMapInput.currentIndex())
-        if "" != self.ui.PointLimitInput.text():
-            launch_command += " +pointlimit " + self.ui.PointLimitInput.text()
-        else:
-            launch_command += " +pointlimit 1000"
-        if self.ui.TimeLimitInput.text() != "":
-            launch_command += " +timelimit " + self.ui.TimeLimitInput.text()
-        else:
-            launch_command += " +timelimit 0"
-        if self.ui.MaxPlayersInput.text() != "":
-            launch_command += " +maxplayers " + self.ui.MaxPlayersInput.text()
-        else:
-            launch_command += " +maxplayers 8"
-        if (
-                self.ui.ForceSkinInput.currentText() != ""):
-            launch_command += " +forceskin " + self.ui.ForceSkinInput.currentText().lower().replace(
-            " ", "")
-        if self.ui.PortInput.text() != "":
-            launch_command += " -port " + self.ui.PortInput.text()
-        else:
-            launch_command += " -port 5029"
-        if self.ui.DisableWeaponsToggle.isChecked():
-            launch_command += " +specialrings 1"
-        else:
-            launch_command += " +specialrings 0"
-        if self.ui.SuddenDeathToggle.isChecked():
-            launch_command += " +suddendeath 1"
-        else:
-            launch_command += " +suddendeath 0"
-        if self.ui.DedicatedServerToggle.isChecked(): launch_command += " -dedicated"
-        if self.ui.UploadToggle.isChecked():
-            launch_command += " +downloading 1"
-        else:
-            launch_command += " +downloading 0"
-
-        os.system(launch_command)
-        return
-
     # Saved Master Servers
     def update_ms_list_in_ui(self): 
         print("update_ms_list_in_ui")
-        self.ui.BrowseMSComboBox.clear()
-        self.ui.HostMSComboBox.clear()
+        self.ui.BrowseMSCombobox.clear()
+        self.ui.HostMSCombobox.clear()
         # We only need the first column (names)
         rows = self.ui.MasterServersTable.rowCount()
-        self.ui.BrowseMSComboBox.insertItem( 0, "All")
+        self.ui.BrowseMSCombobox.insertItem( 0, "All")
         for i in range(0, rows):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
-            self.ui.BrowseMSComboBox.insertItem( self.ui.BrowseMSComboBox.count(), ms_name)
-            self.ui.HostMSComboBox.insertItem( self.ui.HostMSComboBox.count(), ms_url)
+            self.ui.BrowseMSCombobox.insertItem( self.ui.BrowseMSCombobox.count(), ms_name)
+            self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
 
         self.ui.MasterServersTable.resizeColumnsToContents()
         return
@@ -1205,7 +1235,7 @@ class MainWindow(QMainWindow):
         self.ui.DisableWeaponsToggle.setChecked(profile_settings_dict["host"]["disableweaponrings"])
         self.ui.SuddenDeathToggle.setChecked(profile_settings_dict["host"]["suddendeath"])
         self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
-        self.ui.HostMSComboBox.setCurrentText(profile_settings_dict["host"]["masterserver"])
+        self.ui.HostMSCombobox.setCurrentText(profile_settings_dict["host"]["masterserver"])
         self.ui.WineToggle.setChecked(profile_settings_dict["settings"]["wine"])
         self.ui.LauncherThemeInput.setCurrentIndex(profile_settings_dict["settings"]["theme"])
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
@@ -1253,7 +1283,7 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["disableweaponrings"] = self.ui.DisableWeaponsToggle.isChecked()
         toml_settings["host"]["suddendeath"] = self.ui.SuddenDeathToggle.isChecked()
         toml_settings["host"]["dedicated"] = self.ui.DedicatedServerToggle.isChecked()
-        toml_settings["host"]["masterserver"] = self.ui.HostMSComboBox.currentText()
+        toml_settings["host"]["masterserver"] = self.ui.HostMSCombobox.currentText()
         toml_settings["settings"]["wine"] = self.ui.WineToggle.isChecked()
         toml_settings["settings"]["theme"] = self.ui.LauncherThemeInput.currentIndex()
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
