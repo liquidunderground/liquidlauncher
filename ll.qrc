@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="assets">
+    <file>default.html</file>
     <file>img/icons/media-playback-start.png</file>
     <file>img/icons/edit-delete.png</file>
     <file>img/icons/download.png</file>

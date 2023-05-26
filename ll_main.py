@@ -11,7 +11,7 @@ from urllib.request import urlretrieve
 
 import feedparser
 from PySide6 import QtGui, QtCore, QtWidgets
-from PySide6.QtWidgets import QFileDialog, QMenu, QMessageBox
+from PySide6.QtWidgets import QFileDialog, QMenu, QDialog, QDialogButtonBox, QMessageBox
 from PySide6.QtCore import Signal
 
 import edit_server_main
@@ -93,12 +93,6 @@ class MainWindow(QMainWindow):
         self.query_ms_sig.connect(self.ms_qthread.on_refresh)
         self.ms_qthread.server_list_sig1.connect(self.on_server_list)
         
-        # QTimer helps us know when user stops typing into profile name textbox
-        self.typing_timer = QtCore.QTimer()
-        self.typing_timer.setSingleShot(True)
-        self.typing_timer.timeout.connect(self.alter_profile_info)
-        self.ui.ProfileNameInput.textChanged.connect(self.start_typing_timer)
-        
         # load servers from file ===================================================== #
         # self.loadServerList()
         self.has_loaded_servers = False
@@ -141,8 +135,16 @@ class MainWindow(QMainWindow):
         # game "tabs" ================================================================ #
         self.ui.GamePageTabList.currentRowChanged.connect(self.change_game_tab)
 
-        # profile page buttons ======================================================= #
+        # profile buttons ======================================================= #
         self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
+        self.ui.ProfilesAddButton.clicked.connect(self.add_profile)
+        self.ui.ProfilesDeleteButton.clicked.connect(self.confirm_delete_profile)
+        self.ui.ProfilesRefreshButton.clicked.connect(self.refresh_profiles)
+        #self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
+
+        # Launch sript export buttons ================================================ #
+        self.ui.ExportServerScriptButton.clicked.connect(self.export_script)
+        self.ui.ExportClientScriptButton.clicked.connect(self.export_script)
 
         # files list buttons ========================================================= #
         self.ui.GameFilesClearButton.clicked.connect(self.clear_files_list)
@@ -206,18 +208,13 @@ class MainWindow(QMainWindow):
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
-        # self.ui.GameOptionsDropDownButton.clicked.connect()
-        self.gameOptionsDropDownMenu = QMenu()
-        self.gameOptionsDropDownMenu.addAction("Save current parameters to script", self.export_script)
-        self.ui.GameOptionsDropDownButton.setMenu(self.gameOptionsDropDownMenu)
-        self.ui.GameOptionsDropDownButton.clicked.connect(self.show_game_options_dropdown)
 
         # ====== Launch section =======
         # load news feed from srb2.org =============================================== #
         self.load_news()
 
         # Load MSes to be used
-        self.load_ms_list()
+        #self.load_ms_list()
         
 
     # RSS Functions
@@ -453,8 +450,7 @@ class MainWindow(QMainWindow):
             launch_command += " +downloading 0"
 
         print("SERVER COMMAND: {}".format(launch_command))
-        os.system(launch_command)
-        return
+        return launch_command
 
     def set_game_path(self):
         f, _ = QFileDialog.getExistingDirectory()
@@ -727,7 +723,7 @@ class MainWindow(QMainWindow):
         ip_string = '{}:{}'.format(
             self.master_server_list[selection].get("ip"),
             self.master_server_list[selection].get("port") )
-        os.system(self.get_launch_command() + " -connect " + ip_string)
+        os.system(self.get_client_launch_command() + " -connect " + ip_string)
         return
 
     def save_ms_selection(self):
@@ -835,14 +831,14 @@ class MainWindow(QMainWindow):
             self.ui.SavedNetgameTable.item( self.ui.SavedNetgameTable.currentRow(), 1 ).text(),
             self.ui.SavedNetgameTable.item( self.ui.SavedNetgameTable.currentRow(), 2 ).text(),
         )
-        os.system(self.get_launch_command() + " -connect " + ipString)
+        os.system(self.get_client_launch_command() + " -connect " + ipString)
         return
 
     def join_from_ip(self):
         """Join direct address
         """
         ipString = self.ui.JoinAddressInput.text()
-        os.system(self.get_launch_command() + " -connect " + ipString)
+        os.system(self.get_client_launch_command() + " -connect " + ipString)
         return
 
     # Saved Master Servers
@@ -1050,29 +1046,62 @@ class MainWindow(QMainWindow):
         self.save_profile_file(filename)
         self.load_different_profile(name)
         
-    def start_typing_timer(self):
-        """Wait until there are no changes for 1 second before making changes."""
-        self.typing_timer.start(1000)
-
     def alter_profile_info(self):
         old_profile = self.global_settings["current_profile"]
         old_filename = self.global_settings["profiles"][old_profile]
         new_name = self.ui.ProfileNameInput.text()
         new_filename = new_name.lower().replace(" ", "_") + ".toml"
-        self.ui.ProfileFilenameInput.setText(new_filename)
         self.global_settings["profiles"].pop(old_profile)
         self.global_settings["profiles"][new_name] = new_filename
         self.global_settings["current_profile"] = new_name
         self.save_global_settings_file()
         self.save_profile_file(new_filename)
+
+    def confirm_delete_profile(self):
+        profile = self.ui.GameProfileComboBox.currentText()
+        warning = QDialog(self)
+        #warning.setText("Are you sure you want to delete {}? "
+                        #"This action cannot be undone.".format(profile) )
+        warning.setWindowTitle("Delete profile?")
+        #warning.accepted.connect(delete_profile)
+
+        warning.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        warning.buttonBox.accepted.connect(self.delete_profile)
+
+        warning.layout = QVBoxLayout()
+        message = QLabel(
+            "Are you sure you want to delete {}? "
+            "This action cannot be undone.".format(profile) )
+        warning.layout.addWidget(message)
+        warning.layout.addWidget(warning.buttonBox)
+        warning.setLayout(warning.layout)
+
+        warning.exec()
+
+    def add_profile(self):
+        profile = self.ui.GameProfileComboBox.currentText()
         # Delete old profile file:
         os.remove(old_filename)
+        self.refresh_profiles(old_filename)
+
+    def delete_profile(self):
+        profile = self.ui.GameProfileComboBox.currentText()
+        # Delete old profile file:
+        os.remove(old_filename)
+        self.refresh_profiles(old_filename)
+
+    def refresh_profiles(self):
+        profile = self.ui.GameProfileComboBox.currentText()
+        # Delete old profile file:
+        os.remove(old_filename)
+        self.refresh_profiles(old_filename)
 
     def add_profiles_to_combobox(self):
         profiles = self.get_profile_name_list()
         self.ui.GameProfileComboBox.clear()
         self.ui.GameProfileComboBox.addItems(profiles)
         self.ui.GameProfileComboBox.setCurrentText(self.global_settings["current_profile"])
+        self.ui.ProfilesDeleteButton.setEnabled(True)
 
     def load_global_settings(self):
         if not self.global_settings_exist():
@@ -1092,8 +1121,6 @@ class MainWindow(QMainWindow):
         current_profile_file = self.get_current_profile_file()
         self.current_profile_settings = self.read_config_file(
             current_profile_file)
-        self.ui.ProfileFilenameInput.setText(current_profile_file)
-        self.ui.ProfileNameInput.setText(self.global_settings["current_profile"])
     
     def get_current_profile_file(self):
         return self.global_settings["profiles"].get(
@@ -1170,9 +1197,9 @@ class MainWindow(QMainWindow):
                                     },
                                 "rss": [
                                     "https://srb2.org/feed",
-                                    "https://mb.srb2.org/forums/-/index.rss",
-                                    "https://srb2workshop.org/forums/-/index.rss",
                                     "https://sonicstadium.org/feed"
+                                    "https://nitter.net/SonicTeamJr/rss",
+                                    "https://nitter.net/SRB2Workshop/rss",
                                     ]
                                 }
         self.save_global_settings_file()
@@ -1237,7 +1264,6 @@ class MainWindow(QMainWindow):
         self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
         self.ui.HostMSCombobox.setCurrentText(profile_settings_dict["host"]["masterserver"])
         self.ui.WineToggle.setChecked(profile_settings_dict["settings"]["wine"])
-        self.ui.LauncherThemeInput.setCurrentIndex(profile_settings_dict["settings"]["theme"])
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
 
         if self.ui.SaveFilesToConfigToggle.isChecked:
@@ -1285,7 +1311,6 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["dedicated"] = self.ui.DedicatedServerToggle.isChecked()
         toml_settings["host"]["masterserver"] = self.ui.HostMSCombobox.currentText()
         toml_settings["settings"]["wine"] = self.ui.WineToggle.isChecked()
-        toml_settings["settings"]["theme"] = self.ui.LauncherThemeInput.currentIndex()
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
 
         for i in range(self.ui.GameFilesList.count()):
@@ -1346,7 +1371,10 @@ class MainWindow(QMainWindow):
         if fileName:
             out_text = ""
             if fileName.endswith(".sh"): out_text += "#!bin/bash\n"
-            out_text += self.get_launch_command()
+            if self.ui.GamePageTabList.currentRow() == 3:
+                out_text += self.get_server_launch_command()
+            else:
+                out_text += self.get_client_launch_command()
             with open(fileName, "w") as f:
                 f.write(out_text)
         return
