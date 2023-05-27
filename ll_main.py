@@ -165,6 +165,9 @@ class MainWindow(QMainWindow):
         self.ui.ExportServerScriptButton.clicked.connect(self.export_script)
         self.ui.ExportClientScriptButton.clicked.connect(self.export_script)
 
+        # game settings buttons ========================================================= #
+        self.ui.GameExecFilePathBrowse.clicked.connect(self.set_game_exec_path)
+
         # files list buttons ========================================================= #
         self.ui.GameFilesClearButton.clicked.connect(self.clear_files_list)
         self.ui.GameFilesDeleteButton.clicked.connect(self.delete_selected_files)
@@ -559,6 +562,13 @@ class MainWindow(QMainWindow):
         return
 
     #
+
+    def set_game_exec_path(self):
+        f, _ = QFileDialog.getOpenFileName(self, "Open script to execute on launch", "",
+                                           "All compatible files (*.exe *.elf);;All files (*)",
+                                           options=self.FileDialogOptions)
+        if (f):
+            self.ui.GameExecFilePathInput.setText(f)
 
     def set_exec_file_path(self):
         f, _ = QFileDialog.getOpenFileName(self, "Open script to execute on launch", "",
