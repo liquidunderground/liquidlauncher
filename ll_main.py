@@ -216,7 +216,7 @@ class MainWindow(QMainWindow):
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
-        self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/samples"))
+        self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/configs-public"))
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
