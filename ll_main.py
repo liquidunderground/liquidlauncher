@@ -14,7 +14,6 @@ from PySide6 import QtGui, QtCore, QtWidgets
 from PySide6.QtWidgets import QFileDialog, QMenu, QInputDialog, QDialogButtonBox, QMessageBox
 from PySide6.QtCore import Signal
 
-import edit_server_main
 import char_text
 from ll_threading import QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
@@ -189,7 +188,7 @@ class MainWindow(QMainWindow):
         self.ui.JoinBookmarkButton.clicked.connect(self.join_selected_netgame_bookmark)
         self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
-        self.ui.BrowseMSCombobox.textActivated.connect(self.change_current_ms)
+        self.ui.BrowseMSCombobox.currentTextChanged.connect(self.change_current_ms)
         self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
         # Stubbed to make it editable
         #self.ui.SavedNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_bookmark)
@@ -236,7 +235,7 @@ class MainWindow(QMainWindow):
         self.load_news()
 
         # Load MSes to be used
-        #self.load_ms_list()
+        self.load_ms_list()
         
 
     # RSS Functions
@@ -668,19 +667,14 @@ class MainWindow(QMainWindow):
     # Master server browser
 
     def change_current_ms(self, newText):
-        # Anti-noid safeguard
         print("change_current_ms({})".format(newText))
         try:
             if newText == "":
                 return
             print("> old current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
-            #print("ms_list: ", self.ms_list)
-            #print("BrowseMSCombobox: ", self.ui.BrowseMSCombobox)
             self.global_settings["current_ms"] = self.ms_list[newText];
-            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSCombobox.currentText()];
-            #self.global_settings["current_ms"] = self.ms_list[self.ui.BrowseMSCombobox.currentData()];
             print("> new current_ms: ", self.global_settings.get("current_ms", "<NONE>"))
-            #self.query_ms()
+            self.query_ms()
         except Exception as e:
             print("Unable to change MS: ",e)
 
@@ -873,6 +867,10 @@ class MainWindow(QMainWindow):
     # Saved Master Servers
     def update_ms_list_in_ui(self): 
         print("update_ms_list_in_ui")
+        # Add combobox Mutex to avoid event loops
+        self.ui.BrowseMSCombobox.blockSignals(True)
+        self.ui.HostMSCombobox.blockSignals(True)
+
         self.ui.BrowseMSCombobox.clear()
         self.ui.HostMSCombobox.clear()
         # We only need the first column (names)
@@ -885,6 +883,10 @@ class MainWindow(QMainWindow):
             self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
 
         self.ui.MasterServersTable.resizeColumnsToContents()
+
+        # Remove combobox Mutex
+        self.ui.HostMSCombobox.blockSignals(False)
+        self.ui.BrowseMSCombobox.blockSignals(False)
         return
 
     def load_ms_list(self): 
@@ -908,7 +910,6 @@ class MainWindow(QMainWindow):
                 )
 
         self.update_ms_list_in_ui()
-        #self.load_ms_list()
         return
 
     def save_ms_list(self): 
