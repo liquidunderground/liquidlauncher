@@ -11,7 +11,7 @@ from urllib.request import urlretrieve
 
 import feedparser
 from PySide6 import QtGui, QtCore, QtWidgets
-from PySide6.QtWidgets import QFileDialog, QMenu, QDialog, QDialogButtonBox, QMessageBox
+from PySide6.QtWidgets import QFileDialog, QMenu, QInputDialog, QDialogButtonBox, QMessageBox
 from PySide6.QtCore import Signal
 
 import edit_server_main
@@ -23,7 +23,7 @@ from qss import themes
 fool = date.today() == date(date.today().year, 4, 1)
 
 versionString = "0.1"
-global_settings_file = "settings.toml"
+global_settings_file = "ll_settings.toml"
 
 
 class MainWindow(QMainWindow):
@@ -42,13 +42,29 @@ class MainWindow(QMainWindow):
     def __init__(self, app):
         super().__init__()
         
-        # Launcher settings and profile variables
-        self.global_settings = None
-        self.current_profile = None
-        self.current_profile_file = None
+        # Default Launcher settings. Profiles are filenames read from profiles_dir
+        self.global_settings = {"current_profile": "default.toml",
+                                "profiles_dir": os.path.join(os.getcwd(), "ll_profiles"),
+                                "current_ms":{
+                                    "url": "http://mb.srb2.org/MS/0",
+                                    "api": "v1",
+                                },
+                                "modsources": {
+                                    "srb2mb": True,
+                                    "workshop_blue": False,
+                                    "workshop_red": False,
+                                    "wadarchive": False,
+                                    "skybase": False,
+                                    "gamebanana": False
+                                    },
+                                "rss": [
+                                    "https://srb2.org/feed",
+                                    "https://sonicstadium.org/feed",
+                                    "https://nitter.net/SonicTeamJr/rss",
+                                    "https://nitter.net/SRB2Workshop/rss",
+                                    ]
+                                }
         self.current_profile_settings = None
-        
-        self.apply_style()
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -140,6 +156,9 @@ class MainWindow(QMainWindow):
         self.ui.ProfilesAddButton.clicked.connect(self.add_profile)
         self.ui.ProfilesDeleteButton.clicked.connect(self.confirm_delete_profile)
         self.ui.ProfilesRefreshButton.clicked.connect(self.refresh_profiles)
+        self.ui.ProfilesSaveButton.clicked.connect(lambda: self.save_profile_file(self.ui.GameProfileComboBox.currentText()))
+        #self.ui.GameProfileComboBox.currentIndexChanged.connect(self.set_current_profile)
+        self.ui.GameProfileComboBox.currentTextChanged.connect(self.set_current_profile)
         #self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
 
         # Launch sript export buttons ================================================ #
@@ -943,14 +962,14 @@ class MainWindow(QMainWindow):
     
     def save_all(self):
         self.save_global_settings_file()
-        self.save_profile_file(self.get_current_profile_file())
+        self.save_profile_file(self.global_settings["current_profile"])
 
     def applicationStarted(self):
         """Wait for window to fully start
         """
         # fix resolution of the image on the play tab ================================ #
-        self.load_server_list()
         self.load_global_settings()
+        self.load_server_list()
         self.load_current_profile()
         self.check_version()
         try:
@@ -990,13 +1009,19 @@ class MainWindow(QMainWindow):
         print(self.global_settings["modsources"])
 
     def set_current_profile(self, profile):
-        self.global_settings["current_profile"] = profile.key()
-    
-    def get_profile_name_list(self):
-        return self.global_settings["profiles"].keys()
-    
-    def get_profile_file_list(self):
-        return self.global_settings["profiles"].values()
+        # Stub check but might be handy
+        iprofile = profile
+        if isinstance(profile, int):
+            iprofile = self.ui.GameProfileComboBox.itemText(profile)
+
+        print("set_current_profile({})".format(iprofile))
+        self.global_settings["current_profile"] = iprofile
+
+        # Mutex lock for auto-updates
+        self.ui.GameProfileComboBox.blockSignals(True)
+        self.ui.GameProfileComboBox.setCurrentText(iprofile)
+        self.ui.GameProfileComboBox.blockSignals(False)
+        self.load_current_profile()
     
     def verify_global_settings_integrity(self):
         """Verifies that profile files specified in the global settings file
@@ -1005,142 +1030,87 @@ class MainWindow(QMainWindow):
         pass
         # TODO
     
-    def if_profile_name_already_exists(self, name):
-        if name in self.get_profile_name_list():
-            return True
-        else:
-            return False
-    
-    def if_profile_file_already_exists(self, file):
-        if file in self.get_profile_file_list():
-            return True
-        else:
-            return False
-    
-    def generate_new_profile_name(self):
-        profile_name_list = self.get_profile_name_list()
-        starter_name = "New Profile"
-        count = 0
-        while starter_name in profile_name_list:
-            count += 1
-        if count > 0:
-            starter_name = "{} {}".format(starter_name, count)
-        return starter_name
-        
-    def generate_new_profile_filename(self):
-        profile_file_list = self.get_profile_file_list()
-        starter_name = "new_profile"
-        count = 0
-        while starter_name in profile_file_list:
-            count += 1
-        if count > 0:
-            starter_name = "{}_{}".format(starter_name, count)
-        full_filename = starter_name + ".toml"
-        return full_filename
-    
-    def add_new_profile(self):
-        name = self.generate_new_profile_name()
-        filename = self.generate_new_profile_filename()
-        self.global_settings["profiles"][name] = filename
-        self.add_profiles_to_combobox()
-        self.save_profile_file(filename)
-        self.load_different_profile(name)
-        
-    def alter_profile_info(self):
-        old_profile = self.global_settings["current_profile"]
-        old_filename = self.global_settings["profiles"][old_profile]
-        new_name = self.ui.ProfileNameInput.text()
-        new_filename = new_name.lower().replace(" ", "_") + ".toml"
-        self.global_settings["profiles"].pop(old_profile)
-        self.global_settings["profiles"][new_name] = new_filename
-        self.global_settings["current_profile"] = new_name
-        self.save_global_settings_file()
-        self.save_profile_file(new_filename)
+    def add_profile(self):
+        filename, res = QInputDialog.getText(self, 'Create new profile', 'Filename:')
+        if res and filename:
+            self.save_profile_file(filename)
+            self.refresh_profiles(filename)
+        self.ui.ProfilesStatusLabel.setText("{} succesfully added.".format(filename))
 
     def confirm_delete_profile(self):
-        profile = self.ui.GameProfileComboBox.currentText()
-        warning = QDialog(self)
-        #warning.setText("Are you sure you want to delete {}? "
-                        #"This action cannot be undone.".format(profile) )
-        warning.setWindowTitle("Delete profile?")
-        #warning.accepted.connect(delete_profile)
+        profilepath = os.path.join(
+            self.global_settings["profiles_dir"],
+            self.ui.GameProfileComboBox.currentText()
+            )
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Warning)
+        msg.setText("Do you really wanna delete {}? This cannot be undone.".format(profilepath) )
+        msg.setWindowTitle("Delete profile?")
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
+        res = msg.exec()
+        if res == QMessageBox.Yes:
+            # Delete old profile file:
+            os.remove(profilepath)
+            self.refresh_profiles(-1) # Select the first one
 
-        warning.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        warning.buttonBox.accepted.connect(self.delete_profile)
-
-        warning.layout = QVBoxLayout()
-        message = QLabel(
-            "Are you sure you want to delete {}? "
-            "This action cannot be undone.".format(profile) )
-        warning.layout.addWidget(message)
-        warning.layout.addWidget(warning.buttonBox)
-        warning.setLayout(warning.layout)
-
-        warning.exec()
-
-    def add_profile(self):
-        profile = self.ui.GameProfileComboBox.currentText()
-        # Delete old profile file:
-        os.remove(old_filename)
-        self.refresh_profiles(old_filename)
-
-    def delete_profile(self):
-        profile = self.ui.GameProfileComboBox.currentText()
-        # Delete old profile file:
-        os.remove(old_filename)
-        self.refresh_profiles(old_filename)
-
-    def refresh_profiles(self):
-        profile = self.ui.GameProfileComboBox.currentText()
-        # Delete old profile file:
-        os.remove(old_filename)
-        self.refresh_profiles(old_filename)
-
-    def add_profiles_to_combobox(self):
-        profiles = self.get_profile_name_list()
+    def refresh_profiles(self, newprof = None):
+        profiles = self.find_profile_files_in_dir()
+        self.ui.GameProfileComboBox.blockSignals(True)
         self.ui.GameProfileComboBox.clear()
         self.ui.GameProfileComboBox.addItems(profiles)
-        self.ui.GameProfileComboBox.setCurrentText(self.global_settings["current_profile"])
+        if isinstance(newprof, str):
+            self.set_current_profile(newprof)
+        elif isinstance(newprof, int) and newprof < 0:
+            self.ui.GameProfileComboBox.setCurrentIndex(0)
+            self.set_current_profile(self.ui.GameProfileComboBox.currentText())
+        elif isinstance(self.global_settings["current_profile"], str):
+            self.set_current_profile(self.global_settings["current_profile"])
         self.ui.ProfilesDeleteButton.setEnabled(True)
+        self.ui.GameProfileComboBox.blockSignals(False)
+        self.ui.ProfilesStatusLabel.setText("Profile list updated.")
 
     def load_global_settings(self):
+        print("load_global_settings()")
+
         if not self.global_settings_exist():
             self.create_settings_on_first_run()
             print("Creating settings on first run!")
         
         toml_settings = self.read_config_file(global_settings_file)
-        self.global_settings = toml_settings
+        self.global_settings.update(toml_settings)
+
+        self.ui.ProfileDirInput.setText(self.global_settings["profiles_dir"])
 
         # Update RSS List in UI
         self.ui.RSSFeedList.clear()
-        for feed in self.global_settings["rss"]:
-            self.add_rss_to_list(feed)
+        if self.global_settings["rss"] != None:
+            for feed in self.global_settings["rss"]:
+                self.add_rss_to_list(feed)
 
         # Profiles combobox
-        self.add_profiles_to_combobox()
-        current_profile_file = self.get_current_profile_file()
+        self.refresh_profiles()
+        current_profile_file = self.global_settings["current_profile"]
         self.current_profile_settings = self.read_config_file(
             current_profile_file)
-    
-    def get_current_profile_file(self):
-        return self.global_settings["profiles"].get(
-            self.global_settings["current_profile"])
     
     def default_profile_exists(self):
         if self.global_settings == None:
             return False
         else:
-            if not self.config_file_exists(self.get_current_profile_file()):
-                return False
-            else:
-                return True
+            #if not self.profile_exists(self.global_settings["current_profile"]):
+            default_path = os.path.join(os.path.join(os.getcwd(), "ll_profiles"), "default.toml")
+            return self.profile_exists(default_path)
     
     def global_settings_exist(self):
-        if not self.config_file_exists(global_settings_file):
-            return False
-        else:
-            return True
+        return self.config_file_exists(global_settings_file)
     
+    def profile_exists(self, name=None):
+        if not os.path.isdir(self.global_settings["profiles_dir"]):
+            return False
+
+        fpath = os.path.join(self.global_settings["profiles_dir"], name)
+        return os.path.isfile(fpath)
+
     def config_file_exists(self, config_file):
         fpath = os.path.join(os.getcwd(), config_file)
         #fpath = config_file
@@ -1160,11 +1130,12 @@ class MainWindow(QMainWindow):
     def find_profile_files_in_dir(self):
         """Finds all profile .toml files in a directory
         """
-        profile_dir = "./"
         profile_files = []
-        for file in os.listdir(profile_dir):
-            if file.endswith("profile.toml"):
-                profile_files.append(file)
+        # Bad profiles_dir? Not my job.
+        if os.path.isdir(self.global_settings["profiles_dir"]):
+            for file in os.listdir(self.global_settings["profiles_dir"]):
+                if file.endswith(".toml"):
+                    profile_files.append(file)
         return profile_files
     
     def save_global_settings_file(self):
@@ -1184,40 +1155,30 @@ class MainWindow(QMainWindow):
         self.global_settings["rss"] = feeds
 
     def create_settings_on_first_run(self):
-        self.global_settings = {"current_profile": "Default",
-                                "profiles": 
-                                    {"Default": "default_profile.toml"},
-                                "modsources": {
-                                    "srb2mb": True,
-                                    "workshop_blue": False,
-                                    "workshop_red": False,
-                                    "wadarchive": False,
-                                    "skybase": False,
-                                    "gamebanana": False
-                                    },
-                                "rss": [
-                                    "https://srb2.org/feed",
-                                    "https://sonicstadium.org/feed"
-                                    "https://nitter.net/SonicTeamJr/rss",
-                                    "https://nitter.net/SRB2Workshop/rss",
-                                    ]
-                                }
         self.save_global_settings_file()
         self.save_ms_list()
         self.save_server_list()
-        self.save_profile_file(self.get_current_profile_file())
+        self.save_profile_file(self.global_settings["current_profile"])
     
     def load_current_profile(self):
         if not self.default_profile_exists():
             self.create_settings_on_first_run()
             print("Creating settings on first run!")
+
+        print("Current profile: {}".format(self.global_settings["current_profile"]))
         self.current_profile_settings = self.read_config_file(
-            self.get_current_profile_file())
+            os.path.join(self.global_settings["profiles_dir"], self.global_settings["current_profile"])
+            )
+        print("Current profile settings: {}".format(self.current_profile_settings))
         self.apply_profile_settings_to_gui(self.current_profile_settings)
         
     def load_different_profile(self, profile):
-        profile_settings = self.read_config_file(profile.value())
-        self.apply_profile_settings_to_gui(profile_settings)
+        #profile_settings = self.read_config_file(profile.value())
+        # Stub Obsolete the way set_current_profile calls the loader
+        #profile_settings = self.read_config_file(
+            #os.path.join(self.global_settings["profiles_dir"], self.global_settings["current_profile"])
+            #)
+        #self.apply_profile_settings_to_gui(profile_settings)
         self.set_current_profile(profile)
         
     def get_profile_dict_from_file(self, profile_filename):
@@ -1281,6 +1242,7 @@ class MainWindow(QMainWindow):
         self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
 
         self.change_skin_image()
+        self.ui.ProfilesStatusLabel.setText("Profile successfully loaded.")
     
     def generate_profile_dict(self):
         """Converts GUI state to a settings dictionary
@@ -1322,42 +1284,21 @@ class MainWindow(QMainWindow):
         """This takes GUI state, converts to a dictionary, and saves the 
         variables to a TOML file.
         """
-        # generate the json data for the config
+        # generate the TOML data for the config
+        print("save_profile_file({})".format(filename))
+
+        # Guarantee profiles dir
+        if not os.path.isdir(self.global_settings["profiles_dir"]):
+            os.makedirs(self.global_settings["profiles_dir"])
         
         toml_settings = self.generate_profile_dict()
+        profilepath = os.path.join(self.global_settings["profiles_dir"], filename)
         
-        with open(filename, "w") as f:
+        with open(profilepath, "w") as f:
             new_toml_string = toml.dump(toml_settings, f)
 
         print("saved profile file")
-        return
-
-    def apply_style(self):
-        # set up the launcher theme
-        if not self.current_profile_settings:
-            self.setStyleSheet(themes.main + themes.dark)
-            return
-
-        if self.current_profile_settings["settings"]["theme"] == 0: 
-            chosentheme = themes.dark
-        if self.current_profile_settings["settings"]["theme"] == 1: 
-            chosentheme = themes.light
-        if self.current_profile_settings["settings"]["theme"] == 2: 
-            chosentheme = themes.blue
-        if self.current_profile_settings["settings"]["theme"] == 3: 
-            chosentheme = themes.orange
-        if self.current_profile_settings["settings"]["theme"] == 4: 
-            chosentheme = themes.red
-        if self.current_profile_settings["settings"]["theme"] == 5: 
-            chosentheme = themes.pink
-        if self.current_profile_settings["settings"]["theme"] == 6: 
-            chosentheme = themes.lightsout
-
-        # april fools day stuff. pls dont spoil for others!11!1
-        if (fool):
-            chosentheme = themes.pink
-
-        self.setStyleSheet(themes.main + chosentheme)
+        self.ui.ProfilesStatusLabel.setText("{} succesfully saved.".format(filename))
         return
 
     # Misc
