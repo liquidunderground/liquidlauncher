@@ -21,7 +21,7 @@ from qss import themes
 
 fool = date.today() == date(date.today().year, 4, 1)
 
-versionString = "0.1"
+versionString = "1.0b1"
 global_settings_file = "ll_settings.toml"
 
 
