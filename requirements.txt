@@ -1,3 +1,4 @@
+parse
 PyQt5
 requests
 PySide6

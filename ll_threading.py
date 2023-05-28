@@ -34,44 +34,42 @@ class QueryMessageBoard(QtCore.QThread):
         while self.running:
             if self.get_mods:
                 self.mods_list = {}
-                subforum_url = None
-                #mb = mb_query.srb2mb
+                url = None
                 mods = []
                 modsources = []
-                mb = mb_query.workshop_red
 
                 # Compose mod sources
-                #modsources.append( mb_query.srb2mb )
-                #modsources.append( mb_query.workshop_blue )
-                #modsources.append( mb_query.workshop_red )
-
                 if self.host.global_settings["modsources"]["srb2mb"]:
                    modsources.append( mb_query.srb2mb )
                 if self.host.global_settings["modsources"]["workshop_blue"]:
                    modsources.append( mb_query.workshop_blue )
                 if self.host.global_settings["modsources"]["workshop_red"]:
                    modsources.append( mb_query.workshop_red )
+                # Stubbed for future implementation
+                #if self.host.global_settings["modsources"]["wadarchive"]:
+                   #modsources.append( mb_query.wadarchive )
+                #if self.host.global_settings["modsources"]["skybase"]:
+                   #modsources.append( mb_query.skybase )
+                #if self.host.global_settings["modsources"]["gamebanana"]:
+                   #modsources.append( mb_query.gamebanana )
 
                 for src in modsources:
                     if self.mods_type == "Maps":
-                        subforum_url = src["main_url"] + src["maps_sublink"]
+                        url = src["maps"]
                     if self.mods_type == "Characters":
-                        subforum_url = src["main_url"] + src["characters_sublink"]
+                        url = src["characters_sublink"]
                     if self.mods_type == "Lua":
-                        subforum_url = src["main_url"] + src["lua_sublink"]
+                        url = src["lua"]
                     if self.mods_type == "Assets":
-                        subforum_url = src["main_url"] + src["assets_sublink"]
+                        url = src["assets"]
                     if self.mods_type == "Misc":
-                        subforum_url = src["main_url"] + src["misc_sublink"]
-                    print("Querying subforum {}".format(subforum_url))
-                    #mods.append(mb_query.get_mods(subforum_url, src))
-                    mods = mods + mb_query.get_mods(subforum_url, src)
+                        url = src["misc"]
+                    print("Querying forum {}".format(url))
+                    mods = mods + mb_query.get_mods(url, src)
 
-                #print("Mods: ", mods)
                 for mod in mods:
                     entry_text = mod.name
                     self.mods_list[entry_text] = mod
-                    #print("Parsing mod "+entry_text);
 
 
                 self.mod_list_sig1.emit(self.mods_list)

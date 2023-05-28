@@ -1,47 +1,85 @@
 from lxml import html
+from parse import *
 import requests
 
 ## Original MB values
 srb2mb = {
-    "main_url": "https://mb.srb2.org",
-    "maps_sublink": "/addons/categories/maps.4",
-    "characters_sublink": "/addons/categories/characters.5",
-    "lua_sublink": "/addons/categories/lua.7",
-    "misc_sublink": "/addons/categories/miscellaneous.8",
-    "assets_sublink": "/addons/categories/assets.6",
-    "thread_base": "/addons",
-    "download_base": "/addons",
-    "download_suffix": "/download",
+    "main": "https://mb.srb2.org",
+    "maps": "https://mb.srb2.org/addons/categories/maps.4",
+    "characters": "https://mb.srb2.org/addons/categories/characters.5",
+    "lua": "https://mb.srb2.org/addons/categories/lua.7",
+    "misc": "https://mb.srb2.org/addons/categories/miscellaneous.8",
+    "assets": "https://mb.srb2.org/addons/categories/assets.6",
+    "thread_link": "/addons/{thread}",
+    "thread": "https://mb.srb2.org/addons/{thread}",
+    "download": "https://mb.srb2.org/addons/{thread}/download",
     "vendor": "stjr"
 }
 
 ## Workshop for testing
 workshop_blue = {
-    "main_url": "https://srb2workshop.org",
-    "maps_sublink": "/forums/maps.18/",
-    "characters_sublink": "/forums/characters.19/",
-    "lua_sublink": "/forums/lua.20/",
-    "misc_sublink": "/forums/miscellaneous.21/",
-    "assets_sublink": "/forums/assets.29/",
-    "thread_base": "/threads",
-    #"thread_base": "/resources",
-    "download_base": "/resources",
-    "download_suffix": "/download",
+    "main": "https://srb2workshop.org",
+    "maps": "https://srb2workshop.org/forums/maps.18/",
+    "characters": "https://srb2workshop.org/forums/characters.19/",
+    "lua": "https://srb2workshop.org/forums/lua.20/",
+    "misc": "https://srb2workshop.org/forums/miscellaneous.21/",
+    "assets": "https://srb2workshop.org/forums/assets.29/",
+    "thread_link": "/threads/{thread}",
+    "thread": "https://srb2workshop.org/threads/{thread}/",
+    "download": "https://srb2workshop.org/resources/{thread}/download",
     "vendor": "workshop"
 }
 
 workshop_red = {
-    "main_url": "https://srb2workshop.org",
-    "maps_sublink": "/forums/maps.31/",
-    "characters_sublink": "/forums/characters.33/",
-    "lua_sublink": "/forums/lua.32/",
-    "misc_sublink": "/forums/miscellaneous.52/",
-    "assets_sublink": "/forums/assets.48/",
-    "thread_base": "/threads",
-    #"thread_base": "/resources",
-    "download_base": "/resources",
-    "download_suffix": "/download",
+    "main": "https://srb2workshop.org",
+    "maps": "https://srb2workshop.org/forums/maps.31/",
+    "characters": "https://srb2workshop.org/forums/characters.33/",
+    "lua": "https://srb2workshop.org/forums/lua.32/",
+    "misc": "https://srb2workshop.org/forums/miscellaneous.52/",
+    "assets": "https://srb2workshop.org/forums/assets.48/",
+    "thread_link": "/threads/{thread}",
+    "thread": "https://srb2workshop.org/threads/{thread}/",
+    "download": "https://srb2workshop.org/resources/{thread}/download",
     "vendor": "workshop"
+}
+
+skybase = {
+    "main": "https://srb2skybase.org/mb",
+    "maps": "https://srb2skybase.org/mb/forumdisplay.php?f=149",
+    "characters": "https://srb2skybase.org/mb/forumdisplay.php?f=150",
+    "lua": "about:blank",
+    "misc": "https://srb2skybase.org/mb/forumdisplay.php?f=151",
+    "assets": "about:blank",
+    "thread_link": "showthread.php?t={thread}",
+    "thread": "https://srb2skybase.org/mb/showthread.php?t={thread}",
+    "download": "https://srb2skybase.org/mb/attachment.php?attachmentid={mod}",
+    "vendor": "skybase"
+}
+
+wadarchive = {
+    "main": "about:wadarchive",
+    "maps": "about:wadarchive",
+    "characters": "about:wadarchive",
+    "lua": "about:wadarchive",
+    "misc": "about:wadarchive",
+    "assets": "about:wadarchive",
+    "thread_link": "about:wadarchive",
+    "thread": "about:wadarchive",
+    "download": "about:wadarchive",
+    "vendor": "wadarchive"
+}
+
+gamebanana = {
+    "main": "about:gamebanana",
+    "maps": "about:gamebanana",
+    "characters": "about:gamebanana",
+    "lua": "about:gamebanana",
+    "misc": "about:gamebanana",
+    "assets": "about:gamebanana",
+    "thread_link": "about:gamebanana",
+    "thread": "about:gamebanana",
+    "download": "about:gamebanana",
+    "vendor": "gamebanana"
 }
 
 # Oh so sneaky:
@@ -53,8 +91,9 @@ headers =  {'User-Agent':
 class Mod:
     def __init__(self, name, mb_info, thread_url):
         self.mb = mb_info
-        self.base_url = mb_info["main_url"]
+        self.base_url = mb_info["main"]
         self.name = name
+        self.modid = None
         self.thread_name = thread_url
         self.description = None
         self.download_url = None
@@ -64,13 +103,16 @@ class Mod:
 
     def set_download_url(self):
 
-        #self.url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name
-        self.url = self.mb["main_url"] + self.mb["thread_base"] + self.thread_name
+        #self.url = self.mb["main_url"] + self.mb["download"] + self.thread_name
+        #self.url = self.mb["main_url"] + self.mb["thread"] + self.thread_name
+        self.url = self.mb["thread"].format(thread=self.thread_name, mod=self.modid)
         if not self.thread_name:
             return None
 
         #self.download_url = self.url + self.mb["download_suffix"]
-        self.download_url = self.mb["main_url"] + self.mb["download_base"] + self.thread_name + self.mb["download_suffix"] 
+        #self.download_url = self.mb["main_url"] + self.mb["download"] + self.thread_name + self.mb["download_suffix"] 
+        self.download_url = self.mb["download"].format(thread=self.thread_name, mod=self.modid)
+
         #print("Download URL:"+self.download_url)
 
         return self.download_url
@@ -118,9 +160,9 @@ def get_mods(addons_subforum_url, modsource):
             last_page = True
             print("Last page reached!")
         else:
-            # Filter out prefices
+            # Filter out mod names using templates
             current_mod_links  = [
-            link.removeprefix(modsource["thread_base"]).rstrip('/') for link in current_mod_links ]
+            parse(modsource["thread_link"],link)["thread"] for link in current_mod_links ]
 
             mod_names.extend(current_mod_names)
             mod_links.extend(current_mod_links)
@@ -171,6 +213,7 @@ def get_list_of_thread_names(parsed_html):
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/text()')
 
 def get_list_of_thread_links(parsed_html):
+    #parsed_url = parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
 
 def download_mod(base_path, download_url):
