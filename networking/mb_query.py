@@ -134,52 +134,151 @@ class Mod:
             '//div[@class="bbWrapper"]/text()'))
         return self.description
 
-def get_mods(addons_subforum_url, modsource):
+def get_mods_xenforo(addons_subforum_url, modsource):
     """
-    Gets a list of all mods from addons subforum URL
+    Gets a list of all mods from XenForo-based subforums
     :param download_url: The URL of the SRB2 MB sub-forum to search
+    :param modsource: Internal modsource data (HTTP resources)
     :return: Returns a list containing Mod class instances
     """
-    print("mb_query.get_mods({})".format(addons_subforum_url))
-    last_page = False
-    mod_list = []
-    mod_links = []
-    mod_names = []
+    print("mb_query.get_mods_xenforo({})".format(addons_subforum_url))
     page_counter = 1
     previous_data = None
+    last_page = False
+    out = []
+    current_data = []
     # Iterate through pages grabbing thread names and their links:
     while not last_page:
         print("Querying page ", page_counter )
-        tree = get_addons_page_html(addons_subforum_url, page_counter)
-        current_mod_links = get_list_of_thread_links(tree)
-        current_mod_names = get_list_of_thread_names(tree)
-        if current_mod_names == previous_data:
+        tree = get_addons_page_html_xenforo(addons_subforum_url, page_counter)
+        # Get Elements; sort our href an text later
+        current_mod_elements = tree.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]')
+        if current_data == previous_data:
             # This works because if you go past the real number of pages,
             #   the MB will send you back to the last valid page,
             #   making you get the same data twice
             last_page = True
             print("Last page reached!")
         else:
+            current_data = []
             # Filter out mod names using templates
-            current_mod_links  = [
-            parse(modsource["thread_link"],link)["thread"] for link in current_mod_links ]
-
-            mod_names.extend(current_mod_names)
-            mod_links.extend(current_mod_links)
-        previous_data = current_mod_names
+            for el in current_mod_elements:
+                # Get current link
+                el_href = el.xpath('./@href')[0]
+                # Get current text
+                el_text = el.xpath('./text()')[0]
+                current_data.append(el_href)
+                out.append({
+                        "name": el_text, 
+                        "link": parse(modsource["thread_link"],el_href)["thread"]
+                        })
+        previous_data = current_data
         page_counter += 1
 
-    print("Mod links: ", mod_links )
+    print("Fetched mods: ", out )
+    return out
 
+def get_mods_vbulletin(addons_subforum_url, modsource):
+    """
+    Gets a list of all mods from vBulletin-based subforums
+    :param download_url: The URL of the SRB2 MB sub-forum to search
+    :param modsource: Internal modsource data (HTTP resources)
+    :return: Returns a list containing Mod class instances
+    """
+    print("mb_query.get_mods_vbulletin({})".format(addons_subforum_url))
+    page_counter = 1
+    previous_data = None
+    last_page = False
+    out = []
+    current_data = []
+    # Iterate through pages grabbing thread names and their links:
+    while not last_page:
+        print("Querying page ", page_counter )
+        tree = get_addons_page_html_xenforo(addons_subforum_url, page_counter)
+        # Get Elements; sort our href an text later
+        current_mod_elements = tree.xpath('.//*[@class="threadtitle"]/*[@class="title"]')
+        if current_data == previous_data:
+            # This works because if you go past the real number of pages,
+            #   vBulletin will send you back to the last valid page,
+            #   making you get the same data twice
+            last_page = True
+            print("Last page reached!")
+        else:
+            current_data = []
+            # Filter out mod names using templates
+            for el in current_mod_elements:
+                # Get current link
+                el_href = el.xpath('./@href')[0]
+                # Get current text
+                el_text = el.xpath('./text()')[0]
+                #print("vBulletin output: <a href=\"{}\">{}</a>".format(el_href,el_text))
+                current_data.append(el_href)
+                out.append({
+                        "name": el_text, 
+                        "link": parse(modsource["thread_link"],el_href)["thread"]
+                        })
+            print("Data:\n    {}\n => {}\nCOMPARE: {}"
+                .format(previous_data,current_data,
+                    (current_data == previous_data)))
+        previous_data = current_data
+        page_counter += 1
+
+    print("Fetched mods:", out )
+    return out
+
+def get_mods_gamebanana(addons_subforum_url, modsource):
+    """
+    Gets a list of all mods from Gamebanana
+    :param download_url: The URL of the SRB2 MB sub-forum to search
+    :param modsource: Internal modsource data (HTTP resources)
+    :return: Returns a list containing Mod class instances
+    """
+    return []
+
+def get_mods_wadarchive(addons_subforum_url, modsource):
+    """
+    Gets a list of all mods from the SRB2 WAD Archive
+    :param download_url: The URL of the SRB2 MB sub-forum to search
+    :param modsource: Internal modsource data (HTTP resources)
+    :return: Returns a list containing Mod class instances
+    """
+    return []
+
+
+def get_mods(addons_subforum_url, modsource):
+    """
+    Gets a list of all mods from XenForo-based subforums
+    :param download_url: The URL of the SRB2 MB sub-forum to search
+    :param modsource: Internal modsource data (HTTP resources)
+    :return: Returns a list containing Mod class instances
+    """
+    print("mb_query.get_mods({})".format(addons_subforum_url))
+
+    # Cut it short for unsupported forums
+    if addons_subforum_url == "about:blank":
+        return []
+
+    out = []
+    mod_data = []
+    if modsource["vendor"] == "stjr" or modsource["vendor"] == "workshop" :
+        mod_data = get_mods_xenforo(addons_subforum_url, modsource)
+    elif modsource["vendor"] == "skybase" :
+        mod_data = get_mods_vbulletin(addons_subforum_url, modsource)
+    elif modsource["vendor"] == "wadarchive" :
+        mod_data = get_mods_wadarchive(addons_subforum_url, modsource)
+    elif modsource["vendor"] == "gamebanana" :
+        mod_data = get_mods_gamebanana(addons_subforum_url, modsource)
     # Make our list of mods
-    for index in range(len(mod_names)):
+    #for index in range(len(mod_names)):
+    for i in mod_data:
         #mod = Mod(mod_names[index], mod_links[index])
-        mod = Mod(mod_names[index], modsource, mod_links[index])
-        mod_list.append(mod)
+        #mod = Mod(mod_names[index], modsource, mod_links[index])
+        mod = Mod(i["name"], modsource, i["link"])
+        out.append(mod)
 
-    return mod_list
+    return out
 
-def get_addons_page_html(url, page_num):
+def get_addons_page_html_xenforo(url, page_num):
     """
     SRB2 MB is broken up into subforums that sometimes have multiple pages.
     This function returns the html tree for a specified page.
@@ -188,6 +287,20 @@ def get_addons_page_html(url, page_num):
     :return: HTML tree: the results of html.parse(requests.get(download_url))
     """
     response = requests.get("{}?page={}".format(url, str(page_num)),
+                            stream=True,
+                            headers=headers)
+    response.raw.decode_content = True
+    return html.parse(response.raw)
+
+def get_addons_page_html_vbulletin(url, page_num):
+    """
+    SRB2 MB is broken up into subforums that sometimes have multiple pages.
+    This function returns the html tree for a specified page.
+    :param url: The base download_url for the subforum, not including the specific page.
+    :param page_num: The page number as an integer
+    :return: HTML tree: the results of html.parse(requests.get(download_url))
+    """
+    response = requests.get("{}&page={}".format(url, str(page_num)),
                             stream=True,
                             headers=headers)
     response.raw.decode_content = True

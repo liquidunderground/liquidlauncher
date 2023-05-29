@@ -264,8 +264,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>359</width>
-                <height>177</height>
+                <width>844</width>
+                <height>523</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3164,7 +3164,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="checkBox_2">
+                    <widget class="QCheckBox" name="ModsourceGamebananaCheckbox">
                      <property name="enabled">
                       <bool>false</bool>
                      </property>
@@ -3174,22 +3174,22 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="checkBox">
+                    <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <property name="text">
+                      <string>SRB2 Skybase (unofficial)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="ModsourceWadarchiveCheckbox">
                      <property name="enabled">
                       <bool>false</bool>
                      </property>
                      <property name="text">
                       <string>SRB2 Wad Archive &quot;2.2 section&quot; (unsupported)</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_3">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>SRB2 Skybase (unsupported)</string>
                      </property>
                     </widget>
                    </item>

@@ -1012,11 +1012,14 @@ class MainWindow(QMainWindow):
     def update_modsources(self):
         print("update_modsources()")
         # kludge. dunno where else to stuff it
-        self.global_settings["modsources"] = {
-            "srb2mb": self.ui.ModsourceMBCheckbox.isChecked(),
-            "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
-            "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked()
-        }
+        self.global_settings["modsources"].update({
+                "srb2mb": self.ui.ModsourceMBCheckbox.isChecked(),
+                "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
+                "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked(),
+                "skybase": self.ui.ModsourceSkybaseCheckbox.isChecked(),
+                "wadarchive": self.ui.ModsourceSkybaseCheckbox.isChecked(),
+                "gamebanana": self.ui.ModsourceSkybaseCheckbox.isChecked(),
+                })
         print(self.global_settings["modsources"])
 
     def set_current_profile(self, profile):
@@ -1251,6 +1254,9 @@ class MainWindow(QMainWindow):
         self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
         self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
         self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
+        self.ui.ModsourceSkybaseCheckbox.setChecked( self.global_settings["modsources"]["skybase"])
+        self.ui.ModsourceWadarchiveCheckbox.setChecked( self.global_settings["modsources"]["wadarchive"])
+        self.ui.ModsourceGamebananaCheckbox.setChecked( self.global_settings["modsources"]["gamebanana"])
 
         self.change_skin_image()
         self.ui.ProfilesStatusLabel.setText("Profile successfully loaded.")

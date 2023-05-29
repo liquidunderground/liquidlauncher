@@ -48,8 +48,8 @@ class QueryMessageBoard(QtCore.QThread):
                 # Stubbed for future implementation
                 #if self.host.global_settings["modsources"]["wadarchive"]:
                    #modsources.append( mb_query.wadarchive )
-                #if self.host.global_settings["modsources"]["skybase"]:
-                   #modsources.append( mb_query.skybase )
+                if self.host.global_settings["modsources"]["skybase"]:
+                   modsources.append( mb_query.skybase )
                 #if self.host.global_settings["modsources"]["gamebanana"]:
                    #modsources.append( mb_query.gamebanana )
 
@@ -57,7 +57,7 @@ class QueryMessageBoard(QtCore.QThread):
                     if self.mods_type == "Maps":
                         url = src["maps"]
                     if self.mods_type == "Characters":
-                        url = src["characters_sublink"]
+                        url = src["characters"]
                     if self.mods_type == "Lua":
                         url = src["lua"]
                     if self.mods_type == "Assets":
