@@ -211,6 +211,9 @@ class MainWindow(QMainWindow):
         self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
         self.ui.ModsourceWSBlueCheckbox.clicked.connect(self.update_modsources)
         self.ui.ModsourceWSRedCheckbox.clicked.connect(self.update_modsources)
+        self.ui.ModsourceGamebananaCheckbox.clicked.connect(self.update_modsources)
+        self.ui.ModsourceSkybaseCheckbox.clicked.connect(self.update_modsources)
+        self.ui.ModsourceWadarchiveCheckbox.clicked.connect(self.update_modsources)
 
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
@@ -1017,8 +1020,8 @@ class MainWindow(QMainWindow):
                 "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
                 "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked(),
                 "skybase": self.ui.ModsourceSkybaseCheckbox.isChecked(),
-                "wadarchive": self.ui.ModsourceSkybaseCheckbox.isChecked(),
-                "gamebanana": self.ui.ModsourceSkybaseCheckbox.isChecked(),
+                "wadarchive": self.ui.ModsourceWadarchiveCheckbox.isChecked(),
+                "gamebanana": self.ui.ModsourceGamebananaCheckbox.isChecked(),
                 })
         print(self.global_settings["modsources"])
 

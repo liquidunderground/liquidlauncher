@@ -70,17 +70,20 @@ wadarchive = {
 }
 
 gamebanana = {
-    "main": "about:gamebanana",
-    "maps": "about:gamebanana",
-    "characters": "about:gamebanana",
-    "lua": "about:gamebanana",
-    "misc": "about:gamebanana",
-    "assets": "about:gamebanana",
+    # Useful reference links
+    "main": "https://gamebanana.com",
+    # gameid 6786 == SRB2
+    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
+    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
+    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
+    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
+    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
     "thread_link": "about:gamebanana",
-    "thread": "about:gamebanana",
-    "download": "about:gamebanana",
+    "thread": "https://gamebanana.com/mods/{thread}",
+    "download": "https://gamebanana.com/mods/download/{thread}",
     "vendor": "gamebanana"
 }
+
 
 # Oh so sneaky:
 headers =  {'User-Agent':
@@ -97,23 +100,17 @@ class Mod:
         self.thread_name = thread_url
         self.description = None
         self.download_url = None
-        self.url = self.base_url + self.thread_name
+        self.url = "{}{}".format(self.base_url, self.thread_name)
         self.set_download_url()
         self.html = None
 
     def set_download_url(self):
 
-        #self.url = self.mb["main_url"] + self.mb["download"] + self.thread_name
-        #self.url = self.mb["main_url"] + self.mb["thread"] + self.thread_name
         self.url = self.mb["thread"].format(thread=self.thread_name, mod=self.modid)
         if not self.thread_name:
             return None
 
-        #self.download_url = self.url + self.mb["download_suffix"]
-        #self.download_url = self.mb["main_url"] + self.mb["download"] + self.thread_name + self.mb["download_suffix"] 
         self.download_url = self.mb["download"].format(thread=self.thread_name, mod=self.modid)
-
-        #print("Download URL:"+self.download_url)
 
         return self.download_url
     
@@ -211,7 +208,6 @@ def get_mods_vbulletin(addons_subforum_url, modsource):
                 el_href = el.xpath('./@href')[0]
                 # Get current text
                 el_text = el.xpath('./text()')[0]
-                #print("vBulletin output: <a href=\"{}\">{}</a>".format(el_href,el_text))
                 current_data.append(el_href)
                 out.append({
                         "name": el_text, 
@@ -233,7 +229,34 @@ def get_mods_gamebanana(addons_subforum_url, modsource):
     :param modsource: Internal modsource data (HTTP resources)
     :return: Returns a list containing Mod class instances
     """
-    return []
+    print("mb_query.get_mods_gamebanana({})".format(addons_subforum_url))
+    page_counter = 1
+    last_page = False
+    out = []
+    # Iterate through pages grabbing thread names and their links:
+    while not last_page:
+        print("Querying page ", page_counter )
+        remote_data = get_addons_gamebanana(addons_subforum_url, page_counter)
+        # Most of the XPath stuff is not necessary here; just give good
+        # params parse some JSON. Thank uncle Sonic.
+        if remote_data:
+            # Filter out mod names using templates
+            for el in remote_data:
+                # Get current link (just the ID for now; generate link later)
+                el_href = el["_idRow"]
+                el_name = el["_sName"]
+                out.append({
+                        "name": el_name, 
+                        "link": el_href
+                        })
+        else:
+            # Empty response => end of data
+            last_page = True
+            print("Last page reached!")
+        page_counter += 1
+
+    print("Fetched mods:", out )
+    return out
 
 def get_mods_wadarchive(addons_subforum_url, modsource):
     """
@@ -243,7 +266,6 @@ def get_mods_wadarchive(addons_subforum_url, modsource):
     :return: Returns a list containing Mod class instances
     """
     return []
-
 
 def get_mods(addons_subforum_url, modsource):
     """
@@ -305,6 +327,23 @@ def get_addons_page_html_vbulletin(url, page_num):
                             headers=headers)
     response.raw.decode_content = True
     return html.parse(response.raw)
+
+def get_addons_gamebanana(url, page_num):
+    """
+    Gamebanana's API paginates the results, but otherwise provides JSON
+    which makes things a bit easier. Nonetheless, this de-paginizer is needed.
+    :param url: The base download_url for the subforum, not including the specific page.
+    :param page_num: The page number as an integer
+    :return: HTML tree: the results of html.parse(requests.get(download_url))
+    """
+    try:
+        response = requests.get("{}&_nPage={}".format(url, str(page_num)),
+                                stream=True,
+                                headers=headers)
+        return response.json()["_aRecords"]
+    except requests.exceptions.JSONDecodeError as e:
+        print("Unable to fetch Gamebanana mod list: {}".format(e))
+        return None
 
 def get_mod_download_url(mod):
     if not mod.download_url:

@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 523))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -1506,21 +1506,21 @@ class Ui_MainWindow(object):
 
         self.ModsourceGamebananaCheckbox = QCheckBox(self.tab_6)
         self.ModsourceGamebananaCheckbox.setObjectName(u"ModsourceGamebananaCheckbox")
-        self.ModsourceGamebananaCheckbox.setEnabled(False)
+        self.ModsourceGamebananaCheckbox.setEnabled(True)
 
         self.verticalLayout_6.addWidget(self.ModsourceGamebananaCheckbox)
-
-        self.ModsourceWadarchiveCheckbox = QCheckBox(self.tab_6)
-        self.ModsourceWadarchiveCheckbox.setObjectName(u"ModsourceWadarchiveCheckbox")
-        self.ModsourceWadarchiveCheckbox.setEnabled(False)
-
-        self.verticalLayout_6.addWidget(self.ModsourceWadarchiveCheckbox)
 
         self.ModsourceSkybaseCheckbox = QCheckBox(self.tab_6)
         self.ModsourceSkybaseCheckbox.setObjectName(u"ModsourceSkybaseCheckbox")
         self.ModsourceSkybaseCheckbox.setEnabled(True)
 
         self.verticalLayout_6.addWidget(self.ModsourceSkybaseCheckbox)
+
+        self.ModsourceWadarchiveCheckbox = QCheckBox(self.tab_6)
+        self.ModsourceWadarchiveCheckbox.setObjectName(u"ModsourceWadarchiveCheckbox")
+        self.ModsourceWadarchiveCheckbox.setEnabled(False)
+
+        self.verticalLayout_6.addWidget(self.ModsourceWadarchiveCheckbox)
 
         self.ModsourceWSBlueCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
@@ -1607,14 +1607,14 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(3)
+        self.MainTabsStackedWidget.setCurrentIndex(1)
         self.GameContentStackedWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.GameSettingsTabWidget.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2068,9 +2068,9 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p></body></html>", None))
         self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"Mod sources", None))
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
-        self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unsupported)", None))
+        self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))
+        self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
         self.ModsourceWadarchiveCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Wad Archive \"2.2 section\" (unsupported)", None))
-        self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unsupported)", None))
         self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
         self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Mod Sources", None))

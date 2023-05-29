@@ -50,8 +50,8 @@ class QueryMessageBoard(QtCore.QThread):
                    #modsources.append( mb_query.wadarchive )
                 if self.host.global_settings["modsources"]["skybase"]:
                    modsources.append( mb_query.skybase )
-                #if self.host.global_settings["modsources"]["gamebanana"]:
-                   #modsources.append( mb_query.gamebanana )
+                if self.host.global_settings["modsources"]["gamebanana"]:
+                   modsources.append( mb_query.gamebanana )
 
                 for src in modsources:
                     if self.mods_type == "Maps":
