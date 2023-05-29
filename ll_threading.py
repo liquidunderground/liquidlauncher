@@ -65,7 +65,10 @@ class QueryMessageBoard(QtCore.QThread):
                     if self.mods_type == "Misc":
                         url = src["misc"]
                     print("Querying forum {}".format(url))
-                    mods = mods + mb_query.get_mods(url, src)
+                    try:
+                        mods = mods + mb_query.get_mods(url, src)
+                    except Exception as e:
+                        print("Unable to get query modsource: {}".format(e))
 
                 for mod in mods:
                     entry_text = mod.name

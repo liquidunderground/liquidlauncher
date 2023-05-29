@@ -73,11 +73,11 @@ gamebanana = {
     # Useful reference links
     "main": "https://gamebanana.com",
     # gameid 6786 == SRB2
-    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
-    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
-    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
-    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
-    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_nPerpage=50",
+    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
+    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
+    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
+    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
+    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions&_nPerpage=50",
     "thread_link": "about:gamebanana",
     "thread": "https://gamebanana.com/mods/{thread}",
     "download": "https://gamebanana.com/mods/download/{thread}",
@@ -213,9 +213,6 @@ def get_mods_vbulletin(addons_subforum_url, modsource):
                         "name": el_text, 
                         "link": parse(modsource["thread_link"],el_href)["thread"]
                         })
-            print("Data:\n    {}\n => {}\nCOMPARE: {}"
-                .format(previous_data,current_data,
-                    (current_data == previous_data)))
         previous_data = current_data
         page_counter += 1
 
@@ -302,7 +299,7 @@ def get_mods(addons_subforum_url, modsource):
 
 def get_addons_page_html_xenforo(url, page_num):
     """
-    SRB2 MB is broken up into subforums that sometimes have multiple pages.
+    SRB2 MB and WS are broken up into subforums that sometimes have multiple pages.
     This function returns the html tree for a specified page.
     :param url: The base download_url for the subforum, not including the specific page.
     :param page_num: The page number as an integer
