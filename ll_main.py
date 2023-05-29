@@ -1219,7 +1219,7 @@ class MainWindow(QMainWindow):
         # now set all elements to their saved values
         self.ui.PlayerNameInput.setText(profile_settings_dict["player"]["name"])
         self.ui.PlayerSkinInput.setCurrentText(profile_settings_dict["player"]["skin"])
-        self.ui.PlayerColorInput.setCurrentIndex(profile_settings_dict["player"]["color"])
+        self.ui.PlayerColorInput.setCurrentText(profile_settings_dict["player"]["color"])
         self.ui.GameHorizontalResolutionInput.setText(profile_settings_dict["game"]["resolution"]["width"])
         self.ui.GameVerticalResolutionInput.setText(profile_settings_dict["game"]["resolution"]["height"])
         self.ui.GameRendererSetting.setCurrentIndex(profile_settings_dict["game"]["renderer"])
@@ -1270,7 +1270,7 @@ class MainWindow(QMainWindow):
         toml_settings = {"files": [], "player": {}, "game": {"resolution": {}}, "host": {}, "settings": {}}
         toml_settings["player"]["name"] = self.ui.PlayerNameInput.text()
         toml_settings["player"]["skin"] = str(self.ui.PlayerSkinInput.currentText())
-        toml_settings["player"]["color"] = self.ui.PlayerColorInput.currentIndex()
+        toml_settings["player"]["color"] = self.ui.PlayerColorInput.currentText()
         toml_settings["game"]["resolution"]["width"] = self.ui.GameHorizontalResolutionInput.text()
         toml_settings["game"]["resolution"]["height"] = self.ui.GameVerticalResolutionInput.text()
         toml_settings["game"]["renderer"] = self.ui.GameRendererSetting.currentIndex()
