@@ -264,8 +264,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>359</width>
+                <height>177</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -633,12 +633,15 @@
                           </item>
                           <item row="8" column="0" colspan="2">
                            <widget class="QComboBox" name="PlayerColorInput">
+                            <property name="editable">
+                             <bool>true</bool>
+                            </property>
                             <property name="currentIndex">
                              <number>0</number>
                             </property>
                             <item>
                              <property name="text">
-                              <string>None</string>
+                              <string/>
                              </property>
                             </item>
                             <item>
@@ -971,8 +974,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>656</width>
-                           <height>435</height>
+                           <width>461</width>
+                           <height>383</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
@@ -1725,7 +1728,7 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>647</width>
+                           <width>351</width>
                            <height>712</height>
                           </rect>
                          </property>
@@ -2121,7 +2124,7 @@ font-size: 12pt;</string>
                            <x>0</x>
                            <y>0</y>
                            <width>844</width>
-                           <height>426</height>
+                           <height>283</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
@@ -2920,8 +2923,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>96</width>
+                <height>87</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -3050,8 +3053,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>447</width>
+                <height>462</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">

@@ -398,9 +398,9 @@ class MainWindow(QMainWindow):
             com += " -width " + ui.GameHorizontalResolutionInput.text() + " -height " \
                    + ui.GameVerticalResolutionInput.text()
         if ui.PlayerNameInput.text() != "": com += " +name \"" + ui.PlayerNameInput.text() + "\""
-        if ui.PlayerColorInput.currentIndex() != 0:
+        if ui.PlayerColorInput.currentText():
             com += " +color " + str(ui.PlayerColorInput.currentText().lower())
-        if ui.PlayerSkinInput.currentIndex() != 0:
+        if ui.PlayerSkinInput.currentText():
             com += " +skin " + str(
             ui.PlayerSkinInput.currentText().lower().replace(" ", ""))
 
