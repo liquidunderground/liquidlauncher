@@ -635,12 +635,13 @@ class MainWindow(QMainWindow):
         self.ui.ModStatusLabel.setText("Downloading mod description...")
         if self.mods_list:
             mod = self.get_selected_mod()
+            print("Mod URL: {}".format(mod.url))
             self.ui.ModBrowser.load(mod.url)
-        self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
-        self.ui.OpenPageButton.setEnabled(True)
-            # Alternatively, if we only want a mod description instead
-            #   of the full web page:
-            #self.mod_description_sig.emit(mod)
+            self.ui.ModStatusLabel.setText("Mod successfully loaded.")
+            self.ui.OpenPageButton.setEnabled(True)
+        else:
+            self.ui.ModStatusLabel.setText("No mods found. Did you check your sources?")
+            self.ui.OpenPageButton.setEnabled(False)
 
     def refresh_mods_list(self):
         # TODO: multithreading to get rid of lag
