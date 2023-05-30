@@ -1050,6 +1050,8 @@ class MainWindow(QMainWindow):
     def add_profile(self):
         filename, res = QInputDialog.getText(self, 'Create new profile', 'Filename:')
         if res and filename:
+            if not filename.endswith(".toml"):
+                filename = filename+".toml"
             self.save_profile_file(filename)
             self.refresh_profiles(filename)
         self.ui.ProfilesStatusLabel.setText("{} succesfully added.".format(filename))
