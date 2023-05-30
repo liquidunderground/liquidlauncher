@@ -73,11 +73,11 @@ gamebanana = {
     # Useful reference links
     "main": "https://gamebanana.com",
     # gameid 6786 == SRB2
-    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
-    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
-    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
-    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?__csvModelInclusions&nPerpage=50",
-    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions&_nPerpage=50",
+    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
+    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
+    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
+    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
+    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&__nPerpage=50",
     "thread_link": "about:gamebanana",
     "thread": "https://gamebanana.com/mods/{thread}",
     "download": "https://gamebanana.com/mods/download/{thread}",
