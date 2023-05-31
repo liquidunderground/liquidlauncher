@@ -647,6 +647,7 @@ class MainWindow(QMainWindow):
         # TODO: multithreading to get rid of lag
         self.ui.ModStatusLabel.setText("Downloading mods list...")
         self.ui.ModsList.clear()
+        self.mods_list = {}
         self.mod_list_sig.emit(self.ui.ModTypeCombo.currentText())
 
     def on_mod_description(self, mod):
@@ -657,9 +658,8 @@ class MainWindow(QMainWindow):
     def on_mod_list(self, mod_list):
         self.ui.ModStatusLabel.setText("Click on a mod to see more "
                                        "information.")
-        self.ui.ModsList.clear()
-        self.mods_list = mod_list
-        for item in self.mods_list:
+        self.mods_list.update(mod_list)
+        for item in mod_list:
             self.append_mod_to_list(item)
 
     def add_mod_to_files(self, filepaths_list):

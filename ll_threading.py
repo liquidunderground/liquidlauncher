@@ -33,7 +33,6 @@ class QueryMessageBoard(QtCore.QThread):
         self.running = True
         while self.running:
             if self.get_mods:
-                self.mods_list = {}
                 url = None
                 mods = []
                 modsources = []
@@ -66,19 +65,15 @@ class QueryMessageBoard(QtCore.QThread):
                         url = src["misc"]
                     print("Querying forum {}".format(url))
                     try:
-                        mods = mods + mb_query.get_mods(url, src)
+                        querybuf = mb_query.get_mods(url, src)
+                        #mods = mods + mb_query.get_mods(url, src)
+                        mods = mods + querybuf
+                        for mod in querybuf:
+                            self.mod_list_sig1.emit({mod.name: mod})
                     except Exception as e:
                         print("Unable to get query modsource: {}".format(e))
 
-                for mod in mods:
-                    entry_text = mod.name
-                    self.mods_list[entry_text] = mod
-
-
-                self.mod_list_sig1.emit(self.mods_list)
-
                 # Reset variables
-                self.mods_list = {}
                 self.get_mods = False
                 self.mods_type = None
 
