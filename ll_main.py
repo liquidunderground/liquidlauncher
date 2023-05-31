@@ -1247,6 +1247,7 @@ class MainWindow(QMainWindow):
         self.ui.WineToggle.setChecked(profile_settings_dict["settings"]["wine"])
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
 
+        self.ui.GameFilesList.clear()
         if self.ui.SaveFilesToConfigToggle.isChecked:
             for f in profile_settings_dict["files"]:
                 self.add_file(f)
