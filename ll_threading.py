@@ -10,7 +10,8 @@ class QueryMessageBoard(QtCore.QThread):
     # Emits a string describing the mod
     mod_description_sig1 = Signal(object)
     # Emits a list of mods
-    mod_list_sig1 = Signal(dict)
+    mod_list_sig1 = Signal(dict, str)
+    mod_statmsg_sig1 = Signal(str)
 
     def __init__(self, host, parent=None):
         QtCore.QThread.__init__(self, parent)
@@ -64,12 +65,13 @@ class QueryMessageBoard(QtCore.QThread):
                     if self.mods_type == "Misc":
                         url = src["misc"]
                     print("Querying forum {}".format(url))
+                    self.mod_statmsg_sig1.emit("Querying {}".format(src["main"]))
                     try:
                         querybuf = mb_query.get_mods(url, src)
                         #mods = mods + mb_query.get_mods(url, src)
                         mods = mods + querybuf
                         for mod in querybuf:
-                            self.mod_list_sig1.emit({mod.name: mod})
+                            self.mod_list_sig1.emit({mod.name: mod}, src["icon"])
                     except Exception as e:
                         print("Unable to get query modsource: {}".format(e))
 

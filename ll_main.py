@@ -90,6 +90,7 @@ class MainWindow(QMainWindow):
         self.mod_list_sig.connect(self.mb_qthread.on_request_mod_list)
         self.mod_description_sig.connect(self.mb_qthread.on_request_mod_desc)
         self.mb_qthread.mod_list_sig1.connect(self.on_mod_list)
+        self.mb_qthread.mod_statmsg_sig1.connect(self.on_mod_statmsg)
         self.mb_qthread.mod_description_sig1.connect(self.on_mod_description)
 
         # Download mod multithreading
@@ -626,9 +627,16 @@ class MainWindow(QMainWindow):
             self.download_mod_url_sig.emit(mod.download_url)
             self.download_mod_path_sig.emit(path)
 
-    def append_mod_to_list(self, mod_name):
+    def append_mod_to_list(self, mod, icon=None):
+        print("append_mod_to_list({},{})".format(mod,icon))
         new_item = QtWidgets.QListWidgetItem()
-        new_item.setText(mod_name)
+        new_item.setText(mod)
+        if icon:
+            qicon = QtGui.QIcon()
+            qicon.addPixmap(QtGui.QPixmap(icon),
+                            QtGui.QIcon.Normal,
+                            QtGui.QIcon.Off)
+            new_item.setIcon(qicon)
         self.ui.ModsList.addItem(new_item)
 
     def load_mod_page(self):
@@ -655,12 +663,15 @@ class MainWindow(QMainWindow):
         self.ui.ModBrowser.setHtml(mod.description, mod.url)
         self.ui.ModBrowser.load(mod.url)
 
-    def on_mod_list(self, mod_list):
+    def on_mod_statmsg(self,msg):
+        self.ui.ModStatusLabel.setText(msg)
+
+    def on_mod_list(self, mod_list, icon=None):
         self.ui.ModStatusLabel.setText("Click on a mod to see more "
                                        "information.")
         self.mods_list.update(mod_list)
         for item in mod_list:
-            self.append_mod_to_list(item)
+            self.append_mod_to_list(item, icon)
 
     def add_mod_to_files(self, filepaths_list):
         self.ui.ModStatusLabel.setText("Click on a mod to see more information.")

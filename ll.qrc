@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="assets">
+    <file>img/icons/wsblue.png</file>
+    <file>img/icons/wsred.png</file>
     <file>default.html</file>
     <file>img/icons/media-playback-start.png</file>
     <file>img/icons/edit-delete.png</file>
@@ -19,8 +21,10 @@
     <file>img/icons/gamepad.png</file>
     <file>img/icons/news.png</file>
     <file>img/icons/settings.png</file>
-    <file>img/icons/sonichead.png</file>
     <file>img/filetypes/kart.png</file>
+    <file>img/icons/srb2mb.png</file>
+    <file>img/icons/skybase.png</file>
+    <file>img/icons/gamebanana.png</file>
     <file>img/filetypes/lua.png</file>
     <file>img/filetypes/pk3.png</file>
     <file>img/filetypes/soc.png</file>
