@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 844, 523))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -397,7 +397,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 461, 383))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 656, 435))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.GameHorizontalResolutionInput = QLineEdit(self.scrollAreaWidgetContents_6)
@@ -796,7 +796,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 351, 712))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 647, 712))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout.setObjectName(u"gridLayout")
         self.PointLimitLabel = QLabel(self.scrollAreaWidgetContents_4)
@@ -996,7 +996,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 283))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 426))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"")
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -1410,7 +1410,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 96, 87))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 844, 523))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -1439,7 +1439,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 447, 462))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 844, 523))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.tabWidget_2 = QTabWidget(self.scrollAreaWidgetContents)
@@ -1501,6 +1501,9 @@ class Ui_MainWindow(object):
 
         self.ModsourceMBCheckbox = QCheckBox(self.tab_6)
         self.ModsourceMBCheckbox.setObjectName(u"ModsourceMBCheckbox")
+        icon19 = QIcon()
+        icon19.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceMBCheckbox.setIcon(icon19)
         self.ModsourceMBCheckbox.setChecked(True)
 
         self.verticalLayout_6.addWidget(self.ModsourceMBCheckbox)
@@ -1508,12 +1511,18 @@ class Ui_MainWindow(object):
         self.ModsourceGamebananaCheckbox = QCheckBox(self.tab_6)
         self.ModsourceGamebananaCheckbox.setObjectName(u"ModsourceGamebananaCheckbox")
         self.ModsourceGamebananaCheckbox.setEnabled(True)
+        icon20 = QIcon()
+        icon20.addFile(u":/assets/img/icons/gamebanana.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceGamebananaCheckbox.setIcon(icon20)
 
         self.verticalLayout_6.addWidget(self.ModsourceGamebananaCheckbox)
 
         self.ModsourceSkybaseCheckbox = QCheckBox(self.tab_6)
         self.ModsourceSkybaseCheckbox.setObjectName(u"ModsourceSkybaseCheckbox")
         self.ModsourceSkybaseCheckbox.setEnabled(True)
+        icon21 = QIcon()
+        icon21.addFile(u":/assets/img/icons/skybase.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceSkybaseCheckbox.setIcon(icon21)
 
         self.verticalLayout_6.addWidget(self.ModsourceSkybaseCheckbox)
 
@@ -1525,11 +1534,17 @@ class Ui_MainWindow(object):
 
         self.ModsourceWSBlueCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
+        icon22 = QIcon()
+        icon22.addFile(u":/assets/img/icons/wsblue.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceWSBlueCheckbox.setIcon(icon22)
 
         self.verticalLayout_6.addWidget(self.ModsourceWSBlueCheckbox)
 
         self.ModsourceWSRedCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSRedCheckbox.setObjectName(u"ModsourceWSRedCheckbox")
+        icon23 = QIcon()
+        icon23.addFile(u":/assets/img/icons/wsred.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceWSRedCheckbox.setIcon(icon23)
 
         self.verticalLayout_6.addWidget(self.ModsourceWSRedCheckbox)
 
