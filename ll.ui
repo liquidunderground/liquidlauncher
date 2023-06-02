@@ -100,6 +100,9 @@
            <height>48</height>
           </size>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
@@ -132,8 +135,11 @@
            <height>48</height>
           </size>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
          <property name="checked">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -161,6 +167,9 @@
            <height>48</height>
           </size>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
@@ -186,6 +195,9 @@
            <width>48</width>
            <height>48</height>
           </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -419,25 +431,72 @@
                   <property name="text">
                    <string>Player Settings</string>
                   </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
+                  </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>Game Settings</string>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
                   </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>Mods</string>
                   </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                  </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>Host Netgame</string>
                   </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
+                  </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>Join Netgame</string>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
                   </property>
                  </item>
                 </widget>

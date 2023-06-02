@@ -592,6 +592,22 @@ class MainWindow(QMainWindow):
         return
 
     def change_main_tab(self, index):
+        # Reset all buttons
+        self.ui.NewsTabButton.setChecked(False)
+        self.ui.GameTabButton.setChecked(False)
+        self.ui.HelpTabButton.setChecked(False)
+        self.ui.SettingsTabButton.setChecked(False)
+
+        # Re-check correct button
+        if index == 0:
+            self.ui.NewsTabButton.setChecked(True)
+        if index == 1:
+            self.ui.GameTabButton.setChecked(True)
+        if index == 2:
+            self.ui.HelpTabButton.setChecked(True)
+        if index == 3:
+            self.ui.SettingsTabButton.setChecked(True)
+
         self.ui.MainTabsStackedWidget.setCurrentIndex(index)
         return
 
