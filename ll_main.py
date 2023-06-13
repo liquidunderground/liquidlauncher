@@ -627,9 +627,11 @@ class MainWindow(QMainWindow):
         self.open_url(mod.url)
     
     def get_selected_mod(self):
-        selection = self.ui.ModsList.currentItem().text()
-        mod = self.mods_list[selection]
-        return mod
+        #selection = self.ui.ModsList.currentItem().text()
+        #mod = self.mods_list[selection]
+        #return mod
+        selection = self.ui.ModsList.currentItem().data(3)
+        return selection
 
     def download_mod(self):
         if self.mods_list:
@@ -647,6 +649,7 @@ class MainWindow(QMainWindow):
         print("append_mod_to_list({},{})".format(mod,icon))
         new_item = QtWidgets.QListWidgetItem()
         new_item.setText(mod)
+        new_item.setData(3,self.mods_list[mod].url)
         if icon:
             qicon = QtGui.QIcon()
             qicon.addPixmap(QtGui.QPixmap(icon),
@@ -659,8 +662,10 @@ class MainWindow(QMainWindow):
         self.ui.ModStatusLabel.setText("Downloading mod description...")
         if self.mods_list:
             mod = self.get_selected_mod()
-            print("Mod URL: {}".format(mod.url))
-            self.ui.ModBrowser.load(mod.url)
+            #print("Mod URL: {}".format(mod.url))
+            #self.ui.ModBrowser.load(mod.url)
+            print("Mod URL: {}".format(mod))
+            self.ui.ModBrowser.load(mod)
             self.ui.ModStatusLabel.setText("Mod successfully loaded.")
             self.ui.OpenPageButton.setEnabled(True)
         else:
