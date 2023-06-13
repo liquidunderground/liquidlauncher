@@ -20,11 +20,11 @@ srb2mb = {
 ## Workshop for testing
 workshop_blue = {
     "main": "https://srb2workshop.org",
-    "maps": "https://srb2workshop.org/forums/maps.18/",
-    "characters": "https://srb2workshop.org/forums/characters.19/",
-    "lua": "https://srb2workshop.org/forums/lua.20/",
-    "misc": "https://srb2workshop.org/forums/miscellaneous.21/",
-    "assets": "https://srb2workshop.org/forums/assets.29/",
+    "maps": "https://srb2workshop.org/forums/maps.18",
+    "characters": "https://srb2workshop.org/forums/characters.19",
+    "lua": "https://srb2workshop.org/forums/lua.20",
+    "misc": "https://srb2workshop.org/forums/miscellaneous.21",
+    "assets": "https://srb2workshop.org/forums/assets.29",
     "thread_link": "/threads/{thread}",
     "thread": "https://srb2workshop.org/threads/{thread}/",
     "download": "https://srb2workshop.org/resources/{thread}/download",
@@ -34,13 +34,13 @@ workshop_blue = {
 
 workshop_red = {
     "main": "https://srb2workshop.org",
-    "maps": "https://srb2workshop.org/forums/maps.31/",
-    "characters": "https://srb2workshop.org/forums/characters.33/",
-    "lua": "https://srb2workshop.org/forums/lua.32/",
-    "misc": "https://srb2workshop.org/forums/miscellaneous.52/",
-    "assets": "https://srb2workshop.org/forums/assets.48/",
+    "maps": "https://srb2workshop.org/forums/maps.31",
+    "characters": "https://srb2workshop.org/forums/characters.33",
+    "lua": "https://srb2workshop.org/forums/lua.32",
+    "misc": "https://srb2workshop.org/forums/miscellaneous.52",
+    "assets": "https://srb2workshop.org/forums/assets.48",
     "thread_link": "/threads/{thread}",
-    "thread": "https://srb2workshop.org/threads/{thread}/",
+    "thread": "https://srb2workshop.org/threads/{thread}",
     "download": "https://srb2workshop.org/resources/{thread}/download",
     "icon": ":/assets/img/icons/wsred.png",
     "vendor": "workshop"

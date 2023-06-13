@@ -127,16 +127,12 @@ def get_server_list(url, api="v1"):
     url_sanitized = url.rstrip("/ \t");
     print("get_server_list({}, {})".format(url_sanitized, api))
     # first get a list of all servers from the master server     
-    try:
-        if api == "v1":
-            return parse_ms_data(url_sanitized)
-        elif api == "kartv2":
-            return parse_kart_data(url_sanitized)
-        elif api == "snitch":
-            return parse_snitch_data(url_sanitized)
-        else:
-            return []
-    except Exception as e:
-        print("Failed to update master server:", e)
-        return
+    if api == "v1":
+        return parse_ms_data(url_sanitized)
+    elif api == "kartv2":
+        return parse_kart_data(url_sanitized)
+    elif api == "snitch":
+        return parse_snitch_data(url_sanitized)
+    else:
+        return []
     
