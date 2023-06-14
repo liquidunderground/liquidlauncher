@@ -276,8 +276,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>848</width>
+                <height>539</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -540,8 +540,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>656</width>
-                           <height>435</height>
+                           <width>592</width>
+                           <height>447</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_5">
@@ -1033,8 +1033,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>656</width>
-                           <height>435</height>
+                           <width>592</width>
+                           <height>447</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
@@ -1273,6 +1273,9 @@ font-size: 12pt;</string>
                         <layout class="QGridLayout" name="gridLayout_15">
                          <item row="0" column="0">
                           <widget class="QTabWidget" name="GameSettingsTabWidget">
+                           <property name="toolTip">
+                            <string>Add file...</string>
+                           </property>
                            <property name="currentIndex">
                             <number>0</number>
                            </property>
@@ -1281,8 +1284,8 @@ font-size: 12pt;</string>
                              <string>Launch Mods</string>
                             </attribute>
                             <layout class="QGridLayout" name="gridLayout_9">
-                             <item row="10" column="4" rowspan="2">
-                              <widget class="QPushButton" name="GameFilesClearButton">
+                             <item row="10" column="6">
+                              <widget class="QPushButton" name="GameFilesAddButton">
                                <property name="minimumSize">
                                 <size>
                                  <width>0</width>
@@ -1290,56 +1293,15 @@ font-size: 12pt;</string>
                                 </size>
                                </property>
                                <property name="text">
-                                <string>Clear list</string>
+                                <string/>
                                </property>
                                <property name="icon">
                                 <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/edit-delete.png</normaloff>:/assets/img/icons/edit-delete.png</iconset>
+                                 <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
                                </property>
                               </widget>
                              </item>
-                             <item row="13" column="1">
-                              <widget class="QLabel" name="GameFilesExecuteScriptLabel">
-                               <property name="text">
-                                <string>Launch Script</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="11" column="7">
-                              <widget class="QPushButton" name="GameFilesDeleteButton">
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>28</height>
-                                </size>
-                               </property>
-                               <property name="text">
-                                <string>Delete selected files</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="10" column="1">
-                              <widget class="QPushButton" name="GameFilesUpButton">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                 <horstretch>0</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
-                               </property>
-                               <property name="text">
-                                <string>Move Up</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="13" column="7">
+                             <item row="10" column="4">
                               <widget class="QPushButton" name="GameFilesExecScrBrowseButton">
                                <property name="minimumSize">
                                 <size>
@@ -1356,17 +1318,64 @@ font-size: 12pt;</string>
                                </property>
                               </widget>
                              </item>
-                             <item row="13" column="3" colspan="3">
-                              <widget class="QLineEdit" name="GameFilesExecScriptInput"/>
-                             </item>
-                             <item row="12" column="1" colspan="7">
-                              <widget class="Line" name="line">
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
+                             <item row="8" column="8">
+                              <widget class="QPushButton" name="GameFilesDownButton">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="toolTip">
+                                <string>Move down</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
                                </property>
                               </widget>
                              </item>
-                             <item row="10" column="3" rowspan="2">
+                             <item row="1" column="8">
+                              <widget class="QPushButton" name="GameFilesClearButton">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>28</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>Clear list</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/edit-delete.png</normaloff>:/assets/img/icons/edit-delete.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="10" column="7">
+                              <widget class="QPushButton" name="GameFilesDeleteButton">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>28</height>
+                                </size>
+                               </property>
+                               <property name="toolTip">
+                                <string>Delete selected files</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="8">
                               <widget class="QPushButton" name="GameFilesSaveButton">
                                <property name="minimumSize">
                                 <size>
@@ -1386,59 +1395,8 @@ font-size: 12pt;</string>
                                </property>
                               </widget>
                              </item>
-                             <item row="11" column="1">
-                              <widget class="QPushButton" name="GameFilesDownButton">
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                 <horstretch>0</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
-                               </property>
-                               <property name="text">
-                                <string>Move Down</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="10" column="7">
-                              <widget class="QPushButton" name="GameFilesAddButton">
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>28</height>
-                                </size>
-                               </property>
-                               <property name="text">
-                                <string>Add file...</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="10" column="5" rowspan="2">
-                              <widget class="QPushButton" name="GameFilesLoadButton">
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>28</height>
-                                </size>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="text">
-                                <string>Load list...</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
-                               </property>
-                              </widget>
+                             <item row="10" column="3">
+                              <widget class="QLineEdit" name="GameFilesExecScriptInput"/>
                              </item>
                              <item row="0" column="1" rowspan="9" colspan="7">
                               <widget class="QListWidget" name="GameFilesList">
@@ -1495,17 +1453,50 @@ font-size: 12pt;</string>
                                </item>
                               </widget>
                              </item>
-                             <item row="10" column="6" rowspan="2">
-                              <widget class="Line" name="line_3">
-                               <property name="orientation">
-                                <enum>Qt::Vertical</enum>
+                             <item row="7" column="8">
+                              <widget class="QPushButton" name="GameFilesUpButton">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="toolTip">
+                                <string>Move up</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
                                </property>
                               </widget>
                              </item>
-                             <item row="10" column="2" rowspan="2">
-                              <widget class="Line" name="line_2">
-                               <property name="orientation">
-                                <enum>Qt::Vertical</enum>
+                             <item row="10" column="2">
+                              <widget class="QLabel" name="GameFilesExecuteScriptLabel">
+                               <property name="text">
+                                <string>Launch Script</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="8">
+                              <widget class="QPushButton" name="GameFilesLoadButton">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>28</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="text">
+                                <string>Load list...</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                                </property>
                               </widget>
                              </item>
@@ -1516,68 +1507,7 @@ font-size: 12pt;</string>
                              <string>Browse online</string>
                             </attribute>
                             <layout class="QGridLayout" name="gridLayout_12">
-                             <item row="2" column="1">
-                              <widget class="QComboBox" name="ModTypeCombo">
-                               <item>
-                                <property name="text">
-                                 <string>Maps</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Characters</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Lua</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Assets</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Misc</string>
-                                </property>
-                               </item>
-                              </widget>
-                             </item>
-                             <item row="2" column="0">
-                              <widget class="QLabel" name="ModStatusLabel">
-                               <property name="text">
-                                <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="3">
-                              <widget class="QPushButton" name="DownloadModButton">
-                               <property name="enabled">
-                                <bool>false</bool>
-                               </property>
-                               <property name="text">
-                                <string>Download</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/download.png</normaloff>:/assets/img/icons/download.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="2">
-                              <widget class="QPushButton" name="RefreshModsButton">
-                               <property name="text">
-                                <string>Refresh mods</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="0" colspan="4">
+                             <item row="0" column="0" colspan="5">
                               <widget class="QSplitter" name="splitter_2">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1595,10 +1525,7 @@ font-size: 12pt;</string>
                                   <verstretch>0</verstretch>
                                  </sizepolicy>
                                 </property>
-                                <layout class="QVBoxLayout" name="verticalLayout_24">
-                                 <property name="spacing">
-                                  <number>6</number>
-                                 </property>
+                                <layout class="QGridLayout" name="gridLayout_17">
                                  <property name="leftMargin">
                                   <number>0</number>
                                  </property>
@@ -1611,20 +1538,36 @@ font-size: 12pt;</string>
                                  <property name="bottomMargin">
                                   <number>0</number>
                                  </property>
-                                 <item>
-                                  <widget class="QLabel" name="ModBrowserLabel">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="text">
-                                    <string>Mod List:</string>
-                                   </property>
+                                 <item row="0" column="2">
+                                  <widget class="QComboBox" name="ModTypeCombo">
+                                   <item>
+                                    <property name="text">
+                                     <string>Maps</string>
+                                    </property>
+                                   </item>
+                                   <item>
+                                    <property name="text">
+                                     <string>Characters</string>
+                                    </property>
+                                   </item>
+                                   <item>
+                                    <property name="text">
+                                     <string>Lua</string>
+                                    </property>
+                                   </item>
+                                   <item>
+                                    <property name="text">
+                                     <string>Assets</string>
+                                    </property>
+                                   </item>
+                                   <item>
+                                    <property name="text">
+                                     <string>Misc</string>
+                                    </property>
+                                   </item>
                                   </widget>
                                  </item>
-                                 <item>
+                                 <item row="1" column="0" colspan="4">
                                   <widget class="QListWidget" name="ModsList">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1633,6 +1576,46 @@ font-size: 12pt;</string>
                                     </sizepolicy>
                                    </property>
                                   </widget>
+                                 </item>
+                                 <item row="0" column="0">
+                                  <widget class="QLabel" name="ModBrowserLabel">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="text">
+                                    <string>Mods</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="3">
+                                  <widget class="QPushButton" name="RefreshModsButton">
+                                   <property name="toolTip">
+                                    <string>Refresh Mods</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="1">
+                                  <spacer name="horizontalSpacer_5">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
                                  </item>
                                 </layout>
                                </widget>
@@ -1643,10 +1626,7 @@ font-size: 12pt;</string>
                                   <verstretch>0</verstretch>
                                  </sizepolicy>
                                 </property>
-                                <layout class="QVBoxLayout" name="verticalLayout_21">
-                                 <property name="spacing">
-                                  <number>6</number>
-                                 </property>
+                                <layout class="QGridLayout" name="gridLayout_4">
                                  <property name="leftMargin">
                                   <number>6</number>
                                  </property>
@@ -1659,20 +1639,48 @@ font-size: 12pt;</string>
                                  <property name="bottomMargin">
                                   <number>0</number>
                                  </property>
-                                 <item>
-                                  <widget class="QLabel" name="ModViewerLabel">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
+                                 <item row="2" column="1">
+                                  <widget class="QPushButton" name="DownloadModButton">
+                                   <property name="enabled">
+                                    <bool>false</bool>
                                    </property>
                                    <property name="text">
-                                    <string>About Mod:</string>
+                                    <string>Download</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/download.png</normaloff>:/assets/img/icons/download.png</iconset>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item>
+                                 <item row="2" column="2">
+                                  <widget class="QPushButton" name="OpenPageButton">
+                                   <property name="enabled">
+                                    <bool>false</bool>
+                                   </property>
+                                   <property name="text">
+                                    <string>Visit Page</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="0">
+                                  <spacer name="horizontalSpacer_4">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                 <item row="1" column="0" colspan="3">
                                   <widget class="QWebEngineView" name="ModBrowser" native="true">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1730,22 +1738,28 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item>
-                                  <widget class="QPushButton" name="OpenPageButton">
-                                   <property name="enabled">
-                                    <bool>false</bool>
+                                 <item row="0" column="0" colspan="3">
+                                  <widget class="QLabel" name="ModViewerLabel">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
                                    </property>
                                    <property name="text">
-                                    <string>Visit Page</string>
-                                   </property>
-                                   <property name="icon">
-                                    <iconset resource="ll.qrc">
-                                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                                    <string>Mod details</string>
                                    </property>
                                   </widget>
                                  </item>
                                 </layout>
                                </widget>
+                              </widget>
+                             </item>
+                             <item row="2" column="0" colspan="5">
+                              <widget class="QLabel" name="ModStatusLabel">
+                               <property name="text">
+                                <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
+                               </property>
                               </widget>
                              </item>
                             </layout>
@@ -1787,8 +1801,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>647</width>
-                           <height>712</height>
+                           <width>595</width>
+                           <height>647</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout">
@@ -2183,7 +2197,7 @@ font-size: 12pt;</string>
                            <x>0</x>
                            <y>0</y>
                            <width>844</width>
-                           <height>426</height>
+                           <height>450</height>
                           </rect>
                          </property>
                          <property name="styleSheet">
@@ -2192,12 +2206,6 @@ font-size: 12pt;</string>
                          <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
                           <item>
                            <widget class="QTabWidget" name="GameTabView">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
                             <property name="tabShape">
                              <enum>QTabWidget::Rounded</enum>
                             </property>
@@ -2208,15 +2216,106 @@ font-size: 12pt;</string>
                              <attribute name="title">
                               <string>Browse</string>
                              </attribute>
-                             <layout class="QVBoxLayout" name="verticalLayout_23">
-                              <item>
-                               <widget class="QLabel" name="BrowseMSLabel">
+                             <layout class="QGridLayout" name="gridLayout_18">
+                              <item row="5" column="0" colspan="4">
+                               <layout class="QHBoxLayout" name="horizontalLayout_18">
+                                <item>
+                                 <widget class="QLabel" name="MSStatusLabel">
+                                  <property name="text">
+                                   <string>Click &quot;Update&quot; to download a list of servers.</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <spacer name="horizontalSpacer_6">
+                                  <property name="orientation">
+                                   <enum>Qt::Horizontal</enum>
+                                  </property>
+                                  <property name="sizeHint" stdset="0">
+                                   <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                   </size>
+                                  </property>
+                                 </spacer>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="SaveNetgameButton">
+                                  <property name="text">
+                                   <string>Bookmark</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="ll.qrc">
+                                    <normaloff>:/assets/img/icons/bookmark-new.png</normaloff>:/assets/img/icons/bookmark-new.png</iconset>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="BrowseNetgameJoinButton">
+                                  <property name="text">
+                                   <string>Join</string>
+                                  </property>
+                                  <property name="icon">
+                                   <iconset resource="ll.qrc">
+                                    <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </item>
+                              <item row="0" column="1">
+                               <spacer name="horizontalSpacer_7">
+                                <property name="orientation">
+                                 <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                               </spacer>
+                              </item>
+                              <item row="0" column="3">
+                               <widget class="QPushButton" name="RefreshButton">
+                                <property name="toolTip">
+                                 <string>Update</string>
+                                </property>
                                 <property name="text">
-                                 <string>NETGAMES</string>
+                                 <string/>
+                                </property>
+                                <property name="icon">
+                                 <iconset resource="ll.qrc">
+                                  <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                                 </property>
                                </widget>
                               </item>
-                              <item>
+                              <item row="0" column="0">
+                               <widget class="QLabel" name="MSSelectionLabel">
+                                <property name="text">
+                                 <string>Master Server</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="2">
+                               <widget class="QComboBox" name="BrowseMSCombobox">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QComboBox::AdjustToContents</enum>
+                                </property>
+                                <item>
+                                 <property name="text">
+                                  <string>ms.srb2.org</string>
+                                 </property>
+                                </item>
+                               </widget>
+                              </item>
+                              <item row="4" column="0" colspan="4">
                                <widget class="QTableWidget" name="BrowseNetgameTable">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -2326,88 +2425,6 @@ font-size: 12pt;</string>
                                 </item>
                                </widget>
                               </item>
-                              <item>
-                               <layout class="QHBoxLayout" name="horizontalLayout_18">
-                                <item>
-                                 <widget class="QLabel" name="MSSelectionLabel">
-                                  <property name="text">
-                                   <string>Master Server</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QComboBox" name="BrowseMSCombobox">
-                                  <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                   </sizepolicy>
-                                  </property>
-                                  <property name="sizeAdjustPolicy">
-                                   <enum>QComboBox::AdjustToContents</enum>
-                                  </property>
-                                  <item>
-                                   <property name="text">
-                                    <string>ms.srb2.org</string>
-                                   </property>
-                                  </item>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <spacer name="horizontalSpacer_6">
-                                  <property name="orientation">
-                                   <enum>Qt::Horizontal</enum>
-                                  </property>
-                                  <property name="sizeHint" stdset="0">
-                                   <size>
-                                    <width>40</width>
-                                    <height>20</height>
-                                   </size>
-                                  </property>
-                                 </spacer>
-                                </item>
-                                <item>
-                                 <widget class="QLabel" name="MSStatusLabel">
-                                  <property name="text">
-                                   <string>Click &quot;Update&quot; to download a list of servers.</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QPushButton" name="RefreshButton">
-                                  <property name="text">
-                                   <string>Update</string>
-                                  </property>
-                                  <property name="icon">
-                                   <iconset resource="ll.qrc">
-                                    <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QPushButton" name="SaveNetgameButton">
-                                  <property name="text">
-                                   <string>Bookmark</string>
-                                  </property>
-                                  <property name="icon">
-                                   <iconset resource="ll.qrc">
-                                    <normaloff>:/assets/img/icons/bookmark-new.png</normaloff>:/assets/img/icons/bookmark-new.png</iconset>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QPushButton" name="BrowseNetgameJoinButton">
-                                  <property name="text">
-                                   <string>Join</string>
-                                  </property>
-                                  <property name="icon">
-                                   <iconset resource="ll.qrc">
-                                    <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
-                                  </property>
-                                 </widget>
-                                </item>
-                               </layout>
-                              </item>
                              </layout>
                             </widget>
                             <widget class="QWidget" name="SavedNetgamesTab">
@@ -2415,44 +2432,7 @@ font-size: 12pt;</string>
                               <string>Bookmarks</string>
                              </attribute>
                              <layout class="QGridLayout" name="gridLayout_10">
-                              <item row="4" column="0">
-                               <widget class="QFrame" name="frame_10">
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_9">
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item row="1" column="0" colspan="3">
-                               <widget class="QLineEdit" name="JoinAddressInput">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <property name="placeholderText">
-                                 <string notr="true">IP Address</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="7" column="1">
+                              <item row="8" column="1">
                                <widget class="QPushButton" name="JoinBookmarkButton">
                                 <property name="sizeIncrement">
                                  <size>
@@ -2461,7 +2441,7 @@ font-size: 12pt;</string>
                                  </size>
                                 </property>
                                 <property name="text">
-                                 <string>Join server</string>
+                                 <string>Join Bookmark</string>
                                 </property>
                                 <property name="icon">
                                  <iconset resource="ll.qrc">
@@ -2469,7 +2449,7 @@ font-size: 12pt;</string>
                                 </property>
                                </widget>
                               </item>
-                              <item row="7" column="0">
+                              <item row="8" column="0">
                                <spacer name="horizontalSpacer_10">
                                 <property name="orientation">
                                  <enum>Qt::Horizontal</enum>
@@ -2482,54 +2462,7 @@ font-size: 12pt;</string>
                                 </property>
                                </spacer>
                               </item>
-                              <item row="7" column="2">
-                               <widget class="QPushButton" name="AddServerButton">
-                                <property name="text">
-                                 <string>Add Boookmark</string>
-                                </property>
-                                <property name="icon">
-                                 <iconset resource="ll.qrc">
-                                  <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="7" column="3">
-                               <widget class="QPushButton" name="DeleteServerButton">
-                                <property name="text">
-                                 <string>Remove Bookmark</string>
-                                </property>
-                                <property name="icon">
-                                 <iconset resource="ll.qrc">
-                                  <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="1" column="3">
-                               <widget class="QPushButton" name="JoinAddressButton">
-                                <property name="text">
-                                 <string>Join</string>
-                                </property>
-                                <property name="icon">
-                                 <iconset resource="ll.qrc">
-                                  <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="0" column="0">
-                               <widget class="QLabel" name="JoinServerLabel">
-                                <property name="text">
-                                 <string>Join directly</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="2" column="0">
-                               <widget class="QLabel" name="ServerListLabel">
-                                <property name="text">
-                                 <string>Bookmarks</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="3" column="0" colspan="4">
+                              <item row="4" column="0" colspan="4">
                                <widget class="QTableWidget" name="SavedNetgameTable">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -2566,6 +2499,90 @@ font-size: 12pt;</string>
                                 </column>
                                </widget>
                               </item>
+                              <item row="3" column="0">
+                               <widget class="QLabel" name="ServerListLabel">
+                                <property name="text">
+                                 <string>Bookmarks</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="0">
+                               <widget class="QLabel" name="JoinServerLabel">
+                                <property name="text">
+                                 <string>Join directly</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="0" colspan="2">
+                               <widget class="QLineEdit" name="JoinAddressInput">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="placeholderText">
+                                 <string notr="true">IP Address</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="2" colspan="2">
+                               <widget class="QPushButton" name="JoinAddressButton">
+                                <property name="text">
+                                 <string>Join</string>
+                                </property>
+                                <property name="icon">
+                                 <iconset resource="ll.qrc">
+                                  <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="8" column="3">
+                               <widget class="QPushButton" name="DeleteServerButton">
+                                <property name="toolTip">
+                                 <string>Remove Bookmark</string>
+                                </property>
+                                <property name="icon">
+                                 <iconset resource="ll.qrc">
+                                  <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="8" column="2">
+                               <widget class="QPushButton" name="AddServerButton">
+                                <property name="toolTip">
+                                 <string>Add Bookmark</string>
+                                </property>
+                                <property name="icon">
+                                 <iconset resource="ll.qrc">
+                                  <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="0" colspan="4">
+                               <widget class="QFrame" name="frame_10">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                </layout>
+                               </widget>
+                              </item>
                              </layout>
                             </widget>
                             <widget class="QWidget" name="masterservers">
@@ -2580,13 +2597,73 @@ font-size: 12pt;</string>
                              </attribute>
                              <layout class="QVBoxLayout" name="verticalLayout_30">
                               <item>
-                               <widget class="QSplitter" name="splitter_3">
-                                <property name="orientation">
-                                 <enum>Qt::Horizontal</enum>
+                               <widget class="QScrollArea" name="scrollArea_7">
+                                <property name="widgetResizable">
+                                 <bool>true</bool>
                                 </property>
-                                <widget class="QWidget" name="gridLayoutWidget">
-                                 <layout class="QGridLayout" name="gridLayout_6">
-                                  <item row="2" column="6">
+                                <widget class="QWidget" name="scrollAreaWidgetContents_7">
+                                 <property name="geometry">
+                                  <rect>
+                                   <x>0</x>
+                                   <y>0</y>
+                                   <width>806</width>
+                                   <height>384</height>
+                                  </rect>
+                                 </property>
+                                 <layout class="QGridLayout" name="gridLayout_19">
+                                  <item row="8" column="5">
+                                   <spacer name="verticalSpacer_3">
+                                    <property name="orientation">
+                                     <enum>Qt::Vertical</enum>
+                                    </property>
+                                    <property name="sizeHint" stdset="0">
+                                     <size>
+                                      <width>20</width>
+                                      <height>40</height>
+                                     </size>
+                                    </property>
+                                   </spacer>
+                                  </item>
+                                  <item row="13" column="4">
+                                   <widget class="QPushButton" name="MSRemoveButton">
+                                    <property name="toolTip">
+                                     <string>Remove selected Master Server</string>
+                                    </property>
+                                    <property name="text">
+                                     <string/>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset resource="ll.qrc">
+                                      <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="13" column="2">
+                                   <widget class="QPushButton" name="MSListSaveButton">
+                                    <property name="text">
+                                     <string>Save List</string>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset resource="ll.qrc">
+                                      <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="13" column="3">
+                                   <widget class="QPushButton" name="MSAddButton">
+                                    <property name="toolTip">
+                                     <string>Add Master Server</string>
+                                    </property>
+                                    <property name="text">
+                                     <string/>
+                                    </property>
+                                    <property name="icon">
+                                     <iconset resource="ll.qrc">
+                                      <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                  <item row="4" column="5">
                                    <widget class="QPushButton" name="MSVisitrepoButton">
                                     <property name="text">
                                      <string>Config repo &gt;&gt;</string>
@@ -2597,55 +2674,124 @@ font-size: 12pt;</string>
                                     </property>
                                    </widget>
                                   </item>
-                                  <item row="0" column="0">
-                                   <widget class="QLabel" name="MSTableLabel">
-                                    <property name="text">
-                                     <string>Master Servers</string>
+                                  <item row="5" column="5">
+                                   <widget class="QGroupBox" name="groupBox_3">
+                                    <property name="font">
+                                     <font>
+                                      <weight>50</weight>
+                                      <bold>false</bold>
+                                     </font>
                                     </property>
-                                   </widget>
-                                  </item>
-                                  <item row="0" column="5">
-                                   <widget class="QLabel" name="MSAPILabel">
-                                    <property name="sizePolicy">
-                                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                                      <horstretch>0</horstretch>
-                                      <verstretch>0</verstretch>
-                                     </sizepolicy>
-                                    </property>
-                                    <property name="text">
+                                    <property name="title">
                                      <string>Valid APIs</string>
                                     </property>
+                                    <layout class="QGridLayout" name="gridLayout_6">
+                                     <item row="2" column="1">
+                                      <widget class="QLabel" name="snitchdescLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>50</weight>
+                                         <bold>false</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>LiquidMS Snitch API</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="0" column="1">
+                                      <widget class="QLabel" name="v1descLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>50</weight>
+                                         <bold>false</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>Official SRB2 API</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="3" column="0" colspan="3">
+                                      <widget class="QLabel" name="msapiwarningLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>50</weight>
+                                         <italic>false</italic>
+                                         <bold>false</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>All other APIs will be ignored</string>
+                                       </property>
+                                       <property name="alignment">
+                                        <set>Qt::AlignCenter</set>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="1" column="0">
+                                      <widget class="QLabel" name="kartv2titleLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>75</weight>
+                                         <bold>true</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>kartv2</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="1" column="1">
+                                      <widget class="QLabel" name="kartv2descLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>50</weight>
+                                         <bold>false</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>SRB2Kart API</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="2" column="0">
+                                      <widget class="QLabel" name="snitchtitleLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>75</weight>
+                                         <bold>true</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>snitch</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item row="0" column="0">
+                                      <widget class="QLabel" name="v1titleLabel">
+                                       <property name="font">
+                                        <font>
+                                         <weight>75</weight>
+                                         <bold>true</bold>
+                                        </font>
+                                       </property>
+                                       <property name="text">
+                                        <string>v1</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                    </layout>
                                    </widget>
                                   </item>
-                                  <item row="1" column="5" colspan="2">
-                                   <widget class="QTextBrowser" name="textBrowser_2">
-                                    <property name="sizePolicy">
-                                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                                      <horstretch>0</horstretch>
-                                      <verstretch>0</verstretch>
-                                     </sizepolicy>
-                                    </property>
-                                    <property name="html">
-                                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;v1&lt;/span&gt;: Official SRB2 API&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;kartv2&lt;/span&gt;: SRB2Kart API&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;snitch&lt;/span&gt;: LiquidMS Snitch API&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;All other APIs will be ignored&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item row="2" column="5">
-                                   <widget class="QLabel" name="label_2">
+                                  <item row="3" column="5">
+                                   <widget class="QLabel" name="ConfigrepoadLabel">
                                     <property name="text">
                                      <string>Looking for master servers?</string>
                                     </property>
                                    </widget>
                                   </item>
-                                  <item row="1" column="0" colspan="4">
+                                  <item row="3" column="0" rowspan="9" colspan="5">
                                    <widget class="QTableWidget" name="MasterServersTable">
                                     <property name="sizePolicy">
                                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -2740,43 +2886,23 @@ p, li { white-space: pre-wrap; }
                                     </item>
                                    </widget>
                                   </item>
-                                  <item row="2" column="1">
-                                   <widget class="QPushButton" name="MSListSaveButton">
-                                    <property name="text">
-                                     <string>Save List</string>
+                                  <item row="13" column="1">
+                                   <spacer name="horizontalSpacer_9">
+                                    <property name="orientation">
+                                     <enum>Qt::Horizontal</enum>
                                     </property>
-                                    <property name="icon">
-                                     <iconset resource="ll.qrc">
-                                      <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                                    <property name="sizeHint" stdset="0">
+                                     <size>
+                                      <width>40</width>
+                                      <height>20</height>
+                                     </size>
                                     </property>
-                                   </widget>
+                                   </spacer>
                                   </item>
-                                  <item row="2" column="2">
-                                   <widget class="QPushButton" name="MSAddButton">
+                                  <item row="2" column="0" colspan="2">
+                                   <widget class="QLabel" name="MSTableLabel">
                                     <property name="text">
-                                     <string>Add</string>
-                                    </property>
-                                    <property name="icon">
-                                     <iconset resource="ll.qrc">
-                                      <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item row="2" column="3">
-                                   <widget class="QPushButton" name="MSRemoveButton">
-                                    <property name="text">
-                                     <string>Remove</string>
-                                    </property>
-                                    <property name="icon">
-                                     <iconset resource="ll.qrc">
-                                      <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item row="2" column="0">
-                                   <widget class="QLabel" name="label">
-                                    <property name="text">
-                                     <string>TextLabel</string>
+                                     <string>Master Servers</string>
                                     </property>
                                    </widget>
                                   </item>
@@ -2982,8 +3108,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>848</width>
+                <height>539</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -3011,16 +3137,16 @@ p, li { white-space: pre-wrap; }
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquidlauncher.svg&quot; /&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;the other launcher for Sonic Robo Blast 2&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;built by Liquid&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.gg/HVTzVfAWG6/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00ffff;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;built by Liquid&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.gg/HVTzVfAWG6/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00ffff;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Contributors&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PixL&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;PixL&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;This Project is based on the following technologies:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Feedparser&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by Kurt McKee and Mark Pilgrim&lt;/span&gt;&lt;/p&gt;
@@ -3028,12 +3154,12 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;LXML&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(libxml binding for Python)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;PyInstaller&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (distribution)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;PySide6&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by the Qt Project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Qt 6&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by the Qt project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3041,11 +3167,11 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
@@ -3056,10 +3182,10 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3112,8 +3238,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>844</width>
-                <height>523</height>
+                <width>848</width>
+                <height>539</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -3197,14 +3323,14 @@ p, li { white-space: pre-wrap; }
                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;The use of mods from unofficial sources on the official Master Server [&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;The hosting of some unofficial mods on the official Master Server [&lt;/span&gt;&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                     </widget>
                    </item>
