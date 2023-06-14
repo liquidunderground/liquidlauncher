@@ -624,7 +624,7 @@ class MainWindow(QMainWindow):
     
     def open_mod_page(self):
         mod = self.get_selected_mod()
-        self.open_url(mod.url)
+        self.open_url(mod)
     
     def get_selected_mod(self):
         #selection = self.ui.ModsList.currentItem().text()
