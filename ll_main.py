@@ -373,60 +373,69 @@ class MainWindow(QMainWindow):
                                             QtCore.Qt.FastTransformation))
         return
 
-    def get_client_launch_command(self):
+    def get_client_launch_command_headless(self):
         """
         This converts all of the launcher inputs to a single-string command to 
         launch SRB2
         """
-        ui = self.ui
         com = ""
         if self.ui.WineToggle.isChecked() and self.ui.WineToggle.isEnabled(): 
             com += "wine "
-        com += "\"" + ui.GameExecFilePathInput.text() + "\""
+        com += "\"" + self.ui.GameExecFilePathInput.text() + "\""
 
-        # game settings (from game settings tab) ============================= #
-        if ui.GameRendererSetting.currentIndex() == 0: com += " +renderer 1"
-        if ui.GameRendererSetting.currentIndex() == 1: com += " +renderer 2"
-        if ui.GameFullscreenSetting.currentIndex() == 0: com += " +fullscreen 1"
-        if ui.GameFullscreenSetting.currentIndex() == 1: com += " -borderless"
-        if ui.GameFullscreenSetting.currentIndex() == 2: com += " -win"
-        if ui.GameMusicSetting.currentIndex() == 0: com += " +digimusic On"
-        if ui.GameMusicSetting.currentIndex() == 1: com += " +digimusic Off"
-        if ui.GameMusicSetting.currentIndex() == 2: com += " -usecd"
-        if ui.GameMusicSetting.currentIndex() == 3: com += " -nomusic"
-        if ui.GameSoundSetting.currentIndex() == 1: com += " -nosound"
-        if ui.GameHorizontalResolutionInput.text() != "" and ui.GameVerticalResolutionInput.text() != "":
-            com += " -width " + ui.GameHorizontalResolutionInput.text() + " -height " \
-                   + ui.GameVerticalResolutionInput.text()
-        if ui.PlayerNameInput.text() != "": com += " +name \"" + ui.PlayerNameInput.text() + "\""
-        if ui.PlayerColorInput.currentText():
-            com += " +color " + str(ui.PlayerColorInput.currentText().lower())
-        if ui.PlayerSkinInput.currentText():
+        if self.ui.PlayerNameInput.text() != "": com += " +name \"" + self.ui.PlayerNameInput.text() + "\""
+        if self.ui.PlayerColorInput.currentText():
+            com += " +color " + str(self.ui.PlayerColorInput.currentText().lower())
+        if self.ui.PlayerSkinInput.currentText():
             com += " +skin " + str(
-            ui.PlayerSkinInput.currentText().lower().replace(" ", ""))
+            self.ui.PlayerSkinInput.currentText().lower().replace(" ", ""))
 
         # get all files ====================================================== #
         com += " -file"
-        for i in range(ui.GameFilesList.count()):
-            com += " \"" + ui.GameFilesList.item(i).text() + "\""
+        for i in range(self.ui.GameFilesList.count()):
+            com += " \"" + self.ui.GameFilesList.item(i).text() + "\""
 
         # add a script ======================================================= #
-        if ui.GameFilesExecScriptInput.text() != "": 
-            com += " +exec " + ui.GameFilesExecScriptInput.text()
+        if self.ui.GameFilesExecScriptInput.text() != "": 
+            com += " +exec " + self.ui.GameFilesExecScriptInput.text()
 
         # custom parameters ================================================== #
-        if ui.GameArgsInput.text() != "": 
-            com += " " + ui.GameArgsInput.text()
+        if self.ui.GameArgsInput.text() != "": 
+            com += " " + self.ui.GameArgsInput.text()
 
+        return com
+
+    def get_client_launch_command(self):
+
+        com = self.get_client_launch_command_headless()
+
+        # game settings (from game settings tab) ============================= #
+        if self.ui.GameRendererSetting.currentIndex() == 0: com += " +renderer 1"
+        if self.ui.GameRendererSetting.currentIndex() == 1: com += " +renderer 2"
+        if self.ui.GameFullscreenSetting.currentIndex() == 0: com += " +fullscreen 1"
+        if self.ui.GameFullscreenSetting.currentIndex() == 1: com += " -borderless"
+        if self.ui.GameFullscreenSetting.currentIndex() == 2: com += " -win"
+        if self.ui.GameMusicSetting.currentIndex() == 0: com += " +digimusic On"
+        if self.ui.GameMusicSetting.currentIndex() == 1: com += " +digimusic Off"
+        if self.ui.GameMusicSetting.currentIndex() == 2: com += " -usecd"
+        if self.ui.GameMusicSetting.currentIndex() == 3: com += " -nomusic"
+        if self.ui.GameSoundSetting.currentIndex() == 1: com += " -nosound"
+        if self.ui.GameHorizontalResolutionInput.text() != "" and self.ui.GameVerticalResolutionInput.text() != "":
+            com += " -width " + self.ui.GameHorizontalResolutionInput.text() + " -height " \
+                   + self.ui.GameVerticalResolutionInput.text()
         print("CLIENT COMMAND: {}".format(com))
         return com
 
     def get_server_launch_command(self):
         """Launch server
         """
-        launch_command = self.ui.GameExecFilePathInput.text() + " -server"
-        if not self.ui.DedicatedServerToggle.isChecked:
+        #launch_command = self.ui.GameExecFilePathInput.text() + " -server"
+        if self.ui.DedicatedServerToggle.isChecked():
+            launch_command = self.get_client_launch_command_headless()
+        else:
             launch_command = self.get_client_launch_command()
+
+        launch_command += " -server"
 
         if self.ui.ServerNameInput.text() != "": launch_command += " +servername  \"{}\"".format(self.ui.ServerNameInput.text())
         if self.ui.AdminPasswordInput.text() != "": launch_command += " +password \"{}\"".format(self.ui.AdminPasswordInput.text())
