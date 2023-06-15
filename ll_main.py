@@ -1,5 +1,6 @@
 import json
 import os
+import platform
 import sys
 import webbrowser
 from packaging import version # for version checks
@@ -115,7 +116,9 @@ class MainWindow(QMainWindow):
 
         # allow posix systems to use wine ============================================ #
         if os.name == "posix":
-            self.ui.WineToggle.setEnabled(True)
+            self.ui.WineRadiobutton.setEnabled(True)
+        if platform.system() == "Linux":
+            self.ui.FlatpakRadiobutton.setEnabled(True)
 
         # file dialog options to keep shit consistent ================================ #
         self.FileDialogOptions = QFileDialog.Options()
@@ -379,9 +382,12 @@ class MainWindow(QMainWindow):
         launch SRB2
         """
         com = ""
-        if self.ui.WineToggle.isChecked() and self.ui.WineToggle.isEnabled(): 
-            com += "wine "
-        com += "\"" + self.ui.GameExecFilePathInput.text() + "\""
+        if self.ui.FlatpakRadiobutton.isChecked() and self.ui.FlatpakRadiobutton.isEnabled(): 
+            com += "flatpak run org.srb2.SRB2 "
+        else:
+            if self.ui.WineRadiobutton.isChecked() and self.ui.WineRadiobutton.isEnabled(): 
+                com += "wine "
+            com += self.ui.GameExecFilePathInput.text()
 
         if self.ui.PlayerNameInput.text() != "": com += " +name \"" + self.ui.PlayerNameInput.text() + "\""
         if self.ui.PlayerColorInput.currentText():
@@ -1285,7 +1291,25 @@ class MainWindow(QMainWindow):
         self.ui.SuddenDeathToggle.setChecked(profile_settings_dict["host"]["suddendeath"])
         self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
         self.ui.HostMSCombobox.setCurrentText(profile_settings_dict["host"]["masterserver"])
-        self.ui.WineToggle.setChecked(profile_settings_dict["settings"]["wine"])
+        try:
+            if profile_settings_dict["settings"]["binmode"] == "wine":
+                self.ui.NativeRadiobutton.setChecked(False)
+                self.ui.WineRadiobutton.setChecked(True)
+                self.ui.FlatpakRadiobutton.setChecked(False)
+            elif profile_settings_dict["settings"]["binmode"] == "flatpak":
+                self.ui.NativeRadiobutton.setChecked(False)
+                self.ui.WineRadiobutton.setChecked(False)
+                self.ui.FlatpakRadiobutton.setChecked(True)
+            else:
+                self.ui.NativeRadiobutton.setChecked(True)
+                self.ui.WineRadiobutton.setChecked(False)
+                self.ui.FlatpakRadiobutton.setChecked(False)
+        except Exception as e:
+            print("No binmode setting found. Defaulting to \"native\".")
+            self.ui.NativeRadiobutton.setChecked(True)
+            self.ui.WineRadiobutton.setChecked(False)
+            self.ui.FlatpakRadiobutton.setChecked(False)
+
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
 
         self.ui.GameFilesList.clear()
@@ -1337,7 +1361,13 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["suddendeath"] = self.ui.SuddenDeathToggle.isChecked()
         toml_settings["host"]["dedicated"] = self.ui.DedicatedServerToggle.isChecked()
         toml_settings["host"]["masterserver"] = self.ui.HostMSCombobox.currentText()
-        toml_settings["settings"]["wine"] = self.ui.WineToggle.isChecked()
+        if self.ui.WineRadiobutton.isChecked():
+            toml_settings["settings"]["binmode"] == "wine"
+        if self.ui.FlatpakRadiobutton.isChecked():
+            toml_settings["settings"]["binmode"] == "flatpak"
+        else:
+            toml_settings["settings"]["binmode"] == "native"
+
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
 
         for i in range(self.ui.GameFilesList.count()):

@@ -20,10 +20,10 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QComboBox, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QHeaderView, QLabel, QLineEdit,
     QListView, QListWidget, QListWidgetItem, QMainWindow,
-    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QSplitter, QStackedWidget, QTabWidget, QTableWidget,
-    QTableWidgetItem, QTextBrowser, QToolButton, QVBoxLayout,
-    QWidget)
+    QPushButton, QRadioButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QSplitter, QStackedWidget, QTabWidget,
+    QTableWidget, QTableWidgetItem, QTextBrowser, QToolButton,
+    QVBoxLayout, QWidget)
 import ll_rc
 
 class Ui_MainWindow(object):
@@ -423,122 +423,139 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 592, 447))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.GameHorizontalResolutionInput = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.GameHorizontalResolutionInput.setObjectName(u"GameHorizontalResolutionInput")
-        self.GameHorizontalResolutionInput.setStyleSheet(u"")
+        self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_6.setObjectName(u"groupBox_6")
+        self.horizontalLayout_4 = QHBoxLayout(self.groupBox_6)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.GameRendererSetting = QComboBox(self.groupBox_6)
+        self.GameRendererSetting.addItem("")
+        self.GameRendererSetting.addItem("")
+        self.GameRendererSetting.setObjectName(u"GameRendererSetting")
 
-        self.gridLayout_13.addWidget(self.GameHorizontalResolutionInput, 1, 2, 1, 1)
+        self.horizontalLayout_4.addWidget(self.GameRendererSetting)
 
-        self.ExportClientScriptButton = QPushButton(self.scrollAreaWidgetContents_6)
-        self.ExportClientScriptButton.setObjectName(u"ExportClientScriptButton")
-        icon8 = QIcon()
-        icon8.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ExportClientScriptButton.setIcon(icon8)
-
-        self.gridLayout_13.addWidget(self.ExportClientScriptButton, 12, 2, 1, 3)
-
-        self.GameSoundSetting = QComboBox(self.scrollAreaWidgetContents_6)
-        self.GameSoundSetting.addItem("")
-        self.GameSoundSetting.addItem("")
-        self.GameSoundSetting.setObjectName(u"GameSoundSetting")
-
-        self.gridLayout_13.addWidget(self.GameSoundSetting, 5, 4, 1, 1)
-
-        self.GameResolutionLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameResolutionLabel.setObjectName(u"GameResolutionLabel")
-        self.GameResolutionLabel.setMaximumSize(QSize(16777215, 26))
-        self.GameResolutionLabel.setStyleSheet(u"")
-
-        self.gridLayout_13.addWidget(self.GameResolutionLabel, 0, 2, 1, 1)
-
-        self.GameFullscreenSetting = QComboBox(self.scrollAreaWidgetContents_6)
+        self.GameFullscreenSetting = QComboBox(self.groupBox_6)
         self.GameFullscreenSetting.addItem("")
         self.GameFullscreenSetting.addItem("")
         self.GameFullscreenSetting.addItem("")
         self.GameFullscreenSetting.setObjectName(u"GameFullscreenSetting")
 
-        self.gridLayout_13.addWidget(self.GameFullscreenSetting, 3, 4, 1, 1)
+        self.horizontalLayout_4.addWidget(self.GameFullscreenSetting)
 
-        self.GameVerticalResolutionInput = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.GameVerticalResolutionInput.setObjectName(u"GameVerticalResolutionInput")
 
-        self.gridLayout_13.addWidget(self.GameVerticalResolutionInput, 1, 4, 1, 1)
-
-        self.GameArgsInput = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.GameArgsInput.setObjectName(u"GameArgsInput")
-
-        self.gridLayout_13.addWidget(self.GameArgsInput, 10, 2, 1, 3)
+        self.gridLayout_13.addWidget(self.groupBox_6, 2, 2, 1, 1)
 
         self.line_5 = QFrame(self.scrollAreaWidgetContents_6)
         self.line_5.setObjectName(u"line_5")
         self.line_5.setFrameShape(QFrame.HLine)
         self.line_5.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_13.addWidget(self.line_5, 11, 2, 1, 3)
-
-        self.GameResMultLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameResMultLabel.setObjectName(u"GameResMultLabel")
-        self.GameResMultLabel.setStyleSheet(u"padding: 0;\n"
-"font-size: 12pt;")
-
-        self.gridLayout_13.addWidget(self.GameResMultLabel, 1, 3, 1, 1)
-
-        self.GameSoundOptionsLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameSoundOptionsLabel.setObjectName(u"GameSoundOptionsLabel")
-
-        self.gridLayout_13.addWidget(self.GameSoundOptionsLabel, 4, 2, 1, 1)
-
-        self.GameExecFilePathInput = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.GameExecFilePathInput.setObjectName(u"GameExecFilePathInput")
-
-        self.gridLayout_13.addWidget(self.GameExecFilePathInput, 7, 2, 1, 2)
-
-        self.GameRenderCfgLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameRenderCfgLabel.setObjectName(u"GameRenderCfgLabel")
-
-        self.gridLayout_13.addWidget(self.GameRenderCfgLabel, 2, 2, 1, 1)
-
-        self.GameExecFilePathBrowse = QPushButton(self.scrollAreaWidgetContents_6)
-        self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
-        self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        icon9 = QIcon()
-        icon9.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameExecFilePathBrowse.setIcon(icon9)
-
-        self.gridLayout_13.addWidget(self.GameExecFilePathBrowse, 7, 4, 1, 1)
-
-        self.GameExecPathLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameExecPathLabel.setObjectName(u"GameExecPathLabel")
-
-        self.gridLayout_13.addWidget(self.GameExecPathLabel, 6, 2, 1, 1)
+        self.gridLayout_13.addWidget(self.line_5, 10, 2, 1, 3)
 
         self.GameArgsLabel = QLabel(self.scrollAreaWidgetContents_6)
         self.GameArgsLabel.setObjectName(u"GameArgsLabel")
 
-        self.gridLayout_13.addWidget(self.GameArgsLabel, 9, 2, 1, 1)
+        self.gridLayout_13.addWidget(self.GameArgsLabel, 8, 2, 1, 1)
 
-        self.WineToggle = QCheckBox(self.scrollAreaWidgetContents_6)
-        self.WineToggle.setObjectName(u"WineToggle")
-        self.WineToggle.setEnabled(False)
-        self.WineToggle.setChecked(False)
+        self.GameArgsInput = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.GameArgsInput.setObjectName(u"GameArgsInput")
 
-        self.gridLayout_13.addWidget(self.WineToggle, 8, 2, 1, 1)
+        self.gridLayout_13.addWidget(self.GameArgsInput, 9, 2, 1, 3)
 
-        self.GameMusicSetting = QComboBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_4 = QGroupBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.gridLayout_20 = QGridLayout(self.groupBox_4)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.GameExecFilePathBrowse = QPushButton(self.groupBox_4)
+        self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
+        self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
+        icon8 = QIcon()
+        icon8.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameExecFilePathBrowse.setIcon(icon8)
+
+        self.gridLayout_20.addWidget(self.GameExecFilePathBrowse, 0, 2, 1, 1)
+
+        self.GameExecFilePathInput = QLineEdit(self.groupBox_4)
+        self.GameExecFilePathInput.setObjectName(u"GameExecFilePathInput")
+
+        self.gridLayout_20.addWidget(self.GameExecFilePathInput, 0, 0, 1, 2)
+
+        self.FlatpakRadiobutton = QRadioButton(self.groupBox_4)
+        self.FlatpakRadiobutton.setObjectName(u"FlatpakRadiobutton")
+        self.FlatpakRadiobutton.setEnabled(False)
+
+        self.gridLayout_20.addWidget(self.FlatpakRadiobutton, 3, 2, 1, 1)
+
+        self.NativeRadiobutton = QRadioButton(self.groupBox_4)
+        self.NativeRadiobutton.setObjectName(u"NativeRadiobutton")
+        self.NativeRadiobutton.setChecked(True)
+
+        self.gridLayout_20.addWidget(self.NativeRadiobutton, 3, 0, 1, 1)
+
+        self.WineRadiobutton = QRadioButton(self.groupBox_4)
+        self.WineRadiobutton.setObjectName(u"WineRadiobutton")
+        self.WineRadiobutton.setEnabled(False)
+
+        self.gridLayout_20.addWidget(self.WineRadiobutton, 3, 1, 1, 1)
+
+
+        self.gridLayout_13.addWidget(self.groupBox_4, 6, 2, 1, 3)
+
+        self.ExportClientScriptButton = QPushButton(self.scrollAreaWidgetContents_6)
+        self.ExportClientScriptButton.setObjectName(u"ExportClientScriptButton")
+        icon9 = QIcon()
+        icon9.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ExportClientScriptButton.setIcon(icon9)
+
+        self.gridLayout_13.addWidget(self.ExportClientScriptButton, 11, 2, 1, 3)
+
+        self.groupBox_7 = QGroupBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_7.setObjectName(u"groupBox_7")
+        self.horizontalLayout_3 = QHBoxLayout(self.groupBox_7)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.GameMusicSetting = QComboBox(self.groupBox_7)
         self.GameMusicSetting.addItem("")
         self.GameMusicSetting.addItem("")
         self.GameMusicSetting.addItem("")
         self.GameMusicSetting.addItem("")
         self.GameMusicSetting.setObjectName(u"GameMusicSetting")
 
-        self.gridLayout_13.addWidget(self.GameMusicSetting, 5, 2, 1, 2)
+        self.horizontalLayout_3.addWidget(self.GameMusicSetting)
 
-        self.GameRendererSetting = QComboBox(self.scrollAreaWidgetContents_6)
-        self.GameRendererSetting.addItem("")
-        self.GameRendererSetting.addItem("")
-        self.GameRendererSetting.setObjectName(u"GameRendererSetting")
+        self.GameSoundSetting = QComboBox(self.groupBox_7)
+        self.GameSoundSetting.addItem("")
+        self.GameSoundSetting.addItem("")
+        self.GameSoundSetting.setObjectName(u"GameSoundSetting")
 
-        self.gridLayout_13.addWidget(self.GameRendererSetting, 3, 2, 1, 2)
+        self.horizontalLayout_3.addWidget(self.GameSoundSetting)
+
+
+        self.gridLayout_13.addWidget(self.groupBox_7, 3, 2, 1, 1)
+
+        self.groupBox_5 = QGroupBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_5.setObjectName(u"groupBox_5")
+        self.horizontalLayout_5 = QHBoxLayout(self.groupBox_5)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.GameHorizontalResolutionInput = QLineEdit(self.groupBox_5)
+        self.GameHorizontalResolutionInput.setObjectName(u"GameHorizontalResolutionInput")
+        self.GameHorizontalResolutionInput.setStyleSheet(u"")
+
+        self.horizontalLayout_5.addWidget(self.GameHorizontalResolutionInput)
+
+        self.GameResMultLabel = QLabel(self.groupBox_5)
+        self.GameResMultLabel.setObjectName(u"GameResMultLabel")
+        self.GameResMultLabel.setStyleSheet(u"padding: 0;\n"
+"font-size: 12pt;")
+
+        self.horizontalLayout_5.addWidget(self.GameResMultLabel)
+
+        self.GameVerticalResolutionInput = QLineEdit(self.groupBox_5)
+        self.GameVerticalResolutionInput.setObjectName(u"GameVerticalResolutionInput")
+
+        self.horizontalLayout_5.addWidget(self.GameVerticalResolutionInput)
+
+
+        self.gridLayout_13.addWidget(self.groupBox_5, 1, 2, 1, 1)
 
         self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
 
@@ -573,7 +590,7 @@ class Ui_MainWindow(object):
         self.GameFilesExecScrBrowseButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesExecScrBrowseButton.setObjectName(u"GameFilesExecScrBrowseButton")
         self.GameFilesExecScrBrowseButton.setMinimumSize(QSize(0, 28))
-        self.GameFilesExecScrBrowseButton.setIcon(icon9)
+        self.GameFilesExecScrBrowseButton.setIcon(icon8)
 
         self.gridLayout_9.addWidget(self.GameFilesExecScrBrowseButton, 10, 4, 1, 1)
 
@@ -609,7 +626,7 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setObjectName(u"GameFilesSaveButton")
         self.GameFilesSaveButton.setMinimumSize(QSize(0, 28))
         self.GameFilesSaveButton.setStyleSheet(u"")
-        self.GameFilesSaveButton.setIcon(icon8)
+        self.GameFilesSaveButton.setIcon(icon9)
 
         self.gridLayout_9.addWidget(self.GameFilesSaveButton, 0, 8, 1, 1)
 
@@ -661,7 +678,7 @@ class Ui_MainWindow(object):
         self.GameFilesLoadButton.setObjectName(u"GameFilesLoadButton")
         self.GameFilesLoadButton.setMinimumSize(QSize(0, 28))
         self.GameFilesLoadButton.setStyleSheet(u"")
-        self.GameFilesLoadButton.setIcon(icon9)
+        self.GameFilesLoadButton.setIcon(icon8)
 
         self.gridLayout_9.addWidget(self.GameFilesLoadButton, 2, 8, 1, 1)
 
@@ -882,7 +899,7 @@ class Ui_MainWindow(object):
 
         self.ExportServerScriptButton = QPushButton(self.scrollAreaWidgetContents_4)
         self.ExportServerScriptButton.setObjectName(u"ExportServerScriptButton")
-        self.ExportServerScriptButton.setIcon(icon8)
+        self.ExportServerScriptButton.setIcon(icon9)
 
         self.gridLayout.addWidget(self.ExportServerScriptButton, 26, 0, 1, 2)
 
@@ -1222,7 +1239,7 @@ class Ui_MainWindow(object):
 
         self.MSListSaveButton = QPushButton(self.scrollAreaWidgetContents_7)
         self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon8)
+        self.MSListSaveButton.setIcon(icon9)
 
         self.gridLayout_19.addWidget(self.MSListSaveButton, 13, 2, 1, 1)
 
@@ -1426,7 +1443,7 @@ class Ui_MainWindow(object):
 
         self.ProfilesSaveButton = QToolButton(self.GamePlayFrame)
         self.ProfilesSaveButton.setObjectName(u"ProfilesSaveButton")
-        self.ProfilesSaveButton.setIcon(icon8)
+        self.ProfilesSaveButton.setIcon(icon9)
 
         self.gridLayout_3.addWidget(self.ProfilesSaveButton, 2, 1, 1, 1)
 
@@ -1502,7 +1519,7 @@ class Ui_MainWindow(object):
 
         self.ProfileDirBrowseButton = QPushButton(self.tab_5)
         self.ProfileDirBrowseButton.setObjectName(u"ProfileDirBrowseButton")
-        self.ProfileDirBrowseButton.setIcon(icon9)
+        self.ProfileDirBrowseButton.setIcon(icon8)
 
         self.gridLayout_11.addWidget(self.ProfileDirBrowseButton, 1, 2, 1, 1)
 
@@ -1663,7 +1680,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(1)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.GameSettingsTabWidget.setCurrentIndex(0)
@@ -1800,33 +1817,35 @@ class Ui_MainWindow(object):
         self.PlayerColorInput.setItemText(61, QCoreApplication.translate("MainWindow", u"Plum", None))
         self.PlayerColorInput.setItemText(62, QCoreApplication.translate("MainWindow", u"Rosy", None))
 
-        self.GameHorizontalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
-        self.ExportClientScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save Client Launch Script...", None))
-        self.GameSoundSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Enable sound", None))
-        self.GameSoundSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Disable sound", None))
+        self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Render Options", None))
+        self.GameRendererSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Software", None))
+        self.GameRendererSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"OpenGL", None))
 
-        self.GameResolutionLabel.setText(QCoreApplication.translate("MainWindow", u"Resolutions", None))
         self.GameFullscreenSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Fullscreen", None))
         self.GameFullscreenSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Borderless fullscreen", None))
         self.GameFullscreenSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"Windowed", None))
 
-        self.GameVerticalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
-        self.GameResMultLabel.setText(QCoreApplication.translate("MainWindow", u"x", None))
-        self.GameSoundOptionsLabel.setText(QCoreApplication.translate("MainWindow", u"Audio Options", None))
-        self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
-        self.GameRenderCfgLabel.setText(QCoreApplication.translate("MainWindow", u"Render Options", None))
-        self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
-        self.GameExecPathLabel.setText(QCoreApplication.translate("MainWindow", u"Executable command (EXE/ELF)", None))
         self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"Custom Shell Parameters", None))
-        self.WineToggle.setText(QCoreApplication.translate("MainWindow", u"RUN SRB2 IN WINE (Linux/BSD/Mac only)", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Executable", None))
+        self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
+        self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
+        self.FlatpakRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Flatpak (Linux)", None))
+        self.NativeRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Native EXE/ELF", None))
+        self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (Linux/macOS)", None))
+        self.ExportClientScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save Client Launch Script...", None))
+        self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Audio Options", None))
         self.GameMusicSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Digital music", None))
         self.GameMusicSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Midi music", None))
         self.GameMusicSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"Load music from a CD", None))
         self.GameMusicSetting.setItemText(3, QCoreApplication.translate("MainWindow", u"Disable music", None))
 
-        self.GameRendererSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Software", None))
-        self.GameRendererSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"OpenGL", None))
+        self.GameSoundSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Enable sound", None))
+        self.GameSoundSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Disable sound", None))
 
+        self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Resolution", None))
+        self.GameHorizontalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
+        self.GameResMultLabel.setText(QCoreApplication.translate("MainWindow", u"x", None))
+        self.GameVerticalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
 #if QT_CONFIG(tooltip)
         self.GameSettingsTabWidget.setToolTip(QCoreApplication.translate("MainWindow", u"Add file...", None))
 #endif // QT_CONFIG(tooltip)
