@@ -170,6 +170,9 @@ class MainWindow(QMainWindow):
 
         # game settings buttons ========================================================= #
         self.ui.GameExecFilePathBrowse.clicked.connect(self.set_game_exec_path)
+        self.ui.WineRadiobutton.toggled.connect(self.update_binmode_in_ui)
+        self.ui.FlatpakRadiobutton.toggled.connect(self.update_binmode_in_ui)
+        self.ui.NativeRadiobutton.toggled.connect(self.update_binmode_in_ui)
 
         # files list buttons ========================================================= #
         self.ui.GameFilesClearButton.clicked.connect(self.clear_files_list)
@@ -389,6 +392,9 @@ class MainWindow(QMainWindow):
                 com += "wine "
             com += self.ui.GameExecFilePathInput.text()
 
+        if self.ui.HomePathInput.text() != "": 
+            com += "-home {}".format( self.ui.HomePathInput.text() )
+
         if self.ui.PlayerNameInput.text() != "": com += " +name \"" + self.ui.PlayerNameInput.text() + "\""
         if self.ui.PlayerColorInput.currentText():
             com += " +color " + str(self.ui.PlayerColorInput.currentText().lower())
@@ -453,20 +459,16 @@ class MainWindow(QMainWindow):
             if self.ui.RoomInput.currentIndex() == 2: launch_command += "28"
             if self.ui.RoomInput.currentIndex() == 3: launch_command += "38"
             if self.ui.RoomInput.currentIndex() == 4: launch_command += "31"
+
+        if self.ui.BandwidthInput.value() != 1000:
+            launch_command += " -bandwidth " + str(self.ui.BandwidthInput.value())
+        if self.ui.ExtraticInput.value() != 1:
+            launch_command += " -extratic " + str(self.ui.ExtraticInput.value())
+
         launch_command += " -gametype " + str(self.ui.GametypeInput.currentIndex())
         launch_command += " +advancemap " + str(self.ui.AdvanceMapInput.currentIndex())
-        if "" != self.ui.PointLimitInput.text():
-            launch_command += " +pointlimit " + self.ui.PointLimitInput.text()
-        else:
-            launch_command += " +pointlimit 1000"
-        if self.ui.TimeLimitInput.text() != "":
-            launch_command += " +timelimit " + self.ui.TimeLimitInput.text()
-        else:
-            launch_command += " +timelimit 0"
-        if self.ui.MaxPlayersInput.text() != "":
+        if self.ui.MaxPlayersInput.value() != 8:
             launch_command += " +maxplayers " + self.ui.MaxPlayersInput.text()
-        else:
-            launch_command += " +maxplayers 8"
         if (
                 self.ui.ForceSkinInput.currentText() != ""):
             launch_command += " +forceskin " + self.ui.ForceSkinInput.currentText().lower().replace(
@@ -475,19 +477,43 @@ class MainWindow(QMainWindow):
             launch_command += " -port " + self.ui.PortInput.text()
         else:
             launch_command += " -port 5029"
-        if self.ui.DisableWeaponsToggle.isChecked():
-            launch_command += " +specialrings 1"
-        else:
-            launch_command += " +specialrings 0"
-        if self.ui.SuddenDeathToggle.isChecked():
-            launch_command += " +suddendeath 1"
-        else:
-            launch_command += " +suddendeath 0"
         if self.ui.DedicatedServerToggle.isChecked(): launch_command += " -dedicated"
         if self.ui.UploadToggle.isChecked():
             launch_command += " +downloading 1"
         else:
             launch_command += " +downloading 0"
+        if self.ui.Ipv6Checkbox.isChecked(): launch_command += " -ipv6"
+        if self.ui.UpnpCheckbox.isChecked(): launch_command += " -upnp"
+
+        ### Coop Settings Tab ###
+        if self.ui.CoopSettingsCheckbox.isChecked():
+            print("Sorry, no CR settings yet :p\n")
+
+        ### Ringslinger Settings Tab ###
+        if self.ui.RingslingerSettingsCheckbox.isChecked():
+            if self.ui.PointLimitInput.value() != 0:
+                launch_command += " +pointlimit " + str(self.ui.PointLimitInput.value())
+            if self.ui.TimeLimitInput.text() != "":
+                launch_command += " +timelimit " + str(self.ui.TimeLimitInput.value())
+            else:
+                launch_command += " +timelimit 0"
+            if self.ui.DisableWeaponsToggle.isChecked():
+                launch_command += " +specialrings 1"
+            else:
+                launch_command += " +specialrings 0"
+            if self.ui.SuddenDeathToggle.isChecked():
+                launch_command += " +suddendeath 1"
+            else:
+                launch_command += " +suddendeath 0"
+
+        ### Circuit Race Settings Tab ###
+        if self.ui.CircuitraceSettingsCheckbox.isChecked():
+            print("Sorry, no CR settings yet :p\n")
+
+        ### Battlmod Settings Tab ###
+        if self.ui.BattlemodSettingsCheckbox.isChecked():
+            print("Sorry, no Battlemod settings yet :p\n")
+
 
         print("SERVER COMMAND: {}".format(launch_command))
         return launch_command
@@ -653,9 +679,7 @@ class MainWindow(QMainWindow):
 
             mod = self.get_selected_mod()
             mod.set_download_url()
-            path = self.ui.GameExecFilePathInput.text()
-            # TODO: delete next line
-            path = "~/"
+            path = os.path.join( self.ui.HomePathInput.text(), "DOWNLOAD")
             self.ui.ModStatusLabel.setText("Downloading mod...")
             self.download_mod_url_sig.emit(mod.download_url)
             self.download_mod_path_sig.emit(path)
@@ -1283,13 +1307,15 @@ class MainWindow(QMainWindow):
         self.ui.RoomInput.setCurrentIndex(profile_settings_dict["host"]["room"])
         self.ui.GametypeInput.setCurrentIndex(profile_settings_dict["host"]["gametype"])
         self.ui.AdvanceMapInput.setCurrentIndex(profile_settings_dict["host"]["advancemap"])
-        self.ui.PointLimitInput.setText(profile_settings_dict["host"]["pointlimit"])
-        self.ui.TimeLimitInput.setText(profile_settings_dict["host"]["timelimit"])
-        self.ui.MaxPlayersInput.setText(profile_settings_dict["host"]["maxplayers"])
+        self.ui.PointLimitInput.setValue(profile_settings_dict["host"]["pointlimit"])
+        self.ui.TimeLimitInput.setValue(profile_settings_dict["host"]["timelimit"])
+        self.ui.MaxPlayersInput.setValue(profile_settings_dict["host"]["maxplayers"])
         self.ui.ForceSkinInput.setCurrentText(profile_settings_dict["host"]["forceskin"])
         self.ui.DisableWeaponsToggle.setChecked(profile_settings_dict["host"]["disableweaponrings"])
         self.ui.SuddenDeathToggle.setChecked(profile_settings_dict["host"]["suddendeath"])
         self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
+        self.ui.BandwidthInput.setValue(profile_settings_dict["host"]["bandwidth"])
+        self.ui.ExtraticInput.setValue(profile_settings_dict["host"]["extratic"])
         self.ui.HostMSCombobox.setCurrentText(profile_settings_dict["host"]["masterserver"])
         try:
             if profile_settings_dict["settings"]["binmode"] == "wine":
@@ -1333,10 +1359,27 @@ class MainWindow(QMainWindow):
         self.change_skin_image()
         self.ui.ProfilesStatusLabel.setText("Profile successfully loaded.")
     
+    def update_binmode_in_ui(self):
+        if self.ui.WineRadiobutton.isChecked():
+            self.ui.GameExecFilePathInput.setEnabled(True)
+            self.ui.GameExecFilePathBrowse.setEnabled(True)
+        elif self.ui.FlatpakRadiobutton.isChecked():
+            self.ui.GameExecFilePathInput.setEnabled(False)
+            self.ui.GameExecFilePathBrowse.setEnabled(False)
+        else:
+            self.ui.GameExecFilePathInput.setEnabled(True)
+            self.ui.GameExecFilePathBrowse.setEnabled(True)
+
     def generate_profile_dict(self):
         """Converts GUI state to a settings dictionary
         """
-        toml_settings = {"files": [], "player": {}, "game": {"resolution": {}}, "host": {}, "settings": {}}
+        toml_settings = {
+            "files": [],
+            "player": {},
+            "game": {"resolution": {}},
+            "host": {},
+            "settings": {}
+            }
         toml_settings["player"]["name"] = self.ui.PlayerNameInput.text()
         toml_settings["player"]["skin"] = str(self.ui.PlayerSkinInput.currentText())
         toml_settings["player"]["color"] = self.ui.PlayerColorInput.currentText()
@@ -1353,20 +1396,22 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["room"] = self.ui.RoomInput.currentIndex()
         toml_settings["host"]["gametype"] = self.ui.GametypeInput.currentIndex()
         toml_settings["host"]["advancemap"] = self.ui.AdvanceMapInput.currentIndex()
-        toml_settings["host"]["pointlimit"] = self.ui.PointLimitInput.text()
-        toml_settings["host"]["timelimit"] = self.ui.TimeLimitInput.text()
-        toml_settings["host"]["maxplayers"] = self.ui.MaxPlayersInput.text()
+        toml_settings["host"]["pointlimit"] = self.ui.PointLimitInput.value()
+        toml_settings["host"]["timelimit"] = self.ui.TimeLimitInput.value()
+        toml_settings["host"]["maxplayers"] = self.ui.MaxPlayersInput.value()
         toml_settings["host"]["forceskin"] = str(self.ui.ForceSkinInput.currentText())
         toml_settings["host"]["disableweaponrings"] = self.ui.DisableWeaponsToggle.isChecked()
         toml_settings["host"]["suddendeath"] = self.ui.SuddenDeathToggle.isChecked()
         toml_settings["host"]["dedicated"] = self.ui.DedicatedServerToggle.isChecked()
+        toml_settings["host"]["bandwidth"] = self.ui.BandwidthInput.value()
+        toml_settings["host"]["extratic"] = self.ui.ExtraticInput.value()
         toml_settings["host"]["masterserver"] = self.ui.HostMSCombobox.currentText()
         if self.ui.WineRadiobutton.isChecked():
-            toml_settings["settings"]["binmode"] == "wine"
+            toml_settings["settings"]["binmode"] = "wine"
         if self.ui.FlatpakRadiobutton.isChecked():
-            toml_settings["settings"]["binmode"] == "flatpak"
+            toml_settings["settings"]["binmode"] = "flatpak"
         else:
-            toml_settings["settings"]["binmode"] == "native"
+            toml_settings["settings"]["binmode"] = "native"
 
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
 

@@ -21,97 +21,24 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QHBoxLayout, QHeaderView, QLabel, QLineEdit,
     QListView, QListWidget, QListWidgetItem, QMainWindow,
     QPushButton, QRadioButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QSplitter, QStackedWidget, QTabWidget,
-    QTableWidget, QTableWidgetItem, QTextBrowser, QToolButton,
-    QVBoxLayout, QWidget)
+    QSpacerItem, QSpinBox, QSplitter, QStackedWidget,
+    QTabWidget, QTableWidget, QTableWidgetItem, QTextBrowser,
+    QTextEdit, QToolButton, QVBoxLayout, QWidget)
+import ll_rc
 import ll_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(852, 605)
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.resize(1034, 621)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.DockTabFrame = QFrame(self.centralwidget)
-        self.DockTabFrame.setObjectName(u"DockTabFrame")
-        self.DockTabFrame.setMaximumSize(QSize(16777215, 128))
-        self.DockTabFrame.setFrameShape(QFrame.StyledPanel)
-        self.DockTabFrame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.DockTabFrame)
-        self.horizontalLayout.setSpacing(0)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.NewsTabButton = QToolButton(self.DockTabFrame)
-        self.NewsTabButton.setObjectName(u"NewsTabButton")
-        icon = QIcon()
-        icon.addFile(u":/assets/img/icons/news.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.NewsTabButton.setIcon(icon)
-        self.NewsTabButton.setIconSize(QSize(48, 48))
-        self.NewsTabButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.NewsTabButton)
-
-        self.GameTabButton = QToolButton(self.DockTabFrame)
-        self.GameTabButton.setObjectName(u"GameTabButton")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
-        self.GameTabButton.setSizePolicy(sizePolicy1)
-        self.GameTabButton.setMaximumSize(QSize(16777215, 16777215))
-        icon1 = QIcon()
-        icon1.addFile(u":/assets/img/icons/gamepad.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameTabButton.setIcon(icon1)
-        self.GameTabButton.setIconSize(QSize(48, 48))
-        self.GameTabButton.setCheckable(True)
-        self.GameTabButton.setChecked(True)
-
-        self.horizontalLayout.addWidget(self.GameTabButton)
-
-        self.HelpTabButton = QToolButton(self.DockTabFrame)
-        self.HelpTabButton.setObjectName(u"HelpTabButton")
-        self.HelpTabButton.setMaximumSize(QSize(16777215, 16777215))
-        icon2 = QIcon()
-        icon2.addFile(u":/assets/img/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.HelpTabButton.setIcon(icon2)
-        self.HelpTabButton.setIconSize(QSize(48, 48))
-        self.HelpTabButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.HelpTabButton)
-
-        self.SettingsTabButton = QToolButton(self.DockTabFrame)
-        self.SettingsTabButton.setObjectName(u"SettingsTabButton")
-        self.SettingsTabButton.setMaximumSize(QSize(16777215, 16777215))
-        icon3 = QIcon()
-        icon3.addFile(u":/assets/img/icons/settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.SettingsTabButton.setIcon(icon3)
-        self.SettingsTabButton.setIconSize(QSize(48, 48))
-        self.SettingsTabButton.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.SettingsTabButton)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_2)
-
-
-        self.verticalLayout.addWidget(self.DockTabFrame)
-
+        self.gridLayout_32 = QGridLayout(self.centralwidget)
+        self.gridLayout_32.setObjectName(u"gridLayout_32")
+        self.gridLayout_32.setContentsMargins(0, 0, 0, 0)
         self.MainAreaFrame = QFrame(self.centralwidget)
         self.MainAreaFrame.setObjectName(u"MainAreaFrame")
         self.MainAreaFrame.setFrameShape(QFrame.StyledPanel)
@@ -134,29 +61,29 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 848, 539))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 1030, 555))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.RSSFeedCombobox = QComboBox(self.NewsScrollAreaContent)
         self.RSSFeedCombobox.addItem("")
         self.RSSFeedCombobox.setObjectName(u"RSSFeedCombobox")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.RSSFeedCombobox.sizePolicy().hasHeightForWidth())
-        self.RSSFeedCombobox.setSizePolicy(sizePolicy2)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RSSFeedCombobox.sizePolicy().hasHeightForWidth())
+        self.RSSFeedCombobox.setSizePolicy(sizePolicy)
         self.RSSFeedCombobox.setEditable(True)
 
         self.gridLayout_7.addWidget(self.RSSFeedCombobox, 0, 1, 1, 1)
 
         self.RSSFeedLabel = QLabel(self.NewsScrollAreaContent)
         self.RSSFeedLabel.setObjectName(u"RSSFeedLabel")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.RSSFeedLabel.sizePolicy().hasHeightForWidth())
-        self.RSSFeedLabel.setSizePolicy(sizePolicy3)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.RSSFeedLabel.sizePolicy().hasHeightForWidth())
+        self.RSSFeedLabel.setSizePolicy(sizePolicy1)
 
         self.gridLayout_7.addWidget(self.RSSFeedLabel, 0, 0, 1, 1)
 
@@ -172,16 +99,19 @@ class Ui_MainWindow(object):
         __qlistwidgetitem = QListWidgetItem(self.RSSArticleList)
         __qlistwidgetitem.setFlags(Qt.NoItemFlags);
         self.RSSArticleList.setObjectName(u"RSSArticleList")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.RSSArticleList.sizePolicy().hasHeightForWidth())
-        self.RSSArticleList.setSizePolicy(sizePolicy4)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.RSSArticleList.sizePolicy().hasHeightForWidth())
+        self.RSSArticleList.setSizePolicy(sizePolicy2)
         self.splitter_4.addWidget(self.RSSArticleList)
         self.RSSArticleView = QWebEngineView(self.splitter_4)
         self.RSSArticleView.setObjectName(u"RSSArticleView")
-        sizePolicy.setHeightForWidth(self.RSSArticleView.sizePolicy().hasHeightForWidth())
-        self.RSSArticleView.setSizePolicy(sizePolicy)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.RSSArticleView.sizePolicy().hasHeightForWidth())
+        self.RSSArticleView.setSizePolicy(sizePolicy3)
         self.RSSArticleView.setProperty("url", QUrl(u"qrc:/assets/default.html"))
         self.splitter_4.addWidget(self.RSSArticleView)
 
@@ -189,18 +119,18 @@ class Ui_MainWindow(object):
 
         self.RSSRefreshButton = QPushButton(self.NewsScrollAreaContent)
         self.RSSRefreshButton.setObjectName(u"RSSRefreshButton")
-        icon4 = QIcon()
-        icon4.addFile(u":/assets/img/icons/view-refresh.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.RSSRefreshButton.setIcon(icon4)
+        icon = QIcon()
+        icon.addFile(u":/assets/img/icons/view-refresh.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.RSSRefreshButton.setIcon(icon)
 
         self.gridLayout_7.addWidget(self.RSSRefreshButton, 0, 2, 1, 1)
 
         self.RSSViewonlineButton = QPushButton(self.NewsScrollAreaContent)
         self.RSSViewonlineButton.setObjectName(u"RSSViewonlineButton")
         self.RSSViewonlineButton.setEnabled(False)
-        icon5 = QIcon()
-        icon5.addFile(u":/assets/img/icons/globe.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.RSSViewonlineButton.setIcon(icon5)
+        icon1 = QIcon()
+        icon1.addFile(u":/assets/img/icons/globe.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.RSSViewonlineButton.setIcon(icon1)
 
         self.gridLayout_7.addWidget(self.RSSViewonlineButton, 3, 2, 1, 1)
 
@@ -225,42 +155,52 @@ class Ui_MainWindow(object):
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
         self.GamePageTabList = QListWidget(self.splitter)
-        icon6 = QIcon()
-        icon6.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2 = QIcon()
+        icon2.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Normal, QIcon.Off)
         font = QFont()
         font.setPointSize(14)
         __qlistwidgetitem1 = QListWidgetItem(self.GamePageTabList)
         __qlistwidgetitem1.setFont(font);
-        __qlistwidgetitem1.setIcon(icon6);
+        __qlistwidgetitem1.setIcon(icon2);
+        icon3 = QIcon()
+        icon3.addFile(u":/assets/img/icons/gamepad.png", QSize(), QIcon.Normal, QIcon.Off)
         font1 = QFont()
         font1.setPointSize(14)
         font1.setBold(False)
         __qlistwidgetitem2 = QListWidgetItem(self.GamePageTabList)
         __qlistwidgetitem2.setFont(font1);
-        __qlistwidgetitem2.setIcon(icon1);
-        icon7 = QIcon()
-        icon7.addFile(u":/assets/img/icons/list-add.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem2.setIcon(icon3);
+        icon4 = QIcon()
+        icon4.addFile(u":/assets/img/icons/list-add.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem3 = QListWidgetItem(self.GamePageTabList)
         __qlistwidgetitem3.setFont(font);
-        __qlistwidgetitem3.setIcon(icon7);
+        __qlistwidgetitem3.setIcon(icon4);
+        icon5 = QIcon()
+        icon5.addFile(u":/assets/img/icons/settings.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem4 = QListWidgetItem(self.GamePageTabList)
         __qlistwidgetitem4.setFont(font);
-        __qlistwidgetitem4.setIcon(icon3);
+        __qlistwidgetitem4.setIcon(icon5);
         __qlistwidgetitem5 = QListWidgetItem(self.GamePageTabList)
         __qlistwidgetitem5.setFont(font);
-        __qlistwidgetitem5.setIcon(icon5);
+        __qlistwidgetitem5.setIcon(icon1);
         self.GamePageTabList.setObjectName(u"GamePageTabList")
-        sizePolicy4.setHeightForWidth(self.GamePageTabList.sizePolicy().hasHeightForWidth())
-        self.GamePageTabList.setSizePolicy(sizePolicy4)
+        sizePolicy2.setHeightForWidth(self.GamePageTabList.sizePolicy().hasHeightForWidth())
+        self.GamePageTabList.setSizePolicy(sizePolicy2)
         self.splitter.addWidget(self.GamePageTabList)
         self.GamePageContentFrame = QFrame(self.splitter)
         self.GamePageContentFrame.setObjectName(u"GamePageContentFrame")
         self.GamePageContentFrame.setFrameShape(QFrame.StyledPanel)
         self.GamePageContentFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.GamePageContentFrame)
-        self.verticalLayout_4.setSpacing(0)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_19 = QGridLayout(self.GamePageContentFrame)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.ExportServerScriptButton = QPushButton(self.GamePageContentFrame)
+        self.ExportServerScriptButton.setObjectName(u"ExportServerScriptButton")
+        icon6 = QIcon()
+        icon6.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ExportServerScriptButton.setIcon(icon6)
+
+        self.gridLayout_19.addWidget(self.ExportServerScriptButton, 3, 0, 1, 1)
+
         self.GameContentStackedWidget = QStackedWidget(self.GamePageContentFrame)
         self.GameContentStackedWidget.setObjectName(u"GameContentStackedWidget")
         self.ProfilePage = QWidget()
@@ -272,7 +212,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 592, 447))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 810, 417))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -322,11 +262,11 @@ class Ui_MainWindow(object):
         self.PlayerSkinInput.addItem("")
         self.PlayerSkinInput.addItem("")
         self.PlayerSkinInput.setObjectName(u"PlayerSkinInput")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.PlayerSkinInput.sizePolicy().hasHeightForWidth())
-        self.PlayerSkinInput.setSizePolicy(sizePolicy5)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.PlayerSkinInput.sizePolicy().hasHeightForWidth())
+        self.PlayerSkinInput.setSizePolicy(sizePolicy4)
         self.PlayerSkinInput.setStyleSheet(u"")
         self.PlayerSkinInput.setEditable(True)
 
@@ -420,7 +360,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 592, 447))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 797, 527))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -445,23 +385,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addWidget(self.groupBox_6, 2, 2, 1, 1)
 
-        self.line_5 = QFrame(self.scrollAreaWidgetContents_6)
-        self.line_5.setObjectName(u"line_5")
-        self.line_5.setFrameShape(QFrame.HLine)
-        self.line_5.setFrameShadow(QFrame.Sunken)
-
-        self.gridLayout_13.addWidget(self.line_5, 10, 2, 1, 3)
-
-        self.GameArgsLabel = QLabel(self.scrollAreaWidgetContents_6)
-        self.GameArgsLabel.setObjectName(u"GameArgsLabel")
-
-        self.gridLayout_13.addWidget(self.GameArgsLabel, 8, 2, 1, 1)
-
-        self.GameArgsInput = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.GameArgsInput.setObjectName(u"GameArgsInput")
-
-        self.gridLayout_13.addWidget(self.GameArgsInput, 9, 2, 1, 3)
-
         self.groupBox_4 = QGroupBox(self.scrollAreaWidgetContents_6)
         self.groupBox_4.setObjectName(u"groupBox_4")
         self.gridLayout_20 = QGridLayout(self.groupBox_4)
@@ -469,9 +392,9 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse = QPushButton(self.groupBox_4)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        icon8 = QIcon()
-        icon8.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameExecFilePathBrowse.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameExecFilePathBrowse.setIcon(icon7)
 
         self.gridLayout_20.addWidget(self.GameExecFilePathBrowse, 0, 2, 1, 1)
 
@@ -479,6 +402,12 @@ class Ui_MainWindow(object):
         self.GameExecFilePathInput.setObjectName(u"GameExecFilePathInput")
 
         self.gridLayout_20.addWidget(self.GameExecFilePathInput, 0, 0, 1, 2)
+
+        self.WineRadiobutton = QRadioButton(self.groupBox_4)
+        self.WineRadiobutton.setObjectName(u"WineRadiobutton")
+        self.WineRadiobutton.setEnabled(False)
+
+        self.gridLayout_20.addWidget(self.WineRadiobutton, 3, 1, 1, 1)
 
         self.FlatpakRadiobutton = QRadioButton(self.groupBox_4)
         self.FlatpakRadiobutton.setObjectName(u"FlatpakRadiobutton")
@@ -492,22 +421,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_20.addWidget(self.NativeRadiobutton, 3, 0, 1, 1)
 
-        self.WineRadiobutton = QRadioButton(self.groupBox_4)
-        self.WineRadiobutton.setObjectName(u"WineRadiobutton")
-        self.WineRadiobutton.setEnabled(False)
 
-        self.gridLayout_20.addWidget(self.WineRadiobutton, 3, 1, 1, 1)
-
-
-        self.gridLayout_13.addWidget(self.groupBox_4, 6, 2, 1, 3)
+        self.gridLayout_13.addWidget(self.groupBox_4, 6, 2, 1, 2)
 
         self.ExportClientScriptButton = QPushButton(self.scrollAreaWidgetContents_6)
         self.ExportClientScriptButton.setObjectName(u"ExportClientScriptButton")
-        icon9 = QIcon()
-        icon9.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ExportClientScriptButton.setIcon(icon9)
+        self.ExportClientScriptButton.setIcon(icon6)
 
-        self.gridLayout_13.addWidget(self.ExportClientScriptButton, 11, 2, 1, 3)
+        self.gridLayout_13.addWidget(self.ExportClientScriptButton, 10, 2, 1, 2)
 
         self.groupBox_7 = QGroupBox(self.scrollAreaWidgetContents_6)
         self.groupBox_7.setObjectName(u"groupBox_7")
@@ -557,6 +478,46 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addWidget(self.groupBox_5, 1, 2, 1, 1)
 
+        self.groupBox_8 = QGroupBox(self.scrollAreaWidgetContents_6)
+        self.groupBox_8.setObjectName(u"groupBox_8")
+        self.gridLayout_21 = QGridLayout(self.groupBox_8)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
+        self.GameArgsInput = QLineEdit(self.groupBox_8)
+        self.GameArgsInput.setObjectName(u"GameArgsInput")
+
+        self.gridLayout_21.addWidget(self.GameArgsInput, 6, 0, 1, 2)
+
+        self.line_2 = QFrame(self.groupBox_8)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.gridLayout_21.addWidget(self.line_2, 4, 0, 1, 2)
+
+        self.HomePathBrowse = QPushButton(self.groupBox_8)
+        self.HomePathBrowse.setObjectName(u"HomePathBrowse")
+        self.HomePathBrowse.setIcon(icon7)
+
+        self.gridLayout_21.addWidget(self.HomePathBrowse, 3, 1, 1, 1)
+
+        self.label = QLabel(self.groupBox_8)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout_21.addWidget(self.label, 2, 0, 1, 2)
+
+        self.HomePathInput = QLineEdit(self.groupBox_8)
+        self.HomePathInput.setObjectName(u"HomePathInput")
+
+        self.gridLayout_21.addWidget(self.HomePathInput, 3, 0, 1, 1)
+
+        self.GameArgsLabel = QLabel(self.groupBox_8)
+        self.GameArgsLabel.setObjectName(u"GameArgsLabel")
+
+        self.gridLayout_21.addWidget(self.GameArgsLabel, 5, 0, 1, 1)
+
+
+        self.gridLayout_13.addWidget(self.groupBox_8, 7, 2, 1, 1)
+
         self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
 
         self.gridLayout_14.addWidget(self.scrollArea_6, 0, 0, 1, 1)
@@ -570,8 +531,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setContentsMargins(9, 9, 9, 9)
         self.widget_3 = QWidget(self.ModsPage)
         self.widget_3.setObjectName(u"widget_3")
-        sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
-        self.widget_3.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
+        self.widget_3.setSizePolicy(sizePolicy3)
         self.gridLayout_15 = QGridLayout(self.widget_3)
         self.gridLayout_15.setObjectName(u"gridLayout_15")
         self.GameSettingsTabWidget = QTabWidget(self.widget_3)
@@ -583,42 +544,42 @@ class Ui_MainWindow(object):
         self.GameFilesAddButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesAddButton.setObjectName(u"GameFilesAddButton")
         self.GameFilesAddButton.setMinimumSize(QSize(0, 28))
-        self.GameFilesAddButton.setIcon(icon7)
+        self.GameFilesAddButton.setIcon(icon4)
 
         self.gridLayout_9.addWidget(self.GameFilesAddButton, 10, 6, 1, 1)
 
         self.GameFilesExecScrBrowseButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesExecScrBrowseButton.setObjectName(u"GameFilesExecScrBrowseButton")
         self.GameFilesExecScrBrowseButton.setMinimumSize(QSize(0, 28))
-        self.GameFilesExecScrBrowseButton.setIcon(icon8)
+        self.GameFilesExecScrBrowseButton.setIcon(icon7)
 
         self.gridLayout_9.addWidget(self.GameFilesExecScrBrowseButton, 10, 4, 1, 1)
 
         self.GameFilesDownButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesDownButton.setObjectName(u"GameFilesDownButton")
-        sizePolicy5.setHeightForWidth(self.GameFilesDownButton.sizePolicy().hasHeightForWidth())
-        self.GameFilesDownButton.setSizePolicy(sizePolicy5)
-        icon10 = QIcon()
-        icon10.addFile(u":/assets/img/icons/go-down.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameFilesDownButton.setIcon(icon10)
+        sizePolicy4.setHeightForWidth(self.GameFilesDownButton.sizePolicy().hasHeightForWidth())
+        self.GameFilesDownButton.setSizePolicy(sizePolicy4)
+        icon8 = QIcon()
+        icon8.addFile(u":/assets/img/icons/go-down.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameFilesDownButton.setIcon(icon8)
 
         self.gridLayout_9.addWidget(self.GameFilesDownButton, 8, 8, 1, 1)
 
         self.GameFilesClearButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesClearButton.setObjectName(u"GameFilesClearButton")
         self.GameFilesClearButton.setMinimumSize(QSize(0, 28))
-        icon11 = QIcon()
-        icon11.addFile(u":/assets/img/icons/edit-delete.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameFilesClearButton.setIcon(icon11)
+        icon9 = QIcon()
+        icon9.addFile(u":/assets/img/icons/edit-delete.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameFilesClearButton.setIcon(icon9)
 
         self.gridLayout_9.addWidget(self.GameFilesClearButton, 1, 8, 1, 1)
 
         self.GameFilesDeleteButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesDeleteButton.setObjectName(u"GameFilesDeleteButton")
         self.GameFilesDeleteButton.setMinimumSize(QSize(0, 28))
-        icon12 = QIcon()
-        icon12.addFile(u":/assets/img/icons/list-remove.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameFilesDeleteButton.setIcon(icon12)
+        icon10 = QIcon()
+        icon10.addFile(u":/assets/img/icons/list-remove.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameFilesDeleteButton.setIcon(icon10)
 
         self.gridLayout_9.addWidget(self.GameFilesDeleteButton, 10, 7, 1, 1)
 
@@ -626,7 +587,7 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setObjectName(u"GameFilesSaveButton")
         self.GameFilesSaveButton.setMinimumSize(QSize(0, 28))
         self.GameFilesSaveButton.setStyleSheet(u"")
-        self.GameFilesSaveButton.setIcon(icon9)
+        self.GameFilesSaveButton.setIcon(icon6)
 
         self.gridLayout_9.addWidget(self.GameFilesSaveButton, 0, 8, 1, 1)
 
@@ -636,18 +597,18 @@ class Ui_MainWindow(object):
         self.gridLayout_9.addWidget(self.GameFilesExecScriptInput, 10, 3, 1, 1)
 
         self.GameFilesList = QListWidget(self.AddonsLoaderTab)
-        icon13 = QIcon()
-        icon13.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon11 = QIcon()
+        icon11.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem6 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem6.setIcon(icon13);
-        icon14 = QIcon()
-        icon14.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem6.setIcon(icon11);
+        icon12 = QIcon()
+        icon12.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem7 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem7.setIcon(icon14);
-        icon15 = QIcon()
-        icon15.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
+        __qlistwidgetitem7.setIcon(icon12);
+        icon13 = QIcon()
+        icon13.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Normal, QIcon.Off)
         __qlistwidgetitem8 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem8.setIcon(icon15);
+        __qlistwidgetitem8.setIcon(icon13);
         self.GameFilesList.setObjectName(u"GameFilesList")
         self.GameFilesList.setStyleSheet(u"")
         self.GameFilesList.setDragEnabled(True)
@@ -661,11 +622,11 @@ class Ui_MainWindow(object):
 
         self.GameFilesUpButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesUpButton.setObjectName(u"GameFilesUpButton")
-        sizePolicy5.setHeightForWidth(self.GameFilesUpButton.sizePolicy().hasHeightForWidth())
-        self.GameFilesUpButton.setSizePolicy(sizePolicy5)
-        icon16 = QIcon()
-        icon16.addFile(u":/assets/img/icons/go-up.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameFilesUpButton.setIcon(icon16)
+        sizePolicy4.setHeightForWidth(self.GameFilesUpButton.sizePolicy().hasHeightForWidth())
+        self.GameFilesUpButton.setSizePolicy(sizePolicy4)
+        icon14 = QIcon()
+        icon14.addFile(u":/assets/img/icons/go-up.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameFilesUpButton.setIcon(icon14)
 
         self.gridLayout_9.addWidget(self.GameFilesUpButton, 7, 8, 1, 1)
 
@@ -678,7 +639,7 @@ class Ui_MainWindow(object):
         self.GameFilesLoadButton.setObjectName(u"GameFilesLoadButton")
         self.GameFilesLoadButton.setMinimumSize(QSize(0, 28))
         self.GameFilesLoadButton.setStyleSheet(u"")
-        self.GameFilesLoadButton.setIcon(icon8)
+        self.GameFilesLoadButton.setIcon(icon7)
 
         self.gridLayout_9.addWidget(self.GameFilesLoadButton, 2, 8, 1, 1)
 
@@ -689,13 +650,13 @@ class Ui_MainWindow(object):
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.splitter_2 = QSplitter(self.ModBrowserTab)
         self.splitter_2.setObjectName(u"splitter_2")
-        sizePolicy.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
-        self.splitter_2.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
+        self.splitter_2.setSizePolicy(sizePolicy3)
         self.splitter_2.setOrientation(Qt.Horizontal)
         self.groupBox = QGroupBox(self.splitter_2)
         self.groupBox.setObjectName(u"groupBox")
-        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
-        self.groupBox.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
+        self.groupBox.setSizePolicy(sizePolicy3)
         self.gridLayout_17 = QGridLayout(self.groupBox)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.gridLayout_17.setContentsMargins(0, 0, 0, 0)
@@ -711,24 +672,24 @@ class Ui_MainWindow(object):
 
         self.ModsList = QListWidget(self.groupBox)
         self.ModsList.setObjectName(u"ModsList")
-        sizePolicy.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
-        self.ModsList.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
+        self.ModsList.setSizePolicy(sizePolicy3)
 
         self.gridLayout_17.addWidget(self.ModsList, 1, 0, 1, 4)
 
         self.ModBrowserLabel = QLabel(self.groupBox)
         self.ModBrowserLabel.setObjectName(u"ModBrowserLabel")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.ModBrowserLabel.sizePolicy().hasHeightForWidth())
-        self.ModBrowserLabel.setSizePolicy(sizePolicy6)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.ModBrowserLabel.sizePolicy().hasHeightForWidth())
+        self.ModBrowserLabel.setSizePolicy(sizePolicy5)
 
         self.gridLayout_17.addWidget(self.ModBrowserLabel, 0, 0, 1, 1)
 
         self.RefreshModsButton = QPushButton(self.groupBox)
         self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        self.RefreshModsButton.setIcon(icon4)
+        self.RefreshModsButton.setIcon(icon)
 
         self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 3, 1, 1)
 
@@ -739,35 +700,15 @@ class Ui_MainWindow(object):
         self.splitter_2.addWidget(self.groupBox)
         self.groupBox_2 = QGroupBox(self.splitter_2)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        sizePolicy.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
-        self.groupBox_2.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
+        self.groupBox_2.setSizePolicy(sizePolicy3)
         self.gridLayout_4 = QGridLayout(self.groupBox_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(6, 0, 0, 0)
-        self.DownloadModButton = QPushButton(self.groupBox_2)
-        self.DownloadModButton.setObjectName(u"DownloadModButton")
-        self.DownloadModButton.setEnabled(False)
-        icon17 = QIcon()
-        icon17.addFile(u":/assets/img/icons/download.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.DownloadModButton.setIcon(icon17)
-
-        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 1, 1, 1)
-
-        self.OpenPageButton = QPushButton(self.groupBox_2)
-        self.OpenPageButton.setObjectName(u"OpenPageButton")
-        self.OpenPageButton.setEnabled(False)
-        self.OpenPageButton.setIcon(icon5)
-
-        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 2, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 0, 1, 1)
-
         self.ModBrowser = QWebEngineView(self.groupBox_2)
         self.ModBrowser.setObjectName(u"ModBrowser")
-        sizePolicy.setHeightForWidth(self.ModBrowser.sizePolicy().hasHeightForWidth())
-        self.ModBrowser.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.ModBrowser.sizePolicy().hasHeightForWidth())
+        self.ModBrowser.setSizePolicy(sizePolicy3)
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -783,12 +724,32 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.ModBrowser, 1, 0, 1, 3)
 
+        self.DownloadModButton = QPushButton(self.groupBox_2)
+        self.DownloadModButton.setObjectName(u"DownloadModButton")
+        self.DownloadModButton.setEnabled(False)
+        icon15 = QIcon()
+        icon15.addFile(u":/assets/img/icons/download.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.DownloadModButton.setIcon(icon15)
+
+        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 1, 1, 1)
+
         self.ModViewerLabel = QLabel(self.groupBox_2)
         self.ModViewerLabel.setObjectName(u"ModViewerLabel")
-        sizePolicy6.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
-        self.ModViewerLabel.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
+        self.ModViewerLabel.setSizePolicy(sizePolicy5)
 
         self.gridLayout_4.addWidget(self.ModViewerLabel, 0, 0, 1, 3)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 0, 1, 1)
+
+        self.OpenPageButton = QPushButton(self.groupBox_2)
+        self.OpenPageButton.setObjectName(u"OpenPageButton")
+        self.OpenPageButton.setEnabled(False)
+        self.OpenPageButton.setIcon(icon1)
+
+        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 2, 1, 1)
 
         self.splitter_2.addWidget(self.groupBox_2)
 
@@ -813,97 +774,258 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.scrollArea_4 = QScrollArea(self.HostGamePage)
+        self.HostGameTabwidget = QTabWidget(self.HostGamePage)
+        self.HostGameTabwidget.setObjectName(u"HostGameTabwidget")
+        self.General = QWidget()
+        self.General.setObjectName(u"General")
+        self.verticalLayout = QVBoxLayout(self.General)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.scrollArea_4 = QScrollArea(self.General)
         self.scrollArea_4.setObjectName(u"scrollArea_4")
-        self.scrollArea_4.setStyleSheet(u"")
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 595, 647))
-        self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_4)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.PointLimitLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.PointLimitLabel.setObjectName(u"PointLimitLabel")
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 793, 630))
+        self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
+        self.groupBox_11.setObjectName(u"groupBox_11")
+        self.gridLayout_25 = QGridLayout(self.groupBox_11)
+        self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.AdminPasswordLabel = QLabel(self.groupBox_11)
+        self.AdminPasswordLabel.setObjectName(u"AdminPasswordLabel")
 
-        self.gridLayout.addWidget(self.PointLimitLabel, 13, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.AdminPasswordLabel, 2, 0, 1, 2)
 
-        self.AdvanceMapLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.AdvanceMapLabel.setObjectName(u"AdvanceMapLabel")
+        self.RoomInput = QComboBox(self.groupBox_11)
+        self.RoomInput.addItem("")
+        self.RoomInput.addItem("")
+        self.RoomInput.addItem("")
+        self.RoomInput.addItem("")
+        self.RoomInput.addItem("")
+        self.RoomInput.setObjectName(u"RoomInput")
+        self.RoomInput.setEditable(False)
 
-        self.gridLayout.addWidget(self.AdvanceMapLabel, 11, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.RoomInput, 5, 0, 1, 1)
 
-        self.HostMSCombobox = QComboBox(self.scrollAreaWidgetContents_4)
+        self.HostMSCombobox = QComboBox(self.groupBox_11)
         self.HostMSCombobox.addItem("")
         self.HostMSCombobox.setObjectName(u"HostMSCombobox")
         self.HostMSCombobox.setEnabled(True)
         self.HostMSCombobox.setEditable(True)
 
-        self.gridLayout.addWidget(self.HostMSCombobox, 7, 1, 1, 1)
+        self.gridLayout_25.addWidget(self.HostMSCombobox, 5, 1, 1, 1)
 
-        self.AdminPasswordInput = QLineEdit(self.scrollAreaWidgetContents_4)
+        self.AdminPasswordInput = QLineEdit(self.groupBox_11)
         self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
         self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
 
-        self.gridLayout.addWidget(self.AdminPasswordInput, 3, 0, 2, 2)
+        self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 2)
 
-        self.TimeLimitLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.TimeLimitLabel.setObjectName(u"TimeLimitLabel")
+        self.HostMSLabel = QLabel(self.groupBox_11)
+        self.HostMSLabel.setObjectName(u"HostMSLabel")
 
-        self.gridLayout.addWidget(self.TimeLimitLabel, 15, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.HostMSLabel, 4, 1, 1, 1)
 
-        self.TimeLimitInput = QLineEdit(self.scrollAreaWidgetContents_4)
-        self.TimeLimitInput.setObjectName(u"TimeLimitInput")
+        self.ServerNameInput = QLineEdit(self.groupBox_11)
+        self.ServerNameInput.setObjectName(u"ServerNameInput")
 
-        self.gridLayout.addWidget(self.TimeLimitInput, 16, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.ServerNameInput, 1, 0, 1, 2)
 
-        self.MaxPlayersInput = QLineEdit(self.scrollAreaWidgetContents_4)
-        self.MaxPlayersInput.setObjectName(u"MaxPlayersInput")
-
-        self.gridLayout.addWidget(self.MaxPlayersInput, 18, 0, 1, 2)
-
-        self.DedicatedServerToggle = QCheckBox(self.scrollAreaWidgetContents_4)
+        self.DedicatedServerToggle = QCheckBox(self.groupBox_11)
         self.DedicatedServerToggle.setObjectName(u"DedicatedServerToggle")
         self.DedicatedServerToggle.setStyleSheet(u"")
         self.DedicatedServerToggle.setChecked(False)
 
-        self.gridLayout.addWidget(self.DedicatedServerToggle, 24, 0, 1, 1)
+        self.gridLayout_25.addWidget(self.DedicatedServerToggle, 6, 0, 1, 1)
 
-        self.PointLimitInput = QLineEdit(self.scrollAreaWidgetContents_4)
-        self.PointLimitInput.setObjectName(u"PointLimitInput")
+        self.ServerNameLabel = QLabel(self.groupBox_11)
+        self.ServerNameLabel.setObjectName(u"ServerNameLabel")
 
-        self.gridLayout.addWidget(self.PointLimitInput, 14, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.ServerNameLabel, 0, 0, 1, 2)
 
-        self.PortLabel = QLabel(self.scrollAreaWidgetContents_4)
+        self.RoomLabel = QLabel(self.groupBox_11)
+        self.RoomLabel.setObjectName(u"RoomLabel")
+
+        self.gridLayout_25.addWidget(self.RoomLabel, 4, 0, 1, 1)
+
+
+        self.verticalLayout_2.addWidget(self.groupBox_11)
+
+        self.groupBox_10 = QGroupBox(self.scrollAreaWidgetContents_4)
+        self.groupBox_10.setObjectName(u"groupBox_10")
+        self.gridLayout_23 = QGridLayout(self.groupBox_10)
+        self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.BandwidthInput = QSpinBox(self.groupBox_10)
+        self.BandwidthInput.setObjectName(u"BandwidthInput")
+        self.BandwidthInput.setMinimum(1000)
+        self.BandwidthInput.setMaximum(250000)
+        self.BandwidthInput.setValue(30000)
+
+        self.gridLayout_23.addWidget(self.BandwidthInput, 4, 0, 1, 1)
+
+        self.PortLabel = QLabel(self.groupBox_10)
         self.PortLabel.setObjectName(u"PortLabel")
 
-        self.gridLayout.addWidget(self.PortLabel, 21, 0, 1, 1)
+        self.gridLayout_23.addWidget(self.PortLabel, 0, 0, 2, 2)
 
-        self.ServerNameInput = QLineEdit(self.scrollAreaWidgetContents_4)
-        self.ServerNameInput.setObjectName(u"ServerNameInput")
+        self.PortInput = QSpinBox(self.groupBox_10)
+        self.PortInput.setObjectName(u"PortInput")
+        self.PortInput.setMaximum(65535)
+        self.PortInput.setValue(5029)
 
-        self.gridLayout.addWidget(self.ServerNameInput, 1, 0, 1, 2)
+        self.gridLayout_23.addWidget(self.PortInput, 2, 0, 1, 1)
 
-        self.SuddenDeathToggle = QCheckBox(self.scrollAreaWidgetContents_4)
-        self.SuddenDeathToggle.setObjectName(u"SuddenDeathToggle")
-        self.SuddenDeathToggle.setMinimumSize(QSize(0, 0))
+        self.ExtraticLabel = QLabel(self.groupBox_10)
+        self.ExtraticLabel.setObjectName(u"ExtraticLabel")
 
-        self.gridLayout.addWidget(self.SuddenDeathToggle, 23, 1, 1, 1)
+        self.gridLayout_23.addWidget(self.ExtraticLabel, 3, 1, 1, 1)
 
-        self.AdvanceMapInput = QComboBox(self.scrollAreaWidgetContents_4)
-        self.AdvanceMapInput.addItem("")
-        self.AdvanceMapInput.addItem("")
-        self.AdvanceMapInput.addItem("")
-        self.AdvanceMapInput.setObjectName(u"AdvanceMapInput")
+        self.BandwidthLabel = QLabel(self.groupBox_10)
+        self.BandwidthLabel.setObjectName(u"BandwidthLabel")
 
-        self.gridLayout.addWidget(self.AdvanceMapInput, 12, 0, 1, 2)
+        self.gridLayout_23.addWidget(self.BandwidthLabel, 3, 0, 1, 1)
 
-        self.ExportServerScriptButton = QPushButton(self.scrollAreaWidgetContents_4)
-        self.ExportServerScriptButton.setObjectName(u"ExportServerScriptButton")
-        self.ExportServerScriptButton.setIcon(icon9)
+        self.ExtraticInput = QSpinBox(self.groupBox_10)
+        self.ExtraticInput.setObjectName(u"ExtraticInput")
+        self.ExtraticInput.setValue(1)
 
-        self.gridLayout.addWidget(self.ExportServerScriptButton, 26, 0, 1, 2)
+        self.gridLayout_23.addWidget(self.ExtraticInput, 4, 1, 1, 1)
 
-        self.GametypeInput = QComboBox(self.scrollAreaWidgetContents_4)
+        self.Ipv6Checkbox = QCheckBox(self.groupBox_10)
+        self.Ipv6Checkbox.setObjectName(u"Ipv6Checkbox")
+
+        self.gridLayout_23.addWidget(self.Ipv6Checkbox, 2, 1, 1, 1)
+
+        self.groupBox_23 = QGroupBox(self.groupBox_10)
+        self.groupBox_23.setObjectName(u"groupBox_23")
+        self.verticalLayout_32 = QVBoxLayout(self.groupBox_23)
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.UploadToggle = QCheckBox(self.groupBox_23)
+        self.UploadToggle.setObjectName(u"UploadToggle")
+        self.UploadToggle.setChecked(True)
+
+        self.verticalLayout_32.addWidget(self.UploadToggle)
+
+        self.label_14 = QLabel(self.groupBox_23)
+        self.label_14.setObjectName(u"label_14")
+
+        self.verticalLayout_32.addWidget(self.label_14)
+
+        self.DownloadspeedInput = QSpinBox(self.groupBox_23)
+        self.DownloadspeedInput.setObjectName(u"DownloadspeedInput")
+        self.DownloadspeedInput.setMaximum(32)
+        self.DownloadspeedInput.setValue(16)
+
+        self.verticalLayout_32.addWidget(self.DownloadspeedInput)
+
+        self.label_16 = QLabel(self.groupBox_23)
+        self.label_16.setObjectName(u"label_16")
+
+        self.verticalLayout_32.addWidget(self.label_16)
+
+        self.MaxsendInput = QSpinBox(self.groupBox_23)
+        self.MaxsendInput.setObjectName(u"MaxsendInput")
+        self.MaxsendInput.setMaximum(204800)
+        self.MaxsendInput.setValue(32)
+
+        self.verticalLayout_32.addWidget(self.MaxsendInput)
+
+
+        self.gridLayout_23.addWidget(self.groupBox_23, 6, 0, 1, 1)
+
+        self.groupBox_24 = QGroupBox(self.groupBox_10)
+        self.groupBox_24.setObjectName(u"groupBox_24")
+        self.verticalLayout_31 = QVBoxLayout(self.groupBox_24)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.label_15 = QLabel(self.groupBox_24)
+        self.label_15.setObjectName(u"label_15")
+
+        self.verticalLayout_31.addWidget(self.label_15)
+
+        self.MaxpingInput = QSpinBox(self.groupBox_24)
+        self.MaxpingInput.setObjectName(u"MaxpingInput")
+        self.MaxpingInput.setMaximum(1000)
+        self.MaxpingInput.setValue(0)
+
+        self.verticalLayout_31.addWidget(self.MaxpingInput)
+
+        self.label_34 = QLabel(self.groupBox_24)
+        self.label_34.setObjectName(u"label_34")
+
+        self.verticalLayout_31.addWidget(self.label_34)
+
+        self.NettimeoutInput = QSpinBox(self.groupBox_24)
+        self.NettimeoutInput.setObjectName(u"NettimeoutInput")
+        self.NettimeoutInput.setMinimum(5)
+        self.NettimeoutInput.setMaximum(2100)
+        self.NettimeoutInput.setValue(350)
+
+        self.verticalLayout_31.addWidget(self.NettimeoutInput)
+
+        self.ResynchattemptsInput = QSpinBox(self.groupBox_24)
+        self.ResynchattemptsInput.setObjectName(u"ResynchattemptsInput")
+        self.ResynchattemptsInput.setMaximum(20)
+        self.ResynchattemptsInput.setValue(10)
+
+        self.verticalLayout_31.addWidget(self.ResynchattemptsInput)
+
+        self.label_35 = QLabel(self.groupBox_24)
+        self.label_35.setObjectName(u"label_35")
+
+        self.verticalLayout_31.addWidget(self.label_35)
+
+
+        self.gridLayout_23.addWidget(self.groupBox_24, 6, 1, 1, 1)
+
+        self.UpnpCheckbox = QCheckBox(self.groupBox_10)
+        self.UpnpCheckbox.setObjectName(u"UpnpCheckbox")
+
+        self.gridLayout_23.addWidget(self.UpnpCheckbox, 5, 0, 1, 1)
+
+
+        self.verticalLayout_2.addWidget(self.groupBox_10)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_5)
+
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
+
+        self.verticalLayout.addWidget(self.scrollArea_4)
+
+        self.HostGameTabwidget.addTab(self.General, "")
+        self.tab_8 = QWidget()
+        self.tab_8.setObjectName(u"tab_8")
+        self.verticalLayout_17 = QVBoxLayout(self.tab_8)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.scrollArea_10 = QScrollArea(self.tab_8)
+        self.scrollArea_10.setObjectName(u"scrollArea_10")
+        self.scrollArea_10.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_10 = QWidget()
+        self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 793, 690))
+        self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_10)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_10)
+        self.ForceSkinLabel.setObjectName(u"ForceSkinLabel")
+
+        self.gridLayout.addWidget(self.ForceSkinLabel, 11, 0, 1, 1)
+
+        self.label_17 = QLabel(self.scrollAreaWidgetContents_10)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout.addWidget(self.label_17, 3, 1, 1, 1)
+
+        self.MaxPlayersInput = QSpinBox(self.scrollAreaWidgetContents_10)
+        self.MaxPlayersInput.setObjectName(u"MaxPlayersInput")
+        self.MaxPlayersInput.setMinimum(2)
+        self.MaxPlayersInput.setMaximum(32)
+        self.MaxPlayersInput.setValue(8)
+
+        self.gridLayout.addWidget(self.MaxPlayersInput, 10, 0, 1, 1)
+
+        self.GametypeInput = QComboBox(self.scrollAreaWidgetContents_10)
         self.GametypeInput.addItem("")
         self.GametypeInput.addItem("")
         self.GametypeInput.addItem("")
@@ -916,67 +1038,91 @@ class Ui_MainWindow(object):
         self.GametypeInput.setObjectName(u"GametypeInput")
         self.GametypeInput.setEditable(True)
 
-        self.gridLayout.addWidget(self.GametypeInput, 10, 0, 1, 2)
+        self.gridLayout.addWidget(self.GametypeInput, 2, 0, 1, 2)
 
-        self.MaxPlayersLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.MaxPlayersLabel.setObjectName(u"MaxPlayersLabel")
+        self.AdvanceMapLabel = QLabel(self.scrollAreaWidgetContents_10)
+        self.AdvanceMapLabel.setObjectName(u"AdvanceMapLabel")
 
-        self.gridLayout.addWidget(self.MaxPlayersLabel, 17, 0, 1, 2)
+        self.gridLayout.addWidget(self.AdvanceMapLabel, 3, 0, 1, 1)
 
-        self.UploadToggle = QCheckBox(self.scrollAreaWidgetContents_4)
-        self.UploadToggle.setObjectName(u"UploadToggle")
-        self.UploadToggle.setChecked(True)
+        self.RespawnitemCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.RespawnitemCheckbox.setObjectName(u"RespawnitemCheckbox")
+        self.RespawnitemCheckbox.setChecked(True)
 
-        self.gridLayout.addWidget(self.UploadToggle, 24, 1, 1, 1)
+        self.gridLayout.addWidget(self.RespawnitemCheckbox, 16, 1, 1, 1)
 
-        self.DisableWeaponsToggle = QCheckBox(self.scrollAreaWidgetContents_4)
-        self.DisableWeaponsToggle.setObjectName(u"DisableWeaponsToggle")
-        self.DisableWeaponsToggle.setMinimumSize(QSize(0, 0))
+        self.JoinnextroundInput = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.JoinnextroundInput.setObjectName(u"JoinnextroundInput")
 
-        self.gridLayout.addWidget(self.DisableWeaponsToggle, 23, 0, 1, 1)
+        self.gridLayout.addWidget(self.JoinnextroundInput, 10, 1, 1, 1)
 
-        self.ServerNameLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.ServerNameLabel.setObjectName(u"ServerNameLabel")
+        self.RespawnitemCheckbox_2 = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.RespawnitemCheckbox_2.setObjectName(u"RespawnitemCheckbox_2")
+        self.RespawnitemCheckbox_2.setChecked(True)
 
-        self.gridLayout.addWidget(self.ServerNameLabel, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.RespawnitemCheckbox_2, 12, 1, 1, 1)
 
-        self.PortInput = QLineEdit(self.scrollAreaWidgetContents_4)
-        self.PortInput.setObjectName(u"PortInput")
+        self.TailspickupCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.TailspickupCheckbox.setObjectName(u"TailspickupCheckbox")
+        self.TailspickupCheckbox.setChecked(True)
 
-        self.gridLayout.addWidget(self.PortInput, 22, 0, 1, 2)
+        self.gridLayout.addWidget(self.TailspickupCheckbox, 13, 1, 1, 1)
 
-        self.RoomInput = QComboBox(self.scrollAreaWidgetContents_4)
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.setObjectName(u"RoomInput")
-        self.RoomInput.setEditable(False)
+        self.ForceSkinLabel_2 = QLabel(self.scrollAreaWidgetContents_10)
+        self.ForceSkinLabel_2.setObjectName(u"ForceSkinLabel_2")
 
-        self.gridLayout.addWidget(self.RoomInput, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.ForceSkinLabel_2, 14, 0, 1, 1)
 
-        self.RoomLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.RoomLabel.setObjectName(u"RoomLabel")
+        self.label_13 = QLabel(self.scrollAreaWidgetContents_10)
+        self.label_13.setObjectName(u"label_13")
 
-        self.gridLayout.addWidget(self.RoomLabel, 6, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_13, 17, 0, 1, 1)
 
-        self.AdminPasswordLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.AdminPasswordLabel.setObjectName(u"AdminPasswordLabel")
+        self.groupBox_15 = QGroupBox(self.scrollAreaWidgetContents_10)
+        self.groupBox_15.setObjectName(u"groupBox_15")
+        self.gridLayout_36 = QGridLayout(self.groupBox_15)
+        self.gridLayout_36.setObjectName(u"gridLayout_36")
+        self.checkBox = QCheckBox(self.groupBox_15)
+        self.checkBox.setObjectName(u"checkBox")
 
-        self.gridLayout.addWidget(self.AdminPasswordLabel, 2, 0, 1, 2)
+        self.gridLayout_36.addWidget(self.checkBox, 0, 0, 1, 1)
 
-        self.GametypeLabel = QLabel(self.scrollAreaWidgetContents_4)
+        self.checkBox_2 = QCheckBox(self.groupBox_15)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+
+        self.gridLayout_36.addWidget(self.checkBox_2, 0, 1, 1, 1)
+
+
+        self.gridLayout.addWidget(self.groupBox_15, 19, 0, 1, 2)
+
+        self.InttimeInput = QSpinBox(self.scrollAreaWidgetContents_10)
+        self.InttimeInput.setObjectName(u"InttimeInput")
+        self.InttimeInput.setMaximum(3600)
+        self.InttimeInput.setValue(20)
+
+        self.gridLayout.addWidget(self.InttimeInput, 4, 1, 1, 1)
+
+        self.AdvanceMapInput = QComboBox(self.scrollAreaWidgetContents_10)
+        self.AdvanceMapInput.addItem("")
+        self.AdvanceMapInput.addItem("")
+        self.AdvanceMapInput.addItem("")
+        self.AdvanceMapInput.setObjectName(u"AdvanceMapInput")
+
+        self.gridLayout.addWidget(self.AdvanceMapInput, 4, 0, 1, 1)
+
+        self.GametypeLabel = QLabel(self.scrollAreaWidgetContents_10)
         self.GametypeLabel.setObjectName(u"GametypeLabel")
 
-        self.gridLayout.addWidget(self.GametypeLabel, 8, 0, 1, 2)
+        self.gridLayout.addWidget(self.GametypeLabel, 1, 0, 1, 1)
 
-        self.HostMSLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.HostMSLabel.setObjectName(u"HostMSLabel")
+        self.RespawnitemtimeInput = QSpinBox(self.scrollAreaWidgetContents_10)
+        self.RespawnitemtimeInput.setObjectName(u"RespawnitemtimeInput")
+        self.RespawnitemtimeInput.setMaximum(300)
+        self.RespawnitemtimeInput.setValue(30)
 
-        self.gridLayout.addWidget(self.HostMSLabel, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.RespawnitemtimeInput, 16, 0, 1, 1)
 
-        self.ForceSkinInput = QComboBox(self.scrollAreaWidgetContents_4)
+        self.ForceSkinInput = QComboBox(self.scrollAreaWidgetContents_10)
         self.ForceSkinInput.addItem("")
         self.ForceSkinInput.addItem("")
         self.ForceSkinInput.addItem("")
@@ -988,23 +1134,934 @@ class Ui_MainWindow(object):
         self.ForceSkinInput.setStyleSheet(u"")
         self.ForceSkinInput.setEditable(True)
 
-        self.gridLayout.addWidget(self.ForceSkinInput, 20, 0, 1, 2)
+        self.gridLayout.addWidget(self.ForceSkinInput, 12, 0, 1, 1)
 
-        self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_4)
-        self.ForceSkinLabel.setObjectName(u"ForceSkinLabel")
+        self.groupBox_14 = QGroupBox(self.scrollAreaWidgetContents_10)
+        self.groupBox_14.setObjectName(u"groupBox_14")
+        self.gridLayout_34 = QGridLayout(self.groupBox_14)
+        self.gridLayout_34.setObjectName(u"gridLayout_34")
+        self.RespawnitemtimeInput_5 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_5.setObjectName(u"RespawnitemtimeInput_5")
+        self.RespawnitemtimeInput_5.setMaximum(10)
+        self.RespawnitemtimeInput_5.setValue(5)
 
-        self.gridLayout.addWidget(self.ForceSkinLabel, 19, 0, 1, 2)
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_5, 1, 2, 1, 1)
 
-        self.line_6 = QFrame(self.scrollAreaWidgetContents_4)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setFrameShape(QFrame.HLine)
-        self.line_6.setFrameShadow(QFrame.Sunken)
+        self.RespawnitemtimeInput_10 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_10.setObjectName(u"RespawnitemtimeInput_10")
+        self.RespawnitemtimeInput_10.setMaximum(10)
+        self.RespawnitemtimeInput_10.setValue(5)
 
-        self.gridLayout.addWidget(self.line_6, 25, 0, 1, 2)
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_10, 5, 4, 1, 1)
 
-        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
+        self.ForceSkinLabel_15 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_15.setObjectName(u"ForceSkinLabel_15")
 
-        self.verticalLayout_8.addWidget(self.scrollArea_4)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_15, 6, 1, 1, 1)
+
+        self.RespawnitemtimeInput_11 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_11.setObjectName(u"RespawnitemtimeInput_11")
+        self.RespawnitemtimeInput_11.setMaximum(10)
+        self.RespawnitemtimeInput_11.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_11, 6, 4, 1, 1)
+
+        self.ForceSkinLabel_13 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_13.setObjectName(u"ForceSkinLabel_13")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_13, 7, 1, 1, 1)
+
+        self.RespawnitemtimeInput_7 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_7.setObjectName(u"RespawnitemtimeInput_7")
+        self.RespawnitemtimeInput_7.setMaximum(10)
+        self.RespawnitemtimeInput_7.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_7, 4, 2, 1, 1)
+
+        self.RespawnitemtimeInput_8 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_8.setObjectName(u"RespawnitemtimeInput_8")
+        self.RespawnitemtimeInput_8.setMaximum(10)
+        self.RespawnitemtimeInput_8.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_8, 1, 4, 1, 1)
+
+        self.ForceSkinLabel_11 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_11.setObjectName(u"ForceSkinLabel_11")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_11, 1, 3, 1, 1)
+
+        self.ForceSkinLabel_12 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_12.setObjectName(u"ForceSkinLabel_12")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_12, 6, 3, 1, 1)
+
+        self.ForceSkinLabel_6 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_6.setObjectName(u"ForceSkinLabel_6")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_6, 2, 1, 1, 1)
+
+        self.ForceSkinLabel_7 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_7.setObjectName(u"ForceSkinLabel_7")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_7, 1, 1, 1, 1)
+
+        self.RespawnitemtimeInput_13 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_13.setObjectName(u"RespawnitemtimeInput_13")
+        self.RespawnitemtimeInput_13.setMaximum(10)
+        self.RespawnitemtimeInput_13.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_13, 5, 2, 1, 1)
+
+        self.RespawnitemtimeInput_3 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_3.setObjectName(u"RespawnitemtimeInput_3")
+        self.RespawnitemtimeInput_3.setMaximum(10)
+        self.RespawnitemtimeInput_3.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_3, 0, 2, 1, 1)
+
+        self.RespawnitemtimeInput_9 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_9.setObjectName(u"RespawnitemtimeInput_9")
+        self.RespawnitemtimeInput_9.setMaximum(10)
+        self.RespawnitemtimeInput_9.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_9, 4, 4, 1, 1)
+
+        self.RespawnitemtimeInput_6 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_6.setObjectName(u"RespawnitemtimeInput_6")
+        self.RespawnitemtimeInput_6.setMaximum(10)
+        self.RespawnitemtimeInput_6.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_6, 2, 2, 1, 1)
+
+        self.RespawnitemtimeInput_12 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_12.setObjectName(u"RespawnitemtimeInput_12")
+        self.RespawnitemtimeInput_12.setMaximum(10)
+        self.RespawnitemtimeInput_12.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_12, 7, 2, 1, 1)
+
+        self.ForceSkinLabel_10 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_10.setObjectName(u"ForceSkinLabel_10")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_10, 4, 3, 1, 1)
+
+        self.ForceSkinLabel_3 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_3.setObjectName(u"ForceSkinLabel_3")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_3, 0, 3, 1, 1)
+
+        self.RespawnitemtimeInput_14 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_14.setObjectName(u"RespawnitemtimeInput_14")
+        self.RespawnitemtimeInput_14.setMaximum(10)
+        self.RespawnitemtimeInput_14.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_14, 6, 2, 1, 1)
+
+        self.ForceSkinLabel_8 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_8.setObjectName(u"ForceSkinLabel_8")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_8, 4, 1, 1, 1)
+
+        self.ForceSkinLabel_14 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_14.setObjectName(u"ForceSkinLabel_14")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_14, 5, 1, 1, 1)
+
+        self.RespawnitemtimeInput_2 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_2.setObjectName(u"RespawnitemtimeInput_2")
+        self.RespawnitemtimeInput_2.setMaximum(10)
+        self.RespawnitemtimeInput_2.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_2, 0, 4, 1, 1)
+
+        self.ForceSkinLabel_4 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_4.setObjectName(u"ForceSkinLabel_4")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_4, 0, 1, 1, 1)
+
+        self.ForceSkinLabel_27 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_27.setObjectName(u"ForceSkinLabel_27")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_27, 5, 3, 1, 1)
+
+        self.RespawnitemtimeInput_26 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_26.setObjectName(u"RespawnitemtimeInput_26")
+        self.RespawnitemtimeInput_26.setMaximum(10)
+        self.RespawnitemtimeInput_26.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_26, 7, 4, 1, 1)
+
+        self.RespawnitemtimeInput_27 = QSpinBox(self.groupBox_14)
+        self.RespawnitemtimeInput_27.setObjectName(u"RespawnitemtimeInput_27")
+        self.RespawnitemtimeInput_27.setMaximum(10)
+        self.RespawnitemtimeInput_27.setValue(5)
+
+        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_27, 2, 4, 1, 1)
+
+        self.ForceSkinLabel_9 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_9.setObjectName(u"ForceSkinLabel_9")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_9, 7, 3, 1, 1)
+
+        self.ForceSkinLabel_28 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_28.setObjectName(u"ForceSkinLabel_28")
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_28, 2, 3, 1, 1)
+
+
+        self.gridLayout.addWidget(self.groupBox_14, 18, 0, 1, 2)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 204, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_9, 20, 1, 1, 1)
+
+        self.MaxPlayersLabel = QLabel(self.scrollAreaWidgetContents_10)
+        self.MaxPlayersLabel.setObjectName(u"MaxPlayersLabel")
+
+        self.gridLayout.addWidget(self.MaxPlayersLabel, 8, 0, 1, 1)
+
+        self.AllowexitlevelCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.AllowexitlevelCheckbox.setObjectName(u"AllowexitlevelCheckbox")
+
+        self.gridLayout.addWidget(self.AllowexitlevelCheckbox, 5, 0, 1, 1)
+
+        self.ExitmoveCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.ExitmoveCheckbox.setObjectName(u"ExitmoveCheckbox")
+
+        self.gridLayout.addWidget(self.ExitmoveCheckbox, 5, 1, 1, 1)
+
+        self.scrollArea_10.setWidget(self.scrollAreaWidgetContents_10)
+
+        self.verticalLayout_17.addWidget(self.scrollArea_10)
+
+        self.HostGameTabwidget.addTab(self.tab_8, "")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.verticalLayout_11 = QVBoxLayout(self.tab)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.scrollArea_9 = QScrollArea(self.tab)
+        self.scrollArea_9.setObjectName(u"scrollArea_9")
+        self.scrollArea_9.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_9 = QWidget()
+        self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 806, 385))
+        self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
+        self.CoopSettingsCheckbox.setObjectName(u"CoopSettingsCheckbox")
+
+        self.verticalLayout_4.addWidget(self.CoopSettingsCheckbox)
+
+        self.line_5 = QFrame(self.scrollAreaWidgetContents_9)
+        self.line_5.setObjectName(u"line_5")
+        self.line_5.setFrameShape(QFrame.HLine)
+        self.line_5.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_4.addWidget(self.line_5)
+
+        self.CoopSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_9)
+        self.CoopSettingsGroupbox.setObjectName(u"CoopSettingsGroupbox")
+        self.CoopSettingsGroupbox.setEnabled(False)
+        self.gridLayout_31 = QGridLayout(self.CoopSettingsGroupbox)
+        self.gridLayout_31.setObjectName(u"gridLayout_31")
+        self.label_9 = QLabel(self.CoopSettingsGroupbox)
+        self.label_9.setObjectName(u"label_9")
+
+        self.gridLayout_31.addWidget(self.label_9, 0, 0, 1, 1)
+
+        self.label_12 = QLabel(self.CoopSettingsGroupbox)
+        self.label_12.setObjectName(u"label_12")
+
+        self.gridLayout_31.addWidget(self.label_12, 4, 0, 1, 1)
+
+        self.PlayersforexitCombobox = QComboBox(self.CoopSettingsGroupbox)
+        self.PlayersforexitCombobox.addItem("")
+        self.PlayersforexitCombobox.addItem("")
+        self.PlayersforexitCombobox.addItem("")
+        self.PlayersforexitCombobox.addItem("")
+        self.PlayersforexitCombobox.addItem("")
+        self.PlayersforexitCombobox.setObjectName(u"PlayersforexitCombobox")
+
+        self.gridLayout_31.addWidget(self.PlayersforexitCombobox, 3, 0, 1, 1)
+
+        self.StartinglivesInput = QSpinBox(self.CoopSettingsGroupbox)
+        self.StartinglivesInput.setObjectName(u"StartinglivesInput")
+        self.StartinglivesInput.setMinimum(1)
+        self.StartinglivesInput.setMaximum(99)
+        self.StartinglivesInput.setValue(3)
+
+        self.gridLayout_31.addWidget(self.StartinglivesInput, 1, 0, 1, 1)
+
+        self.label_8 = QLabel(self.CoopSettingsGroupbox)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout_31.addWidget(self.label_8, 2, 0, 1, 1)
+
+        self.comboBox = QComboBox(self.CoopSettingsGroupbox)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.gridLayout_31.addWidget(self.comboBox, 5, 0, 1, 1)
+
+
+        self.verticalLayout_4.addWidget(self.CoopSettingsGroupbox)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 329, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_4.addItem(self.verticalSpacer_8)
+
+        self.scrollArea_9.setWidget(self.scrollAreaWidgetContents_9)
+
+        self.verticalLayout_11.addWidget(self.scrollArea_9)
+
+        self.HostGameTabwidget.addTab(self.tab, "")
+        self.Ringslinger = QWidget()
+        self.Ringslinger.setObjectName(u"Ringslinger")
+        self.gridLayout_10 = QGridLayout(self.Ringslinger)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.scrollArea_3 = QScrollArea(self.Ringslinger)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, -49, 793, 654))
+        self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.RingslingerGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
+        self.RingslingerGroupbox.setObjectName(u"RingslingerGroupbox")
+        self.RingslingerGroupbox.setEnabled(False)
+        self.gridLayout_24 = QGridLayout(self.RingslingerGroupbox)
+        self.gridLayout_24.setObjectName(u"gridLayout_24")
+        self.label_7 = QLabel(self.RingslingerGroupbox)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_24.addWidget(self.label_7, 0, 1, 1, 1)
+
+        self.PowerstonesCheckbox = QCheckBox(self.RingslingerGroupbox)
+        self.PowerstonesCheckbox.setObjectName(u"PowerstonesCheckbox")
+        self.PowerstonesCheckbox.setChecked(True)
+
+        self.gridLayout_24.addWidget(self.PowerstonesCheckbox, 11, 0, 1, 1)
+
+        self.PointLimitInput = QSpinBox(self.RingslingerGroupbox)
+        self.PointLimitInput.setObjectName(u"PointLimitInput")
+        self.PointLimitInput.setMaximum(999999990)
+        self.PointLimitInput.setValue(1000)
+
+        self.gridLayout_24.addWidget(self.PointLimitInput, 1, 0, 1, 1)
+
+        self.groupBox_13 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_13.setObjectName(u"groupBox_13")
+        self.gridLayout_33 = QGridLayout(self.groupBox_13)
+        self.gridLayout_33.setObjectName(u"gridLayout_33")
+        self.ScrambleteamsCombobox = QComboBox(self.groupBox_13)
+        self.ScrambleteamsCombobox.addItem("")
+        self.ScrambleteamsCombobox.addItem("")
+        self.ScrambleteamsCombobox.addItem("")
+        self.ScrambleteamsCombobox.setObjectName(u"ScrambleteamsCombobox")
+
+        self.gridLayout_33.addWidget(self.ScrambleteamsCombobox, 1, 0, 1, 1)
+
+        self.ScrambleTeamsLabel = QLabel(self.groupBox_13)
+        self.ScrambleTeamsLabel.setObjectName(u"ScrambleTeamsLabel")
+
+        self.gridLayout_33.addWidget(self.ScrambleTeamsLabel, 0, 0, 1, 1)
+
+        self.AutobalanceCheckbox = QComboBox(self.groupBox_13)
+        self.AutobalanceCheckbox.addItem("")
+        self.AutobalanceCheckbox.addItem("")
+        self.AutobalanceCheckbox.addItem("")
+        self.AutobalanceCheckbox.addItem("")
+        self.AutobalanceCheckbox.addItem("")
+        self.AutobalanceCheckbox.setObjectName(u"AutobalanceCheckbox")
+
+        self.gridLayout_33.addWidget(self.AutobalanceCheckbox, 1, 1, 1, 1)
+
+        self.FriendlyfireCheckbox = QCheckBox(self.groupBox_13)
+        self.FriendlyfireCheckbox.setObjectName(u"FriendlyfireCheckbox")
+
+        self.gridLayout_33.addWidget(self.FriendlyfireCheckbox, 4, 0, 1, 1)
+
+        self.FlagtimeInput = QSpinBox(self.groupBox_13)
+        self.FlagtimeInput.setObjectName(u"FlagtimeInput")
+        self.FlagtimeInput.setMaximum(300)
+        self.FlagtimeInput.setValue(30)
+
+        self.gridLayout_33.addWidget(self.FlagtimeInput, 3, 0, 1, 1)
+
+        self.label_5 = QLabel(self.groupBox_13)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout_33.addWidget(self.label_5, 0, 1, 1, 1)
+
+        self.label_10 = QLabel(self.groupBox_13)
+        self.label_10.setObjectName(u"label_10")
+
+        self.gridLayout_33.addWidget(self.label_10, 2, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.groupBox_13, 17, 0, 1, 2)
+
+        self.TimeLimitLabel = QLabel(self.RingslingerGroupbox)
+        self.TimeLimitLabel.setObjectName(u"TimeLimitLabel")
+
+        self.gridLayout_24.addWidget(self.TimeLimitLabel, 3, 0, 1, 1)
+
+        self.PointLimitLabel = QLabel(self.RingslingerGroupbox)
+        self.PointLimitLabel.setObjectName(u"PointLimitLabel")
+
+        self.gridLayout_24.addWidget(self.PointLimitLabel, 0, 0, 1, 1)
+
+        self.MatchscoringCombobox = QComboBox(self.RingslingerGroupbox)
+        self.MatchscoringCombobox.addItem("")
+        self.MatchscoringCombobox.addItem("")
+        self.MatchscoringCombobox.setObjectName(u"MatchscoringCombobox")
+
+        self.gridLayout_24.addWidget(self.MatchscoringCombobox, 1, 1, 1, 1)
+
+        self.label_11 = QLabel(self.RingslingerGroupbox)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout_24.addWidget(self.label_11, 7, 1, 1, 1)
+
+        self.DisableWeaponsToggle = QCheckBox(self.RingslingerGroupbox)
+        self.DisableWeaponsToggle.setObjectName(u"DisableWeaponsToggle")
+        self.DisableWeaponsToggle.setMinimumSize(QSize(0, 0))
+
+        self.gridLayout_24.addWidget(self.DisableWeaponsToggle, 7, 0, 1, 1)
+
+        self.label_3 = QLabel(self.RingslingerGroupbox)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_24.addWidget(self.label_3, 5, 0, 1, 1)
+
+        self.OvertimeCheckbox = QCheckBox(self.RingslingerGroupbox)
+        self.OvertimeCheckbox.setObjectName(u"OvertimeCheckbox")
+        self.OvertimeCheckbox.setChecked(True)
+
+        self.gridLayout_24.addWidget(self.OvertimeCheckbox, 4, 1, 1, 1)
+
+        self.groupBox_9 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_9.setObjectName(u"groupBox_9")
+        self.gridLayout_30 = QGridLayout(self.groupBox_9)
+        self.gridLayout_30.setObjectName(u"gridLayout_30")
+        self.TouchtagCheckbox = QCheckBox(self.groupBox_9)
+        self.TouchtagCheckbox.setObjectName(u"TouchtagCheckbox")
+
+        self.gridLayout_30.addWidget(self.TouchtagCheckbox, 0, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.groupBox_9, 19, 0, 1, 1)
+
+        self.RespawndelayInput = QSpinBox(self.RingslingerGroupbox)
+        self.RespawndelayInput.setObjectName(u"RespawndelayInput")
+        self.RespawndelayInput.setMaximum(999999990)
+        self.RespawndelayInput.setValue(0)
+
+        self.gridLayout_24.addWidget(self.RespawndelayInput, 6, 0, 1, 1)
+
+        self.TimeLimitInput = QSpinBox(self.RingslingerGroupbox)
+        self.TimeLimitInput.setObjectName(u"TimeLimitInput")
+        self.TimeLimitInput.setMaximum(30)
+
+        self.gridLayout_24.addWidget(self.TimeLimitInput, 4, 0, 1, 1)
+
+        self.MatchboxesCombobox = QComboBox(self.RingslingerGroupbox)
+        self.MatchboxesCombobox.addItem("")
+        self.MatchboxesCombobox.addItem("")
+        self.MatchboxesCombobox.addItem("")
+        self.MatchboxesCombobox.addItem("")
+        self.MatchboxesCombobox.setObjectName(u"MatchboxesCombobox")
+
+        self.gridLayout_24.addWidget(self.MatchboxesCombobox, 11, 1, 1, 1)
+
+        self.SuddenDeathToggle = QCheckBox(self.RingslingerGroupbox)
+        self.SuddenDeathToggle.setObjectName(u"SuddenDeathToggle")
+        self.SuddenDeathToggle.setMinimumSize(QSize(0, 0))
+
+        self.gridLayout_24.addWidget(self.SuddenDeathToggle, 6, 1, 1, 1)
+
+        self.groupBox_12 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_12.setObjectName(u"groupBox_12")
+        self.verticalLayout_20 = QVBoxLayout(self.groupBox_12)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.label_4 = QLabel(self.groupBox_12)
+        self.label_4.setObjectName(u"label_4")
+
+        self.verticalLayout_20.addWidget(self.label_4)
+
+        self.HidetimeInput = QSpinBox(self.groupBox_12)
+        self.HidetimeInput.setObjectName(u"HidetimeInput")
+        self.HidetimeInput.setMaximum(999999990)
+        self.HidetimeInput.setValue(0)
+
+        self.verticalLayout_20.addWidget(self.HidetimeInput)
+
+
+        self.gridLayout_24.addWidget(self.groupBox_12, 19, 1, 1, 1)
+
+
+        self.gridLayout_18.addWidget(self.RingslingerGroupbox, 2, 0, 1, 2)
+
+        self.RingslingerSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_3)
+        self.RingslingerSettingsCheckbox.setObjectName(u"RingslingerSettingsCheckbox")
+
+        self.gridLayout_18.addWidget(self.RingslingerSettingsCheckbox, 1, 0, 1, 1)
+
+        self.textEdit_2 = QTextEdit(self.scrollAreaWidgetContents_3)
+        self.textEdit_2.setObjectName(u"textEdit_2")
+
+        self.gridLayout_18.addWidget(self.textEdit_2, 0, 0, 1, 2)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_18.addItem(self.verticalSpacer_4, 3, 0, 1, 1)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.gridLayout_10.addWidget(self.scrollArea_3, 0, 0, 1, 1)
+
+        self.HostGameTabwidget.addTab(self.Ringslinger, "")
+        self.tab_7 = QWidget()
+        self.tab_7.setObjectName(u"tab_7")
+        self.verticalLayout_13 = QVBoxLayout(self.tab_7)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.scrollArea_8 = QScrollArea(self.tab_7)
+        self.scrollArea_8.setObjectName(u"scrollArea_8")
+        self.scrollArea_8.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_8 = QWidget()
+        self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 806, 385))
+        self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
+        self.CircuitraceSettingsCheckbox.setObjectName(u"CircuitraceSettingsCheckbox")
+
+        self.verticalLayout_16.addWidget(self.CircuitraceSettingsCheckbox)
+
+        self.CircuitraceSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_8)
+        self.CircuitraceSettingsGroupbox.setObjectName(u"CircuitraceSettingsGroupbox")
+        self.CircuitraceSettingsGroupbox.setEnabled(False)
+        self.gridLayout_29 = QGridLayout(self.CircuitraceSettingsGroupbox)
+        self.gridLayout_29.setObjectName(u"gridLayout_29")
+        self.NumlapsInput = QSpinBox(self.CircuitraceSettingsGroupbox)
+        self.NumlapsInput.setObjectName(u"NumlapsInput")
+
+        self.gridLayout_29.addWidget(self.NumlapsInput, 1, 0, 1, 1)
+
+        self.spinBox = QSpinBox(self.CircuitraceSettingsGroupbox)
+        self.spinBox.setObjectName(u"spinBox")
+        self.spinBox.setMinimum(15)
+        self.spinBox.setMaximum(9999)
+        self.spinBox.setValue(60)
+
+        self.gridLayout_29.addWidget(self.spinBox, 3, 0, 1, 1)
+
+        self.label_2 = QLabel(self.CircuitraceSettingsGroupbox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout_29.addWidget(self.label_2, 0, 0, 1, 1)
+
+        self.UsemaplapsCheckbox = QCheckBox(self.CircuitraceSettingsGroupbox)
+        self.UsemaplapsCheckbox.setObjectName(u"UsemaplapsCheckbox")
+
+        self.gridLayout_29.addWidget(self.UsemaplapsCheckbox, 1, 1, 1, 1)
+
+        self.label_6 = QLabel(self.CircuitraceSettingsGroupbox)
+        self.label_6.setObjectName(u"label_6")
+
+        self.gridLayout_29.addWidget(self.label_6, 2, 0, 1, 1)
+
+
+        self.verticalLayout_16.addWidget(self.CircuitraceSettingsGroupbox)
+
+        self.verticalSpacer_7 = QSpacerItem(20, 329, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_16.addItem(self.verticalSpacer_7)
+
+        self.scrollArea_8.setWidget(self.scrollAreaWidgetContents_8)
+
+        self.verticalLayout_13.addWidget(self.scrollArea_8)
+
+        self.HostGameTabwidget.addTab(self.tab_7, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.verticalLayout_7 = QVBoxLayout(self.tab_2)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.scrollArea_7 = QScrollArea(self.tab_2)
+        self.scrollArea_7.setObjectName(u"scrollArea_7")
+        self.scrollArea_7.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_7 = QWidget()
+        self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 793, 1036))
+        self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
+        self.textEdit.setObjectName(u"textEdit")
+
+        self.verticalLayout_10.addWidget(self.textEdit)
+
+        self.BattlemodSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_7)
+        self.BattlemodSettingsCheckbox.setObjectName(u"BattlemodSettingsCheckbox")
+
+        self.verticalLayout_10.addWidget(self.BattlemodSettingsCheckbox)
+
+        self.line = QFrame(self.scrollAreaWidgetContents_7)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_10.addWidget(self.line)
+
+        self.BattlemodSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_7)
+        self.BattlemodSettingsGroupbox.setObjectName(u"BattlemodSettingsGroupbox")
+        self.BattlemodSettingsGroupbox.setEnabled(False)
+        self.gridLayout_22 = QGridLayout(self.BattlemodSettingsGroupbox)
+        self.gridLayout_22.setObjectName(u"gridLayout_22")
+        self.label_42 = QLabel(self.BattlemodSettingsGroupbox)
+        self.label_42.setObjectName(u"label_42")
+
+        self.gridLayout_22.addWidget(self.label_42, 16, 0, 1, 1)
+
+        self.lineEdit = QLineEdit(self.BattlemodSettingsGroupbox)
+        self.lineEdit.setObjectName(u"lineEdit")
+
+        self.gridLayout_22.addWidget(self.lineEdit, 17, 0, 1, 2)
+
+        self.groupBox_27 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_27.setObjectName(u"groupBox_27")
+        self.gridLayout_53 = QGridLayout(self.groupBox_27)
+        self.gridLayout_53.setObjectName(u"gridLayout_53")
+        self.label_46 = QLabel(self.groupBox_27)
+        self.label_46.setObjectName(u"label_46")
+
+        self.gridLayout_53.addWidget(self.label_46, 0, 0, 1, 1)
+
+        self.spinBox_7 = QSpinBox(self.groupBox_27)
+        self.spinBox_7.setObjectName(u"spinBox_7")
+        self.spinBox_7.setMaximum(359)
+
+        self.gridLayout_53.addWidget(self.spinBox_7, 7, 0, 1, 1)
+
+        self.label_49 = QLabel(self.groupBox_27)
+        self.label_49.setObjectName(u"label_49")
+
+        self.gridLayout_53.addWidget(self.label_49, 6, 0, 1, 1)
+
+        self.label_48 = QLabel(self.groupBox_27)
+        self.label_48.setObjectName(u"label_48")
+
+        self.gridLayout_53.addWidget(self.label_48, 4, 0, 1, 1)
+
+        self.spinBox_4 = QSpinBox(self.groupBox_27)
+        self.spinBox_4.setObjectName(u"spinBox_4")
+
+        self.gridLayout_53.addWidget(self.spinBox_4, 1, 0, 1, 1)
+
+        self.label_43 = QLabel(self.groupBox_27)
+        self.label_43.setObjectName(u"label_43")
+
+        self.gridLayout_53.addWidget(self.label_43, 6, 1, 1, 1)
+
+        self.spinBox_8 = QSpinBox(self.groupBox_27)
+        self.spinBox_8.setObjectName(u"spinBox_8")
+        self.spinBox_8.setMinimum(-1)
+        self.spinBox_8.setMaximum(4)
+
+        self.gridLayout_53.addWidget(self.spinBox_8, 7, 1, 1, 1)
+
+        self.label_47 = QLabel(self.groupBox_27)
+        self.label_47.setObjectName(u"label_47")
+
+        self.gridLayout_53.addWidget(self.label_47, 0, 1, 1, 1)
+
+        self.spinBox_5 = QSpinBox(self.groupBox_27)
+        self.spinBox_5.setObjectName(u"spinBox_5")
+
+        self.gridLayout_53.addWidget(self.spinBox_5, 1, 1, 1, 1)
+
+        self.groupBox_28 = QGroupBox(self.groupBox_27)
+        self.groupBox_28.setObjectName(u"groupBox_28")
+        self.gridLayout_55 = QGridLayout(self.groupBox_28)
+        self.gridLayout_55.setObjectName(u"gridLayout_55")
+        self.checkBox_12 = QCheckBox(self.groupBox_28)
+        self.checkBox_12.setObjectName(u"checkBox_12")
+
+        self.gridLayout_55.addWidget(self.checkBox_12, 1, 2, 1, 1)
+
+        self.checkBox_9 = QCheckBox(self.groupBox_28)
+        self.checkBox_9.setObjectName(u"checkBox_9")
+
+        self.gridLayout_55.addWidget(self.checkBox_9, 1, 3, 1, 1)
+
+        self.checkBox_7 = QCheckBox(self.groupBox_28)
+        self.checkBox_7.setObjectName(u"checkBox_7")
+
+        self.gridLayout_55.addWidget(self.checkBox_7, 0, 2, 1, 1)
+
+        self.checkBox_11 = QCheckBox(self.groupBox_28)
+        self.checkBox_11.setObjectName(u"checkBox_11")
+
+        self.gridLayout_55.addWidget(self.checkBox_11, 0, 3, 1, 1)
+
+        self.checkBox_8 = QCheckBox(self.groupBox_28)
+        self.checkBox_8.setObjectName(u"checkBox_8")
+
+        self.gridLayout_55.addWidget(self.checkBox_8, 1, 1, 1, 1)
+
+        self.checkBox_10 = QCheckBox(self.groupBox_28)
+        self.checkBox_10.setObjectName(u"checkBox_10")
+
+        self.gridLayout_55.addWidget(self.checkBox_10, 0, 0, 1, 1)
+
+        self.checkBox_13 = QCheckBox(self.groupBox_28)
+        self.checkBox_13.setObjectName(u"checkBox_13")
+
+        self.gridLayout_55.addWidget(self.checkBox_13, 0, 1, 1, 1)
+
+
+        self.gridLayout_53.addWidget(self.groupBox_28, 10, 0, 1, 2)
+
+        self.spinBox_6 = QSpinBox(self.groupBox_27)
+        self.spinBox_6.setObjectName(u"spinBox_6")
+        self.spinBox_6.setMaximum(100000)
+        self.spinBox_6.setValue(99)
+
+        self.gridLayout_53.addWidget(self.spinBox_6, 5, 0, 1, 2)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_27, 7, 0, 1, 2)
+
+        self.groupBox_25 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_25.setObjectName(u"groupBox_25")
+        self.gridLayout_52 = QGridLayout(self.groupBox_25)
+        self.gridLayout_52.setObjectName(u"gridLayout_52")
+        self.comboBox_3 = QComboBox(self.groupBox_25)
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.setObjectName(u"comboBox_3")
+
+        self.gridLayout_52.addWidget(self.comboBox_3, 3, 0, 1, 1)
+
+        self.label_45 = QLabel(self.groupBox_25)
+        self.label_45.setObjectName(u"label_45")
+
+        self.gridLayout_52.addWidget(self.label_45, 2, 0, 1, 1)
+
+        self.spinBox_3 = QSpinBox(self.groupBox_25)
+        self.spinBox_3.setObjectName(u"spinBox_3")
+        self.spinBox_3.setMinimum(1)
+        self.spinBox_3.setValue(3)
+
+        self.gridLayout_52.addWidget(self.spinBox_3, 1, 0, 1, 1)
+
+        self.label_44 = QLabel(self.groupBox_25)
+        self.label_44.setObjectName(u"label_44")
+
+        self.gridLayout_52.addWidget(self.label_44, 0, 0, 1, 1)
+
+        self.checkBox_5 = QCheckBox(self.groupBox_25)
+        self.checkBox_5.setObjectName(u"checkBox_5")
+        self.checkBox_5.setChecked(True)
+
+        self.gridLayout_52.addWidget(self.checkBox_5, 4, 0, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_25, 1, 0, 5, 1)
+
+        self.groupBox_30 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_30.setObjectName(u"groupBox_30")
+        self.gridLayout_51 = QGridLayout(self.groupBox_30)
+        self.gridLayout_51.setObjectName(u"gridLayout_51")
+        self.label_40 = QLabel(self.groupBox_30)
+        self.label_40.setObjectName(u"label_40")
+
+        self.gridLayout_51.addWidget(self.label_40, 0, 0, 1, 1)
+
+        self.label_41 = QLabel(self.groupBox_30)
+        self.label_41.setObjectName(u"label_41")
+
+        self.gridLayout_51.addWidget(self.label_41, 0, 1, 1, 1)
+
+        self.Diamond_capture_timeInput = QSpinBox(self.groupBox_30)
+        self.Diamond_capture_timeInput.setObjectName(u"Diamond_capture_timeInput")
+        self.Diamond_capture_timeInput.setMinimum(10)
+        self.Diamond_capture_timeInput.setMaximum(60)
+        self.Diamond_capture_timeInput.setValue(30)
+
+        self.gridLayout_51.addWidget(self.Diamond_capture_timeInput, 1, 0, 1, 1)
+
+        self.Diamond_capture_bonusInput = QSpinBox(self.groupBox_30)
+        self.Diamond_capture_bonusInput.setObjectName(u"Diamond_capture_bonusInput")
+        self.Diamond_capture_bonusInput.setMaximum(100000)
+        self.Diamond_capture_bonusInput.setValue(1000)
+
+        self.gridLayout_51.addWidget(self.Diamond_capture_bonusInput, 1, 1, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_30, 11, 1, 1, 1)
+
+        self.Battle_recoveryjumpInput = QCheckBox(self.BattlemodSettingsGroupbox)
+        self.Battle_recoveryjumpInput.setObjectName(u"Battle_recoveryjumpInput")
+
+        self.gridLayout_22.addWidget(self.Battle_recoveryjumpInput, 5, 1, 1, 1)
+
+        self.Battle_coyotefactorInput = QSpinBox(self.BattlemodSettingsGroupbox)
+        self.Battle_coyotefactorInput.setObjectName(u"Battle_coyotefactorInput")
+        self.Battle_coyotefactorInput.setMaximum(15)
+        self.Battle_coyotefactorInput.setValue(15)
+
+        self.gridLayout_22.addWidget(self.Battle_coyotefactorInput, 4, 1, 1, 1)
+
+        self.label_37 = QLabel(self.BattlemodSettingsGroupbox)
+        self.label_37.setObjectName(u"label_37")
+
+        self.gridLayout_22.addWidget(self.label_37, 3, 1, 1, 1)
+
+        self.groupBox_26 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_26.setObjectName(u"groupBox_26")
+        self.gridLayout_54 = QGridLayout(self.groupBox_26)
+        self.gridLayout_54.setObjectName(u"gridLayout_54")
+        self.checkBox_17 = QCheckBox(self.groupBox_26)
+        self.checkBox_17.setObjectName(u"checkBox_17")
+
+        self.gridLayout_54.addWidget(self.checkBox_17, 8, 0, 1, 1)
+
+        self.checkBox_18 = QCheckBox(self.groupBox_26)
+        self.checkBox_18.setObjectName(u"checkBox_18")
+
+        self.gridLayout_54.addWidget(self.checkBox_18, 10, 0, 1, 1)
+
+        self.checkBox_15 = QCheckBox(self.groupBox_26)
+        self.checkBox_15.setObjectName(u"checkBox_15")
+
+        self.gridLayout_54.addWidget(self.checkBox_15, 9, 1, 1, 1)
+
+        self.checkBox_14 = QCheckBox(self.groupBox_26)
+        self.checkBox_14.setObjectName(u"checkBox_14")
+
+        self.gridLayout_54.addWidget(self.checkBox_14, 9, 0, 1, 1)
+
+        self.checkBox_16 = QCheckBox(self.groupBox_26)
+        self.checkBox_16.setObjectName(u"checkBox_16")
+
+        self.gridLayout_54.addWidget(self.checkBox_16, 8, 1, 1, 1)
+
+        self.label_52 = QLabel(self.groupBox_26)
+        self.label_52.setObjectName(u"label_52")
+
+        self.gridLayout_54.addWidget(self.label_52, 0, 0, 1, 1)
+
+        self.spinBox_9 = QSpinBox(self.groupBox_26)
+        self.spinBox_9.setObjectName(u"spinBox_9")
+        self.spinBox_9.setMinimum(1)
+        self.spinBox_9.setMaximum(105)
+        self.spinBox_9.setValue(7)
+
+        self.gridLayout_54.addWidget(self.spinBox_9, 1, 0, 1, 1)
+
+        self.label_53 = QLabel(self.groupBox_26)
+        self.label_53.setObjectName(u"label_53")
+
+        self.gridLayout_54.addWidget(self.label_53, 4, 0, 1, 1)
+
+        self.label_54 = QLabel(self.groupBox_26)
+        self.label_54.setObjectName(u"label_54")
+
+        self.gridLayout_54.addWidget(self.label_54, 0, 1, 1, 1)
+
+        self.spinBox_10 = QSpinBox(self.groupBox_26)
+        self.spinBox_10.setObjectName(u"spinBox_10")
+        self.spinBox_10.setMinimum(1)
+        self.spinBox_10.setMaximum(20)
+        self.spinBox_10.setValue(7)
+
+        self.gridLayout_54.addWidget(self.spinBox_10, 5, 0, 1, 1)
+
+        self.spinBox_12 = QSpinBox(self.groupBox_26)
+        self.spinBox_12.setObjectName(u"spinBox_12")
+        self.spinBox_12.setMinimum(3)
+        self.spinBox_12.setMaximum(30)
+        self.spinBox_12.setValue(5)
+
+        self.gridLayout_54.addWidget(self.spinBox_12, 1, 1, 1, 1)
+
+        self.label_50 = QLabel(self.groupBox_26)
+        self.label_50.setObjectName(u"label_50")
+
+        self.gridLayout_54.addWidget(self.label_50, 4, 1, 1, 1)
+
+        self.comboBox_4 = QComboBox(self.groupBox_26)
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.setObjectName(u"comboBox_4")
+
+        self.gridLayout_54.addWidget(self.comboBox_4, 5, 1, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_26, 6, 0, 1, 2)
+
+        self.groupBox_29 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_29.setObjectName(u"groupBox_29")
+        self.gridLayout_50 = QGridLayout(self.groupBox_29)
+        self.gridLayout_50.setObjectName(u"gridLayout_50")
+        self.Ctf_flagrespawn_graceperiodInput = QSpinBox(self.groupBox_29)
+        self.Ctf_flagrespawn_graceperiodInput.setObjectName(u"Ctf_flagrespawn_graceperiodInput")
+        self.Ctf_flagrespawn_graceperiodInput.setMaximum(15)
+        self.Ctf_flagrespawn_graceperiodInput.setValue(6)
+
+        self.gridLayout_50.addWidget(self.Ctf_flagrespawn_graceperiodInput, 2, 2, 1, 1)
+
+        self.Ctf_flagdrop_graceperiodInput = QSpinBox(self.groupBox_29)
+        self.Ctf_flagdrop_graceperiodInput.setObjectName(u"Ctf_flagdrop_graceperiodInput")
+        self.Ctf_flagdrop_graceperiodInput.setMaximum(3)
+        self.Ctf_flagdrop_graceperiodInput.setValue(2)
+
+        self.gridLayout_50.addWidget(self.Ctf_flagdrop_graceperiodInput, 2, 1, 1, 1)
+
+        self.label_38 = QLabel(self.groupBox_29)
+        self.label_38.setObjectName(u"label_38")
+
+        self.gridLayout_50.addWidget(self.label_38, 1, 1, 1, 1)
+
+        self.label_39 = QLabel(self.groupBox_29)
+        self.label_39.setObjectName(u"label_39")
+
+        self.gridLayout_50.addWidget(self.label_39, 1, 2, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_29, 11, 0, 1, 1)
+
+        self.Battle_coyotetimeInput = QSpinBox(self.BattlemodSettingsGroupbox)
+        self.Battle_coyotetimeInput.setObjectName(u"Battle_coyotetimeInput")
+        self.Battle_coyotetimeInput.setMinimum(1)
+
+        self.gridLayout_22.addWidget(self.Battle_coyotetimeInput, 2, 1, 1, 1)
+
+        self.label_36 = QLabel(self.BattlemodSettingsGroupbox)
+        self.label_36.setObjectName(u"label_36")
+
+        self.gridLayout_22.addWidget(self.label_36, 1, 1, 1, 1)
+
+
+        self.verticalLayout_10.addWidget(self.BattlemodSettingsGroupbox)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_6)
+
+        self.scrollArea_7.setWidget(self.scrollAreaWidgetContents_7)
+
+        self.verticalLayout_7.addWidget(self.scrollArea_7)
+
+        self.HostGameTabwidget.addTab(self.tab_2, "")
+
+        self.verticalLayout_8.addWidget(self.HostGameTabwidget)
 
         self.GameContentStackedWidget.addWidget(self.HostGamePage)
         self.JoinGamePage = QWidget()
@@ -1013,23 +2070,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.scrollArea_3 = QScrollArea(self.JoinGamePage)
-        self.scrollArea_3.setObjectName(u"scrollArea_3")
-        self.scrollArea_3.setStyleSheet(u"")
-        self.scrollArea_3.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_3 = QWidget()
-        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 450))
-        self.scrollAreaWidgetContents_3.setStyleSheet(u"")
-        self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.GameTabView = QTabWidget(self.scrollAreaWidgetContents_3)
+        self.GameTabView = QTabWidget(self.JoinGamePage)
         self.GameTabView.setObjectName(u"GameTabView")
+        sizePolicy2.setHeightForWidth(self.GameTabView.sizePolicy().hasHeightForWidth())
+        self.GameTabView.setSizePolicy(sizePolicy2)
         self.GameTabView.setTabShape(QTabWidget.Rounded)
         self.BrowseTab = QWidget()
         self.BrowseTab.setObjectName(u"BrowseTab")
-        self.gridLayout_18 = QGridLayout(self.BrowseTab)
-        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.gridLayout_26 = QGridLayout(self.BrowseTab)
+        self.gridLayout_26.setObjectName(u"gridLayout_26")
+        self.RefreshButton = QPushButton(self.BrowseTab)
+        self.RefreshButton.setObjectName(u"RefreshButton")
+        self.RefreshButton.setIcon(icon)
+
+        self.gridLayout_26.addWidget(self.RefreshButton, 0, 3, 1, 1)
+
         self.horizontalLayout_18 = QHBoxLayout()
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.MSStatusLabel = QLabel(self.BrowseTab)
@@ -1043,46 +2098,27 @@ class Ui_MainWindow(object):
 
         self.SaveNetgameButton = QPushButton(self.BrowseTab)
         self.SaveNetgameButton.setObjectName(u"SaveNetgameButton")
-        icon18 = QIcon()
-        icon18.addFile(u":/assets/img/icons/bookmark-new.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.SaveNetgameButton.setIcon(icon18)
+        icon16 = QIcon()
+        icon16.addFile(u":/assets/img/icons/bookmark-new.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.SaveNetgameButton.setIcon(icon16)
 
         self.horizontalLayout_18.addWidget(self.SaveNetgameButton)
 
         self.BrowseNetgameJoinButton = QPushButton(self.BrowseTab)
         self.BrowseNetgameJoinButton.setObjectName(u"BrowseNetgameJoinButton")
-        icon19 = QIcon()
-        icon19.addFile(u":/assets/img/icons/media-playback-start.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.BrowseNetgameJoinButton.setIcon(icon19)
+        icon17 = QIcon()
+        icon17.addFile(u":/assets/img/icons/media-playback-start.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.BrowseNetgameJoinButton.setIcon(icon17)
 
         self.horizontalLayout_18.addWidget(self.BrowseNetgameJoinButton)
 
 
-        self.gridLayout_18.addLayout(self.horizontalLayout_18, 5, 0, 1, 4)
-
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_18.addItem(self.horizontalSpacer_7, 0, 1, 1, 1)
-
-        self.RefreshButton = QPushButton(self.BrowseTab)
-        self.RefreshButton.setObjectName(u"RefreshButton")
-        self.RefreshButton.setIcon(icon4)
-
-        self.gridLayout_18.addWidget(self.RefreshButton, 0, 3, 1, 1)
+        self.gridLayout_26.addLayout(self.horizontalLayout_18, 5, 0, 1, 4)
 
         self.MSSelectionLabel = QLabel(self.BrowseTab)
         self.MSSelectionLabel.setObjectName(u"MSSelectionLabel")
 
-        self.gridLayout_18.addWidget(self.MSSelectionLabel, 0, 0, 1, 1)
-
-        self.BrowseMSCombobox = QComboBox(self.BrowseTab)
-        self.BrowseMSCombobox.addItem("")
-        self.BrowseMSCombobox.setObjectName(u"BrowseMSCombobox")
-        sizePolicy5.setHeightForWidth(self.BrowseMSCombobox.sizePolicy().hasHeightForWidth())
-        self.BrowseMSCombobox.setSizePolicy(sizePolicy5)
-        self.BrowseMSCombobox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
-
-        self.gridLayout_18.addWidget(self.BrowseMSCombobox, 0, 2, 1, 1)
+        self.gridLayout_26.addWidget(self.MSSelectionLabel, 0, 0, 1, 1)
 
         self.BrowseNetgameTable = QTableWidget(self.BrowseTab)
         if (self.BrowseNetgameTable.columnCount() < 5):
@@ -1122,31 +2158,56 @@ class Ui_MainWindow(object):
         __qtablewidgetitem10.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEnabled);
         self.BrowseNetgameTable.setItem(0, 4, __qtablewidgetitem10)
         self.BrowseNetgameTable.setObjectName(u"BrowseNetgameTable")
-        sizePolicy4.setHeightForWidth(self.BrowseNetgameTable.sizePolicy().hasHeightForWidth())
-        self.BrowseNetgameTable.setSizePolicy(sizePolicy4)
+        sizePolicy2.setHeightForWidth(self.BrowseNetgameTable.sizePolicy().hasHeightForWidth())
+        self.BrowseNetgameTable.setSizePolicy(sizePolicy2)
         self.BrowseNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.BrowseNetgameTable.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.BrowseNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.BrowseNetgameTable.verticalHeader().setVisible(False)
 
-        self.gridLayout_18.addWidget(self.BrowseNetgameTable, 4, 0, 1, 4)
+        self.gridLayout_26.addWidget(self.BrowseNetgameTable, 1, 0, 1, 4)
+
+        self.BrowseMSCombobox = QComboBox(self.BrowseTab)
+        self.BrowseMSCombobox.addItem("")
+        self.BrowseMSCombobox.setObjectName(u"BrowseMSCombobox")
+        sizePolicy4.setHeightForWidth(self.BrowseMSCombobox.sizePolicy().hasHeightForWidth())
+        self.BrowseMSCombobox.setSizePolicy(sizePolicy4)
+        self.BrowseMSCombobox.setMinimumSize(QSize(80, 0))
+        self.BrowseMSCombobox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+
+        self.gridLayout_26.addWidget(self.BrowseMSCombobox, 0, 2, 1, 1)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_26.addItem(self.horizontalSpacer_7, 0, 1, 1, 1)
 
         self.GameTabView.addTab(self.BrowseTab, "")
         self.SavedNetgamesTab = QWidget()
         self.SavedNetgamesTab.setObjectName(u"SavedNetgamesTab")
-        self.gridLayout_10 = QGridLayout(self.SavedNetgamesTab)
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.JoinBookmarkButton = QPushButton(self.SavedNetgamesTab)
-        self.JoinBookmarkButton.setObjectName(u"JoinBookmarkButton")
-        self.JoinBookmarkButton.setSizeIncrement(QSize(0, 0))
-        self.JoinBookmarkButton.setIcon(icon19)
+        self.gridLayout_27 = QGridLayout(self.SavedNetgamesTab)
+        self.gridLayout_27.setObjectName(u"gridLayout_27")
+        self.DeleteServerButton = QPushButton(self.SavedNetgamesTab)
+        self.DeleteServerButton.setObjectName(u"DeleteServerButton")
+        self.DeleteServerButton.setIcon(icon10)
 
-        self.gridLayout_10.addWidget(self.JoinBookmarkButton, 8, 1, 1, 1)
+        self.gridLayout_27.addWidget(self.DeleteServerButton, 12, 3, 1, 1)
 
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.ServerListLabel = QLabel(self.SavedNetgamesTab)
+        self.ServerListLabel.setObjectName(u"ServerListLabel")
 
-        self.gridLayout_10.addItem(self.horizontalSpacer_10, 8, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.ServerListLabel, 3, 0, 1, 1)
+
+        self.JoinServerLabel = QLabel(self.SavedNetgamesTab)
+        self.JoinServerLabel.setObjectName(u"JoinServerLabel")
+
+        self.gridLayout_27.addWidget(self.JoinServerLabel, 9, 0, 1, 1)
+
+        self.AddServerButton = QPushButton(self.SavedNetgamesTab)
+        self.AddServerButton.setObjectName(u"AddServerButton")
+        self.AddServerButton.setIcon(icon4)
+
+        self.gridLayout_27.addWidget(self.AddServerButton, 12, 2, 1, 1)
 
         self.SavedNetgameTable = QTableWidget(self.SavedNetgamesTab)
         if (self.SavedNetgameTable.columnCount() < 3):
@@ -1158,50 +2219,39 @@ class Ui_MainWindow(object):
         __qtablewidgetitem13 = QTableWidgetItem()
         self.SavedNetgameTable.setHorizontalHeaderItem(2, __qtablewidgetitem13)
         self.SavedNetgameTable.setObjectName(u"SavedNetgameTable")
-        sizePolicy4.setHeightForWidth(self.SavedNetgameTable.sizePolicy().hasHeightForWidth())
-        self.SavedNetgameTable.setSizePolicy(sizePolicy4)
+        sizePolicy2.setHeightForWidth(self.SavedNetgameTable.sizePolicy().hasHeightForWidth())
+        self.SavedNetgameTable.setSizePolicy(sizePolicy2)
         self.SavedNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.SavedNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.SavedNetgameTable.verticalHeader().setVisible(False)
         self.SavedNetgameTable.verticalHeader().setCascadingSectionResizes(True)
 
-        self.gridLayout_10.addWidget(self.SavedNetgameTable, 4, 0, 1, 4)
+        self.gridLayout_27.addWidget(self.SavedNetgameTable, 11, 0, 1, 4)
 
-        self.ServerListLabel = QLabel(self.SavedNetgamesTab)
-        self.ServerListLabel.setObjectName(u"ServerListLabel")
+        self.horizontalSpacer_10 = QSpacerItem(505, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_10.addWidget(self.ServerListLabel, 3, 0, 1, 1)
+        self.gridLayout_27.addItem(self.horizontalSpacer_10, 12, 0, 1, 1)
 
-        self.JoinServerLabel = QLabel(self.SavedNetgamesTab)
-        self.JoinServerLabel.setObjectName(u"JoinServerLabel")
+        self.JoinBookmarkButton = QPushButton(self.SavedNetgamesTab)
+        self.JoinBookmarkButton.setObjectName(u"JoinBookmarkButton")
+        self.JoinBookmarkButton.setSizeIncrement(QSize(0, 0))
+        self.JoinBookmarkButton.setIcon(icon17)
 
-        self.gridLayout_10.addWidget(self.JoinServerLabel, 0, 0, 1, 1)
+        self.gridLayout_27.addWidget(self.JoinBookmarkButton, 12, 1, 1, 1)
 
         self.JoinAddressInput = QLineEdit(self.SavedNetgamesTab)
         self.JoinAddressInput.setObjectName(u"JoinAddressInput")
-        sizePolicy5.setHeightForWidth(self.JoinAddressInput.sizePolicy().hasHeightForWidth())
-        self.JoinAddressInput.setSizePolicy(sizePolicy5)
+        sizePolicy4.setHeightForWidth(self.JoinAddressInput.sizePolicy().hasHeightForWidth())
+        self.JoinAddressInput.setSizePolicy(sizePolicy4)
         self.JoinAddressInput.setPlaceholderText(u"IP Address")
 
-        self.gridLayout_10.addWidget(self.JoinAddressInput, 1, 0, 1, 2)
+        self.gridLayout_27.addWidget(self.JoinAddressInput, 5, 0, 1, 1)
 
         self.JoinAddressButton = QPushButton(self.SavedNetgamesTab)
         self.JoinAddressButton.setObjectName(u"JoinAddressButton")
-        self.JoinAddressButton.setIcon(icon19)
+        self.JoinAddressButton.setIcon(icon17)
 
-        self.gridLayout_10.addWidget(self.JoinAddressButton, 1, 2, 1, 2)
-
-        self.DeleteServerButton = QPushButton(self.SavedNetgamesTab)
-        self.DeleteServerButton.setObjectName(u"DeleteServerButton")
-        self.DeleteServerButton.setIcon(icon12)
-
-        self.gridLayout_10.addWidget(self.DeleteServerButton, 8, 3, 1, 1)
-
-        self.AddServerButton = QPushButton(self.SavedNetgamesTab)
-        self.AddServerButton.setObjectName(u"AddServerButton")
-        self.AddServerButton.setIcon(icon7)
-
-        self.gridLayout_10.addWidget(self.AddServerButton, 8, 2, 1, 1)
+        self.gridLayout_27.addWidget(self.JoinAddressButton, 5, 1, 1, 3)
 
         self.frame_10 = QFrame(self.SavedNetgamesTab)
         self.frame_10.setObjectName(u"frame_10")
@@ -1211,62 +2261,65 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
 
-        self.gridLayout_10.addWidget(self.frame_10, 2, 0, 1, 4)
+        self.gridLayout_27.addWidget(self.frame_10, 6, 0, 1, 4)
 
         self.GameTabView.addTab(self.SavedNetgamesTab, "")
         self.masterservers = QWidget()
         self.masterservers.setObjectName(u"masterservers")
         self.masterservers.setMinimumSize(QSize(824, 0))
-        self.verticalLayout_30 = QVBoxLayout(self.masterservers)
-        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
-        self.scrollArea_7 = QScrollArea(self.masterservers)
-        self.scrollArea_7.setObjectName(u"scrollArea_7")
-        self.scrollArea_7.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_7 = QWidget()
-        self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 806, 384))
-        self.gridLayout_19 = QGridLayout(self.scrollAreaWidgetContents_7)
-        self.gridLayout_19.setObjectName(u"gridLayout_19")
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_19.addItem(self.verticalSpacer_3, 8, 5, 1, 1)
-
-        self.MSRemoveButton = QPushButton(self.scrollAreaWidgetContents_7)
-        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
-        self.MSRemoveButton.setIcon(icon12)
-
-        self.gridLayout_19.addWidget(self.MSRemoveButton, 13, 4, 1, 1)
-
-        self.MSListSaveButton = QPushButton(self.scrollAreaWidgetContents_7)
-        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon9)
-
-        self.gridLayout_19.addWidget(self.MSListSaveButton, 13, 2, 1, 1)
-
-        self.MSAddButton = QPushButton(self.scrollAreaWidgetContents_7)
-        self.MSAddButton.setObjectName(u"MSAddButton")
-        self.MSAddButton.setIcon(icon7)
-
-        self.gridLayout_19.addWidget(self.MSAddButton, 13, 3, 1, 1)
-
-        self.MSVisitrepoButton = QPushButton(self.scrollAreaWidgetContents_7)
+        self.gridLayout_28 = QGridLayout(self.masterservers)
+        self.gridLayout_28.setObjectName(u"gridLayout_28")
+        self.MSVisitrepoButton = QPushButton(self.masterservers)
         self.MSVisitrepoButton.setObjectName(u"MSVisitrepoButton")
-        self.MSVisitrepoButton.setIcon(icon5)
+        self.MSVisitrepoButton.setIcon(icon1)
 
-        self.gridLayout_19.addWidget(self.MSVisitrepoButton, 4, 5, 1, 1)
+        self.gridLayout_28.addWidget(self.MSVisitrepoButton, 2, 4, 1, 1)
 
-        self.groupBox_3 = QGroupBox(self.scrollAreaWidgetContents_7)
+        self.MSListSaveButton = QPushButton(self.masterservers)
+        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
+        self.MSListSaveButton.setIcon(icon6)
+
+        self.gridLayout_28.addWidget(self.MSListSaveButton, 5, 1, 1, 1)
+
+        self.ConfigrepoadLabel = QLabel(self.masterservers)
+        self.ConfigrepoadLabel.setObjectName(u"ConfigrepoadLabel")
+
+        self.gridLayout_28.addWidget(self.ConfigrepoadLabel, 1, 4, 1, 1)
+
+        self.horizontalSpacer_9 = QSpacerItem(437, 22, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_28.addItem(self.horizontalSpacer_9, 5, 0, 1, 1)
+
+        self.groupBox_3 = QGroupBox(self.masterservers)
         self.groupBox_3.setObjectName(u"groupBox_3")
         font2 = QFont()
         font2.setBold(False)
         self.groupBox_3.setFont(font2)
         self.gridLayout_6 = QGridLayout(self.groupBox_3)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.snitchdescLabel = QLabel(self.groupBox_3)
-        self.snitchdescLabel.setObjectName(u"snitchdescLabel")
-        self.snitchdescLabel.setFont(font2)
+        self.snitchtitleLabel = QLabel(self.groupBox_3)
+        self.snitchtitleLabel.setObjectName(u"snitchtitleLabel")
+        font3 = QFont()
+        font3.setBold(True)
+        self.snitchtitleLabel.setFont(font3)
 
-        self.gridLayout_6.addWidget(self.snitchdescLabel, 2, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.snitchtitleLabel, 2, 0, 1, 1)
+
+        self.kartv2titleLabel = QLabel(self.groupBox_3)
+        self.kartv2titleLabel.setObjectName(u"kartv2titleLabel")
+        self.kartv2titleLabel.setFont(font3)
+
+        self.gridLayout_6.addWidget(self.kartv2titleLabel, 1, 0, 1, 1)
+
+        self.msapiwarningLabel = QLabel(self.groupBox_3)
+        self.msapiwarningLabel.setObjectName(u"msapiwarningLabel")
+        font4 = QFont()
+        font4.setBold(False)
+        font4.setItalic(False)
+        self.msapiwarningLabel.setFont(font4)
+        self.msapiwarningLabel.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.msapiwarningLabel, 3, 0, 1, 3)
 
         self.v1descLabel = QLabel(self.groupBox_3)
         self.v1descLabel.setObjectName(u"v1descLabel")
@@ -1274,23 +2327,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.v1descLabel, 0, 1, 1, 1)
 
-        self.msapiwarningLabel = QLabel(self.groupBox_3)
-        self.msapiwarningLabel.setObjectName(u"msapiwarningLabel")
-        font3 = QFont()
-        font3.setBold(False)
-        font3.setItalic(False)
-        self.msapiwarningLabel.setFont(font3)
-        self.msapiwarningLabel.setAlignment(Qt.AlignCenter)
+        self.v1titleLabel = QLabel(self.groupBox_3)
+        self.v1titleLabel.setObjectName(u"v1titleLabel")
+        self.v1titleLabel.setFont(font3)
 
-        self.gridLayout_6.addWidget(self.msapiwarningLabel, 3, 0, 1, 3)
+        self.gridLayout_6.addWidget(self.v1titleLabel, 0, 0, 1, 1)
 
-        self.kartv2titleLabel = QLabel(self.groupBox_3)
-        self.kartv2titleLabel.setObjectName(u"kartv2titleLabel")
-        font4 = QFont()
-        font4.setBold(True)
-        self.kartv2titleLabel.setFont(font4)
+        self.snitchdescLabel = QLabel(self.groupBox_3)
+        self.snitchdescLabel.setObjectName(u"snitchdescLabel")
+        self.snitchdescLabel.setFont(font2)
 
-        self.gridLayout_6.addWidget(self.kartv2titleLabel, 1, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.snitchdescLabel, 2, 1, 1, 1)
 
         self.kartv2descLabel = QLabel(self.groupBox_3)
         self.kartv2descLabel.setObjectName(u"kartv2descLabel")
@@ -1298,27 +2345,27 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.kartv2descLabel, 1, 1, 1, 1)
 
-        self.snitchtitleLabel = QLabel(self.groupBox_3)
-        self.snitchtitleLabel.setObjectName(u"snitchtitleLabel")
-        self.snitchtitleLabel.setFont(font4)
 
-        self.gridLayout_6.addWidget(self.snitchtitleLabel, 2, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.groupBox_3, 4, 4, 1, 1)
 
-        self.v1titleLabel = QLabel(self.groupBox_3)
-        self.v1titleLabel.setObjectName(u"v1titleLabel")
-        self.v1titleLabel.setFont(font4)
+        self.MSAddButton = QPushButton(self.masterservers)
+        self.MSAddButton.setObjectName(u"MSAddButton")
+        self.MSAddButton.setIcon(icon4)
 
-        self.gridLayout_6.addWidget(self.v1titleLabel, 0, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.MSAddButton, 5, 2, 1, 1)
 
+        self.MSTableLabel = QLabel(self.masterservers)
+        self.MSTableLabel.setObjectName(u"MSTableLabel")
 
-        self.gridLayout_19.addWidget(self.groupBox_3, 5, 5, 1, 1)
+        self.gridLayout_28.addWidget(self.MSTableLabel, 0, 0, 1, 5)
 
-        self.ConfigrepoadLabel = QLabel(self.scrollAreaWidgetContents_7)
-        self.ConfigrepoadLabel.setObjectName(u"ConfigrepoadLabel")
+        self.MSRemoveButton = QPushButton(self.masterservers)
+        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
+        self.MSRemoveButton.setIcon(icon10)
 
-        self.gridLayout_19.addWidget(self.ConfigrepoadLabel, 3, 5, 1, 1)
+        self.gridLayout_28.addWidget(self.MSRemoveButton, 5, 3, 1, 1)
 
-        self.MasterServersTable = QTableWidget(self.scrollAreaWidgetContents_7)
+        self.MasterServersTable = QTableWidget(self.masterservers)
         if (self.MasterServersTable.columnCount() < 3):
             self.MasterServersTable.setColumnCount(3)
         __qtablewidgetitem14 = QTableWidgetItem()
@@ -1353,42 +2400,27 @@ class Ui_MainWindow(object):
         __qtablewidgetitem24.setTextAlignment(Qt.AlignCenter);
         self.MasterServersTable.setItem(1, 2, __qtablewidgetitem24)
         self.MasterServersTable.setObjectName(u"MasterServersTable")
-        sizePolicy4.setHeightForWidth(self.MasterServersTable.sizePolicy().hasHeightForWidth())
-        self.MasterServersTable.setSizePolicy(sizePolicy4)
         self.MasterServersTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.MasterServersTable.setEditTriggers(QAbstractItemView.DoubleClicked)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
-        self.gridLayout_19.addWidget(self.MasterServersTable, 3, 0, 9, 5)
+        self.gridLayout_28.addWidget(self.MasterServersTable, 1, 0, 4, 4)
 
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.verticalSpacer_3 = QSpacerItem(17, 191, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_19.addItem(self.horizontalSpacer_9, 13, 1, 1, 1)
-
-        self.MSTableLabel = QLabel(self.scrollAreaWidgetContents_7)
-        self.MSTableLabel.setObjectName(u"MSTableLabel")
-
-        self.gridLayout_19.addWidget(self.MSTableLabel, 2, 0, 1, 2)
-
-        self.scrollArea_7.setWidget(self.scrollAreaWidgetContents_7)
-
-        self.verticalLayout_30.addWidget(self.scrollArea_7)
+        self.gridLayout_28.addItem(self.verticalSpacer_3, 3, 4, 1, 1)
 
         self.GameTabView.addTab(self.masterservers, "")
 
-        self.verticalLayout_13.addWidget(self.GameTabView)
-
-        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
-
-        self.verticalLayout_9.addWidget(self.scrollArea_3)
+        self.verticalLayout_9.addWidget(self.GameTabView)
 
         self.GameContentStackedWidget.addWidget(self.JoinGamePage)
 
-        self.verticalLayout_4.addWidget(self.GameContentStackedWidget)
+        self.gridLayout_19.addWidget(self.GameContentStackedWidget, 2, 0, 1, 1)
 
         self.splitter.addWidget(self.GamePageContentFrame)
 
-        self.gridLayout_16.addWidget(self.splitter, 0, 0, 1, 1)
+        self.gridLayout_16.addWidget(self.splitter, 0, 1, 1, 1)
 
 
         self.verticalLayout_3.addWidget(self.GamePageFrame)
@@ -1408,42 +2440,42 @@ class Ui_MainWindow(object):
         self.GameProfileComboBox = QComboBox(self.GamePlayFrame)
         self.GameProfileComboBox.addItem("")
         self.GameProfileComboBox.setObjectName(u"GameProfileComboBox")
-        sizePolicy6.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
-        self.GameProfileComboBox.setSizePolicy(sizePolicy6)
+        sizePolicy5.setHeightForWidth(self.GameProfileComboBox.sizePolicy().hasHeightForWidth())
+        self.GameProfileComboBox.setSizePolicy(sizePolicy5)
 
         self.gridLayout_3.addWidget(self.GameProfileComboBox, 1, 0, 1, 7)
 
         self.ProfilesRefreshButton = QToolButton(self.GamePlayFrame)
         self.ProfilesRefreshButton.setObjectName(u"ProfilesRefreshButton")
-        self.ProfilesRefreshButton.setIcon(icon4)
+        self.ProfilesRefreshButton.setIcon(icon)
 
         self.gridLayout_3.addWidget(self.ProfilesRefreshButton, 2, 0, 1, 1)
 
         self.ProfilesDeleteButton = QToolButton(self.GamePlayFrame)
         self.ProfilesDeleteButton.setObjectName(u"ProfilesDeleteButton")
         self.ProfilesDeleteButton.setEnabled(False)
-        self.ProfilesDeleteButton.setIcon(icon12)
+        self.ProfilesDeleteButton.setIcon(icon10)
 
         self.gridLayout_3.addWidget(self.ProfilesDeleteButton, 2, 6, 1, 1)
 
         self.ProfilesAddButton = QToolButton(self.GamePlayFrame)
         self.ProfilesAddButton.setObjectName(u"ProfilesAddButton")
-        self.ProfilesAddButton.setIcon(icon7)
+        self.ProfilesAddButton.setIcon(icon4)
 
         self.gridLayout_3.addWidget(self.ProfilesAddButton, 2, 5, 1, 1)
 
         self.GamePlayButton = QPushButton(self.GamePlayFrame)
         self.GamePlayButton.setObjectName(u"GamePlayButton")
-        sizePolicy.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
-        self.GamePlayButton.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
+        self.GamePlayButton.setSizePolicy(sizePolicy3)
         self.GamePlayButton.setMaximumSize(QSize(240, 38))
-        self.GamePlayButton.setIcon(icon19)
+        self.GamePlayButton.setIcon(icon17)
 
         self.gridLayout_3.addWidget(self.GamePlayButton, 1, 10, 2, 1)
 
         self.ProfilesSaveButton = QToolButton(self.GamePlayFrame)
         self.ProfilesSaveButton.setObjectName(u"ProfilesSaveButton")
-        self.ProfilesSaveButton.setIcon(icon9)
+        self.ProfilesSaveButton.setIcon(icon6)
 
         self.gridLayout_3.addWidget(self.ProfilesSaveButton, 2, 1, 1, 1)
 
@@ -1468,7 +2500,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 848, 539))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 85, 66))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -1497,7 +2529,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 848, 539))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1030, 555))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.tabWidget_2 = QTabWidget(self.scrollAreaWidgetContents)
@@ -1519,7 +2551,7 @@ class Ui_MainWindow(object):
 
         self.ProfileDirBrowseButton = QPushButton(self.tab_5)
         self.ProfileDirBrowseButton.setObjectName(u"ProfileDirBrowseButton")
-        self.ProfileDirBrowseButton.setIcon(icon8)
+        self.ProfileDirBrowseButton.setIcon(icon7)
 
         self.gridLayout_11.addWidget(self.ProfileDirBrowseButton, 1, 2, 1, 1)
 
@@ -1544,11 +2576,11 @@ class Ui_MainWindow(object):
 
         self.textBrowser = QTextBrowser(self.tab_6)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy7)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy6)
 
         self.verticalLayout_6.addWidget(self.textBrowser)
 
@@ -1559,7 +2591,7 @@ class Ui_MainWindow(object):
 
         self.ModsourceMBCheckbox = QCheckBox(self.tab_6)
         self.ModsourceMBCheckbox.setObjectName(u"ModsourceMBCheckbox")
-        self.ModsourceMBCheckbox.setIcon(icon6)
+        self.ModsourceMBCheckbox.setIcon(icon2)
         self.ModsourceMBCheckbox.setChecked(True)
 
         self.verticalLayout_6.addWidget(self.ModsourceMBCheckbox)
@@ -1567,18 +2599,18 @@ class Ui_MainWindow(object):
         self.ModsourceGamebananaCheckbox = QCheckBox(self.tab_6)
         self.ModsourceGamebananaCheckbox.setObjectName(u"ModsourceGamebananaCheckbox")
         self.ModsourceGamebananaCheckbox.setEnabled(True)
-        icon20 = QIcon()
-        icon20.addFile(u":/assets/img/icons/gamebanana.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ModsourceGamebananaCheckbox.setIcon(icon20)
+        icon18 = QIcon()
+        icon18.addFile(u":/assets/img/icons/gamebanana.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceGamebananaCheckbox.setIcon(icon18)
 
         self.verticalLayout_6.addWidget(self.ModsourceGamebananaCheckbox)
 
         self.ModsourceSkybaseCheckbox = QCheckBox(self.tab_6)
         self.ModsourceSkybaseCheckbox.setObjectName(u"ModsourceSkybaseCheckbox")
         self.ModsourceSkybaseCheckbox.setEnabled(True)
-        icon21 = QIcon()
-        icon21.addFile(u":/assets/img/icons/skybase.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ModsourceSkybaseCheckbox.setIcon(icon21)
+        icon19 = QIcon()
+        icon19.addFile(u":/assets/img/icons/skybase.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceSkybaseCheckbox.setIcon(icon19)
 
         self.verticalLayout_6.addWidget(self.ModsourceSkybaseCheckbox)
 
@@ -1590,17 +2622,17 @@ class Ui_MainWindow(object):
 
         self.ModsourceWSBlueCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
-        icon22 = QIcon()
-        icon22.addFile(u":/assets/img/icons/wsblue.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ModsourceWSBlueCheckbox.setIcon(icon22)
+        icon20 = QIcon()
+        icon20.addFile(u":/assets/img/icons/wsblue.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceWSBlueCheckbox.setIcon(icon20)
 
         self.verticalLayout_6.addWidget(self.ModsourceWSBlueCheckbox)
 
         self.ModsourceWSRedCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSRedCheckbox.setObjectName(u"ModsourceWSRedCheckbox")
-        icon23 = QIcon()
-        icon23.addFile(u":/assets/img/icons/wsred.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ModsourceWSRedCheckbox.setIcon(icon23)
+        icon21 = QIcon()
+        icon21.addFile(u":/assets/img/icons/wsred.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ModsourceWSRedCheckbox.setIcon(icon21)
 
         self.verticalLayout_6.addWidget(self.ModsourceWSRedCheckbox)
 
@@ -1612,14 +2644,14 @@ class Ui_MainWindow(object):
         self.RSSRemoveButton = QPushButton(self.tab_9)
         self.RSSRemoveButton.setObjectName(u"RSSRemoveButton")
         self.RSSRemoveButton.setEnabled(False)
-        self.RSSRemoveButton.setIcon(icon12)
+        self.RSSRemoveButton.setIcon(icon10)
 
         self.gridLayout_8.addWidget(self.RSSRemoveButton, 4, 2, 1, 1)
 
         self.RSSMoveupButton = QPushButton(self.tab_9)
         self.RSSMoveupButton.setObjectName(u"RSSMoveupButton")
         self.RSSMoveupButton.setEnabled(False)
-        self.RSSMoveupButton.setIcon(icon16)
+        self.RSSMoveupButton.setIcon(icon14)
 
         self.gridLayout_8.addWidget(self.RSSMoveupButton, 3, 0, 1, 1)
 
@@ -1630,14 +2662,14 @@ class Ui_MainWindow(object):
 
         self.RSSAddButton = QPushButton(self.tab_9)
         self.RSSAddButton.setObjectName(u"RSSAddButton")
-        self.RSSAddButton.setIcon(icon7)
+        self.RSSAddButton.setIcon(icon4)
 
         self.gridLayout_8.addWidget(self.RSSAddButton, 3, 2, 1, 1)
 
         self.RSSMovedownButton = QPushButton(self.tab_9)
         self.RSSMovedownButton.setObjectName(u"RSSMovedownButton")
         self.RSSMovedownButton.setEnabled(False)
-        self.RSSMovedownButton.setIcon(icon10)
+        self.RSSMovedownButton.setIcon(icon8)
 
         self.gridLayout_8.addWidget(self.RSSMovedownButton, 4, 0, 1, 1)
 
@@ -1673,18 +2705,86 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.MainTabsStackedWidget)
 
 
-        self.verticalLayout.addWidget(self.MainAreaFrame)
+        self.gridLayout_32.addWidget(self.MainAreaFrame, 1, 0, 1, 1)
+
+        self.DockTabFrame = QFrame(self.centralwidget)
+        self.DockTabFrame.setObjectName(u"DockTabFrame")
+        self.DockTabFrame.setMaximumSize(QSize(16777215, 128))
+        self.DockTabFrame.setFrameShape(QFrame.StyledPanel)
+        self.DockTabFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.DockTabFrame)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.NewsTabButton = QToolButton(self.DockTabFrame)
+        self.NewsTabButton.setObjectName(u"NewsTabButton")
+        icon22 = QIcon()
+        icon22.addFile(u":/assets/img/icons/news.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.NewsTabButton.setIcon(icon22)
+        self.NewsTabButton.setIconSize(QSize(48, 48))
+        self.NewsTabButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.NewsTabButton)
+
+        self.GameTabButton = QToolButton(self.DockTabFrame)
+        self.GameTabButton.setObjectName(u"GameTabButton")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
+        self.GameTabButton.setSizePolicy(sizePolicy7)
+        self.GameTabButton.setMaximumSize(QSize(16777215, 16777215))
+        self.GameTabButton.setIcon(icon3)
+        self.GameTabButton.setIconSize(QSize(48, 48))
+        self.GameTabButton.setCheckable(True)
+        self.GameTabButton.setChecked(True)
+
+        self.horizontalLayout.addWidget(self.GameTabButton)
+
+        self.HelpTabButton = QToolButton(self.DockTabFrame)
+        self.HelpTabButton.setObjectName(u"HelpTabButton")
+        self.HelpTabButton.setMaximumSize(QSize(16777215, 16777215))
+        icon23 = QIcon()
+        icon23.addFile(u":/assets/img/icons/about.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.HelpTabButton.setIcon(icon23)
+        self.HelpTabButton.setIconSize(QSize(48, 48))
+        self.HelpTabButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.HelpTabButton)
+
+        self.SettingsTabButton = QToolButton(self.DockTabFrame)
+        self.SettingsTabButton.setObjectName(u"SettingsTabButton")
+        self.SettingsTabButton.setMaximumSize(QSize(16777215, 16777215))
+        self.SettingsTabButton.setIcon(icon5)
+        self.SettingsTabButton.setIconSize(QSize(48, 48))
+        self.SettingsTabButton.setCheckable(True)
+
+        self.horizontalLayout.addWidget(self.SettingsTabButton)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
+
+
+        self.gridLayout_32.addWidget(self.DockTabFrame, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(1)
+        self.GameContentStackedWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
         self.GameSettingsTabWidget.setCurrentIndex(0)
+        self.HostGameTabwidget.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
+        self.comboBox_3.setCurrentIndex(2)
+        self.comboBox_4.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
 
@@ -1694,22 +2794,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-#if QT_CONFIG(tooltip)
-        self.NewsTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"News", None))
-#endif // QT_CONFIG(tooltip)
-        self.NewsTabButton.setText("")
-#if QT_CONFIG(tooltip)
-        self.GameTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"Game", None))
-#endif // QT_CONFIG(tooltip)
-        self.GameTabButton.setText("")
-#if QT_CONFIG(tooltip)
-        self.HelpTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"About", None))
-#endif // QT_CONFIG(tooltip)
-        self.HelpTabButton.setText("")
-#if QT_CONFIG(tooltip)
-        self.SettingsTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
-#endif // QT_CONFIG(tooltip)
-        self.SettingsTabButton.setText("")
         self.RSSFeedCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"http://srb2.org/feed", None))
 
         self.RSSFeedLabel.setText(QCoreApplication.translate("MainWindow", u"Newsfeed URL", None))
@@ -1738,6 +2822,7 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Join Netgame", None));
         self.GamePageTabList.setSortingEnabled(__sortingEnabled1)
 
+        self.ExportServerScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save server launch script...", None))
         self.PlayerSkinImage.setText("")
         self.PlayerColorTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Skin Color", None))
         self.PlayerNameTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Nickname", None))
@@ -1825,13 +2910,12 @@ class Ui_MainWindow(object):
         self.GameFullscreenSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Borderless fullscreen", None))
         self.GameFullscreenSetting.setItemText(2, QCoreApplication.translate("MainWindow", u"Windowed", None))
 
-        self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"Custom Shell Parameters", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Executable", None))
         self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
+        self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (Linux/macOS)", None))
         self.FlatpakRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Flatpak (Linux)", None))
         self.NativeRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Native EXE/ELF", None))
-        self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (Linux/macOS)", None))
         self.ExportClientScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save Client Launch Script...", None))
         self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Audio Options", None))
         self.GameMusicSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Digital music", None))
@@ -1846,6 +2930,11 @@ class Ui_MainWindow(object):
         self.GameHorizontalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
         self.GameResMultLabel.setText(QCoreApplication.translate("MainWindow", u"x", None))
         self.GameVerticalResolutionInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<auto>", None))
+        self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"Launch settings", None))
+        self.HomePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"SRB2 home directory (Windows)", None))
+        self.HomePathInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"/path/to/liquidlauncher", None))
+        self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"Custom Shell Parameters", None))
 #if QT_CONFIG(tooltip)
         self.GameSettingsTabWidget.setToolTip(QCoreApplication.translate("MainWindow", u"Add file...", None))
 #endif // QT_CONFIG(tooltip)
@@ -1891,27 +2980,52 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.RefreshModsButton.setText("")
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
-        self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
+        self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
-        self.PointLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Point Limit", None))
-        self.AdvanceMapLabel.setText(QCoreApplication.translate("MainWindow", u"Map Advancement Policy", None))
+        self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
+        self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"Admin Password", None))
+        self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Offline", None))
+        self.RoomInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Standard", None))
+        self.RoomInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Casual", None))
+        self.RoomInput.setItemText(3, QCoreApplication.translate("MainWindow", u"Hugs", None))
+        self.RoomInput.setItemText(4, QCoreApplication.translate("MainWindow", u"OLDC", None))
+
         self.HostMSCombobox.setItemText(0, "")
 
-        self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org/MS/0", None))
-        self.TimeLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Time Limit", None))
-        self.TimeLimitInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Off by default", None))
-        self.MaxPlayersInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"8", None))
-        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated Server", None))
-        self.PointLimitInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"1000", None))
+        self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<default>", None))
+        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
+        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
+        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
+        self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"Networking", None))
+        self.BandwidthInput.setSuffix(QCoreApplication.translate("MainWindow", u" bytes/s", None))
         self.PortLabel.setText(QCoreApplication.translate("MainWindow", u"Port", None))
-        self.SuddenDeathToggle.setText(QCoreApplication.translate("MainWindow", u"Sudden Death", None))
-        self.AdvanceMapInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
-        self.AdvanceMapInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Next", None))
-        self.AdvanceMapInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Random", None))
-
-        self.ExportServerScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save server launch script...", None))
+        self.ExtraticLabel.setText(QCoreApplication.translate("MainWindow", u"Extra tics", None))
+        self.BandwidthLabel.setText(QCoreApplication.translate("MainWindow", u"Bandwidth", None))
+        self.ExtraticInput.setSuffix(QCoreApplication.translate("MainWindow", u" tics", None))
+#if QT_CONFIG(tooltip)
+        self.Ipv6Checkbox.setToolTip(QCoreApplication.translate("MainWindow", u"Listen for incoming IPv6 connections", None))
+#endif // QT_CONFIG(tooltip)
+        self.Ipv6Checkbox.setText(QCoreApplication.translate("MainWindow", u"IPv6 support", None))
+        self.groupBox_23.setTitle(QCoreApplication.translate("MainWindow", u"Downloading", None))
+        self.UploadToggle.setText(QCoreApplication.translate("MainWindow", u"Enable Add-On downloads", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Download speed", None))
+        self.DownloadspeedInput.setSuffix(QCoreApplication.translate("MainWindow", u" packets/tic", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Max. file size", None))
+        self.MaxsendInput.setSuffix(QCoreApplication.translate("MainWindow", u" KB", None))
+        self.groupBox_24.setTitle(QCoreApplication.translate("MainWindow", u"Timeouts and synchronization", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Max. ping threshold", None))
+        self.MaxpingInput.setSuffix(QCoreApplication.translate("MainWindow", u" ms", None))
+        self.label_34.setText(QCoreApplication.translate("MainWindow", u"Ping timeout threshold", None))
+        self.NettimeoutInput.setSuffix(QCoreApplication.translate("MainWindow", u" tics", None))
+        self.label_35.setText(QCoreApplication.translate("MainWindow", u"Resynchronization attempts", None))
+        self.UpnpCheckbox.setText(QCoreApplication.translate("MainWindow", u"Universal Plug and Play (uPnP) support", None))
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.General), QCoreApplication.translate("MainWindow", u"General", None))
+        self.ForceSkinLabel.setText(QCoreApplication.translate("MainWindow", u"Force Skin", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Map intermission time", None))
+        self.MaxPlayersInput.setSuffix(QCoreApplication.translate("MainWindow", u" Players", None))
         self.GametypeInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Co-op", None))
         self.GametypeInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Competition", None))
         self.GametypeInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Race", None))
@@ -1922,22 +3036,26 @@ class Ui_MainWindow(object):
         self.GametypeInput.setItemText(7, QCoreApplication.translate("MainWindow", u"Capture the Flag", None))
         self.GametypeInput.setItemText(8, "")
 
-        self.MaxPlayersLabel.setText(QCoreApplication.translate("MainWindow", u"Max. Players", None))
-        self.UploadToggle.setText(QCoreApplication.translate("MainWindow", u"Enable Add-On downloads", None))
-        self.DisableWeaponsToggle.setText(QCoreApplication.translate("MainWindow", u"Disable weapon rings", None))
-        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
-        self.PortInput.setInputMask("")
-        self.PortInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"5029", None))
-        self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Offline", None))
-        self.RoomInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Standard", None))
-        self.RoomInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Casual", None))
-        self.RoomInput.setItemText(3, QCoreApplication.translate("MainWindow", u"Hugs", None))
-        self.RoomInput.setItemText(4, QCoreApplication.translate("MainWindow", u"OLDC", None))
+        self.AdvanceMapLabel.setText(QCoreApplication.translate("MainWindow", u"Map Advancement Policy", None))
+        self.RespawnitemCheckbox.setText(QCoreApplication.translate("MainWindow", u"Respawn items", None))
+        self.JoinnextroundInput.setText(QCoreApplication.translate("MainWindow", u"Only join at the beginning of a round", None))
+        self.RespawnitemCheckbox_2.setText(QCoreApplication.translate("MainWindow", u"Restrict skin changes", None))
+        self.TailspickupCheckbox.setText(QCoreApplication.translate("MainWindow", u"Enable player pickup (tailspickup)", None))
+        self.ForceSkinLabel_2.setText(QCoreApplication.translate("MainWindow", u"Item respawn time", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Gravity", None))
+        self.groupBox_15.setTitle(QCoreApplication.translate("MainWindow", u"Miscellaneous", None))
+        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Replace flickies with flowers", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_2.setToolTip(QCoreApplication.translate("MainWindow", u"75% chance to hit yourself upon enemy hit", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"Killingdead mode", None))
+        self.InttimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.AdvanceMapInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
+        self.AdvanceMapInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Next", None))
+        self.AdvanceMapInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Random", None))
 
-        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
-        self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"Admin Password", None))
         self.GametypeLabel.setText(QCoreApplication.translate("MainWindow", u"Gametype", None))
-        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.RespawnitemtimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.ForceSkinInput.setItemText(0, "")
         self.ForceSkinInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Sonic", None))
         self.ForceSkinInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Tails", None))
@@ -1946,17 +3064,181 @@ class Ui_MainWindow(object):
         self.ForceSkinInput.setItemText(5, QCoreApplication.translate("MainWindow", u"Fang", None))
         self.ForceSkinInput.setItemText(6, QCoreApplication.translate("MainWindow", u"Metal Sonic", None))
 
-        self.ForceSkinLabel.setText(QCoreApplication.translate("MainWindow", u"Force Skin", None))
-        self.MSStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Update\" to download a list of servers.", None))
-        self.SaveNetgameButton.setText(QCoreApplication.translate("MainWindow", u"Bookmark", None))
-        self.BrowseNetgameJoinButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
+        self.groupBox_14.setTitle(QCoreApplication.translate("MainWindow", u"Random monitor chances", None))
+        self.ForceSkinLabel_15.setText(QCoreApplication.translate("MainWindow", u"Water shield", None))
+        self.ForceSkinLabel_13.setText(QCoreApplication.translate("MainWindow", u"Jump shield", None))
+        self.ForceSkinLabel_11.setText(QCoreApplication.translate("MainWindow", u"Eggman", None))
+        self.ForceSkinLabel_12.setText(QCoreApplication.translate("MainWindow", u"Super Sneakers", None))
+        self.ForceSkinLabel_6.setText(QCoreApplication.translate("MainWindow", u"Invincibility", None))
+        self.ForceSkinLabel_7.setText(QCoreApplication.translate("MainWindow", u"Force shield", None))
+        self.ForceSkinLabel_10.setText(QCoreApplication.translate("MainWindow", u"Invincibility", None))
+        self.ForceSkinLabel_3.setText(QCoreApplication.translate("MainWindow", u"1-Up", None))
+        self.ForceSkinLabel_8.setText(QCoreApplication.translate("MainWindow", u"Jump shield", None))
+        self.ForceSkinLabel_14.setText(QCoreApplication.translate("MainWindow", u"Ring shield", None))
+        self.ForceSkinLabel_4.setText(QCoreApplication.translate("MainWindow", u"Bomb shield", None))
+        self.ForceSkinLabel_27.setText(QCoreApplication.translate("MainWindow", u"Super ring", None))
+        self.ForceSkinLabel_9.setText(QCoreApplication.translate("MainWindow", u"Recycler", None))
+        self.ForceSkinLabel_28.setText(QCoreApplication.translate("MainWindow", u"Teleporter", None))
+        self.MaxPlayersLabel.setText(QCoreApplication.translate("MainWindow", u"Max. Players", None))
+        self.AllowexitlevelCheckbox.setText(QCoreApplication.translate("MainWindow", u"Allow level exit", None))
+        self.ExitmoveCheckbox.setText(QCoreApplication.translate("MainWindow", u"Allow movement after exit", None))
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"Game", None))
+        self.CoopSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Co-op settings", None))
+        self.CoopSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Co-op settings", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Starting lives", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Available monitors (competitionboxes)", None))
+        self.PlayersforexitCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) One Player", None))
+        self.PlayersforexitCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) 1/4 of players", None))
+        self.PlayersforexitCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) Half of players", None))
+        self.PlayersforexitCombobox.setItemText(3, QCoreApplication.translate("MainWindow", u"(3) 3/4 Players", None))
+        self.PlayersforexitCombobox.setItemText(4, QCoreApplication.translate("MainWindow", u"(4) All Players", None))
+
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Stage exit requirement (playersforexit)", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) Normal", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) Random", None))
+        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) Teleporters", None))
+        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"(3) No monitors", None))
+
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Co-op", None))
+        self.RingslingerGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Ringslinger Settings", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Match scoring style", None))
+        self.PowerstonesCheckbox.setText(QCoreApplication.translate("MainWindow", u"Enable Chaos Emeralds", None))
+#if QT_CONFIG(tooltip)
+        self.PointLimitInput.setToolTip(QCoreApplication.translate("MainWindow", u"Ringslinger score limit. 0 = no limit", None))
+#endif // QT_CONFIG(tooltip)
+        self.PointLimitInput.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
+        self.groupBox_13.setTitle(QCoreApplication.translate("MainWindow", u"Team settings", None))
+        self.ScrambleteamsCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Off (0)", None))
+        self.ScrambleteamsCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Random (1)", None))
+        self.ScrambleteamsCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"Points (2)", None))
+
+        self.ScrambleTeamsLabel.setText(QCoreApplication.translate("MainWindow", u"Scramble teams", None))
+        self.AutobalanceCheckbox.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
+        self.AutobalanceCheckbox.setItemText(1, QCoreApplication.translate("MainWindow", u"1 Player", None))
+        self.AutobalanceCheckbox.setItemText(2, QCoreApplication.translate("MainWindow", u"2 Players", None))
+        self.AutobalanceCheckbox.setItemText(3, QCoreApplication.translate("MainWindow", u"3 Players", None))
+        self.AutobalanceCheckbox.setItemText(4, QCoreApplication.translate("MainWindow", u"4 Players", None))
+
+        self.FriendlyfireCheckbox.setText(QCoreApplication.translate("MainWindow", u"Friendly fire", None))
+        self.FlagtimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Team balancing threshold", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"CTF Flag decay", None))
+        self.TimeLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Time Limit", None))
+        self.PointLimitLabel.setText(QCoreApplication.translate("MainWindow", u"Point Limit", None))
+        self.MatchscoringCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) Normal - 50 Point penalty for death", None))
+        self.MatchscoringCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) Classic - No death penalty; 25 points for shield break", None))
+
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Available monitors (matchboxes)", None))
+        self.DisableWeaponsToggle.setText(QCoreApplication.translate("MainWindow", u"Disable weapon rings", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Respawn Delay", None))
+        self.OvertimeCheckbox.setText(QCoreApplication.translate("MainWindow", u"Overtime", None))
+        self.groupBox_9.setTitle(QCoreApplication.translate("MainWindow", u"Tag", None))
+        self.TouchtagCheckbox.setText(QCoreApplication.translate("MainWindow", u"Tag players by touch", None))
+        self.RespawndelayInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+#if QT_CONFIG(tooltip)
+        self.TimeLimitInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time limit in minutes. 0 = no limit", None))
+#endif // QT_CONFIG(tooltip)
+        self.TimeLimitInput.setSuffix(QCoreApplication.translate("MainWindow", u" minutes", None))
+        self.MatchboxesCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) Normal", None))
+        self.MatchboxesCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) Random monitors", None))
+        self.MatchboxesCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) Teleporter monitors", None))
+        self.MatchboxesCombobox.setItemText(3, QCoreApplication.translate("MainWindow", u"(3) No monitors", None))
+
+        self.SuddenDeathToggle.setText(QCoreApplication.translate("MainWindow", u"Sudden Death", None))
+        self.groupBox_12.setTitle(QCoreApplication.translate("MainWindow", u"Hide and seek", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Hiding time", None))
+        self.HidetimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.RingslingerSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Ringslinger settings", None))
+        self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ringslinger</span> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Match</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-b"
+                        "ottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Team Match</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Tag</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Hide and Seek</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Capture The Flag</p></body></html>", None))
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.Ringslinger), QCoreApplication.translate("MainWindow", u"Ringslinger", None))
+        self.CircuitraceSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Circuit Race Settings", None))
+        self.CircuitraceSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Circuit Race Settings", None))
+        self.NumlapsInput.setSuffix(QCoreApplication.translate("MainWindow", u" laps", None))
+        self.spinBox.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Number of Laps", None))
+        self.UsemaplapsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Use map laps", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Countdown time", None))
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_7), QCoreApplication.translate("MainWindow", u"Circuit Race", None))
+        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Warning:</span> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</p></body></html>", None))
+        self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
+        self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
+        self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"+battledebug +devcam", None))
+        self.groupBox_27.setTitle(QCoreApplication.translate("MainWindow", u"Capture Point", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Meter", None))
+        self.spinBox_7.setSuffix(QCoreApplication.translate("MainWindow", u" FRACUNITs", None))
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Capture radius", None))
+        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
+        self.label_43.setText(QCoreApplication.translate("MainWindow", u"Capture point height", None))
+        self.label_47.setText(QCoreApplication.translate("MainWindow", u"Wait", None))
+        self.spinBox_5.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.groupBox_28.setTitle(QCoreApplication.translate("MainWindow", u"Ring spawns", None))
+        self.checkBox_12.setText(QCoreApplication.translate("MainWindow", u"Rail rings", None))
+        self.checkBox_9.setText(QCoreApplication.translate("MainWindow", u"Scatter rings", None))
+        self.checkBox_7.setText(QCoreApplication.translate("MainWindow", u"Bounce rings", None))
+        self.checkBox_11.setText(QCoreApplication.translate("MainWindow", u"Bomb rings", None))
+        self.checkBox_8.setText(QCoreApplication.translate("MainWindow", u"Grenade rings", None))
+        self.checkBox_10.setText(QCoreApplication.translate("MainWindow", u"Infinity rings", None))
+        self.checkBox_13.setText(QCoreApplication.translate("MainWindow", u"Auto rings", None))
+        self.spinBox_6.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
+        self.groupBox_25.setTitle(QCoreApplication.translate("MainWindow", u"Arena/Survival", None))
+        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"No revenge", None))
+        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) <++>", None))
+        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) <++>", None))
+
+        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Revenge mode", None))
+        self.label_44.setText(QCoreApplication.translate("MainWindow", u"Lives", None))
+        self.checkBox_5.setText(QCoreApplication.translate("MainWindow", u"Sudden death", None))
+        self.groupBox_30.setTitle(QCoreApplication.translate("MainWindow", u"Diamond Hunt", None))
+        self.label_40.setText(QCoreApplication.translate("MainWindow", u"Capture time", None))
+        self.label_41.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
+        self.Diamond_capture_timeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.Diamond_capture_bonusInput.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
+        self.Battle_recoveryjumpInput.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Coyote factor", None))
+        self.groupBox_26.setTitle(QCoreApplication.translate("MainWindow", u"Battle", None))
+        self.checkBox_17.setText(QCoreApplication.translate("MainWindow", u"Collisions", None))
+        self.checkBox_18.setText(QCoreApplication.translate("MainWindow", u"Pre-round", None))
+        self.checkBox_15.setText(QCoreApplication.translate("MainWindow", u"Shield stocks", None))
+        self.checkBox_14.setText(QCoreApplication.translate("MainWindow", u"Special", None))
+        self.checkBox_16.setText(QCoreApplication.translate("MainWindow", u"Slip streams", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Collision timer", None))
+        self.spinBox_9.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Launch factor", None))
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"Max. respawn time", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Training mode", None))
+        self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", u"0", None))
+        self.comboBox_4.setItemText(1, QCoreApplication.translate("MainWindow", u"1", None))
+        self.comboBox_4.setItemText(2, QCoreApplication.translate("MainWindow", u"2", None))
+
+        self.groupBox_29.setTitle(QCoreApplication.translate("MainWindow", u"Battle CTF", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Flag drop grace period", None))
+        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Flag respawn grace period", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Coyote Time", None))
+        self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Battlemod", None))
 #if QT_CONFIG(tooltip)
         self.RefreshButton.setToolTip(QCoreApplication.translate("MainWindow", u"Update", None))
 #endif // QT_CONFIG(tooltip)
         self.RefreshButton.setText("")
+        self.MSStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Update\" to download a list of servers.", None))
+        self.SaveNetgameButton.setText(QCoreApplication.translate("MainWindow", u"Bookmark", None))
+        self.BrowseNetgameJoinButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
         self.MSSelectionLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
-        self.BrowseMSCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"ms.srb2.org", None))
-
         ___qtablewidgetitem = self.BrowseNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem1 = self.BrowseNetgameTable.horizontalHeaderItem(1)
@@ -1982,43 +3264,46 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"mb.srb2.org", None));
         self.BrowseNetgameTable.setSortingEnabled(__sortingEnabled3)
 
+        self.BrowseMSCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"ms.srb2.org", None))
+
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.BrowseTab), QCoreApplication.translate("MainWindow", u"Browse", None))
-        self.JoinBookmarkButton.setText(QCoreApplication.translate("MainWindow", u"Join Bookmark", None))
+#if QT_CONFIG(tooltip)
+        self.DeleteServerButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove Bookmark", None))
+#endif // QT_CONFIG(tooltip)
+        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"Bookmarks", None))
+        self.JoinServerLabel.setText(QCoreApplication.translate("MainWindow", u"Join directly", None))
+#if QT_CONFIG(tooltip)
+        self.AddServerButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Bookmark", None))
+#endif // QT_CONFIG(tooltip)
         ___qtablewidgetitem10 = self.SavedNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem11 = self.SavedNetgameTable.horizontalHeaderItem(1)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem12 = self.SavedNetgameTable.horizontalHeaderItem(2)
         ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Port", None));
-        self.ServerListLabel.setText(QCoreApplication.translate("MainWindow", u"Bookmarks", None))
-        self.JoinServerLabel.setText(QCoreApplication.translate("MainWindow", u"Join directly", None))
+        self.JoinBookmarkButton.setText(QCoreApplication.translate("MainWindow", u"Join Bookmark", None))
         self.JoinAddressButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
-#if QT_CONFIG(tooltip)
-        self.DeleteServerButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove Bookmark", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        self.AddServerButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Bookmark", None))
-#endif // QT_CONFIG(tooltip)
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Bookmarks", None))
-#if QT_CONFIG(tooltip)
-        self.MSRemoveButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove selected Master Server", None))
-#endif // QT_CONFIG(tooltip)
-        self.MSRemoveButton.setText("")
+        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
         self.MSListSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
+        self.ConfigrepoadLabel.setText(QCoreApplication.translate("MainWindow", u"Looking for master servers?", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Valid APIs", None))
+        self.snitchtitleLabel.setText(QCoreApplication.translate("MainWindow", u"snitch", None))
+        self.kartv2titleLabel.setText(QCoreApplication.translate("MainWindow", u"kartv2", None))
+        self.msapiwarningLabel.setText(QCoreApplication.translate("MainWindow", u"All other APIs will be ignored", None))
+        self.v1descLabel.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 API", None))
+        self.v1titleLabel.setText(QCoreApplication.translate("MainWindow", u"v1", None))
+        self.snitchdescLabel.setText(QCoreApplication.translate("MainWindow", u"LiquidMS Snitch API", None))
+        self.kartv2descLabel.setText(QCoreApplication.translate("MainWindow", u"SRB2Kart API", None))
 #if QT_CONFIG(tooltip)
         self.MSAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
 #endif // QT_CONFIG(tooltip)
         self.MSAddButton.setText("")
-        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Valid APIs", None))
-        self.snitchdescLabel.setText(QCoreApplication.translate("MainWindow", u"LiquidMS Snitch API", None))
-        self.v1descLabel.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 API", None))
-        self.msapiwarningLabel.setText(QCoreApplication.translate("MainWindow", u"All other APIs will be ignored", None))
-        self.kartv2titleLabel.setText(QCoreApplication.translate("MainWindow", u"kartv2", None))
-        self.kartv2descLabel.setText(QCoreApplication.translate("MainWindow", u"SRB2Kart API", None))
-        self.snitchtitleLabel.setText(QCoreApplication.translate("MainWindow", u"snitch", None))
-        self.v1titleLabel.setText(QCoreApplication.translate("MainWindow", u"v1", None))
-        self.ConfigrepoadLabel.setText(QCoreApplication.translate("MainWindow", u"Looking for master servers?", None))
+        self.MSTableLabel.setText(QCoreApplication.translate("MainWindow", u"Master Servers", None))
+#if QT_CONFIG(tooltip)
+        self.MSRemoveButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove selected Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSRemoveButton.setText("")
         ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem14 = self.MasterServersTable.horizontalHeaderItem(1)
@@ -2042,7 +3327,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"kartv2", None));
         self.MasterServersTable.setSortingEnabled(__sortingEnabled4)
 
-        self.MSTableLabel.setText(QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.masterservers), QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameProfileComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New profile...", None))
 
@@ -2191,5 +3475,21 @@ class Ui_MainWindow(object):
         self.RSSFeedList.setSortingEnabled(__sortingEnabled5)
 
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_9), QCoreApplication.translate("MainWindow", u"News Sources", None))
+#if QT_CONFIG(tooltip)
+        self.NewsTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"News", None))
+#endif // QT_CONFIG(tooltip)
+        self.NewsTabButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.GameTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"Game", None))
+#endif // QT_CONFIG(tooltip)
+        self.GameTabButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.HelpTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"About", None))
+#endif // QT_CONFIG(tooltip)
+        self.HelpTabButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.SettingsTabButton.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
+#endif // QT_CONFIG(tooltip)
+        self.SettingsTabButton.setText("")
     # retranslateUi
 
