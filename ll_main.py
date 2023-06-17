@@ -845,27 +845,26 @@ class MainWindow(QMainWindow):
     # Saved servers
 
     def save_server_list(self):
-        serv_list = []
+        serv_list = {}
         for i in range(len(self.saved_server_ips)):
-            #data = {"name": self.ui.ServerList.item(i).text(), "ip": self.saved_server_ips[i]}
-            data = {"name": self.ui.SavedNetgameTable.item(i, 0).text(),
+            serv_list[self.ui.SavedNetgameTable.item(i, 0).text()] = {
                     "ip": self.ui.SavedNetgameTable.item(i, 1).text(),
-                    "port": self.ui.SavedNetgameTable.item(i, 2).text()}
-            serv_list.append(data)
-        with open("netgames.json", "w") as f:
-            json.dump(serv_list, f)
+                    "port": self.ui.SavedNetgameTable.item(i, 2).text()
+                    }
+        with open("bookmarks.toml", "w") as f:
+            toml.dump(serv_list, f)
         return
 
     def load_server_list(self):
         serv_list = []
-        fpath = os.path.join(os.getcwd(), "netgames.json")
+        fpath = os.path.join(os.getcwd(), "bookmarks.toml")
         if not os.path.isfile(fpath):
             return
         with open(fpath, "r") as f:
-            serv_list = json.load(f)
+            serv_list = toml.load(f)
 
-        for server in serv_list:
-            self.add_server_to_list(server["name"], server["ip"], server["port"])
+        for sname, server in serv_list.items():
+            self.add_server_to_list(sname, server["ip"], server["port"])
         return
 
     def add_server_to_list(self, name, ip, port):
