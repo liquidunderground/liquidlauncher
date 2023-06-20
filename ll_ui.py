@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 1030, 555))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -193,14 +193,6 @@ class Ui_MainWindow(object):
         self.GamePageContentFrame.setFrameShadow(QFrame.Raised)
         self.gridLayout_19 = QGridLayout(self.GamePageContentFrame)
         self.gridLayout_19.setObjectName(u"gridLayout_19")
-        self.ExportServerScriptButton = QPushButton(self.GamePageContentFrame)
-        self.ExportServerScriptButton.setObjectName(u"ExportServerScriptButton")
-        icon6 = QIcon()
-        icon6.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.ExportServerScriptButton.setIcon(icon6)
-
-        self.gridLayout_19.addWidget(self.ExportServerScriptButton, 3, 0, 1, 1)
-
         self.GameContentStackedWidget = QStackedWidget(self.GamePageContentFrame)
         self.GameContentStackedWidget.setObjectName(u"GameContentStackedWidget")
         self.ProfilePage = QWidget()
@@ -212,7 +204,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 810, 417))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 816, 439))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -360,7 +352,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 797, 527))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 795, 525))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -392,9 +384,9 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse = QPushButton(self.groupBox_4)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        icon7 = QIcon()
-        icon7.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.GameExecFilePathBrowse.setIcon(icon7)
+        icon6 = QIcon()
+        icon6.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.GameExecFilePathBrowse.setIcon(icon6)
 
         self.gridLayout_20.addWidget(self.GameExecFilePathBrowse, 0, 2, 1, 1)
 
@@ -423,12 +415,6 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_13.addWidget(self.groupBox_4, 6, 2, 1, 2)
-
-        self.ExportClientScriptButton = QPushButton(self.scrollAreaWidgetContents_6)
-        self.ExportClientScriptButton.setObjectName(u"ExportClientScriptButton")
-        self.ExportClientScriptButton.setIcon(icon6)
-
-        self.gridLayout_13.addWidget(self.ExportClientScriptButton, 10, 2, 1, 2)
 
         self.groupBox_7 = QGroupBox(self.scrollAreaWidgetContents_6)
         self.groupBox_7.setObjectName(u"groupBox_7")
@@ -496,7 +482,7 @@ class Ui_MainWindow(object):
 
         self.HomePathBrowse = QPushButton(self.groupBox_8)
         self.HomePathBrowse.setObjectName(u"HomePathBrowse")
-        self.HomePathBrowse.setIcon(icon7)
+        self.HomePathBrowse.setIcon(icon6)
 
         self.gridLayout_21.addWidget(self.HomePathBrowse, 3, 1, 1, 1)
 
@@ -518,9 +504,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addWidget(self.groupBox_8, 7, 2, 1, 1)
 
+        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_13.addItem(self.verticalSpacer_10, 8, 2, 1, 1)
+
         self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
 
         self.gridLayout_14.addWidget(self.scrollArea_6, 0, 0, 1, 1)
+
+        self.ExportClientScriptButton = QPushButton(self.GameSettingsPage)
+        self.ExportClientScriptButton.setObjectName(u"ExportClientScriptButton")
+        icon7 = QIcon()
+        icon7.addFile(u":/assets/img/icons/document-save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.ExportClientScriptButton.setIcon(icon7)
+
+        self.gridLayout_14.addWidget(self.ExportClientScriptButton, 1, 0, 1, 1)
 
         self.GameContentStackedWidget.addWidget(self.GameSettingsPage)
         self.ModsPage = QWidget()
@@ -551,7 +549,7 @@ class Ui_MainWindow(object):
         self.GameFilesExecScrBrowseButton = QPushButton(self.AddonsLoaderTab)
         self.GameFilesExecScrBrowseButton.setObjectName(u"GameFilesExecScrBrowseButton")
         self.GameFilesExecScrBrowseButton.setMinimumSize(QSize(0, 28))
-        self.GameFilesExecScrBrowseButton.setIcon(icon7)
+        self.GameFilesExecScrBrowseButton.setIcon(icon6)
 
         self.gridLayout_9.addWidget(self.GameFilesExecScrBrowseButton, 10, 4, 1, 1)
 
@@ -587,7 +585,7 @@ class Ui_MainWindow(object):
         self.GameFilesSaveButton.setObjectName(u"GameFilesSaveButton")
         self.GameFilesSaveButton.setMinimumSize(QSize(0, 28))
         self.GameFilesSaveButton.setStyleSheet(u"")
-        self.GameFilesSaveButton.setIcon(icon6)
+        self.GameFilesSaveButton.setIcon(icon7)
 
         self.gridLayout_9.addWidget(self.GameFilesSaveButton, 0, 8, 1, 1)
 
@@ -639,7 +637,7 @@ class Ui_MainWindow(object):
         self.GameFilesLoadButton.setObjectName(u"GameFilesLoadButton")
         self.GameFilesLoadButton.setMinimumSize(QSize(0, 28))
         self.GameFilesLoadButton.setStyleSheet(u"")
-        self.GameFilesLoadButton.setIcon(icon7)
+        self.GameFilesLoadButton.setIcon(icon6)
 
         self.gridLayout_9.addWidget(self.GameFilesLoadButton, 2, 8, 1, 1)
 
@@ -785,17 +783,58 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 793, 630))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 787, 691))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
         self.groupBox_11.setObjectName(u"groupBox_11")
         self.gridLayout_25 = QGridLayout(self.groupBox_11)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.ServerNameInput = QLineEdit(self.groupBox_11)
+        self.ServerNameInput.setObjectName(u"ServerNameInput")
+
+        self.gridLayout_25.addWidget(self.ServerNameInput, 1, 0, 1, 2)
+
+        self.ServerNameLabel = QLabel(self.groupBox_11)
+        self.ServerNameLabel.setObjectName(u"ServerNameLabel")
+
+        self.gridLayout_25.addWidget(self.ServerNameLabel, 0, 0, 1, 2)
+
+        self.HostMSLabel = QLabel(self.groupBox_11)
+        self.HostMSLabel.setObjectName(u"HostMSLabel")
+
+        self.gridLayout_25.addWidget(self.HostMSLabel, 4, 1, 1, 1)
+
+        self.DedicatedServerToggle = QCheckBox(self.groupBox_11)
+        self.DedicatedServerToggle.setObjectName(u"DedicatedServerToggle")
+        self.DedicatedServerToggle.setStyleSheet(u"")
+        self.DedicatedServerToggle.setChecked(False)
+
+        self.gridLayout_25.addWidget(self.DedicatedServerToggle, 7, 0, 1, 1)
+
+        self.AdminPasswordInput = QLineEdit(self.groupBox_11)
+        self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
+        self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 2)
+
         self.AdminPasswordLabel = QLabel(self.groupBox_11)
         self.AdminPasswordLabel.setObjectName(u"AdminPasswordLabel")
 
         self.gridLayout_25.addWidget(self.AdminPasswordLabel, 2, 0, 1, 2)
+
+        self.HostMSCombobox = QComboBox(self.groupBox_11)
+        self.HostMSCombobox.addItem("")
+        self.HostMSCombobox.setObjectName(u"HostMSCombobox")
+        self.HostMSCombobox.setEnabled(True)
+        self.HostMSCombobox.setEditable(True)
+
+        self.gridLayout_25.addWidget(self.HostMSCombobox, 5, 1, 1, 1)
+
+        self.RoomLabel = QLabel(self.groupBox_11)
+        self.RoomLabel.setObjectName(u"RoomLabel")
+
+        self.gridLayout_25.addWidget(self.RoomLabel, 4, 0, 1, 1)
 
         self.RoomInput = QComboBox(self.groupBox_11)
         self.RoomInput.addItem("")
@@ -808,46 +847,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_25.addWidget(self.RoomInput, 5, 0, 1, 1)
 
-        self.HostMSCombobox = QComboBox(self.groupBox_11)
-        self.HostMSCombobox.addItem("")
-        self.HostMSCombobox.setObjectName(u"HostMSCombobox")
-        self.HostMSCombobox.setEnabled(True)
-        self.HostMSCombobox.setEditable(True)
+        self.label_51 = QLabel(self.groupBox_11)
+        self.label_51.setObjectName(u"label_51")
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.label_51.setFont(font2)
+        self.label_51.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_25.addWidget(self.HostMSCombobox, 5, 1, 1, 1)
+        self.gridLayout_25.addWidget(self.label_51, 6, 0, 1, 1)
 
-        self.AdminPasswordInput = QLineEdit(self.groupBox_11)
-        self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
-        self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
+        self.label_55 = QLabel(self.groupBox_11)
+        self.label_55.setObjectName(u"label_55")
+        self.label_55.setFont(font2)
+        self.label_55.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 2)
-
-        self.HostMSLabel = QLabel(self.groupBox_11)
-        self.HostMSLabel.setObjectName(u"HostMSLabel")
-
-        self.gridLayout_25.addWidget(self.HostMSLabel, 4, 1, 1, 1)
-
-        self.ServerNameInput = QLineEdit(self.groupBox_11)
-        self.ServerNameInput.setObjectName(u"ServerNameInput")
-
-        self.gridLayout_25.addWidget(self.ServerNameInput, 1, 0, 1, 2)
-
-        self.DedicatedServerToggle = QCheckBox(self.groupBox_11)
-        self.DedicatedServerToggle.setObjectName(u"DedicatedServerToggle")
-        self.DedicatedServerToggle.setStyleSheet(u"")
-        self.DedicatedServerToggle.setChecked(False)
-
-        self.gridLayout_25.addWidget(self.DedicatedServerToggle, 6, 0, 1, 1)
-
-        self.ServerNameLabel = QLabel(self.groupBox_11)
-        self.ServerNameLabel.setObjectName(u"ServerNameLabel")
-
-        self.gridLayout_25.addWidget(self.ServerNameLabel, 0, 0, 1, 2)
-
-        self.RoomLabel = QLabel(self.groupBox_11)
-        self.RoomLabel.setObjectName(u"RoomLabel")
-
-        self.gridLayout_25.addWidget(self.RoomLabel, 4, 0, 1, 1)
+        self.gridLayout_25.addWidget(self.label_55, 6, 1, 1, 1)
 
 
         self.verticalLayout_2.addWidget(self.groupBox_11)
@@ -963,17 +977,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_31.addWidget(self.NettimeoutInput)
 
+        self.label_35 = QLabel(self.groupBox_24)
+        self.label_35.setObjectName(u"label_35")
+
+        self.verticalLayout_31.addWidget(self.label_35)
+
         self.ResynchattemptsInput = QSpinBox(self.groupBox_24)
         self.ResynchattemptsInput.setObjectName(u"ResynchattemptsInput")
         self.ResynchattemptsInput.setMaximum(20)
         self.ResynchattemptsInput.setValue(10)
 
         self.verticalLayout_31.addWidget(self.ResynchattemptsInput)
-
-        self.label_35 = QLabel(self.groupBox_24)
-        self.label_35.setObjectName(u"label_35")
-
-        self.verticalLayout_31.addWidget(self.label_35)
 
 
         self.gridLayout_23.addWidget(self.groupBox_24, 6, 1, 1, 1)
@@ -1004,7 +1018,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 793, 690))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 787, 686))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout.setObjectName(u"gridLayout")
         self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_10)
@@ -1051,16 +1065,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.RespawnitemCheckbox, 16, 1, 1, 1)
 
-        self.JoinnextroundInput = QCheckBox(self.scrollAreaWidgetContents_10)
-        self.JoinnextroundInput.setObjectName(u"JoinnextroundInput")
+        self.JoinnextroundCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.JoinnextroundCheckbox.setObjectName(u"JoinnextroundCheckbox")
 
-        self.gridLayout.addWidget(self.JoinnextroundInput, 10, 1, 1, 1)
+        self.gridLayout.addWidget(self.JoinnextroundCheckbox, 10, 1, 1, 1)
 
-        self.RespawnitemCheckbox_2 = QCheckBox(self.scrollAreaWidgetContents_10)
-        self.RespawnitemCheckbox_2.setObjectName(u"RespawnitemCheckbox_2")
-        self.RespawnitemCheckbox_2.setChecked(True)
+        self.RestrictskinchangesCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
+        self.RestrictskinchangesCheckbox.setObjectName(u"RestrictskinchangesCheckbox")
+        self.RestrictskinchangesCheckbox.setChecked(True)
 
-        self.gridLayout.addWidget(self.RespawnitemCheckbox_2, 12, 1, 1, 1)
+        self.gridLayout.addWidget(self.RestrictskinchangesCheckbox, 12, 1, 1, 1)
 
         self.TailspickupCheckbox = QCheckBox(self.scrollAreaWidgetContents_10)
         self.TailspickupCheckbox.setObjectName(u"TailspickupCheckbox")
@@ -1082,15 +1096,15 @@ class Ui_MainWindow(object):
         self.groupBox_15.setObjectName(u"groupBox_15")
         self.gridLayout_36 = QGridLayout(self.groupBox_15)
         self.gridLayout_36.setObjectName(u"gridLayout_36")
-        self.checkBox = QCheckBox(self.groupBox_15)
-        self.checkBox.setObjectName(u"checkBox")
+        self.SoniccdCheckbox = QCheckBox(self.groupBox_15)
+        self.SoniccdCheckbox.setObjectName(u"SoniccdCheckbox")
 
-        self.gridLayout_36.addWidget(self.checkBox, 0, 0, 1, 1)
+        self.gridLayout_36.addWidget(self.SoniccdCheckbox, 0, 0, 1, 1)
 
-        self.checkBox_2 = QCheckBox(self.groupBox_15)
-        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.KillingdeadCheckbox = QCheckBox(self.groupBox_15)
+        self.KillingdeadCheckbox.setObjectName(u"KillingdeadCheckbox")
 
-        self.gridLayout_36.addWidget(self.checkBox_2, 0, 1, 1, 1)
+        self.gridLayout_36.addWidget(self.KillingdeadCheckbox, 0, 1, 1, 1)
 
 
         self.gridLayout.addWidget(self.groupBox_15, 19, 0, 1, 2)
@@ -1140,173 +1154,161 @@ class Ui_MainWindow(object):
         self.groupBox_14.setObjectName(u"groupBox_14")
         self.gridLayout_34 = QGridLayout(self.groupBox_14)
         self.gridLayout_34.setObjectName(u"gridLayout_34")
-        self.RespawnitemtimeInput_5 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_5.setObjectName(u"RespawnitemtimeInput_5")
-        self.RespawnitemtimeInput_5.setMaximum(10)
-        self.RespawnitemtimeInput_5.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_5, 1, 2, 1, 1)
-
-        self.RespawnitemtimeInput_10 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_10.setObjectName(u"RespawnitemtimeInput_10")
-        self.RespawnitemtimeInput_10.setMaximum(10)
-        self.RespawnitemtimeInput_10.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_10, 5, 4, 1, 1)
-
         self.ForceSkinLabel_15 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_15.setObjectName(u"ForceSkinLabel_15")
+        self.ForceSkinLabel_15.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_15, 6, 1, 1, 1)
-
-        self.RespawnitemtimeInput_11 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_11.setObjectName(u"RespawnitemtimeInput_11")
-        self.RespawnitemtimeInput_11.setMaximum(10)
-        self.RespawnitemtimeInput_11.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_11, 6, 4, 1, 1)
-
-        self.ForceSkinLabel_13 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_13.setObjectName(u"ForceSkinLabel_13")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_13, 7, 1, 1, 1)
-
-        self.RespawnitemtimeInput_7 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_7.setObjectName(u"RespawnitemtimeInput_7")
-        self.RespawnitemtimeInput_7.setMaximum(10)
-        self.RespawnitemtimeInput_7.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_7, 4, 2, 1, 1)
-
-        self.RespawnitemtimeInput_8 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_8.setObjectName(u"RespawnitemtimeInput_8")
-        self.RespawnitemtimeInput_8.setMaximum(10)
-        self.RespawnitemtimeInput_8.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_8, 1, 4, 1, 1)
-
-        self.ForceSkinLabel_11 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_11.setObjectName(u"ForceSkinLabel_11")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_11, 1, 3, 1, 1)
-
-        self.ForceSkinLabel_12 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_12.setObjectName(u"ForceSkinLabel_12")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_12, 6, 3, 1, 1)
-
-        self.ForceSkinLabel_6 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_6.setObjectName(u"ForceSkinLabel_6")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_6, 2, 1, 1, 1)
-
-        self.ForceSkinLabel_7 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_7.setObjectName(u"ForceSkinLabel_7")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_7, 1, 1, 1, 1)
-
-        self.RespawnitemtimeInput_13 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_13.setObjectName(u"RespawnitemtimeInput_13")
-        self.RespawnitemtimeInput_13.setMaximum(10)
-        self.RespawnitemtimeInput_13.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_13, 5, 2, 1, 1)
-
-        self.RespawnitemtimeInput_3 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_3.setObjectName(u"RespawnitemtimeInput_3")
-        self.RespawnitemtimeInput_3.setMaximum(10)
-        self.RespawnitemtimeInput_3.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_3, 0, 2, 1, 1)
-
-        self.RespawnitemtimeInput_9 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_9.setObjectName(u"RespawnitemtimeInput_9")
-        self.RespawnitemtimeInput_9.setMaximum(10)
-        self.RespawnitemtimeInput_9.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_9, 4, 4, 1, 1)
-
-        self.RespawnitemtimeInput_6 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_6.setObjectName(u"RespawnitemtimeInput_6")
-        self.RespawnitemtimeInput_6.setMaximum(10)
-        self.RespawnitemtimeInput_6.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_6, 2, 2, 1, 1)
-
-        self.RespawnitemtimeInput_12 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_12.setObjectName(u"RespawnitemtimeInput_12")
-        self.RespawnitemtimeInput_12.setMaximum(10)
-        self.RespawnitemtimeInput_12.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_12, 7, 2, 1, 1)
-
-        self.ForceSkinLabel_10 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_10.setObjectName(u"ForceSkinLabel_10")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_10, 4, 3, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_15, 5, 2, 1, 1)
 
         self.ForceSkinLabel_3 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_3.setObjectName(u"ForceSkinLabel_3")
+        self.ForceSkinLabel_3.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_3, 0, 3, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_3, 0, 0, 1, 1)
 
-        self.RespawnitemtimeInput_14 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_14.setObjectName(u"RespawnitemtimeInput_14")
-        self.RespawnitemtimeInput_14.setMaximum(10)
-        self.RespawnitemtimeInput_14.setValue(5)
+        self.Tv_ringshieldInput = QSpinBox(self.groupBox_14)
+        self.Tv_ringshieldInput.setObjectName(u"Tv_ringshieldInput")
+        self.Tv_ringshieldInput.setMaximum(10)
+        self.Tv_ringshieldInput.setValue(5)
 
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_14, 6, 2, 1, 1)
+        self.gridLayout_34.addWidget(self.Tv_ringshieldInput, 4, 3, 1, 1)
 
         self.ForceSkinLabel_8 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_8.setObjectName(u"ForceSkinLabel_8")
+        self.ForceSkinLabel_8.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_8, 4, 1, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_8, 2, 2, 1, 1)
+
+        self.Tv_supersneakersInput = QSpinBox(self.groupBox_14)
+        self.Tv_supersneakersInput.setObjectName(u"Tv_supersneakersInput")
+        self.Tv_supersneakersInput.setMaximum(10)
+        self.Tv_supersneakersInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_supersneakersInput, 2, 1, 1, 1)
+
+        self.Tv_eggmanInput = QSpinBox(self.groupBox_14)
+        self.Tv_eggmanInput.setObjectName(u"Tv_eggmanInput")
+        self.Tv_eggmanInput.setMaximum(10)
+        self.Tv_eggmanInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_eggmanInput, 0, 5, 1, 1)
+
+        self.Tv_forceshieldInput = QSpinBox(self.groupBox_14)
+        self.Tv_forceshieldInput.setObjectName(u"Tv_forceshieldInput")
+        self.Tv_forceshieldInput.setMaximum(10)
+        self.Tv_forceshieldInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_forceshieldInput, 1, 3, 1, 1)
 
         self.ForceSkinLabel_14 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_14.setObjectName(u"ForceSkinLabel_14")
+        self.ForceSkinLabel_14.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_14, 5, 1, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_14, 4, 2, 1, 1)
 
-        self.RespawnitemtimeInput_2 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_2.setObjectName(u"RespawnitemtimeInput_2")
-        self.RespawnitemtimeInput_2.setMaximum(10)
-        self.RespawnitemtimeInput_2.setValue(5)
+        self.Tv_invincibilityInput = QSpinBox(self.groupBox_14)
+        self.Tv_invincibilityInput.setObjectName(u"Tv_invincibilityInput")
+        self.Tv_invincibilityInput.setMaximum(10)
+        self.Tv_invincibilityInput.setValue(5)
 
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_2, 0, 4, 1, 1)
-
-        self.ForceSkinLabel_4 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_4.setObjectName(u"ForceSkinLabel_4")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_4, 0, 1, 1, 1)
-
-        self.ForceSkinLabel_27 = QLabel(self.groupBox_14)
-        self.ForceSkinLabel_27.setObjectName(u"ForceSkinLabel_27")
-
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_27, 5, 3, 1, 1)
-
-        self.RespawnitemtimeInput_26 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_26.setObjectName(u"RespawnitemtimeInput_26")
-        self.RespawnitemtimeInput_26.setMaximum(10)
-        self.RespawnitemtimeInput_26.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_26, 7, 4, 1, 1)
-
-        self.RespawnitemtimeInput_27 = QSpinBox(self.groupBox_14)
-        self.RespawnitemtimeInput_27.setObjectName(u"RespawnitemtimeInput_27")
-        self.RespawnitemtimeInput_27.setMaximum(10)
-        self.RespawnitemtimeInput_27.setValue(5)
-
-        self.gridLayout_34.addWidget(self.RespawnitemtimeInput_27, 2, 4, 1, 1)
+        self.gridLayout_34.addWidget(self.Tv_invincibilityInput, 1, 1, 1, 1)
 
         self.ForceSkinLabel_9 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_9.setObjectName(u"ForceSkinLabel_9")
+        self.ForceSkinLabel_9.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_9, 7, 3, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_9, 4, 4, 1, 1)
+
+        self.ForceSkinLabel_12 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_12.setObjectName(u"ForceSkinLabel_12")
+        self.ForceSkinLabel_12.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_12, 2, 0, 1, 1)
+
+        self.ForceSkinLabel_7 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_7.setObjectName(u"ForceSkinLabel_7")
+        self.ForceSkinLabel_7.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_7, 1, 2, 1, 1)
+
+        self.Tv_1upInput = QSpinBox(self.groupBox_14)
+        self.Tv_1upInput.setObjectName(u"Tv_1upInput")
+        self.Tv_1upInput.setMaximum(10)
+        self.Tv_1upInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_1upInput, 0, 1, 1, 1)
+
+        self.Tv_bombshieldInput = QSpinBox(self.groupBox_14)
+        self.Tv_bombshieldInput.setObjectName(u"Tv_bombshieldInput")
+        self.Tv_bombshieldInput.setMaximum(10)
+        self.Tv_bombshieldInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_bombshieldInput, 0, 3, 1, 1)
+
+        self.ForceSkinLabel_11 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_11.setObjectName(u"ForceSkinLabel_11")
+        self.ForceSkinLabel_11.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_11, 0, 4, 1, 1)
+
+        self.ForceSkinLabel_4 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_4.setObjectName(u"ForceSkinLabel_4")
+        self.ForceSkinLabel_4.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_4, 0, 2, 1, 1)
+
+        self.Tv_jumpshieldInput = QSpinBox(self.groupBox_14)
+        self.Tv_jumpshieldInput.setObjectName(u"Tv_jumpshieldInput")
+        self.Tv_jumpshieldInput.setMaximum(10)
+        self.Tv_jumpshieldInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_jumpshieldInput, 2, 3, 1, 1)
+
+        self.Tv_watershieldInput = QSpinBox(self.groupBox_14)
+        self.Tv_watershieldInput.setObjectName(u"Tv_watershieldInput")
+        self.Tv_watershieldInput.setMaximum(10)
+        self.Tv_watershieldInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_watershieldInput, 5, 3, 1, 1)
+
+        self.ForceSkinLabel_10 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_10.setObjectName(u"ForceSkinLabel_10")
+        self.ForceSkinLabel_10.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_10, 1, 0, 1, 1)
+
+        self.Tv_recyclerInput = QSpinBox(self.groupBox_14)
+        self.Tv_recyclerInput.setObjectName(u"Tv_recyclerInput")
+        self.Tv_recyclerInput.setMaximum(10)
+        self.Tv_recyclerInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_recyclerInput, 4, 5, 1, 1)
 
         self.ForceSkinLabel_28 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_28.setObjectName(u"ForceSkinLabel_28")
+        self.ForceSkinLabel_28.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_34.addWidget(self.ForceSkinLabel_28, 2, 3, 1, 1)
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_28, 2, 4, 1, 1)
+
+        self.Tv_teleporterInput = QSpinBox(self.groupBox_14)
+        self.Tv_teleporterInput.setObjectName(u"Tv_teleporterInput")
+        self.Tv_teleporterInput.setMaximum(10)
+        self.Tv_teleporterInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_teleporterInput, 2, 5, 1, 1)
+
+        self.Tv_superringInput = QSpinBox(self.groupBox_14)
+        self.Tv_superringInput.setObjectName(u"Tv_superringInput")
+        self.Tv_superringInput.setMaximum(10)
+        self.Tv_superringInput.setValue(5)
+
+        self.gridLayout_34.addWidget(self.Tv_superringInput, 1, 5, 1, 1)
+
+        self.ForceSkinLabel_27 = QLabel(self.groupBox_14)
+        self.ForceSkinLabel_27.setObjectName(u"ForceSkinLabel_27")
+        self.ForceSkinLabel_27.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_34.addWidget(self.ForceSkinLabel_27, 1, 4, 1, 1)
 
 
         self.gridLayout.addWidget(self.groupBox_14, 18, 0, 1, 2)
@@ -1344,7 +1346,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 806, 385))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 808, 369))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -1397,14 +1399,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_31.addWidget(self.label_8, 2, 0, 1, 1)
 
-        self.comboBox = QComboBox(self.CoopSettingsGroupbox)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
+        self.CompetitionboxesCombobox = QComboBox(self.CoopSettingsGroupbox)
+        self.CompetitionboxesCombobox.addItem("")
+        self.CompetitionboxesCombobox.addItem("")
+        self.CompetitionboxesCombobox.addItem("")
+        self.CompetitionboxesCombobox.addItem("")
+        self.CompetitionboxesCombobox.setObjectName(u"CompetitionboxesCombobox")
 
-        self.gridLayout_31.addWidget(self.comboBox, 5, 0, 1, 1)
+        self.gridLayout_31.addWidget(self.CompetitionboxesCombobox, 5, 0, 1, 1)
 
 
         self.verticalLayout_4.addWidget(self.CoopSettingsGroupbox)
@@ -1427,33 +1429,33 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, -49, 793, 654))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 787, 709))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
-        self.RingslingerGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
-        self.RingslingerGroupbox.setObjectName(u"RingslingerGroupbox")
-        self.RingslingerGroupbox.setEnabled(False)
-        self.gridLayout_24 = QGridLayout(self.RingslingerGroupbox)
+        self.RingslingerSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
+        self.RingslingerSettingsGroupbox.setObjectName(u"RingslingerSettingsGroupbox")
+        self.RingslingerSettingsGroupbox.setEnabled(False)
+        self.gridLayout_24 = QGridLayout(self.RingslingerSettingsGroupbox)
         self.gridLayout_24.setObjectName(u"gridLayout_24")
-        self.label_7 = QLabel(self.RingslingerGroupbox)
+        self.label_7 = QLabel(self.RingslingerSettingsGroupbox)
         self.label_7.setObjectName(u"label_7")
 
         self.gridLayout_24.addWidget(self.label_7, 0, 1, 1, 1)
 
-        self.PowerstonesCheckbox = QCheckBox(self.RingslingerGroupbox)
+        self.PowerstonesCheckbox = QCheckBox(self.RingslingerSettingsGroupbox)
         self.PowerstonesCheckbox.setObjectName(u"PowerstonesCheckbox")
         self.PowerstonesCheckbox.setChecked(True)
 
         self.gridLayout_24.addWidget(self.PowerstonesCheckbox, 11, 0, 1, 1)
 
-        self.PointLimitInput = QSpinBox(self.RingslingerGroupbox)
+        self.PointLimitInput = QSpinBox(self.RingslingerSettingsGroupbox)
         self.PointLimitInput.setObjectName(u"PointLimitInput")
         self.PointLimitInput.setMaximum(999999990)
         self.PointLimitInput.setValue(1000)
 
         self.gridLayout_24.addWidget(self.PointLimitInput, 1, 0, 1, 1)
 
-        self.groupBox_13 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_13 = QGroupBox(self.RingslingerSettingsGroupbox)
         self.groupBox_13.setObjectName(u"groupBox_13")
         self.gridLayout_33 = QGridLayout(self.groupBox_13)
         self.gridLayout_33.setObjectName(u"gridLayout_33")
@@ -1505,46 +1507,46 @@ class Ui_MainWindow(object):
 
         self.gridLayout_24.addWidget(self.groupBox_13, 17, 0, 1, 2)
 
-        self.TimeLimitLabel = QLabel(self.RingslingerGroupbox)
+        self.TimeLimitLabel = QLabel(self.RingslingerSettingsGroupbox)
         self.TimeLimitLabel.setObjectName(u"TimeLimitLabel")
 
         self.gridLayout_24.addWidget(self.TimeLimitLabel, 3, 0, 1, 1)
 
-        self.PointLimitLabel = QLabel(self.RingslingerGroupbox)
+        self.PointLimitLabel = QLabel(self.RingslingerSettingsGroupbox)
         self.PointLimitLabel.setObjectName(u"PointLimitLabel")
 
         self.gridLayout_24.addWidget(self.PointLimitLabel, 0, 0, 1, 1)
 
-        self.MatchscoringCombobox = QComboBox(self.RingslingerGroupbox)
+        self.MatchscoringCombobox = QComboBox(self.RingslingerSettingsGroupbox)
         self.MatchscoringCombobox.addItem("")
         self.MatchscoringCombobox.addItem("")
         self.MatchscoringCombobox.setObjectName(u"MatchscoringCombobox")
 
         self.gridLayout_24.addWidget(self.MatchscoringCombobox, 1, 1, 1, 1)
 
-        self.label_11 = QLabel(self.RingslingerGroupbox)
+        self.label_11 = QLabel(self.RingslingerSettingsGroupbox)
         self.label_11.setObjectName(u"label_11")
 
         self.gridLayout_24.addWidget(self.label_11, 7, 1, 1, 1)
 
-        self.DisableWeaponsToggle = QCheckBox(self.RingslingerGroupbox)
+        self.DisableWeaponsToggle = QCheckBox(self.RingslingerSettingsGroupbox)
         self.DisableWeaponsToggle.setObjectName(u"DisableWeaponsToggle")
         self.DisableWeaponsToggle.setMinimumSize(QSize(0, 0))
 
         self.gridLayout_24.addWidget(self.DisableWeaponsToggle, 7, 0, 1, 1)
 
-        self.label_3 = QLabel(self.RingslingerGroupbox)
+        self.label_3 = QLabel(self.RingslingerSettingsGroupbox)
         self.label_3.setObjectName(u"label_3")
 
         self.gridLayout_24.addWidget(self.label_3, 5, 0, 1, 1)
 
-        self.OvertimeCheckbox = QCheckBox(self.RingslingerGroupbox)
+        self.OvertimeCheckbox = QCheckBox(self.RingslingerSettingsGroupbox)
         self.OvertimeCheckbox.setObjectName(u"OvertimeCheckbox")
         self.OvertimeCheckbox.setChecked(True)
 
         self.gridLayout_24.addWidget(self.OvertimeCheckbox, 4, 1, 1, 1)
 
-        self.groupBox_9 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_9 = QGroupBox(self.RingslingerSettingsGroupbox)
         self.groupBox_9.setObjectName(u"groupBox_9")
         self.gridLayout_30 = QGridLayout(self.groupBox_9)
         self.gridLayout_30.setObjectName(u"gridLayout_30")
@@ -1556,20 +1558,20 @@ class Ui_MainWindow(object):
 
         self.gridLayout_24.addWidget(self.groupBox_9, 19, 0, 1, 1)
 
-        self.RespawndelayInput = QSpinBox(self.RingslingerGroupbox)
+        self.RespawndelayInput = QSpinBox(self.RingslingerSettingsGroupbox)
         self.RespawndelayInput.setObjectName(u"RespawndelayInput")
         self.RespawndelayInput.setMaximum(999999990)
         self.RespawndelayInput.setValue(0)
 
         self.gridLayout_24.addWidget(self.RespawndelayInput, 6, 0, 1, 1)
 
-        self.TimeLimitInput = QSpinBox(self.RingslingerGroupbox)
+        self.TimeLimitInput = QSpinBox(self.RingslingerSettingsGroupbox)
         self.TimeLimitInput.setObjectName(u"TimeLimitInput")
         self.TimeLimitInput.setMaximum(30)
 
         self.gridLayout_24.addWidget(self.TimeLimitInput, 4, 0, 1, 1)
 
-        self.MatchboxesCombobox = QComboBox(self.RingslingerGroupbox)
+        self.MatchboxesCombobox = QComboBox(self.RingslingerSettingsGroupbox)
         self.MatchboxesCombobox.addItem("")
         self.MatchboxesCombobox.addItem("")
         self.MatchboxesCombobox.addItem("")
@@ -1578,13 +1580,13 @@ class Ui_MainWindow(object):
 
         self.gridLayout_24.addWidget(self.MatchboxesCombobox, 11, 1, 1, 1)
 
-        self.SuddenDeathToggle = QCheckBox(self.RingslingerGroupbox)
+        self.SuddenDeathToggle = QCheckBox(self.RingslingerSettingsGroupbox)
         self.SuddenDeathToggle.setObjectName(u"SuddenDeathToggle")
         self.SuddenDeathToggle.setMinimumSize(QSize(0, 0))
 
         self.gridLayout_24.addWidget(self.SuddenDeathToggle, 6, 1, 1, 1)
 
-        self.groupBox_12 = QGroupBox(self.RingslingerGroupbox)
+        self.groupBox_12 = QGroupBox(self.RingslingerSettingsGroupbox)
         self.groupBox_12.setObjectName(u"groupBox_12")
         self.verticalLayout_20 = QVBoxLayout(self.groupBox_12)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
@@ -1604,7 +1606,7 @@ class Ui_MainWindow(object):
         self.gridLayout_24.addWidget(self.groupBox_12, 19, 1, 1, 1)
 
 
-        self.gridLayout_18.addWidget(self.RingslingerGroupbox, 2, 0, 1, 2)
+        self.gridLayout_18.addWidget(self.RingslingerSettingsGroupbox, 2, 0, 1, 2)
 
         self.RingslingerSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_3)
         self.RingslingerSettingsCheckbox.setObjectName(u"RingslingerSettingsCheckbox")
@@ -1634,7 +1636,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 806, 385))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 808, 369))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -1649,16 +1651,19 @@ class Ui_MainWindow(object):
         self.gridLayout_29.setObjectName(u"gridLayout_29")
         self.NumlapsInput = QSpinBox(self.CircuitraceSettingsGroupbox)
         self.NumlapsInput.setObjectName(u"NumlapsInput")
+        self.NumlapsInput.setMinimum(1)
+        self.NumlapsInput.setMaximum(50)
+        self.NumlapsInput.setValue(4)
 
         self.gridLayout_29.addWidget(self.NumlapsInput, 1, 0, 1, 1)
 
-        self.spinBox = QSpinBox(self.CircuitraceSettingsGroupbox)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setMinimum(15)
-        self.spinBox.setMaximum(9999)
-        self.spinBox.setValue(60)
+        self.CountdowntimeInput = QSpinBox(self.CircuitraceSettingsGroupbox)
+        self.CountdowntimeInput.setObjectName(u"CountdowntimeInput")
+        self.CountdowntimeInput.setMinimum(15)
+        self.CountdowntimeInput.setMaximum(9999)
+        self.CountdowntimeInput.setValue(60)
 
-        self.gridLayout_29.addWidget(self.spinBox, 3, 0, 1, 1)
+        self.gridLayout_29.addWidget(self.CountdowntimeInput, 3, 0, 1, 1)
 
         self.label_2 = QLabel(self.CircuitraceSettingsGroupbox)
         self.label_2.setObjectName(u"label_2")
@@ -1696,7 +1701,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 793, 1036))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, -743, 787, 1112))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -1726,111 +1731,117 @@ class Ui_MainWindow(object):
 
         self.gridLayout_22.addWidget(self.label_42, 16, 0, 1, 1)
 
-        self.lineEdit = QLineEdit(self.BattlemodSettingsGroupbox)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.Battle_addoptionsInput = QLineEdit(self.BattlemodSettingsGroupbox)
+        self.Battle_addoptionsInput.setObjectName(u"Battle_addoptionsInput")
 
-        self.gridLayout_22.addWidget(self.lineEdit, 17, 0, 1, 2)
+        self.gridLayout_22.addWidget(self.Battle_addoptionsInput, 17, 0, 1, 2)
 
         self.groupBox_27 = QGroupBox(self.BattlemodSettingsGroupbox)
         self.groupBox_27.setObjectName(u"groupBox_27")
         self.gridLayout_53 = QGridLayout(self.groupBox_27)
         self.gridLayout_53.setObjectName(u"gridLayout_53")
-        self.label_46 = QLabel(self.groupBox_27)
-        self.label_46.setObjectName(u"label_46")
+        self.Cp_radiusInput = QSpinBox(self.groupBox_27)
+        self.Cp_radiusInput.setObjectName(u"Cp_radiusInput")
+        self.Cp_radiusInput.setMaximum(359)
 
-        self.gridLayout_53.addWidget(self.label_46, 0, 0, 1, 1)
+        self.gridLayout_53.addWidget(self.Cp_radiusInput, 7, 0, 1, 1)
 
-        self.spinBox_7 = QSpinBox(self.groupBox_27)
-        self.spinBox_7.setObjectName(u"spinBox_7")
-        self.spinBox_7.setMaximum(359)
+        self.Cp_meterInput = QSpinBox(self.groupBox_27)
+        self.Cp_meterInput.setObjectName(u"Cp_meterInput")
 
-        self.gridLayout_53.addWidget(self.spinBox_7, 7, 0, 1, 1)
-
-        self.label_49 = QLabel(self.groupBox_27)
-        self.label_49.setObjectName(u"label_49")
-
-        self.gridLayout_53.addWidget(self.label_49, 6, 0, 1, 1)
-
-        self.label_48 = QLabel(self.groupBox_27)
-        self.label_48.setObjectName(u"label_48")
-
-        self.gridLayout_53.addWidget(self.label_48, 4, 0, 1, 1)
-
-        self.spinBox_4 = QSpinBox(self.groupBox_27)
-        self.spinBox_4.setObjectName(u"spinBox_4")
-
-        self.gridLayout_53.addWidget(self.spinBox_4, 1, 0, 1, 1)
-
-        self.label_43 = QLabel(self.groupBox_27)
-        self.label_43.setObjectName(u"label_43")
-
-        self.gridLayout_53.addWidget(self.label_43, 6, 1, 1, 1)
-
-        self.spinBox_8 = QSpinBox(self.groupBox_27)
-        self.spinBox_8.setObjectName(u"spinBox_8")
-        self.spinBox_8.setMinimum(-1)
-        self.spinBox_8.setMaximum(4)
-
-        self.gridLayout_53.addWidget(self.spinBox_8, 7, 1, 1, 1)
+        self.gridLayout_53.addWidget(self.Cp_meterInput, 1, 0, 1, 1)
 
         self.label_47 = QLabel(self.groupBox_27)
         self.label_47.setObjectName(u"label_47")
 
         self.gridLayout_53.addWidget(self.label_47, 0, 1, 1, 1)
 
-        self.spinBox_5 = QSpinBox(self.groupBox_27)
-        self.spinBox_5.setObjectName(u"spinBox_5")
+        self.Cp_bonusInput = QSpinBox(self.groupBox_27)
+        self.Cp_bonusInput.setObjectName(u"Cp_bonusInput")
+        self.Cp_bonusInput.setMaximum(100000)
+        self.Cp_bonusInput.setValue(99)
 
-        self.gridLayout_53.addWidget(self.spinBox_5, 1, 1, 1, 1)
+        self.gridLayout_53.addWidget(self.Cp_bonusInput, 5, 0, 1, 2)
 
         self.groupBox_28 = QGroupBox(self.groupBox_27)
         self.groupBox_28.setObjectName(u"groupBox_28")
         self.gridLayout_55 = QGridLayout(self.groupBox_28)
         self.gridLayout_55.setObjectName(u"gridLayout_55")
-        self.checkBox_12 = QCheckBox(self.groupBox_28)
-        self.checkBox_12.setObjectName(u"checkBox_12")
+        self.Cp_spawnrailInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawnrailInput.setObjectName(u"Cp_spawnrailInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_12, 1, 2, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawnrailInput, 1, 2, 1, 1)
 
-        self.checkBox_9 = QCheckBox(self.groupBox_28)
-        self.checkBox_9.setObjectName(u"checkBox_9")
+        self.Cp_spawnscatterInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawnscatterInput.setObjectName(u"Cp_spawnscatterInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_9, 1, 3, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawnscatterInput, 1, 3, 1, 1)
 
-        self.checkBox_7 = QCheckBox(self.groupBox_28)
-        self.checkBox_7.setObjectName(u"checkBox_7")
+        self.Cp_spawnbounceInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawnbounceInput.setObjectName(u"Cp_spawnbounceInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_7, 0, 2, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawnbounceInput, 0, 2, 1, 1)
 
-        self.checkBox_11 = QCheckBox(self.groupBox_28)
-        self.checkBox_11.setObjectName(u"checkBox_11")
+        self.Cp_spawnbombInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawnbombInput.setObjectName(u"Cp_spawnbombInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_11, 0, 3, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawnbombInput, 0, 3, 1, 1)
 
-        self.checkBox_8 = QCheckBox(self.groupBox_28)
-        self.checkBox_8.setObjectName(u"checkBox_8")
+        self.Cp_spawngrenadeInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawngrenadeInput.setObjectName(u"Cp_spawngrenadeInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_8, 1, 1, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawngrenadeInput, 1, 1, 1, 1)
 
-        self.checkBox_10 = QCheckBox(self.groupBox_28)
-        self.checkBox_10.setObjectName(u"checkBox_10")
+        self.Cp_spawninfinityInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawninfinityInput.setObjectName(u"Cp_spawninfinityInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_10, 0, 0, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawninfinityInput, 0, 0, 1, 1)
 
-        self.checkBox_13 = QCheckBox(self.groupBox_28)
-        self.checkBox_13.setObjectName(u"checkBox_13")
+        self.Cp_spawnautoInput = QCheckBox(self.groupBox_28)
+        self.Cp_spawnautoInput.setObjectName(u"Cp_spawnautoInput")
 
-        self.gridLayout_55.addWidget(self.checkBox_13, 0, 1, 1, 1)
+        self.gridLayout_55.addWidget(self.Cp_spawnautoInput, 0, 1, 1, 1)
 
 
-        self.gridLayout_53.addWidget(self.groupBox_28, 10, 0, 1, 2)
+        self.gridLayout_53.addWidget(self.groupBox_28, 11, 0, 1, 2)
 
-        self.spinBox_6 = QSpinBox(self.groupBox_27)
-        self.spinBox_6.setObjectName(u"spinBox_6")
-        self.spinBox_6.setMaximum(100000)
-        self.spinBox_6.setValue(99)
+        self.Cp_heightInput = QSpinBox(self.groupBox_27)
+        self.Cp_heightInput.setObjectName(u"Cp_heightInput")
+        self.Cp_heightInput.setMinimum(-1)
+        self.Cp_heightInput.setMaximum(4)
 
-        self.gridLayout_53.addWidget(self.spinBox_6, 5, 0, 1, 2)
+        self.gridLayout_53.addWidget(self.Cp_heightInput, 7, 1, 1, 1)
+
+        self.label_43 = QLabel(self.groupBox_27)
+        self.label_43.setObjectName(u"label_43")
+
+        self.gridLayout_53.addWidget(self.label_43, 6, 1, 1, 1)
+
+        self.label_48 = QLabel(self.groupBox_27)
+        self.label_48.setObjectName(u"label_48")
+
+        self.gridLayout_53.addWidget(self.label_48, 4, 0, 1, 1)
+
+        self.label_49 = QLabel(self.groupBox_27)
+        self.label_49.setObjectName(u"label_49")
+
+        self.gridLayout_53.addWidget(self.label_49, 6, 0, 1, 1)
+
+        self.label_46 = QLabel(self.groupBox_27)
+        self.label_46.setObjectName(u"label_46")
+
+        self.gridLayout_53.addWidget(self.label_46, 0, 0, 1, 1)
+
+        self.Cp_waitInput = QSpinBox(self.groupBox_27)
+        self.Cp_waitInput.setObjectName(u"Cp_waitInput")
+
+        self.gridLayout_53.addWidget(self.Cp_waitInput, 1, 1, 1, 1)
+
+        self.label_18 = QLabel(self.groupBox_27)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setFont(font2)
+
+        self.gridLayout_53.addWidget(self.label_18, 8, 0, 1, 1)
 
 
         self.gridLayout_22.addWidget(self.groupBox_27, 7, 0, 1, 2)
@@ -1839,36 +1850,36 @@ class Ui_MainWindow(object):
         self.groupBox_25.setObjectName(u"groupBox_25")
         self.gridLayout_52 = QGridLayout(self.groupBox_25)
         self.gridLayout_52.setObjectName(u"gridLayout_52")
-        self.comboBox_3 = QComboBox(self.groupBox_25)
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.Survival_revengeCombobox = QComboBox(self.groupBox_25)
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.setObjectName(u"Survival_revengeCombobox")
 
-        self.gridLayout_52.addWidget(self.comboBox_3, 3, 0, 1, 1)
+        self.gridLayout_52.addWidget(self.Survival_revengeCombobox, 3, 0, 1, 1)
 
         self.label_45 = QLabel(self.groupBox_25)
         self.label_45.setObjectName(u"label_45")
 
         self.gridLayout_52.addWidget(self.label_45, 2, 0, 1, 1)
 
-        self.spinBox_3 = QSpinBox(self.groupBox_25)
-        self.spinBox_3.setObjectName(u"spinBox_3")
-        self.spinBox_3.setMinimum(1)
-        self.spinBox_3.setValue(3)
+        self.Survival_livesInput = QSpinBox(self.groupBox_25)
+        self.Survival_livesInput.setObjectName(u"Survival_livesInput")
+        self.Survival_livesInput.setMinimum(1)
+        self.Survival_livesInput.setValue(3)
 
-        self.gridLayout_52.addWidget(self.spinBox_3, 1, 0, 1, 1)
+        self.gridLayout_52.addWidget(self.Survival_livesInput, 1, 0, 1, 1)
 
         self.label_44 = QLabel(self.groupBox_25)
         self.label_44.setObjectName(u"label_44")
 
         self.gridLayout_52.addWidget(self.label_44, 0, 0, 1, 1)
 
-        self.checkBox_5 = QCheckBox(self.groupBox_25)
-        self.checkBox_5.setObjectName(u"checkBox_5")
-        self.checkBox_5.setChecked(True)
+        self.Survival_suddendeathCheckbox = QCheckBox(self.groupBox_25)
+        self.Survival_suddendeathCheckbox.setObjectName(u"Survival_suddendeathCheckbox")
+        self.Survival_suddendeathCheckbox.setChecked(True)
 
-        self.gridLayout_52.addWidget(self.checkBox_5, 4, 0, 1, 1)
+        self.gridLayout_52.addWidget(self.Survival_suddendeathCheckbox, 4, 0, 1, 1)
 
 
         self.gridLayout_22.addWidget(self.groupBox_25, 1, 0, 5, 1)
@@ -1926,43 +1937,43 @@ class Ui_MainWindow(object):
         self.groupBox_26.setObjectName(u"groupBox_26")
         self.gridLayout_54 = QGridLayout(self.groupBox_26)
         self.gridLayout_54.setObjectName(u"gridLayout_54")
-        self.checkBox_17 = QCheckBox(self.groupBox_26)
-        self.checkBox_17.setObjectName(u"checkBox_17")
+        self.Battle_collisionsCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_collisionsCheckbox.setObjectName(u"Battle_collisionsCheckbox")
 
-        self.gridLayout_54.addWidget(self.checkBox_17, 8, 0, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_collisionsCheckbox, 8, 0, 1, 1)
 
-        self.checkBox_18 = QCheckBox(self.groupBox_26)
-        self.checkBox_18.setObjectName(u"checkBox_18")
+        self.Battle_preroundCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_preroundCheckbox.setObjectName(u"Battle_preroundCheckbox")
 
-        self.gridLayout_54.addWidget(self.checkBox_18, 10, 0, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_preroundCheckbox, 10, 0, 1, 1)
 
-        self.checkBox_15 = QCheckBox(self.groupBox_26)
-        self.checkBox_15.setObjectName(u"checkBox_15")
+        self.Battle_shieldstocksCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_shieldstocksCheckbox.setObjectName(u"Battle_shieldstocksCheckbox")
 
-        self.gridLayout_54.addWidget(self.checkBox_15, 9, 1, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_shieldstocksCheckbox, 9, 1, 1, 1)
 
-        self.checkBox_14 = QCheckBox(self.groupBox_26)
-        self.checkBox_14.setObjectName(u"checkBox_14")
+        self.Battle_specialCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_specialCheckbox.setObjectName(u"Battle_specialCheckbox")
 
-        self.gridLayout_54.addWidget(self.checkBox_14, 9, 0, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_specialCheckbox, 9, 0, 1, 1)
 
-        self.checkBox_16 = QCheckBox(self.groupBox_26)
-        self.checkBox_16.setObjectName(u"checkBox_16")
+        self.Battle_slipstreamsheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_slipstreamsheckbox.setObjectName(u"Battle_slipstreamsheckbox")
 
-        self.gridLayout_54.addWidget(self.checkBox_16, 8, 1, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_slipstreamsheckbox, 8, 1, 1, 1)
 
         self.label_52 = QLabel(self.groupBox_26)
         self.label_52.setObjectName(u"label_52")
 
         self.gridLayout_54.addWidget(self.label_52, 0, 0, 1, 1)
 
-        self.spinBox_9 = QSpinBox(self.groupBox_26)
-        self.spinBox_9.setObjectName(u"spinBox_9")
-        self.spinBox_9.setMinimum(1)
-        self.spinBox_9.setMaximum(105)
-        self.spinBox_9.setValue(7)
+        self.Battle_collisiontimerInput = QSpinBox(self.groupBox_26)
+        self.Battle_collisiontimerInput.setObjectName(u"Battle_collisiontimerInput")
+        self.Battle_collisiontimerInput.setMinimum(1)
+        self.Battle_collisiontimerInput.setMaximum(105)
+        self.Battle_collisiontimerInput.setValue(7)
 
-        self.gridLayout_54.addWidget(self.spinBox_9, 1, 0, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_collisiontimerInput, 1, 0, 1, 1)
 
         self.label_53 = QLabel(self.groupBox_26)
         self.label_53.setObjectName(u"label_53")
@@ -1974,34 +1985,34 @@ class Ui_MainWindow(object):
 
         self.gridLayout_54.addWidget(self.label_54, 0, 1, 1, 1)
 
-        self.spinBox_10 = QSpinBox(self.groupBox_26)
-        self.spinBox_10.setObjectName(u"spinBox_10")
-        self.spinBox_10.setMinimum(1)
-        self.spinBox_10.setMaximum(20)
-        self.spinBox_10.setValue(7)
+        self.Battle_launchfactorInput = QSpinBox(self.groupBox_26)
+        self.Battle_launchfactorInput.setObjectName(u"Battle_launchfactorInput")
+        self.Battle_launchfactorInput.setMinimum(1)
+        self.Battle_launchfactorInput.setMaximum(20)
+        self.Battle_launchfactorInput.setValue(7)
 
-        self.gridLayout_54.addWidget(self.spinBox_10, 5, 0, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_launchfactorInput, 5, 0, 1, 1)
 
-        self.spinBox_12 = QSpinBox(self.groupBox_26)
-        self.spinBox_12.setObjectName(u"spinBox_12")
-        self.spinBox_12.setMinimum(3)
-        self.spinBox_12.setMaximum(30)
-        self.spinBox_12.setValue(5)
+        self.Battle_maxrespawntimeInput = QSpinBox(self.groupBox_26)
+        self.Battle_maxrespawntimeInput.setObjectName(u"Battle_maxrespawntimeInput")
+        self.Battle_maxrespawntimeInput.setMinimum(3)
+        self.Battle_maxrespawntimeInput.setMaximum(30)
+        self.Battle_maxrespawntimeInput.setValue(5)
 
-        self.gridLayout_54.addWidget(self.spinBox_12, 1, 1, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_maxrespawntimeInput, 1, 1, 1, 1)
 
         self.label_50 = QLabel(self.groupBox_26)
         self.label_50.setObjectName(u"label_50")
 
         self.gridLayout_54.addWidget(self.label_50, 4, 1, 1, 1)
 
-        self.comboBox_4 = QComboBox(self.groupBox_26)
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.setObjectName(u"comboBox_4")
+        self.Battle_trainingCombobox = QComboBox(self.groupBox_26)
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.setObjectName(u"Battle_trainingCombobox")
 
-        self.gridLayout_54.addWidget(self.comboBox_4, 5, 1, 1, 1)
+        self.gridLayout_54.addWidget(self.Battle_trainingCombobox, 5, 1, 1, 1)
 
 
         self.gridLayout_22.addWidget(self.groupBox_26, 6, 0, 1, 2)
@@ -2062,6 +2073,12 @@ class Ui_MainWindow(object):
         self.HostGameTabwidget.addTab(self.tab_2, "")
 
         self.verticalLayout_8.addWidget(self.HostGameTabwidget)
+
+        self.ExportServerScriptButton = QPushButton(self.HostGamePage)
+        self.ExportServerScriptButton.setObjectName(u"ExportServerScriptButton")
+        self.ExportServerScriptButton.setIcon(icon7)
+
+        self.verticalLayout_8.addWidget(self.ExportServerScriptButton)
 
         self.GameContentStackedWidget.addWidget(self.HostGamePage)
         self.JoinGamePage = QWidget()
@@ -2277,7 +2294,7 @@ class Ui_MainWindow(object):
 
         self.MSListSaveButton = QPushButton(self.masterservers)
         self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon6)
+        self.MSListSaveButton.setIcon(icon7)
 
         self.gridLayout_28.addWidget(self.MSListSaveButton, 5, 1, 1, 1)
 
@@ -2292,56 +2309,56 @@ class Ui_MainWindow(object):
 
         self.groupBox_3 = QGroupBox(self.masterservers)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        font2 = QFont()
-        font2.setBold(False)
-        self.groupBox_3.setFont(font2)
+        font3 = QFont()
+        font3.setBold(False)
+        self.groupBox_3.setFont(font3)
         self.gridLayout_6 = QGridLayout(self.groupBox_3)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.snitchtitleLabel = QLabel(self.groupBox_3)
         self.snitchtitleLabel.setObjectName(u"snitchtitleLabel")
-        font3 = QFont()
-        font3.setBold(True)
-        self.snitchtitleLabel.setFont(font3)
+        font4 = QFont()
+        font4.setBold(True)
+        self.snitchtitleLabel.setFont(font4)
 
         self.gridLayout_6.addWidget(self.snitchtitleLabel, 2, 0, 1, 1)
 
         self.kartv2titleLabel = QLabel(self.groupBox_3)
         self.kartv2titleLabel.setObjectName(u"kartv2titleLabel")
-        self.kartv2titleLabel.setFont(font3)
+        self.kartv2titleLabel.setFont(font4)
 
         self.gridLayout_6.addWidget(self.kartv2titleLabel, 1, 0, 1, 1)
 
         self.msapiwarningLabel = QLabel(self.groupBox_3)
         self.msapiwarningLabel.setObjectName(u"msapiwarningLabel")
-        font4 = QFont()
-        font4.setBold(False)
-        font4.setItalic(False)
-        self.msapiwarningLabel.setFont(font4)
+        font5 = QFont()
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.msapiwarningLabel.setFont(font5)
         self.msapiwarningLabel.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_6.addWidget(self.msapiwarningLabel, 3, 0, 1, 3)
 
         self.v1descLabel = QLabel(self.groupBox_3)
         self.v1descLabel.setObjectName(u"v1descLabel")
-        self.v1descLabel.setFont(font2)
+        self.v1descLabel.setFont(font3)
 
         self.gridLayout_6.addWidget(self.v1descLabel, 0, 1, 1, 1)
 
         self.v1titleLabel = QLabel(self.groupBox_3)
         self.v1titleLabel.setObjectName(u"v1titleLabel")
-        self.v1titleLabel.setFont(font3)
+        self.v1titleLabel.setFont(font4)
 
         self.gridLayout_6.addWidget(self.v1titleLabel, 0, 0, 1, 1)
 
         self.snitchdescLabel = QLabel(self.groupBox_3)
         self.snitchdescLabel.setObjectName(u"snitchdescLabel")
-        self.snitchdescLabel.setFont(font2)
+        self.snitchdescLabel.setFont(font3)
 
         self.gridLayout_6.addWidget(self.snitchdescLabel, 2, 1, 1, 1)
 
         self.kartv2descLabel = QLabel(self.groupBox_3)
         self.kartv2descLabel.setObjectName(u"kartv2descLabel")
-        self.kartv2descLabel.setFont(font2)
+        self.kartv2descLabel.setFont(font3)
 
         self.gridLayout_6.addWidget(self.kartv2descLabel, 1, 1, 1, 1)
 
@@ -2475,7 +2492,7 @@ class Ui_MainWindow(object):
 
         self.ProfilesSaveButton = QToolButton(self.GamePlayFrame)
         self.ProfilesSaveButton.setObjectName(u"ProfilesSaveButton")
-        self.ProfilesSaveButton.setIcon(icon6)
+        self.ProfilesSaveButton.setIcon(icon7)
 
         self.gridLayout_3.addWidget(self.ProfilesSaveButton, 2, 1, 1, 1)
 
@@ -2500,7 +2517,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 85, 66))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 87, 87))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -2529,7 +2546,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1030, 555))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 447, 462))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.tabWidget_2 = QTabWidget(self.scrollAreaWidgetContents)
@@ -2551,7 +2568,7 @@ class Ui_MainWindow(object):
 
         self.ProfileDirBrowseButton = QPushButton(self.tab_5)
         self.ProfileDirBrowseButton.setObjectName(u"ProfileDirBrowseButton")
-        self.ProfileDirBrowseButton.setIcon(icon7)
+        self.ProfileDirBrowseButton.setIcon(icon6)
 
         self.gridLayout_11.addWidget(self.ProfileDirBrowseButton, 1, 2, 1, 1)
 
@@ -2783,8 +2800,8 @@ class Ui_MainWindow(object):
         self.GameSettingsTabWidget.setCurrentIndex(0)
         self.HostGameTabwidget.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.comboBox_3.setCurrentIndex(2)
-        self.comboBox_4.setCurrentIndex(1)
+        self.Survival_revengeCombobox.setCurrentIndex(0)
+        self.Battle_trainingCombobox.setCurrentIndex(0)
         self.GameTabView.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
 
@@ -2822,7 +2839,6 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Join Netgame", None));
         self.GamePageTabList.setSortingEnabled(__sortingEnabled1)
 
-        self.ExportServerScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save server launch script...", None))
         self.PlayerSkinImage.setText("")
         self.PlayerColorTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Skin Color", None))
         self.PlayerNameTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Nickname", None))
@@ -2916,7 +2932,6 @@ class Ui_MainWindow(object):
         self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (Linux/macOS)", None))
         self.FlatpakRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Flatpak (Linux)", None))
         self.NativeRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Native EXE/ELF", None))
-        self.ExportClientScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save Client Launch Script...", None))
         self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Audio Options", None))
         self.GameMusicSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Digital music", None))
         self.GameMusicSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Midi music", None))
@@ -2935,6 +2950,7 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"SRB2 home directory (Windows)", None))
         self.HomePathInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"/path/to/liquidlauncher", None))
         self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"Custom Shell Parameters", None))
+        self.ExportClientScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save Client Launch Script...", None))
 #if QT_CONFIG(tooltip)
         self.GameSettingsTabWidget.setToolTip(QCoreApplication.translate("MainWindow", u"Add file...", None))
 #endif // QT_CONFIG(tooltip)
@@ -2985,20 +3001,22 @@ class Ui_MainWindow(object):
         self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
+        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
+        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
         self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"Admin Password", None))
+        self.HostMSCombobox.setItemText(0, "")
+
+        self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<default>", None))
+        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
         self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Offline", None))
         self.RoomInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Standard", None))
         self.RoomInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Casual", None))
         self.RoomInput.setItemText(3, QCoreApplication.translate("MainWindow", u"Hugs", None))
         self.RoomInput.setItemText(4, QCoreApplication.translate("MainWindow", u"OLDC", None))
 
-        self.HostMSCombobox.setItemText(0, "")
-
-        self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<default>", None))
-        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
-        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
-        self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
-        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"(Select a Master server to query it's rooms)", None))
+        self.label_55.setText(QCoreApplication.translate("MainWindow", u"(Press enter to query it's rooms)", None))
         self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"Networking", None))
         self.BandwidthInput.setSuffix(QCoreApplication.translate("MainWindow", u" bytes/s", None))
         self.PortLabel.setText(QCoreApplication.translate("MainWindow", u"Port", None))
@@ -3038,17 +3056,17 @@ class Ui_MainWindow(object):
 
         self.AdvanceMapLabel.setText(QCoreApplication.translate("MainWindow", u"Map Advancement Policy", None))
         self.RespawnitemCheckbox.setText(QCoreApplication.translate("MainWindow", u"Respawn items", None))
-        self.JoinnextroundInput.setText(QCoreApplication.translate("MainWindow", u"Only join at the beginning of a round", None))
-        self.RespawnitemCheckbox_2.setText(QCoreApplication.translate("MainWindow", u"Restrict skin changes", None))
+        self.JoinnextroundCheckbox.setText(QCoreApplication.translate("MainWindow", u"Only join at the beginning of a round", None))
+        self.RestrictskinchangesCheckbox.setText(QCoreApplication.translate("MainWindow", u"Restrict skin changes", None))
         self.TailspickupCheckbox.setText(QCoreApplication.translate("MainWindow", u"Enable player pickup (tailspickup)", None))
         self.ForceSkinLabel_2.setText(QCoreApplication.translate("MainWindow", u"Item respawn time", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Gravity", None))
         self.groupBox_15.setTitle(QCoreApplication.translate("MainWindow", u"Miscellaneous", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Replace flickies with flowers", None))
+        self.SoniccdCheckbox.setText(QCoreApplication.translate("MainWindow", u"Replace flickies with flowers", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_2.setToolTip(QCoreApplication.translate("MainWindow", u"75% chance to hit yourself upon enemy hit", None))
+        self.KillingdeadCheckbox.setToolTip(QCoreApplication.translate("MainWindow", u"75% chance to hit yourself upon enemy hit", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"Killingdead mode", None))
+        self.KillingdeadCheckbox.setText(QCoreApplication.translate("MainWindow", u"Killingdead mode", None))
         self.InttimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.AdvanceMapInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
         self.AdvanceMapInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Next", None))
@@ -3066,19 +3084,17 @@ class Ui_MainWindow(object):
 
         self.groupBox_14.setTitle(QCoreApplication.translate("MainWindow", u"Random monitor chances", None))
         self.ForceSkinLabel_15.setText(QCoreApplication.translate("MainWindow", u"Water shield", None))
-        self.ForceSkinLabel_13.setText(QCoreApplication.translate("MainWindow", u"Jump shield", None))
-        self.ForceSkinLabel_11.setText(QCoreApplication.translate("MainWindow", u"Eggman", None))
-        self.ForceSkinLabel_12.setText(QCoreApplication.translate("MainWindow", u"Super Sneakers", None))
-        self.ForceSkinLabel_6.setText(QCoreApplication.translate("MainWindow", u"Invincibility", None))
-        self.ForceSkinLabel_7.setText(QCoreApplication.translate("MainWindow", u"Force shield", None))
-        self.ForceSkinLabel_10.setText(QCoreApplication.translate("MainWindow", u"Invincibility", None))
         self.ForceSkinLabel_3.setText(QCoreApplication.translate("MainWindow", u"1-Up", None))
         self.ForceSkinLabel_8.setText(QCoreApplication.translate("MainWindow", u"Jump shield", None))
         self.ForceSkinLabel_14.setText(QCoreApplication.translate("MainWindow", u"Ring shield", None))
-        self.ForceSkinLabel_4.setText(QCoreApplication.translate("MainWindow", u"Bomb shield", None))
-        self.ForceSkinLabel_27.setText(QCoreApplication.translate("MainWindow", u"Super ring", None))
         self.ForceSkinLabel_9.setText(QCoreApplication.translate("MainWindow", u"Recycler", None))
+        self.ForceSkinLabel_12.setText(QCoreApplication.translate("MainWindow", u"Super Sneakers", None))
+        self.ForceSkinLabel_7.setText(QCoreApplication.translate("MainWindow", u"Force shield", None))
+        self.ForceSkinLabel_11.setText(QCoreApplication.translate("MainWindow", u"Eggman", None))
+        self.ForceSkinLabel_4.setText(QCoreApplication.translate("MainWindow", u"Bomb shield", None))
+        self.ForceSkinLabel_10.setText(QCoreApplication.translate("MainWindow", u"Invincibility", None))
         self.ForceSkinLabel_28.setText(QCoreApplication.translate("MainWindow", u"Teleporter", None))
+        self.ForceSkinLabel_27.setText(QCoreApplication.translate("MainWindow", u"Super ring", None))
         self.MaxPlayersLabel.setText(QCoreApplication.translate("MainWindow", u"Max. Players", None))
         self.AllowexitlevelCheckbox.setText(QCoreApplication.translate("MainWindow", u"Allow level exit", None))
         self.ExitmoveCheckbox.setText(QCoreApplication.translate("MainWindow", u"Allow movement after exit", None))
@@ -3094,13 +3110,13 @@ class Ui_MainWindow(object):
         self.PlayersforexitCombobox.setItemText(4, QCoreApplication.translate("MainWindow", u"(4) All Players", None))
 
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Stage exit requirement (playersforexit)", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) Normal", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) Random", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) Teleporters", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"(3) No monitors", None))
+        self.CompetitionboxesCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"(0) Normal", None))
+        self.CompetitionboxesCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) Random", None))
+        self.CompetitionboxesCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) Teleporters", None))
+        self.CompetitionboxesCombobox.setItemText(3, QCoreApplication.translate("MainWindow", u"(3) No monitors", None))
 
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Co-op", None))
-        self.RingslingerGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Ringslinger Settings", None))
+        self.RingslingerSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Ringslinger Settings", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Match scoring style", None))
         self.PowerstonesCheckbox.setText(QCoreApplication.translate("MainWindow", u"Enable Chaos Emeralds", None))
 #if QT_CONFIG(tooltip)
@@ -3152,20 +3168,21 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ringslinger</span> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Match</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-b"
-                        "ottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Team Match</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Tag</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Hide and Seek</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Capture The Flag</p></body></html>", None))
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Ringslinger</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:11pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" mar"
+                        "gin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Match</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Team Match</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Tag</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Hide and Seek</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style="
+                        "\" font-family:'CMU Serif Medium'; font-size:11pt;\">Capture The Flag</span></p></body></html>", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.Ringslinger), QCoreApplication.translate("MainWindow", u"Ringslinger", None))
         self.CircuitraceSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Circuit Race Settings", None))
         self.CircuitraceSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Circuit Race Settings", None))
         self.NumlapsInput.setSuffix(QCoreApplication.translate("MainWindow", u" laps", None))
-        self.spinBox.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.CountdowntimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Number of Laps", None))
         self.UsemaplapsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Use map laps", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Countdown time", None))
@@ -3173,64 +3190,82 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Warning:</span> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</p></body></html>", None))
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Warning:</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</span></p></body></html>", None))
         self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
         self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"+battledebug +devcam", None))
+        self.Battle_addoptionsInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"+battledebug +devcam", None))
         self.groupBox_27.setTitle(QCoreApplication.translate("MainWindow", u"Capture Point", None))
-        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Meter", None))
-        self.spinBox_7.setSuffix(QCoreApplication.translate("MainWindow", u" FRACUNITs", None))
-        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Capture radius", None))
-        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
-        self.label_43.setText(QCoreApplication.translate("MainWindow", u"Capture point height", None))
+#if QT_CONFIG(tooltip)
+        self.Cp_radiusInput.setToolTip(QCoreApplication.translate("MainWindow", u"FRACUNITs are a custom unit within the doom engine. 1 FRACUNIT about 2.25cm", None))
+#endif // QT_CONFIG(tooltip)
+        self.Cp_radiusInput.setSuffix(QCoreApplication.translate("MainWindow", u" FRACUNITs", None))
         self.label_47.setText(QCoreApplication.translate("MainWindow", u"Wait", None))
-        self.spinBox_5.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.Cp_bonusInput.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
         self.groupBox_28.setTitle(QCoreApplication.translate("MainWindow", u"Ring spawns", None))
-        self.checkBox_12.setText(QCoreApplication.translate("MainWindow", u"Rail rings", None))
-        self.checkBox_9.setText(QCoreApplication.translate("MainWindow", u"Scatter rings", None))
-        self.checkBox_7.setText(QCoreApplication.translate("MainWindow", u"Bounce rings", None))
-        self.checkBox_11.setText(QCoreApplication.translate("MainWindow", u"Bomb rings", None))
-        self.checkBox_8.setText(QCoreApplication.translate("MainWindow", u"Grenade rings", None))
-        self.checkBox_10.setText(QCoreApplication.translate("MainWindow", u"Infinity rings", None))
-        self.checkBox_13.setText(QCoreApplication.translate("MainWindow", u"Auto rings", None))
-        self.spinBox_6.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
+        self.Cp_spawnrailInput.setText(QCoreApplication.translate("MainWindow", u"Rail rings", None))
+        self.Cp_spawnscatterInput.setText(QCoreApplication.translate("MainWindow", u"Scatter rings", None))
+        self.Cp_spawnbounceInput.setText(QCoreApplication.translate("MainWindow", u"Bounce rings", None))
+        self.Cp_spawnbombInput.setText(QCoreApplication.translate("MainWindow", u"Bomb rings", None))
+        self.Cp_spawngrenadeInput.setText(QCoreApplication.translate("MainWindow", u"Grenade rings", None))
+        self.Cp_spawninfinityInput.setText(QCoreApplication.translate("MainWindow", u"Infinity rings", None))
+        self.Cp_spawnautoInput.setText(QCoreApplication.translate("MainWindow", u"Auto rings", None))
+        self.label_43.setText(QCoreApplication.translate("MainWindow", u"Capture point height", None))
+        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Capture radius", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Meter fill rate", None))
+        self.Cp_waitInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"(FRACUNITs are custom to the doom engine. 1 FRACUNIT about 2.25cm)", None))
         self.groupBox_25.setTitle(QCoreApplication.translate("MainWindow", u"Arena/Survival", None))
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"No revenge", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"(1) <++>", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"(2) <++>", None))
+        self.Survival_revengeCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"No revenge (0)", None))
+        self.Survival_revengeCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Revenge without respawn (1)", None))
+        self.Survival_revengeCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"Revenge with respawn (2)", None))
 
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"Revenge mode", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"Lives", None))
-        self.checkBox_5.setText(QCoreApplication.translate("MainWindow", u"Sudden death", None))
+        self.Survival_suddendeathCheckbox.setText(QCoreApplication.translate("MainWindow", u"Sudden death", None))
         self.groupBox_30.setTitle(QCoreApplication.translate("MainWindow", u"Diamond Hunt", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Capture time", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
         self.Diamond_capture_timeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.Diamond_capture_bonusInput.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
         self.Battle_recoveryjumpInput.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
+#if QT_CONFIG(tooltip)
+        self.Battle_coyotefactorInput.setToolTip(QCoreApplication.translate("MainWindow", u"Jump factor for walking off ledges", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.label_37.setToolTip(QCoreApplication.translate("MainWindow", u"Jump factor for walking off ledges", None))
+#endif // QT_CONFIG(tooltip)
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Coyote factor", None))
         self.groupBox_26.setTitle(QCoreApplication.translate("MainWindow", u"Battle", None))
-        self.checkBox_17.setText(QCoreApplication.translate("MainWindow", u"Collisions", None))
-        self.checkBox_18.setText(QCoreApplication.translate("MainWindow", u"Pre-round", None))
-        self.checkBox_15.setText(QCoreApplication.translate("MainWindow", u"Shield stocks", None))
-        self.checkBox_14.setText(QCoreApplication.translate("MainWindow", u"Special", None))
-        self.checkBox_16.setText(QCoreApplication.translate("MainWindow", u"Slip streams", None))
+        self.Battle_collisionsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Collisions", None))
+        self.Battle_preroundCheckbox.setText(QCoreApplication.translate("MainWindow", u"Pre-rounds", None))
+        self.Battle_shieldstocksCheckbox.setText(QCoreApplication.translate("MainWindow", u"Shield stocks", None))
+        self.Battle_specialCheckbox.setText(QCoreApplication.translate("MainWindow", u"Special", None))
+        self.Battle_slipstreamsheckbox.setText(QCoreApplication.translate("MainWindow", u"Slip streams", None))
         self.label_52.setText(QCoreApplication.translate("MainWindow", u"Collision timer", None))
-        self.spinBox_9.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.Battle_collisiontimerInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.label_53.setText(QCoreApplication.translate("MainWindow", u"Launch factor", None))
         self.label_54.setText(QCoreApplication.translate("MainWindow", u"Max. respawn time", None))
         self.label_50.setText(QCoreApplication.translate("MainWindow", u"Training mode", None))
-        self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", u"0", None))
-        self.comboBox_4.setItemText(1, QCoreApplication.translate("MainWindow", u"1", None))
-        self.comboBox_4.setItemText(2, QCoreApplication.translate("MainWindow", u"2", None))
+        self.Battle_trainingCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Off (0)", None))
+        self.Battle_trainingCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Spawn Tails doll (1)", None))
+        self.Battle_trainingCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"??? (2)", None))
 
         self.groupBox_29.setTitle(QCoreApplication.translate("MainWindow", u"Battle CTF", None))
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Flag drop grace period", None))
         self.label_39.setText(QCoreApplication.translate("MainWindow", u"Flag respawn grace period", None))
+#if QT_CONFIG(tooltip)
+        self.Battle_coyotetimeInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
+#endif // QT_CONFIG(tooltip)
+        self.Battle_coyotetimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" frames", None))
+#if QT_CONFIG(tooltip)
+        self.label_36.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
+#endif // QT_CONFIG(tooltip)
         self.label_36.setText(QCoreApplication.translate("MainWindow", u"Coyote Time", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Battlemod", None))
+        self.ExportServerScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save server launch script...", None))
 #if QT_CONFIG(tooltip)
         self.RefreshButton.setToolTip(QCoreApplication.translate("MainWindow", u"Update", None))
 #endif // QT_CONFIG(tooltip)
@@ -3354,81 +3389,81 @@ class Ui_MainWindow(object):
         self.AboutText.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; fo"
-                        "nt-size:12pt; font-style:italic;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">built by Liquid</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Join our Discord</span></a></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><b"
-                        "r /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">PixL<br /></span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style"
-                        "=\" font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-size:12pt;\"> by HitCoder</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-size:12pt;\">(libxml binding for Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-size:12pt;\"> (distribution)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bot"
-                        "tom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-size:12pt;\"> by the Qt Project</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Python 3</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> by</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (PyPi)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Requests</span><span style=\" font"
-                        "-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-size:12pt;\"> by the Qt project</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:"
-                        "0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-family:'CMU Serif Medium'; font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margi"
+                        "n-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">built by Liquid</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;\">Join our Discord</span></a></p>\n"
+"<p align=\"center\" style=\"-qt-"
+                        "paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">PixL<br /></span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-botto"
+                        "m:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by HitCoder</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Med"
+                        "ium'; font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\">(libxml binding for Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> (distribution)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt Project</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12p"
+                        "t; font-weight:600;\">Python 3</span><span style=\" font-size:12pt;\"> by</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-size:12pt;\"> (PyPi)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Requests</span><span style=\" font-size:12pt;\"> (Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-size:12pt;\"> (Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px"
+                        "; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt project</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; marg"
+                        "in-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justi"
-                        "fy\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board thread</span></a></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">Credits</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12"
-                        "px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board thread</span></a></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty;"
+                        " margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sonic Team Jr - SRB2 icon</li></ul>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8p"
-                        "t;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
+"<p align=\"justify\" style=\"-qt-parag"
+                        "raph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction o"
+                        "f profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-in"
-                        "dent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:1"
+                        "2px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"just"
-                        "ify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">How do I host a server?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server"
-                        ". To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; fo"
+                        "nt-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern a"
-                        "ntivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+""
+                        "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-fa"
+                        "mily:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bott"
-                        "om:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><b"
-                        "r /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 201"
+                        "9, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the de"
-                        "sign is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly"
+                        " compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
         self.SaveFilesToConfigToggle.setText(QCoreApplication.translate("MainWindow", u"Save Launch Mods to Profile", None))
         self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.ProfileDirLabel.setText(QCoreApplication.translate("MainWindow", u"Profile Directory (requires restart)", None))
@@ -3437,16 +3472,16 @@ class Ui_MainWindow(object):
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-size:10pt; font-weight:600;\"> </span><span style=\" font-size:10pt;\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-size:10pt;\">] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a "
-                        "permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
-"<p align=\"center\" style=\" margin"
-                        "-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p></body></html>", None))
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\"> </span><span style=\" font-family:'CMU Serif Medium';\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-family:'CMU Serif Medium';\">] is prohibited by the Sonic Rob"
+                        "o Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found with"
+                        "in the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p></body></html>", None))
         self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"Mod sources", None))
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
         self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))

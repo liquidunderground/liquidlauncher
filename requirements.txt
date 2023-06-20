@@ -1,9 +1,10 @@
-parse
 PyQt5
-requests
 PySide6
 feedparser
-toml
 lxml
 packaging
+parse
 pyinstaller
+requests
+subprocess32
+toml

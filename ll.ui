@@ -92,8 +92,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1030</width>
-                <height>555</height>
+                <width>359</width>
+                <height>177</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -324,17 +324,6 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_19">
-                  <item row="3" column="0">
-                   <widget class="QPushButton" name="ExportServerScriptButton">
-                    <property name="text">
-                     <string>Save server launch script...</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="ll.qrc">
-                      <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
@@ -352,8 +341,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>810</width>
-                           <height>417</height>
+                           <width>816</width>
+                           <height>439</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_5">
@@ -845,8 +834,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>797</width>
-                           <height>527</height>
+                           <width>795</width>
+                           <height>525</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
@@ -953,17 +942,6 @@
                               </widget>
                              </item>
                             </layout>
-                           </widget>
-                          </item>
-                          <item row="10" column="2" colspan="2">
-                           <widget class="QPushButton" name="ExportClientScriptButton">
-                            <property name="text">
-                             <string>Save Client Launch Script...</string>
-                            </property>
-                            <property name="icon">
-                             <iconset resource="ll.qrc">
-                              <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                            </property>
                            </widget>
                           </item>
                           <item row="3" column="2">
@@ -1101,8 +1079,32 @@ font-size: 12pt;</string>
                             </layout>
                            </widget>
                           </item>
+                          <item row="8" column="2">
+                           <spacer name="verticalSpacer_10">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
                          </layout>
                         </widget>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QPushButton" name="ExportClientScriptButton">
+                        <property name="text">
+                         <string>Save Client Launch Script...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                        </property>
                        </widget>
                       </item>
                      </layout>
@@ -1670,8 +1672,8 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>793</width>
-                               <height>630</height>
+                               <width>787</width>
+                               <height>691</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1681,10 +1683,72 @@ font-size: 12pt;</string>
                                  <string>Server settings</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_25">
+                                 <item row="1" column="0" colspan="2">
+                                  <widget class="QLineEdit" name="ServerNameInput"/>
+                                 </item>
+                                 <item row="0" column="0" colspan="2">
+                                  <widget class="QLabel" name="ServerNameLabel">
+                                   <property name="text">
+                                    <string>Server Name</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="1">
+                                  <widget class="QLabel" name="HostMSLabel">
+                                   <property name="text">
+                                    <string>Master Server</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="7" column="0">
+                                  <widget class="QCheckBox" name="DedicatedServerToggle">
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
+                                   </property>
+                                   <property name="text">
+                                    <string>Dedicated/headless Server</string>
+                                   </property>
+                                   <property name="checked">
+                                    <bool>false</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="3" column="0" colspan="2">
+                                  <widget class="QLineEdit" name="AdminPasswordInput">
+                                   <property name="echoMode">
+                                    <enum>QLineEdit::Password</enum>
+                                   </property>
+                                  </widget>
+                                 </item>
                                  <item row="2" column="0" colspan="2">
                                   <widget class="QLabel" name="AdminPasswordLabel">
                                    <property name="text">
                                     <string>Admin Password</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="5" column="1">
+                                  <widget class="QComboBox" name="HostMSCombobox">
+                                   <property name="enabled">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="editable">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>&lt;default&gt;</string>
+                                   </property>
+                                   <item>
+                                    <property name="text">
+                                     <string/>
+                                    </property>
+                                   </item>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="0">
+                                  <widget class="QLabel" name="RoomLabel">
+                                   <property name="text">
+                                    <string>Room</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -1720,65 +1784,33 @@ font-size: 12pt;</string>
                                    </item>
                                   </widget>
                                  </item>
-                                 <item row="5" column="1">
-                                  <widget class="QComboBox" name="HostMSCombobox">
-                                   <property name="enabled">
-                                    <bool>true</bool>
-                                   </property>
-                                   <property name="editable">
-                                    <bool>true</bool>
-                                   </property>
-                                   <property name="placeholderText">
-                                    <string>&lt;default&gt;</string>
-                                   </property>
-                                   <item>
-                                    <property name="text">
-                                     <string/>
-                                    </property>
-                                   </item>
-                                  </widget>
-                                 </item>
-                                 <item row="3" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="AdminPasswordInput">
-                                   <property name="echoMode">
-                                    <enum>QLineEdit::Password</enum>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="1">
-                                  <widget class="QLabel" name="HostMSLabel">
-                                   <property name="text">
-                                    <string>Master Server</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="ServerNameInput"/>
-                                 </item>
                                  <item row="6" column="0">
-                                  <widget class="QCheckBox" name="DedicatedServerToggle">
-                                   <property name="styleSheet">
-                                    <string notr="true"/>
+                                  <widget class="QLabel" name="label_51">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
                                    </property>
                                    <property name="text">
-                                    <string>Dedicated/headless Server</string>
+                                    <string>(Select a Master server to query it's rooms)</string>
                                    </property>
-                                   <property name="checked">
-                                    <bool>false</bool>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="0" column="0" colspan="2">
-                                  <widget class="QLabel" name="ServerNameLabel">
-                                   <property name="text">
-                                    <string>Server Name</string>
+                                 <item row="6" column="1">
+                                  <widget class="QLabel" name="label_55">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
                                    </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="0">
-                                  <widget class="QLabel" name="RoomLabel">
                                    <property name="text">
-                                    <string>Room</string>
+                                    <string>(Press enter to query it's rooms)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
@@ -1967,19 +1999,19 @@ font-size: 12pt;</string>
                                      </widget>
                                     </item>
                                     <item>
+                                     <widget class="QLabel" name="label_35">
+                                      <property name="text">
+                                       <string>Resynchronization attempts</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
                                      <widget class="QSpinBox" name="ResynchattemptsInput">
                                       <property name="maximum">
                                        <number>20</number>
                                       </property>
                                       <property name="value">
                                        <number>10</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item>
-                                     <widget class="QLabel" name="label_35">
-                                      <property name="text">
-                                       <string>Resynchronization attempts</string>
                                       </property>
                                      </widget>
                                     </item>
@@ -2030,8 +2062,8 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>793</width>
-                               <height>690</height>
+                               <width>787</width>
+                               <height>686</height>
                               </rect>
                              </property>
                              <layout class="QGridLayout" name="gridLayout">
@@ -2135,14 +2167,14 @@ font-size: 12pt;</string>
                                </widget>
                               </item>
                               <item row="10" column="1">
-                               <widget class="QCheckBox" name="JoinnextroundInput">
+                               <widget class="QCheckBox" name="JoinnextroundCheckbox">
                                 <property name="text">
                                  <string>Only join at the beginning of a round</string>
                                 </property>
                                </widget>
                               </item>
                               <item row="12" column="1">
-                               <widget class="QCheckBox" name="RespawnitemCheckbox_2">
+                               <widget class="QCheckBox" name="RestrictskinchangesCheckbox">
                                 <property name="text">
                                  <string>Restrict skin changes</string>
                                 </property>
@@ -2182,14 +2214,14 @@ font-size: 12pt;</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_36">
                                  <item row="0" column="0">
-                                  <widget class="QCheckBox" name="checkBox">
+                                  <widget class="QCheckBox" name="SoniccdCheckbox">
                                    <property name="text">
                                     <string>Replace flickies with flowers</string>
                                    </property>
                                   </widget>
                                  </item>
                                  <item row="0" column="1">
-                                  <widget class="QCheckBox" name="checkBox_2">
+                                  <widget class="QCheckBox" name="KillingdeadCheckbox">
                                    <property name="toolTip">
                                     <string>75% chance to hit yourself upon enemy hit</string>
                                    </property>
@@ -2307,120 +2339,28 @@ font-size: 12pt;</string>
                                  <string>Random monitor chances</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_34">
-                                 <item row="1" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_5">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="5" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_10">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="6" column="1">
+                                 <item row="5" column="2">
                                   <widget class="QLabel" name="ForceSkinLabel_15">
                                    <property name="text">
                                     <string>Water shield</string>
                                    </property>
-                                  </widget>
-                                 </item>
-                                 <item row="6" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_11">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="7" column="1">
-                                  <widget class="QLabel" name="ForceSkinLabel_13">
+                                 <item row="0" column="0">
+                                  <widget class="QLabel" name="ForceSkinLabel_3">
                                    <property name="text">
-                                    <string>Jump shield</string>
+                                    <string>1-Up</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="4" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_7">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_8">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_11">
-                                   <property name="text">
-                                    <string>Eggman</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="6" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_12">
-                                   <property name="text">
-                                    <string>Super Sneakers</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="2" column="1">
-                                  <widget class="QLabel" name="ForceSkinLabel_6">
-                                   <property name="text">
-                                    <string>Invincibility</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="1">
-                                  <widget class="QLabel" name="ForceSkinLabel_7">
-                                   <property name="text">
-                                    <string>Force shield</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="5" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_13">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="0" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_3">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_9">
+                                 <item row="4" column="3">
+                                  <widget class="QSpinBox" name="Tv_ringshieldInput">
                                    <property name="maximum">
                                     <number>10</number>
                                    </property>
@@ -2430,65 +2370,17 @@ font-size: 12pt;</string>
                                   </widget>
                                  </item>
                                  <item row="2" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_6">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="7" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_12">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_10">
-                                   <property name="text">
-                                    <string>Invincibility</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="0" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_3">
-                                   <property name="text">
-                                    <string>1-Up</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="6" column="2">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_14">
-                                   <property name="maximum">
-                                    <number>10</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>5</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="1">
                                   <widget class="QLabel" name="ForceSkinLabel_8">
                                    <property name="text">
                                     <string>Jump shield</string>
                                    </property>
-                                  </widget>
-                                 </item>
-                                 <item row="5" column="1">
-                                  <widget class="QLabel" name="ForceSkinLabel_14">
-                                   <property name="text">
-                                    <string>Ring shield</string>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="0" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_2">
+                                 <item row="2" column="1">
+                                  <widget class="QSpinBox" name="Tv_supersneakersInput">
                                    <property name="maximum">
                                     <number>10</number>
                                    </property>
@@ -2497,22 +2389,148 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
+                                 <item row="0" column="5">
+                                  <widget class="QSpinBox" name="Tv_eggmanInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="3">
+                                  <widget class="QSpinBox" name="Tv_forceshieldInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="2">
+                                  <widget class="QLabel" name="ForceSkinLabel_14">
+                                   <property name="text">
+                                    <string>Ring shield</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="1">
+                                  <widget class="QSpinBox" name="Tv_invincibilityInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="4">
+                                  <widget class="QLabel" name="ForceSkinLabel_9">
+                                   <property name="text">
+                                    <string>Recycler</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="0">
+                                  <widget class="QLabel" name="ForceSkinLabel_12">
+                                   <property name="text">
+                                    <string>Super Sneakers</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="2">
+                                  <widget class="QLabel" name="ForceSkinLabel_7">
+                                   <property name="text">
+                                    <string>Force shield</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
                                  <item row="0" column="1">
+                                  <widget class="QSpinBox" name="Tv_1upInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="3">
+                                  <widget class="QSpinBox" name="Tv_bombshieldInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="4">
+                                  <widget class="QLabel" name="ForceSkinLabel_11">
+                                   <property name="text">
+                                    <string>Eggman</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="2">
                                   <widget class="QLabel" name="ForceSkinLabel_4">
                                    <property name="text">
                                     <string>Bomb shield</string>
                                    </property>
-                                  </widget>
-                                 </item>
-                                 <item row="5" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_27">
-                                   <property name="text">
-                                    <string>Super ring</string>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="7" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_26">
+                                 <item row="2" column="3">
+                                  <widget class="QSpinBox" name="Tv_jumpshieldInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="5" column="3">
+                                  <widget class="QSpinBox" name="Tv_watershieldInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="0">
+                                  <widget class="QLabel" name="ForceSkinLabel_10">
+                                   <property name="text">
+                                    <string>Invincibility</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="5">
+                                  <widget class="QSpinBox" name="Tv_recyclerInput">
                                    <property name="maximum">
                                     <number>10</number>
                                    </property>
@@ -2522,7 +2540,17 @@ font-size: 12pt;</string>
                                   </widget>
                                  </item>
                                  <item row="2" column="4">
-                                  <widget class="QSpinBox" name="RespawnitemtimeInput_27">
+                                  <widget class="QLabel" name="ForceSkinLabel_28">
+                                   <property name="text">
+                                    <string>Teleporter</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="5">
+                                  <widget class="QSpinBox" name="Tv_teleporterInput">
                                    <property name="maximum">
                                     <number>10</number>
                                    </property>
@@ -2531,17 +2559,23 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="7" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_9">
-                                   <property name="text">
-                                    <string>Recycler</string>
+                                 <item row="1" column="5">
+                                  <widget class="QSpinBox" name="Tv_superringInput">
+                                   <property name="maximum">
+                                    <number>10</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>5</number>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="2" column="3">
-                                  <widget class="QLabel" name="ForceSkinLabel_28">
+                                 <item row="1" column="4">
+                                  <widget class="QLabel" name="ForceSkinLabel_27">
                                    <property name="text">
-                                    <string>Teleporter</string>
+                                    <string>Super ring</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
@@ -2603,8 +2637,8 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>806</width>
-                               <height>385</height>
+                               <width>808</width>
+                               <height>369</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -2695,7 +2729,7 @@ font-size: 12pt;</string>
                                   </widget>
                                  </item>
                                  <item row="5" column="0">
-                                  <widget class="QComboBox" name="comboBox">
+                                  <widget class="QComboBox" name="CompetitionboxesCombobox">
                                    <item>
                                     <property name="text">
                                      <string>(0) Normal</string>
@@ -2754,14 +2788,14 @@ font-size: 12pt;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-49</y>
-                               <width>793</width>
-                               <height>654</height>
+                               <y>0</y>
+                               <width>787</width>
+                               <height>709</height>
                               </rect>
                              </property>
                              <layout class="QGridLayout" name="gridLayout_18">
                               <item row="2" column="0" colspan="2">
-                               <widget class="QGroupBox" name="RingslingerGroupbox">
+                               <widget class="QGroupBox" name="RingslingerSettingsGroupbox">
                                 <property name="enabled">
                                  <bool>false</bool>
                                 </property>
@@ -3089,14 +3123,14 @@ font-size: 12pt;</string>
                                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ringslinger&lt;/span&gt; refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Match&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Team Match&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tag&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Hide and Seek&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Capture The Flag&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;&quot;&gt;Ringslinger&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt; refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Match&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Team Match&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Tag&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Hide and Seek&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Capture The Flag&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                 </property>
                                </widget>
                               </item>
@@ -3134,8 +3168,8 @@ p, li { white-space: pre-wrap; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>806</width>
-                               <height>385</height>
+                               <width>808</width>
+                               <height>369</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -3160,10 +3194,19 @@ p, li { white-space: pre-wrap; }
                                    <property name="suffix">
                                     <string> laps</string>
                                    </property>
+                                   <property name="minimum">
+                                    <number>1</number>
+                                   </property>
+                                   <property name="maximum">
+                                    <number>50</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>4</number>
+                                   </property>
                                   </widget>
                                  </item>
                                  <item row="3" column="0">
-                                  <widget class="QSpinBox" name="spinBox">
+                                  <widget class="QSpinBox" name="CountdowntimeInput">
                                    <property name="suffix">
                                     <string> seconds</string>
                                    </property>
@@ -3235,9 +3278,9 @@ p, li { white-space: pre-wrap; }
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>0</y>
-                               <width>793</width>
-                               <height>1036</height>
+                               <y>-743</y>
+                               <width>787</width>
+                               <height>1112</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -3247,8 +3290,8 @@ p, li { white-space: pre-wrap; }
                                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Warning:&lt;/span&gt; Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;&quot;&gt;Warning:&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt; Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                 </property>
                                </widget>
                               </item>
@@ -3283,7 +3326,7 @@ p, li { white-space: pre-wrap; }
                                   </widget>
                                  </item>
                                  <item row="17" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="lineEdit">
+                                  <widget class="QLineEdit" name="Battle_addoptionsInput">
                                    <property name="placeholderText">
                                     <string>+battledebug +devcam</string>
                                    </property>
@@ -3295,15 +3338,11 @@ p, li { white-space: pre-wrap; }
                                     <string>Capture Point</string>
                                    </property>
                                    <layout class="QGridLayout" name="gridLayout_53">
-                                    <item row="0" column="0">
-                                     <widget class="QLabel" name="label_46">
-                                      <property name="text">
-                                       <string>Meter</string>
-                                      </property>
-                                     </widget>
-                                    </item>
                                     <item row="7" column="0">
-                                     <widget class="QSpinBox" name="spinBox_7">
+                                     <widget class="QSpinBox" name="Cp_radiusInput">
+                                      <property name="toolTip">
+                                       <string>FRACUNITs are a custom unit within the doom engine. 1 FRACUNIT about 2.25cm</string>
+                                      </property>
                                       <property name="suffix">
                                        <string> FRACUNITs</string>
                                       </property>
@@ -3312,10 +3351,101 @@ p, li { white-space: pre-wrap; }
                                       </property>
                                      </widget>
                                     </item>
-                                    <item row="6" column="0">
-                                     <widget class="QLabel" name="label_49">
+                                    <item row="1" column="0">
+                                     <widget class="QSpinBox" name="Cp_meterInput"/>
+                                    </item>
+                                    <item row="0" column="1">
+                                     <widget class="QLabel" name="label_47">
                                       <property name="text">
-                                       <string>Capture radius</string>
+                                       <string>Wait</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="5" column="0" colspan="2">
+                                     <widget class="QSpinBox" name="Cp_bonusInput">
+                                      <property name="suffix">
+                                       <string> points</string>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>100000</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>99</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="11" column="0" colspan="2">
+                                     <widget class="QGroupBox" name="groupBox_28">
+                                      <property name="title">
+                                       <string>Ring spawns</string>
+                                      </property>
+                                      <layout class="QGridLayout" name="gridLayout_55">
+                                       <item row="1" column="2">
+                                        <widget class="QCheckBox" name="Cp_spawnrailInput">
+                                         <property name="text">
+                                          <string>Rail rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="1" column="3">
+                                        <widget class="QCheckBox" name="Cp_spawnscatterInput">
+                                         <property name="text">
+                                          <string>Scatter rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="0" column="2">
+                                        <widget class="QCheckBox" name="Cp_spawnbounceInput">
+                                         <property name="text">
+                                          <string>Bounce rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="0" column="3">
+                                        <widget class="QCheckBox" name="Cp_spawnbombInput">
+                                         <property name="text">
+                                          <string>Bomb rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="1" column="1">
+                                        <widget class="QCheckBox" name="Cp_spawngrenadeInput">
+                                         <property name="text">
+                                          <string>Grenade rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="0" column="0">
+                                        <widget class="QCheckBox" name="Cp_spawninfinityInput">
+                                         <property name="text">
+                                          <string>Infinity rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item row="0" column="1">
+                                        <widget class="QCheckBox" name="Cp_spawnautoInput">
+                                         <property name="text">
+                                          <string>Auto rings</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                    <item row="7" column="1">
+                                     <widget class="QSpinBox" name="Cp_heightInput">
+                                      <property name="minimum">
+                                       <number>-1</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>4</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="6" column="1">
+                                     <widget class="QLabel" name="label_43">
+                                      <property name="text">
+                                       <string>Capture point height</string>
                                       </property>
                                      </widget>
                                     </item>
@@ -3326,108 +3456,36 @@ p, li { white-space: pre-wrap; }
                                       </property>
                                      </widget>
                                     </item>
-                                    <item row="1" column="0">
-                                     <widget class="QSpinBox" name="spinBox_4"/>
-                                    </item>
-                                    <item row="6" column="1">
-                                     <widget class="QLabel" name="label_43">
+                                    <item row="6" column="0">
+                                     <widget class="QLabel" name="label_49">
                                       <property name="text">
-                                       <string>Capture point height</string>
+                                       <string>Capture radius</string>
                                       </property>
                                      </widget>
                                     </item>
-                                    <item row="7" column="1">
-                                     <widget class="QSpinBox" name="spinBox_8">
-                                      <property name="minimum">
-                                       <number>-1</number>
-                                      </property>
-                                      <property name="maximum">
-                                       <number>4</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="0" column="1">
-                                     <widget class="QLabel" name="label_47">
+                                    <item row="0" column="0">
+                                     <widget class="QLabel" name="label_46">
                                       <property name="text">
-                                       <string>Wait</string>
+                                       <string>Meter fill rate</string>
                                       </property>
                                      </widget>
                                     </item>
                                     <item row="1" column="1">
-                                     <widget class="QSpinBox" name="spinBox_5">
+                                     <widget class="QSpinBox" name="Cp_waitInput">
                                       <property name="suffix">
                                        <string> seconds</string>
                                       </property>
                                      </widget>
                                     </item>
-                                    <item row="10" column="0" colspan="2">
-                                     <widget class="QGroupBox" name="groupBox_28">
-                                      <property name="title">
-                                       <string>Ring spawns</string>
+                                    <item row="8" column="0">
+                                     <widget class="QLabel" name="label_18">
+                                      <property name="font">
+                                       <font>
+                                        <pointsize>8</pointsize>
+                                       </font>
                                       </property>
-                                      <layout class="QGridLayout" name="gridLayout_55">
-                                       <item row="1" column="2">
-                                        <widget class="QCheckBox" name="checkBox_12">
-                                         <property name="text">
-                                          <string>Rail rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="1" column="3">
-                                        <widget class="QCheckBox" name="checkBox_9">
-                                         <property name="text">
-                                          <string>Scatter rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="0" column="2">
-                                        <widget class="QCheckBox" name="checkBox_7">
-                                         <property name="text">
-                                          <string>Bounce rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="0" column="3">
-                                        <widget class="QCheckBox" name="checkBox_11">
-                                         <property name="text">
-                                          <string>Bomb rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="1" column="1">
-                                        <widget class="QCheckBox" name="checkBox_8">
-                                         <property name="text">
-                                          <string>Grenade rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="0" column="0">
-                                        <widget class="QCheckBox" name="checkBox_10">
-                                         <property name="text">
-                                          <string>Infinity rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                       <item row="0" column="1">
-                                        <widget class="QCheckBox" name="checkBox_13">
-                                         <property name="text">
-                                          <string>Auto rings</string>
-                                         </property>
-                                        </widget>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </item>
-                                    <item row="5" column="0" colspan="2">
-                                     <widget class="QSpinBox" name="spinBox_6">
-                                      <property name="suffix">
-                                       <string> points</string>
-                                      </property>
-                                      <property name="maximum">
-                                       <number>100000</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>99</number>
+                                      <property name="text">
+                                       <string>(FRACUNITs are custom to the doom engine. 1 FRACUNIT about 2.25cm)</string>
                                       </property>
                                      </widget>
                                     </item>
@@ -3441,23 +3499,23 @@ p, li { white-space: pre-wrap; }
                                    </property>
                                    <layout class="QGridLayout" name="gridLayout_52">
                                     <item row="3" column="0">
-                                     <widget class="QComboBox" name="comboBox_3">
+                                     <widget class="QComboBox" name="Survival_revengeCombobox">
                                       <property name="currentIndex">
-                                       <number>2</number>
+                                       <number>0</number>
                                       </property>
                                       <item>
                                        <property name="text">
-                                        <string>No revenge</string>
+                                        <string>No revenge (0)</string>
                                        </property>
                                       </item>
                                       <item>
                                        <property name="text">
-                                        <string>(1) &lt;++&gt;</string>
+                                        <string>Revenge without respawn (1)</string>
                                        </property>
                                       </item>
                                       <item>
                                        <property name="text">
-                                        <string>(2) &lt;++&gt;</string>
+                                        <string>Revenge with respawn (2)</string>
                                        </property>
                                       </item>
                                      </widget>
@@ -3470,7 +3528,7 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="1" column="0">
-                                     <widget class="QSpinBox" name="spinBox_3">
+                                     <widget class="QSpinBox" name="Survival_livesInput">
                                       <property name="minimum">
                                        <number>1</number>
                                       </property>
@@ -3487,7 +3545,7 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="4" column="0">
-                                     <widget class="QCheckBox" name="checkBox_5">
+                                     <widget class="QCheckBox" name="Survival_suddendeathCheckbox">
                                       <property name="text">
                                        <string>Sudden death</string>
                                       </property>
@@ -3560,6 +3618,9 @@ p, li { white-space: pre-wrap; }
                                  </item>
                                  <item row="4" column="1">
                                   <widget class="QSpinBox" name="Battle_coyotefactorInput">
+                                   <property name="toolTip">
+                                    <string>Jump factor for walking off ledges</string>
+                                   </property>
                                    <property name="maximum">
                                     <number>15</number>
                                    </property>
@@ -3570,6 +3631,9 @@ p, li { white-space: pre-wrap; }
                                  </item>
                                  <item row="3" column="1">
                                   <widget class="QLabel" name="label_37">
+                                   <property name="toolTip">
+                                    <string>Jump factor for walking off ledges</string>
+                                   </property>
                                    <property name="text">
                                     <string>Coyote factor</string>
                                    </property>
@@ -3582,35 +3646,35 @@ p, li { white-space: pre-wrap; }
                                    </property>
                                    <layout class="QGridLayout" name="gridLayout_54">
                                     <item row="8" column="0">
-                                     <widget class="QCheckBox" name="checkBox_17">
+                                     <widget class="QCheckBox" name="Battle_collisionsCheckbox">
                                       <property name="text">
                                        <string>Collisions</string>
                                       </property>
                                      </widget>
                                     </item>
                                     <item row="10" column="0">
-                                     <widget class="QCheckBox" name="checkBox_18">
+                                     <widget class="QCheckBox" name="Battle_preroundCheckbox">
                                       <property name="text">
-                                       <string>Pre-round</string>
+                                       <string>Pre-rounds</string>
                                       </property>
                                      </widget>
                                     </item>
                                     <item row="9" column="1">
-                                     <widget class="QCheckBox" name="checkBox_15">
+                                     <widget class="QCheckBox" name="Battle_shieldstocksCheckbox">
                                       <property name="text">
                                        <string>Shield stocks</string>
                                       </property>
                                      </widget>
                                     </item>
                                     <item row="9" column="0">
-                                     <widget class="QCheckBox" name="checkBox_14">
+                                     <widget class="QCheckBox" name="Battle_specialCheckbox">
                                       <property name="text">
                                        <string>Special</string>
                                       </property>
                                      </widget>
                                     </item>
                                     <item row="8" column="1">
-                                     <widget class="QCheckBox" name="checkBox_16">
+                                     <widget class="QCheckBox" name="Battle_slipstreamsheckbox">
                                       <property name="text">
                                        <string>Slip streams</string>
                                       </property>
@@ -3624,7 +3688,7 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="1" column="0">
-                                     <widget class="QSpinBox" name="spinBox_9">
+                                     <widget class="QSpinBox" name="Battle_collisiontimerInput">
                                       <property name="suffix">
                                        <string> seconds</string>
                                       </property>
@@ -3654,7 +3718,7 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="5" column="0">
-                                     <widget class="QSpinBox" name="spinBox_10">
+                                     <widget class="QSpinBox" name="Battle_launchfactorInput">
                                       <property name="minimum">
                                        <number>1</number>
                                       </property>
@@ -3667,7 +3731,7 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="1" column="1">
-                                     <widget class="QSpinBox" name="spinBox_12">
+                                     <widget class="QSpinBox" name="Battle_maxrespawntimeInput">
                                       <property name="minimum">
                                        <number>3</number>
                                       </property>
@@ -3687,23 +3751,23 @@ p, li { white-space: pre-wrap; }
                                      </widget>
                                     </item>
                                     <item row="5" column="1">
-                                     <widget class="QComboBox" name="comboBox_4">
+                                     <widget class="QComboBox" name="Battle_trainingCombobox">
                                       <property name="currentIndex">
-                                       <number>1</number>
+                                       <number>0</number>
                                       </property>
                                       <item>
                                        <property name="text">
-                                        <string>0</string>
+                                        <string>Off (0)</string>
                                        </property>
                                       </item>
                                       <item>
                                        <property name="text">
-                                        <string>1</string>
+                                        <string>Spawn Tails doll (1)</string>
                                        </property>
                                       </item>
                                       <item>
                                        <property name="text">
-                                        <string>2</string>
+                                        <string>??? (2)</string>
                                        </property>
                                       </item>
                                      </widget>
@@ -3756,6 +3820,12 @@ p, li { white-space: pre-wrap; }
                                  </item>
                                  <item row="2" column="1">
                                   <widget class="QSpinBox" name="Battle_coyotetimeInput">
+                                   <property name="toolTip">
+                                    <string>Time between walking off ledges and gravity kicking in</string>
+                                   </property>
+                                   <property name="suffix">
+                                    <string> frames</string>
+                                   </property>
                                    <property name="minimum">
                                     <number>1</number>
                                    </property>
@@ -3763,6 +3833,9 @@ p, li { white-space: pre-wrap; }
                                  </item>
                                  <item row="1" column="1">
                                   <widget class="QLabel" name="label_36">
+                                   <property name="toolTip">
+                                    <string>Time between walking off ledges and gravity kicking in</string>
+                                   </property>
                                    <property name="text">
                                     <string>Coyote Time</string>
                                    </property>
@@ -3790,6 +3863,17 @@ p, li { white-space: pre-wrap; }
                           </item>
                          </layout>
                         </widget>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="ExportServerScriptButton">
+                        <property name="text">
+                         <string>Save server launch script...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                        </property>
                        </widget>
                       </item>
                      </layout>
@@ -4698,8 +4782,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>85</width>
-                <height>66</height>
+                <width>87</width>
+                <height>87</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -4727,29 +4811,29 @@ p, li { white-space: pre-wrap; }
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquidlauncher.svg&quot; /&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;the other launcher for Sonic Robo Blast 2&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;built by Liquid&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.gg/HVTzVfAWG6/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00ffff;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Contributors&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;PixL&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;This Project is based on the following technologies:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Feedparser&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by Kurt McKee and Mark Pilgrim&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by HitCoder&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;LXML&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(libxml binding for Python)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;PyInstaller&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (distribution)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;PySide6&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by the Qt Project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Qt 6&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by the Qt project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquidlauncher.svg&quot; /&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;&quot;&gt;the other launcher for Sonic Robo Blast 2&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;built by Liquid&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.gg/HVTzVfAWG6/&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Contributors&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;PixL&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:14pt; font-weight:600;&quot;&gt;This Project is based on the following technologies:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Feedparser&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by Kurt McKee and Mark Pilgrim&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by HitCoder&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;LXML&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt;(libxml binding for Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;PyInstaller&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; (distribution)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;PySide6&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by the Qt Project&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Qt 6&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by the Qt project&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4757,11 +4841,11 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
 &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
@@ -4772,10 +4856,10 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4828,8 +4912,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1030</width>
-                <height>555</height>
+                <width>447</width>
+                <height>462</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -4913,14 +4997,14 @@ p, li { white-space: pre-wrap; }
                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;The hosting of some unofficial mods on the official Master Server [&lt;/span&gt;&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;The hosting of some unofficial mods on the official Master Server [&lt;/span&gt;&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                     </widget>
                    </item>
