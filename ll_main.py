@@ -59,10 +59,9 @@ class MainWindow(QMainWindow):
                                     "gamebanana": False
                                     },
                                 "rss": [
+                                    "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
-                                    "https://sonicstadium.org/feed",
-                                    "https://nitter.net/SonicTeamJr/rss",
-                                    "https://nitter.net/SRB2Workshop/rss",
+                                    "https://www.sonicstadium.org/feed",
                                     ]
                                 }
         self.current_profile_settings = None
@@ -248,9 +247,6 @@ class MainWindow(QMainWindow):
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
 
         # ====== Launch section =======
-        # load news feed from srb2.org =============================================== #
-        self.load_news()
-
         # Load MSes to be used
         self.load_ms_list()
         
@@ -310,7 +306,7 @@ class MainWindow(QMainWindow):
         menu.addAction("Save current parameters to script", self.export_script)
         menu.exec()
 
-    def load_news(self, feed="https://www.srb2.org/feed/"):
+    def load_news(self, feed="https://liquidunderground.github.io/feed.rss"):
         # ok lets uh, get the news feed or something?
         print("load_news({})".format(feed))
 
