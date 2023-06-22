@@ -115,7 +115,11 @@ Here's a quick breakdown of our tools:
 ### Python
 
 LiquidLauncher is written in Python. In order to start developing
-LiquidLauncher, we recommend [setting up a virtual environment][PyVEnv].
+LiquidLauncher, we recommend using our make recipe:
+
+    user$ make init
+
+Alternatively, you can also manually [set up a virtual environment][PyVEnv].
 
 [PyVEnv]: <https://docs.python.org/3/library/venv.html>
 
@@ -135,8 +139,13 @@ In order to run your development builds, use Python 3:
 The graphical interface is done using Qt Designer. To generate a compiled
 Python BLOB, simply run the respective Qt compilers:
 
-    user$ pyside\*-uic ll.ui -o ll_ui.py
-    user$ pyside\*-rcc ll.qrc -o ll_rc.py
+    user$ pyside6-uic ll.ui -o ll_ui.py
+    user$ pyside6-rcc ll.qrc -o ll_rc.py
+
+Alternatively, we've also supplied Make recipies to do this:
+
+    user$ make ll_ui.py
+    user$ make ll_rc.py
 
 Due to Qt requirements, resource images are to be included in PNG format.
 For editing, please use SVG if you can (this will future-proof the graphics).  
@@ -146,12 +155,16 @@ Icons are rendered/exported with a standard height of 64px.
 initial page for the RSS browser.
 
 
-### Installation builds
+### Distributable builds
 
-Executable builds are done using [PyInstaller] and we prefer one-file
+Distributable builds are done using [PyInstaller] and we prefer one-file
 builds for easy distribution. Here's the command to do it.
 
    user$ pyinstaller ll_main.py --icon=img/icons/ll.ico --onefile --windowed
+
+We also defined a `make` recipe for your convenience:
+
+   user$ make dist
 
 
 
@@ -161,7 +174,7 @@ What are all those files?
 On first launch, LiquidLauncher will create a few config files to help. These
 are largely in TOML format and should be fairly easy to exchange and edit.
 
-`default_profile.toml`
+`ll_profiles/default.toml`
 : A default game profile. You can create additonal profiles under `Game -> Profiles`
 
 `settings.toml`
