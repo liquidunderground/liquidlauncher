@@ -327,7 +327,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>2</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -1141,7 +1141,7 @@ font-size: 12pt;</string>
                             <string>Add file...</string>
                            </property>
                            <property name="currentIndex">
-                            <number>0</number>
+                            <number>1</number>
                            </property>
                            <widget class="QWidget" name="AddonsLoaderTab">
                             <attribute name="title">
@@ -1402,6 +1402,33 @@ font-size: 12pt;</string>
                                  <property name="bottomMargin">
                                   <number>0</number>
                                  </property>
+                                 <item row="0" column="3">
+                                  <widget class="QPushButton" name="RefreshModsButton">
+                                   <property name="toolTip">
+                                    <string>Refresh Mods</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="1">
+                                  <spacer name="horizontalSpacer_5">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
                                  <item row="0" column="2">
                                   <widget class="QComboBox" name="ModTypeCombo">
                                    <item>
@@ -1431,7 +1458,7 @@ font-size: 12pt;</string>
                                    </item>
                                   </widget>
                                  </item>
-                                 <item row="1" column="0" colspan="4">
+                                 <item row="2" column="0" colspan="4">
                                   <widget class="QListWidget" name="ModsList">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1454,32 +1481,20 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="0" column="3">
-                                  <widget class="QPushButton" name="RefreshModsButton">
-                                   <property name="toolTip">
-                                    <string>Refresh Mods</string>
+                                 <item row="3" column="0" colspan="4">
+                                  <widget class="QLabel" name="label_19">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>(You can enable more sources under the launcher's settings)</string>
                                    </property>
-                                   <property name="icon">
-                                    <iconset resource="ll.qrc">
-                                     <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
+                                   <property name="alignment">
+                                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                                    </property>
                                   </widget>
-                                 </item>
-                                 <item row="0" column="1">
-                                  <spacer name="horizontalSpacer_5">
-                                   <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                   </property>
-                                   <property name="sizeHint" stdset="0">
-                                    <size>
-                                     <width>40</width>
-                                     <height>20</height>
-                                    </size>
-                                   </property>
-                                  </spacer>
                                  </item>
                                 </layout>
                                </widget>

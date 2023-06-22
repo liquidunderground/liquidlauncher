@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'll.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.3
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -658,6 +658,16 @@ class Ui_MainWindow(object):
         self.gridLayout_17 = QGridLayout(self.groupBox)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.gridLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.RefreshModsButton = QPushButton(self.groupBox)
+        self.RefreshModsButton.setObjectName(u"RefreshModsButton")
+        self.RefreshModsButton.setIcon(icon)
+
+        self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 3, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
+
         self.ModTypeCombo = QComboBox(self.groupBox)
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
@@ -673,7 +683,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
         self.ModsList.setSizePolicy(sizePolicy3)
 
-        self.gridLayout_17.addWidget(self.ModsList, 1, 0, 1, 4)
+        self.gridLayout_17.addWidget(self.ModsList, 2, 0, 1, 4)
 
         self.ModBrowserLabel = QLabel(self.groupBox)
         self.ModBrowserLabel.setObjectName(u"ModBrowserLabel")
@@ -685,15 +695,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.ModBrowserLabel, 0, 0, 1, 1)
 
-        self.RefreshModsButton = QPushButton(self.groupBox)
-        self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        self.RefreshModsButton.setIcon(icon)
+        self.label_19 = QLabel(self.groupBox)
+        self.label_19.setObjectName(u"label_19")
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.label_19.setFont(font2)
+        self.label_19.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 3, 1, 1)
-
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
+        self.gridLayout_17.addWidget(self.label_19, 3, 0, 1, 4)
 
         self.splitter_2.addWidget(self.groupBox)
         self.groupBox_2 = QGroupBox(self.splitter_2)
@@ -849,8 +858,6 @@ class Ui_MainWindow(object):
 
         self.label_51 = QLabel(self.groupBox_11)
         self.label_51.setObjectName(u"label_51")
-        font2 = QFont()
-        font2.setPointSize(8)
         self.label_51.setFont(font2)
         self.label_51.setAlignment(Qt.AlignCenter)
 
@@ -2794,10 +2801,10 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(2)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
-        self.GameSettingsTabWidget.setCurrentIndex(0)
+        self.GameSettingsTabWidget.setCurrentIndex(1)
         self.HostGameTabwidget.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
         self.Survival_revengeCombobox.setCurrentIndex(0)
@@ -2984,6 +2991,10 @@ class Ui_MainWindow(object):
         self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"Launch Script", None))
         self.GameFilesLoadButton.setText(QCoreApplication.translate("MainWindow", u"Load list...", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.AddonsLoaderTab), QCoreApplication.translate("MainWindow", u"Launch Mods", None))
+#if QT_CONFIG(tooltip)
+        self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
+#endif // QT_CONFIG(tooltip)
+        self.RefreshModsButton.setText("")
         self.ModTypeCombo.setItemText(0, QCoreApplication.translate("MainWindow", u"Maps", None))
         self.ModTypeCombo.setItemText(1, QCoreApplication.translate("MainWindow", u"Characters", None))
         self.ModTypeCombo.setItemText(2, QCoreApplication.translate("MainWindow", u"Lua", None))
@@ -2991,10 +3002,7 @@ class Ui_MainWindow(object):
         self.ModTypeCombo.setItemText(4, QCoreApplication.translate("MainWindow", u"Misc", None))
 
         self.ModBrowserLabel.setText(QCoreApplication.translate("MainWindow", u"Mods", None))
-#if QT_CONFIG(tooltip)
-        self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
-#endif // QT_CONFIG(tooltip)
-        self.RefreshModsButton.setText("")
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"(You can enable more sources under the launcher's settings)", None))
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
