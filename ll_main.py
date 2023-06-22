@@ -19,7 +19,6 @@ from PySide6.QtCore import Signal
 import char_text
 from ll_threading import QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
-from qss import themes
 
 fool = date.today() == date(date.today().year, 4, 1)
 
