@@ -237,10 +237,10 @@ class MainWindow(QMainWindow):
         self.ui.RSSRemoveButton.clicked.connect( self.remove_rss_from_list )
 
         # Host settings Checkboxes ======================================================== #
-        self.ui.CoopSettingsCheckbox.clicked.connect(self.on_apply_checkbox)
-        self.ui.RingslingerSettingsCheckbox.clicked.connect(self.on_apply_checkbox)
-        self.ui.CircuitraceSettingsCheckbox.clicked.connect(self.on_apply_checkbox)
-        self.ui.BattlemodSettingsCheckbox.clicked.connect(self.on_apply_checkbox)
+        self.ui.CoopSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
+        self.ui.RingslingerSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
+        self.ui.CircuitraceSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
+        self.ui.BattlemodSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
@@ -1276,33 +1276,28 @@ class MainWindow(QMainWindow):
             profile_settings_dict (dict): A dictionary created from a
             profile TOML file
         """
-        # now set all elements to their saved values
-        self.ui.PlayerNameInput.setText(profile_settings_dict["player"]["name"])
-        self.ui.PlayerSkinInput.setCurrentText(profile_settings_dict["player"]["skin"])
-        self.ui.PlayerColorInput.setCurrentText(profile_settings_dict["player"]["color"])
-        self.ui.GameHorizontalResolutionInput.setText(profile_settings_dict["game"]["resolution"]["width"])
-        self.ui.GameVerticalResolutionInput.setText(profile_settings_dict["game"]["resolution"]["height"])
-        self.ui.GameRendererSetting.setCurrentIndex(profile_settings_dict["game"]["renderer"])
-        self.ui.GameFullscreenSetting.setCurrentIndex(profile_settings_dict["game"]["windowmode"])
-        self.ui.GameMusicSetting.setCurrentIndex(profile_settings_dict["game"]["music"])
-        self.ui.GameSoundSetting.setCurrentIndex(profile_settings_dict["game"]["sound"])
-        self.ui.GameExecFilePathInput.setText(profile_settings_dict["game"]["exepath"])
-        self.ui.GameArgsInput.setText(profile_settings_dict["game"]["cliargs"])
-        self.ui.ServerNameInput.setText(profile_settings_dict["host"]["hostname"])
-        self.ui.AdminPasswordInput.setText(profile_settings_dict["host"]["password"])
-        self.ui.RoomInput.setCurrentIndex(profile_settings_dict["host"]["room"])
-        self.ui.GametypeInput.setCurrentIndex(profile_settings_dict["host"]["gametype"])
-        self.ui.AdvanceMapInput.setCurrentIndex(profile_settings_dict["host"]["advancemap"])
-        self.ui.PointLimitInput.setValue(profile_settings_dict["host"]["pointlimit"])
-        self.ui.TimeLimitInput.setValue(profile_settings_dict["host"]["timelimit"])
-        self.ui.MaxPlayersInput.setValue(profile_settings_dict["host"]["maxplayers"])
-        self.ui.ForceSkinInput.setCurrentText(profile_settings_dict["host"]["forceskin"])
-        self.ui.DisableWeaponsToggle.setChecked(profile_settings_dict["host"]["disableweaponrings"])
-        self.ui.SuddenDeathToggle.setChecked(profile_settings_dict["host"]["suddendeath"])
-        self.ui.DedicatedServerToggle.setChecked(profile_settings_dict["host"]["dedicated"])
-        self.ui.BandwidthInput.setValue(profile_settings_dict["host"]["bandwidth"])
-        self.ui.ExtraticInput.setValue(profile_settings_dict["host"]["extratic"])
-        self.ui.HostMSCombobox.setCurrentText(profile_settings_dict["host"]["masterserver"])
+        # Load modsources from global_settings
+        self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
+        self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
+        self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
+        self.ui.ModsourceSkybaseCheckbox.setChecked( self.global_settings["modsources"]["skybase"])
+        self.ui.ModsourceWadarchiveCheckbox.setChecked( self.global_settings["modsources"]["wadarchive"])
+        self.ui.ModsourceGamebananaCheckbox.setChecked( self.global_settings["modsources"]["gamebanana"])
+
+
+        # ===== Apply profile settings ===== #
+        # Headless & client settings
+        self.ui.PlayerNameInput.setText( profile_settings_dict["player"]["name"] )
+        self.ui.PlayerSkinInput.setCurrentText( profile_settings_dict["player"]["skin"] )
+        self.ui.PlayerColorInput.setCurrentText( profile_settings_dict["player"]["color"] )
+        self.ui.GameHorizontalResolutionInput.setText( profile_settings_dict["game"]["resolution"]["width"] )
+        self.ui.GameVerticalResolutionInput.setText( profile_settings_dict["game"]["resolution"]["height"] )
+        self.ui.GameRendererSetting.setCurrentIndex( profile_settings_dict["game"]["renderer"] )
+        self.ui.GameFullscreenSetting.setCurrentIndex( profile_settings_dict["game"]["windowmode"] )
+        self.ui.GameMusicSetting.setCurrentIndex( profile_settings_dict["game"]["music"] )
+        self.ui.GameSoundSetting.setCurrentIndex( profile_settings_dict["game"]["sound"] )
+        self.ui.GameExecFilePathInput.setText( profile_settings_dict["game"]["exepath"] )
+        self.ui.GameArgsInput.setText( profile_settings_dict["game"]["cliargs"] )
         try:
             if profile_settings_dict["settings"]["binmode"] == "wine":
                 self.ui.NativeRadiobutton.setChecked(False)
@@ -1322,6 +1317,7 @@ class MainWindow(QMainWindow):
             self.ui.WineRadiobutton.setChecked(False)
             self.ui.FlatpakRadiobutton.setChecked(False)
 
+        # Modding section & Files
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
 
         self.ui.GameFilesList.clear()
@@ -1329,21 +1325,112 @@ class MainWindow(QMainWindow):
             for f in profile_settings_dict["files"]:
                 self.add_file(f)
 
-        print("read_modsources")
-        # Reset modsources
-        #self.ui.ModsourceMBCheckbox.checked = False
-        #self.ui.ModsourceWSBlueCheckbox.checked = False
-        #self.ui.ModsourceWSRedCheckbox.checked = False
-        # Load modsources from global_settings
-        self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
-        self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
-        self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
-        self.ui.ModsourceSkybaseCheckbox.setChecked( self.global_settings["modsources"]["skybase"])
-        self.ui.ModsourceWadarchiveCheckbox.setChecked( self.global_settings["modsources"]["wadarchive"])
-        self.ui.ModsourceGamebananaCheckbox.setChecked( self.global_settings["modsources"]["gamebanana"])
+        # General Tab
+        self.ui.ServerNameInput.setText( profile_settings_dict["host"]["hostname"] )
+        self.ui.AdminPasswordInput.setText( profile_settings_dict["host"]["password"] )
+        self.ui.RoomInput.setCurrentIndex( profile_settings_dict["host"]["room"] )
+        self.ui.HostMSCombobox.setCurrentText( profile_settings_dict["host"]["masterserver"] )
+        self.ui.DedicatedServerToggle.setChecked( profile_settings_dict["host"]["dedicated"] )
+        ## Networking section
+        self.ui.PortInput.setValue( profile_settings_dict["host"]["port"] )
+        self.ui.Ipv6Checkbox.setChecked( profile_settings_dict["host"]["ipv6"] )
+        self.ui.BandwidthInput.setValue( profile_settings_dict["host"]["bandwidth"] )
+        self.ui.ExtraticInput.setValue( profile_settings_dict["host"]["extratic"] )
+        self.ui.UpnpCheckbox.setChecked( profile_settings_dict["host"]["upnp"] )
+        self.ui.UploadToggle.setChecked( profile_settings_dict["host"]["downloading"] )
+        self.ui.DownloadspeedInput.setValue( profile_settings_dict["host"]["downloadspeed"] )
+        self.ui.MaxsendInput.setValue( profile_settings_dict["host"]["maxsend"] )
+        self.ui.MaxpingInput.setValue( profile_settings_dict["host"]["maxping"] )
+        self.ui.ResynchattemptsInput.setValue( profile_settings_dict["host"]["resynchattempts"] )
+        # Game Tab
+        self.ui.GametypeInput.setCurrentIndex( profile_settings_dict["host"]["gametype"] )
+        self.ui.AdvanceMapInput.setCurrentIndex( profile_settings_dict["host"]["advancemap"] )
+        self.ui.PointLimitInput.setValue( profile_settings_dict["host"]["pointlimit"] )
+        self.ui.AllowexitlevelCheckbox.setChecked( profile_settings_dict["host"]["allowexitlevel"] )
+        self.ui.ExitmoveCheckbox.setChecked( profile_settings_dict["host"]["exitmove"] )
+        self.ui.MaxPlayersInput.setValue( profile_settings_dict["host"]["maxplayers"] )
+        self.ui.JoinnextroundCheckbox.setChecked( profile_settings_dict["host"]["joinnextround"] )
+        self.ui.ForceSkinInput.setCurrentText( profile_settings_dict["host"]["forceskin"] )
+        self.ui.RestrictskinchangesCheckbox.setChecked( profile_settings_dict["host"]["restrictskinchanges"] )
+        self.ui.TailspickupCheckbox.setChecked( profile_settings_dict["host"]["tailspickup"] )
+        self.ui.RespawnitemtimeInput.setValue( profile_settings_dict["host"]["respawnitemtime"] )
+        self.ui.RespawnitemCheckbox.setChecked( profile_settings_dict["host"]["respawnitem"] )
+        self.ui.Tv_1upInput.setValue( profile_settings_dict["host"]["tv_1up"] )
+        self.ui.Tv_invincibilityInput.setValue( profile_settings_dict["host"]["tv_invincibility"] )
+        self.ui.Tv_supersneakersInput.setValue( profile_settings_dict["host"]["tv_supersneakers"] )
+        self.ui.Tv_bombshieldInput.setValue( profile_settings_dict["host"]["tv_bombshield"] )
+        self.ui.Tv_forceshieldInput.setValue( profile_settings_dict["host"]["tv_forceshield"] )
+        self.ui.Tv_jumpshieldInput.setValue( profile_settings_dict["host"]["tv_jumpshield"] )
+        self.ui.Tv_ringshieldInput.setValue( profile_settings_dict["host"]["tv_ringshield"] )
+        self.ui.Tv_watershieldInput.setValue( profile_settings_dict["host"]["tv_watershield"] )
+        self.ui.Tv_eggmanInput.setValue( profile_settings_dict["host"]["tv_eggman"] )
+        self.ui.Tv_superringInput.setValue( profile_settings_dict["host"]["tv_superring"] )
+        self.ui.Tv_teleporterInput.setValue( profile_settings_dict["host"]["tv_teleporter"] )
+        self.ui.Tv_recyclerInput.setValue( profile_settings_dict["host"]["tv_recycler"] )
+        self.ui.SoniccdCheckbox.setChecked( profile_settings_dict["host"]["soniccd"] )
+        self.ui.KillingdeadCheckbox.setChecked( profile_settings_dict["host"]["killingdead"] )
+        # Co-op Tab
+        self.ui.CoopSettingsCheckbox.setChecked( profile_settings_dict["host"]["applycoop"] )
+        self.ui.StartinglivesInput.setValue( profile_settings_dict["host"]["startinglives"] )
+        self.ui.PlayersforexitCombobox.setCurrentIndex( profile_settings_dict["host"]["playersforexit"] )
+        self.ui.CompetitionboxesCombobox.setCurrentIndex( profile_settings_dict["host"]["competitionboxes"] )
+        # Ringslinger Tab
+        self.ui.RingslingerSettingsCheckbox.setChecked( profile_settings_dict["host"]["applyringslinger"] )
+        self.ui.PointLimitInput.setValue( profile_settings_dict["host"]["pointlimit"] )
+        self.ui.MatchscoringCombobox.setCurrentIndex( profile_settings_dict["host"]["matchscoring"] )
+        self.ui.TimeLimitInput.setValue( profile_settings_dict["host"]["timelimit"] )
+        self.ui.OvertimeCheckbox.setChecked( profile_settings_dict["host"]["overtime"] )
+        self.ui.RespawndelayInput.setValue( profile_settings_dict["host"]["respawndelay"] )
+        self.ui.SuddenDeathToggle.setChecked( profile_settings_dict["host"]["suddendeath"] )
+        self.ui.DisableWeaponsToggle.setChecked( profile_settings_dict["host"]["disableweaponrings"] )
+        self.ui.PowerstonesCheckbox.setChecked( profile_settings_dict["host"]["powerstones"] )
+        self.ui.MatchboxesCombobox.setCurrentIndex( profile_settings_dict["host"]["matchboxes"] )
+        self.ui.MatchboxesCombobox.setCurrentIndex( profile_settings_dict["host"]["scrambleteams"] )
+        self.ui.AutobalanceCheckbox.setCurrentIndex( profile_settings_dict["host"]["autobalance"] )
+        self.ui.FlagtimeInput.setValue( profile_settings_dict["host"]["flagtime"] )
+        self.ui.FriendlyfireCheckbox.setChecked( profile_settings_dict["host"]["friendlyfire"] )
+        self.ui.TouchtagCheckbox.setChecked( profile_settings_dict["host"]["touchtag"] )
+        self.ui.HidetimeInput.setValue( profile_settings_dict["host"]["hidetime"] )
+        # Circuit Race Tab
+        self.ui.CircuitraceSettingsCheckbox.setChecked( profile_settings_dict["host"]["applycircuitrace"] )
+        self.ui.NumlapsInput.setValue( profile_settings_dict["host"]["numlaps"] )
+        self.ui.UsemaplapsCheckbox.setChecked( profile_settings_dict["host"]["usemaplaps"] )
+        self.ui.CountdowntimeInput.setValue( profile_settings_dict["host"]["countdowntime"] )
+        # Battlemod Tab
+        self.ui.BattlemodSettingsCheckbox.setChecked( profile_settings_dict["host"]["applybattlemod"] )
+        self.ui.Battle_coyotetimeInput.setValue( profile_settings_dict["host"]["battle_coyotetime"] )
+        self.ui.Battle_coyotefactorInput.setValue( profile_settings_dict["host"]["battle_coyotefactor"] )
+        self.ui.BattlemodSettingsCheckbox.setChecked( profile_settings_dict["host"]["battle_recoveryjump"] )
+        ## Battle mode settings
+        self.ui.Survival_livesInput.setValue( profile_settings_dict["host"]["survival_lives"] )
+        self.ui.Survival_revengeCombobox.setCurrentIndex( profile_settings_dict["host"]["survival_revenge"] )
+        self.ui.Survival_suddendeathCheckbox.setChecked( profile_settings_dict["host"]["survival_suddendeath"] )
+        ## Battle/Survival settings
+        self.ui.Battle_collisionsCheckbox.setChecked( profile_settings_dict["host"]["battle_collisions"] )
+        self.ui.Battle_slipstreamsheckbox.setChecked( profile_settings_dict["host"]["battle_slipstream"] )
+        self.ui.Battle_specialCheckbox.setChecked( profile_settings_dict["host"]["battle_special"] )
+        self.ui.Battle_shieldstocksCheckbox.setChecked( profile_settings_dict["host"]["battle_shieldstocks"] )
+        self.ui.Battle_preroundCheckbox.setChecked( profile_settings_dict["host"]["battle_preround"] )
+        ## CP Ring spawns
+        self.ui.Cp_spawninfinityInput.setChecked( profile_settings_dict["host"]["cp_spawninfinity"] )
+        self.ui.Cp_spawnautoInput.setChecked( profile_settings_dict["host"]["cp_spawnauto"] )
+        self.ui.Cp_spawnbounceInput.setChecked( profile_settings_dict["host"]["cp_spawnbounce"] )
+        self.ui.Cp_spawnbombInput.setChecked( profile_settings_dict["host"]["cp_spawnbomb"] )
+        self.ui.Cp_spawngrenadeInput.setChecked( profile_settings_dict["host"]["cp_spawngrenade"] )
+        self.ui.Cp_spawnrailInput.setChecked( profile_settings_dict["host"]["cp_spawnrail"] )
+        self.ui.Cp_spawnscatterInput.setChecked( profile_settings_dict["host"]["cp_spawnscatter"] )
+        ## Battle CTF
+        self.ui.Ctf_flagdrop_graceperiodInput.setValue( profile_settings_dict["host"]["ctf_flagdrop_graceperiod"] )
+        self.ui.Ctf_flagrespawn_graceperiodInput.setValue( profile_settings_dict["host"]["ctf_flagrespawn_graceperiod"] )
+        ## Battle Diamond hunt
+        self.ui.Diamond_capture_timeInput.setValue( profile_settings_dict["host"]["diamond_capture_time"] )
+        self.ui.Diamond_capture_bonusInput.setValue( profile_settings_dict["host"]["diamond_capture_bonus"] )
+        ## Battle Misc
+        self.ui.Battle_addoptionsInput.setText( profile_settings_dict["host"]["battle_addoptions"] )
 
         self.change_skin_image()
         self.ui.ProfilesStatusLabel.setText("Profile successfully loaded.")
+
     
     def update_binmode_in_ui(self):
         if self.ui.WineRadiobutton.isChecked():
