@@ -327,7 +327,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>2</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -444,6 +444,9 @@
                             <property name="currentIndex">
                              <number>0</number>
                             </property>
+                            <property name="placeholderText">
+                             <string>Sonic</string>
+                            </property>
                             <item>
                              <property name="text">
                               <string/>
@@ -498,6 +501,9 @@
                             </property>
                             <property name="currentIndex">
                              <number>0</number>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Blue</string>
                             </property>
                             <item>
                              <property name="text">
@@ -1141,7 +1147,7 @@ font-size: 12pt;</string>
                             <string>Add file...</string>
                            </property>
                            <property name="currentIndex">
-                            <number>1</number>
+                            <number>0</number>
                            </property>
                            <widget class="QWidget" name="AddonsLoaderTab">
                             <attribute name="title">
@@ -3293,7 +3299,7 @@ p, li { white-space: pre-wrap; }
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-743</y>
+                               <y>-56</y>
                                <width>787</width>
                                <height>1112</height>
                               </rect>
@@ -3650,7 +3656,7 @@ p, li { white-space: pre-wrap; }
                                     <string>Jump factor for walking off ledges</string>
                                    </property>
                                    <property name="text">
-                                    <string>Coyote factor</string>
+                                    <string>Coyote factor (Fight Club only)</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3852,7 +3858,7 @@ p, li { white-space: pre-wrap; }
                                     <string>Time between walking off ledges and gravity kicking in</string>
                                    </property>
                                    <property name="text">
-                                    <string>Coyote Time</string>
+                                    <string>Coyote Time (Fight Club only)</string>
                                    </property>
                                   </widget>
                                  </item>
