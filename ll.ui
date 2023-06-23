@@ -3299,9 +3299,9 @@ p, li { white-space: pre-wrap; }
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-56</y>
+                               <y>0</y>
                                <width>787</width>
-                               <height>1112</height>
+                               <height>1102</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -3339,21 +3339,427 @@ p, li { white-space: pre-wrap; }
                                  <string>Battlemod settings</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_22">
-                                 <item row="16" column="0">
+                                 <item row="19" column="0">
                                   <widget class="QLabel" name="label_42">
                                    <property name="text">
                                     <string>Additional options</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="17" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="Battle_addoptionsInput">
-                                   <property name="placeholderText">
-                                    <string>+battledebug +devcam</string>
+                                 <item row="5" column="1">
+                                  <widget class="QCheckBox" name="Battle_recoveryjumpInput">
+                                   <property name="text">
+                                    <string>Enable recovery jumps</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="7" column="0" colspan="2">
+                                 <item row="9" column="0">
+                                  <widget class="QGroupBox" name="groupBox_26">
+                                   <property name="title">
+                                    <string>Battle</string>
+                                   </property>
+                                   <layout class="QGridLayout" name="gridLayout_54">
+                                    <item row="4" column="0">
+                                     <widget class="QLabel" name="label_53">
+                                      <property name="text">
+                                       <string>Launch factor</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="4" column="1">
+                                     <widget class="QLabel" name="label_50">
+                                      <property name="text">
+                                       <string>Training mode</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="10" column="0">
+                                     <widget class="QCheckBox" name="Battle_preroundCheckbox">
+                                      <property name="text">
+                                       <string>Pre-rounds</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="8" column="0">
+                                     <widget class="QCheckBox" name="Battle_collisionsCheckbox">
+                                      <property name="text">
+                                       <string>Collisions</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="9" column="1">
+                                     <widget class="QCheckBox" name="Battle_shieldstocksCheckbox">
+                                      <property name="text">
+                                       <string>Shield stocks</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="1" column="0">
+                                     <widget class="QSpinBox" name="Battle_collisiontimerInput">
+                                      <property name="suffix">
+                                       <string> seconds</string>
+                                      </property>
+                                      <property name="minimum">
+                                       <number>1</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>105</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>7</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="9" column="0">
+                                     <widget class="QCheckBox" name="Battle_specialCheckbox">
+                                      <property name="text">
+                                       <string>Special</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="5" column="0">
+                                     <widget class="QSpinBox" name="Battle_launchfactorInput">
+                                      <property name="minimum">
+                                       <number>1</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>20</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>7</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="5" column="1">
+                                     <widget class="QComboBox" name="Battle_trainingCombobox">
+                                      <property name="currentIndex">
+                                       <number>0</number>
+                                      </property>
+                                      <item>
+                                       <property name="text">
+                                        <string>Off (0)</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>Spawn Tails doll (1)</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>??? (2)</string>
+                                       </property>
+                                      </item>
+                                     </widget>
+                                    </item>
+                                    <item row="8" column="1">
+                                     <widget class="QCheckBox" name="Battle_slipstreamsheckbox">
+                                      <property name="text">
+                                       <string>Slip streams</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="0" column="0">
+                                     <widget class="QLabel" name="label_52">
+                                      <property name="text">
+                                       <string>Collision timer</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="0" column="1">
+                                     <widget class="QLabel" name="label_54">
+                                      <property name="text">
+                                       <string>Max. respawn time</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="1" column="1">
+                                     <widget class="QSpinBox" name="Battle_maxrespawntimeInput">
+                                      <property name="minimum">
+                                       <number>3</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>30</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>5</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item row="9" column="1">
+                                  <widget class="QGroupBox" name="groupBox_25">
+                                   <property name="title">
+                                    <string>Arena/Survival</string>
+                                   </property>
+                                   <layout class="QGridLayout" name="gridLayout_52">
+                                    <item row="2" column="0">
+                                     <widget class="QLabel" name="label_45">
+                                      <property name="text">
+                                       <string>Revenge mode</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="0" column="0">
+                                     <widget class="QLabel" name="label_44">
+                                      <property name="text">
+                                       <string>Lives</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="1" column="0">
+                                     <widget class="QSpinBox" name="Survival_livesInput">
+                                      <property name="minimum">
+                                       <number>1</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>3</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="3" column="0">
+                                     <widget class="QComboBox" name="Survival_revengeCombobox">
+                                      <property name="currentIndex">
+                                       <number>0</number>
+                                      </property>
+                                      <item>
+                                       <property name="text">
+                                        <string>No revenge (0)</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>Revenge without respawn (1)</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>Revenge with respawn (2)</string>
+                                       </property>
+                                      </item>
+                                     </widget>
+                                    </item>
+                                    <item row="1" column="1">
+                                     <widget class="QSpinBox" name="Battle_startringsInput">
+                                      <property name="toolTip">
+                                       <string>battle_startrings</string>
+                                      </property>
+                                      <property name="minimum">
+                                       <number>1</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <number>999</number>
+                                      </property>
+                                      <property name="value">
+                                       <number>50</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="0" column="1">
+                                     <widget class="QLabel" name="label_56">
+                                      <property name="toolTip">
+                                       <string>battle_startrings</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>Starting rings</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="3" column="1">
+                                     <widget class="QCheckBox" name="Survival_suddendeathCheckbox">
+                                      <property name="text">
+                                       <string>Sudden death</string>
+                                      </property>
+                                      <property name="checked">
+                                       <bool>true</bool>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="4" column="0">
+                                     <spacer name="verticalSpacer_11">
+                                      <property name="orientation">
+                                       <enum>Qt::Vertical</enum>
+                                      </property>
+                                      <property name="sizeHint" stdset="0">
+                                       <size>
+                                        <width>20</width>
+                                        <height>40</height>
+                                       </size>
+                                      </property>
+                                     </spacer>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item row="4" column="1">
+                                  <widget class="QSpinBox" name="Battle_coyotefactorInput">
+                                   <property name="toolTip">
+                                    <string>Jump factor for walking off ledges</string>
+                                   </property>
+                                   <property name="maximum">
+                                    <number>15</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>15</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="0" rowspan="5">
+                                  <widget class="QGroupBox" name="groupBox_16">
+                                   <property name="title">
+                                    <string>Item settings</string>
+                                   </property>
+                                   <layout class="QGridLayout" name="gridLayout_35">
+                                    <item row="3" column="0">
+                                     <widget class="QComboBox" name="Item_rateCombobox">
+                                      <property name="currentIndex">
+                                       <number>1</number>
+                                      </property>
+                                      <item>
+                                       <property name="text">
+                                        <string>1</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>2</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>3</string>
+                                       </property>
+                                      </item>
+                                     </widget>
+                                    </item>
+                                    <item row="2" column="0">
+                                     <widget class="QLabel" name="label_21">
+                                      <property name="text">
+                                       <string>Item rate</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="2" column="1">
+                                     <widget class="QLabel" name="label_22">
+                                      <property name="text">
+                                       <string>Item type</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="3" column="1">
+                                     <widget class="QComboBox" name="Item_typeCombobox">
+                                      <item>
+                                       <property name="text">
+                                        <string>-1 No items</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>0</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>1</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>2</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>3</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>4</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>5</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>6</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>7</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>8</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>9</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>10</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>11</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>12</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>13</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>14</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>15</string>
+                                       </property>
+                                      </item>
+                                      <item>
+                                       <property name="text">
+                                        <string>16</string>
+                                       </property>
+                                      </item>
+                                     </widget>
+                                    </item>
+                                    <item row="4" column="1">
+                                     <widget class="QCheckBox" name="Item_localCheckbox">
+                                      <property name="text">
+                                       <string>Local items</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="4" column="0">
+                                     <widget class="QCheckBox" name="Item_globalCheckbox">
+                                      <property name="text">
+                                       <string>Global items</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item row="10" column="0" colspan="2">
                                   <widget class="QGroupBox" name="groupBox_27">
                                    <property name="title">
                                     <string>Capture Point</string>
@@ -3513,72 +3919,83 @@ p, li { white-space: pre-wrap; }
                                    </layout>
                                   </widget>
                                  </item>
-                                 <item row="1" column="0" rowspan="5">
-                                  <widget class="QGroupBox" name="groupBox_25">
-                                   <property name="title">
-                                    <string>Arena/Survival</string>
+                                 <item row="2" column="1">
+                                  <widget class="QSpinBox" name="Battle_coyotetimeInput">
+                                   <property name="toolTip">
+                                    <string>Time between walking off ledges and gravity kicking in</string>
                                    </property>
-                                   <layout class="QGridLayout" name="gridLayout_52">
-                                    <item row="3" column="0">
-                                     <widget class="QComboBox" name="Survival_revengeCombobox">
-                                      <property name="currentIndex">
-                                       <number>0</number>
-                                      </property>
-                                      <item>
-                                       <property name="text">
-                                        <string>No revenge (0)</string>
-                                       </property>
-                                      </item>
-                                      <item>
-                                       <property name="text">
-                                        <string>Revenge without respawn (1)</string>
-                                       </property>
-                                      </item>
-                                      <item>
-                                       <property name="text">
-                                        <string>Revenge with respawn (2)</string>
-                                       </property>
-                                      </item>
-                                     </widget>
-                                    </item>
-                                    <item row="2" column="0">
-                                     <widget class="QLabel" name="label_45">
-                                      <property name="text">
-                                       <string>Revenge mode</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="1" column="0">
-                                     <widget class="QSpinBox" name="Survival_livesInput">
-                                      <property name="minimum">
-                                       <number>1</number>
+                                   <property name="suffix">
+                                    <string> frames</string>
+                                   </property>
+                                   <property name="minimum">
+                                    <number>1</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="14" column="0">
+                                  <widget class="QGroupBox" name="groupBox_29">
+                                   <property name="title">
+                                    <string>Battle CTF</string>
+                                   </property>
+                                   <layout class="QGridLayout" name="gridLayout_50">
+                                    <item row="2" column="2">
+                                     <widget class="QSpinBox" name="Ctf_flagrespawn_graceperiodInput">
+                                      <property name="maximum">
+                                       <number>15</number>
                                       </property>
                                       <property name="value">
+                                       <number>6</number>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item row="2" column="1">
+                                     <widget class="QSpinBox" name="Ctf_flagdrop_graceperiodInput">
+                                      <property name="maximum">
                                        <number>3</number>
                                       </property>
-                                     </widget>
-                                    </item>
-                                    <item row="0" column="0">
-                                     <widget class="QLabel" name="label_44">
-                                      <property name="text">
-                                       <string>Lives</string>
+                                      <property name="value">
+                                       <number>2</number>
                                       </property>
                                      </widget>
                                     </item>
-                                    <item row="4" column="0">
-                                     <widget class="QCheckBox" name="Survival_suddendeathCheckbox">
+                                    <item row="1" column="1">
+                                     <widget class="QLabel" name="label_38">
                                       <property name="text">
-                                       <string>Sudden death</string>
+                                       <string>Flag drop grace period</string>
                                       </property>
-                                      <property name="checked">
-                                       <bool>true</bool>
+                                     </widget>
+                                    </item>
+                                    <item row="1" column="2">
+                                     <widget class="QLabel" name="label_39">
+                                      <property name="text">
+                                       <string>Flag respawn grace period</string>
                                       </property>
                                      </widget>
                                     </item>
                                    </layout>
                                   </widget>
                                  </item>
-                                 <item row="11" column="1">
+                                 <item row="7" column="0" colspan="2">
+                                  <widget class="QLabel" name="label_20">
+                                   <property name="text">
+                                    <string>Gamemodes</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="1">
+                                  <widget class="QLabel" name="label_36">
+                                   <property name="toolTip">
+                                    <string>Time between walking off ledges and gravity kicking in</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Coyote Time (Fight Club only)</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="14" column="1">
                                   <widget class="QGroupBox" name="groupBox_30">
                                    <property name="title">
                                     <string>Diamond Hunt</string>
@@ -3630,23 +4047,10 @@ p, li { white-space: pre-wrap; }
                                    </layout>
                                   </widget>
                                  </item>
-                                 <item row="5" column="1">
-                                  <widget class="QCheckBox" name="Battle_recoveryjumpInput">
-                                   <property name="text">
-                                    <string>Enable recovery jumps</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="4" column="1">
-                                  <widget class="QSpinBox" name="Battle_coyotefactorInput">
-                                   <property name="toolTip">
-                                    <string>Jump factor for walking off ledges</string>
-                                   </property>
-                                   <property name="maximum">
-                                    <number>15</number>
-                                   </property>
-                                   <property name="value">
-                                    <number>15</number>
+                                 <item row="20" column="0" colspan="2">
+                                  <widget class="QLineEdit" name="Battle_addoptionsInput">
+                                   <property name="placeholderText">
+                                    <string>+battledebug +devcam</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -3661,204 +4065,9 @@ p, li { white-space: pre-wrap; }
                                   </widget>
                                  </item>
                                  <item row="6" column="0" colspan="2">
-                                  <widget class="QGroupBox" name="groupBox_26">
-                                   <property name="title">
-                                    <string>Battle</string>
-                                   </property>
-                                   <layout class="QGridLayout" name="gridLayout_54">
-                                    <item row="8" column="0">
-                                     <widget class="QCheckBox" name="Battle_collisionsCheckbox">
-                                      <property name="text">
-                                       <string>Collisions</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="10" column="0">
-                                     <widget class="QCheckBox" name="Battle_preroundCheckbox">
-                                      <property name="text">
-                                       <string>Pre-rounds</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="9" column="1">
-                                     <widget class="QCheckBox" name="Battle_shieldstocksCheckbox">
-                                      <property name="text">
-                                       <string>Shield stocks</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="9" column="0">
-                                     <widget class="QCheckBox" name="Battle_specialCheckbox">
-                                      <property name="text">
-                                       <string>Special</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="8" column="1">
-                                     <widget class="QCheckBox" name="Battle_slipstreamsheckbox">
-                                      <property name="text">
-                                       <string>Slip streams</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="0" column="0">
-                                     <widget class="QLabel" name="label_52">
-                                      <property name="text">
-                                       <string>Collision timer</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="1" column="0">
-                                     <widget class="QSpinBox" name="Battle_collisiontimerInput">
-                                      <property name="suffix">
-                                       <string> seconds</string>
-                                      </property>
-                                      <property name="minimum">
-                                       <number>1</number>
-                                      </property>
-                                      <property name="maximum">
-                                       <number>105</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>7</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="4" column="0">
-                                     <widget class="QLabel" name="label_53">
-                                      <property name="text">
-                                       <string>Launch factor</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="0" column="1">
-                                     <widget class="QLabel" name="label_54">
-                                      <property name="text">
-                                       <string>Max. respawn time</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="5" column="0">
-                                     <widget class="QSpinBox" name="Battle_launchfactorInput">
-                                      <property name="minimum">
-                                       <number>1</number>
-                                      </property>
-                                      <property name="maximum">
-                                       <number>20</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>7</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="1" column="1">
-                                     <widget class="QSpinBox" name="Battle_maxrespawntimeInput">
-                                      <property name="minimum">
-                                       <number>3</number>
-                                      </property>
-                                      <property name="maximum">
-                                       <number>30</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>5</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="4" column="1">
-                                     <widget class="QLabel" name="label_50">
-                                      <property name="text">
-                                       <string>Training mode</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="5" column="1">
-                                     <widget class="QComboBox" name="Battle_trainingCombobox">
-                                      <property name="currentIndex">
-                                       <number>0</number>
-                                      </property>
-                                      <item>
-                                       <property name="text">
-                                        <string>Off (0)</string>
-                                       </property>
-                                      </item>
-                                      <item>
-                                       <property name="text">
-                                        <string>Spawn Tails doll (1)</string>
-                                       </property>
-                                      </item>
-                                      <item>
-                                       <property name="text">
-                                        <string>??? (2)</string>
-                                       </property>
-                                      </item>
-                                     </widget>
-                                    </item>
-                                   </layout>
-                                  </widget>
-                                 </item>
-                                 <item row="11" column="0">
-                                  <widget class="QGroupBox" name="groupBox_29">
-                                   <property name="title">
-                                    <string>Battle CTF</string>
-                                   </property>
-                                   <layout class="QGridLayout" name="gridLayout_50">
-                                    <item row="2" column="2">
-                                     <widget class="QSpinBox" name="Ctf_flagrespawn_graceperiodInput">
-                                      <property name="maximum">
-                                       <number>15</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>6</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="2" column="1">
-                                     <widget class="QSpinBox" name="Ctf_flagdrop_graceperiodInput">
-                                      <property name="maximum">
-                                       <number>3</number>
-                                      </property>
-                                      <property name="value">
-                                       <number>2</number>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="1" column="1">
-                                     <widget class="QLabel" name="label_38">
-                                      <property name="text">
-                                       <string>Flag drop grace period</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                    <item row="1" column="2">
-                                     <widget class="QLabel" name="label_39">
-                                      <property name="text">
-                                       <string>Flag respawn grace period</string>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                   </layout>
-                                  </widget>
-                                 </item>
-                                 <item row="2" column="1">
-                                  <widget class="QSpinBox" name="Battle_coyotetimeInput">
-                                   <property name="toolTip">
-                                    <string>Time between walking off ledges and gravity kicking in</string>
-                                   </property>
-                                   <property name="suffix">
-                                    <string> frames</string>
-                                   </property>
-                                   <property name="minimum">
-                                    <number>1</number>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="1">
-                                  <widget class="QLabel" name="label_36">
-                                   <property name="toolTip">
-                                    <string>Time between walking off ledges and gravity kicking in</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>Coyote Time (Fight Club only)</string>
+                                  <widget class="Line" name="line_3">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
                                    </property>
                                   </widget>
                                  </item>

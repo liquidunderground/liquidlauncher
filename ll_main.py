@@ -1400,9 +1400,15 @@ class MainWindow(QMainWindow):
         self.ui.BattlemodSettingsCheckbox.setChecked( profile_settings_dict["host"]["applybattlemod"] )
         self.ui.Battle_coyotetimeInput.setValue( profile_settings_dict["host"]["battle_coyotetime"] )
         self.ui.Battle_coyotefactorInput.setValue( profile_settings_dict["host"]["battle_coyotefactor"] )
-        self.ui.BattlemodSettingsCheckbox.setChecked( profile_settings_dict["host"]["battle_recoveryjump"] )
+        self.ui.Battle_recoveryjumpCheckbox.setChecked( profile_settings_dict["host"]["battle_recoveryjump"] )
+        ## Item settings
+        self.ui.Item_rateCombobox.setCurrentIndex( profile_settings_dict["host"]["item_rate"])
+        self.ui.Item_typeCombobox.setCurrentIndex( profile_settings_dict["host"]["item_type"])
+        self.ui.Item_globalCheckbox.setChecked( profile_settings_dict["host"]["item_global"])
+        self.ui.Item_localCheckbox.setChecked( profile_settings_dict["host"]["item_local"])
         ## Battle mode settings
         self.ui.Survival_livesInput.setValue( profile_settings_dict["host"]["survival_lives"] )
+        self.ui.Battle_startringsInput.setValue( profile_settings_dict["host"]["battle_startrings"] )
         self.ui.Survival_revengeCombobox.setCurrentIndex( profile_settings_dict["host"]["survival_revenge"] )
         self.ui.Survival_suddendeathCheckbox.setChecked( profile_settings_dict["host"]["survival_suddendeath"] )
         ## Battle/Survival settings
@@ -1559,9 +1565,15 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["applybattlemod"] = self.ui.BattlemodSettingsCheckbox.isChecked()
         toml_settings["host"]["battle_coyotetime"] = self.ui.Battle_coyotetimeInput.value()
         toml_settings["host"]["battle_coyotefactor"] = self.ui.Battle_coyotefactorInput.value()
-        toml_settings["host"]["battle_recoveryjump"] = self.ui.BattlemodSettingsCheckbox.isChecked()
+        toml_settings["host"]["battle_recoveryjump"] = self.ui.Battle_recoveryjumpCheckbox.isChecked()
+        ## Item settings
+        toml_settings["host"]["item_rate"] = self.ui.Item_rateCombobox.currentIndex()
+        toml_settings["host"]["item_type"] = self.ui.Item_typeCombobox.currentIndex()
+        toml_settings["host"]["item_global"] = self.ui.Item_globalCheckbox.isChecked()
+        toml_settings["host"]["item_local"] = self.ui.Item_localCheckbox.isChecked()
         ## Battle mode settings
         toml_settings["host"]["survival_lives"] = self.ui.Survival_livesInput.value()
+        toml_settings["host"]["battle_startrings"] = self.ui.Battle_startringsInput.value()
         toml_settings["host"]["survival_revenge"] = self.ui.Survival_revengeCombobox.currentIndex()
         toml_settings["host"]["survival_suddendeath"] = self.ui.Survival_suddendeathCheckbox.isChecked()
         ## Battle/Survival settings

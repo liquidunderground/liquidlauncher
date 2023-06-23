@@ -1708,7 +1708,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, -56, 787, 1112))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 787, 1102))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -1736,12 +1736,216 @@ class Ui_MainWindow(object):
         self.label_42 = QLabel(self.BattlemodSettingsGroupbox)
         self.label_42.setObjectName(u"label_42")
 
-        self.gridLayout_22.addWidget(self.label_42, 16, 0, 1, 1)
+        self.gridLayout_22.addWidget(self.label_42, 19, 0, 1, 1)
 
-        self.Battle_addoptionsInput = QLineEdit(self.BattlemodSettingsGroupbox)
-        self.Battle_addoptionsInput.setObjectName(u"Battle_addoptionsInput")
+        self.Battle_recoveryjumpInput = QCheckBox(self.BattlemodSettingsGroupbox)
+        self.Battle_recoveryjumpInput.setObjectName(u"Battle_recoveryjumpInput")
 
-        self.gridLayout_22.addWidget(self.Battle_addoptionsInput, 17, 0, 1, 2)
+        self.gridLayout_22.addWidget(self.Battle_recoveryjumpInput, 5, 1, 1, 1)
+
+        self.groupBox_26 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_26.setObjectName(u"groupBox_26")
+        self.gridLayout_54 = QGridLayout(self.groupBox_26)
+        self.gridLayout_54.setObjectName(u"gridLayout_54")
+        self.label_53 = QLabel(self.groupBox_26)
+        self.label_53.setObjectName(u"label_53")
+
+        self.gridLayout_54.addWidget(self.label_53, 4, 0, 1, 1)
+
+        self.label_50 = QLabel(self.groupBox_26)
+        self.label_50.setObjectName(u"label_50")
+
+        self.gridLayout_54.addWidget(self.label_50, 4, 1, 1, 1)
+
+        self.Battle_preroundCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_preroundCheckbox.setObjectName(u"Battle_preroundCheckbox")
+
+        self.gridLayout_54.addWidget(self.Battle_preroundCheckbox, 10, 0, 1, 1)
+
+        self.Battle_collisionsCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_collisionsCheckbox.setObjectName(u"Battle_collisionsCheckbox")
+
+        self.gridLayout_54.addWidget(self.Battle_collisionsCheckbox, 8, 0, 1, 1)
+
+        self.Battle_shieldstocksCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_shieldstocksCheckbox.setObjectName(u"Battle_shieldstocksCheckbox")
+
+        self.gridLayout_54.addWidget(self.Battle_shieldstocksCheckbox, 9, 1, 1, 1)
+
+        self.Battle_collisiontimerInput = QSpinBox(self.groupBox_26)
+        self.Battle_collisiontimerInput.setObjectName(u"Battle_collisiontimerInput")
+        self.Battle_collisiontimerInput.setMinimum(1)
+        self.Battle_collisiontimerInput.setMaximum(105)
+        self.Battle_collisiontimerInput.setValue(7)
+
+        self.gridLayout_54.addWidget(self.Battle_collisiontimerInput, 1, 0, 1, 1)
+
+        self.Battle_specialCheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_specialCheckbox.setObjectName(u"Battle_specialCheckbox")
+
+        self.gridLayout_54.addWidget(self.Battle_specialCheckbox, 9, 0, 1, 1)
+
+        self.Battle_launchfactorInput = QSpinBox(self.groupBox_26)
+        self.Battle_launchfactorInput.setObjectName(u"Battle_launchfactorInput")
+        self.Battle_launchfactorInput.setMinimum(1)
+        self.Battle_launchfactorInput.setMaximum(20)
+        self.Battle_launchfactorInput.setValue(7)
+
+        self.gridLayout_54.addWidget(self.Battle_launchfactorInput, 5, 0, 1, 1)
+
+        self.Battle_trainingCombobox = QComboBox(self.groupBox_26)
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.addItem("")
+        self.Battle_trainingCombobox.setObjectName(u"Battle_trainingCombobox")
+
+        self.gridLayout_54.addWidget(self.Battle_trainingCombobox, 5, 1, 1, 1)
+
+        self.Battle_slipstreamsheckbox = QCheckBox(self.groupBox_26)
+        self.Battle_slipstreamsheckbox.setObjectName(u"Battle_slipstreamsheckbox")
+
+        self.gridLayout_54.addWidget(self.Battle_slipstreamsheckbox, 8, 1, 1, 1)
+
+        self.label_52 = QLabel(self.groupBox_26)
+        self.label_52.setObjectName(u"label_52")
+
+        self.gridLayout_54.addWidget(self.label_52, 0, 0, 1, 1)
+
+        self.label_54 = QLabel(self.groupBox_26)
+        self.label_54.setObjectName(u"label_54")
+
+        self.gridLayout_54.addWidget(self.label_54, 0, 1, 1, 1)
+
+        self.Battle_maxrespawntimeInput = QSpinBox(self.groupBox_26)
+        self.Battle_maxrespawntimeInput.setObjectName(u"Battle_maxrespawntimeInput")
+        self.Battle_maxrespawntimeInput.setMinimum(3)
+        self.Battle_maxrespawntimeInput.setMaximum(30)
+        self.Battle_maxrespawntimeInput.setValue(5)
+
+        self.gridLayout_54.addWidget(self.Battle_maxrespawntimeInput, 1, 1, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_26, 9, 0, 1, 1)
+
+        self.groupBox_25 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_25.setObjectName(u"groupBox_25")
+        self.gridLayout_52 = QGridLayout(self.groupBox_25)
+        self.gridLayout_52.setObjectName(u"gridLayout_52")
+        self.label_45 = QLabel(self.groupBox_25)
+        self.label_45.setObjectName(u"label_45")
+
+        self.gridLayout_52.addWidget(self.label_45, 2, 0, 1, 1)
+
+        self.label_44 = QLabel(self.groupBox_25)
+        self.label_44.setObjectName(u"label_44")
+
+        self.gridLayout_52.addWidget(self.label_44, 0, 0, 1, 1)
+
+        self.Survival_livesInput = QSpinBox(self.groupBox_25)
+        self.Survival_livesInput.setObjectName(u"Survival_livesInput")
+        self.Survival_livesInput.setMinimum(1)
+        self.Survival_livesInput.setValue(3)
+
+        self.gridLayout_52.addWidget(self.Survival_livesInput, 1, 0, 1, 1)
+
+        self.Survival_revengeCombobox = QComboBox(self.groupBox_25)
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.addItem("")
+        self.Survival_revengeCombobox.setObjectName(u"Survival_revengeCombobox")
+
+        self.gridLayout_52.addWidget(self.Survival_revengeCombobox, 3, 0, 1, 1)
+
+        self.Battle_startringsInput = QSpinBox(self.groupBox_25)
+        self.Battle_startringsInput.setObjectName(u"Battle_startringsInput")
+        self.Battle_startringsInput.setMinimum(1)
+        self.Battle_startringsInput.setMaximum(999)
+        self.Battle_startringsInput.setValue(50)
+
+        self.gridLayout_52.addWidget(self.Battle_startringsInput, 1, 1, 1, 1)
+
+        self.label_56 = QLabel(self.groupBox_25)
+        self.label_56.setObjectName(u"label_56")
+
+        self.gridLayout_52.addWidget(self.label_56, 0, 1, 1, 1)
+
+        self.Survival_suddendeathCheckbox = QCheckBox(self.groupBox_25)
+        self.Survival_suddendeathCheckbox.setObjectName(u"Survival_suddendeathCheckbox")
+        self.Survival_suddendeathCheckbox.setChecked(True)
+
+        self.gridLayout_52.addWidget(self.Survival_suddendeathCheckbox, 3, 1, 1, 1)
+
+        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_52.addItem(self.verticalSpacer_11, 4, 0, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_25, 9, 1, 1, 1)
+
+        self.Battle_coyotefactorInput = QSpinBox(self.BattlemodSettingsGroupbox)
+        self.Battle_coyotefactorInput.setObjectName(u"Battle_coyotefactorInput")
+        self.Battle_coyotefactorInput.setMaximum(15)
+        self.Battle_coyotefactorInput.setValue(15)
+
+        self.gridLayout_22.addWidget(self.Battle_coyotefactorInput, 4, 1, 1, 1)
+
+        self.groupBox_16 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_16.setObjectName(u"groupBox_16")
+        self.gridLayout_35 = QGridLayout(self.groupBox_16)
+        self.gridLayout_35.setObjectName(u"gridLayout_35")
+        self.Item_rateCombobox = QComboBox(self.groupBox_16)
+        self.Item_rateCombobox.addItem("")
+        self.Item_rateCombobox.addItem("")
+        self.Item_rateCombobox.addItem("")
+        self.Item_rateCombobox.setObjectName(u"Item_rateCombobox")
+
+        self.gridLayout_35.addWidget(self.Item_rateCombobox, 3, 0, 1, 1)
+
+        self.label_21 = QLabel(self.groupBox_16)
+        self.label_21.setObjectName(u"label_21")
+
+        self.gridLayout_35.addWidget(self.label_21, 2, 0, 1, 1)
+
+        self.label_22 = QLabel(self.groupBox_16)
+        self.label_22.setObjectName(u"label_22")
+
+        self.gridLayout_35.addWidget(self.label_22, 2, 1, 1, 1)
+
+        self.Item_typeCombobox = QComboBox(self.groupBox_16)
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.addItem("")
+        self.Item_typeCombobox.setObjectName(u"Item_typeCombobox")
+
+        self.gridLayout_35.addWidget(self.Item_typeCombobox, 3, 1, 1, 1)
+
+        self.Item_localCheckbox = QCheckBox(self.groupBox_16)
+        self.Item_localCheckbox.setObjectName(u"Item_localCheckbox")
+
+        self.gridLayout_35.addWidget(self.Item_localCheckbox, 4, 1, 1, 1)
+
+        self.Item_globalCheckbox = QCheckBox(self.groupBox_16)
+        self.Item_globalCheckbox.setObjectName(u"Item_globalCheckbox")
+
+        self.gridLayout_35.addWidget(self.Item_globalCheckbox, 4, 0, 1, 1)
+
+
+        self.gridLayout_22.addWidget(self.groupBox_16, 1, 0, 5, 1)
 
         self.groupBox_27 = QGroupBox(self.BattlemodSettingsGroupbox)
         self.groupBox_27.setObjectName(u"groupBox_27")
@@ -1851,45 +2055,55 @@ class Ui_MainWindow(object):
         self.gridLayout_53.addWidget(self.label_18, 8, 0, 1, 1)
 
 
-        self.gridLayout_22.addWidget(self.groupBox_27, 7, 0, 1, 2)
+        self.gridLayout_22.addWidget(self.groupBox_27, 10, 0, 1, 2)
 
-        self.groupBox_25 = QGroupBox(self.BattlemodSettingsGroupbox)
-        self.groupBox_25.setObjectName(u"groupBox_25")
-        self.gridLayout_52 = QGridLayout(self.groupBox_25)
-        self.gridLayout_52.setObjectName(u"gridLayout_52")
-        self.Survival_revengeCombobox = QComboBox(self.groupBox_25)
-        self.Survival_revengeCombobox.addItem("")
-        self.Survival_revengeCombobox.addItem("")
-        self.Survival_revengeCombobox.addItem("")
-        self.Survival_revengeCombobox.setObjectName(u"Survival_revengeCombobox")
+        self.Battle_coyotetimeInput = QSpinBox(self.BattlemodSettingsGroupbox)
+        self.Battle_coyotetimeInput.setObjectName(u"Battle_coyotetimeInput")
+        self.Battle_coyotetimeInput.setMinimum(1)
 
-        self.gridLayout_52.addWidget(self.Survival_revengeCombobox, 3, 0, 1, 1)
+        self.gridLayout_22.addWidget(self.Battle_coyotetimeInput, 2, 1, 1, 1)
 
-        self.label_45 = QLabel(self.groupBox_25)
-        self.label_45.setObjectName(u"label_45")
+        self.groupBox_29 = QGroupBox(self.BattlemodSettingsGroupbox)
+        self.groupBox_29.setObjectName(u"groupBox_29")
+        self.gridLayout_50 = QGridLayout(self.groupBox_29)
+        self.gridLayout_50.setObjectName(u"gridLayout_50")
+        self.Ctf_flagrespawn_graceperiodInput = QSpinBox(self.groupBox_29)
+        self.Ctf_flagrespawn_graceperiodInput.setObjectName(u"Ctf_flagrespawn_graceperiodInput")
+        self.Ctf_flagrespawn_graceperiodInput.setMaximum(15)
+        self.Ctf_flagrespawn_graceperiodInput.setValue(6)
 
-        self.gridLayout_52.addWidget(self.label_45, 2, 0, 1, 1)
+        self.gridLayout_50.addWidget(self.Ctf_flagrespawn_graceperiodInput, 2, 2, 1, 1)
 
-        self.Survival_livesInput = QSpinBox(self.groupBox_25)
-        self.Survival_livesInput.setObjectName(u"Survival_livesInput")
-        self.Survival_livesInput.setMinimum(1)
-        self.Survival_livesInput.setValue(3)
+        self.Ctf_flagdrop_graceperiodInput = QSpinBox(self.groupBox_29)
+        self.Ctf_flagdrop_graceperiodInput.setObjectName(u"Ctf_flagdrop_graceperiodInput")
+        self.Ctf_flagdrop_graceperiodInput.setMaximum(3)
+        self.Ctf_flagdrop_graceperiodInput.setValue(2)
 
-        self.gridLayout_52.addWidget(self.Survival_livesInput, 1, 0, 1, 1)
+        self.gridLayout_50.addWidget(self.Ctf_flagdrop_graceperiodInput, 2, 1, 1, 1)
 
-        self.label_44 = QLabel(self.groupBox_25)
-        self.label_44.setObjectName(u"label_44")
+        self.label_38 = QLabel(self.groupBox_29)
+        self.label_38.setObjectName(u"label_38")
 
-        self.gridLayout_52.addWidget(self.label_44, 0, 0, 1, 1)
+        self.gridLayout_50.addWidget(self.label_38, 1, 1, 1, 1)
 
-        self.Survival_suddendeathCheckbox = QCheckBox(self.groupBox_25)
-        self.Survival_suddendeathCheckbox.setObjectName(u"Survival_suddendeathCheckbox")
-        self.Survival_suddendeathCheckbox.setChecked(True)
+        self.label_39 = QLabel(self.groupBox_29)
+        self.label_39.setObjectName(u"label_39")
 
-        self.gridLayout_52.addWidget(self.Survival_suddendeathCheckbox, 4, 0, 1, 1)
+        self.gridLayout_50.addWidget(self.label_39, 1, 2, 1, 1)
 
 
-        self.gridLayout_22.addWidget(self.groupBox_25, 1, 0, 5, 1)
+        self.gridLayout_22.addWidget(self.groupBox_29, 14, 0, 1, 1)
+
+        self.label_20 = QLabel(self.BattlemodSettingsGroupbox)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_22.addWidget(self.label_20, 7, 0, 1, 2)
+
+        self.label_36 = QLabel(self.BattlemodSettingsGroupbox)
+        self.label_36.setObjectName(u"label_36")
+
+        self.gridLayout_22.addWidget(self.label_36, 1, 1, 1, 1)
 
         self.groupBox_30 = QGroupBox(self.BattlemodSettingsGroupbox)
         self.groupBox_30.setObjectName(u"groupBox_30")
@@ -1921,150 +2135,24 @@ class Ui_MainWindow(object):
         self.gridLayout_51.addWidget(self.Diamond_capture_bonusInput, 1, 1, 1, 1)
 
 
-        self.gridLayout_22.addWidget(self.groupBox_30, 11, 1, 1, 1)
+        self.gridLayout_22.addWidget(self.groupBox_30, 14, 1, 1, 1)
 
-        self.Battle_recoveryjumpInput = QCheckBox(self.BattlemodSettingsGroupbox)
-        self.Battle_recoveryjumpInput.setObjectName(u"Battle_recoveryjumpInput")
+        self.Battle_addoptionsInput = QLineEdit(self.BattlemodSettingsGroupbox)
+        self.Battle_addoptionsInput.setObjectName(u"Battle_addoptionsInput")
 
-        self.gridLayout_22.addWidget(self.Battle_recoveryjumpInput, 5, 1, 1, 1)
-
-        self.Battle_coyotefactorInput = QSpinBox(self.BattlemodSettingsGroupbox)
-        self.Battle_coyotefactorInput.setObjectName(u"Battle_coyotefactorInput")
-        self.Battle_coyotefactorInput.setMaximum(15)
-        self.Battle_coyotefactorInput.setValue(15)
-
-        self.gridLayout_22.addWidget(self.Battle_coyotefactorInput, 4, 1, 1, 1)
+        self.gridLayout_22.addWidget(self.Battle_addoptionsInput, 20, 0, 1, 2)
 
         self.label_37 = QLabel(self.BattlemodSettingsGroupbox)
         self.label_37.setObjectName(u"label_37")
 
         self.gridLayout_22.addWidget(self.label_37, 3, 1, 1, 1)
 
-        self.groupBox_26 = QGroupBox(self.BattlemodSettingsGroupbox)
-        self.groupBox_26.setObjectName(u"groupBox_26")
-        self.gridLayout_54 = QGridLayout(self.groupBox_26)
-        self.gridLayout_54.setObjectName(u"gridLayout_54")
-        self.Battle_collisionsCheckbox = QCheckBox(self.groupBox_26)
-        self.Battle_collisionsCheckbox.setObjectName(u"Battle_collisionsCheckbox")
+        self.line_3 = QFrame(self.BattlemodSettingsGroupbox)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_54.addWidget(self.Battle_collisionsCheckbox, 8, 0, 1, 1)
-
-        self.Battle_preroundCheckbox = QCheckBox(self.groupBox_26)
-        self.Battle_preroundCheckbox.setObjectName(u"Battle_preroundCheckbox")
-
-        self.gridLayout_54.addWidget(self.Battle_preroundCheckbox, 10, 0, 1, 1)
-
-        self.Battle_shieldstocksCheckbox = QCheckBox(self.groupBox_26)
-        self.Battle_shieldstocksCheckbox.setObjectName(u"Battle_shieldstocksCheckbox")
-
-        self.gridLayout_54.addWidget(self.Battle_shieldstocksCheckbox, 9, 1, 1, 1)
-
-        self.Battle_specialCheckbox = QCheckBox(self.groupBox_26)
-        self.Battle_specialCheckbox.setObjectName(u"Battle_specialCheckbox")
-
-        self.gridLayout_54.addWidget(self.Battle_specialCheckbox, 9, 0, 1, 1)
-
-        self.Battle_slipstreamsheckbox = QCheckBox(self.groupBox_26)
-        self.Battle_slipstreamsheckbox.setObjectName(u"Battle_slipstreamsheckbox")
-
-        self.gridLayout_54.addWidget(self.Battle_slipstreamsheckbox, 8, 1, 1, 1)
-
-        self.label_52 = QLabel(self.groupBox_26)
-        self.label_52.setObjectName(u"label_52")
-
-        self.gridLayout_54.addWidget(self.label_52, 0, 0, 1, 1)
-
-        self.Battle_collisiontimerInput = QSpinBox(self.groupBox_26)
-        self.Battle_collisiontimerInput.setObjectName(u"Battle_collisiontimerInput")
-        self.Battle_collisiontimerInput.setMinimum(1)
-        self.Battle_collisiontimerInput.setMaximum(105)
-        self.Battle_collisiontimerInput.setValue(7)
-
-        self.gridLayout_54.addWidget(self.Battle_collisiontimerInput, 1, 0, 1, 1)
-
-        self.label_53 = QLabel(self.groupBox_26)
-        self.label_53.setObjectName(u"label_53")
-
-        self.gridLayout_54.addWidget(self.label_53, 4, 0, 1, 1)
-
-        self.label_54 = QLabel(self.groupBox_26)
-        self.label_54.setObjectName(u"label_54")
-
-        self.gridLayout_54.addWidget(self.label_54, 0, 1, 1, 1)
-
-        self.Battle_launchfactorInput = QSpinBox(self.groupBox_26)
-        self.Battle_launchfactorInput.setObjectName(u"Battle_launchfactorInput")
-        self.Battle_launchfactorInput.setMinimum(1)
-        self.Battle_launchfactorInput.setMaximum(20)
-        self.Battle_launchfactorInput.setValue(7)
-
-        self.gridLayout_54.addWidget(self.Battle_launchfactorInput, 5, 0, 1, 1)
-
-        self.Battle_maxrespawntimeInput = QSpinBox(self.groupBox_26)
-        self.Battle_maxrespawntimeInput.setObjectName(u"Battle_maxrespawntimeInput")
-        self.Battle_maxrespawntimeInput.setMinimum(3)
-        self.Battle_maxrespawntimeInput.setMaximum(30)
-        self.Battle_maxrespawntimeInput.setValue(5)
-
-        self.gridLayout_54.addWidget(self.Battle_maxrespawntimeInput, 1, 1, 1, 1)
-
-        self.label_50 = QLabel(self.groupBox_26)
-        self.label_50.setObjectName(u"label_50")
-
-        self.gridLayout_54.addWidget(self.label_50, 4, 1, 1, 1)
-
-        self.Battle_trainingCombobox = QComboBox(self.groupBox_26)
-        self.Battle_trainingCombobox.addItem("")
-        self.Battle_trainingCombobox.addItem("")
-        self.Battle_trainingCombobox.addItem("")
-        self.Battle_trainingCombobox.setObjectName(u"Battle_trainingCombobox")
-
-        self.gridLayout_54.addWidget(self.Battle_trainingCombobox, 5, 1, 1, 1)
-
-
-        self.gridLayout_22.addWidget(self.groupBox_26, 6, 0, 1, 2)
-
-        self.groupBox_29 = QGroupBox(self.BattlemodSettingsGroupbox)
-        self.groupBox_29.setObjectName(u"groupBox_29")
-        self.gridLayout_50 = QGridLayout(self.groupBox_29)
-        self.gridLayout_50.setObjectName(u"gridLayout_50")
-        self.Ctf_flagrespawn_graceperiodInput = QSpinBox(self.groupBox_29)
-        self.Ctf_flagrespawn_graceperiodInput.setObjectName(u"Ctf_flagrespawn_graceperiodInput")
-        self.Ctf_flagrespawn_graceperiodInput.setMaximum(15)
-        self.Ctf_flagrespawn_graceperiodInput.setValue(6)
-
-        self.gridLayout_50.addWidget(self.Ctf_flagrespawn_graceperiodInput, 2, 2, 1, 1)
-
-        self.Ctf_flagdrop_graceperiodInput = QSpinBox(self.groupBox_29)
-        self.Ctf_flagdrop_graceperiodInput.setObjectName(u"Ctf_flagdrop_graceperiodInput")
-        self.Ctf_flagdrop_graceperiodInput.setMaximum(3)
-        self.Ctf_flagdrop_graceperiodInput.setValue(2)
-
-        self.gridLayout_50.addWidget(self.Ctf_flagdrop_graceperiodInput, 2, 1, 1, 1)
-
-        self.label_38 = QLabel(self.groupBox_29)
-        self.label_38.setObjectName(u"label_38")
-
-        self.gridLayout_50.addWidget(self.label_38, 1, 1, 1, 1)
-
-        self.label_39 = QLabel(self.groupBox_29)
-        self.label_39.setObjectName(u"label_39")
-
-        self.gridLayout_50.addWidget(self.label_39, 1, 2, 1, 1)
-
-
-        self.gridLayout_22.addWidget(self.groupBox_29, 11, 0, 1, 1)
-
-        self.Battle_coyotetimeInput = QSpinBox(self.BattlemodSettingsGroupbox)
-        self.Battle_coyotetimeInput.setObjectName(u"Battle_coyotetimeInput")
-        self.Battle_coyotetimeInput.setMinimum(1)
-
-        self.gridLayout_22.addWidget(self.Battle_coyotetimeInput, 2, 1, 1, 1)
-
-        self.label_36 = QLabel(self.BattlemodSettingsGroupbox)
-        self.label_36.setObjectName(u"label_36")
-
-        self.gridLayout_22.addWidget(self.label_36, 1, 1, 1, 1)
+        self.gridLayout_22.addWidget(self.line_3, 6, 0, 1, 2)
 
 
         self.verticalLayout_10.addWidget(self.BattlemodSettingsGroupbox)
@@ -2807,8 +2895,9 @@ class Ui_MainWindow(object):
         self.GameSettingsTabWidget.setCurrentIndex(0)
         self.HostGameTabwidget.setCurrentIndex(0)
         self.AdvanceMapInput.setCurrentIndex(1)
-        self.Survival_revengeCombobox.setCurrentIndex(0)
         self.Battle_trainingCombobox.setCurrentIndex(0)
+        self.Survival_revengeCombobox.setCurrentIndex(0)
+        self.Item_rateCombobox.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
 
@@ -3205,7 +3294,68 @@ class Ui_MainWindow(object):
         self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
         self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
-        self.Battle_addoptionsInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"+battledebug +devcam", None))
+        self.Battle_recoveryjumpInput.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
+        self.groupBox_26.setTitle(QCoreApplication.translate("MainWindow", u"Battle", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Launch factor", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Training mode", None))
+        self.Battle_preroundCheckbox.setText(QCoreApplication.translate("MainWindow", u"Pre-rounds", None))
+        self.Battle_collisionsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Collisions", None))
+        self.Battle_shieldstocksCheckbox.setText(QCoreApplication.translate("MainWindow", u"Shield stocks", None))
+        self.Battle_collisiontimerInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
+        self.Battle_specialCheckbox.setText(QCoreApplication.translate("MainWindow", u"Special", None))
+        self.Battle_trainingCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Off (0)", None))
+        self.Battle_trainingCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Spawn Tails doll (1)", None))
+        self.Battle_trainingCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"??? (2)", None))
+
+        self.Battle_slipstreamsheckbox.setText(QCoreApplication.translate("MainWindow", u"Slip streams", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Collision timer", None))
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"Max. respawn time", None))
+        self.groupBox_25.setTitle(QCoreApplication.translate("MainWindow", u"Arena/Survival", None))
+        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Revenge mode", None))
+        self.label_44.setText(QCoreApplication.translate("MainWindow", u"Lives", None))
+        self.Survival_revengeCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"No revenge (0)", None))
+        self.Survival_revengeCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Revenge without respawn (1)", None))
+        self.Survival_revengeCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"Revenge with respawn (2)", None))
+
+#if QT_CONFIG(tooltip)
+        self.Battle_startringsInput.setToolTip(QCoreApplication.translate("MainWindow", u"battle_startrings", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.label_56.setToolTip(QCoreApplication.translate("MainWindow", u"battle_startrings", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"Starting rings", None))
+        self.Survival_suddendeathCheckbox.setText(QCoreApplication.translate("MainWindow", u"Sudden death", None))
+#if QT_CONFIG(tooltip)
+        self.Battle_coyotefactorInput.setToolTip(QCoreApplication.translate("MainWindow", u"Jump factor for walking off ledges", None))
+#endif // QT_CONFIG(tooltip)
+        self.groupBox_16.setTitle(QCoreApplication.translate("MainWindow", u"Item settings", None))
+        self.Item_rateCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"1", None))
+        self.Item_rateCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"2", None))
+        self.Item_rateCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"3", None))
+
+        self.label_21.setText(QCoreApplication.translate("MainWindow", u"Item rate", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Item type", None))
+        self.Item_typeCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"-1 No items", None))
+        self.Item_typeCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"0", None))
+        self.Item_typeCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"1", None))
+        self.Item_typeCombobox.setItemText(3, QCoreApplication.translate("MainWindow", u"2", None))
+        self.Item_typeCombobox.setItemText(4, QCoreApplication.translate("MainWindow", u"3", None))
+        self.Item_typeCombobox.setItemText(5, QCoreApplication.translate("MainWindow", u"4", None))
+        self.Item_typeCombobox.setItemText(6, QCoreApplication.translate("MainWindow", u"5", None))
+        self.Item_typeCombobox.setItemText(7, QCoreApplication.translate("MainWindow", u"6", None))
+        self.Item_typeCombobox.setItemText(8, QCoreApplication.translate("MainWindow", u"7", None))
+        self.Item_typeCombobox.setItemText(9, QCoreApplication.translate("MainWindow", u"8", None))
+        self.Item_typeCombobox.setItemText(10, QCoreApplication.translate("MainWindow", u"9", None))
+        self.Item_typeCombobox.setItemText(11, QCoreApplication.translate("MainWindow", u"10", None))
+        self.Item_typeCombobox.setItemText(12, QCoreApplication.translate("MainWindow", u"11", None))
+        self.Item_typeCombobox.setItemText(13, QCoreApplication.translate("MainWindow", u"12", None))
+        self.Item_typeCombobox.setItemText(14, QCoreApplication.translate("MainWindow", u"13", None))
+        self.Item_typeCombobox.setItemText(15, QCoreApplication.translate("MainWindow", u"14", None))
+        self.Item_typeCombobox.setItemText(16, QCoreApplication.translate("MainWindow", u"15", None))
+        self.Item_typeCombobox.setItemText(17, QCoreApplication.translate("MainWindow", u"16", None))
+
+        self.Item_localCheckbox.setText(QCoreApplication.translate("MainWindow", u"Local items", None))
+        self.Item_globalCheckbox.setText(QCoreApplication.translate("MainWindow", u"Global items", None))
         self.groupBox_27.setTitle(QCoreApplication.translate("MainWindow", u"Capture Point", None))
 #if QT_CONFIG(tooltip)
         self.Cp_radiusInput.setToolTip(QCoreApplication.translate("MainWindow", u"FRACUNITs are a custom unit within the doom engine. 1 FRACUNIT about 2.25cm", None))
@@ -3227,53 +3377,28 @@ class Ui_MainWindow(object):
         self.label_46.setText(QCoreApplication.translate("MainWindow", u"Meter fill rate", None))
         self.Cp_waitInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"(FRACUNITs are custom to the doom engine. 1 FRACUNIT about 2.25cm)", None))
-        self.groupBox_25.setTitle(QCoreApplication.translate("MainWindow", u"Arena/Survival", None))
-        self.Survival_revengeCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"No revenge (0)", None))
-        self.Survival_revengeCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Revenge without respawn (1)", None))
-        self.Survival_revengeCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"Revenge with respawn (2)", None))
-
-        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Revenge mode", None))
-        self.label_44.setText(QCoreApplication.translate("MainWindow", u"Lives", None))
-        self.Survival_suddendeathCheckbox.setText(QCoreApplication.translate("MainWindow", u"Sudden death", None))
+#if QT_CONFIG(tooltip)
+        self.Battle_coyotetimeInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
+#endif // QT_CONFIG(tooltip)
+        self.Battle_coyotetimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" frames", None))
+        self.groupBox_29.setTitle(QCoreApplication.translate("MainWindow", u"Battle CTF", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Flag drop grace period", None))
+        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Flag respawn grace period", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Gamemodes", None))
+#if QT_CONFIG(tooltip)
+        self.label_36.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Coyote Time (Fight Club only)", None))
         self.groupBox_30.setTitle(QCoreApplication.translate("MainWindow", u"Diamond Hunt", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Capture time", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"Capture bonus", None))
         self.Diamond_capture_timeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.Diamond_capture_bonusInput.setSuffix(QCoreApplication.translate("MainWindow", u" points", None))
-        self.Battle_recoveryjumpInput.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
-#if QT_CONFIG(tooltip)
-        self.Battle_coyotefactorInput.setToolTip(QCoreApplication.translate("MainWindow", u"Jump factor for walking off ledges", None))
-#endif // QT_CONFIG(tooltip)
+        self.Battle_addoptionsInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"+battledebug +devcam", None))
 #if QT_CONFIG(tooltip)
         self.label_37.setToolTip(QCoreApplication.translate("MainWindow", u"Jump factor for walking off ledges", None))
 #endif // QT_CONFIG(tooltip)
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Coyote factor (Fight Club only)", None))
-        self.groupBox_26.setTitle(QCoreApplication.translate("MainWindow", u"Battle", None))
-        self.Battle_collisionsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Collisions", None))
-        self.Battle_preroundCheckbox.setText(QCoreApplication.translate("MainWindow", u"Pre-rounds", None))
-        self.Battle_shieldstocksCheckbox.setText(QCoreApplication.translate("MainWindow", u"Shield stocks", None))
-        self.Battle_specialCheckbox.setText(QCoreApplication.translate("MainWindow", u"Special", None))
-        self.Battle_slipstreamsheckbox.setText(QCoreApplication.translate("MainWindow", u"Slip streams", None))
-        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Collision timer", None))
-        self.Battle_collisiontimerInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
-        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Launch factor", None))
-        self.label_54.setText(QCoreApplication.translate("MainWindow", u"Max. respawn time", None))
-        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Training mode", None))
-        self.Battle_trainingCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Off (0)", None))
-        self.Battle_trainingCombobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Spawn Tails doll (1)", None))
-        self.Battle_trainingCombobox.setItemText(2, QCoreApplication.translate("MainWindow", u"??? (2)", None))
-
-        self.groupBox_29.setTitle(QCoreApplication.translate("MainWindow", u"Battle CTF", None))
-        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Flag drop grace period", None))
-        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Flag respawn grace period", None))
-#if QT_CONFIG(tooltip)
-        self.Battle_coyotetimeInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
-#endif // QT_CONFIG(tooltip)
-        self.Battle_coyotetimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" frames", None))
-#if QT_CONFIG(tooltip)
-        self.label_36.setToolTip(QCoreApplication.translate("MainWindow", u"Time between walking off ledges and gravity kicking in", None))
-#endif // QT_CONFIG(tooltip)
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Coyote Time (Fight Club only)", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Battlemod", None))
         self.ExportServerScriptButton.setText(QCoreApplication.translate("MainWindow", u"Save server launch script...", None))
 #if QT_CONFIG(tooltip)
