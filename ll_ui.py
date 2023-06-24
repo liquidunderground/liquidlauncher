@@ -799,33 +799,33 @@ class Ui_MainWindow(object):
         self.groupBox_11.setObjectName(u"groupBox_11")
         self.gridLayout_25 = QGridLayout(self.groupBox_11)
         self.gridLayout_25.setObjectName(u"gridLayout_25")
-        self.ServerNameInput = QLineEdit(self.groupBox_11)
-        self.ServerNameInput.setObjectName(u"ServerNameInput")
+        self.RoomLabel = QLabel(self.groupBox_11)
+        self.RoomLabel.setObjectName(u"RoomLabel")
 
-        self.gridLayout_25.addWidget(self.ServerNameInput, 1, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.RoomLabel, 7, 0, 1, 1)
 
         self.ServerNameLabel = QLabel(self.groupBox_11)
         self.ServerNameLabel.setObjectName(u"ServerNameLabel")
 
         self.gridLayout_25.addWidget(self.ServerNameLabel, 0, 0, 1, 2)
 
-        self.HostMSLabel = QLabel(self.groupBox_11)
-        self.HostMSLabel.setObjectName(u"HostMSLabel")
+        self.RoomInput = QComboBox(self.groupBox_11)
+        self.RoomInput.addItem("")
+        self.RoomInput.setObjectName(u"RoomInput")
+        self.RoomInput.setEditable(False)
 
-        self.gridLayout_25.addWidget(self.HostMSLabel, 4, 1, 1, 1)
+        self.gridLayout_25.addWidget(self.RoomInput, 8, 0, 1, 1)
 
-        self.DedicatedServerToggle = QCheckBox(self.groupBox_11)
-        self.DedicatedServerToggle.setObjectName(u"DedicatedServerToggle")
-        self.DedicatedServerToggle.setStyleSheet(u"")
-        self.DedicatedServerToggle.setChecked(False)
+        self.MSRoomqueryrefreshButton = QPushButton(self.groupBox_11)
+        self.MSRoomqueryrefreshButton.setObjectName(u"MSRoomqueryrefreshButton")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.MSRoomqueryrefreshButton.sizePolicy().hasHeightForWidth())
+        self.MSRoomqueryrefreshButton.setSizePolicy(sizePolicy6)
+        self.MSRoomqueryrefreshButton.setIcon(icon)
 
-        self.gridLayout_25.addWidget(self.DedicatedServerToggle, 7, 0, 1, 1)
-
-        self.AdminPasswordInput = QLineEdit(self.groupBox_11)
-        self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
-        self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
-
-        self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 2)
+        self.gridLayout_25.addWidget(self.MSRoomqueryrefreshButton, 8, 1, 1, 1)
 
         self.AdminPasswordLabel = QLabel(self.groupBox_11)
         self.AdminPasswordLabel.setObjectName(u"AdminPasswordLabel")
@@ -838,37 +838,44 @@ class Ui_MainWindow(object):
         self.HostMSCombobox.setEnabled(True)
         self.HostMSCombobox.setEditable(True)
 
-        self.gridLayout_25.addWidget(self.HostMSCombobox, 5, 1, 1, 1)
-
-        self.RoomLabel = QLabel(self.groupBox_11)
-        self.RoomLabel.setObjectName(u"RoomLabel")
-
-        self.gridLayout_25.addWidget(self.RoomLabel, 4, 0, 1, 1)
-
-        self.RoomInput = QComboBox(self.groupBox_11)
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.addItem("")
-        self.RoomInput.setObjectName(u"RoomInput")
-        self.RoomInput.setEditable(False)
-
-        self.gridLayout_25.addWidget(self.RoomInput, 5, 0, 1, 1)
-
-        self.label_51 = QLabel(self.groupBox_11)
-        self.label_51.setObjectName(u"label_51")
-        self.label_51.setFont(font2)
-        self.label_51.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_25.addWidget(self.label_51, 6, 0, 1, 1)
+        self.gridLayout_25.addWidget(self.HostMSCombobox, 8, 2, 1, 1)
 
         self.label_55 = QLabel(self.groupBox_11)
         self.label_55.setObjectName(u"label_55")
         self.label_55.setFont(font2)
         self.label_55.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_25.addWidget(self.label_55, 6, 1, 1, 1)
+        self.gridLayout_25.addWidget(self.label_55, 10, 2, 1, 1)
+
+        self.AdminPasswordInput = QLineEdit(self.groupBox_11)
+        self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
+        self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 3)
+
+        self.ServerNameInput = QLineEdit(self.groupBox_11)
+        self.ServerNameInput.setObjectName(u"ServerNameInput")
+
+        self.gridLayout_25.addWidget(self.ServerNameInput, 1, 0, 1, 3)
+
+        self.HostMSLabel = QLabel(self.groupBox_11)
+        self.HostMSLabel.setObjectName(u"HostMSLabel")
+
+        self.gridLayout_25.addWidget(self.HostMSLabel, 7, 2, 1, 1)
+
+        self.label_51 = QLabel(self.groupBox_11)
+        self.label_51.setObjectName(u"label_51")
+        self.label_51.setFont(font2)
+        self.label_51.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_25.addWidget(self.label_51, 10, 0, 1, 2)
+
+        self.DedicatedServerToggle = QCheckBox(self.groupBox_11)
+        self.DedicatedServerToggle.setObjectName(u"DedicatedServerToggle")
+        self.DedicatedServerToggle.setStyleSheet(u"")
+        self.DedicatedServerToggle.setChecked(False)
+
+        self.gridLayout_25.addWidget(self.DedicatedServerToggle, 11, 0, 1, 3)
 
 
         self.verticalLayout_2.addWidget(self.groupBox_11)
@@ -2688,11 +2695,11 @@ class Ui_MainWindow(object):
 
         self.textBrowser = QTextBrowser(self.tab_6)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy7)
 
         self.verticalLayout_6.addWidget(self.textBrowser)
 
@@ -2844,11 +2851,8 @@ class Ui_MainWindow(object):
 
         self.GameTabButton = QToolButton(self.DockTabFrame)
         self.GameTabButton.setObjectName(u"GameTabButton")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
-        self.GameTabButton.setSizePolicy(sizePolicy7)
+        sizePolicy6.setHeightForWidth(self.GameTabButton.sizePolicy().hasHeightForWidth())
+        self.GameTabButton.setSizePolicy(sizePolicy6)
         self.GameTabButton.setMaximumSize(QSize(16777215, 16777215))
         self.GameTabButton.setIcon(icon3)
         self.GameTabButton.setIconSize(QSize(48, 48))
@@ -3100,22 +3104,22 @@ class Ui_MainWindow(object):
         self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
+        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
         self.ServerNameLabel.setText(QCoreApplication.translate("MainWindow", u"Server Name", None))
-        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
-        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
+        self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"No room/Offline", None))
+
+#if QT_CONFIG(tooltip)
+        self.MSRoomqueryrefreshButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refres room query", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSRoomqueryrefreshButton.setText("")
         self.AdminPasswordLabel.setText(QCoreApplication.translate("MainWindow", u"Admin Password", None))
         self.HostMSCombobox.setItemText(0, "")
 
         self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<default>", None))
-        self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
-        self.RoomInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Offline", None))
-        self.RoomInput.setItemText(1, QCoreApplication.translate("MainWindow", u"Standard", None))
-        self.RoomInput.setItemText(2, QCoreApplication.translate("MainWindow", u"Casual", None))
-        self.RoomInput.setItemText(3, QCoreApplication.translate("MainWindow", u"Hugs", None))
-        self.RoomInput.setItemText(4, QCoreApplication.translate("MainWindow", u"OLDC", None))
-
-        self.label_51.setText(QCoreApplication.translate("MainWindow", u"(Select a Master server to query it's rooms)", None))
         self.label_55.setText(QCoreApplication.translate("MainWindow", u"(Press enter to query it's rooms)", None))
+        self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"(Select a Master server to query it's rooms)", None))
+        self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
         self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"Networking", None))
         self.BandwidthInput.setSuffix(QCoreApplication.translate("MainWindow", u" bytes/s", None))
         self.PortLabel.setText(QCoreApplication.translate("MainWindow", u"Port", None))

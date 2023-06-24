@@ -327,7 +327,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>3</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -1704,8 +1704,12 @@ font-size: 12pt;</string>
                                  <string>Server settings</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_25">
-                                 <item row="1" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="ServerNameInput"/>
+                                 <item row="7" column="0">
+                                  <widget class="QLabel" name="RoomLabel">
+                                   <property name="text">
+                                    <string>Room</string>
+                                   </property>
+                                  </widget>
                                  </item>
                                  <item row="0" column="0" colspan="2">
                                   <widget class="QLabel" name="ServerNameLabel">
@@ -1714,30 +1718,35 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="4" column="1">
-                                  <widget class="QLabel" name="HostMSLabel">
-                                   <property name="text">
-                                    <string>Master Server</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="7" column="0">
-                                  <widget class="QCheckBox" name="DedicatedServerToggle">
-                                   <property name="styleSheet">
-                                    <string notr="true"/>
-                                   </property>
-                                   <property name="text">
-                                    <string>Dedicated/headless Server</string>
-                                   </property>
-                                   <property name="checked">
+                                 <item row="8" column="0">
+                                  <widget class="QComboBox" name="RoomInput">
+                                   <property name="editable">
                                     <bool>false</bool>
                                    </property>
+                                   <item>
+                                    <property name="text">
+                                     <string>No room/Offline</string>
+                                    </property>
+                                   </item>
                                   </widget>
                                  </item>
-                                 <item row="3" column="0" colspan="2">
-                                  <widget class="QLineEdit" name="AdminPasswordInput">
-                                   <property name="echoMode">
-                                    <enum>QLineEdit::Password</enum>
+                                 <item row="8" column="1">
+                                  <widget class="QPushButton" name="MSRoomqueryrefreshButton">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="toolTip">
+                                    <string>Refres room query</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                                    </property>
                                   </widget>
                                  </item>
@@ -1748,7 +1757,7 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="5" column="1">
+                                 <item row="8" column="2">
                                   <widget class="QComboBox" name="HostMSCombobox">
                                    <property name="enabled">
                                     <bool>true</bool>
@@ -1766,46 +1775,39 @@ font-size: 12pt;</string>
                                    </item>
                                   </widget>
                                  </item>
-                                 <item row="4" column="0">
-                                  <widget class="QLabel" name="RoomLabel">
+                                 <item row="10" column="2">
+                                  <widget class="QLabel" name="label_55">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
+                                   </property>
                                    <property name="text">
-                                    <string>Room</string>
+                                    <string>(Press enter or click the button to query it's rooms)</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="5" column="0">
-                                  <widget class="QComboBox" name="RoomInput">
-                                   <property name="editable">
-                                    <bool>false</bool>
+                                 <item row="3" column="0" colspan="3">
+                                  <widget class="QLineEdit" name="AdminPasswordInput">
+                                   <property name="echoMode">
+                                    <enum>QLineEdit::Password</enum>
                                    </property>
-                                   <item>
-                                    <property name="text">
-                                     <string>Offline</string>
-                                    </property>
-                                   </item>
-                                   <item>
-                                    <property name="text">
-                                     <string>Standard</string>
-                                    </property>
-                                   </item>
-                                   <item>
-                                    <property name="text">
-                                     <string>Casual</string>
-                                    </property>
-                                   </item>
-                                   <item>
-                                    <property name="text">
-                                     <string>Hugs</string>
-                                    </property>
-                                   </item>
-                                   <item>
-                                    <property name="text">
-                                     <string>OLDC</string>
-                                    </property>
-                                   </item>
                                   </widget>
                                  </item>
-                                 <item row="6" column="0">
+                                 <item row="1" column="0" colspan="3">
+                                  <widget class="QLineEdit" name="ServerNameInput"/>
+                                 </item>
+                                 <item row="7" column="2">
+                                  <widget class="QLabel" name="HostMSLabel">
+                                   <property name="text">
+                                    <string>Master Server</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="10" column="0" colspan="2">
                                   <widget class="QLabel" name="label_51">
                                    <property name="font">
                                     <font>
@@ -1820,18 +1822,16 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="6" column="1">
-                                  <widget class="QLabel" name="label_55">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>8</pointsize>
-                                    </font>
+                                 <item row="11" column="0" colspan="3">
+                                  <widget class="QCheckBox" name="DedicatedServerToggle">
+                                   <property name="styleSheet">
+                                    <string notr="true"/>
                                    </property>
                                    <property name="text">
-                                    <string>(Press enter to query it's rooms)</string>
+                                    <string>Dedicated/headless Server</string>
                                    </property>
-                                   <property name="alignment">
-                                    <set>Qt::AlignCenter</set>
+                                   <property name="checked">
+                                    <bool>false</bool>
                                    </property>
                                   </widget>
                                  </item>

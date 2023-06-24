@@ -4,7 +4,7 @@ from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
 from networking import mb_query
-from networking.ms_query import get_server_list
+from networking.ms_query import get_server_list, query_ms_rooms
 
 class QueryMessageBoard(QtCore.QThread):
     # Emits a string describing the mod
@@ -91,10 +91,13 @@ class QueryMessageBoard(QtCore.QThread):
 
 class QueryMasterServer(QtCore.QThread):
     server_list_sig1 = Signal(list)
+    on_ms_rooms_sig = Signal(object)
 
     def __init__(self, host, parent=None):
         QtCore.QThread.__init__(self, parent)
         self.query_ms = False
+        self.query_ms_rooms = False
+        self.hostMsUrl = "about:blank"
         self.running = True
         self.host = host
     
@@ -102,6 +105,10 @@ class QueryMasterServer(QtCore.QThread):
         """Refresh button clicked
         """
         self.query_ms = True
+
+    def on_query_ms_rooms(self, url):
+        self.hostMsUrl = url
+        self.query_ms_rooms = True
         
     def on_quit(self):
         self.running = False
@@ -118,6 +125,15 @@ class QueryMasterServer(QtCore.QThread):
                     )
                 self.server_list_sig1.emit(server_list)
                 self.query_ms = False                    
+            if self.query_ms_rooms:
+                print("QThread.masterserver = ", self.host.global_settings["current_ms"])
+                try:
+                    rooms = query_ms_rooms(self.hostMsUrl)
+                except Exception as e:
+                    rooms = {}
+                print("Queried rooms: {}".format(rooms) )
+                self.on_ms_rooms_sig.emit(rooms)
+                self.query_ms_rooms = False                    
             time.sleep(1)
 
 

@@ -36,6 +36,18 @@ def v1_parse_rooms(txt):
 
     return out
 
+def query_ms_rooms(url):
+    print("query_ms_rooms ", url)
+    ms_rooms = requests.get(url+"/rooms", headers=headers)
+
+    # Query sanity check
+    if ms_rooms.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response in /rooms request ({})'.format(ms_rooms.status_code))
+
+    rooms = v1_parse_rooms(ms_rooms.text)
+        
+    return rooms
+
 def parse_ms_data(url):
     # TODO: Make room system MS agnostic
     # Two step system:

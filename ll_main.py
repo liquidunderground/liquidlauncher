@@ -33,6 +33,7 @@ class MainWindow(QMainWindow):
     mod_list_sig = Signal(str)
     # Emits bool, telling QThread to query the master server
     query_ms_sig = Signal(bool)
+    query_ms_rooms_sig = Signal(str)
     # Emits mod download URL string
     download_mod_url_sig = Signal(str)
     # Emits mod download filepath
@@ -107,7 +108,9 @@ class MainWindow(QMainWindow):
         self.ms_qthread = QueryMasterServer(self)
         self.ms_qthread.start()
         self.query_ms_sig.connect(self.ms_qthread.on_refresh)
+        self.query_ms_rooms_sig.connect(self.ms_qthread.on_query_ms_rooms)
         self.ms_qthread.server_list_sig1.connect(self.on_server_list)
+        self.ms_qthread.on_ms_rooms_sig.connect(self.on_ms_rooms)
         
         # load servers from file ===================================================== #
         # self.loadServerList()
@@ -237,6 +240,10 @@ class MainWindow(QMainWindow):
         self.ui.RSSRemoveButton.clicked.connect( self.remove_rss_from_list )
 
         # Host settings Checkboxes ======================================================== #
+        ## MS Room querying
+        self.ui.HostMSCombobox.lineEdit().returnPressed.connect(self.query_ms_rooms)
+        self.ui.MSRoomqueryrefreshButton.clicked.connect(self.query_ms_rooms)
+        ## Settings sections
         self.ui.CoopSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
         self.ui.RingslingerSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
         self.ui.CircuitraceSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
@@ -460,11 +467,7 @@ class MainWindow(QMainWindow):
         if self.ui.HostMSCombobox.currentText() != "": launch_command += ["+masterserver",self.ui.HostMSCombobox.currentText()]
         # TODO: Live Master Server room queries
         if self.ui.RoomInput.currentIndex() != 0:
-            launch_command += ["-id "]
-            if self.ui.RoomInput.currentIndex() == 1: launch_command += ["33"]
-            if self.ui.RoomInput.currentIndex() == 2: launch_command += ["28"]
-            if self.ui.RoomInput.currentIndex() == 3: launch_command += ["38"]
-            if self.ui.RoomInput.currentIndex() == 4: launch_command += ["31"]
+            launch_command += ["-id", str(self.ui.RoomInput.itemData(self.ui.RoomInput.currentIndex()))]
         if self.ui.DedicatedServerToggle.isChecked(): launch_command += ["-dedicated"]
         if self.ui.PortInput.text() != "":
             launch_command += ["-port" , self.ui.PortInput.text()]
@@ -548,8 +551,37 @@ class MainWindow(QMainWindow):
             #self.PathGameFilesExecScriptInput.setText(f)
             pass
 
-    # Files tab
+    #ä
+    def query_ms_rooms(self):
+        print("query_ms_rooms()")
+        self.ui.MSRoomqueryrefreshButton.setEnabled(False) # MutEx lock. unlock in on_query_rooms
+        self.ui.RoomInput.setEnabled(False)
+        url = self.ui.HostMSCombobox.currentText()
+        self.query_ms_rooms_sig.emit(url)
+        #self.on_ms_rooms({
+            #33: "Standard",
+            #28: "Casual",
+            #38: "Custom Gametypes",
+            #31: "OLDC",
+            #101: "@Sonic",
+            #102: "@Tails",
+            #103: "@Knuckles",
+        #}) # Debug switch
 
+    def on_ms_rooms(self, data={}):
+        print("on_ms_rooms({})\n".format(data))
+        self.ui.RoomInput.blockSignals(True) # MutEx lock
+        self.ui.RoomInput.clear()
+        self.ui.RoomInput.insertItem( 0, "No room/Offline")
+        for roomid, roomname in data.items():
+            self.ui.RoomInput.addItem("{} (ID: {})".format(roomname,roomid),roomid)
+            #self.ui.RoomInput.insertItem( self.ui.RoomInput.count(), "{} ({})".format(roomname,roomid))
+        self.ui.RoomInput.blockSignals(False) # MutEx unlock
+        self.ui.RoomInput.setEnabled(True) # MutEx unlock. lock in query_ms_rooms
+        self.ui.MSRoomqueryrefreshButton.setEnabled(True)
+        return
+
+    #### Files tab ####
     def clear_files_list(self):
         self.ui.GameFilesList.clear()
         return
