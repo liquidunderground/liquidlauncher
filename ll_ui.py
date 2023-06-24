@@ -1738,10 +1738,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_22.addWidget(self.label_42, 19, 0, 1, 1)
 
-        self.Battle_recoveryjumpInput = QCheckBox(self.BattlemodSettingsGroupbox)
-        self.Battle_recoveryjumpInput.setObjectName(u"Battle_recoveryjumpInput")
+        self.Battle_recoveryjumpCheckbox = QCheckBox(self.BattlemodSettingsGroupbox)
+        self.Battle_recoveryjumpCheckbox.setObjectName(u"Battle_recoveryjumpCheckbox")
 
-        self.gridLayout_22.addWidget(self.Battle_recoveryjumpInput, 5, 1, 1, 1)
+        self.gridLayout_22.addWidget(self.Battle_recoveryjumpCheckbox, 5, 1, 1, 1)
 
         self.groupBox_26 = QGroupBox(self.BattlemodSettingsGroupbox)
         self.groupBox_26.setObjectName(u"groupBox_26")
@@ -3294,7 +3294,7 @@ class Ui_MainWindow(object):
         self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
         self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
-        self.Battle_recoveryjumpInput.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
+        self.Battle_recoveryjumpCheckbox.setText(QCoreApplication.translate("MainWindow", u"Enable recovery jumps", None))
         self.groupBox_26.setTitle(QCoreApplication.translate("MainWindow", u"Battle", None))
         self.label_53.setText(QCoreApplication.translate("MainWindow", u"Launch factor", None))
         self.label_50.setText(QCoreApplication.translate("MainWindow", u"Training mode", None))

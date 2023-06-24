@@ -3347,7 +3347,7 @@ p, li { white-space: pre-wrap; }
                                   </widget>
                                  </item>
                                  <item row="5" column="1">
-                                  <widget class="QCheckBox" name="Battle_recoveryjumpInput">
+                                  <widget class="QCheckBox" name="Battle_recoveryjumpCheckbox">
                                    <property name="text">
                                     <string>Enable recovery jumps</string>
                                    </property>
