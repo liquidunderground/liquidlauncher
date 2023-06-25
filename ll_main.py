@@ -544,7 +544,6 @@ class MainWindow(QMainWindow):
 
         ### Battlmod Settings Tab ###
         if self.ui.BattlemodSettingsCheckbox.isChecked():
-            print("Sorry, no Battlemod settings yet :p\n")
             # TODO: Debug everything
             # Battlemod Tab
             launch_command += ["+battle_coyotetime", str(self.ui.Battle_coyotetimeInput.value())]
