@@ -414,9 +414,10 @@ class MainWindow(QMainWindow):
             self.ui.PlayerSkinInput.currentText().lower().replace(" ", ""))]
 
         # get all files ====================================================== #
-        com +=[ "-file"]
-        for i in range(self.ui.GameFilesList.count()):
-            com += [self.ui.GameFilesList.item(i).text()]
+        if self.ui.GameFilesList.count() > 0:
+            com +=[ "-file"]
+            for i in range(self.ui.GameFilesList.count()):
+                com += [self.ui.GameFilesList.item(i).text()]
 
         # add a script ======================================================= #
         if self.ui.GameFilesExecScriptInput.text() != "": 
