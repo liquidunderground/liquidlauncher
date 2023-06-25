@@ -2,6 +2,7 @@ import json
 import os
 import platform
 import sys
+import shlex
 import webbrowser
 from packaging import version # for version checks
 import urllib
@@ -423,7 +424,7 @@ class MainWindow(QMainWindow):
 
         # custom parameters ================================================== #
         if self.ui.GameArgsInput.text() != "": 
-            com += [self.ui.GameArgsInput.text()]
+            com += shlex.split(self.ui.GameArgsInput.text())
 
         return com
 
