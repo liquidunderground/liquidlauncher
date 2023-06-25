@@ -512,20 +512,24 @@ class MainWindow(QMainWindow):
         if self.ui.RingslingerSettingsCheckbox.isChecked():
             if self.ui.PointLimitInput.value() != 0:
                 launch_command += ["+pointlimit" , str(self.ui.PointLimitInput.value())]
+            launch_command += ["+matchscoring" , str(self.ui.MatchscoringCombobox.currentIndex())]
             if self.ui.TimeLimitInput.text() != "":
                 launch_command += ["+timelimit" , str(self.ui.TimeLimitInput.value())]
             else:
                 launch_command += ["+timelimit","0"]
-            if self.ui.DisableWeaponsToggle.isChecked():
-                launch_command += ["+specialrings","1"]
-            else:
-                launch_command += ["+specialrings","0"]
-            if self.ui.SuddenDeathToggle.isChecked():
-                launch_command += ["+suddendeath","1"]
-            else:
-                launch_command += ["+suddendeath","0"]
+            launch_command += ["+overtime", "1" if self.ui.OvertimeCheckbox.isChecked() else "0"]
+            launch_command += ["+respawndelay" , str(self.ui.RespawndelayInput.value())]
+            launch_command += ["+specialrings", "1" if self.ui.PowerstonesCheckbox.isChecked() else "0"]
+            launch_command += ["+suddendeath", "1" if self.ui.PowerstonesCheckbox.isChecked() else "0"]
+            launch_command += ["+powerstones", "1" if self.ui.PowerstonesCheckbox.isChecked() else "0"]
             launch_command += ["+matchboxes" , str(self.ui.MatchboxesCombobox.currentIndex())]
-            # TODO: Add the other options
+            launch_command += ["+autobalance", str(self.ui.AutobalanceCheckbox.currentIndex())]
+            launch_command += ["+flagtime", str(self.ui.FlagtimeInput.value())]
+            launch_command += ["+friendlyfire", "1" if self.ui.FriendlyfireCheckbox.isChecked() else "0"]
+            launch_command += ["+touchtag", "1" if self.ui.TouchtagCheckbox.isChecked() else "0"]
+            launch_command += ["+hidetime", str(self.ui.HidetimeInput.value())]
+            # TODO: Debug
+           
 
         ### Circuit Race Settings Tab ###
         if self.ui.CircuitraceSettingsCheckbox.isChecked():
@@ -541,7 +545,44 @@ class MainWindow(QMainWindow):
         ### Battlmod Settings Tab ###
         if self.ui.BattlemodSettingsCheckbox.isChecked():
             print("Sorry, no Battlemod settings yet :p\n")
-            # TODO: Add everything
+            # TODO: Debug everything
+            # Battlemod Tab
+            launch_command += ["+battle_coyotetime", str(self.ui.Battle_coyotetimeInput.value())]
+            launch_command += ["+battle_coyotefactor", str(self.ui.Battle_coyotefactorInput.value())]
+            launch_command += ["+battle_recoveryjump", "1" if self.ui.Battle_recoveryjumpCheckbox.isChecked() else "0"]
+            ## Item settings
+            launch_command += ["+item_rate", str(self.ui.Item_rateCombobox.currentIndex())]
+            launch_command += ["+item_type", str(self.ui.Item_typeCombobox.currentIndex()-1)]
+            launch_command += ["+item_global", "1" if self.ui.Item_globalCheckbox.isChecked() else "0"]
+            launch_command += ["+item_local", "1" if self.ui.Item_localCheckbox.isChecked() else "0"]
+            ## Battle mode settings
+            launch_command += ["+survival_lives", str(self.ui.Survival_livesInput.value())]
+            launch_command += ["+battle_startrings", str(self.ui.Battle_startringsInput.value())]
+            launch_command += ["+survival_revenge", str(self.ui.Survival_revengeCombobox.currentIndex())]
+            launch_command += ["+survival_suddendeath", "1" if self.ui.Survival_suddendeathCheckbox.isChecked() else "0"]
+            ## Battle/Survival settings
+            launch_command += ["+battle_collision", "1" if self.ui.Battle_collisionsCheckbox.isChecked() else "0"]
+            launch_command += ["+battle_slipstreams", "1" if self.ui.Battle_slipstreamsheckbox.isChecked() else "0"]
+            launch_command += ["+battle_special", "1" if self.ui.Battle_specialCheckbox.isChecked() else "0"]
+            launch_command += ["+battle_shieldstock", "1" if self.ui.Battle_shieldstocksCheckbox.isChecked() else "0"]
+            launch_command += ["+battle_preround", "1" if self.ui.Battle_preroundCheckbox.isChecked() else "0"]
+            ## CP Ring spawns
+            launch_command += ["+cp_spawninfinity", "1" if self.ui.Cp_spawninfinityInput.isChecked() else "0"]
+            launch_command += ["+cp_spawnauto", "1" if self.ui.Cp_spawnautoInput.isChecked() else "0"]
+            launch_command += ["+cp_spawnbounde", "1" if self.ui.Cp_spawnbounceInput.isChecked() else "0"]
+            launch_command += ["+cp_spawnbomb", "1" if self.ui.Cp_spawnbombInput.isChecked() else "0"]
+            launch_command += ["+cp_spawngrenade", "1" if self.ui.Cp_spawngrenadeInput.isChecked() else "0"]
+            launch_command += ["+cp_spawnrail", "1" if self.ui.Cp_spawnrailInput.isChecked() else "0"]
+            launch_command += ["+cp_spawnscatter", "1" if self.ui.Cp_spawnscatterInput.isChecked() else "0"]
+            ## Battle CTF
+            launch_command += ["+ctf_flagdrop_graceperiod", str(self.ui.Ctf_flagdrop_graceperiodInput.value())]
+            launch_command += ["+ctf_flagrespawn_graceperiod", str(self.ui.Ctf_flagrespawn_graceperiodInput.value())]
+            ## Battle Diamond hunt
+            launch_command += ["+diamond_capture_time", str(self.ui.Diamond_capture_timeInput.value())]
+            launch_command += ["+diamond_capture_bonus", str(self.ui.Diamond_capture_bonusInput.value())]
+            ## Cutsom Battlemod flags ##
+            if self.ui.Battle_addoptionsInput.text() != "": 
+                com += shlex.split(self.ui.Battle_addoptionsInput.text())
 
 
         print("SERVER COMMAND: {}".format(launch_command))
