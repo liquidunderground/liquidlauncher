@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 1026, 539))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -352,7 +352,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 795, 525))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, -125, 795, 525))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -646,6 +646,11 @@ class Ui_MainWindow(object):
         self.ModBrowserTab.setObjectName(u"ModBrowserTab")
         self.gridLayout_12 = QGridLayout(self.ModBrowserTab)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.ModStatusLabel = QLabel(self.ModBrowserTab)
+        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
+
+        self.gridLayout_12.addWidget(self.ModStatusLabel, 2, 0, 1, 2)
+
         self.splitter_2 = QSplitter(self.ModBrowserTab)
         self.splitter_2.setObjectName(u"splitter_2")
         sizePolicy3.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
@@ -712,6 +717,33 @@ class Ui_MainWindow(object):
         self.gridLayout_4 = QGridLayout(self.groupBox_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(6, 0, 0, 0)
+        self.DownloadModButton = QPushButton(self.groupBox_2)
+        self.DownloadModButton.setObjectName(u"DownloadModButton")
+        self.DownloadModButton.setEnabled(False)
+        icon15 = QIcon()
+        icon15.addFile(u":/assets/img/icons/download.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.DownloadModButton.setIcon(icon15)
+
+        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 1, 1, 1)
+
+        self.ModViewerLabel = QLabel(self.groupBox_2)
+        self.ModViewerLabel.setObjectName(u"ModViewerLabel")
+        sizePolicy5.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
+        self.ModViewerLabel.setSizePolicy(sizePolicy5)
+
+        self.gridLayout_4.addWidget(self.ModViewerLabel, 0, 0, 1, 3)
+
+        self.OpenPageButton = QPushButton(self.groupBox_2)
+        self.OpenPageButton.setObjectName(u"OpenPageButton")
+        self.OpenPageButton.setEnabled(False)
+        self.OpenPageButton.setIcon(icon1)
+
+        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 2, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 0, 1, 1)
+
         self.ModBrowser = QWebEngineView(self.groupBox_2)
         self.ModBrowser.setObjectName(u"ModBrowser")
         sizePolicy3.setHeightForWidth(self.ModBrowser.sizePolicy().hasHeightForWidth())
@@ -731,41 +763,32 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.ModBrowser, 1, 0, 1, 3)
 
-        self.DownloadModButton = QPushButton(self.groupBox_2)
-        self.DownloadModButton.setObjectName(u"DownloadModButton")
-        self.DownloadModButton.setEnabled(False)
-        icon15 = QIcon()
-        icon15.addFile(u":/assets/img/icons/download.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.DownloadModButton.setIcon(icon15)
-
-        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 1, 1, 1)
-
-        self.ModViewerLabel = QLabel(self.groupBox_2)
-        self.ModViewerLabel.setObjectName(u"ModViewerLabel")
-        sizePolicy5.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
-        self.ModViewerLabel.setSizePolicy(sizePolicy5)
-
-        self.gridLayout_4.addWidget(self.ModViewerLabel, 0, 0, 1, 3)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 0, 1, 1)
-
-        self.OpenPageButton = QPushButton(self.groupBox_2)
-        self.OpenPageButton.setObjectName(u"OpenPageButton")
-        self.OpenPageButton.setEnabled(False)
-        self.OpenPageButton.setIcon(icon1)
-
-        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 2, 1, 1)
-
         self.splitter_2.addWidget(self.groupBox_2)
 
-        self.gridLayout_12.addWidget(self.splitter_2, 0, 0, 1, 5)
+        self.gridLayout_12.addWidget(self.splitter_2, 0, 0, 1, 6)
 
-        self.ModStatusLabel = QLabel(self.ModBrowserTab)
-        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
+        self.line_4 = QFrame(self.ModBrowserTab)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setFrameShape(QFrame.VLine)
+        self.line_4.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_12.addWidget(self.ModStatusLabel, 2, 0, 1, 5)
+        self.gridLayout_12.addWidget(self.line_4, 2, 2, 1, 1)
+
+        self.ModDirBrowseButton = QPushButton(self.ModBrowserTab)
+        self.ModDirBrowseButton.setObjectName(u"ModDirBrowseButton")
+        self.ModDirBrowseButton.setIcon(icon6)
+
+        self.gridLayout_12.addWidget(self.ModDirBrowseButton, 2, 5, 1, 1)
+
+        self.ModDirInput = QLineEdit(self.ModBrowserTab)
+        self.ModDirInput.setObjectName(u"ModDirInput")
+
+        self.gridLayout_12.addWidget(self.ModDirInput, 2, 4, 1, 1)
+
+        self.label_23 = QLabel(self.ModBrowserTab)
+        self.label_23.setObjectName(u"label_23")
+
+        self.gridLayout_12.addWidget(self.label_23, 2, 3, 1, 1)
 
         self.GameSettingsTabWidget.addTab(self.ModBrowserTab, "")
 
@@ -2619,7 +2642,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 87, 87))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1026, 539))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -2648,7 +2671,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 447, 462))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1026, 539))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.tabWidget_2 = QTabWidget(self.scrollAreaWidgetContents)
@@ -2663,6 +2686,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_11.addWidget(self.SaveFilesToConfigToggle, 2, 0, 1, 1)
 
+        self.ProfileDirLabel = QLabel(self.tab_5)
+        self.ProfileDirLabel.setObjectName(u"ProfileDirLabel")
+
+        self.gridLayout_11.addWidget(self.ProfileDirLabel, 0, 0, 1, 1)
+
         self.ProfileDirInput = QLineEdit(self.tab_5)
         self.ProfileDirInput.setObjectName(u"ProfileDirInput")
 
@@ -2673,11 +2701,6 @@ class Ui_MainWindow(object):
         self.ProfileDirBrowseButton.setIcon(icon6)
 
         self.gridLayout_11.addWidget(self.ProfileDirBrowseButton, 1, 2, 1, 1)
-
-        self.ProfileDirLabel = QLabel(self.tab_5)
-        self.ProfileDirLabel.setObjectName(u"ProfileDirLabel")
-
-        self.gridLayout_11.addWidget(self.ProfileDirLabel, 0, 0, 1, 1)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -3086,6 +3109,7 @@ class Ui_MainWindow(object):
         self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"Launch Script", None))
         self.GameFilesLoadButton.setText(QCoreApplication.translate("MainWindow", u"Load list...", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.AddonsLoaderTab), QCoreApplication.translate("MainWindow", u"Launch Mods", None))
+        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
 #if QT_CONFIG(tooltip)
         self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
 #endif // QT_CONFIG(tooltip)
@@ -3098,10 +3122,16 @@ class Ui_MainWindow(object):
 
         self.ModBrowserLabel.setText(QCoreApplication.translate("MainWindow", u"Mods", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"(You can enable more sources under the launcher's settings)", None))
+#if QT_CONFIG(tooltip)
+        self.DownloadModButton.setToolTip(QCoreApplication.translate("MainWindow", u"Coming soon. Hang in there, buddy!", None))
+#endif // QT_CONFIG(tooltip)
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
-        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
+        self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
+        self.ModDirInput.setText(QCoreApplication.translate("MainWindow", u"./ll_downloads", None))
+        self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Download directory", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
         self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
@@ -3116,7 +3146,7 @@ class Ui_MainWindow(object):
         self.HostMSCombobox.setItemText(0, "")
 
         self.HostMSCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"<default>", None))
-        self.label_55.setText(QCoreApplication.translate("MainWindow", u"(Press enter to query it's rooms)", None))
+        self.label_55.setText(QCoreApplication.translate("MainWindow", u"(Press enter or click the button to query it's rooms)", None))
         self.HostMSLabel.setText(QCoreApplication.translate("MainWindow", u"Master Server", None))
         self.label_51.setText(QCoreApplication.translate("MainWindow", u"(Select a Master server to query it's rooms)", None))
         self.DedicatedServerToggle.setText(QCoreApplication.translate("MainWindow", u"Dedicated/headless Server", None))
@@ -3604,8 +3634,8 @@ class Ui_MainWindow(object):
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
         self.SaveFilesToConfigToggle.setText(QCoreApplication.translate("MainWindow", u"Save Launch Mods to Profile", None))
-        self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.ProfileDirLabel.setText(QCoreApplication.translate("MainWindow", u"Profile Directory (requires restart)", None))
+        self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"Profiles", None))
         self.ModsourceDisclaimerLabel.setText(QCoreApplication.translate("MainWindow", u"DISCLAIMER", None))
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

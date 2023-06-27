@@ -92,8 +92,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>359</width>
-                <height>177</height>
+                <width>1026</width>
+                <height>539</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -327,7 +327,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>3</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -839,7 +839,7 @@
                          <property name="geometry">
                           <rect>
                            <x>0</x>
-                           <y>0</y>
+                           <y>-125</y>
                            <width>795</width>
                            <height>525</height>
                           </rect>
@@ -1147,7 +1147,7 @@ font-size: 12pt;</string>
                             <string>Add file...</string>
                            </property>
                            <property name="currentIndex">
-                            <number>0</number>
+                            <number>1</number>
                            </property>
                            <widget class="QWidget" name="AddonsLoaderTab">
                             <attribute name="title">
@@ -1377,7 +1377,14 @@ font-size: 12pt;</string>
                              <string>Browse online</string>
                             </attribute>
                             <layout class="QGridLayout" name="gridLayout_12">
-                             <item row="0" column="0" colspan="5">
+                             <item row="2" column="0" colspan="2">
+                              <widget class="QLabel" name="ModStatusLabel">
+                               <property name="text">
+                                <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="0" colspan="6">
                               <widget class="QSplitter" name="splitter_2">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1524,6 +1531,63 @@ font-size: 12pt;</string>
                                  <property name="bottomMargin">
                                   <number>0</number>
                                  </property>
+                                 <item row="2" column="1">
+                                  <widget class="QPushButton" name="DownloadModButton">
+                                   <property name="enabled">
+                                    <bool>false</bool>
+                                   </property>
+                                   <property name="toolTip">
+                                    <string>Coming soon. Hang in there, buddy!</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Download</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/download.png</normaloff>:/assets/img/icons/download.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="0" colspan="3">
+                                  <widget class="QLabel" name="ModViewerLabel">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="text">
+                                    <string>Mod details</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="2">
+                                  <widget class="QPushButton" name="OpenPageButton">
+                                   <property name="enabled">
+                                    <bool>false</bool>
+                                   </property>
+                                   <property name="text">
+                                    <string>Visit Page</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="0">
+                                  <spacer name="horizontalSpacer_4">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
                                  <item row="1" column="0" colspan="3">
                                   <widget class="QWebEngineView" name="ModBrowser" native="true">
                                    <property name="sizePolicy">
@@ -1582,68 +1646,39 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="2" column="1">
-                                  <widget class="QPushButton" name="DownloadModButton">
-                                   <property name="enabled">
-                                    <bool>false</bool>
-                                   </property>
-                                   <property name="text">
-                                    <string>Download</string>
-                                   </property>
-                                   <property name="icon">
-                                    <iconset resource="ll.qrc">
-                                     <normaloff>:/assets/img/icons/download.png</normaloff>:/assets/img/icons/download.png</iconset>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="0" column="0" colspan="3">
-                                  <widget class="QLabel" name="ModViewerLabel">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="text">
-                                    <string>Mod details</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="2" column="0">
-                                  <spacer name="horizontalSpacer_4">
-                                   <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                   </property>
-                                   <property name="sizeHint" stdset="0">
-                                    <size>
-                                     <width>40</width>
-                                     <height>20</height>
-                                    </size>
-                                   </property>
-                                  </spacer>
-                                 </item>
-                                 <item row="2" column="2">
-                                  <widget class="QPushButton" name="OpenPageButton">
-                                   <property name="enabled">
-                                    <bool>false</bool>
-                                   </property>
-                                   <property name="text">
-                                    <string>Visit Page</string>
-                                   </property>
-                                   <property name="icon">
-                                    <iconset resource="ll.qrc">
-                                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-                                   </property>
-                                  </widget>
-                                 </item>
                                 </layout>
                                </widget>
                               </widget>
                              </item>
-                             <item row="2" column="0" colspan="5">
-                              <widget class="QLabel" name="ModStatusLabel">
+                             <item row="2" column="2">
+                              <widget class="Line" name="line_4">
+                               <property name="orientation">
+                                <enum>Qt::Vertical</enum>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="5">
+                              <widget class="QPushButton" name="ModDirBrowseButton">
                                <property name="text">
-                                <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
+                                <string>Browse...</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="4">
+                              <widget class="QLineEdit" name="ModDirInput">
+                               <property name="placeholderText">
+                                <string>Downloads/</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="3">
+                              <widget class="QLabel" name="label_23">
+                               <property name="text">
+                                <string>Download directory</string>
                                </property>
                               </widget>
                              </item>
@@ -5012,8 +5047,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>87</width>
-                <height>87</height>
+                <width>1026</width>
+                <height>539</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -5142,8 +5177,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>447</width>
-                <height>462</height>
+                <width>1026</width>
+                <height>539</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -5167,6 +5202,13 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="ProfileDirLabel">
+                     <property name="text">
+                      <string>Profile Directory (requires restart)</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="1" column="0">
                     <widget class="QLineEdit" name="ProfileDirInput"/>
                    </item>
@@ -5178,13 +5220,6 @@ p, li { white-space: pre-wrap; }
                      <property name="icon">
                       <iconset resource="ll.qrc">
                        <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="ProfileDirLabel">
-                     <property name="text">
-                      <string>Profile Directory (requires restart)</string>
                      </property>
                     </widget>
                    </item>

@@ -1,3 +1,4 @@
+import os
 from lxml import html
 from parse import *
 import requests
@@ -12,7 +13,7 @@ srb2mb = {
     "assets": "https://mb.srb2.org/addons/categories/assets.6",
     "thread_link": "/addons/{thread}",
     "thread": "https://mb.srb2.org/addons/{thread}",
-    "download": "https://mb.srb2.org/addons/{thread}/download",
+    "download": "https://mb.srb2.org/addons/{thread}download",
     "icon": ":/assets/img/icons/srb2mb.png",
     "vendor": "stjr"
 }
@@ -27,7 +28,7 @@ workshop_blue = {
     "assets": "https://srb2workshop.org/resources/categories/assets.16",
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}/",
-    "download": "https://srb2workshop.org/resources/{thread}/download",
+    "download": "https://srb2workshop.org/resources/{thread}download",
     "icon": ":/assets/img/icons/wsblue.png",
     "vendor": "workshop"
 }
@@ -41,7 +42,7 @@ workshop_red = {
     "assets": "https://srb2workshop.org/resources/categories/assets.26",
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}",
-    "download": "https://srb2workshop.org/resources/{thread}/download",
+    "download": "https://srb2workshop.org/resources/{thread}download",
     "icon": ":/assets/img/icons/wsred.png",
     "vendor": "workshop"
 }
@@ -374,17 +375,26 @@ def get_list_of_thread_links(parsed_html):
 
 def download_mod(base_path, download_url):
     # TODO: apparently https://.../download isn't the actual download URL! It crashes this function.
-    filepath = base_path + download_url.split('/')[-1]
-    print("Proceeding to download file ", download_url,  "into", filepath)
+    # Guarantee downloads directory
+    if not os.path.isdir(base_path):
+        os.makedirs(base_path)
+        
     # NOTE the stream=True parameter below
     with requests.get(download_url, stream=True, headers=headers) as r:
         r.raise_for_status()
-        with open(filepath, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                # If you have chunk encoded response uncomment if
-                # and set chunk_size parameter to None.
-                #if chunk:
-                f.write(chunk)
+        # Safeguard in case there's no "Content-Disposition" header
+        try:
+            filepath = "{}/{}".format(base_path.rstrip('/'), parse('attachment; filename="{file}"', r.headers["Content-Disposition"])["file"])
+            #filepath = base_path.rstrip('/')+download_url.split('/')[-3]
+            print("Proceeding to download file ", download_url,  "into", filepath)
+            with open(filepath, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    # If you have chunk encoded response uncomment if
+                    # and set chunk_size parameter to None.
+                    #if chunk:
+                    f.write(chunk)
+        except KeyError as ke:
+            return None
     return filepath
 
 def extract_mod(filepath):

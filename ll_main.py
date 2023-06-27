@@ -762,7 +762,7 @@ class MainWindow(QMainWindow):
     # Mods browser
     
     def open_mod_page(self):
-        mod = self.get_selected_mod()
+        mod = self.get_selected_mod().url
         self.open_url(mod)
     
     def get_selected_mod(self):
@@ -773,11 +773,13 @@ class MainWindow(QMainWindow):
         return selection
 
     def download_mod(self):
+        print("MOD LIST: {}".format(self.mods_list))
         if self.mods_list:
-
             mod = self.get_selected_mod()
-            mod.set_download_url()
-            path = os.path.join( self.ui.HomePathInput.text(), "DOWNLOAD")
+            print("SELECTED MOD: {}".format(mod))
+            #mod.set_download_url()
+            #path = os.path.join( self.ui.HomePathInput.text(), "DOWNLOAD")
+            path = self.ui.ModDirInput.text() if self.ui.ModDirInput.text() != "" else os.path.join(os.path.expanduser("~"), "Downloads")
             self.ui.ModStatusLabel.setText("Downloading mod...")
             self.download_mod_url_sig.emit(mod.download_url)
             self.download_mod_path_sig.emit(path)
@@ -786,7 +788,7 @@ class MainWindow(QMainWindow):
         print("append_mod_to_list({},{})".format(mod,icon))
         new_item = QtWidgets.QListWidgetItem()
         new_item.setText(mod)
-        new_item.setData(3,self.mods_list[mod].url)
+        new_item.setData(3,self.mods_list[mod])
         if icon:
             qicon = QtGui.QIcon()
             qicon.addPixmap(QtGui.QPixmap(icon),
@@ -798,16 +800,18 @@ class MainWindow(QMainWindow):
     def load_mod_page(self):
         self.ui.ModStatusLabel.setText("Downloading mod description...")
         if self.mods_list:
-            mod = self.get_selected_mod()
+            mod = self.get_selected_mod().url
             #print("Mod URL: {}".format(mod.url))
             #self.ui.ModBrowser.load(mod.url)
             print("Mod URL: {}".format(mod))
             self.ui.ModBrowser.load(mod)
             self.ui.ModStatusLabel.setText("Mod successfully loaded.")
             self.ui.OpenPageButton.setEnabled(True)
+            self.ui.DownloadModButton.setEnabled(True)
         else:
             self.ui.ModStatusLabel.setText("No mods found. Did you check your sources?")
             self.ui.OpenPageButton.setEnabled(False)
+            self.ui.DownloadModButton.setEnabled(True)
 
     def refresh_mods_list(self):
         # TODO: multithreading to get rid of lag
@@ -832,7 +836,11 @@ class MainWindow(QMainWindow):
             self.append_mod_to_list(item, icon)
 
     def add_mod_to_files(self, filepaths_list):
-        self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
+        # Unable to download?
+        if filepaths_list == [None]:
+            self.ui.ModStatusLabel.setText("Unable to download mod (maybe check the website)")
+        else:
+            self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
         pass
         #for filepath in filepaths_list:
         #    self.add_file(filepath)
@@ -1393,6 +1401,7 @@ class MainWindow(QMainWindow):
 
         # Modding section & Files
         self.ui.SaveFilesToConfigToggle.setChecked(profile_settings_dict["settings"]["includefiles"])
+        self.ui.ModDirInput.setText(profile_settings_dict["settings"]["moddir"])
 
         self.ui.GameFilesList.clear()
         if self.ui.SaveFilesToConfigToggle.isChecked:
@@ -1534,10 +1543,15 @@ class MainWindow(QMainWindow):
         """
         toml_settings = {
             "files": [],
+            "mod_download_dest": "",
             "player": {},
             "game": {"resolution": {}},
             "host": {},
-            "settings": {}
+            "settings": {
+                "binmode": "native",
+                "includefiles": True,
+                "moddir": "./ll_downloads",
+            }
             }
 
         if self.ui.WineRadiobutton.isChecked():
@@ -1548,6 +1562,7 @@ class MainWindow(QMainWindow):
             toml_settings["settings"]["binmode"] = "native"
 
         toml_settings["settings"]["includefiles"] = self.ui.SaveFilesToConfigToggle.isChecked()
+        toml_settings["settings"]["moddir"] = self.ui.ModDirInput.text()
 
         for i in range(self.ui.GameFilesList.count()):
             toml_settings["files"].append(self.ui.GameFilesList.item(i).text())
