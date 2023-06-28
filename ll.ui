@@ -4441,6 +4441,9 @@ p, li { white-space: pre-wrap; }
                             <property name="sizeAdjustPolicy">
                              <enum>QAbstractScrollArea::AdjustToContents</enum>
                             </property>
+                            <property name="selectionBehavior">
+                             <enum>QAbstractItemView::SelectRows</enum>
+                            </property>
                             <attribute name="horizontalHeaderCascadingSectionResizes">
                              <bool>true</bool>
                             </attribute>
@@ -4752,6 +4755,9 @@ p, li { white-space: pre-wrap; }
                             </property>
                             <property name="editTriggers">
                              <set>QAbstractItemView::DoubleClicked</set>
+                            </property>
+                            <property name="selectionBehavior">
+                             <enum>QAbstractItemView::SelectRows</enum>
                             </property>
                             <attribute name="verticalHeaderVisible">
                              <bool>false</bool>

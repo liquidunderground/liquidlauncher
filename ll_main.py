@@ -926,18 +926,19 @@ class MainWindow(QMainWindow):
         return
 
     def save_ms_selection(self):
-        # ID: ip:port
-        selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 0).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 3).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 2).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 4).text()
-            )
-        server = self.master_server_list[selection]
-        ip = server.get("ip")
-        name = self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 0).text()
-        port = server.get("port")
-        self.add_server_to_list(name, ip, port)
+        for row in self.ui.BrowseNetgameTable.selectionModel().selectedRows():
+            # ID: ip:port
+            selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
+                self.ui.BrowseNetgameTable.item(row.row(), 0).text(),
+                self.ui.BrowseNetgameTable.item(row.row(), 3).text(),
+                self.ui.BrowseNetgameTable.item(row.row(), 2).text(),
+                self.ui.BrowseNetgameTable.item(row.row(), 4).text()
+                )
+            server = self.master_server_list[selection]
+            ip = server.get("ip")
+            name = self.ui.BrowseNetgameTable.item(row.row(), 0).text()
+            port = server.get("port")
+            self.add_server_to_list(name, ip, port)
 
     # Saved servers
 
@@ -997,14 +998,13 @@ class MainWindow(QMainWindow):
         self.save_server_list()
         return
 
-    def delete_server_from_list(self, index):
-        self.saved_server_ips.pop(index)
-        self.ui.SavedNetgameTable.removeRow(index)
-        self.save_server_list()
-        return
-
     def delete_selected_server(self):
-        self.delete_server_from_list( self.ui.SavedNetgameTable.currentRow() )
+        downcounter = 0
+        for row in self.ui.SavedNetgameTable.selectionModel().selectedRows():
+            self.saved_server_ips.pop(row.row())
+            self.ui.SavedNetgameTable.removeRow(row.row()+downcounter)
+            downcounter = downcounter-1
+        self.save_server_list()
         return
 
     def join_selected_netgame_bookmark(self):
@@ -1117,7 +1117,10 @@ class MainWindow(QMainWindow):
 
     def remove_ms_from_list(self): 
         print("remove_ms_from_list")
-        self.ui.MasterServersTable.removeRow( self.ui.MasterServersTable.currentRow() )
+        downcounter = 0
+        for row in self.ui.MasterServersTable.selectionModel().selectedRows():
+            self.ui.MasterServersTable.removeRow( row.row() + downcounter)
+            downcounter = downcounter-1
         return
 
     # Settings and profiles

@@ -2354,6 +2354,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.SavedNetgameTable.sizePolicy().hasHeightForWidth())
         self.SavedNetgameTable.setSizePolicy(sizePolicy2)
         self.SavedNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.SavedNetgameTable.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.SavedNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.SavedNetgameTable.verticalHeader().setVisible(False)
         self.SavedNetgameTable.verticalHeader().setCascadingSectionResizes(True)
@@ -2534,6 +2535,7 @@ class Ui_MainWindow(object):
         self.MasterServersTable.setObjectName(u"MasterServersTable")
         self.MasterServersTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.MasterServersTable.setEditTriggers(QAbstractItemView.DoubleClicked)
+        self.MasterServersTable.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
         self.gridLayout_28.addWidget(self.MasterServersTable, 1, 0, 4, 4)
