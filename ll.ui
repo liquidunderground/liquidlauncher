@@ -839,7 +839,7 @@
                          <property name="geometry">
                           <rect>
                            <x>0</x>
-                           <y>-125</y>
+                           <y>0</y>
                            <width>795</width>
                            <height>525</height>
                           </rect>
@@ -1147,7 +1147,7 @@ font-size: 12pt;</string>
                             <string>Add file...</string>
                            </property>
                            <property name="currentIndex">
-                            <number>1</number>
+                            <number>0</number>
                            </property>
                            <widget class="QWidget" name="AddonsLoaderTab">
                             <attribute name="title">
@@ -4281,7 +4281,7 @@ p, li { white-space: pre-wrap; }
                             </column>
                             <column>
                              <property name="text">
-                              <string>Gametype</string>
+                              <string>Game</string>
                              </property>
                             </column>
                             <column>

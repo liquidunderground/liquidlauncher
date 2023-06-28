@@ -893,7 +893,7 @@ class MainWindow(QMainWindow):
             twi_name = QtWidgets.QTableWidgetItem(server.get("name"))
             twi_room = QtWidgets.QTableWidgetItem(server.get("room"))
             twi_version = QtWidgets.QTableWidgetItem(server.get("version"))
-            twi_gametype = QtWidgets.QTableWidgetItem(server.get("gametype"))
+            twi_gametype = QtWidgets.QTableWidgetItem(server.get("game"))
             twi_origin = QtWidgets.QTableWidgetItem(server.get("origin")) 
 
             twi_name.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )

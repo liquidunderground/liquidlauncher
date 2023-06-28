@@ -352,7 +352,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, -125, 795, 525))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 795, 525))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -3129,7 +3129,6 @@ class Ui_MainWindow(object):
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
-        self.ModDirInput.setText(QCoreApplication.translate("MainWindow", u"./ll_downloads", None))
         self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Download directory", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
@@ -3446,7 +3445,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem = self.BrowseNetgameTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Title", None));
         ___qtablewidgetitem1 = self.BrowseNetgameTable.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Gametype", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Game", None));
         ___qtablewidgetitem2 = self.BrowseNetgameTable.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Version", None));
         ___qtablewidgetitem3 = self.BrowseNetgameTable.horizontalHeaderItem(3)
