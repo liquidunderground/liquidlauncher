@@ -200,6 +200,7 @@ class MainWindow(QMainWindow):
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
         self.ui.BrowseMSCombobox.currentTextChanged.connect(self.change_current_ms)
         self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
+        self.ui.ModDirBrowseButton.clicked.connect(self.set_download_path)
         # Stubbed to make it editable
         #self.ui.SavedNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_bookmark)
         #
@@ -771,6 +772,11 @@ class MainWindow(QMainWindow):
         #return mod
         selection = self.ui.ModsList.currentItem().data(3)
         return selection
+
+    def set_download_path(self):
+        f, _ = QFileDialog.getExistingDirectory()
+        if (f):
+            self.ui.ModDirInput.setText(f)
 
     def download_mod(self):
         print("MOD LIST: {}".format(self.mods_list))
