@@ -2748,12 +2748,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.ModsourceSkybaseCheckbox)
 
-        self.ModsourceWadarchiveCheckbox = QCheckBox(self.tab_6)
-        self.ModsourceWadarchiveCheckbox.setObjectName(u"ModsourceWadarchiveCheckbox")
-        self.ModsourceWadarchiveCheckbox.setEnabled(False)
-
-        self.verticalLayout_6.addWidget(self.ModsourceWadarchiveCheckbox)
-
         self.ModsourceWSBlueCheckbox = QCheckBox(self.tab_6)
         self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
         icon20 = QIcon()
@@ -2918,7 +2912,7 @@ class Ui_MainWindow(object):
         self.Survival_revengeCombobox.setCurrentIndex(0)
         self.Item_rateCombobox.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -3652,7 +3646,6 @@ class Ui_MainWindow(object):
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
         self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))
         self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
-        self.ModsourceWadarchiveCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Wad Archive \"2.2 section\" (unsupported)", None))
         self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
         self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"Mod Sources", None))

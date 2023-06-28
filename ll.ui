@@ -5185,7 +5185,7 @@ p, li { white-space: pre-wrap; }
                <item>
                 <widget class="QTabWidget" name="tabWidget_2">
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>1</number>
                  </property>
                  <widget class="QWidget" name="tab_5">
                   <attribute name="title">
@@ -5319,16 +5319,6 @@ p, li { white-space: pre-wrap; }
                      <property name="icon">
                       <iconset resource="ll.qrc">
                        <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceWadarchiveCheckbox">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>SRB2 Wad Archive &quot;2.2 section&quot; (unsupported)</string>
                      </property>
                     </widget>
                    </item>
