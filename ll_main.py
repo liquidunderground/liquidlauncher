@@ -1035,7 +1035,7 @@ class MainWindow(QMainWindow):
         self.ui.HostMSCombobox.clear()
         # We only need the first column (names)
         rows = self.ui.MasterServersTable.rowCount()
-        self.ui.BrowseMSCombobox.insertItem( 0, "All")
+        #self.ui.BrowseMSCombobox.insertItem( 0, "All")
         for i in range(0, rows):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
