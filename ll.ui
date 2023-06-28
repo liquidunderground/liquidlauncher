@@ -1377,14 +1377,25 @@ font-size: 12pt;</string>
                              <string>Browse online</string>
                             </attribute>
                             <layout class="QGridLayout" name="gridLayout_12">
-                             <item row="2" column="0" colspan="2">
-                              <widget class="QLabel" name="ModStatusLabel">
+                             <item row="2" column="4">
+                              <widget class="QPushButton" name="ModDirBrowseButton">
                                <property name="text">
-                                <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
+                                <string>Browse...</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                                </property>
                               </widget>
                              </item>
-                             <item row="0" column="0" colspan="6">
+                             <item row="2" column="2">
+                              <widget class="QLabel" name="label_23">
+                               <property name="text">
+                                <string>Download directory</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="0" colspan="5">
                               <widget class="QSplitter" name="splitter_2">
                                <property name="sizePolicy">
                                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1429,19 +1440,6 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="0" column="1">
-                                  <spacer name="horizontalSpacer_5">
-                                   <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                   </property>
-                                   <property name="sizeHint" stdset="0">
-                                    <size>
-                                     <width>40</width>
-                                     <height>20</height>
-                                    </size>
-                                   </property>
-                                  </spacer>
-                                 </item>
                                  <item row="0" column="2">
                                   <widget class="QComboBox" name="ModTypeCombo">
                                    <item>
@@ -1479,6 +1477,14 @@ font-size: 12pt;</string>
                                      <verstretch>0</verstretch>
                                     </sizepolicy>
                                    </property>
+                                   <item>
+                                    <property name="text">
+                                     <string>(Tip: You can also enable more sources in the settings)</string>
+                                    </property>
+                                    <property name="flags">
+                                     <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
+                                    </property>
+                                   </item>
                                   </widget>
                                  </item>
                                  <item row="0" column="0">
@@ -1495,19 +1501,32 @@ font-size: 12pt;</string>
                                   </widget>
                                  </item>
                                  <item row="3" column="0" colspan="4">
-                                  <widget class="QLabel" name="label_19">
+                                  <widget class="QLabel" name="ModStatusLabel">
                                    <property name="font">
                                     <font>
                                      <pointsize>8</pointsize>
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string>(You can enable more sources under the launcher's settings)</string>
+                                    <string>Click &quot;Refresh mods&quot; to see a list of available mods.</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                                    </property>
                                   </widget>
+                                 </item>
+                                 <item row="0" column="1">
+                                  <spacer name="horizontalSpacer_5">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
                                  </item>
                                 </layout>
                                </widget>
@@ -1650,35 +1669,10 @@ font-size: 12pt;</string>
                                </widget>
                               </widget>
                              </item>
-                             <item row="2" column="2">
-                              <widget class="Line" name="line_4">
-                               <property name="orientation">
-                                <enum>Qt::Vertical</enum>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="5">
-                              <widget class="QPushButton" name="ModDirBrowseButton">
-                               <property name="text">
-                                <string>Browse...</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="4">
+                             <item row="2" column="3">
                               <widget class="QLineEdit" name="ModDirInput">
                                <property name="placeholderText">
                                 <string>Downloads/</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="3">
-                              <widget class="QLabel" name="label_23">
-                               <property name="text">
-                                <string>Download directory</string>
                                </property>
                               </widget>
                              </item>

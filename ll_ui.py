@@ -646,10 +646,16 @@ class Ui_MainWindow(object):
         self.ModBrowserTab.setObjectName(u"ModBrowserTab")
         self.gridLayout_12 = QGridLayout(self.ModBrowserTab)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.ModStatusLabel = QLabel(self.ModBrowserTab)
-        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
+        self.ModDirBrowseButton = QPushButton(self.ModBrowserTab)
+        self.ModDirBrowseButton.setObjectName(u"ModDirBrowseButton")
+        self.ModDirBrowseButton.setIcon(icon6)
 
-        self.gridLayout_12.addWidget(self.ModStatusLabel, 2, 0, 1, 2)
+        self.gridLayout_12.addWidget(self.ModDirBrowseButton, 2, 4, 1, 1)
+
+        self.label_23 = QLabel(self.ModBrowserTab)
+        self.label_23.setObjectName(u"label_23")
+
+        self.gridLayout_12.addWidget(self.label_23, 2, 2, 1, 1)
 
         self.splitter_2 = QSplitter(self.ModBrowserTab)
         self.splitter_2.setObjectName(u"splitter_2")
@@ -669,10 +675,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 3, 1, 1)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
-
         self.ModTypeCombo = QComboBox(self.groupBox)
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
@@ -684,6 +686,8 @@ class Ui_MainWindow(object):
         self.gridLayout_17.addWidget(self.ModTypeCombo, 0, 2, 1, 1)
 
         self.ModsList = QListWidget(self.groupBox)
+        __qlistwidgetitem9 = QListWidgetItem(self.ModsList)
+        __qlistwidgetitem9.setFlags(Qt.ItemIsSelectable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable);
         self.ModsList.setObjectName(u"ModsList")
         sizePolicy3.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
         self.ModsList.setSizePolicy(sizePolicy3)
@@ -700,14 +704,18 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.ModBrowserLabel, 0, 0, 1, 1)
 
-        self.label_19 = QLabel(self.groupBox)
-        self.label_19.setObjectName(u"label_19")
+        self.ModStatusLabel = QLabel(self.groupBox)
+        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
         font2 = QFont()
         font2.setPointSize(8)
-        self.label_19.setFont(font2)
-        self.label_19.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.ModStatusLabel.setFont(font2)
+        self.ModStatusLabel.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_17.addWidget(self.label_19, 3, 0, 1, 4)
+        self.gridLayout_17.addWidget(self.ModStatusLabel, 3, 0, 1, 4)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
 
         self.splitter_2.addWidget(self.groupBox)
         self.groupBox_2 = QGroupBox(self.splitter_2)
@@ -765,30 +773,12 @@ class Ui_MainWindow(object):
 
         self.splitter_2.addWidget(self.groupBox_2)
 
-        self.gridLayout_12.addWidget(self.splitter_2, 0, 0, 1, 6)
-
-        self.line_4 = QFrame(self.ModBrowserTab)
-        self.line_4.setObjectName(u"line_4")
-        self.line_4.setFrameShape(QFrame.VLine)
-        self.line_4.setFrameShadow(QFrame.Sunken)
-
-        self.gridLayout_12.addWidget(self.line_4, 2, 2, 1, 1)
-
-        self.ModDirBrowseButton = QPushButton(self.ModBrowserTab)
-        self.ModDirBrowseButton.setObjectName(u"ModDirBrowseButton")
-        self.ModDirBrowseButton.setIcon(icon6)
-
-        self.gridLayout_12.addWidget(self.ModDirBrowseButton, 2, 5, 1, 1)
+        self.gridLayout_12.addWidget(self.splitter_2, 0, 0, 1, 5)
 
         self.ModDirInput = QLineEdit(self.ModBrowserTab)
         self.ModDirInput.setObjectName(u"ModDirInput")
 
-        self.gridLayout_12.addWidget(self.ModDirInput, 2, 4, 1, 1)
-
-        self.label_23 = QLabel(self.ModBrowserTab)
-        self.label_23.setObjectName(u"label_23")
-
-        self.gridLayout_12.addWidget(self.label_23, 2, 3, 1, 1)
+        self.gridLayout_12.addWidget(self.ModDirInput, 2, 3, 1, 1)
 
         self.GameSettingsTabWidget.addTab(self.ModBrowserTab, "")
 
@@ -3109,7 +3099,8 @@ class Ui_MainWindow(object):
         self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"Launch Script", None))
         self.GameFilesLoadButton.setText(QCoreApplication.translate("MainWindow", u"Load list...", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.AddonsLoaderTab), QCoreApplication.translate("MainWindow", u"Launch Mods", None))
-        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
+        self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Download directory", None))
 #if QT_CONFIG(tooltip)
         self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
 #endif // QT_CONFIG(tooltip)
@@ -3120,17 +3111,22 @@ class Ui_MainWindow(object):
         self.ModTypeCombo.setItemText(3, QCoreApplication.translate("MainWindow", u"Assets", None))
         self.ModTypeCombo.setItemText(4, QCoreApplication.translate("MainWindow", u"Misc", None))
 
+
+        __sortingEnabled3 = self.ModsList.isSortingEnabled()
+        self.ModsList.setSortingEnabled(False)
+        ___qlistwidgetitem9 = self.ModsList.item(0)
+        ___qlistwidgetitem9.setText(QCoreApplication.translate("MainWindow", u"(Tip: You can also enable more sources in the settings)", None));
+        self.ModsList.setSortingEnabled(__sortingEnabled3)
+
         self.ModBrowserLabel.setText(QCoreApplication.translate("MainWindow", u"Mods", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"(You can enable more sources under the launcher's settings)", None))
+        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
 #if QT_CONFIG(tooltip)
         self.DownloadModButton.setToolTip(QCoreApplication.translate("MainWindow", u"Coming soon. Hang in there, buddy!", None))
 #endif // QT_CONFIG(tooltip)
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
-        self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
-        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Download directory", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
         self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
@@ -3453,7 +3449,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem4 = self.BrowseNetgameTable.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Origin", None));
 
-        __sortingEnabled3 = self.BrowseNetgameTable.isSortingEnabled()
+        __sortingEnabled4 = self.BrowseNetgameTable.isSortingEnabled()
         self.BrowseNetgameTable.setSortingEnabled(False)
         ___qtablewidgetitem5 = self.BrowseNetgameTable.item(0, 0)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Earless Adventure", None));
@@ -3465,7 +3461,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Standard", None));
         ___qtablewidgetitem9 = self.BrowseNetgameTable.item(0, 4)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"mb.srb2.org", None));
-        self.BrowseNetgameTable.setSortingEnabled(__sortingEnabled3)
+        self.BrowseNetgameTable.setSortingEnabled(__sortingEnabled4)
 
         self.BrowseMSCombobox.setItemText(0, QCoreApplication.translate("MainWindow", u"ms.srb2.org", None))
 
@@ -3514,7 +3510,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem15 = self.MasterServersTable.horizontalHeaderItem(2)
         ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"API", None));
 
-        __sortingEnabled4 = self.MasterServersTable.isSortingEnabled()
+        __sortingEnabled5 = self.MasterServersTable.isSortingEnabled()
         self.MasterServersTable.setSortingEnabled(False)
         ___qtablewidgetitem16 = self.MasterServersTable.item(0, 0)
         ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"STJr", None));
@@ -3528,7 +3524,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"https://ms.kartkrew.org/ms/api/games/SRB2Kart/", None));
         ___qtablewidgetitem21 = self.MasterServersTable.item(1, 2)
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"kartv2", None));
-        self.MasterServersTable.setSortingEnabled(__sortingEnabled4)
+        self.MasterServersTable.setSortingEnabled(__sortingEnabled5)
 
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.masterservers), QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameProfileComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New profile...", None))
@@ -3665,17 +3661,17 @@ class Ui_MainWindow(object):
         self.RSSMovedownButton.setText(QCoreApplication.translate("MainWindow", u"Move down", None))
         self.RSSStatusLabel_2.setText(QCoreApplication.translate("MainWindow", u"Select or double click an entry to edit.", None))
 
-        __sortingEnabled5 = self.RSSFeedList.isSortingEnabled()
+        __sortingEnabled6 = self.RSSFeedList.isSortingEnabled()
         self.RSSFeedList.setSortingEnabled(False)
-        ___qlistwidgetitem9 = self.RSSFeedList.item(0)
-        ___qlistwidgetitem9.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
-        ___qlistwidgetitem10 = self.RSSFeedList.item(1)
-        ___qlistwidgetitem10.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
-        ___qlistwidgetitem11 = self.RSSFeedList.item(2)
-        ___qlistwidgetitem11.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
-        ___qlistwidgetitem12 = self.RSSFeedList.item(3)
-        ___qlistwidgetitem12.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
-        self.RSSFeedList.setSortingEnabled(__sortingEnabled5)
+        ___qlistwidgetitem10 = self.RSSFeedList.item(0)
+        ___qlistwidgetitem10.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
+        ___qlistwidgetitem11 = self.RSSFeedList.item(1)
+        ___qlistwidgetitem11.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
+        ___qlistwidgetitem12 = self.RSSFeedList.item(2)
+        ___qlistwidgetitem12.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
+        ___qlistwidgetitem13 = self.RSSFeedList.item(3)
+        ___qlistwidgetitem13.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
+        self.RSSFeedList.setSortingEnabled(__sortingEnabled6)
 
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_9), QCoreApplication.translate("MainWindow", u"News Sources", None))
 #if QT_CONFIG(tooltip)
