@@ -20,7 +20,7 @@ from ll_ui import *
 
 fool = date.today() == date(date.today().year, 4, 1)
 
-versionString = "1.0"
+versionString = "v1.0"
 global_settings_file = "ll_settings.toml"
 
 
