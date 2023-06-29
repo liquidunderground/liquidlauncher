@@ -1144,6 +1144,7 @@ class MainWindow(QMainWindow):
         self.load_server_list()
         self.load_current_profile()
         self.check_version_sig.emit(versionString)
+        self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
         try:
             self.query_ms()  # populates master server list
         except:
