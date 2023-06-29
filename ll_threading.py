@@ -1,10 +1,47 @@
+import json
 import time
+import urllib.request
 
 from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
 from networking import mb_query
 from networking.ms_query import get_server_list, query_ms_rooms
+
+class QueryLiquid(QtCore.QThread):
+    # Emit latest version string for callback
+    check_version_cb_sig = Signal(str)
+
+    def __init__(self, parent=None):
+        QtCore.QThread.__init__(self, parent)
+        self.query_version = False
+        self.versionString = "v0.0a0"
+        print("QueryLiquid worker INIT\n")
+        
+    def on_check_version(self, versionString):
+        print("on_check_version")
+        self.versionString = versionString
+        self.query_version = True
+
+    def run(self):
+        self.running = True
+        while self.running:
+            if self.query_version:
+                print("check_version")
+                link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
+                
+                try:
+                    f = json.load(urllib.request.urlopen(link, timeout=100))
+
+                    latest_version = f["tag_name"]
+                    print("Latest: " + latest_version)
+                    print("Current: " + self.versionString)
+                    self.check_version_cb_sig.emit(latest_version)
+
+                except Exception as e:
+                    print("Version check error: ",e)
+                self.query_version = False
+            time.sleep(1)
 
 class QueryMessageBoard(QtCore.QThread):
     # Emits a string describing the mod
@@ -153,7 +190,7 @@ class ModDownloader(QtCore.QThread):
     def on_filepath_emit(self, filepath):
         self.filepath = filepath
         print("ModDownloader.filepath = ", self.filepath)
-        
+
     def run(self):
         print("ModDownloader.download_url = ", self.download_url)
         print("ModDownloader.filepath = ", self.filepath)

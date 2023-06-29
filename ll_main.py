@@ -5,11 +5,8 @@ import sys
 import shlex
 import webbrowser
 from packaging import version # for version checks
-import urllib
-import urllib.parse
 import toml
 from datetime import date
-from urllib.request import urlretrieve
 
 import feedparser
 import subprocess32 as subprocess # Keep things drop-in
@@ -18,7 +15,7 @@ from PySide6.QtWidgets import QFileDialog, QMenu, QInputDialog, QDialogButtonBox
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryMessageBoard, QueryMasterServer, ModDownloader
+from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
 
 fool = date.today() == date(date.today().year, 4, 1)
@@ -39,6 +36,8 @@ class MainWindow(QMainWindow):
     download_mod_url_sig = Signal(str)
     # Emits mod download filepath
     download_mod_path_sig = Signal(str)
+    # Emits version string
+    check_version_sig = Signal(str)
     
 
     def __init__(self, app):
@@ -101,6 +100,12 @@ class MainWindow(QMainWindow):
         self.download_mod_url_sig.connect(self.mod_download_qthread.on_download_button)
         self.download_mod_path_sig.connect(self.mod_download_qthread.on_filepath_emit)
         self.mod_download_qthread.mod_filepath_sig1.connect(self.add_mod_to_files)
+
+        # Liquid stuff multithreading
+        self.query_liquid_qthread = QueryLiquid()
+        self.query_liquid_qthread.start()
+        self.check_version_sig.connect(self.query_liquid_qthread.on_check_version)
+        self.query_liquid_qthread.check_version_cb_sig.connect(self.on_check_version_cb)
 
         # Emits mod download filepath
         download_mod_path_sig = Signal(str)
@@ -1140,7 +1145,7 @@ class MainWindow(QMainWindow):
         self.load_global_settings()
         self.load_server_list()
         self.load_current_profile()
-        self.check_version()
+        self.check_version_sig.emit(versionString)
         try:
             self.query_ms()  # populates master server list
         except:
@@ -1741,18 +1746,7 @@ class MainWindow(QMainWindow):
                 f.write(out_text)
         return
 
-    def check_version(self):
-        print("check_version")
-
-        link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
-        
-        try:
-            f = json.load(urllib.request.urlopen(link, timeout=100))
-
-            latest_version = f["tag_name"]
-            print("Latest: " + latest_version)
-            print("Current: " + versionString)
-
+    def on_check_version_cb(self, latest_version):
             # check launcher version ============================================= #
             if version.parse(latest_version) > version.parse(versionString):
                 msg = QMessageBox()
@@ -1766,9 +1760,6 @@ class MainWindow(QMainWindow):
                 print("Greetings, time traveller.")
             else:
                 print("up-to-date (" + versionString + ")")
-        except Exception as e:
-            print("Version check error: ",e)
-            return
 
 
 def main():
