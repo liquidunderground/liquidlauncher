@@ -18,8 +18,6 @@ import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
 
-fool = date.today() == date(date.today().year, 4, 1)
-
 versionString = "v1.0"
 global_settings_file = "ll_settings.toml"
 
@@ -1150,13 +1148,6 @@ class MainWindow(QMainWindow):
             self.query_ms()  # populates master server list
         except:
             print("Querying master server failed.")
-
-        # april fools day stuff
-        if (fool):
-            self.ui.PlayerSkinInput.setCurrentIndex(4)
-            self.ui.PlayerColorInput.setCurrentIndex(57)
-            self.ui.PlayerColorInput.setEnabled(False)
-            self.ui.PlayerSkinInput.setEnabled(False)
 
         return
 
