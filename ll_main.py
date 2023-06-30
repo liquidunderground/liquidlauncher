@@ -1043,7 +1043,10 @@ class MainWindow(QMainWindow):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
             self.ui.BrowseMSCombobox.insertItem( self.ui.BrowseMSCombobox.count(), ms_name)
-            self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
+            if self.ui.MasterServersTable.item(i, 2).text() == "snitch": # Fetch-from-Snitch
+               self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url.rstrip('/')+'/v1')
+            else:
+               self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
 
         self.ui.MasterServersTable.resizeColumnsToContents()
 
