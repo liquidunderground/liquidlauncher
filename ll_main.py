@@ -858,10 +858,12 @@ class MainWindow(QMainWindow):
         # Unable to download?
         if filepaths_list == [None]:
             self.ui.ModStatusLabel.setText("Unable to download mod (maybe check the website)")
+            pass
         else:
             self.ui.ModStatusLabel.setText("Download successfully finished.")
-        #for filepath in filepaths_list:
-        #    self.add_file(filepath)
+        if self.ui.AdddownloadtolaunchmodsCheckbox.isChecked():
+            for filepath in filepaths_list:
+                self.add_file(filepath)
 
     # Master server browser
 

@@ -732,25 +732,25 @@ class Ui_MainWindow(object):
         icon15.addFile(u":/assets/img/icons/download.png", QSize(), QIcon.Normal, QIcon.Off)
         self.DownloadModButton.setIcon(icon15)
 
-        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.DownloadModButton, 2, 2, 1, 1)
 
         self.ModViewerLabel = QLabel(self.groupBox_2)
         self.ModViewerLabel.setObjectName(u"ModViewerLabel")
         sizePolicy5.setHeightForWidth(self.ModViewerLabel.sizePolicy().hasHeightForWidth())
         self.ModViewerLabel.setSizePolicy(sizePolicy5)
 
-        self.gridLayout_4.addWidget(self.ModViewerLabel, 0, 0, 1, 3)
+        self.gridLayout_4.addWidget(self.ModViewerLabel, 0, 0, 1, 4)
 
         self.OpenPageButton = QPushButton(self.groupBox_2)
         self.OpenPageButton.setObjectName(u"OpenPageButton")
         self.OpenPageButton.setEnabled(False)
         self.OpenPageButton.setIcon(icon1)
 
-        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.OpenPageButton, 2, 3, 1, 1)
 
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 0, 1, 1)
+        self.gridLayout_4.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
 
         self.ModBrowser = QWebEngineView(self.groupBox_2)
         self.ModBrowser.setObjectName(u"ModBrowser")
@@ -769,7 +769,13 @@ class Ui_MainWindow(object):
         self.ModBrowser.setStyleSheet(u"* {background-color: 1f1f1f;}")
         self.ModBrowser.setProperty("url", QUrl(u"about:blank"))
 
-        self.gridLayout_4.addWidget(self.ModBrowser, 1, 0, 1, 3)
+        self.gridLayout_4.addWidget(self.ModBrowser, 1, 0, 1, 4)
+
+        self.AdddownloadtolaunchmodsCheckbox = QCheckBox(self.groupBox_2)
+        self.AdddownloadtolaunchmodsCheckbox.setObjectName(u"AdddownloadtolaunchmodsCheckbox")
+        self.AdddownloadtolaunchmodsCheckbox.setChecked(True)
+
+        self.gridLayout_4.addWidget(self.AdddownloadtolaunchmodsCheckbox, 3, 2, 1, 2)
 
         self.splitter_2.addWidget(self.groupBox_2)
 
@@ -3122,6 +3128,7 @@ class Ui_MainWindow(object):
         self.DownloadModButton.setText(QCoreApplication.translate("MainWindow", u"Download", None))
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
+        self.AdddownloadtolaunchmodsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Add finished download to launch mods", None))
         self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))

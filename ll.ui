@@ -1550,7 +1550,7 @@ font-size: 12pt;</string>
                                  <property name="bottomMargin">
                                   <number>0</number>
                                  </property>
-                                 <item row="2" column="1">
+                                 <item row="2" column="2">
                                   <widget class="QPushButton" name="DownloadModButton">
                                    <property name="enabled">
                                     <bool>false</bool>
@@ -1567,7 +1567,7 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="0" column="0" colspan="3">
+                                 <item row="0" column="0" colspan="4">
                                   <widget class="QLabel" name="ModViewerLabel">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -1580,7 +1580,7 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="2" column="2">
+                                 <item row="2" column="3">
                                   <widget class="QPushButton" name="OpenPageButton">
                                    <property name="enabled">
                                     <bool>false</bool>
@@ -1594,7 +1594,7 @@ font-size: 12pt;</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="2" column="0">
+                                 <item row="2" column="1">
                                   <spacer name="horizontalSpacer_4">
                                    <property name="orientation">
                                     <enum>Qt::Horizontal</enum>
@@ -1607,7 +1607,7 @@ font-size: 12pt;</string>
                                    </property>
                                   </spacer>
                                  </item>
-                                 <item row="1" column="0" colspan="3">
+                                 <item row="1" column="0" colspan="4">
                                   <widget class="QWebEngineView" name="ModBrowser" native="true">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1662,6 +1662,16 @@ font-size: 12pt;</string>
                                     <url>
                                      <string>about:blank</string>
                                     </url>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="3" column="2" colspan="2">
+                                  <widget class="QCheckBox" name="AdddownloadtolaunchmodsCheckbox">
+                                   <property name="text">
+                                    <string>Add finished download to launch mods</string>
+                                   </property>
+                                   <property name="checked">
+                                    <bool>true</bool>
                                    </property>
                                   </widget>
                                  </item>
