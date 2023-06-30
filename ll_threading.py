@@ -1,6 +1,5 @@
-import json
 import time
-import urllib.request
+import requests
 
 from PySide6 import QtCore
 from PySide6.QtCore import Signal
@@ -8,14 +7,19 @@ from PySide6.QtCore import Signal
 from networking import mb_query
 from networking.ms_query import get_server_list, query_ms_rooms
 
+from ll_info import http_headers, version_check_url
+
 class QueryLiquid(QtCore.QThread):
     # Emit latest version string for callback
     check_version_cb_sig = Signal(str)
+    load_news_cb_sig = Signal(str, bool)
 
     def __init__(self, parent=None):
         QtCore.QThread.__init__(self, parent)
+        self.query_news = False
         self.query_version = False
         self.versionString = "v0.0a0"
+        self.currentFeed = ""
         print("QueryLiquid worker INIT\n")
         
     def on_check_version(self, versionString):
@@ -23,15 +27,33 @@ class QueryLiquid(QtCore.QThread):
         self.versionString = versionString
         self.query_version = True
 
+    def on_load_rss(self, feed):
+        print("on_load_rss")
+        self.currentFeed = feed
+        self.query_news = True
+
     def run(self):
         self.running = True
         while self.running:
+            if self.query_news:
+                print("query_news")
+                try:
+                    feed = requests.get(self.currentFeed, headers=http_headers)
+                    feed.raise_for_status()
+                    feed_parsed = feed.text
+                    #print("FETCH RESULT: {}\n".format(feed_parsed))
+                    self.load_news_cb_sig.emit(feed_parsed, False)
+                except Exception as e:
+                    print("News fetch error: ",e)
+                    self.load_news_cb_sig.emit(str(e), True)
+                self.query_news = False
             if self.query_version:
                 print("check_version")
-                link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
+                #link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
                 
                 try:
-                    f = json.load(urllib.request.urlopen(link, timeout=100))
+                    f = requests.get(version_check_url, headers=http_headers, timeout=10).json()
+                    feed.raise_for_status()
 
                     latest_version = f["tag_name"]
                     print("Latest: " + latest_version)

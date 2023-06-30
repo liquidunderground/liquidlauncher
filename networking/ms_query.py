@@ -4,9 +4,7 @@ import requests
 import urllib.parse
 import urllib.request
 
-# TODO: Remove old values
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
-                         'Chrome/39.0.2171.95 Safari/537.36'}
+from ll_info import http_headers as headers
 
 def parse_server_line(url, server_string, room):
     server_data = server_string.split(" ")

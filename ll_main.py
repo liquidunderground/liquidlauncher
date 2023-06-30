@@ -17,8 +17,8 @@ from PySide6.QtCore import Signal
 import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
+from ll_info import product_version as versionString
 
-versionString = "v1.0"
 global_settings_file = "ll_settings.toml"
 
 
@@ -36,6 +36,8 @@ class MainWindow(QMainWindow):
     download_mod_path_sig = Signal(str)
     # Emits version string
     check_version_sig = Signal(str)
+    # Emits URL for RSS query
+    load_rss_sig = Signal(str)
     
 
     def __init__(self, app):
@@ -104,6 +106,8 @@ class MainWindow(QMainWindow):
         self.query_liquid_qthread.start()
         self.check_version_sig.connect(self.query_liquid_qthread.on_check_version)
         self.query_liquid_qthread.check_version_cb_sig.connect(self.on_check_version_cb)
+        self.load_rss_sig.connect(self.query_liquid_qthread.on_load_rss)
+        self.query_liquid_qthread.load_news_cb_sig.connect(self.on_load_news_cb)
 
         # Emits mod download filepath
         download_mod_path_sig = Signal(str)
@@ -320,24 +324,30 @@ class MainWindow(QMainWindow):
     def load_news(self, feed="https://liquidunderground.github.io/feed.rss"):
         # ok lets uh, get the news feed or something?
         print("load_news({})".format(feed))
+        self.ui.RSSStatusLabel.setText("Querying RSS feed...")
+        self.load_rss_sig.emit(feed)
 
-        try:
-            msg = "Select an article to view."
-            self.ui.RSSArticleList.clear()
-            self.ui.RSSStatusLabel.setText("Querying RSS feed...")
-            feed = feedparser.parse(feed)
-            if len(feed["items"]) < 1:
-                raise IndexError("No news found. Did you check the URL?")
+    def on_load_news_cb(self, content, error=False):
+        if(error): # Emergency error kludge
+            self.ui.RSSStatusLabel.setText(content)
+            print(content)
+            return
+        msg = "News feed successfully loaded."
+        #print("RAW CONTENT: {}\n".format(content))
+        feed = feedparser.parse(content)
+        if len(feed["items"]) < 1:
+            msg = "No news found. Did you check the URL?"
+            self.ui.RSSStatusLabel.setText(msg)
+            print(msg)
+            return
 
-            self.news = feed["items"]
+        self.news = feed["items"]
 
-            print("Parsing articles...")
-            for item in self.news:
-                self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
-        except Exception as e:
-            msg = str(e)
+        print("Parsing articles...")
+        self.ui.RSSArticleList.clear()
+        for item in self.news:
+            self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
         self.ui.RSSStatusLabel.setText(msg)
-        print(msg)
 
     def load_article(self, index):
         self.ui.RSSViewonlineButton.setEnabled(True);
