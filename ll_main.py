@@ -859,8 +859,7 @@ class MainWindow(QMainWindow):
         if filepaths_list == [None]:
             self.ui.ModStatusLabel.setText("Unable to download mod (maybe check the website)")
         else:
-            self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
-        pass
+            self.ui.ModStatusLabel.setText("Download successfully finished.")
         #for filepath in filepaths_list:
         #    self.add_file(filepath)
 
