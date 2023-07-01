@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 1026, 539))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -1051,7 +1051,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 787, 686))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 430, 686))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout.setObjectName(u"gridLayout")
         self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_10)
@@ -1379,7 +1379,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 808, 369))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 247, 271))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -1462,7 +1462,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 787, 709))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 557, 709))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.RingslingerSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
@@ -1669,7 +1669,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 808, 369))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 261, 200))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -1734,7 +1734,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 787, 1102))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 666, 1102))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -2408,103 +2408,52 @@ class Ui_MainWindow(object):
         self.masterservers.setMinimumSize(QSize(824, 0))
         self.gridLayout_28 = QGridLayout(self.masterservers)
         self.gridLayout_28.setObjectName(u"gridLayout_28")
-        self.MSVisitrepoButton = QPushButton(self.masterservers)
-        self.MSVisitrepoButton.setObjectName(u"MSVisitrepoButton")
-        self.MSVisitrepoButton.setIcon(icon1)
-
-        self.gridLayout_28.addWidget(self.MSVisitrepoButton, 2, 4, 1, 1)
-
-        self.MSListSaveButton = QPushButton(self.masterservers)
-        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon7)
-
-        self.gridLayout_28.addWidget(self.MSListSaveButton, 5, 1, 1, 1)
-
-        self.ConfigrepoadLabel = QLabel(self.masterservers)
+        self.scrollArea_11 = QScrollArea(self.masterservers)
+        self.scrollArea_11.setObjectName(u"scrollArea_11")
+        self.scrollArea_11.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_11 = QWidget()
+        self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 808, 402))
+        self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents_11)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.groupBox_17 = QGroupBox(self.scrollAreaWidgetContents_11)
+        self.groupBox_17.setObjectName(u"groupBox_17")
+        self.gridLayout_37 = QGridLayout(self.groupBox_17)
+        self.gridLayout_37.setObjectName(u"gridLayout_37")
+        self.ConfigrepoadLabel = QLabel(self.groupBox_17)
         self.ConfigrepoadLabel.setObjectName(u"ConfigrepoadLabel")
 
-        self.gridLayout_28.addWidget(self.ConfigrepoadLabel, 1, 4, 1, 1)
+        self.gridLayout_37.addWidget(self.ConfigrepoadLabel, 1, 0, 1, 1)
 
-        self.horizontalSpacer_9 = QSpacerItem(437, 22, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_28.addItem(self.horizontalSpacer_9, 5, 0, 1, 1)
-
-        self.groupBox_3 = QGroupBox(self.masterservers)
-        self.groupBox_3.setObjectName(u"groupBox_3")
-        font3 = QFont()
-        font3.setBold(False)
-        self.groupBox_3.setFont(font3)
-        self.gridLayout_6 = QGridLayout(self.groupBox_3)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.snitchtitleLabel = QLabel(self.groupBox_3)
-        self.snitchtitleLabel.setObjectName(u"snitchtitleLabel")
-        font4 = QFont()
-        font4.setBold(True)
-        self.snitchtitleLabel.setFont(font4)
-
-        self.gridLayout_6.addWidget(self.snitchtitleLabel, 2, 0, 1, 1)
-
-        self.kartv2titleLabel = QLabel(self.groupBox_3)
-        self.kartv2titleLabel.setObjectName(u"kartv2titleLabel")
-        self.kartv2titleLabel.setFont(font4)
-
-        self.gridLayout_6.addWidget(self.kartv2titleLabel, 1, 0, 1, 1)
-
-        self.msapiwarningLabel = QLabel(self.groupBox_3)
-        self.msapiwarningLabel.setObjectName(u"msapiwarningLabel")
-        font5 = QFont()
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.msapiwarningLabel.setFont(font5)
-        self.msapiwarningLabel.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_6.addWidget(self.msapiwarningLabel, 3, 0, 1, 3)
-
-        self.v1descLabel = QLabel(self.groupBox_3)
-        self.v1descLabel.setObjectName(u"v1descLabel")
-        self.v1descLabel.setFont(font3)
-
-        self.gridLayout_6.addWidget(self.v1descLabel, 0, 1, 1, 1)
-
-        self.v1titleLabel = QLabel(self.groupBox_3)
-        self.v1titleLabel.setObjectName(u"v1titleLabel")
-        self.v1titleLabel.setFont(font4)
-
-        self.gridLayout_6.addWidget(self.v1titleLabel, 0, 0, 1, 1)
-
-        self.snitchdescLabel = QLabel(self.groupBox_3)
-        self.snitchdescLabel.setObjectName(u"snitchdescLabel")
-        self.snitchdescLabel.setFont(font3)
-
-        self.gridLayout_6.addWidget(self.snitchdescLabel, 2, 1, 1, 1)
-
-        self.kartv2descLabel = QLabel(self.groupBox_3)
-        self.kartv2descLabel.setObjectName(u"kartv2descLabel")
-        self.kartv2descLabel.setFont(font3)
-
-        self.gridLayout_6.addWidget(self.kartv2descLabel, 1, 1, 1, 1)
-
-
-        self.gridLayout_28.addWidget(self.groupBox_3, 4, 4, 1, 1)
-
-        self.MSAddButton = QPushButton(self.masterservers)
-        self.MSAddButton.setObjectName(u"MSAddButton")
-        self.MSAddButton.setIcon(icon4)
-
-        self.gridLayout_28.addWidget(self.MSAddButton, 5, 2, 1, 1)
-
-        self.MSTableLabel = QLabel(self.masterservers)
-        self.MSTableLabel.setObjectName(u"MSTableLabel")
-
-        self.gridLayout_28.addWidget(self.MSTableLabel, 0, 0, 1, 5)
-
-        self.MSRemoveButton = QPushButton(self.masterservers)
+        self.MSRemoveButton = QPushButton(self.groupBox_17)
         self.MSRemoveButton.setObjectName(u"MSRemoveButton")
         self.MSRemoveButton.setIcon(icon10)
 
-        self.gridLayout_28.addWidget(self.MSRemoveButton, 5, 3, 1, 1)
+        self.gridLayout_37.addWidget(self.MSRemoveButton, 1, 5, 1, 1)
 
-        self.MasterServersTable = QTableWidget(self.masterservers)
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_37.addItem(self.horizontalSpacer_9, 1, 2, 1, 1)
+
+        self.MSAddButton = QPushButton(self.groupBox_17)
+        self.MSAddButton.setObjectName(u"MSAddButton")
+        self.MSAddButton.setIcon(icon4)
+
+        self.gridLayout_37.addWidget(self.MSAddButton, 1, 4, 1, 1)
+
+        self.MSListSaveButton = QPushButton(self.groupBox_17)
+        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
+        self.MSListSaveButton.setIcon(icon7)
+
+        self.gridLayout_37.addWidget(self.MSListSaveButton, 1, 3, 1, 1)
+
+        self.MSVisitrepoButton = QPushButton(self.groupBox_17)
+        self.MSVisitrepoButton.setObjectName(u"MSVisitrepoButton")
+        self.MSVisitrepoButton.setIcon(icon1)
+
+        self.gridLayout_37.addWidget(self.MSVisitrepoButton, 1, 1, 1, 1)
+
+        self.MasterServersTable = QTableWidget(self.groupBox_17)
         if (self.MasterServersTable.columnCount() < 3):
             self.MasterServersTable.setColumnCount(3)
         __qtablewidgetitem14 = QTableWidgetItem()
@@ -2544,11 +2493,60 @@ class Ui_MainWindow(object):
         self.MasterServersTable.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
-        self.gridLayout_28.addWidget(self.MasterServersTable, 1, 0, 4, 4)
+        self.gridLayout_37.addWidget(self.MasterServersTable, 0, 0, 1, 6)
 
-        self.verticalSpacer_3 = QSpacerItem(17, 191, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_28.addItem(self.verticalSpacer_3, 3, 4, 1, 1)
+        self.verticalLayout_21.addWidget(self.groupBox_17)
+
+        self.groupBox_3 = QGroupBox(self.scrollAreaWidgetContents_11)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.gridLayout_6 = QGridLayout(self.groupBox_3)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.label_24 = QLabel(self.groupBox_3)
+        self.label_24.setObjectName(u"label_24")
+
+        self.gridLayout_6.addWidget(self.label_24, 0, 1, 1, 1)
+
+        self.SnitchsrcCombobox = QComboBox(self.groupBox_3)
+        self.SnitchsrcCombobox.setObjectName(u"SnitchsrcCombobox")
+
+        self.gridLayout_6.addWidget(self.SnitchsrcCombobox, 1, 1, 1, 1)
+
+        self.label_25 = QLabel(self.groupBox_3)
+        self.label_25.setObjectName(u"label_25")
+
+        self.gridLayout_6.addWidget(self.label_25, 0, 3, 1, 1)
+
+        self.SnitchdestCombobox = QComboBox(self.groupBox_3)
+        self.SnitchdestCombobox.setObjectName(u"SnitchdestCombobox")
+        self.SnitchdestCombobox.setEditable(True)
+
+        self.gridLayout_6.addWidget(self.SnitchdestCombobox, 1, 3, 1, 1)
+
+        self.SnitchButton = QPushButton(self.groupBox_3)
+        self.SnitchButton.setObjectName(u"SnitchButton")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.SnitchButton.sizePolicy().hasHeightForWidth())
+        self.SnitchButton.setSizePolicy(sizePolicy7)
+        self.SnitchButton.setIcon(icon17)
+
+        self.gridLayout_6.addWidget(self.SnitchButton, 1, 2, 1, 1)
+
+        self.SnitchmsgLabel = QLabel(self.groupBox_3)
+        self.SnitchmsgLabel.setObjectName(u"SnitchmsgLabel")
+        self.SnitchmsgLabel.setFont(font2)
+        self.SnitchmsgLabel.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.SnitchmsgLabel, 2, 1, 1, 3)
+
+
+        self.verticalLayout_21.addWidget(self.groupBox_3)
+
+        self.scrollArea_11.setWidget(self.scrollAreaWidgetContents_11)
+
+        self.gridLayout_28.addWidget(self.scrollArea_11, 0, 0, 1, 1)
 
         self.GameTabView.addTab(self.masterservers, "")
 
@@ -2716,11 +2714,11 @@ class Ui_MainWindow(object):
 
         self.textBrowser = QTextBrowser(self.tab_6)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy7)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy8)
 
         self.verticalLayout_6.addWidget(self.textBrowser)
 
@@ -2918,7 +2916,7 @@ class Ui_MainWindow(object):
         self.Survival_revengeCombobox.setCurrentIndex(0)
         self.Item_rateCombobox.setCurrentIndex(1)
         self.GameTabView.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -3486,26 +3484,18 @@ class Ui_MainWindow(object):
         self.JoinBookmarkButton.setText(QCoreApplication.translate("MainWindow", u"Join Bookmark", None))
         self.JoinAddressButton.setText(QCoreApplication.translate("MainWindow", u"Join", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.SavedNetgamesTab), QCoreApplication.translate("MainWindow", u"Bookmarks", None))
-        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
-        self.MSListSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
+        self.groupBox_17.setTitle(QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.ConfigrepoadLabel.setText(QCoreApplication.translate("MainWindow", u"Looking for master servers?", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Valid APIs", None))
-        self.snitchtitleLabel.setText(QCoreApplication.translate("MainWindow", u"snitch", None))
-        self.kartv2titleLabel.setText(QCoreApplication.translate("MainWindow", u"kartv2", None))
-        self.msapiwarningLabel.setText(QCoreApplication.translate("MainWindow", u"All other APIs will be ignored", None))
-        self.v1descLabel.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 API", None))
-        self.v1titleLabel.setText(QCoreApplication.translate("MainWindow", u"v1", None))
-        self.snitchdescLabel.setText(QCoreApplication.translate("MainWindow", u"LiquidMS Snitch API", None))
-        self.kartv2descLabel.setText(QCoreApplication.translate("MainWindow", u"SRB2Kart API", None))
-#if QT_CONFIG(tooltip)
-        self.MSAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
-#endif // QT_CONFIG(tooltip)
-        self.MSAddButton.setText("")
-        self.MSTableLabel.setText(QCoreApplication.translate("MainWindow", u"Master Servers", None))
 #if QT_CONFIG(tooltip)
         self.MSRemoveButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove selected Master Server", None))
 #endif // QT_CONFIG(tooltip)
         self.MSRemoveButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.MSAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSAddButton.setText("")
+        self.MSListSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
+        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
         ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem14 = self.MasterServersTable.horizontalHeaderItem(1)
@@ -3529,6 +3519,16 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"kartv2", None));
         self.MasterServersTable.setSortingEnabled(__sortingEnabled5)
 
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"One-time snitch", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Source", None))
+        self.SnitchsrcCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Select a source", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Destination", None))
+        self.SnitchdestCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Destination URL", None))
+#if QT_CONFIG(tooltip)
+        self.SnitchButton.setToolTip(QCoreApplication.translate("MainWindow", u"Mirror your source MS to a LiquidMS node", None))
+#endif // QT_CONFIG(tooltip)
+        self.SnitchButton.setText("")
+        self.SnitchmsgLabel.setText(QCoreApplication.translate("MainWindow", u"Select two servers and click the button to snitch.", None))
         self.GameTabView.setTabText(self.GameTabView.indexOf(self.masterservers), QCoreApplication.translate("MainWindow", u"Master Servers", None))
         self.GameProfileComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"New profile...", None))
 

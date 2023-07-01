@@ -108,6 +108,7 @@ class MainWindow(QMainWindow):
         self.query_liquid_qthread.check_version_cb_sig.connect(self.on_check_version_cb)
         self.load_rss_sig.connect(self.query_liquid_qthread.on_load_rss)
         self.query_liquid_qthread.load_news_cb_sig.connect(self.on_load_news_cb)
+        self.query_liquid_qthread.update_snitchmsg_sig.connect(self.ui.SnitchmsgLabel.setText)
 
         # Emits mod download filepath
         download_mod_path_sig = Signal(str)
@@ -238,6 +239,8 @@ class MainWindow(QMainWindow):
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
         self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/configs-public"))
+        self.ui.SnitchButton.clicked.connect(lambda: self.query_liquid_qthread.on_snitch(
+            self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText()))
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
@@ -895,7 +898,7 @@ class MainWindow(QMainWindow):
         self.master_server_list = {}
         for server in server_list:
             entry_label = '{} | Room: {} | Version: {} | Origin: {}'.format(
-                server.get("name"),
+                server.get("name_plain"),
                 server.get("room"),
                 server.get("version"),
                 server.get("origin") 
@@ -904,7 +907,7 @@ class MainWindow(QMainWindow):
             new_item.setText(entry_label)
             # Create new row & fill with data
             self.ui.BrowseNetgameTable.insertRow( self.ui.BrowseNetgameTable.rowCount() )
-            twi_name = QtWidgets.QTableWidgetItem(server.get("name"))
+            twi_name = QtWidgets.QTableWidgetItem(server.get("name_plain"))
             twi_room = QtWidgets.QTableWidgetItem(server.get("room"))
             twi_version = QtWidgets.QTableWidgetItem(server.get("version"))
             twi_gametype = QtWidgets.QTableWidgetItem(server.get("game"))
@@ -1047,17 +1050,26 @@ class MainWindow(QMainWindow):
 
         self.ui.BrowseMSCombobox.clear()
         self.ui.HostMSCombobox.clear()
+        self.ui.SnitchsrcCombobox.clear()
+        self.ui.SnitchdestCombobox.clear()
         # We only need the first column (names)
         rows = self.ui.MasterServersTable.rowCount()
         #self.ui.BrowseMSCombobox.insertItem( 0, "All")
         for i in range(0, rows):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
+            ms_api = self.ui.MasterServersTable.cellWidget(i, 2).currentData()
             self.ui.BrowseMSCombobox.insertItem( self.ui.BrowseMSCombobox.count(), ms_name)
             if self.ui.MasterServersTable.cellWidget(i, 2).currentData() == "snitch": # Fetch-from-Snitch
+               self.ui.SnitchsrcCombobox.insertItem( self.ui.SnitchsrcCombobox.count(), ms_name, {"url": ms_url, "api": ms_api})
                self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url.rstrip('/')+'/v1')
-            else:
-               self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
+               self.ui.SnitchdestCombobox.insertItem( self.ui.SnitchdestCombobox.count(), ms_url, ms_api)
+            elif self.ui.MasterServersTable.cellWidget(i, 2).currentData() == "kartv2": # Kart API
+               ## No Kart servers for snitching (yet)
+               self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url, ms_api)
+            elif self.ui.MasterServersTable.cellWidget(i, 2).currentData() == "v1": # Mirror V1 servers
+               self.ui.SnitchsrcCombobox.insertItem( self.ui.SnitchsrcCombobox.count(), ms_name, {"url": ms_url, "api": ms_api})
+               self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url, ms_api)
 
         self.ui.MasterServersTable.resizeColumnsToContents()
 

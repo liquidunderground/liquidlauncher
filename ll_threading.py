@@ -13,13 +13,17 @@ class QueryLiquid(QtCore.QThread):
     # Emit latest version string for callback
     check_version_cb_sig = Signal(str)
     load_news_cb_sig = Signal(str, bool)
+    update_snitchmsg_sig = Signal(str)
 
     def __init__(self, parent=None):
         QtCore.QThread.__init__(self, parent)
         self.query_news = False
         self.query_version = False
+        self.snitch = False
         self.versionString = "v0.0a0"
         self.currentFeed = ""
+        self.snitch_src = ""
+        self.snitch_dest = ""
         print("QueryLiquid worker INIT\n")
         
     def on_check_version(self, versionString):
@@ -31,6 +35,13 @@ class QueryLiquid(QtCore.QThread):
         print("on_load_rss")
         self.currentFeed = feed
         self.query_news = True
+
+    def on_snitch(self, src, dest):
+        print('on_snitch({}, {})'.format(src, dest))
+        self.snitch_src = src["url"]
+        self.snitch_src_api = src["api"]
+        self.snitch_dest = dest
+        self.snitch = True
 
     def run(self):
         self.running = True
@@ -63,6 +74,51 @@ class QueryLiquid(QtCore.QThread):
                 except Exception as e:
                     print("Version check error: ",e)
                 self.query_version = False
+            if self.snitch:
+                #server_list = get_server_list(ms_url, "v1")
+                # TODO: Pass API from user config
+                try:
+                    print('Snitching "{}" to "{}"'.format(self.snitch_src, self.snitch_dest))
+                    if self.snitch_src == None:
+                        raise Exception("Source URL not given. Please select a source.")
+                    if self.snitch_dest == "":
+                        raise Exception("Destination URL not given. Please select a source.")
+                    print('Fetching "{}"...\n'.format(self.snitch_src))
+                    self.update_snitchmsg_sig.emit('Fetching "{}"...'.format(self.snitch_src))
+                    fetch = get_server_list(
+                        self.snitch_src,
+                        self.snitch_src_api
+                        )
+                    # Parse fetch into CSV
+                    print('Fetch data {}\n'.format(fetch))
+                    snitch_csv_txt = ""
+                    for line in fetch:
+                        # CSV-compliant quote escaping
+                        tmp_ip = line['ip'].replace('"','""')
+                        tmp_port = line['port'].replace('"','""')
+                        tmp_name = line['name'].replace('"','""')
+                        tmp_version = line['version'].replace('"','""')
+                        tmp_room = line['room'].replace('"','""')
+                        tmp_origin = line['origin'].replace('"','""')
+                        snitch_csv_txt += '{ip},{port},{name},{version},{room},{origin}\n'.format(
+                            # Escape fields with quotes, according to CSV
+                            ip=tmp_ip if "," not in tmp_ip else "\"{}\"".format(tmp_ip),
+                            port=tmp_port if "," not in tmp_port else "\"{}\"".format(tmp_port),
+                            name=tmp_name if "," not in tmp_name else "\"{}\"".format(tmp_name),
+                            version=tmp_version if "," not in tmp_version else "\"{}\"".format(tmp_version),
+                            room=tmp_room if "," not in tmp_room else "\"{}\"".format(tmp_room),
+                            origin=tmp_origin if "," not in tmp_origin else "\"{}\"".format(tmp_origin)
+                        )
+                    print('Snitching to "{}"...\n'.format(self.snitch_dest))
+                    self.update_snitchmsg_sig.emit('Snitching to "{}"...'.format(self.snitch_dest))
+                    snitch_csv_obj = {"file": ('snitch.csv', snitch_csv_txt) }
+                    res = requests.post(self.snitch_dest.rstrip("/")+"/liquidms/snitch", files=snitch_csv_obj) # Pass CSV to Snitch API
+                    res.raise_for_status()
+                    self.update_snitchmsg_sig.emit('Successfully snitched {} to {}.  Thank you.'.format(self.snitch_src, self.snitch_dest))
+                except Exception as e:
+                    print('Snitch error: {}\n'.format(e))
+                    self.update_snitchmsg_sig.emit('Snitch error: {}'.format(e))
+                self.snitch = False                    
             time.sleep(1)
 
 class QueryMessageBoard(QtCore.QThread):

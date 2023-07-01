@@ -92,8 +92,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1026</width>
-                <height>539</height>
+                <width>359</width>
+                <height>177</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -2122,7 +2122,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>787</width>
+                               <width>430</width>
                                <height>686</height>
                               </rect>
                              </property>
@@ -2697,8 +2697,8 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>808</width>
-                               <height>369</height>
+                               <width>247</width>
+                               <height>271</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -2849,7 +2849,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>787</width>
+                               <width>557</width>
                                <height>709</height>
                               </rect>
                              </property>
@@ -3228,8 +3228,8 @@ p, li { white-space: pre-wrap; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>808</width>
-                               <height>369</height>
+                               <width>261</width>
+                               <height>200</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -3339,7 +3339,7 @@ p, li { white-space: pre-wrap; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>787</width>
+                               <width>666</width>
                                <height>1102</height>
                               </rect>
                              </property>
@@ -4571,297 +4571,270 @@ p, li { white-space: pre-wrap; }
                           <string>Master Servers</string>
                          </attribute>
                          <layout class="QGridLayout" name="gridLayout_28">
-                          <item row="2" column="4">
-                           <widget class="QPushButton" name="MSVisitrepoButton">
-                            <property name="text">
-                             <string>Config repo &gt;&gt;</string>
+                          <item row="0" column="0">
+                           <widget class="QScrollArea" name="scrollArea_11">
+                            <property name="widgetResizable">
+                             <bool>true</bool>
                             </property>
-                            <property name="icon">
-                             <iconset resource="ll.qrc">
-                              <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-                            </property>
+                            <widget class="QWidget" name="scrollAreaWidgetContents_11">
+                             <property name="geometry">
+                              <rect>
+                               <x>0</x>
+                               <y>0</y>
+                               <width>808</width>
+                               <height>402</height>
+                              </rect>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_21">
+                              <item>
+                               <widget class="QGroupBox" name="groupBox_17">
+                                <property name="title">
+                                 <string>Master Servers</string>
+                                </property>
+                                <layout class="QGridLayout" name="gridLayout_37">
+                                 <item row="1" column="0">
+                                  <widget class="QLabel" name="ConfigrepoadLabel">
+                                   <property name="text">
+                                    <string>Looking for master servers?</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="5">
+                                  <widget class="QPushButton" name="MSRemoveButton">
+                                   <property name="toolTip">
+                                    <string>Remove selected Master Server</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="2">
+                                  <spacer name="horizontalSpacer_9">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                 <item row="1" column="4">
+                                  <widget class="QPushButton" name="MSAddButton">
+                                   <property name="toolTip">
+                                    <string>Add Master Server</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="3">
+                                  <widget class="QPushButton" name="MSListSaveButton">
+                                   <property name="text">
+                                    <string>Save List</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="1">
+                                  <widget class="QPushButton" name="MSVisitrepoButton">
+                                   <property name="text">
+                                    <string>Config repo &gt;&gt;</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="0" colspan="6">
+                                  <widget class="QTableWidget" name="MasterServersTable">
+                                   <property name="sizeAdjustPolicy">
+                                    <enum>QAbstractScrollArea::AdjustToContents</enum>
+                                   </property>
+                                   <property name="editTriggers">
+                                    <set>QAbstractItemView::DoubleClicked</set>
+                                   </property>
+                                   <property name="selectionBehavior">
+                                    <enum>QAbstractItemView::SelectRows</enum>
+                                   </property>
+                                   <attribute name="verticalHeaderVisible">
+                                    <bool>false</bool>
+                                   </attribute>
+                                   <row>
+                                    <property name="text">
+                                     <string/>
+                                    </property>
+                                   </row>
+                                   <row>
+                                    <property name="text">
+                                     <string/>
+                                    </property>
+                                   </row>
+                                   <column>
+                                    <property name="text">
+                                     <string>Name</string>
+                                    </property>
+                                   </column>
+                                   <column>
+                                    <property name="text">
+                                     <string>URL</string>
+                                    </property>
+                                   </column>
+                                   <column>
+                                    <property name="text">
+                                     <string>API</string>
+                                    </property>
+                                   </column>
+                                   <item row="0" column="0">
+                                    <property name="text">
+                                     <string>STJr</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                   </item>
+                                   <item row="0" column="1">
+                                    <property name="text">
+                                     <string>http://mb.srb2.org/MS/0</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                   </item>
+                                   <item row="0" column="2">
+                                    <property name="text">
+                                     <string>v1</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                    <property name="flags">
+                                     <set>ItemIsSelectable|ItemIsEnabled</set>
+                                    </property>
+                                   </item>
+                                   <item row="1" column="0">
+                                    <property name="text">
+                                     <string>Kart Krew</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                   </item>
+                                   <item row="1" column="1">
+                                    <property name="text">
+                                     <string>https://ms.kartkrew.org/ms/api/games/SRB2Kart/</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                   </item>
+                                   <item row="1" column="2">
+                                    <property name="text">
+                                     <string>kartv2</string>
+                                    </property>
+                                    <property name="textAlignment">
+                                     <set>AlignCenter</set>
+                                    </property>
+                                   </item>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QGroupBox" name="groupBox_3">
+                                <property name="title">
+                                 <string>One-time snitch</string>
+                                </property>
+                                <layout class="QGridLayout" name="gridLayout_6">
+                                 <item row="0" column="1">
+                                  <widget class="QLabel" name="label_24">
+                                   <property name="text">
+                                    <string>Source</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="1">
+                                  <widget class="QComboBox" name="SnitchsrcCombobox">
+                                   <property name="placeholderText">
+                                    <string>Select a source</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="0" column="3">
+                                  <widget class="QLabel" name="label_25">
+                                   <property name="text">
+                                    <string>Destination</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="3">
+                                  <widget class="QComboBox" name="SnitchdestCombobox">
+                                   <property name="editable">
+                                    <bool>true</bool>
+                                   </property>
+                                   <property name="placeholderText">
+                                    <string>Destination URL</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="1" column="2">
+                                  <widget class="QPushButton" name="SnitchButton">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="toolTip">
+                                    <string>Mirror your source MS to a LiquidMS node</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="1" colspan="3">
+                                  <widget class="QLabel" name="SnitchmsgLabel">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Select two servers and click the button to snitch.</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
                            </widget>
-                          </item>
-                          <item row="5" column="1">
-                           <widget class="QPushButton" name="MSListSaveButton">
-                            <property name="text">
-                             <string>Save List</string>
-                            </property>
-                            <property name="icon">
-                             <iconset resource="ll.qrc">
-                              <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="4">
-                           <widget class="QLabel" name="ConfigrepoadLabel">
-                            <property name="text">
-                             <string>Looking for master servers?</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="0">
-                           <spacer name="horizontalSpacer_9">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>437</width>
-                              <height>22</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
-                          <item row="4" column="4">
-                           <widget class="QGroupBox" name="groupBox_3">
-                            <property name="font">
-                             <font>
-                              <weight>50</weight>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="title">
-                             <string>Valid APIs</string>
-                            </property>
-                            <layout class="QGridLayout" name="gridLayout_6">
-                             <item row="2" column="0">
-                              <widget class="QLabel" name="snitchtitleLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>snitch</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="1" column="0">
-                              <widget class="QLabel" name="kartv2titleLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>kartv2</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="0" colspan="3">
-                              <widget class="QLabel" name="msapiwarningLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>50</weight>
-                                 <italic>false</italic>
-                                 <bold>false</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>All other APIs will be ignored</string>
-                               </property>
-                               <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="1">
-                              <widget class="QLabel" name="v1descLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>50</weight>
-                                 <bold>false</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Official SRB2 API</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="0">
-                              <widget class="QLabel" name="v1titleLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>v1</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="2" column="1">
-                              <widget class="QLabel" name="snitchdescLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>50</weight>
-                                 <bold>false</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>LiquidMS Snitch API</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="1" column="1">
-                              <widget class="QLabel" name="kartv2descLabel">
-                               <property name="font">
-                                <font>
-                                 <weight>50</weight>
-                                 <bold>false</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>SRB2Kart API</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item row="5" column="2">
-                           <widget class="QPushButton" name="MSAddButton">
-                            <property name="toolTip">
-                             <string>Add Master Server</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="icon">
-                             <iconset resource="ll.qrc">
-                              <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0" colspan="5">
-                           <widget class="QLabel" name="MSTableLabel">
-                            <property name="text">
-                             <string>Master Servers</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="5" column="3">
-                           <widget class="QPushButton" name="MSRemoveButton">
-                            <property name="toolTip">
-                             <string>Remove selected Master Server</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="icon">
-                             <iconset resource="ll.qrc">
-                              <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" rowspan="4" colspan="4">
-                           <widget class="QTableWidget" name="MasterServersTable">
-                            <property name="sizeAdjustPolicy">
-                             <enum>QAbstractScrollArea::AdjustToContents</enum>
-                            </property>
-                            <property name="editTriggers">
-                             <set>QAbstractItemView::DoubleClicked</set>
-                            </property>
-                            <property name="selectionBehavior">
-                             <enum>QAbstractItemView::SelectRows</enum>
-                            </property>
-                            <attribute name="verticalHeaderVisible">
-                             <bool>false</bool>
-                            </attribute>
-                            <row>
-                             <property name="text">
-                              <string/>
-                             </property>
-                            </row>
-                            <row>
-                             <property name="text">
-                              <string/>
-                             </property>
-                            </row>
-                            <column>
-                             <property name="text">
-                              <string>Name</string>
-                             </property>
-                            </column>
-                            <column>
-                             <property name="text">
-                              <string>URL</string>
-                             </property>
-                            </column>
-                            <column>
-                             <property name="text">
-                              <string>API</string>
-                             </property>
-                            </column>
-                            <item row="0" column="0">
-                             <property name="text">
-                              <string>STJr</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                            </item>
-                            <item row="0" column="1">
-                             <property name="text">
-                              <string>http://mb.srb2.org/MS/0</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                            </item>
-                            <item row="0" column="2">
-                             <property name="text">
-                              <string>v1</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                             <property name="flags">
-                              <set>ItemIsSelectable|ItemIsEnabled</set>
-                             </property>
-                            </item>
-                            <item row="1" column="0">
-                             <property name="text">
-                              <string>Kart Krew</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                            </item>
-                            <item row="1" column="1">
-                             <property name="text">
-                              <string>https://ms.kartkrew.org/ms/api/games/SRB2Kart/</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                            </item>
-                            <item row="1" column="2">
-                             <property name="text">
-                              <string>kartv2</string>
-                             </property>
-                             <property name="textAlignment">
-                              <set>AlignCenter</set>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="3" column="4">
-                           <spacer name="verticalSpacer_3">
-                            <property name="orientation">
-                             <enum>Qt::Vertical</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>17</width>
-                              <height>191</height>
-                             </size>
-                            </property>
-                           </spacer>
                           </item>
                          </layout>
                         </widget>
@@ -5195,7 +5168,7 @@ p, li { white-space: pre-wrap; }
                <item>
                 <widget class="QTabWidget" name="tabWidget_2">
                  <property name="currentIndex">
-                  <number>1</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="tab_5">
                   <attribute name="title">

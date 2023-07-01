@@ -14,7 +14,8 @@ def parse_server_line(url, server_string, room):
     version = server_data[3]
     server = {"ip": ip,
             "port": port,
-            "name": name,
+            "name_plain": name,
+            "name": server_data[2],
             "gametype": "[DUMMY]",
             "game": "SRB2",
             "version": version,
@@ -93,8 +94,8 @@ def parse_kart_data(url):
         netgame = {
             "ip": sv_line_parsed[0],
             "port": sv_line_parsed[1],
-            #"name": sv_line_parsed[2],
-            "name": urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name_plain": urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name": sv_line_parsed[2],
             "gametype": "kart",
             "game": "SRB2Kart",
             "version": "kart",
@@ -119,7 +120,8 @@ def parse_snitch_data(url):
         netgame = {
             "ip": row_parsed[0],
             "port": row_parsed[1],
-            "name": urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name_plain": urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name": row_parsed[2],
             "gametype": "[DUMMY]",
             "game": "SRB2",
             "version": row_parsed[3],
