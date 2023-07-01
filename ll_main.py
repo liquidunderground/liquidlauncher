@@ -1054,7 +1054,7 @@ class MainWindow(QMainWindow):
             ms_name = self.ui.MasterServersTable.item(i, 0).text()
             ms_url = self.ui.MasterServersTable.item(i, 1).text()
             self.ui.BrowseMSCombobox.insertItem( self.ui.BrowseMSCombobox.count(), ms_name)
-            if self.ui.MasterServersTable.item(i, 2).text() == "snitch": # Fetch-from-Snitch
+            if self.ui.MasterServersTable.cellWidget(i, 2).currentData() == "snitch": # Fetch-from-Snitch
                self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url.rstrip('/')+'/v1')
             else:
                self.ui.HostMSCombobox.insertItem( self.ui.HostMSCombobox.count(), ms_url)
@@ -1101,8 +1101,8 @@ class MainWindow(QMainWindow):
                 shim_name = self.ui.MasterServersTable.item(i, 0).text()
             if self.ui.MasterServersTable.item(i, 1) != None:
                 shim_url = self.ui.MasterServersTable.item(i, 1).text()
-            if self.ui.MasterServersTable.item(i, 2) != None:
-                shim_api = self.ui.MasterServersTable.item(i, 2).text()
+            if self.ui.MasterServersTable.cellWidget(i, 2).currentData != None:
+                shim_api = self.ui.MasterServersTable.cellWidget(i, 2).currentData()
 
             data = {"url": shim_url, "api": shim_api }
             self.ms_list[shim_name] = data
@@ -1122,14 +1122,20 @@ class MainWindow(QMainWindow):
 
         twi_name = QtWidgets.QTableWidgetItem(name)
         twi_url = QtWidgets.QTableWidgetItem(url)
-        twi_api = QtWidgets.QTableWidgetItem(api)
+        # Add combobox for API selection
+        twi_api = QtWidgets.QComboBox()
+        #twi_api.addItems(["v1", "kartv2", "snitch"])
+        twi_api.addItem("SRB2 MS", "v1")
+        twi_api.addItem("SRB2Kart MS", "kartv2")
+        twi_api.addItem("LiquidMS Snitch", "snitch")
+        twi_api.setCurrentIndex(twi_api.findData(api))
         twi_name.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
         twi_url.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
-        twi_api.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
 
         self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 0, twi_name )
         self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 1, twi_url )
-        self.ui.MasterServersTable.setItem( self.ui.MasterServersTable.rowCount()-1 , 2, twi_api )
+        # Add combobox
+        self.ui.MasterServersTable.setCellWidget(self.ui.MasterServersTable.rowCount()-1 , 2, twi_api)
         return
 
     def remove_ms_from_list(self): 
