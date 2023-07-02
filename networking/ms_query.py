@@ -4,9 +4,7 @@ import requests
 import urllib.parse
 import urllib.request
 
-# TODO: Remove old values
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
-                         'Chrome/39.0.2171.95 Safari/537.36'}
+from ll_info import http_headers as headers
 
 def parse_server_line(url, server_string, room):
     server_data = server_string.split(" ")
@@ -16,8 +14,10 @@ def parse_server_line(url, server_string, room):
     version = server_data[3]
     server = {"ip": ip,
             "port": port,
-            "name": name,
+            "name_plain": name,
+            "name": server_data[2],
             "gametype": "[DUMMY]",
+            "game": "SRB2",
             "version": version,
             "room": room,
             "origin": url,
@@ -35,6 +35,18 @@ def v1_parse_rooms(txt):
         out[roomlines[0]] = roomlines[1]
 
     return out
+
+def query_ms_rooms(url):
+    print("query_ms_rooms ", url)
+    ms_rooms = requests.get(url+"/rooms", headers=headers)
+
+    # Query sanity check
+    if ms_rooms.status_code != requests.codes.ok:
+        raise Exception('Faulty HTTP response in /rooms request ({})'.format(ms_rooms.status_code))
+
+    rooms = v1_parse_rooms(ms_rooms.text)
+        
+    return rooms
 
 def parse_ms_data(url):
     # TODO: Make room system MS agnostic
@@ -82,11 +94,12 @@ def parse_kart_data(url):
         netgame = {
             "ip": sv_line_parsed[0],
             "port": sv_line_parsed[1],
-            #"name": sv_line_parsed[2],
-            "name": urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name_plain": urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name": sv_line_parsed[2],
             "gametype": "kart",
+            "game": "SRB2Kart",
             "version": "kart",
-            "room": "kart",
+            "room": "",
             "origin": url,
             "api": "kartv2",
         }
@@ -107,8 +120,10 @@ def parse_snitch_data(url):
         netgame = {
             "ip": row_parsed[0],
             "port": row_parsed[1],
-            "name": urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name_plain": urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
+            "name": row_parsed[2],
             "gametype": "[DUMMY]",
+            "game": "SRB2",
             "version": row_parsed[3],
             "room": row_parsed[4],
             "origin": row_parsed[5],
@@ -127,16 +142,12 @@ def get_server_list(url, api="v1"):
     url_sanitized = url.rstrip("/ \t");
     print("get_server_list({}, {})".format(url_sanitized, api))
     # first get a list of all servers from the master server     
-    try:
-        if api == "v1":
-            return parse_ms_data(url_sanitized)
-        elif api == "kartv2":
-            return parse_kart_data(url_sanitized)
-        elif api == "snitch":
-            return parse_snitch_data(url_sanitized)
-        else:
-            return []
-    except Exception as e:
-        print("Failed to update master server:", e)
-        return
+    if api == "v1":
+        return parse_ms_data(url_sanitized)
+    elif api == "kartv2":
+        return parse_kart_data(url_sanitized)
+    elif api == "snitch":
+        return parse_snitch_data(url_sanitized)
+    else:
+        return []
     
