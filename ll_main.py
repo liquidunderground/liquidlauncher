@@ -1179,15 +1179,15 @@ class MainWindow(QMainWindow):
         """Wait for window to fully start
         """
         # fix resolution of the image on the play tab ================================ #
-        self.load_global_settings()
-        self.check_version_sig.emit(versionString) # Launch early for async speed
-        self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
-
         # Guarantee defaults
         self.create_default_settings()
         self.create_default_ms_list()
         self.create_default_bookmarks()
         self.create_default_profile()
+
+        self.load_global_settings()
+        self.check_version_sig.emit(versionString) # Launch early for async speed
+        self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
 
         self.load_ms_list() # Load MSes to be used
         self.load_server_list() # Load Bookmarks
