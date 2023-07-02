@@ -12,7 +12,7 @@ Features
 
 LiquidLauncher seeks to be the ultimate launcher for SRB2 and as such we
 strive to provide every game setting we can possibly find right to your
-fingertips. LiquidLauncher currently supports **OVER 100+ GAME OPTIONS* to
+fingertips. LiquidLauncher currently supports **OVER 100+ GAME OPTIONS** to
 adjust your netgames exactly how you wish,
 **including dedicated first-class support for Battlemod**!
 
