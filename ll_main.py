@@ -59,6 +59,12 @@ class MainWindow(QMainWindow):
                                     "skybase": False,
                                     "gamebanana": False
                                     },
+                                "masterservers": {
+                                    "Astronight": {"url":"http://24.193.201.61/" , "api":"snitch"},
+                                    "InFTord": {"url":"https://lms.inftord.tech/" , "api":"snitch"},
+                                    "STJr": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
+                                    "Kart Krew": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
+                                    },
                                 "rss": [
                                     "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
@@ -248,7 +254,7 @@ class MainWindow(QMainWindow):
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
         self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/configs-public"))
         self.ui.SnitchButton.clicked.connect(lambda: self.query_liquid_qthread.on_snitch(
-            self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText()))
+            self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText(), self.ui.UseragentInput.text()))
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
@@ -271,11 +277,6 @@ class MainWindow(QMainWindow):
 
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
-
-        # ====== Launch section =======
-        # Load MSes to be used
-        self.load_ms_list()
-        
 
     # RSS Functions
 
@@ -1118,7 +1119,7 @@ class MainWindow(QMainWindow):
                 shim_name = self.ui.MasterServersTable.item(i, 0).text()
             if self.ui.MasterServersTable.item(i, 1) != None:
                 shim_url = self.ui.MasterServersTable.item(i, 1).text()
-            if self.ui.MasterServersTable.cellWidget(i, 2).currentData != None:
+            if self.ui.MasterServersTable.cellWidget(i, 2).currentData() != None:
                 shim_api = self.ui.MasterServersTable.cellWidget(i, 2).currentData()
 
             data = {"url": shim_url, "api": shim_api }
@@ -1179,10 +1180,18 @@ class MainWindow(QMainWindow):
         """
         # fix resolution of the image on the play tab ================================ #
         self.load_global_settings()
-        self.load_server_list()
-        self.load_current_profile()
-        self.check_version_sig.emit(versionString)
+        self.check_version_sig.emit(versionString) # Launch early for async speed
         self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
+
+        # Guarantee defaults
+        self.create_default_settings()
+        self.create_default_ms_list()
+        self.create_default_bookmarks()
+        self.create_default_profile()
+
+        self.load_ms_list() # Load MSes to be used
+        self.load_server_list() # Load Bookmarks
+        self.load_current_profile()
         try:
             self.query_ms()  # populates master server list
         except:
@@ -1317,7 +1326,7 @@ class MainWindow(QMainWindow):
         return self.config_file_exists(global_settings_file)
     
     def profile_exists(self, name=None):
-        if not os.path.isdir(self.global_settings["profiles_dir"]):
+        if not os.path.isfile(self.global_settings["profiles_dir"]+"default.toml"):
             return False
 
         fpath = os.path.join(self.global_settings["profiles_dir"], name)
@@ -1330,14 +1339,6 @@ class MainWindow(QMainWindow):
             return False
         else:
             return True
-    
-    def is_first_run(self):
-        if not self.global_settings_exist():
-            return True
-        elif not self.default_profile_exists():
-            return True
-        else:
-            return False
     
     def find_profile_files_in_dir(self):
         """Finds all profile .toml files in a directory
@@ -1375,17 +1376,39 @@ class MainWindow(QMainWindow):
             feeds.append(self.ui.RSSFeedList.item(i).text())
         self.global_settings["rss"] = feeds
 
-    def create_settings_on_first_run(self):
-        self.save_global_settings_file()
-        self.save_ms_list()
-        self.save_server_list()
-        self.save_profile_file(self.global_settings["current_profile"])
+    def create_default_settings(self):
+        if not os.path.isfile(os.path.join(os.getcwd(),"ll_settings.toml")):
+            print("No global settings. Creating default...")
+            self.save_global_settings_file()
+    def create_default_ms_list(self):
+        if not os.path.isfile(os.path.join(os.getcwd(),"masterservers.toml")):
+            print("No master servers file. Creating default...")
+            self.ms_list = {
+                "Astronight": {"url":"http://24.193.201.61/" , "api":"snitch"},
+                "InFTord": {"url":"https://lms.inftord.tech/" , "api":"snitch"},
+                "STJr": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
+                "Kart Krew": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
+                }
+            self.ui.MasterServersTable.setRowCount(0)
+            for ms in self.ms_list:
+                print("MS list:", self.ms_list)
+                self.add_ms_to_list(
+                    ms,
+                    self.ms_list[ms]["url"],
+                    self.ms_list[ms]["api"],
+                    )
+            self.update_ms_list_in_ui()
+            self.save_ms_list()
+    def create_default_bookmarks(self):
+        if not os.path.isfile(os.path.join(os.getcwd(),"bookmarks.toml")):
+            print("No bookmarks file. Creating default...")
+            self.save_server_list()
+    def create_default_profile(self):
+        if not os.path.isfile(os.path.join(self.global_settings["profiles_dir"],"default.toml")):
+            print("No default profile. Creating default...")
+            self.save_profile_file(self.global_settings["current_profile"])
     
     def load_current_profile(self):
-        if not self.default_profile_exists():
-            self.create_settings_on_first_run()
-            print("Creating settings on first run!")
-
         print("Current profile: {}".format(self.global_settings["current_profile"]))
         self.current_profile_settings = self.read_config_file(
             os.path.join(self.global_settings["profiles_dir"], self.global_settings["current_profile"])
