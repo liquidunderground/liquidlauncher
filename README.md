@@ -6,65 +6,66 @@ LiquidLauncher
 Features
 --------
 
-This Launcher is forked from [HitCoder9768's LauncherBlast2-reBoot](https://github.com/HitCoder9768/LauncherBlast2-reBoot).
-As such, This section is gonna be divided into three parts, distinguished
-by the forks responsible for the changes:
+### What game options? ALL OF THEM.
+
+![An absurd amount of switches](img/scr_options.png)
+
+LiquidLauncher seeks to be the ultimate launcher for SRB2 and as such we
+strive to provide every game setting we can possibly find right to your
+fingertips. LiquidLauncher currently supports **OVER 100+ GAME OPTIONS* to
+adjust your netgames exactly how you wish,
+**including dedicated first-class support for Battlemod**!
+
+On Linux, LiquidLauncher also supports launching SRB2 through *both WINE and
+Flatpak* installations.
+
+### Profiles and scripts
+
+![Profiles section](img/scr_profiles.png)
+
+Wanna quickly set-up multiple netgames in one go? LiquidLauncher supports
+**live-swappable profiles** so you'll never have to remember your settings
+again. All settings are also saved in an easy-to-edit TOML format for easy
+adjustment and sharing.
+
+Wanna share your configs with non-LiquidLauncher players? Wanna host your
+LiquidLauncher config on a dedicated server?  Simply **export your settings
+as a launch script** for both Windows and \*nix shell formats, *available
+for both client and server setups*.
 
 
-### LiquidLauncher additions
-
-#### Fully featured RSS/Atom newsreader
-
-![Newsreader view](img/scr_news.png)
-
-- *Massive* UI overhaul
-- support for multiple news sources
-
-#### Overhauled netgame browser system (*heavily* modified to improve UI and extend it's features)
+### Built-in Netgame browser
 
 ![Bookmarked netgames view](img/scr_masterserver.png)
 
-- Port-aware distinction of netgames
-- Support for multiple master servers. Supported APIs:
-    - Vanilla SRB2 ("v1")
-    - SRB2Kart Master Server ("kartv2")
-    - [LiquidMS] [Snitch] ("snitch")
-- ~~Ability to host on different master servers~~ *Blocked by lack of launch flag*
-
+Although based on LauncherBlast2-reBoot, we completely overhauled our
+netgame browser to provide a comfortable netgaming experience. Join active
+netgames directly from LiquidLauncher, manage bookmarks of any netgames you
+like, and because we're Liquid of course, we've also made sure you can do
+so for any master server you can find, **including native support for [LiquidMS].**
 
 [LiquidMS]: <https://github.com/zibonbadi/liquidms>
-[Snitch]: <https://github.com/zibonbadi/liquidms/blob/main/doc/reference/snitch.md>
 
-#### Support for alternative mod browser sources (*use at your own risk*)
+### Built-in Mod browser
 
-![Mod browser view](img/scr_modbrowser.png)
+![Bookmarked netgames view](img/scr_modbrowser.png)
 
-- Reworked Message Board query logic
-- SRB2 Workshop Blue Sphere support 
-- SRB2 Workshop Red Sphere support (**non-compliant to SRB2MB standards**)
-- *Planned:* SRB2 WAD Archive support
-- *Planned:* SRB2 Gamebanana support
-- *Planned:* SRB2 Skybase support
+Mod downloads disabled? Just use the **integrated mod browser**
+to download mods from all across the SRB2 community and have them **added
+to your profile in one click**.
 
-### Inherited from HitCoder9768's fork
+(**DISCLAIMER**: Due to possible quality control concerns on behalf of the
+official SRB2 Message Board, only the official forum is enabled by default.
+Player discretion is advised.)
 
-- A master server browser. You can view online SRB2 servers and select one to join.
-- A mod browser and installer. See a list of mods from the SRB2 message board, and click a button to download them.
-- Support for multiple settings profiles.
-- Settings and profiles are saved as easily editable TOML files (similar to INI files).
-- Multithreading, to avoid GUI freezing.
+### Fully featured RSS/Atom newsreader
 
+![Newsreader view](img/scr_news.png)
 
-### Inherited from Classic LauncherBlast2
-
-- Settings profile manager
-- Launch option manager
-    - Game settings manager
-    - Mod inclusion manager
-- Basic Netgame manager ()
-- Basic Master Server browser (only supported STJr and Kart Krew servers before)
-- Multithreaded network queries
-- Basic Newsfeed integration (single source; <https://mb.srb2.org/feed>)
+Keep up with the latest news from Liquid, SRB2, the wider Sonic community
+or **literally any RSS feed you can find.** Seriously, just add your own
+feed in the settings and you can browse news from all across the internet,
+right from within LiquidLauncher.
 
 
 Installation
@@ -72,7 +73,7 @@ Installation
 
 ### Windows
 
-Simply put `liquidlauncher.exe` into your SRB2 directory. This should make sure
+Simply put `LiquidLauncher.exe` into your SRB2 directory. This should make sure
 that all commands run by LiquidLauncher point to the right files.
 
 #### A note on antivirus
@@ -160,11 +161,11 @@ initial page for the RSS browser.
 Distributable builds are done using [PyInstaller] and we prefer one-file
 builds for easy distribution. Here's the command to do it.
 
-   user$ pyinstaller ll_main.py --icon=img/icons/ll.ico --onefile --windowed
+    user$ pyinstaller ll_main.py --icon=img/icons/ll.ico --onefile --windowed
 
 We also defined a `make` recipe for your convenience:
 
-   user$ make dist
+    user$ make dist
 
 
 
@@ -188,3 +189,10 @@ sources (also your RSS feeds someday) and your currently selected Master Server
 : Your saved master servers. By default, these are filled in with the official
 
   STJr and Kart Krew master servers.
+
+
+Special Thanks
+--------------
+
+Special thanks to HitCoder9768's for building the base of this project,
+[LauncherBlast2-reBoot](https://github.com/HitCoder9768/LauncherBlast2-reBoot).
