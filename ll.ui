@@ -346,7 +346,32 @@
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_5">
-                          <item row="9" column="0" colspan="2">
+                          <item row="6" column="1">
+                           <widget class="QLabel" name="PlayerSkinInfoText">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>1000007</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                            <property name="textFormat">
+                             <enum>Qt::RichText</enum>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                            </property>
+                            <property name="wordWrap">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="12" column="0" colspan="2">
                            <spacer name="verticalSpacer_2">
                             <property name="orientation">
                              <enum>Qt::Vertical</enum>
@@ -381,120 +406,7 @@
                             </property>
                            </widget>
                           </item>
-                          <item row="7" column="0">
-                           <widget class="QLabel" name="PlayerColorTitleLabel">
-                            <property name="text">
-                             <string>Skin Color</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="PlayerNameTitleLabel">
-                            <property name="text">
-                             <string>Nickname</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="PlayerSkinTitleLabel">
-                            <property name="text">
-                             <string>Skin</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="6" column="1">
-                           <widget class="QLabel" name="PlayerSkinInfoText">
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>1000007</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                            </property>
-                            <property name="textFormat">
-                             <enum>Qt::RichText</enum>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                            </property>
-                            <property name="wordWrap">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="0" colspan="2">
-                           <widget class="QComboBox" name="PlayerSkinInput">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="editable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="currentIndex">
-                             <number>0</number>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Sonic</string>
-                            </property>
-                            <item>
-                             <property name="text">
-                              <string/>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sonic</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Tails</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Knuckles</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Amy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Fang</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Metal Sonic</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" colspan="2">
-                           <widget class="QLineEdit" name="PlayerNameInput">
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Sonic</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="8" column="0" colspan="2">
+                          <item row="10" column="0" colspan="2">
                            <widget class="QComboBox" name="PlayerColorInput">
                             <property name="editable">
                              <bool>true</bool>
@@ -822,6 +734,118 @@
                             </item>
                            </widget>
                           </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="PlayerSkinTitleLabel">
+                            <property name="text">
+                             <string>Skin</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QLineEdit" name="PlayerNameInput">
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Sonic</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="4" column="0" colspan="2">
+                           <widget class="QLabel" name="label_29">
+                            <property name="font">
+                             <font>
+                              <pointsize>8</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>To pick non-standard characters, simply type their name in the field.</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="8" column="0">
+                           <widget class="QLabel" name="PlayerColorTitleLabel">
+                            <property name="text">
+                             <string>Skin Color</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="PlayerNameTitleLabel">
+                            <property name="text">
+                             <string>Nickname</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0" colspan="2">
+                           <widget class="QComboBox" name="PlayerSkinInput">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="editable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="currentIndex">
+                             <number>0</number>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Sonic</string>
+                            </property>
+                            <item>
+                             <property name="text">
+                              <string/>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sonic</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Tails</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Knuckles</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Amy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Fang</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Metal Sonic</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item row="11" column="0" colspan="2">
+                           <widget class="QLabel" name="label_30">
+                            <property name="font">
+                             <font>
+                              <pointsize>8</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>To pick non-standard skin colors, simply type their name in the field.</string>
+                            </property>
+                           </widget>
+                          </item>
                          </layout>
                         </widget>
                        </widget>
@@ -840,8 +864,8 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>795</width>
-                           <height>525</height>
+                           <width>419</width>
+                           <height>546</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
@@ -1009,7 +1033,7 @@
                                 <string notr="true"/>
                                </property>
                                <property name="placeholderText">
-                                <string>&lt;auto&gt;</string>
+                                <string>&lt;width&gt;</string>
                                </property>
                               </widget>
                              </item>
@@ -1027,7 +1051,7 @@ font-size: 12pt;</string>
                              <item>
                               <widget class="QLineEdit" name="GameVerticalResolutionInput">
                                <property name="placeholderText">
-                                <string>&lt;auto&gt;</string>
+                                <string>&lt;height&gt;</string>
                                </property>
                               </widget>
                              </item>
@@ -1040,13 +1064,31 @@ font-size: 12pt;</string>
                              <string>Launch settings</string>
                             </property>
                             <layout class="QGridLayout" name="gridLayout_21">
-                             <item row="6" column="0" colspan="2">
-                              <widget class="QLineEdit" name="GameArgsInput"/>
+                             <item row="2" column="0" colspan="2">
+                              <widget class="QLabel" name="label">
+                               <property name="text">
+                                <string>SRB2 home directory (Windows)</string>
+                               </property>
+                              </widget>
                              </item>
-                             <item row="4" column="0" colspan="2">
+                             <item row="5" column="0" colspan="2">
                               <widget class="Line" name="line_2">
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="3" column="0">
+                              <widget class="QLineEdit" name="HomePathInput">
+                               <property name="placeholderText">
+                                <string>/path/to/liquidlauncher</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="6" column="0">
+                              <widget class="QLabel" name="GameArgsLabel">
+                               <property name="text">
+                                <string>Custom Shell Parameters</string>
                                </property>
                               </widget>
                              </item>
@@ -1061,24 +1103,18 @@ font-size: 12pt;</string>
                                </property>
                               </widget>
                              </item>
-                             <item row="2" column="0" colspan="2">
-                              <widget class="QLabel" name="label">
-                               <property name="text">
-                                <string>SRB2 home directory (Windows)</string>
-                               </property>
-                              </widget>
+                             <item row="7" column="0" colspan="2">
+                              <widget class="QLineEdit" name="GameArgsInput"/>
                              </item>
-                             <item row="3" column="0">
-                              <widget class="QLineEdit" name="HomePathInput">
-                               <property name="placeholderText">
-                                <string>/path/to/liquidlauncher</string>
+                             <item row="4" column="0">
+                              <widget class="QLabel" name="label_31">
+                               <property name="font">
+                                <font>
+                                 <pointsize>8</pointsize>
+                                </font>
                                </property>
-                              </widget>
-                             </item>
-                             <item row="5" column="0">
-                              <widget class="QLabel" name="GameArgsLabel">
                                <property name="text">
-                                <string>Custom Shell Parameters</string>
+                                <string>Specify where SRB2 will look for it's assets (e.g. &quot;srb2.pk3&quot;)</string>
                                </property>
                               </widget>
                              </item>
@@ -1367,6 +1403,13 @@ font-size: 12pt;</string>
                                <property name="icon">
                                 <iconset resource="ll.qrc">
                                  <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="10" column="5">
+                              <widget class="Line" name="line_4">
+                               <property name="orientation">
+                                <enum>Qt::Vertical</enum>
                                </property>
                               </widget>
                              </item>
@@ -1732,7 +1775,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>787</width>
+                               <width>492</width>
                                <height>691</height>
                               </rect>
                              </property>
@@ -4581,8 +4624,8 @@ p, li { white-space: pre-wrap; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>808</width>
-                               <height>402</height>
+                               <width>787</width>
+                               <height>302</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -4763,28 +4806,36 @@ p, li { white-space: pre-wrap; }
                                  <string>One-time snitch</string>
                                 </property>
                                 <layout class="QGridLayout" name="gridLayout_6">
-                                 <item row="0" column="1">
-                                  <widget class="QLabel" name="label_24">
-                                   <property name="text">
-                                    <string>Source</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="1" column="1">
-                                  <widget class="QComboBox" name="SnitchsrcCombobox">
-                                   <property name="placeholderText">
-                                    <string>Select a source</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item row="0" column="3">
+                                 <item row="1" column="3">
                                   <widget class="QLabel" name="label_25">
                                    <property name="text">
                                     <string>Destination</string>
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="1" column="3">
+                                 <item row="2" column="1">
+                                  <widget class="QComboBox" name="SnitchsrcCombobox">
+                                   <property name="placeholderText">
+                                    <string>Select a source</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="3" column="1" colspan="3">
+                                  <widget class="QLabel" name="SnitchmsgLabel">
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>8</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Select two servers and click the button to snitch.</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item row="2" column="3">
                                   <widget class="QComboBox" name="SnitchdestCombobox">
                                    <property name="editable">
                                     <bool>true</bool>
@@ -4794,7 +4845,7 @@ p, li { white-space: pre-wrap; }
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="1" column="2">
+                                 <item row="2" column="2">
                                   <widget class="QPushButton" name="SnitchButton">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -4814,18 +4865,10 @@ p, li { white-space: pre-wrap; }
                                    </property>
                                   </widget>
                                  </item>
-                                 <item row="2" column="1" colspan="3">
-                                  <widget class="QLabel" name="SnitchmsgLabel">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>8</pointsize>
-                                    </font>
-                                   </property>
+                                 <item row="1" column="1">
+                                  <widget class="QLabel" name="label_24">
                                    <property name="text">
-                                    <string>Select two servers and click the button to snitch.</string>
-                                   </property>
-                                   <property name="alignment">
-                                    <set>Qt::AlignCenter</set>
+                                    <string>Source</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -5132,81 +5175,130 @@ p, li { white-space: pre-wrap; }
          </widget>
          <widget class="QWidget" name="SettingsPage">
           <layout class="QVBoxLayout" name="verticalLayout_12">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
            <item>
-            <widget class="QScrollArea" name="scrollArea">
-             <property name="styleSheet">
-              <string notr="true"/>
+            <widget class="QTabWidget" name="tabWidget_2">
+             <property name="currentIndex">
+              <number>0</number>
              </property>
-             <property name="widgetResizable">
-              <bool>true</bool>
-             </property>
-             <widget class="QWidget" name="scrollAreaWidgetContents">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>1026</width>
-                <height>539</height>
-               </rect>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_18">
-               <item>
-                <widget class="QTabWidget" name="tabWidget_2">
-                 <property name="currentIndex">
-                  <number>0</number>
+             <widget class="QWidget" name="tab_5">
+              <attribute name="title">
+               <string>General</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_11">
+               <item row="1" column="0">
+                <widget class="QScrollArea" name="scrollArea">
+                 <property name="styleSheet">
+                  <string notr="true"/>
                  </property>
-                 <widget class="QWidget" name="tab_5">
-                  <attribute name="title">
-                   <string>Profiles</string>
-                  </attribute>
-                  <layout class="QGridLayout" name="gridLayout_11">
-                   <item row="2" column="0">
-                    <widget class="QCheckBox" name="SaveFilesToConfigToggle">
-                     <property name="text">
-                      <string>Save Launch Mods to Profile</string>
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>994</width>
+                    <height>439</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_18">
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_19">
+                     <property name="title">
+                      <string>Profiles</string>
                      </property>
-                     <property name="checked">
-                      <bool>false</bool>
+                     <layout class="QGridLayout" name="gridLayout_39">
+                      <item row="3" column="0">
+                       <widget class="QCheckBox" name="SaveFilesToConfigToggle">
+                        <property name="text">
+                         <string>Save Launch Mods to Profile</string>
+                        </property>
+                        <property name="checked">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QPushButton" name="ProfileDirBrowseButton">
+                        <property name="text">
+                         <string>Browse...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLineEdit" name="ProfileDirInput"/>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="ProfileDirLabel">
+                        <property name="text">
+                         <string>Profile Directory (requires restart)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_28">
+                        <property name="font">
+                         <font>
+                          <pointsize>8</pointsize>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Upon launch, LiquidLauncher will check this directory for available profiles.</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_18">
+                     <property name="title">
+                      <string>Developer settings</string>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_38">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_19">
+                        <property name="text">
+                         <string>HTTP User Agent</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLineEdit" name="UseragentInput"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_27">
+                        <property name="font">
+                         <font>
+                          <pointsize>8</pointsize>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_26">
+                     <property name="font">
+                      <font>
+                       <pointsize>8</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Only change these settings if you know what you're doing.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="ProfileDirLabel">
-                     <property name="text">
-                      <string>Profile Directory (requires restart)</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLineEdit" name="ProfileDirInput"/>
-                   </item>
-                   <item row="1" column="2">
-                    <widget class="QPushButton" name="ProfileDirBrowseButton">
-                     <property name="text">
-                      <string>Browse...</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
+                   <item>
                     <spacer name="verticalSpacer">
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
@@ -5221,28 +5313,32 @@ p, li { white-space: pre-wrap; }
                    </item>
                   </layout>
                  </widget>
-                 <widget class="QWidget" name="tab_6">
-                  <attribute name="title">
-                   <string>Mod Sources</string>
-                  </attribute>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <item>
-                    <widget class="QLabel" name="ModsourceDisclaimerLabel">
-                     <property name="text">
-                      <string>DISCLAIMER</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QTextBrowser" name="textBrowser">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="html">
-                      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_6">
+              <attribute name="title">
+               <string>Mod Sources</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <widget class="QLabel" name="ModsourceDisclaimerLabel">
+                 <property name="text">
+                  <string>DISCLAIMER</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextBrowser" name="textBrowser">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="html">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5253,200 +5349,207 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="ModsourceCheckLabel">
-                     <property name="text">
-                      <string>Mod sources</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceMBCheckbox">
-                     <property name="text">
-                      <string>Official SRB2 Message Board</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceGamebananaCheckbox">
-                     <property name="enabled">
-                      <bool>true</bool>
-                     </property>
-                     <property name="text">
-                      <string>SRB2 Gamebanana (unofficial)</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/gamebanana.png</normaloff>:/assets/img/icons/gamebanana.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
-                     <property name="enabled">
-                      <bool>true</bool>
-                     </property>
-                     <property name="text">
-                      <string>SRB2 Skybase (unofficial)</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
-                     <property name="text">
-                      <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/wsblue.png</normaloff>:/assets/img/icons/wsblue.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
-                     <property name="text">
-                      <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/wsred.png</normaloff>:/assets/img/icons/wsred.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                 <widget class="QWidget" name="tab_9">
-                  <attribute name="title">
-                   <string>News Sources</string>
-                  </attribute>
-                  <layout class="QGridLayout" name="gridLayout_8">
-                   <item row="4" column="2">
-                    <widget class="QPushButton" name="RSSRemoveButton">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>Remove</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QPushButton" name="RSSMoveupButton">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>Move up</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0" colspan="3">
-                    <widget class="QLabel" name="NewssourceLabel">
-                     <property name="text">
-                      <string>News Sources (RSS/Atom Feeds)</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="2">
-                    <widget class="QPushButton" name="RSSAddButton">
-                     <property name="text">
-                      <string>Add</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="0">
-                    <widget class="QPushButton" name="RSSMovedownButton">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>Move down</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QLabel" name="RSSStatusLabel_2">
-                     <property name="text">
-                      <string>Select or double click an entry to edit.</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="1">
-                    <spacer name="horizontalSpacer_8">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="1" column="0" colspan="3">
-                    <widget class="QListWidget" name="RSSFeedList">
-                     <item>
-                      <property name="text">
-                       <string>https://srb2.org/feed</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>https://mb.srb2.org.org/forums/-/index.rss</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>https://srb2workshop.org/forums/-/index.rss</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>https://www.sonicstadium.org/feed/</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="ModsourceCheckLabel">
+                 <property name="text">
+                  <string>Mod sources</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="ModsourceMBCheckbox">
+                 <property name="text">
+                  <string>Official SRB2 Message Board</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="ModsourceGamebananaCheckbox">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="text">
+                  <string>SRB2 Gamebanana (unofficial)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/gamebanana.png</normaloff>:/assets/img/icons/gamebanana.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="text">
+                  <string>SRB2 Skybase (unofficial)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
+                 <property name="text">
+                  <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/wsblue.png</normaloff>:/assets/img/icons/wsblue.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
+                 <property name="text">
+                  <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/wsred.png</normaloff>:/assets/img/icons/wsred.png</iconset>
+                 </property>
                 </widget>
                </item>
               </layout>
              </widget>
+             <widget class="QWidget" name="tab_9">
+              <attribute name="title">
+               <string>News Sources</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_8">
+               <item row="4" column="2">
+                <widget class="QPushButton" name="RSSRemoveButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Remove</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QPushButton" name="RSSMoveupButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Move up</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <widget class="QLabel" name="NewssourceLabel">
+                 <property name="text">
+                  <string>News Sources (RSS/Atom Feeds)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QPushButton" name="RSSAddButton">
+                 <property name="text">
+                  <string>Add</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QPushButton" name="RSSMovedownButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Move down</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="ll.qrc">
+                   <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="RSSStatusLabel_2">
+                 <property name="text">
+                  <string>Select or double click an entry to edit.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <spacer name="horizontalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="0" colspan="3">
+                <widget class="QListWidget" name="RSSFeedList">
+                 <item>
+                  <property name="text">
+                   <string>https://srb2.org/feed</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>https://mb.srb2.org.org/forums/-/index.rss</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>https://srb2workshop.org/forums/-/index.rss</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>https://www.sonicstadium.org/feed/</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="SaveSettingsButton">
+             <property name="text">
+              <string>Save</string>
+             </property>
+             <property name="icon">
+              <iconset resource="ll.qrc">
+               <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+             </property>
             </widget>
            </item>
           </layout>

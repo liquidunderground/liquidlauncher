@@ -18,6 +18,7 @@ import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
 from ll_info import product_version as versionString
+from ll_info import http_headers
 
 global_settings_file = "ll_settings.toml"
 
@@ -62,7 +63,10 @@ class MainWindow(QMainWindow):
                                     "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
                                     "https://www.sonicstadium.org/feed",
-                                    ]
+                                    ],
+                                "devsettings": {
+                                    "http_user_agent": http_headers["User-Agent"]
+                                    },
                                 }
         self.current_profile_settings = None
 
@@ -156,6 +160,9 @@ class MainWindow(QMainWindow):
         #self.ui.ServerList.clear()
         self.ui.SavedNetgameTable.setRowCount(0)
 
+        # (Dev) settings hooks ======================================================= #
+        self.ui.SaveSettingsButton.clicked.connect(self.save_settings)
+
         # dock "tabs" ================================================================ #
         self.ui.NewsTabButton.clicked.connect(lambda: self.change_main_tab(0))
         self.ui.GameTabButton.clicked.connect(lambda: self.change_main_tab(1))
@@ -227,11 +234,11 @@ class MainWindow(QMainWindow):
         self.ui.RSSArticleList.currentRowChanged.connect(self.load_article)
 
         # modsources checkboxes ================================================================ #
-        self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
-        self.ui.ModsourceWSBlueCheckbox.clicked.connect(self.update_modsources)
-        self.ui.ModsourceWSRedCheckbox.clicked.connect(self.update_modsources)
-        self.ui.ModsourceGamebananaCheckbox.clicked.connect(self.update_modsources)
-        self.ui.ModsourceSkybaseCheckbox.clicked.connect(self.update_modsources)
+        #self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
+        #self.ui.ModsourceWSBlueCheckbox.clicked.connect(self.update_modsources)
+        #self.ui.ModsourceWSRedCheckbox.clicked.connect(self.update_modsources)
+        #self.ui.ModsourceGamebananaCheckbox.clicked.connect(self.update_modsources)
+        #self.ui.ModsourceSkybaseCheckbox.clicked.connect(self.update_modsources)
         #self.ui.ModsourceWadarchiveCheckbox.clicked.connect(self.update_modsources)
 
         # MS table buttons ======================================================== #
@@ -244,7 +251,7 @@ class MainWindow(QMainWindow):
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
-        self.ui.RSSFeedList.itemChanged.connect(self.rss_commit)
+        #self.ui.RSSFeedList.itemChanged.connect(self.rss_commit)
         #self.ui.RSSFeedList.dataChanged.connect(self.rss_commit)
         self.ui.RSSMoveupButton.clicked.connect(self.rss_moveup)
         self.ui.RSSMovedownButton.clicked.connect(self.rss_movedown)
@@ -287,12 +294,10 @@ class MainWindow(QMainWindow):
                             )
         self.ui.RSSFeedList.addItem(new_item)
         self.ui.RSSFeedList.setCurrentRow(self.ui.RSSFeedList.count()-1)
-        self.rss_commit()
 
     def remove_rss_from_list(self):
         # QListWidget.takeItem bc Qt is weird
         self.ui.RSSFeedList.takeItem( self.ui.RSSFeedList.currentRow() )
-        self.rss_commit()
 
     def rss_moveup(self):
         reservedItems = []
@@ -301,7 +306,6 @@ class MainWindow(QMainWindow):
         row -= 1
         self.ui.RSSFeedList.insertItem(row, item)
         self.ui.RSSFeedList.setCurrentRow(row)
-        self.rss_commit()
         return
 
     def rss_movedown(self):
@@ -311,7 +315,6 @@ class MainWindow(QMainWindow):
         row += 1
         self.ui.RSSFeedList.insertItem(row, item)
         self.ui.RSSFeedList.setCurrentRow(row)
-        self.rss_commit()
         return
 
     # Default functions
@@ -605,9 +608,10 @@ class MainWindow(QMainWindow):
         return launch_command
 
     def set_game_path(self):
-        f, _ = QFileDialog.getExistingDirectory()
+        f = QFileDialog.getExistingDirectory()
         if (f):
             #self.PathGameFilesExecScriptInput.setText(f)
+            self.ui.ProfileDirInput.setText(f)
             pass
 
     #ä
@@ -1165,7 +1169,8 @@ class MainWindow(QMainWindow):
         return
     
     def save_all(self):
-        self.save_global_settings_file()
+        self.save_settings()
+        #self.save_global_settings_file()
         self.save_profile_file(self.global_settings["current_profile"])
 
     def applicationStarted(self):
@@ -1284,12 +1289,16 @@ class MainWindow(QMainWindow):
         self.global_settings.update(toml_settings)
 
         self.ui.ProfileDirInput.setText(self.global_settings["profiles_dir"])
+        print("USER AGENT: {}\n".format(self.global_settings["devsettings"]["http_user_agent"]))
+        self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
 
         # Update RSS List in UI
         self.ui.RSSFeedList.clear()
         if self.global_settings["rss"] != None:
             for feed in self.global_settings["rss"]:
                 self.add_rss_to_list(feed)
+
+        self.rss_commit()
 
         # Profiles combobox
         self.refresh_profiles()
@@ -1348,6 +1357,15 @@ class MainWindow(QMainWindow):
             new_toml_string = toml.dump(self.global_settings, f)
         print("saved config")
         return
+
+    def save_settings(self):
+        self.global_settings["profiles_dir"] = self.ui.ProfileDirInput.text()
+        self.global_settings["devsettings"] = {
+            "http_user_agent": self.ui.UseragentInput.text()
+        }
+        self.update_modsources()
+        self.rss_commit()
+        self.save_global_settings_file()
     
     def rss_commit(self):
         feeds = []
