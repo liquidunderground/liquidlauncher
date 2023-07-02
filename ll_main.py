@@ -18,7 +18,7 @@ import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
 from ll_info import product_version as versionString
-from ll_info import http_headers
+from ll_info import http_headers, set_http_header
 
 global_settings_file = "ll_settings.toml"
 
@@ -240,6 +240,7 @@ class MainWindow(QMainWindow):
         #self.ui.ModsourceGamebananaCheckbox.clicked.connect(self.update_modsources)
         #self.ui.ModsourceSkybaseCheckbox.clicked.connect(self.update_modsources)
         #self.ui.ModsourceWadarchiveCheckbox.clicked.connect(self.update_modsources)
+        self.ui.UseragentInput.textChanged.connect(lambda x: set_http_header("User-Agent", x))
 
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
@@ -1289,7 +1290,6 @@ class MainWindow(QMainWindow):
         self.global_settings.update(toml_settings)
 
         self.ui.ProfileDirInput.setText(self.global_settings["profiles_dir"])
-        print("USER AGENT: {}\n".format(self.global_settings["devsettings"]["http_user_agent"]))
         self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
 
         # Update RSS List in UI

@@ -90,7 +90,6 @@ class QueryLiquid(QtCore.QThread):
                         self.snitch_src_api
                         )
                     # Parse fetch into CSV
-                    print('Fetch data {}\n'.format(fetch))
                     snitch_csv_txt = ""
                     for line in fetch:
                         # CSV-compliant quote escaping
@@ -112,7 +111,7 @@ class QueryLiquid(QtCore.QThread):
                     print('Snitching to "{}"...\n'.format(self.snitch_dest))
                     self.update_snitchmsg_sig.emit('Snitching to "{}"...'.format(self.snitch_dest))
                     snitch_csv_obj = {"file": ('snitch.csv', snitch_csv_txt) }
-                    res = requests.post(self.snitch_dest.rstrip("/")+"/liquidms/snitch", files=snitch_csv_obj) # Pass CSV to Snitch API
+                    res = requests.post(self.snitch_dest.rstrip("/")+"/liquidms/snitch", headers=http_headers, files=snitch_csv_obj) # Pass CSV to Snitch API
                     res.raise_for_status()
                     self.update_snitchmsg_sig.emit('Successfully snitched {} to {}.  Thank you.'.format(self.snitch_src, self.snitch_dest))
                 except Exception as e:
