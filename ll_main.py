@@ -254,7 +254,7 @@ class MainWindow(QMainWindow):
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
         self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/configs-public"))
         self.ui.SnitchButton.clicked.connect(lambda: self.query_liquid_qthread.on_snitch(
-            self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText(), self.ui.UseragentInput.text()))
+            self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText()))
 
         # RSS buttons ======================================================== #
         self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
