@@ -100,12 +100,12 @@ them :3
 
 ### Building for developers
 
-[PyInstaller] is already included in our `requirements.txt` simply install it
+[Nuitka] is already included in our `requirements.txt` simply install it
 into your (virtual) environment and run the following command:
 
-[PyInstaller]: <https://pypi.org/project/pyinstaller/>
+[Nuitka]: <https://pypi.org/project/nuitka/>
 
-   user$ pyinstaller ll_main.py --icon=img/icons/ll.ico --onefile --windowed
+   user$ nuitka ll_main.py --onefile --disable-console
 
 
 CONTRIBUTING
@@ -161,7 +161,7 @@ initial page for the RSS browser.
 Distributable builds are done using [PyInstaller] and we prefer one-file
 builds for easy distribution. Here's the command to do it.
 
-    user$ pyinstaller ll_main.py --icon=img/icons/ll.ico --onefile --windowed
+    user$ nuitka ll_main.py --onefile --disable-console
 
 We also defined a `make` recipe for your convenience:
 
