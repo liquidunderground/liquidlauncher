@@ -12,7 +12,10 @@ EXIT_VENV :=. ./.venv/bin/deactivate
 ICON_FLAG := --linux-icon=img/icons/ll.ico 
 endif
 
+NUITKA_FLAGS := --output-dir=dist/ ${ICON_FLAG} --standalone --onefile --disable-console
 NUITKA_PLUGINS := --enable-plugin=pyside6,anti-bloat,pywebview
+NUITKA_PACKAGES := --include-package=xml.sax
+
 .PHONY: all init run dist clean
 
 all:
@@ -37,7 +40,7 @@ run: init
 	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && python3 ll_main.py )
 
 dist: init
-	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && nuitka3 ll_main.py ${NUITKA_PLUGINS} --output-filename=LiquidLauncher --output-dir=dist/ ${ICON_FLAG} --onefile --disable-console )
+	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && nuitka3 ll_main.py ${NUITKA_FLAGS} ${NUITKA_PLUGINS} ${NUITKA_PACKAGES} --output-filename=LiquidLauncher )
 
 clean:
 	-rm -r build/ dist/ ll_main.spec .venv/ ll_profiles
