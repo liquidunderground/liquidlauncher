@@ -129,6 +129,7 @@ class MainWindow(QMainWindow):
         self.query_ms_sig.connect(self.ms_qthread.on_refresh)
         self.query_ms_rooms_sig.connect(self.ms_qthread.on_query_ms_rooms)
         self.ms_qthread.server_list_sig1.connect(self.on_server_list)
+        self.ms_qthread.server_list_sig2.connect(self.ui.MSStatusLabel.setText)
         self.ms_qthread.on_ms_rooms_sig.connect(self.on_ms_rooms)
         
         # load servers from file ===================================================== #
@@ -142,7 +143,7 @@ class MainWindow(QMainWindow):
             self.ui.FlatpakRadiobutton.setEnabled(True)
 
         # file dialog options to keep shit consistent ================================ #
-        self.FileDialogOptions = QFileDialog.Options()
+        self.FileDialogOptions = QFileDialog.Options(0)
         # self.FileDialogOptions |= QFileDialog.DontUseNativeDialog
 
         # set tab to game tab initially ============================================== #
@@ -897,8 +898,6 @@ class MainWindow(QMainWindow):
         self.query_ms_sig.emit(True)
     
     def on_server_list(self, server_list):
-        self.ui.MSStatusLabel.setText('Click "Refresh" to download a list of '
-                                      'servers.')
         print("on_server_list")
         del self.master_server_list
         self.master_server_list = {}

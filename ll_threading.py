@@ -205,6 +205,7 @@ class QueryMessageBoard(QtCore.QThread):
 
 class QueryMasterServer(QtCore.QThread):
     server_list_sig1 = Signal(list)
+    server_list_sig2 = Signal(str)
     on_ms_rooms_sig = Signal(object)
 
     def __init__(self, host, parent=None):
@@ -233,11 +234,18 @@ class QueryMasterServer(QtCore.QThread):
                 #server_list = get_server_list(ms_url, "v1")
                 # TODO: Pass API from user config
                 print("QThread.current_ms = ", self.host.global_settings["current_ms"])
-                server_list = get_server_list(
-                    self.host.global_settings["current_ms"]["url"],
-                    self.host.global_settings["current_ms"]["api"]
-                    )
-                self.server_list_sig1.emit(server_list)
+                try:
+                    server_list = get_server_list(
+                        self.host.global_settings["current_ms"]["url"].rstrip(),
+                        self.host.global_settings["current_ms"]["api"]
+                        )
+                    print("Successfully queried {}\n".format(self.host.global_settings["current_ms"]["url"]))
+                    self.server_list_sig2.emit("Successfully queried {}".format(self.host.global_settings["current_ms"]["url"]))
+                    self.server_list_sig1.emit(server_list)
+                except Exception as e:
+                    print("Query error: {}\n".format(e))
+                    self.server_list_sig2.emit("Query error: {}".format(e))
+                    self.server_list_sig1.emit({})
                 self.query_ms = False                    
             if self.query_ms_rooms:
                 print("QThread.masterserver = ", self.host.global_settings["current_ms"])
