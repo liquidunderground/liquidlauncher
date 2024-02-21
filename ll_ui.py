@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 359, 177))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 381, 143))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 816, 439))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 810, 447))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.PlayerSkinInfoText = QLabel(self.scrollAreaWidgetContents_5)
@@ -366,7 +366,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 419, 546))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 797, 520))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -684,6 +684,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_12.addWidget(self.label_23, 2, 2, 1, 1)
 
+        self.ModDirInput = QLineEdit(self.ModBrowserTab)
+        self.ModDirInput.setObjectName(u"ModDirInput")
+
+        self.gridLayout_12.addWidget(self.ModDirInput, 2, 3, 1, 1)
+
         self.splitter_2 = QSplitter(self.ModBrowserTab)
         self.splitter_2.setObjectName(u"splitter_2")
         sizePolicy3.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
@@ -696,12 +701,6 @@ class Ui_MainWindow(object):
         self.gridLayout_17 = QGridLayout(self.groupBox)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.gridLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.RefreshModsButton = QPushButton(self.groupBox)
-        self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        self.RefreshModsButton.setIcon(icon)
-
-        self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 3, 1, 1)
-
         self.ModTypeCombo = QComboBox(self.groupBox)
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
@@ -712,6 +711,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.ModTypeCombo, 0, 2, 1, 1)
 
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
+
         self.ModsList = QListWidget(self.groupBox)
         __qlistwidgetitem9 = QListWidgetItem(self.ModsList)
         __qlistwidgetitem9.setFlags(Qt.ItemIsSelectable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable);
@@ -719,7 +722,13 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
         self.ModsList.setSizePolicy(sizePolicy3)
 
-        self.gridLayout_17.addWidget(self.ModsList, 2, 0, 1, 4)
+        self.gridLayout_17.addWidget(self.ModsList, 2, 0, 1, 5)
+
+        self.ModPageInput = QSpinBox(self.groupBox)
+        self.ModPageInput.setObjectName(u"ModPageInput")
+        self.ModPageInput.setMinimum(1)
+
+        self.gridLayout_17.addWidget(self.ModPageInput, 0, 3, 1, 1)
 
         self.ModBrowserLabel = QLabel(self.groupBox)
         self.ModBrowserLabel.setObjectName(u"ModBrowserLabel")
@@ -738,9 +747,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_17.addWidget(self.ModStatusLabel, 3, 0, 1, 4)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.RefreshModsButton = QPushButton(self.groupBox)
+        self.RefreshModsButton.setObjectName(u"RefreshModsButton")
+        self.RefreshModsButton.setIcon(icon)
 
-        self.gridLayout_17.addItem(self.horizontalSpacer_5, 0, 1, 1, 1)
+        self.gridLayout_17.addWidget(self.RefreshModsButton, 0, 4, 1, 1)
 
         self.splitter_2.addWidget(self.groupBox)
         self.groupBox_2 = QGroupBox(self.splitter_2)
@@ -806,11 +817,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_12.addWidget(self.splitter_2, 0, 0, 1, 5)
 
-        self.ModDirInput = QLineEdit(self.ModBrowserTab)
-        self.ModDirInput.setObjectName(u"ModDirInput")
-
-        self.gridLayout_12.addWidget(self.ModDirInput, 2, 3, 1, 1)
-
         self.GameSettingsTabWidget.addTab(self.ModBrowserTab, "")
 
         self.gridLayout_15.addWidget(self.GameSettingsTabWidget, 0, 0, 1, 1)
@@ -836,7 +842,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 492, 691))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 793, 648))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
@@ -1076,7 +1082,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 430, 686))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 443, 630))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout.setObjectName(u"gridLayout")
         self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_10)
@@ -1404,7 +1410,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 247, 271))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 287, 257))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -1487,7 +1493,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 557, 709))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 619, 654))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.RingslingerSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
@@ -1694,7 +1700,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 261, 200))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 275, 194))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -1759,7 +1765,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 666, 1102))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 748, 1041))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -2438,7 +2444,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 787, 302))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 793, 270))
         self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.groupBox_17 = QGroupBox(self.scrollAreaWidgetContents_11)
@@ -2663,7 +2669,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1026, 539))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1030, 555))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -2696,7 +2702,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 994, 439))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 559, 293))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.groupBox_19 = QGroupBox(self.scrollAreaWidgetContents)
@@ -2977,7 +2983,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(2)
         self.PlayerColorInput.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.GameSettingsTabWidget.setCurrentIndex(0)
@@ -3175,10 +3181,7 @@ class Ui_MainWindow(object):
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.AddonsLoaderTab), QCoreApplication.translate("MainWindow", u"Launch Mods", None))
         self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Download directory", None))
-#if QT_CONFIG(tooltip)
-        self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
-#endif // QT_CONFIG(tooltip)
-        self.RefreshModsButton.setText("")
+        self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
         self.ModTypeCombo.setItemText(0, QCoreApplication.translate("MainWindow", u"Maps", None))
         self.ModTypeCombo.setItemText(1, QCoreApplication.translate("MainWindow", u"Characters", None))
         self.ModTypeCombo.setItemText(2, QCoreApplication.translate("MainWindow", u"Lua", None))
@@ -3192,8 +3195,15 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem9.setText(QCoreApplication.translate("MainWindow", u"(Tip: You can also enable more sources in the settings)", None));
         self.ModsList.setSortingEnabled(__sortingEnabled3)
 
+#if QT_CONFIG(tooltip)
+        self.ModPageInput.setToolTip(QCoreApplication.translate("MainWindow", u"Page", None))
+#endif // QT_CONFIG(tooltip)
         self.ModBrowserLabel.setText(QCoreApplication.translate("MainWindow", u"Mods", None))
-        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Click \"Refresh mods\" to see a list of available mods.", None))
+        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Select a category and click \"refresh\"", None))
+#if QT_CONFIG(tooltip)
+        self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
+#endif // QT_CONFIG(tooltip)
+        self.RefreshModsButton.setText("")
 #if QT_CONFIG(tooltip)
         self.DownloadModButton.setToolTip(QCoreApplication.translate("MainWindow", u"Coming soon. Hang in there, buddy!", None))
 #endif // QT_CONFIG(tooltip)
@@ -3201,7 +3211,6 @@ class Ui_MainWindow(object):
         self.ModViewerLabel.setText(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.OpenPageButton.setText(QCoreApplication.translate("MainWindow", u"Visit Page", None))
         self.AdddownloadtolaunchmodsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Add finished download to launch mods", None))
-        self.ModDirInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Downloads/", None))
         self.GameSettingsTabWidget.setTabText(self.GameSettingsTabWidget.indexOf(self.ModBrowserTab), QCoreApplication.translate("MainWindow", u"Browse online", None))
         self.groupBox_11.setTitle(QCoreApplication.translate("MainWindow", u"Server settings", None))
         self.RoomLabel.setText(QCoreApplication.translate("MainWindow", u"Room", None))
@@ -3371,16 +3380,15 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Ringslinger</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:11pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" mar"
-                        "gin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Match</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Team Match</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Tag</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Hide and Seek</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style="
-                        "\" font-family:'CMU Serif Medium'; font-size:11pt;\">Capture The Flag</span></p></body></html>", None))
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ringslinger</span> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Match</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-b"
+                        "ottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Team Match</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Tag</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Hide and Seek</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Capture The Flag</p></body></html>", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.Ringslinger), QCoreApplication.translate("MainWindow", u"Ringslinger", None))
         self.CircuitraceSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Circuit Race Settings", None))
         self.CircuitraceSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Circuit Race Settings", None))
@@ -3393,8 +3401,8 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Warning:</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</span></p></body></html>", None))
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Warning:</span> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</p></body></html>", None))
         self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
         self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
@@ -3630,81 +3638,81 @@ class Ui_MainWindow(object):
         self.AboutText.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-family:'CMU Serif Medium'; font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margi"
-                        "n-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">built by Liquid</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;\">Join our Discord</span></a></p>\n"
-"<p align=\"center\" style=\"-qt-"
-                        "paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">PixL<br /></span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-botto"
-                        "m:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by HitCoder</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Med"
-                        "ium'; font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\">(libxml binding for Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> (distribution)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt Project</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12p"
-                        "t; font-weight:600;\">Python 3</span><span style=\" font-size:12pt;\"> by</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-size:12pt;\"> (PyPi)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Requests</span><span style=\" font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px"
-                        "; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt project</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; fo"
+                        "nt-size:12pt; font-style:italic;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">built by Liquid</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Join our Discord</span></a></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><b"
+                        "r /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">PixL<br /></span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style"
+                        "=\" font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-size:12pt;\"> by HitCoder</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-size:12pt;\">(libxml binding for Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-size:12pt;\"> (distribution)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bot"
+                        "tom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-size:12pt;\"> by the Qt Project</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Python 3</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> by</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (PyPi)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Requests</span><span style=\" font"
+                        "-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-size:12pt;\"> by the Qt project</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:"
+                        "0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; marg"
-                        "in-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board thread</span></a></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty;"
-                        " margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
+"<p align=\"justi"
+                        "fy\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board thread</span></a></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">Credits</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12"
+                        "px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sonic Team Jr - SRB2 icon</li></ul>\n"
-"<p align=\"justify\" style=\"-qt-parag"
-                        "raph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction o"
-                        "f profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8p"
+                        "t;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-in"
+                        "dent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:1"
-                        "2px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; fo"
-                        "nt-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
+"<p align=\"just"
+                        "ify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">How do I host a server?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server"
+                        ". To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-""
-                        "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-fa"
-                        "mily:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern a"
+                        "ntivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 201"
-                        "9, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bott"
+                        "om:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><b"
+                        "r /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly"
-                        " compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the de"
+                        "sign is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
         self.groupBox_19.setTitle(QCoreApplication.translate("MainWindow", u"Profiles", None))
         self.SaveFilesToConfigToggle.setText(QCoreApplication.translate("MainWindow", u"Save Launch Mods to Profile", None))
         self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
@@ -3719,16 +3727,16 @@ class Ui_MainWindow(object):
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\"> </span><span style=\" font-family:'CMU Serif Medium';\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-family:'CMU Serif Medium';\">] is prohibited by the Sonic Rob"
-                        "o Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found with"
-                        "in the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p></body></html>", None))
+"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-size:10pt; font-weight:600;\"> </span><span style=\" font-size:10pt;\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-size:10pt;\">] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a "
+                        "permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
+"<p align=\"center\" style=\" margin"
+                        "-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p></body></html>", None))
         self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"Mod sources", None))
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
         self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))

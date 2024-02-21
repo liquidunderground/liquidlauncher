@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
     # Emits instance of Mod() class from self.mods_list
     mod_description_sig = Signal(object)
     # Emits self.mods_list
-    mod_list_sig = Signal(str)
+    mod_list_sig = Signal(str, int)
     # Emits bool, telling QThread to query the master server
     query_ms_sig = Signal(bool)
     query_ms_rooms_sig = Signal(str)
@@ -847,7 +847,7 @@ class MainWindow(QMainWindow):
         self.ui.ModStatusLabel.setText("Downloading mods list...")
         self.ui.ModsList.clear()
         self.mods_list = {}
-        self.mod_list_sig.emit(self.ui.ModTypeCombo.currentText())
+        self.mod_list_sig.emit(self.ui.ModTypeCombo.currentText(), self.ui.ModPageInput.value())
 
     def on_mod_description(self, mod):
         self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
