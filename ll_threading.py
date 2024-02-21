@@ -135,10 +135,11 @@ class QueryMessageBoard(QtCore.QThread):
         self.mods_type = None
         self.host = host
 
-    def on_request_mod_list(self, mods_type):
+    def on_request_mod_list(self, mods_type, pagenum):
         print("on_request_mod_list({})".format(mods_type))
-        self.get_mods = True
+        self.pagenum = pagenum
         self.mods_type = mods_type
+        self.get_mods = True
 
     def on_request_mod_desc(self, mod):
         print("on_request_mod_desc")
@@ -181,7 +182,7 @@ class QueryMessageBoard(QtCore.QThread):
                     print("Querying forum {}".format(url))
                     self.mod_statmsg_sig1.emit("Querying {}".format(src["main"]))
                     try:
-                        querybuf = mb_query.get_mods(url, src)
+                        querybuf = mb_query.get_mods(url, src, self.pagenum)
                         #mods = mods + mb_query.get_mods(url, src)
                         mods = mods + querybuf
                         for mod in querybuf:
