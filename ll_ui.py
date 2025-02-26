@@ -41,8 +41,8 @@ class Ui_MainWindow(object):
         self.gridLayout_32.setContentsMargins(0, 0, 0, 0)
         self.MainAreaFrame = QFrame(self.centralwidget)
         self.MainAreaFrame.setObjectName(u"MainAreaFrame")
-        self.MainAreaFrame.setFrameShape(QFrame.StyledPanel)
-        self.MainAreaFrame.setFrameShadow(QFrame.Raised)
+        self.MainAreaFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.MainAreaFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.MainAreaFrame)
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 381, 143))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 1034, 551))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.gridLayout_7 = QGridLayout(self.NewsScrollAreaContent)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
 
         self.splitter_4 = QSplitter(self.NewsScrollAreaContent)
         self.splitter_4.setObjectName(u"splitter_4")
-        self.splitter_4.setOrientation(Qt.Horizontal)
+        self.splitter_4.setOrientation(Qt.Orientation.Horizontal)
         self.RSSArticleList = QListWidget(self.splitter_4)
         __qlistwidgetitem = QListWidgetItem(self.RSSArticleList)
         __qlistwidgetitem.setFlags(Qt.NoItemFlags);
@@ -147,13 +147,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.GamePageFrame = QFrame(self.GamePage)
         self.GamePageFrame.setObjectName(u"GamePageFrame")
-        self.GamePageFrame.setFrameShape(QFrame.StyledPanel)
-        self.GamePageFrame.setFrameShadow(QFrame.Raised)
+        self.GamePageFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.GamePageFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_16 = QGridLayout(self.GamePageFrame)
         self.gridLayout_16.setObjectName(u"gridLayout_16")
         self.splitter = QSplitter(self.GamePageFrame)
         self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Horizontal)
+        self.splitter.setOrientation(Qt.Orientation.Horizontal)
         self.GamePageTabList = QListWidget(self.splitter)
         icon2 = QIcon()
         icon2.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -189,8 +189,8 @@ class Ui_MainWindow(object):
         self.splitter.addWidget(self.GamePageTabList)
         self.GamePageContentFrame = QFrame(self.splitter)
         self.GamePageContentFrame.setObjectName(u"GamePageContentFrame")
-        self.GamePageContentFrame.setFrameShape(QFrame.StyledPanel)
-        self.GamePageContentFrame.setFrameShadow(QFrame.Raised)
+        self.GamePageContentFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.GamePageContentFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_19 = QGridLayout(self.GamePageContentFrame)
         self.gridLayout_19.setObjectName(u"gridLayout_19")
         self.GameContentStackedWidget = QStackedWidget(self.GamePageContentFrame)
@@ -204,20 +204,20 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 810, 447))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 343, 442))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.PlayerSkinInfoText = QLabel(self.scrollAreaWidgetContents_5)
         self.PlayerSkinInfoText.setObjectName(u"PlayerSkinInfoText")
         self.PlayerSkinInfoText.setMaximumSize(QSize(16777215, 1000007))
         self.PlayerSkinInfoText.setStyleSheet(u"")
-        self.PlayerSkinInfoText.setTextFormat(Qt.RichText)
-        self.PlayerSkinInfoText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.PlayerSkinInfoText.setTextFormat(Qt.TextFormat.RichText)
+        self.PlayerSkinInfoText.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.PlayerSkinInfoText.setWordWrap(True)
 
         self.gridLayout_5.addWidget(self.PlayerSkinInfoText, 6, 1, 1, 1)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_5.addItem(self.verticalSpacer_2, 12, 0, 1, 2)
 
@@ -366,7 +366,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 797, 520))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 793, 532))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.groupBox_6 = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -524,7 +524,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addWidget(self.groupBox_8, 7, 2, 1, 1)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_13.addItem(self.verticalSpacer_10, 8, 2, 1, 1)
 
@@ -631,10 +631,10 @@ class Ui_MainWindow(object):
         self.GameFilesList.setStyleSheet(u"")
         self.GameFilesList.setDragEnabled(True)
         self.GameFilesList.setDragDropOverwriteMode(False)
-        self.GameFilesList.setDragDropMode(QAbstractItemView.DropOnly)
-        self.GameFilesList.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.GameFilesList.setDragDropMode(QAbstractItemView.DragDropMode.DropOnly)
+        self.GameFilesList.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
         self.GameFilesList.setIconSize(QSize(32, 32))
-        self.GameFilesList.setMovement(QListView.Static)
+        self.GameFilesList.setMovement(QListView.Movement.Static)
 
         self.gridLayout_9.addWidget(self.GameFilesList, 0, 1, 9, 7)
 
@@ -663,7 +663,7 @@ class Ui_MainWindow(object):
 
         self.line_4 = QFrame(self.AddonsLoaderTab)
         self.line_4.setObjectName(u"line_4")
-        self.line_4.setFrameShape(QFrame.VLine)
+        self.line_4.setFrameShape(QFrame.HLine)
         self.line_4.setFrameShadow(QFrame.Sunken)
 
         self.gridLayout_9.addWidget(self.line_4, 10, 5, 1, 1)
@@ -693,7 +693,7 @@ class Ui_MainWindow(object):
         self.splitter_2.setObjectName(u"splitter_2")
         sizePolicy3.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
         self.splitter_2.setSizePolicy(sizePolicy3)
-        self.splitter_2.setOrientation(Qt.Horizontal)
+        self.splitter_2.setOrientation(Qt.Orientation.Horizontal)
         self.groupBox = QGroupBox(self.splitter_2)
         self.groupBox.setObjectName(u"groupBox")
         sizePolicy3.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
@@ -743,7 +743,7 @@ class Ui_MainWindow(object):
         self.ModStatusLabel = QLabel(self.groupBox)
         self.ModStatusLabel.setObjectName(u"ModStatusLabel")
         self.ModStatusLabel.setFont(font2)
-        self.ModStatusLabel.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.ModStatusLabel.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout_17.addWidget(self.ModStatusLabel, 3, 0, 1, 4)
 
@@ -842,7 +842,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 793, 648))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 492, 669))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
@@ -893,13 +893,13 @@ class Ui_MainWindow(object):
         self.label_55 = QLabel(self.groupBox_11)
         self.label_55.setObjectName(u"label_55")
         self.label_55.setFont(font2)
-        self.label_55.setAlignment(Qt.AlignCenter)
+        self.label_55.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_25.addWidget(self.label_55, 10, 2, 1, 1)
 
         self.AdminPasswordInput = QLineEdit(self.groupBox_11)
         self.AdminPasswordInput.setObjectName(u"AdminPasswordInput")
-        self.AdminPasswordInput.setEchoMode(QLineEdit.Password)
+        self.AdminPasswordInput.setEchoMode(QLineEdit.EchoMode.Password)
 
         self.gridLayout_25.addWidget(self.AdminPasswordInput, 3, 0, 1, 3)
 
@@ -916,7 +916,7 @@ class Ui_MainWindow(object):
         self.label_51 = QLabel(self.groupBox_11)
         self.label_51.setObjectName(u"label_51")
         self.label_51.setFont(font2)
-        self.label_51.setAlignment(Qt.AlignCenter)
+        self.label_51.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_25.addWidget(self.label_51, 10, 0, 1, 2)
 
@@ -1064,7 +1064,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.groupBox_10)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_5)
 
@@ -1082,7 +1082,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 443, 630))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 430, 668))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout.setObjectName(u"gridLayout")
         self.ForceSkinLabel = QLabel(self.scrollAreaWidgetContents_10)
@@ -1220,13 +1220,13 @@ class Ui_MainWindow(object):
         self.gridLayout_34.setObjectName(u"gridLayout_34")
         self.ForceSkinLabel_15 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_15.setObjectName(u"ForceSkinLabel_15")
-        self.ForceSkinLabel_15.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_15.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_15, 5, 2, 1, 1)
 
         self.ForceSkinLabel_3 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_3.setObjectName(u"ForceSkinLabel_3")
-        self.ForceSkinLabel_3.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_3.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_3, 0, 0, 1, 1)
 
@@ -1239,7 +1239,7 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_8 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_8.setObjectName(u"ForceSkinLabel_8")
-        self.ForceSkinLabel_8.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_8, 2, 2, 1, 1)
 
@@ -1266,7 +1266,7 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_14 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_14.setObjectName(u"ForceSkinLabel_14")
-        self.ForceSkinLabel_14.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_14.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_14, 4, 2, 1, 1)
 
@@ -1279,19 +1279,19 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_9 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_9.setObjectName(u"ForceSkinLabel_9")
-        self.ForceSkinLabel_9.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_9.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_9, 4, 4, 1, 1)
 
         self.ForceSkinLabel_12 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_12.setObjectName(u"ForceSkinLabel_12")
-        self.ForceSkinLabel_12.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_12.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_12, 2, 0, 1, 1)
 
         self.ForceSkinLabel_7 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_7.setObjectName(u"ForceSkinLabel_7")
-        self.ForceSkinLabel_7.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_7.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_7, 1, 2, 1, 1)
 
@@ -1311,13 +1311,13 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_11 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_11.setObjectName(u"ForceSkinLabel_11")
-        self.ForceSkinLabel_11.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_11.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_11, 0, 4, 1, 1)
 
         self.ForceSkinLabel_4 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_4.setObjectName(u"ForceSkinLabel_4")
-        self.ForceSkinLabel_4.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_4, 0, 2, 1, 1)
 
@@ -1337,7 +1337,7 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_10 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_10.setObjectName(u"ForceSkinLabel_10")
-        self.ForceSkinLabel_10.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_10, 1, 0, 1, 1)
 
@@ -1350,7 +1350,7 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_28 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_28.setObjectName(u"ForceSkinLabel_28")
-        self.ForceSkinLabel_28.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_28.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_28, 2, 4, 1, 1)
 
@@ -1370,14 +1370,14 @@ class Ui_MainWindow(object):
 
         self.ForceSkinLabel_27 = QLabel(self.groupBox_14)
         self.ForceSkinLabel_27.setObjectName(u"ForceSkinLabel_27")
-        self.ForceSkinLabel_27.setAlignment(Qt.AlignCenter)
+        self.ForceSkinLabel_27.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_34.addWidget(self.ForceSkinLabel_27, 1, 4, 1, 1)
 
 
         self.gridLayout.addWidget(self.groupBox_14, 18, 0, 1, 2)
 
-        self.verticalSpacer_9 = QSpacerItem(20, 204, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_9 = QSpacerItem(20, 204, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout.addItem(self.verticalSpacer_9, 20, 1, 1, 1)
 
@@ -1410,7 +1410,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 287, 257))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 247, 265))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -1475,7 +1475,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.CoopSettingsGroupbox)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 329, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_8 = QSpacerItem(20, 329, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_4.addItem(self.verticalSpacer_8)
 
@@ -1493,7 +1493,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 619, 654))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 556, 693))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.RingslingerSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
@@ -1682,7 +1682,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_18.addWidget(self.textEdit_2, 0, 0, 1, 2)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_4 = QSpacerItem(20, 193, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_18.addItem(self.verticalSpacer_4, 3, 0, 1, 1)
 
@@ -1700,7 +1700,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 275, 194))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 257, 194))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -1747,7 +1747,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_16.addWidget(self.CircuitraceSettingsGroupbox)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 329, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_7 = QSpacerItem(20, 329, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_16.addItem(self.verticalSpacer_7)
 
@@ -1765,7 +1765,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 748, 1041))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 662, 1070))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -1932,7 +1932,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_52.addWidget(self.Survival_suddendeathCheckbox, 3, 1, 1, 1)
 
-        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_52.addItem(self.verticalSpacer_11, 4, 0, 1, 1)
 
@@ -2153,7 +2153,7 @@ class Ui_MainWindow(object):
 
         self.label_20 = QLabel(self.BattlemodSettingsGroupbox)
         self.label_20.setObjectName(u"label_20")
-        self.label_20.setAlignment(Qt.AlignCenter)
+        self.label_20.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_22.addWidget(self.label_20, 7, 0, 1, 2)
 
@@ -2214,7 +2214,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.BattlemodSettingsGroupbox)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_10.addItem(self.verticalSpacer_6)
 
@@ -2243,7 +2243,7 @@ class Ui_MainWindow(object):
         self.GameTabView.setObjectName(u"GameTabView")
         sizePolicy2.setHeightForWidth(self.GameTabView.sizePolicy().hasHeightForWidth())
         self.GameTabView.setSizePolicy(sizePolicy2)
-        self.GameTabView.setTabShape(QTabWidget.Rounded)
+        self.GameTabView.setTabShape(QTabWidget.TabShape.Rounded)
         self.BrowseTab = QWidget()
         self.BrowseTab.setObjectName(u"BrowseTab")
         self.gridLayout_26 = QGridLayout(self.BrowseTab)
@@ -2329,9 +2329,9 @@ class Ui_MainWindow(object):
         self.BrowseNetgameTable.setObjectName(u"BrowseNetgameTable")
         sizePolicy2.setHeightForWidth(self.BrowseNetgameTable.sizePolicy().hasHeightForWidth())
         self.BrowseNetgameTable.setSizePolicy(sizePolicy2)
-        self.BrowseNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.BrowseNetgameTable.setEditTriggers(QAbstractItemView.DoubleClicked)
-        self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.BrowseNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        self.BrowseNetgameTable.setEditTriggers(QAbstractItemView.EditTrigger.DoubleClicked)
+        self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.BrowseNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.BrowseNetgameTable.verticalHeader().setVisible(False)
 
@@ -2343,7 +2343,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.BrowseMSCombobox.sizePolicy().hasHeightForWidth())
         self.BrowseMSCombobox.setSizePolicy(sizePolicy4)
         self.BrowseMSCombobox.setMinimumSize(QSize(80, 0))
-        self.BrowseMSCombobox.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+        self.BrowseMSCombobox.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToContents)
 
         self.gridLayout_26.addWidget(self.BrowseMSCombobox, 0, 2, 1, 1)
 
@@ -2390,8 +2390,8 @@ class Ui_MainWindow(object):
         self.SavedNetgameTable.setObjectName(u"SavedNetgameTable")
         sizePolicy2.setHeightForWidth(self.SavedNetgameTable.sizePolicy().hasHeightForWidth())
         self.SavedNetgameTable.setSizePolicy(sizePolicy2)
-        self.SavedNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.SavedNetgameTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.SavedNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        self.SavedNetgameTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.SavedNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.SavedNetgameTable.verticalHeader().setVisible(False)
         self.SavedNetgameTable.verticalHeader().setCascadingSectionResizes(True)
@@ -2425,8 +2425,8 @@ class Ui_MainWindow(object):
 
         self.frame_10 = QFrame(self.SavedNetgamesTab)
         self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.frame_10.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_10)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
@@ -2444,7 +2444,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 793, 270))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 498, 296))
         self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.groupBox_17 = QGroupBox(self.scrollAreaWidgetContents_11)
@@ -2519,9 +2519,9 @@ class Ui_MainWindow(object):
         __qtablewidgetitem24.setTextAlignment(Qt.AlignCenter);
         self.MasterServersTable.setItem(1, 2, __qtablewidgetitem24)
         self.MasterServersTable.setObjectName(u"MasterServersTable")
-        self.MasterServersTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.MasterServersTable.setEditTriggers(QAbstractItemView.DoubleClicked)
-        self.MasterServersTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.MasterServersTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
+        self.MasterServersTable.setEditTriggers(QAbstractItemView.EditTrigger.DoubleClicked)
+        self.MasterServersTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
         self.gridLayout_37.addWidget(self.MasterServersTable, 0, 0, 1, 6)
@@ -2546,7 +2546,7 @@ class Ui_MainWindow(object):
         self.SnitchmsgLabel = QLabel(self.groupBox_3)
         self.SnitchmsgLabel.setObjectName(u"SnitchmsgLabel")
         self.SnitchmsgLabel.setFont(font2)
-        self.SnitchmsgLabel.setAlignment(Qt.AlignCenter)
+        self.SnitchmsgLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_6.addWidget(self.SnitchmsgLabel, 3, 1, 1, 3)
 
@@ -2598,11 +2598,11 @@ class Ui_MainWindow(object):
         self.GamePlayFrame.setObjectName(u"GamePlayFrame")
         self.GamePlayFrame.setMinimumSize(QSize(0, 56))
         self.GamePlayFrame.setMaximumSize(QSize(16777215, 56))
-        self.GamePlayFrame.setFrameShape(QFrame.StyledPanel)
-        self.GamePlayFrame.setFrameShadow(QFrame.Raised)
+        self.GamePlayFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.GamePlayFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_3 = QGridLayout(self.GamePlayFrame)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_3.addItem(self.horizontalSpacer_3, 1, 9, 2, 1)
 
@@ -2669,7 +2669,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1030, 555))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1034, 551))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -2702,7 +2702,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 559, 293))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 532, 293))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.groupBox_19 = QGroupBox(self.scrollAreaWidgetContents)
@@ -2769,7 +2769,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_18.addWidget(self.label_26)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_18.addItem(self.verticalSpacer)
 
@@ -2882,7 +2882,7 @@ class Ui_MainWindow(object):
 
         self.RSSStatusLabel_2 = QLabel(self.tab_9)
         self.RSSStatusLabel_2.setObjectName(u"RSSStatusLabel_2")
-        self.RSSStatusLabel_2.setAlignment(Qt.AlignCenter)
+        self.RSSStatusLabel_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_8.addWidget(self.RSSStatusLabel_2, 3, 1, 1, 1)
 
@@ -2919,8 +2919,8 @@ class Ui_MainWindow(object):
         self.DockTabFrame = QFrame(self.centralwidget)
         self.DockTabFrame.setObjectName(u"DockTabFrame")
         self.DockTabFrame.setMaximumSize(QSize(16777215, 128))
-        self.DockTabFrame.setFrameShape(QFrame.StyledPanel)
-        self.DockTabFrame.setFrameShadow(QFrame.Raised)
+        self.DockTabFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.DockTabFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout = QHBoxLayout(self.DockTabFrame)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -2982,7 +2982,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(1)
+        self.MainTabsStackedWidget.setCurrentIndex(0)
         self.GameContentStackedWidget.setCurrentIndex(2)
         self.PlayerColorInput.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(0)
@@ -3123,9 +3123,9 @@ class Ui_MainWindow(object):
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Executable", None))
         self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
-        self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (Linux/macOS)", None))
-        self.FlatpakRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Flatpak (Linux)", None))
-        self.NativeRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Native EXE/ELF", None))
+        self.WineRadiobutton.setText(QCoreApplication.translate("MainWindow", u"WINE (&Linux/macOS)", None))
+        self.FlatpakRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Flat&pak (Linux)", None))
+        self.NativeRadiobutton.setText(QCoreApplication.translate("MainWindow", u"Nati&ve EXE/ELF", None))
         self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Audio Options", None))
         self.GameMusicSetting.setItemText(0, QCoreApplication.translate("MainWindow", u"Digital music", None))
         self.GameMusicSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Midi music", None))
@@ -3378,17 +3378,21 @@ class Ui_MainWindow(object):
         self.HidetimeInput.setSuffix(QCoreApplication.translate("MainWindow", u" seconds", None))
         self.RingslingerSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Ringslinger settings", None))
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ringslinger</span> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Match</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-b"
-                        "ottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Team Match</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Tag</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Hide and Seek</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Capture The Flag</p></body></html>", None))
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Ringslinger</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; marg"
+                        "in-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:11pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Match</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Team Match</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Tag</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Hide and Seek<"
+                        "/span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\">Capture The Flag</span></p></body></html>", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.Ringslinger), QCoreApplication.translate("MainWindow", u"Ringslinger", None))
         self.CircuitraceSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Apply Circuit Race Settings", None))
         self.CircuitraceSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Circuit Race Settings", None))
@@ -3399,10 +3403,13 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Countdown time", None))
         self.HostGameTabwidget.setTabText(self.HostGameTabwidget.indexOf(self.tab_7), QCoreApplication.translate("MainWindow", u"Circuit Race", None))
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Warning:</span> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</p></body></html>", None))
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;\">Warning:</span><span style=\" font-family:'CMU Serif Medium'; font-size:11pt;\"> Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.</span></p></body></html>", None))
         self.BattlemodSettingsCheckbox.setText(QCoreApplication.translate("MainWindow", u" Apply Battlemod settings", None))
         self.BattlemodSettingsGroupbox.setTitle(QCoreApplication.translate("MainWindow", u"Battlemod settings", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Additional options", None))
@@ -3636,83 +3643,89 @@ class Ui_MainWindow(object):
         self.ProfilesSaveButton.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.ProfilesStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Game profiles", None))
         self.AboutText.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; fo"
-                        "nt-size:12pt; font-style:italic;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">built by Liquid</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.gg/HVTzVfAWG6/\"><span style=\" font-size:10pt; text-decoration: underline; color:#00ffff;\">Join our Discord</span></a></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><b"
-                        "r /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">PixL<br /></span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style"
-                        "=\" font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-size:12pt;\"> by HitCoder</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-size:12pt;\">(libxml binding for Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-size:12pt;\"> (distribution)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bot"
-                        "tom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-size:12pt;\"> by the Qt Project</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Python 3</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> by</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (PyPi)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Requests</span><span style=\" font"
-                        "-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-family:'Atkinson Hyperlegible'; font-size:12pt;\"> (Python)</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-size:12pt;\"> by the Qt project</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:"
-                        "0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/assets/img/liquidlauncher.svg\" /><span style=\" font-family:'CMU Serif Medium'; font-size:16pt; font-weight:600;\"><br />LiquidLauncher</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-st"
+                        "yle:italic;\">the other launcher for Sonic Robo Blast 2</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">built by Liquid</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://liquidunderground.github.io\"><span style=\" font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;\">Visit our Website</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://discord.com/invite/H"
+                        "VTzVfAWG6\"><span style=\" text-decoration: underline; color:#00d3b8;\">Join our Discord</span></a></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Contributors</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\">PixL<br /></span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:14pt; font-weight:600;\">This Project is based on the following technologies:</span></p>\n"
+"<p alig"
+                        "n=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Feedparser</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by Kurt McKee and Mark Pilgrim</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">LauncherBlast2 &quot;reBoot&quot;</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by HitCoder</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-b"
+                        "lock-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">LXML</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\">(libxml binding for Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PyInstaller</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> (distribution)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">PySide6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt Project</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text"
+                        "-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Python 3</span><span style=\" font-size:12pt;\"> by</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Packaging</span><span style=\" font-size:12pt;\"> (PyPi)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Requests</span><span style=\" font-size:12pt;\"> (Python)</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">TOML</span><span style=\" font-size:12pt;\"> (Python)</s"
+                        "pan></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;\">Qt 6</span><span style=\" font-family:'CMU Serif Medium'; font-size:12pt;\"> by the Qt project</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
+""
+                        "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justi"
-                        "fy\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board thread</span></a></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;\">View the SRB2 Message Board threa"
+                        "d</span></a></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">Credits</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12"
-                        "px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sonic Team Jr - SRB2 icon</li></ul>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\""
+                        ">Sonic Team Jr - SRB2 icon</li></ul>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
-"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8p"
-                        "t;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; marg"
+                        "in-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-in"
-                        "dent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
+"<li style=\" font-family:'MS Shell "
+                        "Dlg 2'; font-size:8pt;\" align=\"justify\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"just"
-                        "ify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">How do I host a server?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server"
-                        ". To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern a"
-                        "ntivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -q"
+                        "t-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-inde"
+                        "nt:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom"
+                        ":0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bott"
-                        "om:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
-"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><b"
-                        "r /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-f"
+                        "amily:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the de"
-                        "sign is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develo"
+                        "p this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't ha"
+                        "ve a server to place the metadata on for now.</span></p></body></html>", None))
         self.groupBox_19.setTitle(QCoreApplication.translate("MainWindow", u"Profiles", None))
         self.SaveFilesToConfigToggle.setText(QCoreApplication.translate("MainWindow", u"Save Launch Mods to Profile", None))
         self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
@@ -3725,18 +3738,21 @@ class Ui_MainWindow(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), QCoreApplication.translate("MainWindow", u"General", None))
         self.ModsourceDisclaimerLabel.setText(QCoreApplication.translate("MainWindow", u"DISCLAIMER", None))
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'CMU Serif Medium'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-size:10pt; font-weight:600;\"> </span><span style=\" font-size:10pt;\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-size:10pt; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-size:10pt;\">] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a "
-                        "permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
-"<p align=\"center\" style=\" margin"
-                        "-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;\"><br /></p></body></html>", None))
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600; color:#aa0000;\">WARNING:</span><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\"> </span><span style=\" font-family:'CMU Serif Medium';\">The hosting of some unofficial mods on the official Master Server [</span><a href=\"https://mb.srb2.org/MS/0\"><span style=\" font-family:'CMU Serif Mediu"
+                        "m'; text-decoration: underline; color:#00d3b8;\">https://mb.srb2.org/MS/0</span></a><span style=\" font-family:'CMU Serif Medium';\">] is prohibited by the Sonic Robo Blast 2 community administration team (&quot;STJr&quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium';\""
+                        ">Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p></body></html>", None))
         self.ModsourceCheckLabel.setText(QCoreApplication.translate("MainWindow", u"Mod sources", None))
         self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
         self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))
