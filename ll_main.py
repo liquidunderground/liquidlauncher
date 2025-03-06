@@ -463,11 +463,10 @@ class MainWindow(QMainWindow):
         if self.ui.GameFullscreenSetting.currentIndex() == 0: com += ["+fullscreen","1"]
         if self.ui.GameFullscreenSetting.currentIndex() == 1: com += ["-borderless"]
         if self.ui.GameFullscreenSetting.currentIndex() == 2: com += ["-win"]
-        if self.ui.GameMusicSetting.currentIndex() == 0: com += ["+digimusic","On"]
-        if self.ui.GameMusicSetting.currentIndex() == 1: com += ["+digimusic","Off"]
-        if self.ui.GameMusicSetting.currentIndex() == 2: com += ["-usecd"]
-        if self.ui.GameMusicSetting.currentIndex() == 3: com += ["-nomusic"]
-        if self.ui.GameSoundSetting.currentIndex() == 1: com += ["-nosound"]
+        if self.ui.digimusicRadiobutton.isChecked(): com += ["+digimusic","On"]
+        if self.ui.midimusicRadiobutton.isChecked(): com += ["+digimusic","Off"]
+        if self.ui.nomusicRadiobutton.isChecked(): com += ["-nomusic"]
+        if not self.ui.sfxCheckbox.isChecked(): com += ["-nosound"]
         if self.ui.GameHorizontalResolutionInput.text() != "" and self.ui.GameVerticalResolutionInput.text() != "":
             com += [" -width " , self.ui.GameHorizontalResolutionInput.text() , " -height " \
                    , self.ui.GameVerticalResolutionInput.text() ]
@@ -1455,10 +1454,28 @@ class MainWindow(QMainWindow):
         self.ui.GameVerticalResolutionInput.setText( profile_settings_dict["game"]["resolution"]["height"] )
         self.ui.GameRendererSetting.setCurrentIndex( profile_settings_dict["game"]["renderer"] )
         self.ui.GameFullscreenSetting.setCurrentIndex( profile_settings_dict["game"]["windowmode"] )
-        self.ui.GameMusicSetting.setCurrentIndex( profile_settings_dict["game"]["music"] )
-        self.ui.GameSoundSetting.setCurrentIndex( profile_settings_dict["game"]["sound"] )
+        # Music setting
+        try:
+            self.ui.digimusicRadiobutton.setChecked(True)
+            self.ui.midimusicRadiobutton.setChecked(False)
+            self.ui.nomusicRadiobutton.setChecked(False)
+            if profile_settings_dict["game"]["music"] == "midi":
+                self.ui.digimusicRadiobutton.setChecked(False)
+                self.ui.midimusicRadiobutton.setChecked(True)
+                self.ui.nomusicRadiobutton.setChecked(False)
+            elif profile_settings_dict["game"]["music"] == "off":
+                self.ui.digimusicRadiobutton.setChecked(False)
+                self.ui.midimusicRadiobutton.setChecked(False)
+                self.ui.nomusicRadiobutton.setChecked(True)
+        except Exception as e:
+            print("No music setting found. Defaulting to \"native\".")
+            self.ui.NativeRadiobutton.setChecked(True)
+            self.ui.WineRadiobutton.setChecked(False)
+            self.ui.FlatpakRadiobutton.setChecked(False)
+        self.ui.sfxCheckbox.setChecked( profile_settings_dict["game"]["sound"] )
         self.ui.GameExecFilePathInput.setText( profile_settings_dict["game"]["exepath"] )
         self.ui.GameArgsInput.setText( profile_settings_dict["game"]["cliargs"] )
+        # Binary mode (Native | WINE | Flatpak)
         try:
             if profile_settings_dict["settings"]["binmode"] == "wine":
                 self.ui.NativeRadiobutton.setChecked(False)
@@ -1633,6 +1650,7 @@ class MainWindow(QMainWindow):
             }
             }
 
+        # Binmode settings (Native | WINE | Flatpak)
         if self.ui.WineRadiobutton.isChecked():
             toml_settings["settings"]["binmode"] = "wine"
         if self.ui.FlatpakRadiobutton.isChecked():
@@ -1653,8 +1671,15 @@ class MainWindow(QMainWindow):
         toml_settings["game"]["resolution"]["height"] = self.ui.GameVerticalResolutionInput.text()
         toml_settings["game"]["renderer"] = self.ui.GameRendererSetting.currentIndex()
         toml_settings["game"]["windowmode"] = self.ui.GameFullscreenSetting.currentIndex()
-        toml_settings["game"]["music"] = self.ui.GameMusicSetting.currentIndex()
-        toml_settings["game"]["sound"] = self.ui.GameSoundSetting.currentIndex()
+        # Music settings
+        if self.ui.WineRadiobutton.isChecked():
+            toml_settings["game"]["music"] = "digital"
+        if self.ui.FlatpakRadiobutton.isChecked():
+            toml_settings["game"]["music"] = "midi"
+        else:
+            toml_settings["game"]["music"] = "off"
+
+        toml_settings["game"]["sound"] = self.ui.sfxCheckbox.isChecked()
         toml_settings["game"]["exepath"] = self.ui.GameExecFilePathInput.text()
         toml_settings["game"]["cliargs"] = self.ui.GameArgsInput.text()
 
