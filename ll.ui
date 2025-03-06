@@ -314,6 +314,20 @@
                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
                   </property>
                  </item>
+                 <item>
+                  <property name="text">
+                   <string>Log Files</string>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ll.qrc">
+                    <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
+                  </property>
+                 </item>
                 </widget>
                 <widget class="QFrame" name="GamePageContentFrame">
                  <property name="frameShape">
@@ -326,7 +340,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>2</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="ProfilePage">
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -340,33 +354,22 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>343</width>
-                           <height>442</height>
+                           <width>814</width>
+                           <height>455</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_5">
-                          <item row="6" column="1">
-                           <widget class="QLabel" name="PlayerSkinInfoText">
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>1000007</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="PlayerSkinTitleLabel">
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>Skin</string>
                             </property>
-                            <property name="textFormat">
-                             <enum>Qt::TextFormat::RichText</enum>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-                            </property>
-                            <property name="wordWrap">
-                             <bool>true</bool>
+                           </widget>
+                          </item>
+                          <item row="8" column="0">
+                           <widget class="QLabel" name="PlayerColorTitleLabel">
+                            <property name="text">
+                             <string>Skin Color</string>
                             </property>
                            </widget>
                           </item>
@@ -383,25 +386,37 @@
                             </property>
                            </spacer>
                           </item>
-                          <item row="6" column="0">
-                           <widget class="QLabel" name="PlayerSkinImage">
-                            <property name="maximumSize">
-                             <size>
-                              <width>128</width>
-                              <height>128</height>
-                             </size>
+                          <item row="4" column="0" colspan="2">
+                           <widget class="QLabel" name="label_29">
+                            <property name="font">
+                             <font>
+                              <pointsize>8</pointsize>
+                             </font>
                             </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
+                            <property name="text">
+                             <string>To pick non-standard characters, simply type their name in the field.</string>
                             </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QLineEdit" name="PlayerNameInput">
                             <property name="text">
                              <string/>
                             </property>
-                            <property name="pixmap">
-                             <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                            <property name="placeholderText">
+                             <string>Sonic</string>
                             </property>
-                            <property name="scaledContents">
-                             <bool>true</bool>
+                           </widget>
+                          </item>
+                          <item row="11" column="0" colspan="2">
+                           <widget class="QLabel" name="label_30">
+                            <property name="font">
+                             <font>
+                              <pointsize>8</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>To pick non-standard skin colors, simply type their name in the field.</string>
                             </property>
                            </widget>
                           </item>
@@ -733,49 +748,6 @@
                             </item>
                            </widget>
                           </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="PlayerSkinTitleLabel">
-                            <property name="text">
-                             <string>Skin</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" colspan="2">
-                           <widget class="QLineEdit" name="PlayerNameInput">
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Sonic</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="0" colspan="2">
-                           <widget class="QLabel" name="label_29">
-                            <property name="font">
-                             <font>
-                              <pointsize>8</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>To pick non-standard characters, simply type their name in the field.</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="8" column="0">
-                           <widget class="QLabel" name="PlayerColorTitleLabel">
-                            <property name="text">
-                             <string>Skin Color</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="PlayerNameTitleLabel">
-                            <property name="text">
-                             <string>Nickname</string>
-                            </property>
-                           </widget>
-                          </item>
                           <item row="3" column="0" colspan="2">
                            <widget class="QComboBox" name="PlayerSkinInput">
                             <property name="sizePolicy">
@@ -833,15 +805,57 @@
                             </item>
                            </widget>
                           </item>
-                          <item row="11" column="0" colspan="2">
-                           <widget class="QLabel" name="label_30">
-                            <property name="font">
-                             <font>
-                              <pointsize>8</pointsize>
-                             </font>
+                          <item row="6" column="0">
+                           <widget class="QLabel" name="PlayerSkinImage">
+                            <property name="maximumSize">
+                             <size>
+                              <width>128</width>
+                              <height>128</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
                             </property>
                             <property name="text">
-                             <string>To pick non-standard skin colors, simply type their name in the field.</string>
+                             <string/>
+                            </property>
+                            <property name="pixmap">
+                             <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                            </property>
+                            <property name="scaledContents">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="PlayerNameTitleLabel">
+                            <property name="text">
+                             <string>Nickname</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="6" column="1">
+                           <widget class="QLabel" name="PlayerSkinInfoText">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>1000007</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                            <property name="textFormat">
+                             <enum>Qt::TextFormat::RichText</enum>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+                            </property>
+                            <property name="wordWrap">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
@@ -853,6 +867,17 @@
                     </widget>
                     <widget class="QWidget" name="GameSettingsPage">
                      <layout class="QGridLayout" name="gridLayout_14">
+                      <item row="1" column="0">
+                       <widget class="QPushButton" name="ExportClientScriptButton">
+                        <property name="text">
+                         <string>Save Client Launch Script...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                        </property>
+                       </widget>
+                      </item>
                       <item row="0" column="0">
                        <widget class="QScrollArea" name="scrollArea_6">
                         <property name="widgetResizable">
@@ -864,31 +889,17 @@
                            <x>0</x>
                            <y>0</y>
                            <width>793</width>
-                           <height>532</height>
+                           <height>420</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
-                          <item row="2" column="2">
-                           <widget class="QGroupBox" name="groupBox_6">
+                          <item row="2" column="0">
+                           <widget class="QGroupBox" name="displaySettingsLayout">
                             <property name="title">
-                             <string>Render Options</string>
+                             <string>Display Settings</string>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_4">
-                             <item>
-                              <widget class="QComboBox" name="GameRendererSetting">
-                               <item>
-                                <property name="text">
-                                 <string>Software</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>OpenGL</string>
-                                </property>
-                               </item>
-                              </widget>
-                             </item>
-                             <item>
+                            <layout class="QGridLayout" name="gridLayout_21">
+                             <item row="1" column="3">
                               <widget class="QComboBox" name="GameFullscreenSetting">
                                <item>
                                 <property name="text">
@@ -907,16 +918,191 @@
                                </item>
                               </widget>
                              </item>
+                             <item row="2" column="3">
+                              <widget class="QComboBox" name="GameRendererSetting">
+                               <item>
+                                <property name="text">
+                                 <string>Software mode</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>OpenGL renderer</string>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                             <item row="1" column="1" rowspan="2">
+                              <widget class="QLabel" name="GameResMultLabel">
+                               <property name="styleSheet">
+                                <string notr="true">padding: 0;
+font-size: 12pt;</string>
+                               </property>
+                               <property name="text">
+                                <string>x</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="1" column="0" rowspan="2">
+                              <widget class="QLineEdit" name="GameHorizontalResolutionInput">
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="placeholderText">
+                                <string>&lt;width&gt;</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="1" column="2" rowspan="2">
+                              <widget class="QLineEdit" name="GameVerticalResolutionInput">
+                               <property name="placeholderText">
+                                <string>&lt;height&gt;</string>
+                               </property>
+                              </widget>
+                             </item>
                             </layout>
                            </widget>
                           </item>
-                          <item row="6" column="2" colspan="2">
-                           <widget class="QGroupBox" name="groupBox_4">
+                          <item row="2" column="1">
+                           <widget class="QGroupBox" name="audioSettingsLayout">
                             <property name="title">
-                             <string>Executable</string>
+                             <string>Audio Options</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_23">
+                             <item>
+                              <widget class="QRadioButton" name="digimusicRadiobutton">
+                               <property name="text">
+                                <string>Di&amp;gital Music</string>
+                               </property>
+                               <property name="checked">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QRadioButton" name="midimusicRadiobutton">
+                               <property name="text">
+                                <string>MIDI Musi&amp;c</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QRadioButton" name="nomusicRadiobutton">
+                               <property name="text">
+                                <string>M&amp;usic OFF</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QCheckBox" name="sfxCheckbox">
+                               <property name="text">
+                                <string>Enable Sound effects</string>
+                               </property>
+                               <property name="checked">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item row="0" column="0" colspan="2">
+                           <widget class="QGroupBox" name="gameFilesLayout">
+                            <property name="title">
+                             <string>Game Files</string>
                             </property>
                             <layout class="QGridLayout" name="gridLayout_20">
-                             <item row="0" column="2">
+                             <item row="3" column="0" colspan="2">
+                              <widget class="QLineEdit" name="GameExecFilePathInput">
+                               <property name="text">
+                                <string>srb2win.exe</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="4" column="0">
+                              <widget class="QRadioButton" name="NativeRadiobutton">
+                               <property name="text">
+                                <string>Nati&amp;ve EXE/ELF</string>
+                               </property>
+                               <property name="checked">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="9" column="0" colspan="2">
+                              <widget class="QLineEdit" name="HomePathInput">
+                               <property name="placeholderText">
+                                <string>e.g. $HOME/.srb2</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="2" column="0">
+                              <widget class="QLabel" name="label_32">
+                               <property name="text">
+                                <string>Executable</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="8" column="0">
+                              <widget class="QLabel" name="label">
+                               <property name="text">
+                                <string>Game Directory</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="5" column="0">
+                              <widget class="QLabel" name="GameArgsLabel">
+                               <property name="text">
+                                <string>Custom Shell Parameters</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="9" column="2">
+                              <widget class="QPushButton" name="HomePathBrowse">
+                               <property name="text">
+                                <string>Browse...</string>
+                               </property>
+                               <property name="icon">
+                                <iconset resource="ll.qrc">
+                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="4" column="1">
+                              <widget class="QRadioButton" name="WineRadiobutton">
+                               <property name="enabled">
+                                <bool>false</bool>
+                               </property>
+                               <property name="text">
+                                <string>WINE (&amp;Linux/macOS)</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="7" column="0" colspan="3">
+                              <widget class="Line" name="line_2">
+                               <property name="orientation">
+                                <enum>Qt::Orientation::Horizontal</enum>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="4" column="2">
+                              <widget class="QRadioButton" name="FlatpakRadiobutton">
+                               <property name="enabled">
+                                <bool>false</bool>
+                               </property>
+                               <property name="text">
+                                <string>Flat&amp;pak (Linux)</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="6" column="0" colspan="3">
+                              <widget class="QLineEdit" name="GameArgsInput">
+                               <property name="placeholderText">
+                                <string>e.g. -opengl -digimusic</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="3" column="2">
                               <widget class="QPushButton" name="GameExecFilePathBrowse">
                                <property name="minimumSize">
                                 <size>
@@ -933,179 +1119,7 @@
                                </property>
                               </widget>
                              </item>
-                             <item row="0" column="0" colspan="2">
-                              <widget class="QLineEdit" name="GameExecFilePathInput">
-                               <property name="text">
-                                <string>srb2win.exe</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="1">
-                              <widget class="QRadioButton" name="WineRadiobutton">
-                               <property name="enabled">
-                                <bool>false</bool>
-                               </property>
-                               <property name="text">
-                                <string>WINE (&amp;Linux/macOS)</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="2">
-                              <widget class="QRadioButton" name="FlatpakRadiobutton">
-                               <property name="enabled">
-                                <bool>false</bool>
-                               </property>
-                               <property name="text">
-                                <string>Flat&amp;pak (Linux)</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="0">
-                              <widget class="QRadioButton" name="NativeRadiobutton">
-                               <property name="text">
-                                <string>Nati&amp;ve EXE/ELF</string>
-                               </property>
-                               <property name="checked">
-                                <bool>true</bool>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
-                           <widget class="QGroupBox" name="groupBox_7">
-                            <property name="title">
-                             <string>Audio Options</string>
-                            </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_3">
-                             <item>
-                              <widget class="QComboBox" name="GameMusicSetting">
-                               <item>
-                                <property name="text">
-                                 <string>Digital music</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Midi music</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Load music from a CD</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Disable music</string>
-                                </property>
-                               </item>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QComboBox" name="GameSoundSetting">
-                               <item>
-                                <property name="text">
-                                 <string>Enable sound</string>
-                                </property>
-                               </item>
-                               <item>
-                                <property name="text">
-                                 <string>Disable sound</string>
-                                </property>
-                               </item>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="QGroupBox" name="groupBox_5">
-                            <property name="title">
-                             <string>Resolution</string>
-                            </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_5">
-                             <item>
-                              <widget class="QLineEdit" name="GameHorizontalResolutionInput">
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="placeholderText">
-                                <string>&lt;width&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="GameResMultLabel">
-                               <property name="styleSheet">
-                                <string notr="true">padding: 0;
-font-size: 12pt;</string>
-                               </property>
-                               <property name="text">
-                                <string>x</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLineEdit" name="GameVerticalResolutionInput">
-                               <property name="placeholderText">
-                                <string>&lt;height&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item row="7" column="2">
-                           <widget class="QGroupBox" name="groupBox_8">
-                            <property name="title">
-                             <string>Launch settings</string>
-                            </property>
-                            <layout class="QGridLayout" name="gridLayout_21">
-                             <item row="2" column="0" colspan="2">
-                              <widget class="QLabel" name="label">
-                               <property name="text">
-                                <string>SRB2 home directory (Windows)</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="5" column="0" colspan="2">
-                              <widget class="Line" name="line_2">
-                               <property name="orientation">
-                                <enum>Qt::Orientation::Horizontal</enum>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="0">
-                              <widget class="QLineEdit" name="HomePathInput">
-                               <property name="placeholderText">
-                                <string>/path/to/liquidlauncher</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="6" column="0">
-                              <widget class="QLabel" name="GameArgsLabel">
-                               <property name="text">
-                                <string>Custom Shell Parameters</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="3" column="1">
-                              <widget class="QPushButton" name="HomePathBrowse">
-                               <property name="text">
-                                <string>Browse...</string>
-                               </property>
-                               <property name="icon">
-                                <iconset resource="ll.qrc">
-                                 <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="7" column="0" colspan="2">
-                              <widget class="QLineEdit" name="GameArgsInput"/>
-                             </item>
-                             <item row="4" column="0">
+                             <item row="10" column="0">
                               <widget class="QLabel" name="label_31">
                                <property name="font">
                                 <font>
@@ -1120,35 +1134,13 @@ font-size: 12pt;</string>
                             </layout>
                            </widget>
                           </item>
-                          <item row="8" column="2">
-                           <spacer name="verticalSpacer_10">
-                            <property name="orientation">
-                             <enum>Qt::Orientation::Vertical</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>20</width>
-                              <height>40</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
                          </layout>
                         </widget>
                        </widget>
                       </item>
-                      <item row="1" column="0">
-                       <widget class="QPushButton" name="ExportClientScriptButton">
-                        <property name="text">
-                         <string>Save Client Launch Script...</string>
-                        </property>
-                        <property name="icon">
-                         <iconset resource="ll.qrc">
-                          <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                        </property>
-                       </widget>
-                      </item>
                      </layout>
+                     <zorder>ExportClientScriptButton</zorder>
+                     <zorder>scrollArea_6</zorder>
                     </widget>
                     <widget class="QWidget" name="ModsPage">
                      <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1784,7 +1776,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>492</width>
+                               <width>791</width>
                                <height>669</height>
                               </rect>
                              </property>
@@ -2174,7 +2166,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>430</width>
+                               <width>791</width>
                                <height>668</height>
                               </rect>
                              </property>
@@ -4639,8 +4631,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>498</width>
-                               <height>296</height>
+                               <width>808</width>
+                               <height>420</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -4892,6 +4884,90 @@ li.checked::marker { content: &quot;\2612&quot;; }
                               </item>
                              </layout>
                             </widget>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page">
+                     <layout class="QGridLayout" name="gridLayout_45">
+                      <item row="0" column="0">
+                       <widget class="QComboBox" name="logfileSelectCombobox">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="toolTip">
+                         <string>Select Log</string>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>Latest Log</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QPushButton" name="logfileRefreshButton">
+                        <property name="toolTip">
+                         <string>Refresh Logs</string>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="2">
+                       <widget class="QPushButton" name="logfileOpenButton">
+                        <property name="toolTip">
+                         <string>Open in default editor</string>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="ll.qrc">
+                          <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0" colspan="3">
+                       <widget class="QScrollArea" name="scrollArea_12">
+                        <property name="widgetResizable">
+                         <bool>true</bool>
+                        </property>
+                        <widget class="QWidget" name="scrollAreaWidgetContents_16">
+                         <property name="geometry">
+                          <rect>
+                           <x>0</x>
+                           <y>0</y>
+                           <width>818</width>
+                           <height>421</height>
+                          </rect>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_44">
+                          <item row="0" column="0">
+                           <widget class="QPlainTextEdit" name="logfileTextarea">
+                            <property name="font">
+                             <font>
+                              <family>Monospace</family>
+                             </font>
+                            </property>
+                            <property name="readOnly">
+                             <bool>true</bool>
+                            </property>
+                            <property name="plainText">
+                             <string/>
+                            </property>
                            </widget>
                           </item>
                          </layout>
@@ -5218,8 +5294,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>532</width>
-                    <height>293</height>
+                    <width>1000</width>
+                    <height>450</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_18">
