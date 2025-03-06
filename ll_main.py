@@ -234,6 +234,11 @@ class MainWindow(QMainWindow):
         #self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
 
+        # Logfile viewer buttons ================================================ #
+        self.ui.logfileOpenButton.clicked.connect(lambda: self.on_open_logfile(self.ui.logfileList.currentItem().text()))
+        self.ui.logfileRefreshButton.clicked.connect(self.on_refresh_logfile)
+        self.ui.logfileList.doubleClicked.connect(lambda: self.on_select_logfile(self.ui.logfileList.currentItem().text()))
+
         # RSS feed controls ======================================================== #
         self.ui.RSSRefreshButton.clicked.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
@@ -1871,6 +1876,31 @@ class MainWindow(QMainWindow):
                 self.alert(**alertArgs)
             else:
                 print("up-to-date (" + versionString + ")")
+
+    def on_refresh_logfile(self):
+        self.ui.logfileList.clear()
+        f = []
+        for (dirpath, dirnames, filenames) in os.walk(self.ui.HomePathInput.text() + '/logs'):
+            f.extend(filenames)
+        for log in f:
+            self.ui.logfileList.addItem(log)
+
+        self.ui.logfileListLabel.setText(f"{len(f)} log files")
+        return f
+
+    def on_open_logfile(self, logfile):
+        filepath = f"{self.ui.HomePathInput.text()}/logs/{logfile}"
+        if platform.system() == 'Darwin': # Mac
+            subprocess.call(('open', filepath))
+        elif platform.system() == 'Windows': # Windows
+            os.startfile(filepath)
+        else: # Linux
+            subprocess.call(('xdg-open', filepath))
+
+    def on_select_logfile(self, logfile):
+        with open(f"{self.ui.HomePathInput.text()}/logs/{logfile}") as lf:
+            self.ui.logfileTextarea.setPlainText( lf.read() )
+        return
 
     def ms_status_cb(self, arg_o):
         if "type" in arg_o:
