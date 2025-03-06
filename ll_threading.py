@@ -255,7 +255,7 @@ class QueryMasterServer(QtCore.QThread):
                     alertArgs = {
                         "type" : "warning",
                         "title" : f"Query Error ",
-                        "message" : "Unable to query" \
+                        "message" : "Unable to query " \
                             f"{self.host.global_settings['current_ms']['url']} -" \
                             "Check details to see the exact error message.",
                         "detailedText" : str(e),

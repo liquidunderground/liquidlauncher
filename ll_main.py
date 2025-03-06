@@ -1817,15 +1817,25 @@ class MainWindow(QMainWindow):
                     "type" : "question",
                     "title" : f"Version {latest_version} available",
                     "message" : f"Your version of LiquidLauncher seems to be " \
-                        "outdated. Please download version {latest_version} from " \
+                        f"outdated. Please download version {latest_version} from " \
                         "our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.",
                     "detailedText" : f"Latest version of LiquidLauncher: " \
-                        f"{latest_version}\nYou are currently running:" \
+                        f"{latest_version}\nYou are currently running: " \
                         f"{versionString}",
                 }
                 self.alert(**alertArgs)
             elif version.parse(latest_version) < version.parse(versionString):
                 print("Greetings, time traveller.")
+                alertArgs = {
+                    "type" : "info",
+                    "title" : "Greetings, time traveller.",
+                    "message" : f"<p>You seem to be using an in-development " \
+                        "version of LiquidLauncher. Please note that some things " \
+                        "might not be finished yet.</p><p>If you'd like to use our current release " \
+                        f"version {latest_version},  please check " \
+                        'our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">repository</a>.</p>',
+                }
+                self.alert(**alertArgs)
             else:
                 print("up-to-date (" + versionString + ")")
 
