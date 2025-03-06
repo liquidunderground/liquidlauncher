@@ -195,6 +195,7 @@ class MainWindow(QMainWindow):
 
         # game settings buttons ========================================================= #
         self.ui.GameExecFilePathBrowse.clicked.connect(self.set_game_exec_path)
+        self.ui.HomePathBrowse.clicked.connect(self.set_home_path)
         self.ui.WineRadiobutton.toggled.connect(self.update_binmode_in_ui)
         self.ui.FlatpakRadiobutton.toggled.connect(self.update_binmode_in_ui)
         self.ui.NativeRadiobutton.toggled.connect(self.update_binmode_in_ui)
@@ -734,6 +735,11 @@ class MainWindow(QMainWindow):
                                            options=self.FileDialogOptions)
         if (f):
             self.ui.GameExecFilePathInput.setText(f)
+
+    def set_home_path(self):
+        f = QFileDialog.getExistingDirectory(self, "Select Directory")
+        if (f):
+            self.ui.HomePathInput.setText(f)
 
     def set_exec_file_path(self):
         f, _ = QFileDialog.getOpenFileName(self, "Open script to execute on launch", "",
@@ -1474,6 +1480,7 @@ class MainWindow(QMainWindow):
             self.ui.FlatpakRadiobutton.setChecked(False)
         self.ui.sfxCheckbox.setChecked( profile_settings_dict["game"]["sound"] )
         self.ui.GameExecFilePathInput.setText( profile_settings_dict["game"]["exepath"] )
+        self.ui.HomePathInput.setText( profile_settings_dict["game"]["homepath"] )
         self.ui.GameArgsInput.setText( profile_settings_dict["game"]["cliargs"] )
         # Binary mode (Native | WINE | Flatpak)
         try:
@@ -1681,6 +1688,7 @@ class MainWindow(QMainWindow):
 
         toml_settings["game"]["sound"] = self.ui.sfxCheckbox.isChecked()
         toml_settings["game"]["exepath"] = self.ui.GameExecFilePathInput.text()
+        toml_settings["game"]["homepath"] = self.ui.HomePathInput.text()
         toml_settings["game"]["cliargs"] = self.ui.GameArgsInput.text()
 
         # General Tab
