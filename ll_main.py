@@ -129,7 +129,7 @@ class MainWindow(QMainWindow):
         self.query_ms_sig.connect(self.ms_qthread.on_refresh)
         self.query_ms_rooms_sig.connect(self.ms_qthread.on_query_ms_rooms)
         self.ms_qthread.server_list_sig1.connect(self.on_server_list)
-        self.ms_qthread.server_list_sig2.connect(self.ui.MSStatusLabel.setText)
+        self.ms_qthread.server_list_sig2.connect(self.ms_status_cb)
         self.ms_qthread.on_ms_rooms_sig.connect(self.on_ms_rooms)
         
         # load servers from file ===================================================== #
@@ -1813,17 +1813,52 @@ class MainWindow(QMainWindow):
     def on_check_version_cb(self, latest_version):
             # check launcher version ============================================= #
             if version.parse(latest_version) > version.parse(versionString):
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Information)
-                msg.setText("Your version of LiquidLauncher seems to be outdated. Please download version {} from our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.".format(latest_version) )
-                msg.setWindowTitle("Version {} available".format(latest_version))
-                msg.setDetailedText("Latest version of LiquidLauncher: " + latest_version+ "\nYou are currently running: " + versionString)
-                msg.setStandardButtons(QMessageBox.Ok)
-                msg.exec()
+                alertArgs = {
+                    "type" : "question",
+                    "title" : f"Version {latest_version} available",
+                    "message" : f"Your version of LiquidLauncher seems to be " \
+                        "outdated. Please download version {latest_version} from " \
+                        "our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.",
+                    "detailedText" : f"Latest version of LiquidLauncher: " \
+                        f"{latest_version}\nYou are currently running:" \
+                        f"{versionString}",
+                }
+                self.alert(**alertArgs)
             elif version.parse(latest_version) < version.parse(versionString):
                 print("Greetings, time traveller.")
             else:
                 print("up-to-date (" + versionString + ")")
+
+    def ms_status_cb(self, arg_o):
+        if "type" in arg_o:
+            match arg_o["type"]:
+                case "info":
+                    self.ui.MSStatusLabel.setText(arg_o["message"])
+                case _:
+                    self.alert(**arg_o)
+
+    def alert(self, **kwargs):
+        msg = QMessageBox()
+        if "type" in kwargs:
+            match kwargs["type"]:
+                case "question":
+                    msg.setIcon(QMessageBox.Question)
+                case "info":
+                    msg.setIcon(QMessageBox.Information)
+                case "warning":
+                    msg.setIcon(QMessageBox.Warning)
+                case "critical":
+                    msg.setIcon(QMessageBox.Critical)
+
+        if "message" in kwargs:
+            msg.setText(kwargs["message"])
+        if "title" in kwargs:
+            msg.setWindowTitle(kwargs["title"])
+        if "detailedText" in kwargs:
+            msg.setDetailedText(kwargs["detailedText"])
+
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec()
 
 
 def main():
