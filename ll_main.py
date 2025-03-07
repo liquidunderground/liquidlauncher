@@ -1882,7 +1882,7 @@ class MainWindow(QMainWindow):
         f = []
         for (dirpath, dirnames, filenames) in os.walk(self.ui.HomePathInput.text() + '/logs'):
             f.extend(filenames)
-        for log in f:
+        for log in sorted(f, reverse=True):
             self.ui.logfileList.addItem(log)
 
         self.ui.logfileListLabel.setText(f"{len(f)} log files")
