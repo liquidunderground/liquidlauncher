@@ -1153,7 +1153,7 @@ class MainWindow(QMainWindow):
         twi_api = QtWidgets.QComboBox()
         #twi_api.addItems(["v1", "kartv2", "snitch"])
         twi_api.addItem("SRB2 MS", "v1")
-        twi_api.addItem("SRB2Kart MS", "kartv2")
+        twi_api.addItem("SRB2Kart/Ring Racers MS", "kartv2")
         twi_api.addItem("LiquidMS Snitch", "snitch")
         twi_api.setCurrentIndex(twi_api.findData(api))
         twi_name.setTextAlignment( Qt.AlignHCenter|Qt.AlignVCenter )
