@@ -342,27 +342,28 @@ class MainWindow(QMainWindow):
         self.ui.RSSStatusLabel.setText("Querying RSS feed...")
         self.load_rss_sig.emit(feed)
 
-    def on_load_news_cb(self, content, error=False):
-        if(error): # Emergency error kludge
-            self.ui.RSSStatusLabel.setText(content)
-            print(content)
-            return
-        msg = "News feed successfully loaded."
+    def on_load_news_cb(self, args_o):
+        if "type" in args_o: # Emergency error kludge
+            match args_o["type"]:
+                case "warning" | "critical":
+                    self.alert(**args_o)
+                    return
+        #msg = "News feed successfully loaded."
         #print("RAW CONTENT: {}\n".format(content))
-        feed = feedparser.parse(content)
-        if len(feed["items"]) < 1:
-            msg = "No news found. Did you check the URL?"
-            self.ui.RSSStatusLabel.setText(msg)
-            print(msg)
-            return
+        feed = feedparser.parse(args_o["content"])
+        #if len(feed["items"]) < 1:
+            #msg = "No news found. Did you check the URL?"
+            #self.ui.RSSStatusLabel.setText(msg)
+            #print(msg)
+            #return
 
         self.news = feed["items"]
 
         print("Parsing articles...")
         self.ui.RSSArticleList.clear()
         for item in self.news:
-            self.ui.RSSArticleList.addItem("{} (by {})".format(item.title, item.author))
-        self.ui.RSSStatusLabel.setText(msg)
+            self.ui.RSSArticleList.addItem("{} (by {})".format(getattr(item,"title", "[UNKNOWN]"), getattr(item,"author", "[ANONYMOUS]")))
+        self.ui.RSSStatusLabel.setText(args_o["message"])
 
     def load_article(self, index):
         self.ui.RSSViewonlineButton.setEnabled(True);
