@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="assets">
+    <file>img/icons/edit.png</file>
+    <file>img/icons/textfile.png</file>
     <file>img/icons/wsblue.png</file>
     <file>img/icons/wsred.png</file>
     <file>default.html</file>

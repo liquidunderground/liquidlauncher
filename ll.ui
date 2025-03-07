@@ -506,7 +506,7 @@
                   </property>
                   <property name="icon">
                    <iconset resource="ll.qrc">
-                    <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
+                    <normaloff>:/assets/img/icons/textfile.png</normaloff>:/assets/img/icons/textfile.png</iconset>
                   </property>
                  </item>
                 </widget>
@@ -1403,7 +1403,7 @@ font-size: 12pt;</string>
                             <string>Add file...</string>
                            </property>
                            <property name="currentIndex">
-                            <number>1</number>
+                            <number>0</number>
                            </property>
                            <widget class="QWidget" name="AddonsLoaderTab">
                             <attribute name="title">
@@ -5188,7 +5188,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </property>
                         <property name="icon">
                          <iconset resource="ll.qrc">
-                          <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                          <normaloff>:/assets/img/icons/edit.png</normaloff>:/assets/img/icons/edit.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -5930,7 +5930,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="ll.qrc"/>
   <include location="ll.qrc"/>
   <include location="../../.designer/backup/ll.qrc"/>
  </resources>
