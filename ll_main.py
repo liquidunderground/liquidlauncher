@@ -509,6 +509,7 @@ class MainWindow(QMainWindow):
         else:
             launch_command += ["+downloading","0"]
         launch_command += ["+downloadspeed" , str(self.ui.DownloadspeedInput.value())]
+        launch_command += ["+http_source" , self.ui.HttpsourceInput.text()]
         launch_command += ["+maxsend" , str(self.ui.MaxsendInput.value())]
         #### Timeouts & Resynch section ####
         launch_command += ["+maxping" , str(self.ui.MaxpingInput.value())]
@@ -1524,6 +1525,7 @@ class MainWindow(QMainWindow):
         self.ui.UpnpCheckbox.setChecked( profile_settings_dict["host"]["upnp"] )
         self.ui.UploadToggle.setChecked( profile_settings_dict["host"]["downloading"] )
         self.ui.DownloadspeedInput.setValue( profile_settings_dict["host"]["downloadspeed"] )
+        self.ui.HttpsourceInput.setText( profile_settings_dict["host"]["http_source"] )
         self.ui.MaxsendInput.setValue( profile_settings_dict["host"]["maxsend"] )
         self.ui.MaxpingInput.setValue( profile_settings_dict["host"]["maxping"] )
         self.ui.ResynchattemptsInput.setValue( profile_settings_dict["host"]["resynchattempts"] )
@@ -1706,6 +1708,7 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["downloadspeed"] = self.ui.DownloadspeedInput.value()
         toml_settings["host"]["maxsend"] = self.ui.MaxsendInput.value()
         toml_settings["host"]["maxping"] = self.ui.MaxpingInput.value()
+        toml_settings["host"]["http_source"] = self.ui.HttpsourceInput.text()
         toml_settings["host"]["resynchattempts"] = self.ui.ResynchattemptsInput.value()
         # Game Tab
         toml_settings["host"]["gametype"] = self.ui.GametypeInput.currentIndex()

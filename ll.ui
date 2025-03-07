@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="toolTip">
+   <string>Independent HTTP download URL for add-ons (v2.2.14+)</string>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -532,26 +535,549 @@
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>814</width>
-                           <height>455</height>
+                           <width>793</width>
+                           <height>481</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_5">
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="PlayerSkinTitleLabel">
-                            <property name="text">
-                             <string>Skin</string>
+                          <item row="13" column="0">
+                           <widget class="QGroupBox" name="groupBox_5">
+                            <property name="title">
+                             <string>Choose a nickname</string>
                             </property>
-                           </widget>
-                          </item>
-                          <item row="8" column="0">
-                           <widget class="QLabel" name="PlayerColorTitleLabel">
-                            <property name="text">
-                             <string>Skin Color</string>
-                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_22">
+                             <item>
+                              <widget class="QLineEdit" name="PlayerNameInput">
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="placeholderText">
+                                <string>Sonic</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                           <item row="12" column="0" colspan="2">
+                           <widget class="QGroupBox" name="groupBox_4">
+                            <property name="title">
+                             <string>Character Select</string>
+                            </property>
+                            <layout class="QGridLayout" name="gridLayout_40">
+                             <item row="4" column="0" colspan="2">
+                              <widget class="QGroupBox" name="groupBox_6">
+                               <property name="title">
+                                <string>Character Info</string>
+                               </property>
+                               <layout class="QVBoxLayout" name="verticalLayout_24">
+                                <item>
+                                 <widget class="QLabel" name="PlayerSkinInfoText">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>16777215</width>
+                                    <height>1000007</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true"/>
+                                  </property>
+                                  <property name="text">
+                                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                  </property>
+                                  <property name="textFormat">
+                                   <enum>Qt::TextFormat::RichText</enum>
+                                  </property>
+                                  <property name="alignment">
+                                   <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+                                  </property>
+                                  <property name="wordWrap">
+                                   <bool>true</bool>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item row="0" column="1">
+                              <widget class="QGroupBox" name="groupBox_7">
+                               <property name="title">
+                                <string>Skin and Color</string>
+                               </property>
+                               <layout class="QGridLayout" name="gridLayout_41">
+                                <item row="4" column="0">
+                                 <widget class="QLabel" name="label_30">
+                                  <property name="font">
+                                   <font>
+                                    <pointsize>8</pointsize>
+                                   </font>
+                                  </property>
+                                  <property name="text">
+                                   <string>To pick additional skins or colors, simply type their name in the field.</string>
+                                  </property>
+                                  <property name="alignment">
+                                   <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item row="1" column="0">
+                                 <widget class="QComboBox" name="PlayerSkinInput">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true"/>
+                                  </property>
+                                  <property name="editable">
+                                   <bool>true</bool>
+                                  </property>
+                                  <property name="currentIndex">
+                                   <number>-1</number>
+                                  </property>
+                                  <property name="placeholderText">
+                                   <string>Sonic</string>
+                                  </property>
+                                  <item>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Sonic</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/sonic.png</normaloff>:/assets/img/sonic.png</iconset>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Tails</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/tails.png</normaloff>:/assets/img/tails.png</iconset>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Knuckles</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/knuckles.png</normaloff>:/assets/img/knuckles.png</iconset>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Amy</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/rosy.png</normaloff>:/assets/img/rosy.png</iconset>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Fang</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/fang.png</normaloff>:/assets/img/fang.png</iconset>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Metal Sonic</string>
+                                   </property>
+                                   <property name="icon">
+                                    <iconset resource="ll.qrc">
+                                     <normaloff>:/assets/img/metal.png</normaloff>:/assets/img/metal.png</iconset>
+                                   </property>
+                                  </item>
+                                 </widget>
+                                </item>
+                                <item row="2" column="0">
+                                 <widget class="QLabel" name="PlayerColorTitleLabel">
+                                  <property name="text">
+                                   <string>Skin Color</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item row="3" column="0">
+                                 <widget class="QComboBox" name="PlayerColorInput">
+                                  <property name="editable">
+                                   <bool>true</bool>
+                                  </property>
+                                  <property name="currentIndex">
+                                   <number>0</number>
+                                  </property>
+                                  <property name="placeholderText">
+                                   <string>Blue</string>
+                                  </property>
+                                  <item>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>White</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Bone</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Cloudy</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Grey</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Silver</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Carbon</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Jet</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Black</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Aether</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Slate</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Pink</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Yoghurt</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Brown</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Tan</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Beige</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Moss</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Azure</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Lavender</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Ruby</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Salmon</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Red</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Crimson</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Flame</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Peachy</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Quail</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Sunset</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Apricot</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Orange</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Rust</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Gold</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Sandy</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Yellow</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Olive</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Lime</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Peridot</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Green</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Forest</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Emerald</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Mint</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Seafoam</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Aqua</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Teal</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Wave</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Cyan</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Sky</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Cerulean</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Icy</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Sapphire</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Cornflower</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Blue</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Cobalt</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Vapor</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Dusk</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Pastel</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Purple</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Bubblegum</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Magenta</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Neon</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Violet</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Lilac</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Plum</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>Rosy</string>
+                                   </property>
+                                  </item>
+                                 </widget>
+                                </item>
+                                <item row="0" column="0">
+                                 <widget class="QLabel" name="PlayerSkinTitleLabel">
+                                  <property name="text">
+                                   <string>Skin</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item row="0" column="0">
+                              <widget class="QLabel" name="PlayerSkinImage">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>128</width>
+                                 <height>128</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="pixmap">
+                                <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                               </property>
+                               <property name="scaledContents">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item row="14" column="0" colspan="2">
                            <spacer name="verticalSpacer_2">
                             <property name="orientation">
                              <enum>Qt::Orientation::Vertical</enum>
@@ -563,479 +1089,6 @@
                              </size>
                             </property>
                            </spacer>
-                          </item>
-                          <item row="4" column="0" colspan="2">
-                           <widget class="QLabel" name="label_29">
-                            <property name="font">
-                             <font>
-                              <pointsize>8</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>To pick non-standard characters, simply type their name in the field.</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" colspan="2">
-                           <widget class="QLineEdit" name="PlayerNameInput">
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Sonic</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="11" column="0" colspan="2">
-                           <widget class="QLabel" name="label_30">
-                            <property name="font">
-                             <font>
-                              <pointsize>8</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>To pick non-standard skin colors, simply type their name in the field.</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="10" column="0" colspan="2">
-                           <widget class="QComboBox" name="PlayerColorInput">
-                            <property name="editable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="currentIndex">
-                             <number>0</number>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Blue</string>
-                            </property>
-                            <item>
-                             <property name="text">
-                              <string/>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>White</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Bone</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Cloudy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Grey</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Silver</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Carbon</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Jet</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Black</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Aether</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Slate</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Pink</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Yoghurt</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Brown</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Tan</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Beige</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Moss</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Azure</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Lavender</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Ruby</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Salmon</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Red</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Crimson</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Flame</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Peachy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Quail</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sunset</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Apricot</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Orange</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Rust</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Gold</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sandy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Yellow</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Olive</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Lime</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Peridot</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Green</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Forest</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Emerald</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Mint</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Seafoam</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Aqua</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Teal</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Wave</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Cyan</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sky</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Cerulean</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Icy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sapphire</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Cornflower</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Blue</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Cobalt</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Vapor</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Dusk</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Pastel</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Purple</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Bubblegum</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Magenta</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Neon</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Violet</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Lilac</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Plum</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Rosy</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="3" column="0" colspan="2">
-                           <widget class="QComboBox" name="PlayerSkinInput">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="editable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="currentIndex">
-                             <number>0</number>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Sonic</string>
-                            </property>
-                            <item>
-                             <property name="text">
-                              <string/>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Sonic</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Tails</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Knuckles</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Amy</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Fang</string>
-                             </property>
-                            </item>
-                            <item>
-                             <property name="text">
-                              <string>Metal Sonic</string>
-                             </property>
-                            </item>
-                           </widget>
-                          </item>
-                          <item row="6" column="0">
-                           <widget class="QLabel" name="PlayerSkinImage">
-                            <property name="maximumSize">
-                             <size>
-                              <width>128</width>
-                              <height>128</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="pixmap">
-                             <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
-                            </property>
-                            <property name="scaledContents">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="PlayerNameTitleLabel">
-                            <property name="text">
-                             <string>Nickname</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="6" column="1">
-                           <widget class="QLabel" name="PlayerSkinInfoText">
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>1000007</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                            </property>
-                            <property name="textFormat">
-                             <enum>Qt::TextFormat::RichText</enum>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-                            </property>
-                            <property name="wordWrap">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
                           </item>
                          </layout>
                         </widget>
@@ -1317,8 +1370,6 @@ font-size: 12pt;</string>
                        </widget>
                       </item>
                      </layout>
-                     <zorder>ExportClientScriptButton</zorder>
-                     <zorder>scrollArea_6</zorder>
                     </widget>
                     <widget class="QWidget" name="ModsPage">
                      <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1953,9 +2004,9 @@ font-size: 12pt;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>0</y>
+                               <y>-286</y>
                                <width>791</width>
-                               <height>669</height>
+                               <height>704</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -2179,9 +2230,30 @@ font-size: 12pt;</string>
                                    </property>
                                    <layout class="QVBoxLayout" name="verticalLayout_32">
                                     <item>
+                                     <widget class="QLabel" name="label_29">
+                                      <property name="text">
+                                       <string>HTTP source URL (v2.2.14+)</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLineEdit" name="HttpsourceInput">
+                                      <property name="placeholderText">
+                                       <string>https://127.0.0.1/</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="Line" name="line_6">
+                                      <property name="orientation">
+                                       <enum>Qt::Orientation::Horizontal</enum>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
                                      <widget class="QCheckBox" name="UploadToggle">
                                       <property name="text">
-                                       <string>Enable Add-On downloads</string>
+                                       <string>Enable UDP Add-On downloads</string>
                                       </property>
                                       <property name="checked">
                                        <bool>true</bool>
@@ -2191,7 +2263,7 @@ font-size: 12pt;</string>
                                     <item>
                                      <widget class="QLabel" name="label_14">
                                       <property name="text">
-                                       <string>Download speed</string>
+                                       <string>UDP Download speed</string>
                                       </property>
                                      </widget>
                                     </item>
@@ -2211,7 +2283,7 @@ font-size: 12pt;</string>
                                     <item>
                                      <widget class="QLabel" name="label_16">
                                       <property name="text">
-                                       <string>Max. file size</string>
+                                       <string>Max. file size (UDP)</string>
                                       </property>
                                      </widget>
                                     </item>
@@ -2919,8 +2991,8 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>247</width>
-                               <height>265</height>
+                               <width>812</width>
+                               <height>392</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3071,7 +3143,7 @@ font-size: 12pt;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>556</width>
+                               <width>787</width>
                                <height>693</height>
                               </rect>
                              </property>
@@ -3453,8 +3525,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>257</width>
-                               <height>194</height>
+                               <width>812</width>
+                               <height>392</height>
                               </rect>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -3564,7 +3636,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>662</width>
+                               <width>791</width>
                                <height>1070</height>
                               </rect>
                              </property>
@@ -5112,7 +5184,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          <string>Open in default editor</string>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string>Open in editor</string>
                         </property>
                         <property name="icon">
                          <iconset resource="ll.qrc">
@@ -5123,7 +5195,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <item row="2" column="4">
                        <widget class="QLabel" name="logfileListLabel">
                         <property name="text">
-                         <string>Refresh Log File list -&gt;</string>
+                         <string>Press 'Refresh' to list</string>
                         </property>
                        </widget>
                       </item>
@@ -5133,7 +5205,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          <string>Refresh Logs</string>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string>Refresh</string>
                         </property>
                         <property name="icon">
                          <iconset resource="ll.qrc">
@@ -5353,8 +5425,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1034</width>
-                <height>551</height>
+                <width>83</width>
+                <height>83</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -5860,6 +5932,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
  <resources>
   <include location="ll.qrc"/>
   <include location="ll.qrc"/>
+  <include location="../../.designer/backup/ll.qrc"/>
  </resources>
  <connections/>
 </ui>
