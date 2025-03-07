@@ -12,7 +12,7 @@ from ll_info import http_headers, version_check_url
 class QueryLiquid(QtCore.QThread):
     # Emit latest version string for callback
     check_version_cb_sig = Signal(str)
-    load_news_cb_sig = Signal(str, bool)
+    load_news_cb_sig = Signal(object)
     update_snitchmsg_sig = Signal(str)
 
     def __init__(self, parent=None):
@@ -53,10 +53,24 @@ class QueryLiquid(QtCore.QThread):
                     feed.raise_for_status()
                     feed_parsed = feed.text
                     #print("FETCH RESULT: {}\n".format(feed_parsed))
-                    self.load_news_cb_sig.emit(feed_parsed, False)
+                    #self.load_news_cb_sig.emit(feed_parsed, False)
+                    alertArgs = {
+                        "type" : "info",
+                        "title" : f"RSS Fetch successful",
+                        "message" :  "News feed successfully loaded." if len(feed_parsed) > 0  else  "No news found. Did you check the URL?",
+                        "content": feed_parsed,
+                    }
+                    self.load_news_cb_sig.emit(alertArgs)
                 except Exception as e:
                     print("News fetch error: ",e)
-                    self.load_news_cb_sig.emit(str(e), True)
+                    alertArgs = {
+                        "type" : "warning",
+                        "title" : f"Query Error ",
+                        "message" : f'Unable to query <a href="{self.currentFeed}">{self.currentFeed}</a>',
+                        "detailedText" : str(e),
+                    }
+                    self.load_news_cb_sig.emit(alertArgs)
+                    #self.load_news_cb_sig.emit(str(e), True)
                 self.query_news = False
             if self.query_version:
                 print("check_version")
