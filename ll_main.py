@@ -348,14 +348,7 @@ class MainWindow(QMainWindow):
                 case "warning" | "critical":
                     self.alert(**args_o)
                     return
-        #msg = "News feed successfully loaded."
-        #print("RAW CONTENT: {}\n".format(content))
         feed = feedparser.parse(args_o["content"])
-        #if len(feed["items"]) < 1:
-            #msg = "No news found. Did you check the URL?"
-            #self.ui.RSSStatusLabel.setText(msg)
-            #print(msg)
-            #return
 
         self.news = feed["items"]
 
