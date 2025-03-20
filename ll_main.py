@@ -1680,9 +1680,9 @@ class MainWindow(QMainWindow):
         toml_settings["game"]["renderer"] = self.ui.GameRendererSetting.currentIndex()
         toml_settings["game"]["windowmode"] = self.ui.GameFullscreenSetting.currentIndex()
         # Music settings
-        if self.ui.WineRadiobutton.isChecked():
+        if self.ui.digimusicRadiobutton.isChecked():
             toml_settings["game"]["music"] = "digital"
-        if self.ui.FlatpakRadiobutton.isChecked():
+        elif self.ui.midimusicRadiobutton.isChecked():
             toml_settings["game"]["music"] = "midi"
         else:
             toml_settings["game"]["music"] = "off"
