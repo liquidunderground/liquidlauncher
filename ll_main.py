@@ -21,7 +21,11 @@ from ll_ui import *
 from ll_info import product_version as versionString
 from ll_info import http_headers, set_http_header
 
-global_settings_file = "ll_settings.toml"
+global_settings_file = os.path.join(os.getcwd(), ".liquidlauncher", "ll_settings.toml")
+
+# Guarantee config dirs
+if not os.path.isdir(os.path.join(os.getcwd(), ".liquidlauncher", "profiles")):
+    os.makedirs(os.path.join(os.getcwd(), ".liquidlauncher", "profiles"))
 
 
 class MainWindow(QMainWindow):
@@ -45,9 +49,8 @@ class MainWindow(QMainWindow):
     def __init__(self, app):
         super().__init__()
         
-        # Default Launcher settings. Profiles are filenames read from profiles_dir
+        # Default Launcher settings. Profiles are sourced from .liquidlauncher/profiles
         self.global_settings = {"current_profile": "default.toml",
-                                "profiles_dir": os.path.join(os.getcwd(), "ll_profiles"),
                                 "current_ms":{
                                     "url": "http://mb.srb2.org/MS/0",
                                     "api": "v1",
@@ -977,13 +980,14 @@ class MainWindow(QMainWindow):
                     "ip": self.ui.SavedNetgameTable.item(i, 1).text(),
                     "port": self.ui.SavedNetgameTable.item(i, 2).text()
                     }
-        with open("bookmarks.toml", "w") as f:
+                    
+        with open(os.path.join(os.getcwd(), ".liquidlauncher", "bookmarks.toml"), "w") as f:
             toml.dump(serv_list, f)
         return
 
     def load_server_list(self):
         serv_list = []
-        fpath = os.path.join(os.getcwd(), "bookmarks.toml")
+        fpath = os.path.join(os.getcwd(), ".liquidlauncher", "bookmarks.toml")
         if not os.path.isfile(fpath):
             return
         with open(fpath, "r") as f:
@@ -1092,7 +1096,7 @@ class MainWindow(QMainWindow):
     def load_ms_list(self): 
         print("load_ms_list")
         self.ms_list = {}
-        fpath = os.path.join(os.getcwd(), "masterservers.toml")
+        fpath = os.path.join(os.getcwd(), ".liquidlauncher", "masterservers.toml")
         if not os.path.isfile(fpath):
             return
         with open(fpath, "r") as f:
@@ -1129,7 +1133,7 @@ class MainWindow(QMainWindow):
 
             data = {"url": shim_url, "api": shim_api }
             self.ms_list[shim_name] = data
-        with open("masterservers.toml", "w") as f:
+        with open(os.path.join(os.getcwd(), ".liquidlauncher", "masterservers.toml"), "w") as f:
             toml.dump({"masterservers": self.ms_list}, f)
         self.load_ms_list()
         return
@@ -1263,7 +1267,7 @@ class MainWindow(QMainWindow):
 
     def confirm_delete_profile(self):
         profilepath = os.path.join(
-            self.global_settings["profiles_dir"],
+            os.getcwd(), ".liquidlauncher", 
             self.ui.GameProfileComboBox.currentText()
             )
         msg = QMessageBox()
@@ -1303,7 +1307,7 @@ class MainWindow(QMainWindow):
         toml_settings = self.read_config_file(global_settings_file)
         self.global_settings.update(toml_settings)
 
-        self.ui.ProfileDirInput.setText(self.global_settings["profiles_dir"])
+        self.ui.ProfileDirInput.setText("<TO BE REMOVED>")
         self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
 
         # Update RSS List in UI
@@ -1324,21 +1328,21 @@ class MainWindow(QMainWindow):
         if self.global_settings == None:
             return False
         else:
-            default_path = os.path.join(os.path.join(os.getcwd(), "ll_profiles"), "default.toml")
+            default_path = os.path.join(os.getcwd(), ".liquidlauncher", "profiles", "default.toml")
             return self.profile_exists(default_path)
     
     def global_settings_exist(self):
         return self.config_file_exists(global_settings_file)
     
     def profile_exists(self, name=None):
-        if not os.path.isfile(self.global_settings["profiles_dir"]+"default.toml"):
+        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "profiles", "default.toml")):
             return False
 
-        fpath = os.path.join(self.global_settings["profiles_dir"], name)
+        fpath = os.path.join(os.getcwd(), ".liquidlauncher", "profiles", name)
         return os.path.isfile(fpath)
 
     def config_file_exists(self, config_file):
-        fpath = os.path.join(os.getcwd(), config_file)
+        fpath = os.path.join(os.getcwd(), ".liquidlauncher", config_file)
         #fpath = config_file
         if not os.path.isfile(fpath):
             return False
@@ -1350,8 +1354,8 @@ class MainWindow(QMainWindow):
         """
         profile_files = []
         # Bad profiles_dir? Not my job.
-        if os.path.isdir(self.global_settings["profiles_dir"]):
-            for file in os.listdir(self.global_settings["profiles_dir"]):
+        if os.path.isdir(os.path.join(os.getcwd(), ".liquidlauncher", "profiles")):
+            for file in os.listdir(os.path.join(os.getcwd(), ".liquidlauncher", "profiles")):
                 if file.endswith(".toml"):
                     profile_files.append(file)
         return profile_files
@@ -1365,7 +1369,6 @@ class MainWindow(QMainWindow):
         return
 
     def save_settings(self):
-        self.global_settings["profiles_dir"] = self.ui.ProfileDirInput.text()
         self.global_settings["devsettings"] = {
             "http_user_agent": self.ui.UseragentInput.text()
         }
@@ -1382,11 +1385,11 @@ class MainWindow(QMainWindow):
         self.global_settings["rss"] = feeds
 
     def create_default_settings(self):
-        if not os.path.isfile(os.path.join(os.getcwd(),"ll_settings.toml")):
+        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "ll_settings.toml")):
             print("No global settings. Creating default...")
             self.save_global_settings_file()
     def create_default_ms_list(self):
-        if not os.path.isfile(os.path.join(os.getcwd(),"masterservers.toml")):
+        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "masterservers.toml")):
             print("No master servers file. Creating default...")
             self.ms_list = {
                 "Astronight": {"url":"http://24.193.201.61/" , "api":"snitch"},
@@ -1409,14 +1412,14 @@ class MainWindow(QMainWindow):
             print("No bookmarks file. Creating default...")
             self.save_server_list()
     def create_default_profile(self):
-        if not os.path.isfile(os.path.join(self.global_settings["profiles_dir"],"default.toml")):
+        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "profiles","default.toml")):
             print("No default profile. Creating default...")
             self.save_profile_file(self.global_settings["current_profile"])
     
     def load_current_profile(self):
         print("Current profile: {}".format(self.global_settings["current_profile"]))
         self.current_profile_settings = self.read_config_file(
-            os.path.join(self.global_settings["profiles_dir"], self.global_settings["current_profile"])
+            os.path.join(os.getcwd(), ".liquidlauncher", "profiles", self.global_settings["current_profile"])
             )
         print("Current profile settings: {}".format(self.current_profile_settings))
         self.apply_profile_settings_to_gui(self.current_profile_settings)
@@ -1811,12 +1814,9 @@ class MainWindow(QMainWindow):
         # generate the TOML data for the config
         print("save_profile_file({})".format(filename))
 
-        # Guarantee profiles dir
-        if not os.path.isdir(self.global_settings["profiles_dir"]):
-            os.makedirs(self.global_settings["profiles_dir"])
         
         toml_settings = self.generate_profile_dict()
-        profilepath = os.path.join(self.global_settings["profiles_dir"], filename)
+        profilepath = os.path.join(os.getcwd(), ".liquidlauncher", "profiles", filename)
         
         with open(profilepath, "w") as f:
             new_toml_string = toml.dump(toml_settings, f)
