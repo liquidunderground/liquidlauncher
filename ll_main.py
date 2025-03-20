@@ -7,6 +7,7 @@ import webbrowser
 from packaging import version # for version checks
 import toml
 from datetime import date
+from pathlib import Path
 
 import feedparser
 import subprocess32 as subprocess # Keep things drop-in
@@ -754,9 +755,9 @@ class MainWindow(QMainWindow):
 
         # Check mode: Hosting?
         if self.ui.GamePageTabList.currentRow() == 3:
-            subprocess.Popen(launchCommand_server)
+            subprocess.Popen(launchCommand_server, cwd=Path(self.ui.HomePathInput.text()))
         else:
-            subprocess.Popen(launchCommand_client)
+            subprocess.Popen(launchCommand_client, cwd=Path(self.ui.HomePathInput.text()))
         return
 
     def change_main_tab(self, index):
