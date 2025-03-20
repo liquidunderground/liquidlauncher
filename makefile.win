@@ -1,0 +1,38 @@
+# Windows specific Makefile
+ENTER_VENV :=./.venv/Scripts/Activate.ps1
+EXIT_VENV :=./.venv/Scripts/deactivate.ps1
+ICON_FLAG := --windows-icon-from-ico=img/icons/ll.ico
+
+NUITKA_FLAGS := --output-dir=dist/ ${ICON_FLAG} --standalone --onefile --disable-console
+NUITKA_PLUGINS := --enable-plugin=pyside6,anti-bloat,pywebview
+NUITKA_PACKAGES := --include-package=xml.sax
+
+.PHONY: all init run dist clean
+
+all:
+	@echo -e "USAGE:\n\n"\
+	"dist: create distributable build\n"\
+	"init: initialize virtual environment\n"\
+	"run: run development build directly\n"\
+	"clean: clean up your environment\n"
+
+# Run a shell that does all the things
+init: requirements.txt
+	if (!(Test-Path ./.venv ) ){ python3 -m venv ./.venv }
+	( if ( -z "$(VIRTUAL_ENV)" ){  $(ENTER_VENV); fi && pip install -r requirements.txt ) }
+
+ll_ui.py: init
+	if ( -z "$(VIRTUAL_ENV)" ){  $(ENTER_VENV); fi && pyside6-uic ll.ui -o ll_ui.py  }
+
+ll_rc.py: init
+	if ( -z "$(VIRTUAL_ENV)" ){ $(ENTER_VENV); fi && pyside6-rcc ll.qrc -o ll_rc.py }
+
+run: init
+	if ( -z "$(VIRTUAL_ENV)" ){  $(ENTER_VENV); fi && python3 ll_main.py }
+
+dist:
+	nuitka ll_main.py ${NUITKA_FLAGS} ${NUITKA_PLUGINS} ${NUITKA_PACKAGES} --output-filename=LiquidLauncher
+
+clean:
+	-Remove-Item -Recurse build/,dist/,ll_main.spec,.venv/,ll_profiles }
+

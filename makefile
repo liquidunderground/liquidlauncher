@@ -1,6 +1,6 @@
 ifeq ($(OS), Windows_NT)
-ENTER_VENV :=./.venv/bin/activate.ps1
-EXIT_VENV :=./.venv/bin/deactivate.ps1
+ENTER_VENV :=./.venv/Scripts/activate.ps1
+EXIT_VENV :=./.venv/Scripts/deactivate.ps1
 ICON_FLAG := --windows-icon-from-ico=img/icons/ll.ico
 else ifeq ($(OS), Darwin)
 ICON_FLAG := --macos-app-icon=img/icons/ll.ico
@@ -27,7 +27,7 @@ all:
 
 # Run a shell that does all the things
 init: requirements.txt
-	 test -d ./.venv || python3 -m venv ./.venv
+	test -d ./.venv || python3 -m venv ./.venv
 	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && pip install -r requirements.txt )
 
 ll_ui.py: init
