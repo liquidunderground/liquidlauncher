@@ -1356,7 +1356,7 @@ font-size: 12pt;</string>
                           <item>
                            <widget class="QListWidget" name="ModsList">
                             <property name="sizePolicy">
-                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
@@ -3613,7 +3613,7 @@ font-size: 12pt;</string>
                          <x>0</x>
                          <y>0</y>
                          <width>730</width>
-                         <height>368</height>
+                         <height>350</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -4147,7 +4147,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          <x>0</x>
                          <y>0</y>
                          <width>730</width>
-                         <height>368</height>
+                         <height>350</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -5354,27 +5354,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <string>Master Servers</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_37">
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="ConfigrepoadLabel">
-                     <property name="text">
-                      <string>Looking for master servers?</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="5">
-                    <widget class="QPushButton" name="MSRemoveButton">
-                     <property name="toolTip">
-                      <string>Remove selected Master Server</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="1" column="2">
                     <spacer name="horizontalSpacer_9">
                      <property name="orientation">
@@ -5388,43 +5367,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      </property>
                     </spacer>
                    </item>
-                   <item row="1" column="4">
-                    <widget class="QPushButton" name="MSAddButton">
-                     <property name="toolTip">
-                      <string>Add Master Server</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="MSListSaveButton">
-                     <property name="text">
-                      <string>Save List</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="MSVisitrepoButton">
-                     <property name="text">
-                      <string>Config repo &gt;&gt;</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0" colspan="6">
+                   <item row="0" column="0" colspan="9">
                     <widget class="QTableWidget" name="MasterServersTable">
                      <property name="sizeAdjustPolicy">
                       <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
@@ -5514,6 +5457,106 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <set>AlignCenter</set>
                       </property>
                      </item>
+                    </widget>
+                   </item>
+                   <item row="1" column="8">
+                    <widget class="QPushButton" name="MSRemoveButton">
+                     <property name="toolTip">
+                      <string>Remove selected Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="ConfigrepoadLabel">
+                     <property name="text">
+                      <string>Looking for master servers?</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="7">
+                    <widget class="QPushButton" name="MSListSaveButton">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="MSVisitrepoButton">
+                     <property name="text">
+                      <string>Config repo &gt;&gt;</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="6">
+                    <widget class="QPushButton" name="MSAddButton">
+                     <property name="toolTip">
+                      <string>Add Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="4">
+                    <widget class="QPushButton" name="MSMoveUpButton">
+                     <property name="toolTip">
+                      <string>Add Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="5">
+                    <widget class="QPushButton" name="MSMoveDownButton">
+                     <property name="toolTip">
+                      <string>Add Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
                     </widget>
                    </item>
                   </layout>

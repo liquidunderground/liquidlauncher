@@ -723,8 +723,8 @@ class Ui_MainWindow(object):
         __qlistwidgetitem9 = QListWidgetItem(self.ModsList)
         __qlistwidgetitem9.setFlags(Qt.ItemIsSelectable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable);
         self.ModsList.setObjectName(u"ModsList")
-        sizePolicy4.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
-        self.ModsList.setSizePolicy(sizePolicy4)
+        sizePolicy5.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
+        self.ModsList.setSizePolicy(sizePolicy5)
         self.ModsList.setContextMenuPolicy(Qt.ContextMenuPolicy.ActionsContextMenu)
 
         self.verticalLayout_25.addWidget(self.ModsList)
@@ -1851,7 +1851,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 730, 368))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 730, 350))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -2141,7 +2141,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 730, 368))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 730, 350))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -2766,38 +2766,9 @@ class Ui_MainWindow(object):
         self.groupBox_17.setObjectName(u"groupBox_17")
         self.gridLayout_37 = QGridLayout(self.groupBox_17)
         self.gridLayout_37.setObjectName(u"gridLayout_37")
-        self.ConfigrepoadLabel = QLabel(self.groupBox_17)
-        self.ConfigrepoadLabel.setObjectName(u"ConfigrepoadLabel")
-
-        self.gridLayout_37.addWidget(self.ConfigrepoadLabel, 1, 0, 1, 1)
-
-        self.MSRemoveButton = QPushButton(self.groupBox_17)
-        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
-        self.MSRemoveButton.setIcon(icon5)
-
-        self.gridLayout_37.addWidget(self.MSRemoveButton, 1, 5, 1, 1)
-
         self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_37.addItem(self.horizontalSpacer_9, 1, 2, 1, 1)
-
-        self.MSAddButton = QPushButton(self.groupBox_17)
-        self.MSAddButton.setObjectName(u"MSAddButton")
-        self.MSAddButton.setIcon(icon6)
-
-        self.gridLayout_37.addWidget(self.MSAddButton, 1, 4, 1, 1)
-
-        self.MSListSaveButton = QPushButton(self.groupBox_17)
-        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
-        self.MSListSaveButton.setIcon(icon8)
-
-        self.gridLayout_37.addWidget(self.MSListSaveButton, 1, 3, 1, 1)
-
-        self.MSVisitrepoButton = QPushButton(self.groupBox_17)
-        self.MSVisitrepoButton.setObjectName(u"MSVisitrepoButton")
-        self.MSVisitrepoButton.setIcon(icon2)
-
-        self.gridLayout_37.addWidget(self.MSVisitrepoButton, 1, 1, 1, 1)
 
         self.MasterServersTable = QTableWidget(self.groupBox_17)
         if (self.MasterServersTable.columnCount() < 3):
@@ -2839,7 +2810,53 @@ class Ui_MainWindow(object):
         self.MasterServersTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.MasterServersTable.verticalHeader().setVisible(False)
 
-        self.gridLayout_37.addWidget(self.MasterServersTable, 0, 0, 1, 6)
+        self.gridLayout_37.addWidget(self.MasterServersTable, 0, 0, 1, 9)
+
+        self.MSRemoveButton = QPushButton(self.groupBox_17)
+        self.MSRemoveButton.setObjectName(u"MSRemoveButton")
+        self.MSRemoveButton.setIcon(icon5)
+        self.MSRemoveButton.setFlat(True)
+
+        self.gridLayout_37.addWidget(self.MSRemoveButton, 1, 8, 1, 1)
+
+        self.ConfigrepoadLabel = QLabel(self.groupBox_17)
+        self.ConfigrepoadLabel.setObjectName(u"ConfigrepoadLabel")
+
+        self.gridLayout_37.addWidget(self.ConfigrepoadLabel, 1, 0, 1, 1)
+
+        self.MSListSaveButton = QPushButton(self.groupBox_17)
+        self.MSListSaveButton.setObjectName(u"MSListSaveButton")
+        self.MSListSaveButton.setIcon(icon8)
+        self.MSListSaveButton.setFlat(True)
+
+        self.gridLayout_37.addWidget(self.MSListSaveButton, 1, 7, 1, 1)
+
+        self.MSVisitrepoButton = QPushButton(self.groupBox_17)
+        self.MSVisitrepoButton.setObjectName(u"MSVisitrepoButton")
+        self.MSVisitrepoButton.setIcon(icon2)
+
+        self.gridLayout_37.addWidget(self.MSVisitrepoButton, 1, 1, 1, 1)
+
+        self.MSAddButton = QPushButton(self.groupBox_17)
+        self.MSAddButton.setObjectName(u"MSAddButton")
+        self.MSAddButton.setIcon(icon6)
+        self.MSAddButton.setFlat(True)
+
+        self.gridLayout_37.addWidget(self.MSAddButton, 1, 6, 1, 1)
+
+        self.MSMoveUpButton = QPushButton(self.groupBox_17)
+        self.MSMoveUpButton.setObjectName(u"MSMoveUpButton")
+        self.MSMoveUpButton.setIcon(icon15)
+        self.MSMoveUpButton.setFlat(True)
+
+        self.gridLayout_37.addWidget(self.MSMoveUpButton, 1, 4, 1, 1)
+
+        self.MSMoveDownButton = QPushButton(self.groupBox_17)
+        self.MSMoveDownButton.setObjectName(u"MSMoveDownButton")
+        self.MSMoveDownButton.setIcon(icon14)
+        self.MSMoveDownButton.setFlat(True)
+
+        self.gridLayout_37.addWidget(self.MSMoveDownButton, 1, 5, 1, 1)
 
 
         self.verticalLayout_29.addWidget(self.groupBox_17)
@@ -3852,17 +3869,6 @@ class Ui_MainWindow(object):
         self.SettingsTabList.setSortingEnabled(__sortingEnabled6)
 
         self.groupBox_17.setTitle(QCoreApplication.translate("MainWindow", u"Master Servers", None))
-        self.ConfigrepoadLabel.setText(QCoreApplication.translate("MainWindow", u"Looking for master servers?", None))
-#if QT_CONFIG(tooltip)
-        self.MSRemoveButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove selected Master Server", None))
-#endif // QT_CONFIG(tooltip)
-        self.MSRemoveButton.setText("")
-#if QT_CONFIG(tooltip)
-        self.MSAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
-#endif // QT_CONFIG(tooltip)
-        self.MSAddButton.setText("")
-        self.MSListSaveButton.setText(QCoreApplication.translate("MainWindow", u"Save List", None))
-        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
         ___qtablewidgetitem13 = self.MasterServersTable.horizontalHeaderItem(0)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem14 = self.MasterServersTable.horizontalHeaderItem(1)
@@ -3886,6 +3892,25 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"kartv2", None));
         self.MasterServersTable.setSortingEnabled(__sortingEnabled7)
 
+#if QT_CONFIG(tooltip)
+        self.MSRemoveButton.setToolTip(QCoreApplication.translate("MainWindow", u"Remove selected Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSRemoveButton.setText("")
+        self.ConfigrepoadLabel.setText(QCoreApplication.translate("MainWindow", u"Looking for master servers?", None))
+        self.MSListSaveButton.setText("")
+        self.MSVisitrepoButton.setText(QCoreApplication.translate("MainWindow", u"Config repo >>", None))
+#if QT_CONFIG(tooltip)
+        self.MSAddButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSAddButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.MSMoveUpButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSMoveUpButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.MSMoveDownButton.setToolTip(QCoreApplication.translate("MainWindow", u"Add Master Server", None))
+#endif // QT_CONFIG(tooltip)
+        self.MSMoveDownButton.setText("")
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"One-time snitch", None))
         self.SnitchdestCombobox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Destination URL", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"Source", None))

@@ -276,6 +276,8 @@ class MainWindow(QMainWindow):
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
         self.ui.MSListSaveButton.clicked.connect(self.save_ms_list)
+        self.ui.MSMoveUpButton.clicked.connect(self.move_ms_up)
+        self.ui.MSMoveDownButton.clicked.connect(self.move_ms_down)
         self.ui.MSVisitrepoButton.clicked.connect(lambda: self.open_url("https://github.com/liquidunderground/configs-public"))
         self.ui.SnitchButton.clicked.connect(lambda: self.query_liquid_qthread.on_snitch(
             self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText()))
@@ -1161,6 +1163,78 @@ class MainWindow(QMainWindow):
         # Add combobox
         self.ui.MasterServersTable.setCellWidget(self.ui.MasterServersTable.rowCount()-1 , 2, twi_api)
         return
+
+    def move_ms_up(self):
+        datablock = {}
+        table = self.ui.MasterServersTable
+        ranges = table.selectedRanges()
+        abs_toprow = float('inf')
+        # Only collect edges or "holes" of range blocks
+        # Collect cell data in a unified block
+        for r in ranges:
+            if r.topRow() < abs_toprow: abs_toprow = r.topRow()
+            for row in range(r.topRow(), r.bottomRow()+1):
+                datablock[row] = ( table.takeItem(row,0), table.takeItem(row,1), table.cellWidget(row,2).currentIndex() )
+
+        # Delete rows.
+        # Reverse order to perserve bubbling
+        for r in reversed(sorted(datablock.keys())):
+            table.removeRow(r)
+
+        # Refill block
+        actualRow = abs_toprow-1 if abs_toprow-1 > 0 else 0
+        for row in reversed(sorted(datablock.keys())):
+            table.insertRow(actualRow)
+            table.setItem(actualRow, 0, datablock[row][0])
+            table.setItem(actualRow, 1, datablock[row][1])
+            # Reconstruct combobox bc Qt ownership bull
+            twi_api = QtWidgets.QComboBox()
+            twi_api.addItem("SRB2 MS", "v1")
+            twi_api.addItem("SRB2Kart/Ring Racers MS", "kartv2")
+            twi_api.addItem("LiquidMS Snitch", "snitch")
+            twi_api.setCurrentIndex(datablock[row][2])
+            table.setCellWidget(actualRow, 2, twi_api)
+
+        # For convenience - reselect the row block
+        newrange = QtWidgets.QTableWidgetSelectionRange(actualRow, 0, actualRow+len(datablock)-1, 2)
+        table.setRangeSelected(newrange, True)
+
+
+    def move_ms_down(self):
+        datablock = {}
+        table = self.ui.MasterServersTable
+        ranges = table.selectedRanges()
+        abs_bottomrow = -1
+        # Only collect edges or "holes" of range blocks
+        # Collect cell data in a unified block
+        for r in ranges:
+            if r.bottomRow() > abs_bottomrow: abs_bottomrow = r.bottomRow()
+            for row in range(r.topRow(), r.bottomRow()+1):
+                datablock[row] = ( table.takeItem(row,0), table.takeItem(row,1), table.cellWidget(row,2).currentIndex() )
+
+        # Delete rows.
+        # Reverse order to perserve bubbling
+        for r in reversed(sorted(datablock.keys())):
+            table.removeRow(r)
+
+        # Refill block
+        actualRow = abs_bottomrow+1 if abs_bottomrow+1 < table.rowCount() else table.rowCount()
+        for row in reversed(sorted(datablock.keys())):
+            table.insertRow(actualRow)
+            table.setItem(actualRow, 0, datablock[row][0])
+            table.setItem(actualRow, 1, datablock[row][1])
+            # Reconstruct combobox bc Qt ownership bull
+            twi_api = QtWidgets.QComboBox()
+            twi_api.addItem("SRB2 MS", "v1")
+            twi_api.addItem("SRB2Kart/Ring Racers MS", "kartv2")
+            twi_api.addItem("LiquidMS Snitch", "snitch")
+            twi_api.setCurrentIndex(datablock[row][2])
+            table.setCellWidget(actualRow, 2, twi_api)
+
+        # For convenience - reselect the row block
+        newrange = QtWidgets.QTableWidgetSelectionRange(actualRow, 0, actualRow+len(datablock)-1, 2)
+        table.setRangeSelected(newrange, True)
+
 
     def remove_ms_from_list(self): 
         print("remove_ms_from_list")
