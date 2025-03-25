@@ -189,8 +189,8 @@ class MainWindow(QMainWindow):
         self.ui.GameProfileComboBox.currentTextChanged.connect(self.load_profile)
 
         # Launch sript export buttons ================================================ #
-        self.ui.ExportServerScriptButton.clicked.connect(self.export_script)
-        self.ui.ExportClientScriptButton.clicked.connect(self.export_script)
+        self.ui.ExportServerScriptButton.clicked.connect(self.export_server_script)
+        self.ui.ExportClientScriptButton.clicked.connect(self.export_client_script)
 
         # game settings buttons ========================================================= #
         self.ui.GameExecFilePathBrowse.clicked.connect(self.set_game_exec_path)
@@ -299,6 +299,10 @@ class MainWindow(QMainWindow):
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_client)
         self.ui.ServerPlayButton.clicked.connect(self.launch_game_server)
+        tmp_save_icon = QtGui.QIcon()
+        tmp_save_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/document-save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.ui.ServerPlayButton.addAction(tmp_save_icon, "Export server launch script", self.export_server_script)
+        self.ui.GamePlayButton.addAction(tmp_save_icon, "Export client launch script", self.export_client_script)
 
     # RSS Functions
 
@@ -1828,7 +1832,7 @@ class MainWindow(QMainWindow):
 
     # Misc
 
-    def export_script(self):
+    def export_server_script(self):
         file_filter = "Batch files (*.bat);;Shell scripts (*.sh)"
         if (os.name == "posix"):
             file_filter = "Shell scripts (*.sh);;Batch files (*.bat)"
@@ -1837,12 +1841,23 @@ class MainWindow(QMainWindow):
         if fileName:
             out_text = ""
             if fileName.endswith(".sh"): out_text += "#!bin/bash\n"
-            if self.ui.GamePageTabList.currentRow() == 3:
-                cmd = [ i if " " not in i else "\"{}\"".format(i) for i in self.get_server_launch_command()]
-                out_text += ' '.join(cmd)
-            else:
-                cmd = [ i if " " not in i else "\"{}\"".format(i) for i in self.get_client_launch_command()]
-                out_text += ' '.join(cmd)
+            cmd = [ i if " " not in i else "\"{}\"".format(i) for i in self.get_server_launch_command()]
+            out_text += ' '.join(cmd)
+            with open(fileName, "w") as f:
+                f.write(out_text)
+        return
+
+    def export_client_script(self):
+        file_filter = "Batch files (*.bat);;Shell scripts (*.sh)"
+        if (os.name == "posix"):
+            file_filter = "Shell scripts (*.sh);;Batch files (*.bat)"
+        file_filter += ";;All files (*)"
+        fileName, _ = QFileDialog.getSaveFileName(self, "Save script", os.getcwd(), file_filter)
+        if fileName:
+            out_text = ""
+            if fileName.endswith(".sh"): out_text += "#!bin/bash\n"
+            cmd = [ i if " " not in i else "\"{}\"".format(i) for i in self.get_client_launch_command()]
+            out_text += ' '.join(cmd)
             with open(fileName, "w") as f:
                 f.write(out_text)
         return
