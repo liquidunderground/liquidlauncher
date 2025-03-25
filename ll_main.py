@@ -1367,9 +1367,26 @@ class MainWindow(QMainWindow):
     def save_global_settings_file(self):
         """This saves the global settings, which is different from profiles
         """
-        with open(global_settings_file, "w") as f:
-            new_toml_string = toml.dump(self.global_settings, f)
-        print("saved config")
+        alertArgs = {}
+        try:
+            alertArgs = {
+                "type" : "info",
+                "title" : "Settings saved",
+                "message" : "Settings successfully saved.",
+            }
+            with open(global_settings_file, "w") as f:
+                new_toml_string = toml.dump(self.global_settings, f)
+            print("saved config")
+        except Exception as e:
+            alertArgs = {
+                "type" : "warning",
+                "title" : "Settings saving error",
+                "message" : "Unable to save settings. Check details below.",
+                "detailedText" : e,
+            }
+        finally:
+            self.alert(**alertArgs)
+
         return
 
     def save_settings(self):
