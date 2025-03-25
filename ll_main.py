@@ -63,12 +63,6 @@ class MainWindow(QMainWindow):
                                     "skybase": False,
                                     "gamebanana": False
                                     },
-                                "masterservers": {
-                                    "Astronight": {"url":"http://24.193.201.61/" , "api":"snitch"},
-                                    "InFTord": {"url":"https://lms.inftord.tech/" , "api":"snitch"},
-                                    "STJr": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
-                                    "Kart Krew": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
-                                    },
                                 "rss": [
                                     "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
@@ -1391,10 +1385,9 @@ class MainWindow(QMainWindow):
         if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "masterservers.toml")):
             print("No master servers file. Creating default...")
             self.ms_list = {
-                "Astronight": {"url":"http://24.193.201.61/" , "api":"snitch"},
-                "InFTord": {"url":"https://lms.inftord.tech/" , "api":"snitch"},
-                "STJr": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
-                "Kart Krew": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
+                "SRB2 Official": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
+                "SRB2Kart Official": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
+                "Ring Racers Official": {"url":"https://ms.kartkrew.org/ms/api/games/RingRacers/4" , "api":"kartv2"},
                 }
             self.ui.MasterServersTable.setRowCount(0)
             for ms in self.ms_list:
