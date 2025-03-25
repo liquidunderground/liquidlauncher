@@ -5528,7 +5528,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <item row="1" column="4">
                     <widget class="QPushButton" name="MSMoveUpButton">
                      <property name="toolTip">
-                      <string>Add Master Server</string>
+                      <string>Move up</string>
                      </property>
                      <property name="text">
                       <string/>
@@ -5545,7 +5545,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <item row="1" column="5">
                     <widget class="QPushButton" name="MSMoveDownButton">
                      <property name="toolTip">
-                      <string>Add Master Server</string>
+                      <string>Move down</string>
                      </property>
                      <property name="text">
                       <string/>
