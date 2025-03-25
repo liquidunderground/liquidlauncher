@@ -174,24 +174,25 @@ class MainWindow(QMainWindow):
         # (Dev) settings hooks ======================================================= #
         self.ui.SaveSettingsButton.clicked.connect(self.save_settings)
 
-        # dock "tabs" ================================================================ #
+        # Dock "tabs" ================================================================ #
         self.ui.NewsTabButton.clicked.connect(lambda: self.change_main_tab(0))
-        self.ui.GameTabButton.clicked.connect(lambda: self.change_main_tab(1))
-        self.ui.HelpTabButton.clicked.connect(lambda: self.change_main_tab(2))
-        self.ui.SettingsTabButton.clicked.connect(lambda: self.change_main_tab(3))
+        self.ui.SingleplayerTabButton.clicked.connect(lambda: self.change_main_tab(1))
+        self.ui.MultiplayerTabButton.clicked.connect(lambda: self.change_main_tab(2))
+        self.ui.HelpTabButton.clicked.connect(lambda: self.change_main_tab(3))
+        self.ui.SettingsTabButton.clicked.connect(lambda: self.change_main_tab(4))
 
-        # game "tabs" ================================================================ #
-        self.ui.GamePageTabList.currentRowChanged.connect(self.change_game_tab)
+        # Sidebar "tabs" ================================================================ #
+        self.ui.SingleplayerTabList.currentRowChanged.connect(self.ui.GameContentStackedWidget.setCurrentIndex)
+        self.ui.MultiplayerTabList.currentRowChanged.connect(self.ui.MultiplayerStackedWidget.setCurrentIndex)
+        self.ui.SettingsTabList.currentRowChanged.connect(self.ui.SettingsStackedWidget.setCurrentIndex)
 
         # profile buttons ======================================================= #
-        self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
         self.ui.ProfilesAddButton.clicked.connect(self.add_profile)
         self.ui.ProfilesDeleteButton.clicked.connect(self.confirm_delete_profile)
         self.ui.ProfilesRefreshButton.clicked.connect(self.refresh_profiles)
         self.ui.ProfilesSaveButton.clicked.connect(lambda: self.save_profile_file(self.ui.GameProfileComboBox.currentText()))
         #self.ui.GameProfileComboBox.currentIndexChanged.connect(self.set_current_profile)
-        self.ui.GameProfileComboBox.currentTextChanged.connect(self.set_current_profile)
-        #self.ui.ProfileDirBrowseButton.clicked.connect(self.set_game_path)
+        self.ui.GameProfileComboBox.currentTextChanged.connect(self.load_profile)
 
         # Launch sript export buttons ================================================ #
         self.ui.ExportServerScriptButton.clicked.connect(self.export_script)
@@ -287,7 +288,8 @@ class MainWindow(QMainWindow):
         self.ui.BattlemodSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
 
         # play button ================================================================ #
-        self.ui.GamePlayButton.clicked.connect(self.launch_game_normally)
+        self.ui.GamePlayButton.clicked.connect(self.launch_game_client)
+        self.ui.ServerPlayButton.clicked.connect(self.launch_game_server)
 
     # RSS Functions
 
@@ -614,29 +616,12 @@ class MainWindow(QMainWindow):
         print("SERVER COMMAND: {}".format(launch_command))
         return launch_command
 
-    def set_game_path(self):
-        f = QFileDialog.getExistingDirectory()
-        if (f):
-            #self.PathGameFilesExecScriptInput.setText(f)
-            self.ui.ProfileDirInput.setText(f)
-            pass
-
-    #ä
     def query_ms_rooms(self):
         print("query_ms_rooms()")
         self.ui.MSRoomqueryrefreshButton.setEnabled(False) # MutEx lock. unlock in on_query_rooms
         self.ui.RoomInput.setEnabled(False)
         url = self.ui.HostMSCombobox.currentText()
         self.query_ms_rooms_sig.emit(url)
-        #self.on_ms_rooms({
-            #33: "Standard",
-            #28: "Casual",
-            #38: "Custom Gametypes",
-            #31: "OLDC",
-            #101: "@Sonic",
-            #102: "@Tails",
-            #103: "@Knuckles",
-        #}) # Debug switch
 
     def on_ms_rooms(self, data={}):
         print("on_ms_rooms({})\n".format(data))
@@ -752,21 +737,21 @@ class MainWindow(QMainWindow):
         if (f):
             self.ui.GameFilesExecScriptInput.setText(f)
 
-    def launch_game_normally(self):
+    def launch_game_client(self):
         launchCommand_client = self.get_client_launch_command()
-        launchCommand_server = self.get_server_launch_command()
+        subprocess.Popen(launchCommand_client, cwd=Path(self.ui.HomePathInput.text()))
+        return
 
-        # Check mode: Hosting?
-        if self.ui.GamePageTabList.currentRow() == 3:
-            subprocess.Popen(launchCommand_server, cwd=Path(self.ui.HomePathInput.text()))
-        else:
-            subprocess.Popen(launchCommand_client, cwd=Path(self.ui.HomePathInput.text()))
+    def launch_game_server(self):
+        launchCommand_server = self.get_server_launch_command()
+        subprocess.Popen(launchCommand_server, cwd=Path(self.ui.HomePathInput.text()))
         return
 
     def change_main_tab(self, index):
         # Reset all buttons
         self.ui.NewsTabButton.setChecked(False)
-        self.ui.GameTabButton.setChecked(False)
+        self.ui.SingleplayerTabButton.setChecked(False)
+        self.ui.MultiplayerTabButton.setChecked(False)
         self.ui.HelpTabButton.setChecked(False)
         self.ui.SettingsTabButton.setChecked(False)
 
@@ -774,22 +759,15 @@ class MainWindow(QMainWindow):
         if index == 0:
             self.ui.NewsTabButton.setChecked(True)
         if index == 1:
-            self.ui.GameTabButton.setChecked(True)
+            self.ui.SingleplayerTabButton.setChecked(True)
         if index == 2:
-            self.ui.HelpTabButton.setChecked(True)
+            self.ui.MultiplayerTabButton.setChecked(True)
         if index == 3:
+            self.ui.HelpTabButton.setChecked(True)
+        if index == 4:
             self.ui.SettingsTabButton.setChecked(True)
 
         self.ui.MainTabsStackedWidget.setCurrentIndex(index)
-        return
-
-    def change_game_tab(self, index):
-        self.ui.GameContentStackedWidget.setCurrentIndex(index)
-        # Check mode: Hosting? -> Adjust GamePlayButton text
-        if self.ui.GamePageTabList.currentRow() == 3:
-            self.ui.GamePlayButton.setText("LAUNCH SERVER")
-        else:
-            self.ui.GamePlayButton.setText("PLAY")
         return
 
     # Mods browser
@@ -1046,7 +1024,9 @@ class MainWindow(QMainWindow):
             self.ui.SavedNetgameTable.item( self.ui.SavedNetgameTable.currentRow(), 1 ).text(),
             self.ui.SavedNetgameTable.item( self.ui.SavedNetgameTable.currentRow(), 2 ).text(),
         )
-        subprocess.Popen(self.get_client_launch_command() + ["-connect" + ipString])
+        launchopts = self.get_client_launch_command() + ["-connect", ipString]
+        print(f"Joining {ipString} using {launchopts}")
+        subprocess.Popen(launchopts)
         return
 
     def join_from_ip(self):
@@ -1176,7 +1156,7 @@ class MainWindow(QMainWindow):
     # Settings and profiles
 
     def closeEvent(self, e):
-        self.save_all()
+        #self.save_all()
         return
     
     def save_all(self):
@@ -1200,7 +1180,7 @@ class MainWindow(QMainWindow):
 
         self.load_ms_list() # Load MSes to be used
         self.load_server_list() # Load Bookmarks
-        self.load_current_profile()
+        self.load_profile(self.global_settings["current_profile"])
         try:
             self.query_ms()  # populates master server list
         except:
@@ -1241,20 +1221,18 @@ class MainWindow(QMainWindow):
             iprofile = self.ui.GameProfileComboBox.itemText(profile)
 
         print("set_current_profile({})".format(iprofile))
-        self.global_settings["current_profile"] = iprofile
 
         # Mutex lock for auto-updates
         self.ui.GameProfileComboBox.blockSignals(True)
         self.ui.GameProfileComboBox.setCurrentText(iprofile)
         self.ui.GameProfileComboBox.blockSignals(False)
-        self.load_current_profile()
     
     def verify_global_settings_integrity(self):
         """Verifies that profile files specified in the global settings file
         all exist.
         """
-        pass
         # TODO
+        pass
     
     def add_profile(self):
         filename, res = QInputDialog.getText(self, 'Create new profile', 'Filename:')
@@ -1263,11 +1241,16 @@ class MainWindow(QMainWindow):
                 filename = filename+".toml"
             self.save_profile_file(filename)
             self.refresh_profiles(filename)
-        self.ui.ProfilesStatusLabel.setText("{} succesfully added.".format(filename))
+        alertArgs = {
+            "type" : "info",
+            "title" : "Profile Added",
+            "message" : f"Profile {filename} successfully added" \
+        }
+        self.alert(**alertArgs)
 
     def confirm_delete_profile(self):
         profilepath = os.path.join(
-            os.getcwd(), ".liquidlauncher", 
+            os.getcwd(), ".liquidlauncher", "profiles",
             self.ui.GameProfileComboBox.currentText()
             )
         msg = QMessageBox()
@@ -1287,15 +1270,20 @@ class MainWindow(QMainWindow):
         self.ui.GameProfileComboBox.clear()
         self.ui.GameProfileComboBox.addItems(profiles)
         if isinstance(newprof, str):
-            self.set_current_profile(newprof)
+            self.load_profile(newprof)
         elif isinstance(newprof, int) and newprof < 0:
             self.ui.GameProfileComboBox.setCurrentIndex(0)
-            self.set_current_profile(self.ui.GameProfileComboBox.currentText())
+            self.load_profile(self.ui.GameProfileComboBox.currentText())
         elif isinstance(self.global_settings["current_profile"], str):
-            self.set_current_profile(self.global_settings["current_profile"])
+            self.load_profile(self.global_settings["current_profile"])
         self.ui.ProfilesDeleteButton.setEnabled(True)
         self.ui.GameProfileComboBox.blockSignals(False)
-        self.ui.ProfilesStatusLabel.setText("Profile list updated.")
+        alertArgs = {
+            "type" : "info",
+            "title" : "Refreshed profiles",
+            "message" : f"Profile list updated" \
+        }
+        self.alert(**alertArgs)
 
     def load_global_settings(self):
         print("load_global_settings()")
@@ -1307,7 +1295,6 @@ class MainWindow(QMainWindow):
         toml_settings = self.read_config_file(global_settings_file)
         self.global_settings.update(toml_settings)
 
-        self.ui.ProfileDirInput.setText("<TO BE REMOVED>")
         self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
 
         # Update RSS List in UI
@@ -1385,7 +1372,7 @@ class MainWindow(QMainWindow):
         self.global_settings["rss"] = feeds
 
     def create_default_settings(self):
-        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "ll_settings.toml")):
+        if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "config.toml")):
             print("No global settings. Creating default...")
             self.save_global_settings_file()
     def create_default_ms_list(self):
@@ -1416,17 +1403,22 @@ class MainWindow(QMainWindow):
             print("No default profile. Creating default...")
             self.save_profile_file(self.global_settings["current_profile"])
     
-    def load_current_profile(self):
-        print("Current profile: {}".format(self.global_settings["current_profile"]))
+    def load_profile(self, profile):
+        print("Profile changed: {} -> {}".format(
+            self.global_settings["current_profile"],
+            profile
+            ))
         self.current_profile_settings = self.read_config_file(
-            os.path.join(os.getcwd(), ".liquidlauncher", "profiles", self.global_settings["current_profile"])
+            os.path.join(os.getcwd(), ".liquidlauncher", "profiles", profile)
             )
         print("Current profile settings: {}".format(self.current_profile_settings))
         self.apply_profile_settings_to_gui(self.current_profile_settings)
-        
-    def load_different_profile(self, profile):
-        # Stub Obsolete the way set_current_profile calls the loader
-        self.set_current_profile(profile)
+        alertArgs = {
+            "type" : "info",
+            "title" : "Profile Loaded",
+            "message" : f"You are now using {profile}" \
+        }
+        self.alert(**alertArgs)
         
     def get_profile_dict_from_file(self, profile_filename):
         """Gets profile settings as a dictionary from a profile TOML file
@@ -1626,7 +1618,6 @@ class MainWindow(QMainWindow):
         self.ui.Battle_addoptionsInput.setText( profile_settings_dict["host"]["battle_addoptions"] )
 
         self.change_skin_image()
-        self.ui.ProfilesStatusLabel.setText("Profile successfully loaded.")
 
     
     def update_binmode_in_ui(self):
@@ -1821,8 +1812,13 @@ class MainWindow(QMainWindow):
         with open(profilepath, "w") as f:
             new_toml_string = toml.dump(toml_settings, f)
 
-        print("saved profile file")
-        self.ui.ProfilesStatusLabel.setText("{} succesfully saved.".format(filename))
+        print("Saved profile {filename}")
+        alertArgs = {
+            "type" : "info",
+            "title" : "Profile Saved",
+            "message" : f"Profile {filename} successfully saved" \
+        }
+        self.alert(**alertArgs)
         return
 
     # Misc
