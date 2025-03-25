@@ -375,7 +375,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -464,22 +464,14 @@
                  </property>
                 </widget>
                </item>
-               <item row="3" column="2">
-                <widget class="QPushButton" name="RSSViewonlineButton">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>View online</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="ll.qrc">
-                   <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-                 </property>
-                </widget>
-               </item>
                <item row="2" column="0" colspan="3">
                 <widget class="QSplitter" name="splitter_4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Orientation::Horizontal</enum>
                  </property>
@@ -489,6 +481,9 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="contextMenuPolicy">
+                   <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
                   </property>
                   <item>
                    <property name="text">

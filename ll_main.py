@@ -219,7 +219,7 @@ class MainWindow(QMainWindow):
         tmp_refresh_icon = QtGui.QIcon()
         tmp_download_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/download.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         tmp_globe_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/globe.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        tmp_mediaplay_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/media-playback_start.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        tmp_mediaplay_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/media-playback-start.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         tmp_refresh_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/view-refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ui.ModsList.addAction(tmp_mediaplay_icon, "Open", self.load_mod_page)
         self.ui.ModsList.addAction(tmp_refresh_icon, "Refresh", self.refresh_mods_list)
@@ -256,9 +256,12 @@ class MainWindow(QMainWindow):
         # RSS feed controls ======================================================== #
         self.ui.RSSRefreshButton.clicked.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
-        self.ui.RSSViewonlineButton.clicked.connect(self.view_article_online)
-        self.ui.RSSArticleList.doubleClicked.connect(self.view_article_online)
-        self.ui.RSSArticleList.currentRowChanged.connect(self.load_article)
+        self.ui.RSSArticleList.itemDoubleClicked.connect(self.load_article_web)
+
+        self.ui.RSSArticleList.addAction(tmp_mediaplay_icon, "Open (link)", self.load_article_web)
+        self.ui.RSSArticleList.addAction("Open (text)", self.load_article_text)
+        self.ui.RSSArticleList.addAction(tmp_globe_icon, "Open in Browser", self.view_article_online)
+        self.ui.RSSArticleList.addAction(tmp_refresh_icon, "Refresh", lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
 
         # modsources checkboxes ================================================================ #
         #self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
@@ -377,8 +380,8 @@ class MainWindow(QMainWindow):
             self.ui.RSSArticleList.addItem("{} (by {})".format(getattr(item,"title", "[UNKNOWN]"), getattr(item,"author", "[ANONYMOUS]")))
         self.ui.RSSStatusLabel.setText(args_o["message"])
 
-    def load_article(self, index):
-        self.ui.RSSViewonlineButton.setEnabled(True);
+    def load_article_text(self):
+        index = self.ui.RSSArticleList.currentRow()
         if hasattr(self.news[index], "content"):
             self.ui.RSSArticleView.setHtml(self.news[index].content[0].value)
         else:
@@ -390,6 +393,10 @@ class MainWindow(QMainWindow):
                                            "your Liquid Launcher</p>"
                                            "<a href={}>View online</a>"
                                            .format(self.news[index].title, self.news[index].link))
+
+    def load_article_web(self):
+        index = self.ui.RSSArticleList.currentRow()
+        self.ui.RSSArticleView.setUrl(self.news[index].link)
 
     def view_article_online(self, index):
         idx = self.ui.RSSArticleList.currentRow()
