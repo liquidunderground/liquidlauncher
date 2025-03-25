@@ -839,15 +839,6 @@ class Ui_MainWindow(object):
         self.GamePlayFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_3 = QGridLayout(self.GamePlayFrame)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.GamePlayButton = QPushButton(self.GamePlayFrame)
-        self.GamePlayButton.setObjectName(u"GamePlayButton")
-        sizePolicy5.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
-        self.GamePlayButton.setSizePolicy(sizePolicy5)
-        self.GamePlayButton.setMaximumSize(QSize(240, 38))
-        self.GamePlayButton.setIcon(icon17)
-
-        self.gridLayout_3.addWidget(self.GamePlayButton, 1, 9, 2, 1)
-
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_3.addItem(self.horizontalSpacer_3, 1, 8, 2, 1)
@@ -858,6 +849,17 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout_3.addWidget(self.frame, 1, 3, 1, 1)
+
+        self.GamePlayButton = QToolButton(self.GamePlayFrame)
+        self.GamePlayButton.setObjectName(u"GamePlayButton")
+        sizePolicy5.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
+        self.GamePlayButton.setSizePolicy(sizePolicy5)
+        self.GamePlayButton.setMaximumSize(QSize(240, 38))
+        self.GamePlayButton.setIcon(icon17)
+        self.GamePlayButton.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
+        self.GamePlayButton.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+
+        self.gridLayout_3.addWidget(self.GamePlayButton, 1, 9, 2, 1)
 
 
         self.gridLayout_16.addWidget(self.GamePlayFrame, 1, 1, 1, 1)
