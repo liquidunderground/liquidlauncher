@@ -66,7 +66,7 @@ class MainWindow(QMainWindow):
                                 "rss": [
                                     "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
-                                    "https://www.sonicstadium.org/feed",
+                                    "https://www.sonicstadium.org/rss/5-all-sonic-news.xml/",
                                     ],
                                 "devsettings": {
                                     "http_user_agent": http_headers["User-Agent"]
