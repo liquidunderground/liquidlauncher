@@ -21,7 +21,7 @@ from ll_ui import *
 from ll_info import product_version as versionString
 from ll_info import http_headers, set_http_header
 
-global_settings_file = os.path.join(os.getcwd(), ".liquidlauncher", "ll_settings.toml")
+global_settings_file = os.path.join(os.getcwd(), ".liquidlauncher", "config.toml")
 
 # Guarantee config dirs
 if not os.path.isdir(os.path.join(os.getcwd(), ".liquidlauncher", "profiles")):
