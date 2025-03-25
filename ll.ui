@@ -375,7 +375,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1201,6 +1201,86 @@ font-size: 12pt;</string>
                         <property name="orientation">
                          <enum>Qt::Orientation::Horizontal</enum>
                         </property>
+                        <widget class="QGroupBox" name="groupBox_33">
+                         <property name="title">
+                          <string>Mod details</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_4">
+                          <item row="0" column="0" colspan="3">
+                           <widget class="QWebEngineView" name="ModBrowser" native="true">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="palette">
+                             <palette>
+                              <active>
+                               <colorrole role="WindowText">
+                                <brush brushstyle="SolidPattern">
+                                 <color alpha="255">
+                                  <red>255</red>
+                                  <green>255</green>
+                                  <blue>255</blue>
+                                 </color>
+                                </brush>
+                               </colorrole>
+                              </active>
+                              <inactive>
+                               <colorrole role="WindowText">
+                                <brush brushstyle="SolidPattern">
+                                 <color alpha="255">
+                                  <red>255</red>
+                                  <green>255</green>
+                                  <blue>255</blue>
+                                 </color>
+                                </brush>
+                               </colorrole>
+                              </inactive>
+                              <disabled>
+                               <colorrole role="WindowText">
+                                <brush brushstyle="SolidPattern">
+                                 <color alpha="255">
+                                  <red>110</red>
+                                  <green>113</green>
+                                  <blue>115</blue>
+                                 </color>
+                                </brush>
+                               </colorrole>
+                              </disabled>
+                             </palette>
+                            </property>
+                            <property name="autoFillBackground">
+                             <bool>true</bool>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">* {background-color: 1f1f1f;}</string>
+                            </property>
+                            <property name="url" stdset="0">
+                             <url>
+                              <string>about:blank</string>
+                             </url>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QLabel" name="ModStatusLabel">
+                            <property name="font">
+                             <font>
+                              <pointsize>8</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Double click a mod to view</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
                         <widget class="QGroupBox" name="groupBox_34">
                          <property name="title">
                           <string>Available Mods</string>
@@ -1308,86 +1388,6 @@ font-size: 12pt;</string>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="ModStatusLabel">
-                            <property name="font">
-                             <font>
-                              <pointsize>8</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Select a category and click &quot;refresh&quot;</string>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                        <widget class="QGroupBox" name="groupBox_33">
-                         <property name="title">
-                          <string>Mod details</string>
-                         </property>
-                         <layout class="QGridLayout" name="gridLayout_4">
-                          <item row="0" column="0" colspan="3">
-                           <widget class="QWebEngineView" name="ModBrowser" native="true">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="palette">
-                             <palette>
-                              <active>
-                               <colorrole role="WindowText">
-                                <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
-                                  <red>255</red>
-                                  <green>255</green>
-                                  <blue>255</blue>
-                                 </color>
-                                </brush>
-                               </colorrole>
-                              </active>
-                              <inactive>
-                               <colorrole role="WindowText">
-                                <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
-                                  <red>255</red>
-                                  <green>255</green>
-                                  <blue>255</blue>
-                                 </color>
-                                </brush>
-                               </colorrole>
-                              </inactive>
-                              <disabled>
-                               <colorrole role="WindowText">
-                                <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
-                                  <red>110</red>
-                                  <green>113</green>
-                                  <blue>115</blue>
-                                 </color>
-                                </brush>
-                               </colorrole>
-                              </disabled>
-                             </palette>
-                            </property>
-                            <property name="autoFillBackground">
-                             <bool>true</bool>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">* {background-color: 1f1f1f;}</string>
-                            </property>
-                            <property name="url" stdset="0">
-                             <url>
-                              <string>about:blank</string>
-                             </url>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1" colspan="2">
                            <widget class="QCheckBox" name="AdddownloadtolaunchmodsCheckbox">
                             <property name="text">
                              <string>Add finished download to active mods</string>

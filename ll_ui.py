@@ -649,6 +649,37 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.splitter_2.sizePolicy().hasHeightForWidth())
         self.splitter_2.setSizePolicy(sizePolicy5)
         self.splitter_2.setOrientation(Qt.Orientation.Horizontal)
+        self.groupBox_33 = QGroupBox(self.splitter_2)
+        self.groupBox_33.setObjectName(u"groupBox_33")
+        self.gridLayout_4 = QGridLayout(self.groupBox_33)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.ModBrowser = QWebEngineView(self.groupBox_33)
+        self.ModBrowser.setObjectName(u"ModBrowser")
+        sizePolicy5.setHeightForWidth(self.ModBrowser.sizePolicy().hasHeightForWidth())
+        self.ModBrowser.setSizePolicy(sizePolicy5)
+        palette = QPalette()
+        brush = QBrush(QColor(255, 255, 255, 255))
+        brush.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        brush1 = QBrush(QColor(110, 113, 115, 255))
+        brush1.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.ModBrowser.setPalette(palette)
+        self.ModBrowser.setAutoFillBackground(True)
+        self.ModBrowser.setStyleSheet(u"* {background-color: 1f1f1f;}")
+        self.ModBrowser.setProperty("url", QUrl(u"about:blank"))
+
+        self.gridLayout_4.addWidget(self.ModBrowser, 0, 0, 1, 3)
+
+        self.ModStatusLabel = QLabel(self.groupBox_33)
+        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
+        self.ModStatusLabel.setFont(font2)
+        self.ModStatusLabel.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.gridLayout_4.addWidget(self.ModStatusLabel, 2, 1, 1, 1)
+
+        self.splitter_2.addWidget(self.groupBox_33)
         self.groupBox_34 = QGroupBox(self.splitter_2)
         self.groupBox_34.setObjectName(u"groupBox_34")
         self.verticalLayout_25 = QVBoxLayout(self.groupBox_34)
@@ -702,44 +733,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_25.addWidget(self.ModsList)
 
-        self.ModStatusLabel = QLabel(self.groupBox_34)
-        self.ModStatusLabel.setObjectName(u"ModStatusLabel")
-        self.ModStatusLabel.setFont(font2)
-        self.ModStatusLabel.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
-
-        self.verticalLayout_25.addWidget(self.ModStatusLabel)
-
-        self.splitter_2.addWidget(self.groupBox_34)
-        self.groupBox_33 = QGroupBox(self.splitter_2)
-        self.groupBox_33.setObjectName(u"groupBox_33")
-        self.gridLayout_4 = QGridLayout(self.groupBox_33)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.ModBrowser = QWebEngineView(self.groupBox_33)
-        self.ModBrowser.setObjectName(u"ModBrowser")
-        sizePolicy5.setHeightForWidth(self.ModBrowser.sizePolicy().hasHeightForWidth())
-        self.ModBrowser.setSizePolicy(sizePolicy5)
-        palette = QPalette()
-        brush = QBrush(QColor(255, 255, 255, 255))
-        brush.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        brush1 = QBrush(QColor(110, 113, 115, 255))
-        brush1.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
-        self.ModBrowser.setPalette(palette)
-        self.ModBrowser.setAutoFillBackground(True)
-        self.ModBrowser.setStyleSheet(u"* {background-color: 1f1f1f;}")
-        self.ModBrowser.setProperty("url", QUrl(u"about:blank"))
-
-        self.gridLayout_4.addWidget(self.ModBrowser, 0, 0, 1, 3)
-
-        self.AdddownloadtolaunchmodsCheckbox = QCheckBox(self.groupBox_33)
+        self.AdddownloadtolaunchmodsCheckbox = QCheckBox(self.groupBox_34)
         self.AdddownloadtolaunchmodsCheckbox.setObjectName(u"AdddownloadtolaunchmodsCheckbox")
         self.AdddownloadtolaunchmodsCheckbox.setChecked(True)
 
-        self.gridLayout_4.addWidget(self.AdddownloadtolaunchmodsCheckbox, 1, 1, 1, 2)
+        self.verticalLayout_25.addWidget(self.AdddownloadtolaunchmodsCheckbox)
 
-        self.splitter_2.addWidget(self.groupBox_33)
+        self.splitter_2.addWidget(self.groupBox_34)
 
         self.verticalLayout_5.addWidget(self.splitter_2)
 
@@ -3107,7 +3107,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(1)
+        self.MainTabsStackedWidget.setCurrentIndex(2)
         self.GameContentStackedWidget.setCurrentIndex(0)
         self.MultiplayerStackedWidget.setCurrentIndex(1)
         self.PlayerSkinInput.setCurrentIndex(-1)
@@ -3257,6 +3257,8 @@ class Ui_MainWindow(object):
         self.groupBox_21.setTitle(QCoreApplication.translate("MainWindow", u"Launch script", None))
         self.GameFilesExecuteScriptLabel.setText(QCoreApplication.translate("MainWindow", u"Launch Script", None))
         self.GameFilesExecScrBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse scripts...", None))
+        self.groupBox_33.setTitle(QCoreApplication.translate("MainWindow", u"Mod details", None))
+        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Double click a mod to view", None))
         self.groupBox_34.setTitle(QCoreApplication.translate("MainWindow", u"Available Mods", None))
         self.groupBox_31.setTitle("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
@@ -3282,8 +3284,6 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem9.setText(QCoreApplication.translate("MainWindow", u"(Tip: You can also enable more sources in the settings)", None));
         self.ModsList.setSortingEnabled(__sortingEnabled3)
 
-        self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Select a category and click \"refresh\"", None))
-        self.groupBox_33.setTitle(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.AdddownloadtolaunchmodsCheckbox.setText(QCoreApplication.translate("MainWindow", u"Add finished download to active mods", None))
         self.groupBox_32.setTitle(QCoreApplication.translate("MainWindow", u"Download Directory", None))
         self.ModDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
