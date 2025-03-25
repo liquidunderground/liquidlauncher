@@ -217,9 +217,24 @@ class MainWindow(QMainWindow):
 
         # modding list buttons ======================================================= #
         self.ui.RefreshModsButton.clicked.connect(self.refresh_mods_list)
-        self.ui.DownloadModButton.clicked.connect(self.download_mod)
-        self.ui.ModsList.itemSelectionChanged.connect(self.load_mod_page)
-        self.ui.OpenPageButton.clicked.connect(self.open_mod_page)
+        self.ui.ModsList.itemDoubleClicked.connect(self.load_mod_page)
+        # Mod context menu
+        tmp_download_icon = QtGui.QIcon()
+        tmp_globe_icon = QtGui.QIcon()
+        tmp_mediaplay_icon = QtGui.QIcon()
+        tmp_refresh_icon = QtGui.QIcon()
+        tmp_download_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/download.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        tmp_globe_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/globe.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        tmp_mediaplay_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/media-playback_start.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        tmp_refresh_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/view-refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.ui.ModsList.addAction(tmp_mediaplay_icon, "Open", self.load_mod_page)
+        self.ui.ModsList.addAction(tmp_refresh_icon, "Refresh", self.refresh_mods_list)
+        self.ui.ModsList.addAction(tmp_download_icon, "Download", self.download_mod)
+        self.ui.ModsList.addAction(tmp_globe_icon, "Open in browser", self.open_mod_page)
+
+
+
+
         # server list buttons ======================================================== #
         #self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
         self.ui.AddServerButton.clicked.connect(self.add_new_server_to_list)
@@ -811,6 +826,7 @@ class MainWindow(QMainWindow):
                             QtGui.QIcon.Normal,
                             QtGui.QIcon.Off)
             new_item.setIcon(qicon)
+
         self.ui.ModsList.addItem(new_item)
 
     def load_mod_page(self):
@@ -822,12 +838,8 @@ class MainWindow(QMainWindow):
             print("Mod URL: {}".format(mod))
             self.ui.ModBrowser.load(mod)
             self.ui.ModStatusLabel.setText("Mod successfully loaded.")
-            self.ui.OpenPageButton.setEnabled(True)
-            self.ui.DownloadModButton.setEnabled(True)
         else:
             self.ui.ModStatusLabel.setText("No mods found. Did you check your sources?")
-            self.ui.OpenPageButton.setEnabled(False)
-            self.ui.DownloadModButton.setEnabled(True)
 
     def refresh_mods_list(self):
         # TODO: multithreading to get rid of lag
