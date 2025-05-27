@@ -33,7 +33,7 @@
        </size>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
@@ -54,7 +54,7 @@
        <item>
         <spacer name="horizontalSpacer_14">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -67,7 +67,7 @@
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -231,7 +231,7 @@
        <item>
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -244,7 +244,7 @@
        <item>
         <widget class="QFrame" name="ProfleWidgetFrame">
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="3">
@@ -345,7 +345,7 @@
     <item>
      <widget class="QFrame" name="MainAreaFrame">
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
@@ -366,7 +366,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -398,8 +398,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1014</width>
-                <height>528</height>
+                <width>1022</width>
+                <height>522</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -464,7 +464,7 @@
                   </sizepolicy>
                  </property>
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <widget class="QListWidget" name="RSSArticleList">
                   <property name="sizePolicy">
@@ -474,7 +474,7 @@
                    </sizepolicy>
                   </property>
                   <property name="contextMenuPolicy">
-                   <enum>Qt::NoContextMenu</enum>
+                   <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
                   </property>
                   <item>
                    <property name="text">
@@ -526,13 +526,13 @@
            <item>
             <widget class="QFrame" name="GamePageFrame">
              <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
+              <enum>QFrame::Shape::NoFrame</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_16">
               <item row="0" column="1">
                <widget class="QSplitter" name="splitter">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <widget class="QListWidget" name="SingleplayerTabList">
                  <property name="sizePolicy">
@@ -548,7 +548,6 @@
                   <property name="font">
                    <font>
                     <pointsize>14</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -602,7 +601,7 @@
                 </widget>
                 <widget class="QFrame" name="GamePageContentFrame">
                  <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
+                  <enum>QFrame::Shape::NoFrame</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_19">
                   <item row="2" column="0">
@@ -632,9 +631,9 @@
                          <property name="geometry">
                           <rect>
                            <x>0</x>
-                           <y>0</y>
-                           <width>656</width>
-                           <height>382</height>
+                           <y>-35</y>
+                           <width>658</width>
+                           <height>417</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_13">
@@ -826,7 +825,7 @@ font-size: 12pt;</string>
                              <item row="7" column="0" colspan="3">
                               <widget class="Line" name="line_2">
                                <property name="orientation">
-                                <enum>Qt::Vertical</enum>
+                                <enum>Qt::Orientation::Vertical</enum>
                                </property>
                               </widget>
                              </item>
@@ -902,7 +901,7 @@ font-size: 12pt;</string>
                          <item row="7" column="1">
                           <spacer name="horizontalSpacer_11">
                            <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
+                            <enum>Qt::Orientation::Horizontal</enum>
                            </property>
                            <property name="sizeHint" stdset="0">
                             <size>
@@ -924,10 +923,10 @@ font-size: 12pt;</string>
                             <bool>false</bool>
                            </property>
                            <property name="dragDropMode">
-                            <enum>QAbstractItemView::NoDragDrop</enum>
+                            <enum>QAbstractItemView::DragDropMode::NoDragDrop</enum>
                            </property>
                            <property name="selectionMode">
-                            <enum>QAbstractItemView::NoSelection</enum>
+                            <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
                            </property>
                            <property name="iconSize">
                             <size>
@@ -936,7 +935,7 @@ font-size: 12pt;</string>
                             </size>
                            </property>
                            <property name="movement">
-                            <enum>QListView::Static</enum>
+                            <enum>QListView::Movement::Static</enum>
                            </property>
                            <item>
                             <property name="text">
@@ -1053,7 +1052,7 @@ font-size: 12pt;</string>
                          <item row="4" column="4">
                           <spacer name="verticalSpacer_10">
                            <property name="orientation">
-                            <enum>Qt::Vertical</enum>
+                            <enum>Qt::Orientation::Vertical</enum>
                            </property>
                            <property name="sizeHint" stdset="0">
                             <size>
@@ -1186,7 +1185,7 @@ font-size: 12pt;</string>
                          </sizepolicy>
                         </property>
                         <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
+                         <enum>Qt::Orientation::Horizontal</enum>
                         </property>
                         <widget class="QGroupBox" name="groupBox_33">
                          <property name="title">
@@ -1351,7 +1350,7 @@ font-size: 12pt;</string>
                              </sizepolicy>
                             </property>
                             <property name="contextMenuPolicy">
-                             <enum>Qt::NoContextMenu</enum>
+                             <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
                             </property>
                             <item>
                              <property name="text">
@@ -1426,7 +1425,7 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>374</width>
+                           <width>401</width>
                            <height>382</height>
                           </rect>
                          </property>
@@ -1495,7 +1494,7 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>274</width>
+                           <width>268</width>
                            <height>382</height>
                           </rect>
                          </property>
@@ -1530,16 +1529,16 @@ font-size: 12pt;</string>
                  </size>
                 </property>
                 <property name="frameShape">
-                 <enum>QFrame::NoFrame</enum>
+                 <enum>QFrame::Shape::NoFrame</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
                   <spacer name="horizontalSpacer_3">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeType">
-                    <enum>QSizePolicy::Expanding</enum>
+                    <enum>QSizePolicy::Policy::Expanding</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1571,20 +1570,20 @@ font-size: 12pt;</string>
                      <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                    </property>
                    <property name="popupMode">
-                    <enum>QToolButton::MenuButtonPopup</enum>
+                    <enum>QToolButton::ToolButtonPopupMode::MenuButtonPopup</enum>
                    </property>
                    <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <spacer name="horizontalSpacer_4">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeType">
-                    <enum>QSizePolicy::Expanding</enum>
+                    <enum>QSizePolicy::Policy::Expanding</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1607,7 +1606,7 @@ font-size: 12pt;</string>
            <item>
             <widget class="QSplitter" name="splitter_5">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <widget class="QListWidget" name="MultiplayerTabList">
               <item>
@@ -1683,15 +1682,15 @@ font-size: 12pt;</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>711</width>
-                     <height>430</height>
+                     <width>676</width>
+                     <height>497</height>
                     </rect>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_5">
                     <item row="14" column="0" colspan="2">
                      <spacer name="verticalSpacer_2">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1770,7 +1769,7 @@ font-size: 12pt;</string>
                             <property name="currentIndex">
                              <number>-1</number>
                             </property>
-                            <property name="placeholderText" stdset="0">
+                            <property name="placeholderText">
                              <string>Sonic</string>
                             </property>
                             <item>
@@ -1849,7 +1848,7 @@ font-size: 12pt;</string>
                             <property name="currentIndex">
                              <number>0</number>
                             </property>
-                            <property name="placeholderText" stdset="0">
+                            <property name="placeholderText">
                              <string>Blue</string>
                             </property>
                             <item>
@@ -2200,7 +2199,7 @@ font-size: 12pt;</string>
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Sonic&lt;/span&gt; is the fastest of the three, but also the hardest to control. Begginers beware, but experts will find Sonic very powerful.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Ability:&lt;/span&gt; Speed Thok&lt;br/&gt;Double jump to zoom forward with a huge burst of speed&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#dddd00;&quot;&gt;Tip:&lt;/span&gt; Simply letting go of forward does not slow down in SRB2. To slow down, hold the opposite direction.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                             <property name="textFormat">
-                             <enum>Qt::RichText</enum>
+                             <enum>Qt::TextFormat::RichText</enum>
                             </property>
                             <property name="wordWrap">
                              <bool>true</bool>
@@ -2274,13 +2273,13 @@ font-size: 12pt;</string>
                    </sizepolicy>
                   </property>
                   <property name="sizeAdjustPolicy">
-                   <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                   <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
                   </property>
                   <property name="editTriggers">
-                   <set>QAbstractItemView::NoEditTriggers</set>
+                   <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                   </property>
                   <property name="selectionBehavior">
-                   <enum>QAbstractItemView::SelectItems</enum>
+                   <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
                   </property>
                   <attribute name="horizontalHeaderCascadingSectionResizes">
                    <bool>true</bool>
@@ -2396,7 +2395,7 @@ font-size: 12pt;</string>
                 <item row="0" column="1" colspan="3">
                  <spacer name="horizontalSpacer_7">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -2416,7 +2415,7 @@ font-size: 12pt;</string>
                 <item row="2" column="2">
                  <spacer name="horizontalSpacer_6">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -2441,7 +2440,7 @@ font-size: 12pt;</string>
                    </size>
                   </property>
                   <property name="sizeAdjustPolicy">
-                   <enum>QComboBox::AdjustToContents</enum>
+                   <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
                   </property>
                   <item>
                    <property name="text">
@@ -2519,10 +2518,10 @@ font-size: 12pt;</string>
                       </sizepolicy>
                      </property>
                      <property name="sizeAdjustPolicy">
-                      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
                      </property>
                      <property name="selectionBehavior">
-                      <enum>QAbstractItemView::SelectItems</enum>
+                      <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
                      </property>
                      <attribute name="horizontalHeaderCascadingSectionResizes">
                       <bool>true</bool>
@@ -2553,7 +2552,13 @@ font-size: 12pt;</string>
                    <item row="1" column="0">
                     <spacer name="horizontalSpacer_10">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
                      </property>
                     </spacer>
                    </item>
@@ -2606,8 +2611,8 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>670</width>
-                         <height>575</height>
+                         <width>658</width>
+                         <height>701</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -2678,7 +2683,7 @@ font-size: 12pt;</string>
                              <property name="editable">
                               <bool>true</bool>
                              </property>
-                             <property name="placeholderText" stdset="0">
+                             <property name="placeholderText">
                               <string>&lt;default&gt;</string>
                              </property>
                              <item>
@@ -2703,7 +2708,7 @@ font-size: 12pt;</string>
                            <item row="3" column="0" colspan="3">
                             <widget class="QLineEdit" name="AdminPasswordInput">
                              <property name="echoMode">
-                              <enum>QLineEdit::Normal</enum>
+                              <enum>QLineEdit::EchoMode::Normal</enum>
                              </property>
                             </widget>
                            </item>
@@ -2841,7 +2846,7 @@ font-size: 12pt;</string>
                               <item>
                                <widget class="Line" name="line_6">
                                 <property name="orientation">
-                                 <enum>Qt::Vertical</enum>
+                                 <enum>Qt::Orientation::Vertical</enum>
                                 </property>
                                </widget>
                               </item>
@@ -2980,7 +2985,7 @@ font-size: 12pt;</string>
                         <item>
                          <spacer name="verticalSpacer_5">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -3011,8 +3016,8 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>364</width>
-                         <height>527</height>
+                         <width>430</width>
+                         <height>668</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout">
@@ -3498,7 +3503,7 @@ font-size: 12pt;</string>
                         <item row="20" column="1">
                          <spacer name="verticalSpacer_9">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -3550,8 +3555,8 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>226</width>
-                         <height>215</height>
+                         <width>247</width>
+                         <height>262</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3565,7 +3570,7 @@ font-size: 12pt;</string>
                         <item>
                          <widget class="Line" name="line_5">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                          </widget>
                         </item>
@@ -3671,7 +3676,7 @@ font-size: 12pt;</string>
                         <item>
                          <spacer name="verticalSpacer_8">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -3702,8 +3707,8 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>485</width>
-                         <height>559</height>
+                         <width>556</width>
+                         <height>693</height>
                         </rect>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_18">
@@ -4034,9 +4039,12 @@ font-size: 12pt;</string>
                          <widget class="QTextEdit" name="textEdit_2">
                           <property name="html">
                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;&quot;&gt;Ringslinger&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt; refers to all gamemodes that involve shooting rings in a first-person-shooter-like manner, namely:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt;Match&lt;/span&gt;&lt;/p&gt;
@@ -4050,7 +4058,7 @@ p, li { white-space: pre-wrap; }
                         <item row="3" column="0">
                          <spacer name="verticalSpacer_4">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -4081,8 +4089,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>221</width>
-                         <height>164</height>
+                         <width>257</width>
+                         <height>194</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -4161,7 +4169,7 @@ p, li { white-space: pre-wrap; }
                         <item>
                          <spacer name="verticalSpacer_7">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -4192,8 +4200,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>590</width>
-                         <height>876</height>
+                         <width>662</width>
+                         <height>1064</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -4201,9 +4209,12 @@ p, li { white-space: pre-wrap; }
                          <widget class="QTextEdit" name="textEdit">
                           <property name="html">
                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt; font-weight:600;&quot;&gt;Warning:&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:11pt;&quot;&gt; Battlemod is not an official game mode. Please make sure you've included the right PK3 in the launch mods section before adjusting settings here.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
@@ -4218,7 +4229,7 @@ p, li { white-space: pre-wrap; }
                         <item>
                          <widget class="Line" name="line">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                          </widget>
                         </item>
@@ -4472,7 +4483,7 @@ p, li { white-space: pre-wrap; }
                               <item row="4" column="0">
                                <spacer name="verticalSpacer_11">
                                 <property name="orientation">
-                                 <enum>Qt::Vertical</enum>
+                                 <enum>Qt::Orientation::Vertical</enum>
                                 </property>
                                 <property name="sizeHint" stdset="0">
                                  <size>
@@ -4956,7 +4967,7 @@ p, li { white-space: pre-wrap; }
                            <item row="6" column="0" colspan="2">
                             <widget class="Line" name="line_3">
                              <property name="orientation">
-                              <enum>Qt::Vertical</enum>
+                              <enum>Qt::Orientation::Vertical</enum>
                              </property>
                             </widget>
                            </item>
@@ -4966,7 +4977,7 @@ p, li { white-space: pre-wrap; }
                         <item>
                          <spacer name="verticalSpacer_6">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -5015,16 +5026,16 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
+              <enum>QFrame::Shape::NoFrame</enum>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
               <item>
                <spacer name="horizontalSpacer_13">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Expanding</enum>
+                 <enum>QSizePolicy::Policy::Expanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -5056,20 +5067,20 @@ p, li { white-space: pre-wrap; }
                   <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                 </property>
                 <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
+                 <enum>QToolButton::ToolButtonPopupMode::MenuButtonPopup</enum>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                 </property>
                </widget>
               </item>
               <item>
                <spacer name="horizontalSpacer_15">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Expanding</enum>
+                 <enum>QSizePolicy::Policy::Expanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -5114,8 +5125,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1014</width>
-                <height>528</height>
+                <width>1022</width>
+                <height>522</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -5141,18 +5152,21 @@ p, li { white-space: pre-wrap; }
                  </property>
                  <property name="html">
                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/assets/img/liquidlauncher.svg&quot; /&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;LiquidLauncher&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;&quot;&gt;the other launcher for Sonic Robo Blast 2&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt;&quot;&gt;built by Liquid&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.com/invite/HVTzVfAWG6&quot;&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; text-decoration: underline; color:#00d3b8;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;built by Liquid&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://liquidunderground.github.io&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; text-decoration: underline; color:#00ffff;&quot;&gt;Visit our Website&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://discord.com/invite/HVTzVfAWG6&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00d3b8;&quot;&gt;Join our Discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Contributors&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt;&quot;&gt;PixL&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;PixL&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:14pt; font-weight:600;&quot;&gt;This Project is based on the following technologies:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Feedparser&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by Kurt McKee and Mark Pilgrim&lt;/span&gt;&lt;/p&gt;
@@ -5160,48 +5174,50 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;LXML&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt;(libxml binding for Python)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;PyInstaller&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; (distribution)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;PySide6&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by the Qt Project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Python 3&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; by&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Packaging&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (PyPi)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Requests&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;TOML&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (Python)&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt; font-weight:600;&quot;&gt;Qt 6&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:12pt;&quot;&gt; by the Qt project&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Atkinson Hyperlegible'; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Built in PyQt5&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#00ffff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in player nicknames&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The console no longer opens with the launcher&lt;/li&gt;
-&lt;li style=&quot; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Added new icon for the launcher&lt;/li&gt;&lt;/ul&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;About Launcherblast2&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;LauncherBlast2 &amp;quot;reBoot&amp;quot; by HitCoder&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Built in PyQt5&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://mb.srb2.org/threads/launcherblast2-reboot.27592/&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#00ffff;&quot;&gt;View the SRB2 Message Board thread&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;Credits&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;FinestElite - icons for News and Help&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sonic Team Jr - SRB2 icon&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;reBoot-2.0 changelog&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UI Overhaul - main tabs are now at the top and use icons instead of text&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in filenames when adding files to the game&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fixed a bug with spaces in player nicknames&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The console no longer opens with the launcher&lt;/li&gt;
+&lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot; align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Added new icon for the launcher&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;FAQ&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;How do I host a server?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &amp;quot;Play&amp;quot; button has changed to read &amp;quot;Start Server&amp;quot;. You can only start a server with this tab selected.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;&quot;&gt;My antivirus detects Launcherblast2 as a trojan. Is this true?&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &amp;quot;unknown programs&amp;quot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;About Launcherblast2&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:6pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;There are a couple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for now.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="openExternalLinks">
                   <bool>true</bool>
@@ -5219,9 +5235,15 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QSplitter" name="splitter_3">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <widget class="QListWidget" name="SettingsTabList">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <item>
                <property name="text">
                 <string>Master Servers</string>
@@ -5281,7 +5303,7 @@ p, li { white-space: pre-wrap; }
              </widget>
              <widget class="QStackedWidget" name="SettingsStackedWidget">
               <property name="currentIndex">
-               <number>3</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="MSSettingsPage">
                <layout class="QVBoxLayout" name="verticalLayout_29">
@@ -5291,10 +5313,10 @@ p, li { white-space: pre-wrap; }
                    <string>Master Servers</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_37">
-                   <item row="1" column="2">
+                   <item row="1" column="3">
                     <spacer name="horizontalSpacer_9">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -5304,16 +5326,16 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="0" colspan="9">
+                   <item row="0" column="0" colspan="10">
                     <widget class="QTableWidget" name="MasterServersTable">
                      <property name="sizeAdjustPolicy">
-                      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
                      </property>
                      <property name="editTriggers">
-                      <set>QAbstractItemView::NoEditTriggers</set>
+                      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                      </property>
                      <property name="selectionBehavior">
-                      <enum>QAbstractItemView::SelectItems</enum>
+                      <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
                      </property>
                      <attribute name="verticalHeaderVisible">
                       <bool>false</bool>
@@ -5396,73 +5418,7 @@ p, li { white-space: pre-wrap; }
                      </item>
                     </widget>
                    </item>
-                   <item row="1" column="8">
-                    <widget class="QPushButton" name="MSRemoveButton">
-                     <property name="toolTip">
-                      <string>Remove selected Master Server</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="ConfigrepoadLabel">
-                     <property name="text">
-                      <string>Looking for master servers?</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="7">
-                    <widget class="QPushButton" name="MSListSaveButton">
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="MSVisitrepoButton">
-                     <property name="text">
-                      <string>Config repo &gt;&gt;</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="6">
-                    <widget class="QPushButton" name="MSAddButton">
-                     <property name="toolTip">
-                      <string>Add Master Server</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="ll.qrc">
-                       <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="4">
                     <widget class="QPushButton" name="MSMoveUpButton">
                      <property name="toolTip">
                       <string>Move up</string>
@@ -5479,7 +5435,55 @@ p, li { white-space: pre-wrap; }
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="5">
+                   <item row="1" column="9">
+                    <widget class="QPushButton" name="MSRemoveButton">
+                     <property name="toolTip">
+                      <string>Remove selected Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="8">
+                    <widget class="QPushButton" name="MSListSaveButton">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="7">
+                    <widget class="QPushButton" name="MSAddButton">
+                     <property name="toolTip">
+                      <string>Add Master Server</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="ll.qrc">
+                       <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
+                     </property>
+                     <property name="flat">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
                     <widget class="QPushButton" name="MSMoveDownButton">
                      <property name="toolTip">
                       <string>Move down</string>
@@ -5510,7 +5514,7 @@ p, li { white-space: pre-wrap; }
                      <property name="editable">
                       <bool>true</bool>
                      </property>
-                     <property name="placeholderText" stdset="0">
+                     <property name="placeholderText">
                       <string>Destination URL</string>
                      </property>
                     </widget>
@@ -5524,7 +5528,7 @@ p, li { white-space: pre-wrap; }
                    </item>
                    <item row="2" column="1">
                     <widget class="QComboBox" name="SnitchsrcCombobox">
-                     <property name="placeholderText" stdset="0">
+                     <property name="placeholderText">
                       <string>Select a source</string>
                      </property>
                     </widget>
@@ -5625,7 +5629,7 @@ p, li { white-space: pre-wrap; }
                    <item row="2" column="1">
                     <spacer name="horizontalSpacer_8">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -5694,8 +5698,8 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>409</width>
-                     <height>210</height>
+                     <width>477</width>
+                     <height>204</height>
                     </rect>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_42">
@@ -5773,23 +5777,26 @@ p, li { white-space: pre-wrap; }
                       </property>
                       <property name="html">
                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt;&quot;&gt;The hosting of some unofficial mods on the official Master Server [&lt;/span&gt;&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt;&quot;&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt;&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Atkinson Hyperlegible'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600; color:#aa0000;&quot;&gt;WARNING:&lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;The hosting of some unofficial mods on the official Master Server [&lt;/span&gt;&lt;a href=&quot;https://mb.srb2.org/MS/0&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; text-decoration: underline; color:#00d3b8;&quot;&gt;https://mb.srb2.org/MS/0&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;] is prohibited by the Sonic Robo Blast 2 community administration team (&amp;quot;STJr&amp;quot;) and may be penalized by a permanent ban from their Master Server or the official SRB2 Message Board.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;USE THESE ALTERNATIVE MOD SOURCES AT YOUR OWN RISK!!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium';&quot;&gt;Additionally, Liquid has no influence over, nor takes responsibility nor accountability for the quality, compliance or legality of mods or other content found within the provided sources, according to the terms of your or any other jurisdiction.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
                     </item>
                     <item row="5" column="1">
                      <spacer name="verticalSpacer_3">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -5820,8 +5827,8 @@ p, li { white-space: pre-wrap; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>638</width>
-                     <height>462</height>
+                     <width>694</width>
+                     <height>460</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -5835,8 +5842,8 @@ p, li { white-space: pre-wrap; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>618</width>
-                         <height>442</height>
+                         <width>682</width>
+                         <height>448</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -5886,7 +5893,7 @@ p, li { white-space: pre-wrap; }
                         <item>
                          <spacer name="verticalSpacer">
                           <property name="orientation">
-                           <enum>Qt::Vertical</enum>
+                           <enum>Qt::Orientation::Vertical</enum>
                           </property>
                           <property name="sizeHint" stdset="0">
                            <size>
@@ -5939,7 +5946,7 @@ p, li { white-space: pre-wrap; }
  </customwidgets>
  <resources>
   <include location="ll.qrc"/>
-  <include location="../../.designer/backup/ll.qrc"/>
+  <include location="ll.qrc"/>
  </resources>
  <connections/>
 </ui>
