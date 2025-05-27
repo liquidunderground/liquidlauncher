@@ -12,17 +12,18 @@ def parse_server_line(url, server_string, room):
     port = server_data[1]
     name = urllib.parse.unquote(server_data[2]).encode('ascii', errors='ignore').decode()
     version = server_data[3]
-    server = {"ip": ip,
-            "port": port,
-            "name_plain": name,
-            "name": server_data[2],
-            "gametype": "[DUMMY]",
-            "game": "SRB2",
-            "version": version,
-            "room": room,
-            "origin": url,
-            "api": "v1",
-            }
+    server = {
+        "ip": ip,
+        "port": port,
+        "name_plain": name,
+        "name": server_data[2],
+        "gametype": "[DUMMY]",
+        "game": "SRB2",
+        "version": version,
+        "room": room,
+        "origin": url,
+        "api": "v1",
+    }
     return server
 
 def v1_parse_rooms(txt):
@@ -65,8 +66,8 @@ def parse_ms_data(url):
     if ms_netgames.status_code != requests.codes.ok:
         raise Exception('Faulty HTTP response in /servers request ({})'.format(ms_netgames.status_code))
 
-    rooms = v1_parse_rooms(ms_rooms.text)
-    netgameblocks = re.split("\n{2,}", ms_netgames.text)
+    rooms = v1_parse_rooms(ms_rooms.text.strip())
+    netgameblocks = re.split("\n{2,}", ms_netgames.text.strip())
     netgameblocks = filter(lambda blk: len(blk)>1, netgameblocks)
 
     for ngb in netgameblocks:
@@ -109,8 +110,8 @@ def parse_kart_data(url):
 
 def parse_snitch_data(url):
     print("parse_snitch_data ", url)
-    ms_data = requests.get(url+"/liquidms/snitch", headers=headers)
-    lines = ms_data.text.splitlines()
+    ms_data = requests.get(url, headers=headers)
+    lines = ms_data.text.strip().splitlines()
     server_list = []
     if ms_data.status_code != requests.codes.ok:
         raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
