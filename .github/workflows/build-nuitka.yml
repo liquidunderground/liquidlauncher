@@ -11,6 +11,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Python (Linux)
         uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
@@ -41,12 +43,8 @@ jobs:
           disable-console: true # optional
           # Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with \#<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.
           windows-icon-from-ico: img/icons/ll.ico
-          ## Name of the company to use in Windows Version information.  One of file or product version is required, when a version resource needs to be added, e.g. to specify product name, or company name. Defaults to GITHUB_REPOSITORY_OWNER.
-          #windows-company-name: # optional, default is ${{ github.repository_owner }}
-          # Name of the product to use in Windows Version information. Defaults to base filename of the binary.
-          windows-product-name: LiquidLauncher
-          ## When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
-          #macos-create-app-bundle: # optional
+          # When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
+          macos-create-app-bundle: true
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
