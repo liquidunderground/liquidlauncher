@@ -35,7 +35,7 @@ jobs:
           disable-console: true # optional
   build-windows:
       name: Build (Windows)
-      runs-on: ubuntu-latest
+      runs-on: windows-latest
       steps:
         - name: Checkout (Windows)
           uses: actions/checkout@v4
