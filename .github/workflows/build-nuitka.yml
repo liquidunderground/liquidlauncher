@@ -45,8 +45,8 @@ jobs:
           disable-console: true # optional
           # Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with \#<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.
           windows-icon-from-ico: img/icons/ll.ico
-          # When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
-          macos-create-app-bundle: true
+          ## When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
+          #macos-create-app-bundle: true
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
