@@ -17,7 +17,7 @@ jobs:
         run: |
           pip install -r requirements.txt
       - name: Build executable using nuitka-action
-        uses: Nuitka/Nuitka-Action@v1.0
+        uses: Nuitka/Nuitka-Action@main
         with:
           # Name or path to python script that is to be built
           script-name: ll_main.py
