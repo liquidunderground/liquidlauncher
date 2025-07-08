@@ -1,14 +1,20 @@
 on: [push]
 jobs:
-  build-linux:
-    name: Build (Linux)
-    runs-on: ubuntu-latest
+  build:
+    name: Build
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout (Linux)
         uses: actions/checkout@v4
       - name: Setup Python (Linux)
-        uses: actions/setup-python@v4
-      - name: Build for Linux using nuitka-action
+        uses: actions/setup-python@v5
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Build executable using nuitka-action
         uses: Nuitka/Nuitka-Action@v1.0
         with:
           # Name or path to python script that is to be built
@@ -33,44 +39,22 @@ jobs:
           # optional, default is true
           # When compiling for Windows or macOS, disable the console window and create a GUI application. Defaults to false.
           disable-console: true # optional
-  build-windows:
-      name: Build (Windows)
-      runs-on: windows-latest
-      steps:
-        - name: Checkout (Windows)
-          uses: actions/checkout@v4
-        - name: Setup Python (Windows)
-          uses: actions/setup-python@v4
-        - name: Build for Windows using nuitka-action
-          uses: Nuitka/Nuitka-Action@v1.0
-          with:
-            # Name or path to python script that is to be built
-            script-name: ll_main.py
-            # A comma separated list of plugins, such as pyside2, pyside6, tk-inter, etc.
-            enable-plugins: pyside6,anti-bloat,pywebview
-            # Include a whole package. Give as a Python namespace, e.g. "some_package.sub_package" and Nuitka will then find it and include it and all the modules found below that disk location in the binary or extension module it creates, and make it available for import by the code. To avoid unwanted sub packages, e.g. tests you can e.g. do this "--nofollow-import-to=*.tests". Default empty.
-            include-package: xml.sax
-            ## Include a single module. Give as a Python namespace, e.g. "some_package.some_module" and Nuitka will then find it and include it in the binary or extension module it creates, and make it available for import by the code. Default empty.
-            #include-module: # optional
-            # For already compiled extension modules, where there is both a source file and an extension module, normally the extension module is used, but it should be better to compile the module from available source code for best performance. If not desired, there is --no- prefer-source-code to disable warnings about it. Default off.
-            prefer-source-code: true
-            # Directory for output builds
-            output-dir: dist
-            # Specify how the executable should be named. For extension modules there is no choice, also not for standalone mode and using it will be an error. This may include path information that needs to exist though. Defaults to '<program_name>' on this platform. .exe)
-            output-file: LiquidLauncher
-            # optional
-            ## Github personal access token of an account authorized to access the Nuitka/Nuitka-commercial repo
-            #access-token: # optional
-            # When compiling for Windows or macOS, enable the console window and create a console application. This disables hints from certain modules, e.g. "PySide" that suggest to disable it. Defaults to true.
-            enable-console: false
-            # optional, default is true
-            # When compiling for Windows or macOS, disable the console window and create a GUI application. Defaults to false.
-            disable-console: true # optional
-            # Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with \#<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.
-            windows-icon-from-ico: img/icons/ll.ico
-            ## Name of the company to use in Windows Version information.  One of file or product version is required, when a version resource needs to be added, e.g. to specify product name, or company name. Defaults to GITHUB_REPOSITORY_OWNER.
-            #windows-company-name: # optional, default is ${{ github.repository_owner }}
-            # Name of the product to use in Windows Version information. Defaults to base filename of the binary.
-            windows-product-name: LiquidLauncher
-            ## When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
-            #macos-create-app-bundle: # optional
+          # Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with \#<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.
+          windows-icon-from-ico: img/icons/ll.ico
+          ## Name of the company to use in Windows Version information.  One of file or product version is required, when a version resource needs to be added, e.g. to specify product name, or company name. Defaults to GITHUB_REPOSITORY_OWNER.
+          #windows-company-name: # optional, default is ${{ github.repository_owner }}
+          # Name of the product to use in Windows Version information. Defaults to base filename of the binary.
+          windows-product-name: LiquidLauncher
+          ## When compiling for macOS, create a bundle rather than a plain binary application. Currently experimental and incomplete. Currently this is the only way to unlock disabling of console. Defaults to false.
+          #macos-create-app-bundle: # optional
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ runner.os }} Build
+          path: |
+            dist/*.exe
+            dist/*.bin
+            dist/*.amd64
+            dist/*.app/**/*
+            dist/*.dist/**/*
+          include-hidden-files: true
