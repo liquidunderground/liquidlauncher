@@ -1271,6 +1271,7 @@ class MainWindow(QMainWindow):
         self.create_default_bookmarks()
         self.create_default_profile()
 
+        self.refresh_profiles()
         self.load_global_settings()
         self.check_version_sig.emit(versionString) # Launch early for async speed
         self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
@@ -1366,13 +1367,6 @@ class MainWindow(QMainWindow):
         self.ui.GameProfileComboBox.blockSignals(True)
         self.ui.GameProfileComboBox.clear()
         self.ui.GameProfileComboBox.addItems(profiles)
-        if isinstance(newprof, str):
-            self.load_profile(newprof)
-        elif isinstance(newprof, int) and newprof < 0:
-            self.ui.GameProfileComboBox.setCurrentIndex(0)
-            self.load_profile(self.ui.GameProfileComboBox.currentText())
-        elif isinstance(self.global_settings["current_profile"], str):
-            self.load_profile(self.global_settings["current_profile"])
         self.ui.ProfilesDeleteButton.setEnabled(True)
         self.ui.GameProfileComboBox.blockSignals(False)
         alertArgs = {
@@ -1403,7 +1397,6 @@ class MainWindow(QMainWindow):
         self.rss_commit()
 
         # Profiles combobox
-        self.refresh_profiles()
         current_profile_file = self.global_settings["current_profile"]
         self.current_profile_settings = self.read_config_file(
             current_profile_file)
