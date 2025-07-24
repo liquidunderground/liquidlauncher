@@ -294,6 +294,8 @@ class MainWindow(QMainWindow):
         ## MS Room querying
         self.ui.HostMSCombobox.lineEdit().returnPressed.connect(self.query_ms_rooms)
         self.ui.MSRoomqueryrefreshButton.clicked.connect(self.query_ms_rooms)
+        ## Force map checkbox
+        self.ui.StartmapCheckbox.stateChanged.connect(self.on_apply_checkbox)
         ## Settings sections
         self.ui.CoopSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
         self.ui.RingslingerSettingsCheckbox.stateChanged.connect(self.on_apply_checkbox)
@@ -547,6 +549,8 @@ class MainWindow(QMainWindow):
         launch_command += ["+resynchattempts" , str(self.ui.ResynchattemptsInput.value())]
 
         ### Game settings tab ###
+        if self.ui.StartmapCheckbox.isChecked():
+            launch_command += ["-warp" , str(self.ui.StartmapInput.value())]
         launch_command += ["-gametype" , str(self.ui.GametypeInput.currentIndex())]
         launch_command += ["+advancemap" , str(self.ui.AdvanceMapInput.currentIndex())]
         if self.ui.MaxPlayersInput.value() != 8:
@@ -1635,6 +1639,8 @@ class MainWindow(QMainWindow):
         self.ui.ResynchattemptsInput.setValue( profile_settings_dict["host"]["resynchattempts"] )
         # Game Tab
         self.ui.GametypeInput.setCurrentIndex( profile_settings_dict["host"]["gametype"] )
+        self.ui.StartmapCheckbox.setChecked( profile_settings_dict["host"]["forcemap"] )
+        self.ui.StartmapInput.setValue( profile_settings_dict["host"]["map"] )
         self.ui.AdvanceMapInput.setCurrentIndex( profile_settings_dict["host"]["advancemap"] )
         self.ui.PointLimitInput.setValue( profile_settings_dict["host"]["pointlimit"] )
         self.ui.AllowexitlevelCheckbox.setChecked( profile_settings_dict["host"]["allowexitlevel"] )
@@ -1740,6 +1746,11 @@ class MainWindow(QMainWindow):
             self.ui.GameExecFilePathBrowse.setEnabled(True)
 
     def on_apply_checkbox(self):
+        """Enable GUI elements based on other checkboxes
+        """
+        ## Force map checkbox
+        self.ui.StartmapInput.setEnabled(self.ui.StartmapCheckbox.isChecked())
+        ## Gametype Group boxes
         self.ui.CoopSettingsGroupbox.setEnabled(self.ui.CoopSettingsCheckbox.isChecked())
         self.ui.RingslingerSettingsGroupbox.setEnabled(self.ui.RingslingerSettingsCheckbox.isChecked())
         self.ui.CircuitraceSettingsGroupbox.setEnabled(self.ui.CircuitraceSettingsCheckbox.isChecked())
@@ -1815,6 +1826,8 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["resynchattempts"] = self.ui.ResynchattemptsInput.value()
         # Game Tab
         toml_settings["host"]["gametype"] = self.ui.GametypeInput.currentIndex()
+        toml_settings["host"]["forcemap"] = self.ui.StartmapCheckbox.isChecked()
+        toml_settings["host"]["map"] = self.ui.StartmapInput.value()
         toml_settings["host"]["advancemap"] = self.ui.AdvanceMapInput.currentIndex()
         toml_settings["host"]["pointlimit"] = self.ui.PointLimitInput.value()
         toml_settings["host"]["allowexitlevel"] = self.ui.AllowexitlevelCheckbox.isChecked()
