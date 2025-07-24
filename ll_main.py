@@ -553,6 +553,7 @@ class MainWindow(QMainWindow):
             launch_command += ["-warp" , str(self.ui.StartmapInput.value())]
         launch_command += ["-gametype" , str(self.ui.GametypeInput.currentIndex())]
         launch_command += ["+advancemap" , str(self.ui.AdvanceMapInput.currentIndex())]
+        launch_command += ["+inttime" , str(self.ui.InttimeInput.value())]
         if self.ui.MaxPlayersInput.value() != 8:
             launch_command += ["+maxplayers" , str(self.ui.MaxPlayersInput.value())]
         if (self.ui.ForceSkinInput.currentText() != ""):
@@ -1642,6 +1643,7 @@ class MainWindow(QMainWindow):
         self.ui.StartmapCheckbox.setChecked( profile_settings_dict["host"]["forcemap"] )
         self.ui.StartmapInput.setValue( profile_settings_dict["host"]["map"] )
         self.ui.AdvanceMapInput.setCurrentIndex( profile_settings_dict["host"]["advancemap"] )
+        self.ui.InttimeInput.setValue( profile_settings_dict["host"]["inttime"] )
         self.ui.PointLimitInput.setValue( profile_settings_dict["host"]["pointlimit"] )
         self.ui.AllowexitlevelCheckbox.setChecked( profile_settings_dict["host"]["allowexitlevel"] )
         self.ui.ExitmoveCheckbox.setChecked( profile_settings_dict["host"]["exitmove"] )
@@ -1829,6 +1831,7 @@ class MainWindow(QMainWindow):
         toml_settings["host"]["forcemap"] = self.ui.StartmapCheckbox.isChecked()
         toml_settings["host"]["map"] = self.ui.StartmapInput.value()
         toml_settings["host"]["advancemap"] = self.ui.AdvanceMapInput.currentIndex()
+        toml_settings["host"]["inttime"] = self.ui.InttimeInput.value()
         toml_settings["host"]["pointlimit"] = self.ui.PointLimitInput.value()
         toml_settings["host"]["allowexitlevel"] = self.ui.AllowexitlevelCheckbox.isChecked()
         toml_settings["host"]["exitmove"] = self.ui.ExitmoveCheckbox.isChecked()
