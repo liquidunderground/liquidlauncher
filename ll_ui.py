@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.RSSArticleList.sizePolicy().hasHeightForWidth())
         self.RSSArticleList.setSizePolicy(sizePolicy5)
-        self.RSSArticleList.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.RSSArticleList.setContextMenuPolicy(Qt.ContextMenuPolicy.ActionsContextMenu)
         self.splitter_4.addWidget(self.RSSArticleList)
         self.RSSArticleView = QWebEngineView(self.splitter_4)
         self.RSSArticleView.setObjectName(u"RSSArticleView")
@@ -721,7 +721,7 @@ class Ui_MainWindow(object):
         self.ModsList.setObjectName(u"ModsList")
         sizePolicy5.setHeightForWidth(self.ModsList.sizePolicy().hasHeightForWidth())
         self.ModsList.setSizePolicy(sizePolicy5)
-        self.ModsList.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.ModsList.setContextMenuPolicy(Qt.ContextMenuPolicy.ActionsContextMenu)
 
         self.verticalLayout_25.addWidget(self.ModsList)
 
@@ -763,7 +763,7 @@ class Ui_MainWindow(object):
         self.scrollArea_12.setWidgetResizable(True)
         self.scrollAreaWidgetContents_16 = QWidget()
         self.scrollAreaWidgetContents_16.setObjectName(u"scrollAreaWidgetContents_16")
-        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 99, 99))
+        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 401, 382))
         self.gridLayout_44 = QGridLayout(self.scrollAreaWidgetContents_16)
         self.gridLayout_44.setObjectName(u"gridLayout_44")
         self.logfileTextarea = QPlainTextEdit(self.scrollAreaWidgetContents_16)
@@ -803,7 +803,7 @@ class Ui_MainWindow(object):
         self.scrollArea_13.setWidgetResizable(True)
         self.scrollAreaWidgetContents_18 = QWidget()
         self.scrollAreaWidgetContents_18.setObjectName(u"scrollAreaWidgetContents_18")
-        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 99, 99))
+        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 268, 382))
         self.gridLayout_46 = QGridLayout(self.scrollAreaWidgetContents_18)
         self.gridLayout_46.setObjectName(u"gridLayout_46")
         self.logfileList = QListWidget(self.scrollAreaWidgetContents_18)
@@ -3127,7 +3127,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(2)
+        self.MainTabsStackedWidget.setCurrentIndex(0)
         self.GameContentStackedWidget.setCurrentIndex(0)
         self.MultiplayerStackedWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(-1)

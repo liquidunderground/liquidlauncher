@@ -366,7 +366,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -474,7 +474,7 @@
                    </sizepolicy>
                   </property>
                   <property name="contextMenuPolicy">
-                   <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+                   <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
                   </property>
                   <item>
                    <property name="text">
@@ -1350,7 +1350,7 @@ font-size: 12pt;</string>
                              </sizepolicy>
                             </property>
                             <property name="contextMenuPolicy">
-                             <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+                             <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
                             </property>
                             <item>
                              <property name="text">
@@ -1425,8 +1425,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>99</width>
-                           <height>99</height>
+                           <width>401</width>
+                           <height>382</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_44">
@@ -1494,8 +1494,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>99</width>
-                           <height>99</height>
+                           <width>268</width>
+                           <height>382</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_46">
