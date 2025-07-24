@@ -452,7 +452,7 @@ class MainWindow(QMainWindow):
         #com = ""
         com = []
         if self.ui.FlatpakRadiobutton.isChecked() and self.ui.FlatpakRadiobutton.isEnabled(): 
-            com += ["flatpak","run","org.srb2.SRB2"]
+            com += ["flatpak","run",self.ui.GameExecFilePathInput.text()]
         else:
             if self.ui.WineRadiobutton.isChecked() and self.ui.WineRadiobutton.isEnabled(): 
                 com +=[ "wine"]
@@ -1731,11 +1731,14 @@ class MainWindow(QMainWindow):
 
     
     def update_binmode_in_ui(self):
+        """Updates the UI according to the selected binary type.
+        Technically redundant nowadays. Maybe someday it will become useful again.
+        """
         if self.ui.WineRadiobutton.isChecked():
             self.ui.GameExecFilePathInput.setEnabled(True)
             self.ui.GameExecFilePathBrowse.setEnabled(True)
         elif self.ui.FlatpakRadiobutton.isChecked():
-            self.ui.GameExecFilePathInput.setEnabled(False)
+            self.ui.GameExecFilePathInput.setEnabled(True)
             self.ui.GameExecFilePathBrowse.setEnabled(False)
         else:
             self.ui.GameExecFilePathInput.setEnabled(True)
