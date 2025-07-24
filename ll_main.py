@@ -1493,6 +1493,7 @@ class MainWindow(QMainWindow):
         if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "masterservers.toml")):
             print("No master servers file. Creating default...")
             self.ms_list = {
+                "weissblatt.cc": {"url":"https://ms.weissblatt.cc/liquidms/snitch/" , "api":"snitch"},
                 "SRB2 Official": {"url":"https://mb.srb2.org/MS/0" , "api":"v1"},
                 "SRB2Kart Official": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
                 "Ring Racers Official": {"url":"https://ms.kartkrew.org/ms/api/games/RingRacers/4" , "api":"kartv2"},
