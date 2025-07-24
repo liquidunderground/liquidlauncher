@@ -631,7 +631,7 @@
                          <property name="geometry">
                           <rect>
                            <x>0</x>
-                           <y>-35</y>
+                           <y>0</y>
                            <width>658</width>
                            <height>417</height>
                           </rect>
@@ -1425,8 +1425,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>401</width>
-                           <height>382</height>
+                           <width>99</width>
+                           <height>99</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_44">
@@ -1494,8 +1494,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>268</width>
-                           <height>382</height>
+                           <width>99</width>
+                           <height>99</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_46">
@@ -2596,9 +2596,9 @@ font-size: 12pt;</string>
                   <property name="currentIndex">
                    <number>0</number>
                   </property>
-                  <widget class="QWidget" name="General">
+                  <widget class="QWidget" name="ServerSettings">
                    <attribute name="title">
-                    <string>General</string>
+                    <string>Server settings</string>
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout">
                     <item>
@@ -3016,165 +3016,546 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>430</width>
-                         <height>668</height>
+                         <width>658</width>
+                         <height>862</height>
                         </rect>
                        </property>
-                       <layout class="QGridLayout" name="gridLayout">
-                        <item row="11" column="0">
-                         <widget class="QLabel" name="ForceSkinLabel">
-                          <property name="text">
-                           <string>Force Skin</string>
-                          </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_30">
+                        <item>
+                         <widget class="QGroupBox" name="HostingMapGroupBox">
+                          <layout class="QGridLayout" name="gridLayout_3">
+                           <item row="7" column="1">
+                            <widget class="QCheckBox" name="ExitmoveCheckbox">
+                             <property name="text">
+                              <string>Allow movement after exit</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="6" column="0">
+                            <widget class="QComboBox" name="AdvanceMapInput">
+                             <property name="currentIndex">
+                              <number>1</number>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string>Off</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Next</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Random</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item row="1" column="0">
+                            <widget class="QLabel" name="GametypeLabel">
+                             <property name="text">
+                              <string>Gametype</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="6" column="1">
+                            <widget class="QSpinBox" name="InttimeInput">
+                             <property name="suffix">
+                              <string> seconds</string>
+                             </property>
+                             <property name="maximum">
+                              <number>3600</number>
+                             </property>
+                             <property name="value">
+                              <number>20</number>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="5" column="1">
+                            <widget class="QLabel" name="label_17">
+                             <property name="text">
+                              <string>Map intermission time</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="5" column="0">
+                            <widget class="QLabel" name="AdvanceMapLabel">
+                             <property name="text">
+                              <string>Map Advancement Policy</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="7" column="0">
+                            <widget class="QCheckBox" name="AllowexitlevelCheckbox">
+                             <property name="text">
+                              <string>Allow level exit</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="2" column="0" colspan="2">
+                            <widget class="QComboBox" name="GametypeInput">
+                             <property name="editable">
+                              <bool>true</bool>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string>Co-op</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Competition</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Race</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Match</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Team Match</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Tag</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Hide and Seek</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Capture the Flag</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item row="3" column="1">
+                            <widget class="QSpinBox" name="StartmapInput">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
+                             <property name="minimum">
+                              <number>1</number>
+                             </property>
+                             <property name="maximum">
+                              <number>1035</number>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="3" column="0">
+                            <widget class="QCheckBox" name="StartmapCheckbox">
+                             <property name="text">
+                              <string>Start on map</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
-                        <item row="3" column="1">
-                         <widget class="QLabel" name="label_17">
-                          <property name="text">
-                           <string>Map intermission time</string>
+                        <item>
+                         <widget class="QGroupBox" name="groupBox">
+                          <property name="title">
+                           <string>Players</string>
                           </property>
+                          <layout class="QGridLayout" name="gridLayout_9">
+                           <item row="3" column="0">
+                            <widget class="QComboBox" name="ForceSkinInput">
+                             <property name="styleSheet">
+                              <string notr="true"/>
+                             </property>
+                             <property name="editable">
+                              <bool>true</bool>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Sonic</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Tails</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Knuckles</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Amy</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Fang</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>Metal Sonic</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item row="3" column="1">
+                            <widget class="QCheckBox" name="RestrictskinchangesCheckbox">
+                             <property name="text">
+                              <string>Restrict skin changes</string>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="2" column="0">
+                            <widget class="QLabel" name="ForceSkinLabel">
+                             <property name="text">
+                              <string>Force Skin</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="MaxPlayersLabel">
+                             <property name="text">
+                              <string>Max. Players</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
+                            <widget class="QCheckBox" name="JoinnextroundCheckbox">
+                             <property name="text">
+                              <string>Only join at the beginning of a round</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="0">
+                            <widget class="QSpinBox" name="MaxPlayersInput">
+                             <property name="suffix">
+                              <string> Players</string>
+                             </property>
+                             <property name="minimum">
+                              <number>2</number>
+                             </property>
+                             <property name="maximum">
+                              <number>32</number>
+                             </property>
+                             <property name="value">
+                              <number>8</number>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="4" column="0" colspan="2">
+                            <widget class="QCheckBox" name="TailspickupCheckbox">
+                             <property name="text">
+                              <string>Enable player pickup (tailspickup)</string>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
-                        <item row="10" column="0">
-                         <widget class="QSpinBox" name="MaxPlayersInput">
-                          <property name="suffix">
-                           <string> Players</string>
+                        <item>
+                         <widget class="QGroupBox" name="groupBox_2">
+                          <property name="title">
+                           <string>Items</string>
                           </property>
-                          <property name="minimum">
-                           <number>2</number>
-                          </property>
-                          <property name="maximum">
-                           <number>32</number>
-                          </property>
-                          <property name="value">
-                           <number>8</number>
-                          </property>
+                          <layout class="QGridLayout" name="gridLayout_11">
+                           <item row="1" column="0">
+                            <widget class="QSpinBox" name="RespawnitemtimeInput">
+                             <property name="suffix">
+                              <string> seconds</string>
+                             </property>
+                             <property name="maximum">
+                              <number>300</number>
+                             </property>
+                             <property name="value">
+                              <number>30</number>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
+                            <widget class="QCheckBox" name="RespawnitemCheckbox">
+                             <property name="text">
+                              <string>Respawn items</string>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="ForceSkinLabel_2">
+                             <property name="text">
+                              <string>Item respawn time</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="2" column="0" colspan="2">
+                            <widget class="QGroupBox" name="groupBox_14">
+                             <property name="title">
+                              <string>Random monitor chances</string>
+                             </property>
+                             <layout class="QGridLayout" name="gridLayout_34">
+                              <item row="5" column="2">
+                               <widget class="QLabel" name="ForceSkinLabel_15">
+                                <property name="text">
+                                 <string>Water shield</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="0">
+                               <widget class="QLabel" name="ForceSkinLabel_3">
+                                <property name="text">
+                                 <string>1-Up</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="4" column="3">
+                               <widget class="QSpinBox" name="Tv_ringshieldInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="2">
+                               <widget class="QLabel" name="ForceSkinLabel_8">
+                                <property name="text">
+                                 <string>Jump shield</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="1">
+                               <widget class="QSpinBox" name="Tv_supersneakersInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="5">
+                               <widget class="QSpinBox" name="Tv_eggmanInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="3">
+                               <widget class="QSpinBox" name="Tv_forceshieldInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="4" column="2">
+                               <widget class="QLabel" name="ForceSkinLabel_14">
+                                <property name="text">
+                                 <string>Ring shield</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="1">
+                               <widget class="QSpinBox" name="Tv_invincibilityInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="4" column="4">
+                               <widget class="QLabel" name="ForceSkinLabel_9">
+                                <property name="text">
+                                 <string>Recycler</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="0">
+                               <widget class="QLabel" name="ForceSkinLabel_12">
+                                <property name="text">
+                                 <string>Super Sneakers</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="2">
+                               <widget class="QLabel" name="ForceSkinLabel_7">
+                                <property name="text">
+                                 <string>Force shield</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="1">
+                               <widget class="QSpinBox" name="Tv_1upInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="3">
+                               <widget class="QSpinBox" name="Tv_bombshieldInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="4">
+                               <widget class="QLabel" name="ForceSkinLabel_11">
+                                <property name="text">
+                                 <string>Eggman</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="0" column="2">
+                               <widget class="QLabel" name="ForceSkinLabel_4">
+                                <property name="text">
+                                 <string>Bomb shield</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="3">
+                               <widget class="QSpinBox" name="Tv_jumpshieldInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="5" column="3">
+                               <widget class="QSpinBox" name="Tv_watershieldInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="0">
+                               <widget class="QLabel" name="ForceSkinLabel_10">
+                                <property name="text">
+                                 <string>Invincibility</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="4" column="5">
+                               <widget class="QSpinBox" name="Tv_recyclerInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="4">
+                               <widget class="QLabel" name="ForceSkinLabel_28">
+                                <property name="text">
+                                 <string>Teleporter</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="5">
+                               <widget class="QSpinBox" name="Tv_teleporterInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="5">
+                               <widget class="QSpinBox" name="Tv_superringInput">
+                                <property name="maximum">
+                                 <number>10</number>
+                                </property>
+                                <property name="value">
+                                 <number>5</number>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="4">
+                               <widget class="QLabel" name="ForceSkinLabel_27">
+                                <property name="text">
+                                 <string>Super ring</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
-                        <item row="2" column="0" colspan="2">
-                         <widget class="QComboBox" name="GametypeInput">
-                          <property name="editable">
-                           <bool>true</bool>
-                          </property>
-                          <item>
-                           <property name="text">
-                            <string>Co-op</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Competition</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Race</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Match</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Team Match</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Tag</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Hide and Seek</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Capture the Flag</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string/>
-                           </property>
-                          </item>
-                         </widget>
-                        </item>
-                        <item row="3" column="0">
-                         <widget class="QLabel" name="AdvanceMapLabel">
-                          <property name="text">
-                           <string>Map Advancement Policy</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="16" column="1">
-                         <widget class="QCheckBox" name="RespawnitemCheckbox">
-                          <property name="text">
-                           <string>Respawn items</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="10" column="1">
-                         <widget class="QCheckBox" name="JoinnextroundCheckbox">
-                          <property name="text">
-                           <string>Only join at the beginning of a round</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="12" column="1">
-                         <widget class="QCheckBox" name="RestrictskinchangesCheckbox">
-                          <property name="text">
-                           <string>Restrict skin changes</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="13" column="1">
-                         <widget class="QCheckBox" name="TailspickupCheckbox">
-                          <property name="text">
-                           <string>Enable player pickup (tailspickup)</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="14" column="0">
-                         <widget class="QLabel" name="ForceSkinLabel_2">
-                          <property name="text">
-                           <string>Item respawn time</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="17" column="0">
-                         <widget class="QLabel" name="label_13">
-                          <property name="text">
-                           <string>Gravity</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="19" column="0" colspan="2">
+                        <item>
                          <widget class="QGroupBox" name="groupBox_15">
                           <property name="title">
                            <string>Miscellaneous</string>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_36">
                            <item row="0" column="0">
+                            <widget class="QLabel" name="label_13">
+                             <property name="text">
+                              <string>Gravity</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="0">
+                            <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                           </item>
+                           <item row="2" column="0">
                             <widget class="QCheckBox" name="SoniccdCheckbox">
                              <property name="text">
                               <string>Replace flickies with flowers</string>
                              </property>
                             </widget>
                            </item>
-                           <item row="0" column="1">
+                           <item row="3" column="0">
                             <widget class="QCheckBox" name="KillingdeadCheckbox">
                              <property name="toolTip">
                               <string>75% chance to hit yourself upon enemy hit</string>
@@ -3187,320 +3568,7 @@ font-size: 12pt;</string>
                           </layout>
                          </widget>
                         </item>
-                        <item row="4" column="1">
-                         <widget class="QSpinBox" name="InttimeInput">
-                          <property name="suffix">
-                           <string> seconds</string>
-                          </property>
-                          <property name="maximum">
-                           <number>3600</number>
-                          </property>
-                          <property name="value">
-                           <number>20</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="4" column="0">
-                         <widget class="QComboBox" name="AdvanceMapInput">
-                          <property name="currentIndex">
-                           <number>1</number>
-                          </property>
-                          <item>
-                           <property name="text">
-                            <string>Off</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Next</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Random</string>
-                           </property>
-                          </item>
-                         </widget>
-                        </item>
-                        <item row="1" column="0">
-                         <widget class="QLabel" name="GametypeLabel">
-                          <property name="text">
-                           <string>Gametype</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="16" column="0">
-                         <widget class="QSpinBox" name="RespawnitemtimeInput">
-                          <property name="suffix">
-                           <string> seconds</string>
-                          </property>
-                          <property name="maximum">
-                           <number>300</number>
-                          </property>
-                          <property name="value">
-                           <number>30</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="12" column="0">
-                         <widget class="QComboBox" name="ForceSkinInput">
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <property name="editable">
-                           <bool>true</bool>
-                          </property>
-                          <item>
-                           <property name="text">
-                            <string/>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Sonic</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Tails</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Knuckles</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Amy</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Fang</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>Metal Sonic</string>
-                           </property>
-                          </item>
-                         </widget>
-                        </item>
-                        <item row="18" column="0" colspan="2">
-                         <widget class="QGroupBox" name="groupBox_14">
-                          <property name="title">
-                           <string>Random monitor chances</string>
-                          </property>
-                          <layout class="QGridLayout" name="gridLayout_34">
-                           <item row="5" column="2">
-                            <widget class="QLabel" name="ForceSkinLabel_15">
-                             <property name="text">
-                              <string>Water shield</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="0">
-                            <widget class="QLabel" name="ForceSkinLabel_3">
-                             <property name="text">
-                              <string>1-Up</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="4" column="3">
-                            <widget class="QSpinBox" name="Tv_ringshieldInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="2">
-                            <widget class="QLabel" name="ForceSkinLabel_8">
-                             <property name="text">
-                              <string>Jump shield</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="1">
-                            <widget class="QSpinBox" name="Tv_supersneakersInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="5">
-                            <widget class="QSpinBox" name="Tv_eggmanInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="3">
-                            <widget class="QSpinBox" name="Tv_forceshieldInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="4" column="2">
-                            <widget class="QLabel" name="ForceSkinLabel_14">
-                             <property name="text">
-                              <string>Ring shield</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="1">
-                            <widget class="QSpinBox" name="Tv_invincibilityInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="4" column="4">
-                            <widget class="QLabel" name="ForceSkinLabel_9">
-                             <property name="text">
-                              <string>Recycler</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="0">
-                            <widget class="QLabel" name="ForceSkinLabel_12">
-                             <property name="text">
-                              <string>Super Sneakers</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="2">
-                            <widget class="QLabel" name="ForceSkinLabel_7">
-                             <property name="text">
-                              <string>Force shield</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="1">
-                            <widget class="QSpinBox" name="Tv_1upInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="3">
-                            <widget class="QSpinBox" name="Tv_bombshieldInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="4">
-                            <widget class="QLabel" name="ForceSkinLabel_11">
-                             <property name="text">
-                              <string>Eggman</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="0" column="2">
-                            <widget class="QLabel" name="ForceSkinLabel_4">
-                             <property name="text">
-                              <string>Bomb shield</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="3">
-                            <widget class="QSpinBox" name="Tv_jumpshieldInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="5" column="3">
-                            <widget class="QSpinBox" name="Tv_watershieldInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="0">
-                            <widget class="QLabel" name="ForceSkinLabel_10">
-                             <property name="text">
-                              <string>Invincibility</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="4" column="5">
-                            <widget class="QSpinBox" name="Tv_recyclerInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="4">
-                            <widget class="QLabel" name="ForceSkinLabel_28">
-                             <property name="text">
-                              <string>Teleporter</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="5">
-                            <widget class="QSpinBox" name="Tv_teleporterInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="5">
-                            <widget class="QSpinBox" name="Tv_superringInput">
-                             <property name="maximum">
-                              <number>10</number>
-                             </property>
-                             <property name="value">
-                              <number>5</number>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="1" column="4">
-                            <widget class="QLabel" name="ForceSkinLabel_27">
-                             <property name="text">
-                              <string>Super ring</string>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item row="20" column="1">
+                        <item>
                          <spacer name="verticalSpacer_9">
                           <property name="orientation">
                            <enum>Qt::Orientation::Vertical</enum>
@@ -3512,27 +3580,6 @@ font-size: 12pt;</string>
                            </size>
                           </property>
                          </spacer>
-                        </item>
-                        <item row="8" column="0">
-                         <widget class="QLabel" name="MaxPlayersLabel">
-                          <property name="text">
-                           <string>Max. Players</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="5" column="0">
-                         <widget class="QCheckBox" name="AllowexitlevelCheckbox">
-                          <property name="text">
-                           <string>Allow level exit</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="5" column="1">
-                         <widget class="QCheckBox" name="ExitmoveCheckbox">
-                          <property name="text">
-                           <string>Allow movement after exit</string>
-                          </property>
-                         </widget>
                         </item>
                        </layout>
                       </widget>
@@ -3555,8 +3602,8 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>247</width>
-                         <height>262</height>
+                         <width>679</width>
+                         <height>351</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3707,7 +3754,7 @@ font-size: 12pt;</string>
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>556</width>
+                         <width>654</width>
                          <height>693</height>
                         </rect>
                        </property>
@@ -4089,8 +4136,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>257</width>
-                         <height>194</height>
+                         <width>679</width>
+                         <height>351</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -5827,7 +5874,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>694</width>
+                     <width>691</width>
                      <height>460</height>
                     </rect>
                    </property>
@@ -5842,7 +5889,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>682</width>
+                         <width>679</width>
                          <height>448</height>
                         </rect>
                        </property>
