@@ -40,8 +40,8 @@ run: init
 	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && python3 ll_main.py )
 
 dist: init
-	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && nuitka3 ll_main.py ${NUITKA_FLAGS} ${NUITKA_PLUGINS} ${NUITKA_PACKAGES} --output-filename=LiquidLauncher )
+	( if [[ -z "$(VIRTUAL_ENV)" ]]; then $(ENTER_VENV); fi && python3 -m nuitka ll_main.py ${NUITKA_FLAGS} ${NUITKA_PLUGINS} ${NUITKA_PACKAGES} --output-filename=LiquidLauncher )
 
 clean:
-	-rm -r build/ dist/ ll_main.spec .venv/ ll_profiles
+	-rm -r build/ dist/ .liquidlauncher
 

@@ -308,6 +308,9 @@ class MainWindow(QMainWindow):
         self.ui.ServerPlayButton.addAction(tmp_save_icon, "Export server launch script", self.export_server_script)
         self.ui.GamePlayButton.addAction(tmp_save_icon, "Export client launch script", self.export_client_script)
 
+        # Finally start the data init
+        self.init_profile()
+
     # RSS Functions
 
     def rss_enable_edit(self):
@@ -1254,10 +1257,9 @@ class MainWindow(QMainWindow):
         #self.save_global_settings_file()
         self.save_profile_file(self.global_settings["current_profile"])
 
-    def applicationStarted(self):
-        """Wait for window to fully start
+    def init_profile(self):
+        """Initialize selected/default profile after window has started
         """
-        # fix resolution of the image on the play tab ================================ #
         # Guarantee defaults
         self.create_default_settings()
         self.create_default_ms_list()
@@ -2049,8 +2051,6 @@ def main():
     app = QApplication(sys.argv)
     w = MainWindow(app)
     w.show()
-    t = QtCore.QTimer()
-    t.singleShot(0, w.applicationStarted)
     sys.exit(app.exec())
 
 
