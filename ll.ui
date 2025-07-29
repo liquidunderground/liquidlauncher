@@ -134,7 +134,7 @@
           <bool>true</bool>
          </property>
          <property name="checked">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -166,6 +166,35 @@
           <bool>true</bool>
          </property>
          <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="SettingsTabButton">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Settings</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="ll.qrc">
+           <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="checkable">
           <bool>true</bool>
          </property>
         </widget>
@@ -187,35 +216,6 @@
          <property name="icon">
           <iconset resource="ll.qrc">
            <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>48</width>
-           <height>48</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="SettingsTabButton">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Settings</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ll.qrc">
-           <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -366,7 +366,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1846,7 +1846,7 @@ font-size: 12pt;</string>
                              <bool>true</bool>
                             </property>
                             <property name="currentIndex">
-                             <number>0</number>
+                             <number>-1</number>
                             </property>
                             <property name="placeholderText">
                              <string>Blue</string>
@@ -1908,7 +1908,22 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Moonstone</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Bluebell</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Pink</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Rosewood</string>
                              </property>
                             </item>
                             <item>
@@ -1918,7 +1933,32 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Latte</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Brown</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Boulder</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Bronze</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sepia</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Ecru</string>
                              </property>
                             </item>
                             <item>
@@ -1933,12 +1973,22 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Rosebush</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Moss</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
                               <string>Azure</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Eggplant</string>
                              </property>
                             </item>
                             <item>
@@ -1953,7 +2003,17 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Cherry</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Salmon</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Pepper</string>
                              </property>
                             </item>
                             <item>
@@ -1973,6 +2033,16 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Garnet</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Ketchup</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Peachy</string>
                              </property>
                             </item>
@@ -1983,7 +2053,17 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Foundation</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Sunset</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Copper</string>
                              </property>
                             </item>
                             <item>
@@ -2003,12 +2083,27 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Tangerine</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Topaz</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Gold</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
                               <string>Sandy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Goldenrod</string>
                              </property>
                             </item>
                             <item>
@@ -2023,12 +2118,37 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Pear</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Lemon</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Lime</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
                               <string>Peridot</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Apple</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Headlight</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Chartreuse</string>
                              </property>
                             </item>
                             <item>
@@ -2043,7 +2163,12 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
-                              <string>Emerald</string>
+                              <string>Shamrock</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Jade</string>
                              </property>
                             </item>
                             <item>
@@ -2053,7 +2178,27 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Master</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Emerald</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Seafoam</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Island</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Bottle</string>
                              </property>
                             </item>
                             <item>
@@ -2068,6 +2213,11 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Ocean</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Wave</string>
                              </property>
                             </item>
@@ -2078,7 +2228,22 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Turquoise</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Aquamarine</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Sky</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Marine</string>
                              </property>
                             </item>
                             <item>
@@ -2088,12 +2253,27 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Dream</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Icy</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Daybreak</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Sapphire</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Arctic</string>
                              </property>
                             </item>
                             <item>
@@ -2113,12 +2293,27 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Midnight</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Galaxy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Vapor</string>
                              </property>
                             </item>
                             <item>
                              <property name="text">
                               <string>Dusk</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Majesty</string>
                              </property>
                             </item>
                             <item>
@@ -2133,7 +2328,22 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Noble</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Fuchsia</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Bubblegum</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Siberite</string>
                              </property>
                             </item>
                             <item>
@@ -2153,7 +2363,22 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Royal</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Lilac</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Mauve</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Eventide</string>
                              </property>
                             </item>
                             <item>
@@ -2163,7 +2388,27 @@ font-size: 12pt;</string>
                             </item>
                             <item>
                              <property name="text">
+                              <string>Raspberry</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
                               <string>Rosy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Fancy</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Sangria</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>Volcanic</string>
                              </property>
                             </item>
                            </widget>
@@ -5745,8 +5990,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>477</width>
-                     <height>204</height>
+                     <width>691</width>
+                     <height>460</height>
                     </rect>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_42">
@@ -5775,20 +6020,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       </property>
                      </widget>
                     </item>
-                    <item row="0" column="1">
-                     <widget class="QCheckBox" name="ModsourceMBCheckbox">
-                      <property name="text">
-                       <string>Official SRB2 Message Board</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="ll.qrc">
-                        <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
                     <item row="2" column="1">
                      <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
                       <property name="enabled">
@@ -5814,7 +6045,34 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       </property>
                      </widget>
                     </item>
-                    <item row="0" column="0" rowspan="6">
+                    <item row="0" column="1">
+                     <widget class="QCheckBox" name="ModsourceMBCheckbox">
+                      <property name="text">
+                       <string>Official SRB2 Message Board</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="ll.qrc">
+                        <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="1">
+                     <spacer name="verticalSpacer_3">
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>188</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item row="0" column="2" rowspan="6">
                      <widget class="QTextBrowser" name="textBrowser">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -5839,19 +6097,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
-                    </item>
-                    <item row="5" column="1">
-                     <spacer name="verticalSpacer_3">
-                      <property name="orientation">
-                       <enum>Qt::Orientation::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>188</height>
-                       </size>
-                      </property>
-                     </spacer>
                     </item>
                    </layout>
                   </widget>
