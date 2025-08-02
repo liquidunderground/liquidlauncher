@@ -925,7 +925,8 @@ class MainWindow(QMainWindow):
             new_item.setText(entry_label)
             # Create new row & fill with data
             self.ui.BrowseNetgameTable.insertRow( self.ui.BrowseNetgameTable.rowCount() )
-            twi_name = QtWidgets.QTableWidgetItem(server.get("name_plain"))
+            twi_name = QtWidgets.QTableWidgetItem(server.get("name_plain")[:35])
+            twi_name.setToolTip(server.get("name_plain"))
             twi_room = QtWidgets.QTableWidgetItem(server.get("room"))
             twi_version = QtWidgets.QTableWidgetItem(server.get("version"))
             twi_gametype = QtWidgets.QTableWidgetItem(server.get("game"))
