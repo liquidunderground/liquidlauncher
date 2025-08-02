@@ -2,9 +2,9 @@ from enum import Enum
 from dataclasses import dataclass
 import struct
 import socket
-import html
-from collections import namedtuple36
+from collections import namedtuple
 
+MAX_WADPATH = 128
 
 def get_map_title(title, iszone, actnum):
     mapname = title
@@ -14,21 +14,18 @@ def get_map_title(title, iszone, actnum):
         mapname += f" {actnum}"
     return mapname
 
-
 def char_to_num(char):
     return ord(char) - ord("A")
 
-
 def num_to_char(num):
     return chr(num + ord("A"))
-
 
 def mapname_to_num(mapname):
     if not mapname:
         return 0
     mapname = mapname.upper()
     if mapname.startswith("MAP"):
-        name = mapname[3:]  # remove "MAP"
+        name = mapname[3:] # remove "MAP"
     else:
         name = mapname
     try:
@@ -40,8 +37,7 @@ def mapname_to_num(mapname):
             q = int(name[1])
         except ValueError:
             q = 10 + char_to_num(name[1])
-        return ((36 * p + q) + 100)
-
+        return ((36*p + q) + 100)
 
 def mapnum_to_name(mapnum):
     if mapnum < 100:
@@ -50,9 +46,8 @@ def mapnum_to_name(mapnum):
     p, q = divmod(mapnum, 36)
     p = num_to_char(p)
     if q >= 10:
-        q = num_to_char(q - 10)
+        q = num_to_char(q-10)
     return f"MAP{p}{q}"
-
 
 num_to_skin = {
     0: "sonic",
@@ -63,18 +58,15 @@ num_to_skin = {
     5: "metalsonic",
 }
 
-
 class PacketType(Enum):
-    PT_ASKINFO = 12
-    PT_SERVERINFO = 13
-    PT_PLAYERINFO = 14
+    PT_ASKINFO         = 12
+    PT_SERVERINFO      = 13
+    PT_PLAYERINFO      = 14
     PT_TELLFILESNEEDED = 34
     PT_MOREFILESNEEDED = 35
 
-
 NETFIL_WILLSEND = 16
 NETFIL_WONTSEND = 32
-
 
 def checksum(buf):
     """
@@ -82,9 +74,8 @@ def checksum(buf):
     """
     c = 0x1234567
     for i, b in enumerate(buf):
-        c += b * (i + 1)
+        c += b * (i+1)
     return c
-
 
 def checksum_match(buf, checksum):
     """
@@ -94,9 +85,9 @@ def checksum_match(buf, checksum):
     """
     c = 0x1234567
     for i, b in enumerate(buf[4:]):
-        c += b * (i + 1)
+        c += b * (i+1)
         if (c == checksum):
-            return i + 4
+            return i+4
     return False
 
 
@@ -109,12 +100,10 @@ def decode_string(byte_list):
             string += chr(b)
     return string
 
-
 def unpack_into(pkt, format, fields):
     t = namedtuple('Packet', fields)
     unpacked = t._asdict(t._make(struct.unpack(format, pkt)))
     return unpacked
-
 
 @dataclass
 class Packet:
@@ -122,14 +111,14 @@ class Packet:
 
     def pack(self):
         if (self.type == PacketType.PT_ASKINFO):
-            u = struct.pack("x" * 5)
+            u = struct.pack("x"*5)
         else:
             raise Exception("Unknown type")
         pkt = struct.pack("xxBx", self.type.value) + u
         return struct.pack('<L', checksum(pkt)) + pkt
 
     def _add_to_dict(self, d):
-        for k, v in d.items():
+        for k,v in d.items():
             self.__dict__[k] = v
 
     def unpack_common(self, pkt):
@@ -143,36 +132,6 @@ class Packet:
         unpacked = t._asdict(t._make(struct.unpack(format, pkt[:header_length])))
         self._add_to_dict(unpacked)
         return pkt[header_length:]
-    
-def colorize_server_name(server_name):
-    colors = [
-        'inherit',
-        '#df00df',
-        '#ffff0f',
-        '#69e046',
-        '#7373ff',
-        '#ff3f3f',
-        '#a7a7a7',
-        '#ff9736',
-        '#55c8ff',
-        '#cf7fcf',
-        '#d7bb43',
-        '#c7e494',
-        '#c4c4e1',
-        '#f3a3a3',
-        '#bf7b4b',
-        '#ffc7a7',
-    ]
-    codes = ["\\x80", "\\x81", "\\x82", "\\x83", "\\x84", "\\x85", "\\x86", "\\x87", "\\x88", "\\x89", "\\x8a",
-             "\\x8b", "\\x8c", "\\x8d", "\\x8e", "\\x8f", ]
-    server_name = html.escape(server_name)
-    for i in range(0x10):
-        server_name = server_name.replace(codes[i],
-                                          '</span><span style="color:' + colors[i] + ';">')
-    server_name = '<span style="color:' + colors[0] + '">' + server_name + '</span>'
-
-    return server_name
-
 
 
 class ServerInfoPacket(Packet):
@@ -184,17 +143,18 @@ class ServerInfoPacket(Packet):
         files = []
         offset = 0
         for i in range(self.fileneedednum):
-            format = "<BI"
-            format_length = 5
-            fields = "status size"
-            unpacked = unpack_into(fileneeded[offset:offset + format_length], format, fields)
+            # See D_ParseFileneeded in d_netfil.c in SRB2 Source code
+            format = "<BBI"
+            format_length = 6
+            fields = "status folder totalsize"
+            unpacked = unpack_into(fileneeded[offset:offset+format_length], format, fields)
             offset += format_length
-            unpacked['name'] = decode_string(fileneeded[offset:])
-            offset += len(unpacked['name']) + 1
-            unpacked['md5sum'] = fileneeded[offset:offset + 16]
-            offset += 16
+            unpacked['filename'] = decode_string(fileneeded[offset:])
+            offset += len(unpacked['filename']) + 1
             unpacked['toobig'] = not (unpacked['status'] & NETFIL_WILLSEND)
-            unpacked['download'] = not (unpacked['toobig'] or unpacked['status'] & NETFIL_WONTSEND)
+            unpacked['download'] = not(unpacked['toobig'] or unpacked['status'] & NETFIL_WONTSEND)
+            unpacked['md5sum'] = fileneeded[offset:offset+16]
+            offset += 16
             files.append(unpacked)
         self.filesneeded = files
 
@@ -208,14 +168,13 @@ class ServerInfoPacket(Packet):
         unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
         for s in string_fields:
             unpacked[s] = decode_string(unpacked[s])
-        unpacked['map'] = {
+        unpacked['map'] =  {
             'num': mapname_to_num(unpacked['mapname']),
             'name': unpacked['mapname'],
             'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
         }
         self._add_to_dict(unpacked)
         self.unpack_fileneeded(pkt[format_length:])
-
 
 class PlayerInfoPacket(Packet):
 
@@ -237,7 +196,6 @@ class PlayerInfoPacket(Packet):
                 unpacked['skin'] = num_to_skin.get(unpacked['skin'], "unknown")
                 self.players.append(unpacked)
             pkt = pkt[format_length:]
-
 
 class SRB2Query:
     data = bytearray()

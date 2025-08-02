@@ -4,7 +4,36 @@ import requests
 import urllib.parse
 import urllib.request
 
+from . import srb2query
 from ll_info import http_headers as headers
+
+class Netgame():
+
+    def __init__(self, ip, port=5029, **kwargs):
+        self.__dict__ = kwargs
+        # Insert IP/Port combo just to be sure
+        self.ip = ip
+        self.port = int(port)
+        #self.query()
+
+    def get(self, key):
+        return self.__dict__[key]
+
+    def query(self):
+        """Fetch netgame data using SRB2Query
+        """
+        try:
+            print(f"Querying {self.ip}:{self.port}")
+            serverinfo,playerinfo = srb2query.SRB2Query(self.ip, int(self.port)).askinfo()
+            self.serverinfo = serverinfo
+            self.playerinfo = playerinfo
+            print(f"{self.ip}:{self.port} DATA {self.__dict__}")
+        except Exception as e:
+            print(f"Unable to query {self.ip}:{self.port} - {e}")
+            # Failsafe dummy values
+            self.serverinfo = None
+            self.playerinfo = None
+
 
 def parse_server_line(url, server_string, room):
     server_data = server_string.split(" ")
@@ -12,18 +41,18 @@ def parse_server_line(url, server_string, room):
     port = server_data[1]
     name = urllib.parse.unquote(server_data[2]).encode('ascii', errors='ignore').decode()
     version = server_data[3]
-    server = {
-        "ip": ip,
-        "port": port,
-        "name_plain": name,
-        "name": server_data[2],
-        "gametype": "[DUMMY]",
-        "game": "SRB2",
-        "version": version,
-        "room": room,
-        "origin": url,
-        "api": "v1",
-    }
+    server = Netgame(
+        ip=ip,
+        port=port,
+        name_plain=name,
+        name=server_data[2],
+        gametype="[DUMMY]",
+        game="SRB2",
+        version=version,
+        room=room,
+        origin=url,
+        api="v1",
+    )
     return server
 
 def v1_parse_rooms(txt):
@@ -92,18 +121,18 @@ def parse_kart_data(url):
     # TODO: Parse kartv2
     for server_line in rows:
         sv_line_parsed = server_line.split(" ")
-        netgame = {
-            "ip": sv_line_parsed[0],
-            "port": sv_line_parsed[1],
-            "name_plain": urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
-            "name": sv_line_parsed[2],
-            "gametype": "kart",
-            "game": "SRB2Kart",
-            "version": "kart",
-            "room": "",
-            "origin": url,
-            "api": "kartv2",
-        }
+        netgame = Netgame(
+            ip=sv_line_parsed[0],
+            port=sv_line_parsed[1],
+            name_plain=urllib.parse.unquote(sv_line_parsed[2]).encode('ascii', errors='ignore').decode(),
+            name=sv_line_parsed[2],
+            gametype="kart",
+            game="SRB2Kart",
+            version="kart",
+            room="",
+            origin=url,
+            api="kartv2",
+        )
         server_list.append(netgame)
 
     return server_list
@@ -118,18 +147,18 @@ def parse_snitch_data(url):
     reader = csv.reader(lines, delimiter=',', quotechar='"')
     for row in lines:
         row_parsed = row.split(',')
-        netgame = {
-            "ip": row_parsed[0],
-            "port": row_parsed[1],
-            "name_plain": urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
-            "name": row_parsed[2],
-            "gametype": "[DUMMY]",
-            "game": "SRB2",
-            "version": row_parsed[3],
-            "room": row_parsed[4],
-            "origin": row_parsed[5],
-            "api": "snitch",
-        }
+        netgame = Netgame(
+            ip=row_parsed[0],
+            port=row_parsed[1],
+            name_plain=urllib.parse.unquote(row_parsed[2]).encode('ascii', errors='ignore').decode(),
+            name=row_parsed[2],
+            gametype="[DUMMY]",
+            game="SRB2",
+            version=row_parsed[3],
+            room=row_parsed[4],
+            origin=row_parsed[5],
+            api="snitch",
+        )
         server_list.append(netgame)
 
     return server_list
