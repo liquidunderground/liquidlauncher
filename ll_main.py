@@ -212,7 +212,6 @@ class MainWindow(QMainWindow):
         # modding list buttons ======================================================= #
         self.ui.RefreshModsButton.clicked.connect(self.refresh_mods_list)
         self.ui.ModsList.itemDoubleClicked.connect(self.load_mod_page)
-        # Mod context menu
         self.qicons = {
             "_filetypes": {
                 "lua": QtGui.QIcon(":/assets/img/filetypes/lua.png"),
@@ -234,6 +233,7 @@ class MainWindow(QMainWindow):
             "wsred": QtGui.QIcon(":/assets/img/icons/wsred.png"),
         }
         
+        # Mod context menu
         self.ui.ModsList.addAction(self.qicons["media-playback-start"], "Open", self.load_mod_page)
         self.ui.ModsList.addAction(self.qicons["view-refresh"], "Refresh", self.refresh_mods_list)
         self.ui.ModsList.addAction(self.qicons["download"], "Download", self.download_mod)
