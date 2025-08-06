@@ -213,18 +213,31 @@ class MainWindow(QMainWindow):
         self.ui.RefreshModsButton.clicked.connect(self.refresh_mods_list)
         self.ui.ModsList.itemDoubleClicked.connect(self.load_mod_page)
         # Mod context menu
-        tmp_download_icon = QtGui.QIcon()
-        tmp_globe_icon = QtGui.QIcon()
-        tmp_mediaplay_icon = QtGui.QIcon()
-        tmp_refresh_icon = QtGui.QIcon()
-        tmp_download_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/download.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        tmp_globe_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/globe.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        tmp_mediaplay_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/media-playback-start.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        tmp_refresh_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/view-refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.ui.ModsList.addAction(tmp_mediaplay_icon, "Open", self.load_mod_page)
-        self.ui.ModsList.addAction(tmp_refresh_icon, "Refresh", self.refresh_mods_list)
-        self.ui.ModsList.addAction(tmp_download_icon, "Download", self.download_mod)
-        self.ui.ModsList.addAction(tmp_globe_icon, "Open in browser", self.open_mod_page)
+        self.qicons = {
+            "_filetypes": {
+                "lua": QtGui.QIcon(":/assets/img/filetypes/lua.png"),
+                "pk3": QtGui.QIcon(":/assets/img/filetypes/pk3.png"),
+                "soc": QtGui.QIcon(":/assets/img/filetypes/soc.png"),
+                "wad": QtGui.QIcon(":/assets/img/filetypes/wad.png"),
+            },
+            "about": QtGui.QIcon(":/assets/img/icons/about.png"),
+            "bookmark": QtGui.QIcon(":/assets/img/icons/bookmark.png"),
+            "document-save": QtGui.QIcon(":/assets/img/icons/document-save.png"),
+            "download": QtGui.QIcon(":/assets/img/icons/download.png"),
+            "gamebanana": QtGui.QIcon(":/assets/img/icons/gamebanana.png"),
+            "globe": QtGui.QIcon(":/assets/img/icons/globe.png"),
+            "media-playback-start": QtGui.QIcon(":/assets/img/icons/media-playback-start.png"),
+            "skybase": QtGui.QIcon(":/assets/img/icons/skybase.png"),
+            "srb2mb": QtGui.QIcon(":/assets/img/icons/srb2mb.png"),
+            "view-refresh": QtGui.QIcon(":/assets/img/icons/view-refresh.png"),
+            "wsblue": QtGui.QIcon(":/assets/img/icons/wsblue.png"),
+            "wsred": QtGui.QIcon(":/assets/img/icons/wsred.png"),
+        }
+        
+        self.ui.ModsList.addAction(self.qicons["media-playback-start"], "Open", self.load_mod_page)
+        self.ui.ModsList.addAction(self.qicons["view-refresh"], "Refresh", self.refresh_mods_list)
+        self.ui.ModsList.addAction(self.qicons["download"], "Download", self.download_mod)
+        self.ui.ModsList.addAction(self.qicons["globe"], "Open in browser", self.open_mod_page)
 
 
 
@@ -258,10 +271,10 @@ class MainWindow(QMainWindow):
         self.ui.RSSFeedCombobox.lineEdit().returnPressed.connect(lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
         self.ui.RSSArticleList.itemDoubleClicked.connect(self.load_article_web)
 
-        self.ui.RSSArticleList.addAction(tmp_mediaplay_icon, "Open (link)", self.load_article_web)
+        self.ui.RSSArticleList.addAction("Open (link)", self.load_article_web)
         self.ui.RSSArticleList.addAction("Open (text)", self.load_article_text)
-        self.ui.RSSArticleList.addAction(tmp_globe_icon, "Open in Browser", self.view_article_online)
-        self.ui.RSSArticleList.addAction(tmp_refresh_icon, "Refresh", lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
+        self.ui.RSSArticleList.addAction(self.qicons["globe"], "Open in Browser", self.view_article_online)
+        self.ui.RSSArticleList.addAction(self.qicons["view-refresh"], "Refresh", lambda: self.load_news(str(self.ui.RSSFeedCombobox.currentText())))
 
         # modsources checkboxes ================================================================ #
         #self.ui.ModsourceMBCheckbox.clicked.connect(self.update_modsources)
@@ -700,10 +713,8 @@ class MainWindow(QMainWindow):
     def add_file(self, f):
         new_item = QtWidgets.QListWidgetItem()
         new_item.setText(os.path.basename(str(f)))
-        new_item_icon = QtGui.QIcon()
         filetype = str(f).split(".")[-1]
-        new_item_icon.addPixmap(QtGui.QPixmap(":/assets/img/filetypes/" + filetype + ".png"), QtGui.QIcon.Normal,
-                                QtGui.QIcon.Off)
+        new_item_icon = self.qicons["_filetypes"][filetype]
         new_item.setIcon(new_item_icon)
         self.ui.GameFilesList.addItem(new_item)
         return
@@ -835,10 +846,7 @@ class MainWindow(QMainWindow):
         new_item.setText(mod)
         new_item.setData(3,self.mods_list[mod])
         if icon:
-            qicon = QtGui.QIcon()
-            qicon.addPixmap(QtGui.QPixmap(icon),
-                            QtGui.QIcon.Normal,
-                            QtGui.QIcon.Off)
+            qicon = self.qicons[icon]
             new_item.setIcon(qicon)
 
         self.ui.ModsList.addItem(new_item)
