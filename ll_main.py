@@ -420,10 +420,8 @@ class MainWindow(QMainWindow):
         # play button ================================================================ #
         self.ui.GamePlayButton.clicked.connect(self.launch_game_client)
         self.ui.ServerPlayButton.clicked.connect(self.launch_game_server)
-        tmp_save_icon = QtGui.QIcon()
-        tmp_save_icon.addPixmap(QtGui.QPixmap(":/assets/img/icons/document-save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.ui.ServerPlayButton.addAction(tmp_save_icon, "Export server launch script", self.export_server_script)
-        self.ui.GamePlayButton.addAction(tmp_save_icon, "Export client launch script", self.export_client_script)
+        self.ui.ServerPlayButton.addAction(self.qicons["document-save"], "Export server launch script", self.export_server_script)
+        self.ui.GamePlayButton.addAction(self.qicons["document-save"], "Export client launch script", self.export_client_script)
 
         # Finally start the data init
         self.init_profile()
