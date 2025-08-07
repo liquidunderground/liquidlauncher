@@ -12,12 +12,13 @@ from pathlib import Path
 import feedparser
 import subprocess32 as subprocess # Keep things drop-in
 from PySide6 import QtGui, QtCore, QtWidgets
-from PySide6.QtWidgets import QFileDialog, QMenu, QInputDialog, QDialogButtonBox, QMessageBox
+from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialogButtonBox, QMessageBox
 from PySide6.QtCore import Signal
 
 import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
 from ll_ui import *
+from ll_d_netgame import Ui_NetgameDialog
 from ll_info import product_version as versionString
 from ll_info import http_headers, set_http_header
 
@@ -27,6 +28,97 @@ global_settings_file = os.path.join(os.getcwd(), ".liquidlauncher", "config.toml
 if not os.path.isdir(os.path.join(os.getcwd(), ".liquidlauncher", "profiles")):
     os.makedirs(os.path.join(os.getcwd(), ".liquidlauncher", "profiles"))
 
+class NetgameDialog(QDialog):
+    def __init__(self, parent=None):
+        super(NetgameDialog, self).__init__(parent)
+        self.ui = Ui_NetgameDialog()
+        self.netgame = None
+        self.ui.setupUi(self)
+        self.setWindowTitle("Netgame")
+    
+    def setNetgame(self, netgame):
+        self.netgame = netgame
+        self._netgame_update()
+
+    def bookmark(self):
+        self.parent().bookmark(self.netgame)
+
+    def _netgame_update(self):
+
+        import hashlib
+
+        self.ui.PlayersAndFiles.hide()
+        text = f'<h1 align="center">{self.netgame.get("name_plain")}</h1>' \
+            f'<p align="center">' \
+            f'{self.netgame.get("ip")}:{self.netgame.get("port")}' \
+            f'</p>' \
+            f'<p>' \
+            f'Game: {self.netgame.get("game")} {self.netgame.get("version")}<br>' \
+            f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
+            f'MS API: {self.netgame.get("api")}' \
+            f'</p>' \
+            f'<p align="center">' \
+            f'<em>Serverinfo unavailable</em>' \
+            f'</p>'
+        
+        serverinfo = self.netgame.get("serverinfo")
+
+        if serverinfo != None:
+
+            realfiles = [f for f in serverinfo.filesneeded if int.from_bytes(f["md5sum"], "big")]
+
+            text = f'<h1 align="center">{serverinfo.servername}</h1>' \
+                f'<p align="center">' \
+                f'{self.netgame.get("ip")}:{self.netgame.get("port")}' \
+                f'</p>' \
+                f'<p>' \
+                f'Game type: {serverinfo.gametypename}<br>' \
+                f'Modified: {"Yes" if serverinfo.modifiedgame else "No"}<br>' \
+                f'Cheats enabled: {"Yes" if serverinfo.modifiedgame else "No"}<br>' \
+                f'Game type: {serverinfo.gametypename}' \
+                f'</p>' \
+                f'<p>' \
+                f'Current Map: {serverinfo.maptitle}{" Zone" if serverinfo.iszone else ""}{serverinfo.actnum if serverinfo.actnum != 0 else ""} ({serverinfo.mapname})<br>' \
+                f'Map MD5 Hash: {serverinfo.mapmd5.hex()}<br>' \
+                f'</p>' \
+                f'<p>' \
+                f'Game: {self.netgame.get("game")} {self.netgame.get("version")}<br>' \
+                f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
+                f'MS API: {self.netgame.get("api")}' \
+                f'</p>' \
+                f'<p>' \
+                f'<em>{serverinfo.numberofplayer}/{serverinfo.maxplayer} players online</em><br>' \
+                f'<em>{len(realfiles)} files needed to play</em>' \
+                f'</p>'
+
+            # Refill players table
+            self.ui.PlayersTable.clear()
+            for p in self.netgame.playerinfo.players:
+                item = QtWidgets.QListWidgetItem()
+                item.setText(p["name"])
+                if p["team"]:
+                    item_icon = self.parent().qicons["_teams"]["red"] if p["team"] == 1 else self.parent().qicons["_teams"]["blue"]
+                    item.setIcon(item_icon)
+                self.ui.PlayersTable.addItem(item)
+
+            # Refill Files Table
+            self.ui.FilesTable.clear()
+            for f in realfiles:
+                #if int.from_bytes(f["md5sum"], "big"):
+                self.ui.FilesTable.addItem(f"{f["filename"]} (md5: {f["md5sum"].hex()})")
+
+
+            self.ui.PlayersAndFiles.show()
+
+        self.ui.ServerinfoLabel.setText(text)
+        self.setWindowTitle(self.netgame.get("name_plain"))
+
+    def join_netgame(self):
+        print(f"join_netgame({self})")
+
+    def query(self):
+        self.netgame.query()
+        self._netgame_update()
 
 class MainWindow(QMainWindow):
     # Emits instance of Mod() class from self.mods_list
@@ -219,6 +311,10 @@ class MainWindow(QMainWindow):
                 "soc": QtGui.QIcon(":/assets/img/filetypes/soc.png"),
                 "wad": QtGui.QIcon(":/assets/img/filetypes/wad.png"),
             },
+            "_teams": {
+                "red": QtGui.QIcon(":/assets/img/knuckles.png"),
+                "blue": QtGui.QIcon(":/assets/img/sonic.png"),
+            },
             "about": QtGui.QIcon(":/assets/img/icons/about.png"),
             "bookmark": QtGui.QIcon(":/assets/img/icons/bookmark.png"),
             "document-save": QtGui.QIcon(":/assets/img/icons/document-save.png"),
@@ -246,12 +342,12 @@ class MainWindow(QMainWindow):
         #self.ui.AddServerButton.clicked.connect(self.show_add_server_dialog)
         self.ui.AddServerButton.clicked.connect(self.add_new_server_to_list)
         self.ui.JoinBookmarkButton.clicked.connect(self.join_selected_netgame_bookmark)
-        self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         self.ui.DeleteServerButton.clicked.connect(self.delete_selected_server)
         self.ui.BrowseMSCombobox.currentTextChanged.connect(self.change_current_ms)
-        self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
+        #self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_browse)
+        self.ui.BrowseNetgameTable.itemDoubleClicked.connect(self.selected_netgame_info)
         self.ui.ModDirBrowseButton.clicked.connect(self.set_download_path)
-        # Stubbed to make it editable
+        # Master Server list
         #self.ui.SavedNetgameTable.itemDoubleClicked.connect(self.join_selected_netgame_bookmark)
         #
         #self.ui.BrowseMSCombobox.clicked.connect(self.change_current_ms)
@@ -260,6 +356,12 @@ class MainWindow(QMainWindow):
         self.ui.RefreshButton.clicked.connect(self.query_ms)
         #self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
         self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
+        self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
+        # Context menu action
+        self.ui.BrowseNetgameTable.addAction(self.qicons["media-playback-start"], "Join netgame", self.join_selected_netgame_browse)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["view-refresh"], "Query netgame", self.load_mod_page)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["bookmark"], "Bookmark netgame", self.save_ms_selection)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["about"], "Netgame Info", self.selected_netgame_info)
 
         # Logfile viewer buttons ================================================ #
         self.ui.logfileOpenButton.clicked.connect(lambda: self.on_open_logfile(self.ui.logfileList.currentItem().text()))
@@ -967,6 +1069,23 @@ class MainWindow(QMainWindow):
             self.master_server_list[selection].get("ip"),
             self.master_server_list[selection].get("port") )
         subprocess.Popen(self.get_client_launch_command() + ["-connect" , ip_string])
+        return
+
+    def selected_netgame_info(self):
+
+        selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
+            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 0).text(),
+            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 3).text(),
+            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 2).text(),
+            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 4).text()
+            )
+        netgame = self.master_server_list[selection]
+        serverinfo = netgame.get("serverinfo")
+        
+        ui_netgame = NetgameDialog(self)
+        ui_netgame.setNetgame(netgame)
+        ui_netgame.show()
+
         return
 
     def save_ms_selection(self):

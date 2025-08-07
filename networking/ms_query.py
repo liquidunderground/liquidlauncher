@@ -14,7 +14,14 @@ class Netgame():
         # Insert IP/Port combo just to be sure
         self.ip = ip
         self.port = int(port)
+
+        self.serverinfo = None
+        self.playerinfo = None
+        
         #self.query()
+
+    def __str__(self):
+        return f"{self.ip}:{self.port}"
 
     def get(self, key):
         return self.__dict__[key]

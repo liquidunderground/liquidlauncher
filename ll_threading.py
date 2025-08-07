@@ -255,7 +255,6 @@ class QueryMasterServer(QtCore.QThread):
                         self.host.global_settings["current_ms"]["api"]
                         )
                     print("Successfully queried {}\n".format(self.host.global_settings["current_ms"]["url"]))
-                    #self.server_list_sig2.emit("Successfully queried {}".format(self.host.global_settings["current_ms"]["url"]))
                     alertArgs = {
                         "type" : "info",
                         "title" : f"Query successful",
