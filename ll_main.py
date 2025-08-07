@@ -71,24 +71,25 @@ class NetgameDialog(QDialog):
                 f'<p align="center">' \
                 f'{self.netgame.get("ip")}:{self.netgame.get("port")}' \
                 f'</p>' \
-                f'<p>' \
-                f'Game type: {serverinfo.gametypename}<br>' \
-                f'Modified: {"Yes" if serverinfo.modifiedgame else "No"}<br>' \
-                f'Cheats enabled: {"Yes" if serverinfo.modifiedgame else "No"}<br>' \
-                f'Game type: {serverinfo.gametypename}' \
+                f'<p align="center">' \
+                f'{"Modified" if serverinfo.modifiedgame else "Vanilla"} | ' \
+                f'{"Cheats" if serverinfo.modifiedgame else "No cheats"} | ' \
+                f'{serverinfo.gametypename}' \
                 f'</p>' \
+                f'<p align="center">' \
+                f'<em>{serverinfo.numberofplayer}/{serverinfo.maxplayer} players online</em><br>' \
+                f'<em>{len(realfiles)} files needed to play</em>' \
+                f'</p>' \
+                f'<h2>Map details</h2>' \
                 f'<p>' \
                 f'Current Map: {serverinfo.maptitle}{" Zone" if serverinfo.iszone else ""}{serverinfo.actnum if serverinfo.actnum != 0 else ""} ({serverinfo.mapname})<br>' \
-                f'Map MD5 Hash: {serverinfo.mapmd5.hex()}<br>' \
+                f'MD5 Hash: {serverinfo.mapmd5.hex()}<br>' \
                 f'</p>' \
+                f'<h2>Game & API Info</h2>' \
                 f'<p>' \
                 f'Game: {self.netgame.get("game")} {self.netgame.get("version")}<br>' \
                 f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
                 f'MS API: {self.netgame.get("api")}' \
-                f'</p>' \
-                f'<p>' \
-                f'<em>{serverinfo.numberofplayer}/{serverinfo.maxplayer} players online</em><br>' \
-                f'<em>{len(realfiles)} files needed to play</em>' \
                 f'</p>'
 
             # Refill players table
