@@ -14,7 +14,7 @@ srb2mb = {
     "thread_link": "/addons/{thread}",
     "thread": "https://mb.srb2.org/addons/{thread}",
     "download": "https://mb.srb2.org/addons/{thread}download",
-    "icon": ":/assets/img/icons/srb2mb.png",
+    "icon": "srb2mb",
     "vendor": "stjr"
 }
 
@@ -29,7 +29,7 @@ workshop_blue = {
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}/",
     "download": "https://srb2workshop.org/resources/{thread}download",
-    "icon": ":/assets/img/icons/wsblue.png",
+    "icon": "wsblue",
     "vendor": "workshop"
 }
 
@@ -43,7 +43,7 @@ workshop_red = {
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}",
     "download": "https://srb2workshop.org/resources/{thread}download",
-    "icon": ":/assets/img/icons/wsred.png",
+    "icon": "wsred",
     "vendor": "workshop"
 }
 
@@ -57,7 +57,7 @@ skybase = {
     "thread_link": "showthread.php?t={thread}",
     "thread": "https://srb2skybase.org/mb/showthread.php?t={thread}",
     "download": "https://srb2skybase.org/mb/attachment.php?attachmentid={mod}",
-    "icon": ":/assets/img/icons/skybase.png",
+    "icon": "skybase",
     "vendor": "skybase"
 }
 
@@ -73,7 +73,7 @@ gamebanana = {
     "thread_link": "about:gamebanana",
     "thread": "https://gamebanana.com/mods/{thread}",
     "download": "https://gamebanana.com/mods/download/{thread}",
-    "icon": ":/assets/img/icons/gamebanana.png",
+    "icon": "gamebanana",
     "vendor": "gamebanana"
 }
 
