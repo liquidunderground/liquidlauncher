@@ -77,8 +77,6 @@ class NetgameDialog(QDialog):
                 f'{serverinfo.gametypename}' \
                 f'</p>' \
                 f'<p align="center">' \
-                f'<em>{serverinfo.numberofplayer}/{serverinfo.maxplayer} players online</em><br>' \
-                f'<em>{len(realfiles)} files needed to play</em>' \
                 f'</p>' \
                 f'<h2>Map details</h2>' \
                 f'<p>' \
@@ -108,6 +106,8 @@ class NetgameDialog(QDialog):
                 #if int.from_bytes(f["md5sum"], "big"):
                 self.ui.FilesTable.addItem(f"{f["filename"]} (md5: {f["md5sum"].hex()})")
 
+            self.ui.PlayersAndFiles.setTabText(0, f"Players ({serverinfo.numberofplayer}/{serverinfo.maxplayer})")
+            self.ui.PlayersAndFiles.setTabText(1, f"Files ({len(realfiles)})")
 
             self.ui.PlayersAndFiles.show()
 
