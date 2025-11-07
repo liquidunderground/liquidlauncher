@@ -1,6 +1,9 @@
 product_name = "LiquidLauncher"
 product_version = "v1.1"
-version_check_url = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
+version_check_url = [
+    "https://codeberg.org/api/v1/repos/liquidunderground/liquidlauncher/releases/latest",
+    "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest",
+    ]
 
 http_headers = {'User-Agent': '{}/{}'.format(product_name, product_version) }
 

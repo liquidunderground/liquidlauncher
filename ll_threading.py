@@ -7,11 +7,13 @@ from PySide6.QtCore import Signal
 from networking import mb_query
 from networking.ms_query import get_server_list, query_ms_rooms
 
+from packaging import version # for version checks
+
 from ll_info import http_headers, version_check_url
 
 class QueryLiquid(QtCore.QThread):
     # Emit latest version string for callback
-    check_version_cb_sig = Signal(str)
+    check_version_cb_sig = Signal(object)
     load_news_cb_sig = Signal(object)
     update_snitchmsg_sig = Signal(str)
 
@@ -74,19 +76,33 @@ class QueryLiquid(QtCore.QThread):
                 self.query_news = False
             if self.query_version:
                 print("check_version")
-                #link = "https://api.github.com/repos/liquidunderground/liquidlauncher/releases/latest"
                 
-                try:
-                    f = requests.get(version_check_url, headers=http_headers, timeout=10).json()
-                    feed.raise_for_status()
+                latest = None
 
-                    latest_version = f["tag_name"]
-                    print("Latest: " + latest_version)
-                    print("Current: " + self.versionString)
-                    self.check_version_cb_sig.emit(latest_version)
+                for version_check_src in version_check_url:
+                    print("Checking for updates at " + version_check_src + "...")
 
-                except Exception as e:
-                    print("Version check error: ",e)
+                    try:
+                        f = requests.get(version_check_src, headers=http_headers, timeout=10).json()
+                        feed.raise_for_status()
+
+                        found = {
+                            "url": version_check_src,
+                            "version": f["tag_name"]
+                        }
+                        print("Found: " + found["version"])
+                        print("Current: " + self.versionString)
+
+                        if latest == None or version.parse(found["version"]) > version.parse(latest["version"]):
+                            latest = found
+                        
+                        print("Latest: " + found["version"])
+
+                    except Exception as e:
+                        print("Version check error: ",e)
+
+                self.check_version_cb_sig.emit(latest)
+
                 self.query_version = False
             if self.snitch:
                 #server_list = get_server_list(ms_url, "v1")

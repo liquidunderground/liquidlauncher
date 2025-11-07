@@ -2101,21 +2101,20 @@ class MainWindow(QMainWindow):
                 f.write(out_text)
         return
 
-    def on_check_version_cb(self, latest_version):
+    def on_check_version_cb(self, latest):
             # check launcher version ============================================= #
-            if version.parse(latest_version) > version.parse(versionString):
+            if version.parse(latest["version"]) > version.parse(versionString):
                 alertArgs = {
                     "type" : "question",
-                    "title" : f"Version {latest_version} available",
+                    "title" : f"Version {latest["version"]} available",
                     "message" : f"Your version of LiquidLauncher seems to be " \
-                        f"outdated. Please download version {latest_version} from " \
-                        "our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">releases</a>.",
+                                f"outdated. Please download <a href=\"{latest["url"]}\"> version {latest["version"]}</a>.",
                     "detailedText" : f"Latest version of LiquidLauncher: " \
-                        f"{latest_version}\nYou are currently running: " \
+                        f"{latest["version"]}\nYou are currently running: " \
                         f"{versionString}",
                 }
                 self.alert(**alertArgs)
-            elif version.parse(latest_version) < version.parse(versionString):
+            elif version.parse(latest["version"]) < version.parse(versionString):
                 print("Greetings, time traveller.")
                 alertArgs = {
                     "type" : "info",
@@ -2123,8 +2122,8 @@ class MainWindow(QMainWindow):
                     "message" : f"<p>You seem to be using an in-development " \
                         "version of LiquidLauncher. Please note that some things " \
                         "might not be finished yet.</p><p>If you'd like to use our current release " \
-                        f"version {latest_version},  please check " \
-                        'our <a href=\"https://github.com/liquidunderground/liquidlauncher/releases\">repository</a>.</p>',
+                        f"version {latest["version"]},  please check " \
+                        f'our <a href=\"{latest["url"]}\">repository</a>.</p>',
                 }
                 self.alert(**alertArgs)
             else:
