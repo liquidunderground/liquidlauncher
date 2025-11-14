@@ -17,7 +17,7 @@ from PySide6.QtCore import Signal
 
 import char_text
 from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
-from ll_ui import *
+from ui.ui_main import *
 from ui.netgamedialog import NetgameDialog
 from ll_info import product_version as versionString
 from ll_info import http_headers, set_http_header
