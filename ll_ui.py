@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'll.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.10.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -281,6 +281,37 @@ class Ui_MainWindow(object):
         self.GamePageFrame.setFrameShape(QFrame.Shape.NoFrame)
         self.gridLayout_16 = QGridLayout(self.GamePageFrame)
         self.gridLayout_16.setObjectName(u"gridLayout_16")
+        self.GamePlayFrame = QFrame(self.GamePageFrame)
+        self.GamePlayFrame.setObjectName(u"GamePlayFrame")
+        self.GamePlayFrame.setMinimumSize(QSize(0, 56))
+        self.GamePlayFrame.setMaximumSize(QSize(16777215, 56))
+        self.GamePlayFrame.setFrameShape(QFrame.Shape.NoFrame)
+        self.horizontalLayout_6 = QHBoxLayout(self.GamePlayFrame)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_3)
+
+        self.GamePlayButton = QToolButton(self.GamePlayFrame)
+        self.GamePlayButton.setObjectName(u"GamePlayButton")
+        sizePolicy4.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
+        self.GamePlayButton.setSizePolicy(sizePolicy4)
+        self.GamePlayButton.setMaximumSize(QSize(240, 38))
+        icon9 = QIcon()
+        icon9.addFile(u":/assets/img/icons/media-playback-start.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.GamePlayButton.setIcon(icon9)
+        self.GamePlayButton.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
+        self.GamePlayButton.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_6.addWidget(self.GamePlayButton)
+
+        self.horizontalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
+
+
+        self.gridLayout_16.addWidget(self.GamePlayFrame, 1, 1, 1, 1)
+
         self.splitter = QSplitter(self.GamePageFrame)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Orientation.Horizontal)
@@ -291,21 +322,21 @@ class Ui_MainWindow(object):
         __qlistwidgetitem1 = QListWidgetItem(self.SingleplayerTabList)
         __qlistwidgetitem1.setFont(font);
         __qlistwidgetitem1.setIcon(icon1);
-        icon9 = QIcon()
-        icon9.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon10 = QIcon()
+        icon10.addFile(u":/assets/img/filetypes/wad.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         font1 = QFont()
         font1.setPointSize(14)
         __qlistwidgetitem2 = QListWidgetItem(self.SingleplayerTabList)
         __qlistwidgetitem2.setFont(font1);
-        __qlistwidgetitem2.setIcon(icon9);
+        __qlistwidgetitem2.setIcon(icon10);
         __qlistwidgetitem3 = QListWidgetItem(self.SingleplayerTabList)
         __qlistwidgetitem3.setFont(font1);
         __qlistwidgetitem3.setIcon(icon2);
-        icon10 = QIcon()
-        icon10.addFile(u":/assets/img/icons/textfile.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon11 = QIcon()
+        icon11.addFile(u":/assets/img/icons/textfile.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         __qlistwidgetitem4 = QListWidgetItem(self.SingleplayerTabList)
         __qlistwidgetitem4.setFont(font1);
-        __qlistwidgetitem4.setIcon(icon10);
+        __qlistwidgetitem4.setIcon(icon11);
         self.SingleplayerTabList.setObjectName(u"SingleplayerTabList")
         sizePolicy5.setHeightForWidth(self.SingleplayerTabList.sizePolicy().hasHeightForWidth())
         self.SingleplayerTabList.setSizePolicy(sizePolicy5)
@@ -332,7 +363,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 658, 417))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 575, 428))
         self.gridLayout_13 = QGridLayout(self.scrollAreaWidgetContents_6)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
         self.displaySettingsLayout = QGroupBox(self.scrollAreaWidgetContents_6)
@@ -441,9 +472,9 @@ class Ui_MainWindow(object):
 
         self.HomePathBrowse = QPushButton(self.gameFilesLayout)
         self.HomePathBrowse.setObjectName(u"HomePathBrowse")
-        icon11 = QIcon()
-        icon11.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.HomePathBrowse.setIcon(icon11)
+        icon12 = QIcon()
+        icon12.addFile(u":/assets/img/icons/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.HomePathBrowse.setIcon(icon12)
 
         self.gridLayout_20.addWidget(self.HomePathBrowse, 9, 2, 1, 1)
 
@@ -474,7 +505,7 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse = QPushButton(self.gameFilesLayout)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
-        self.GameExecFilePathBrowse.setIcon(icon11)
+        self.GameExecFilePathBrowse.setIcon(icon12)
 
         self.gridLayout_20.addWidget(self.GameExecFilePathBrowse, 3, 2, 1, 1)
 
@@ -510,15 +541,15 @@ class Ui_MainWindow(object):
 
         self.GameFilesList = QListWidget(self.groupBox_22)
         __qlistwidgetitem5 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem5.setIcon(icon9);
-        icon12 = QIcon()
-        icon12.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        __qlistwidgetitem6 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem6.setIcon(icon12);
+        __qlistwidgetitem5.setIcon(icon10);
         icon13 = QIcon()
-        icon13.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon13.addFile(u":/assets/img/filetypes/pk3.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        __qlistwidgetitem6 = QListWidgetItem(self.GameFilesList)
+        __qlistwidgetitem6.setIcon(icon13);
+        icon14 = QIcon()
+        icon14.addFile(u":/assets/img/filetypes/lua.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         __qlistwidgetitem7 = QListWidgetItem(self.GameFilesList)
-        __qlistwidgetitem7.setIcon(icon13);
+        __qlistwidgetitem7.setIcon(icon14);
         self.GameFilesList.setObjectName(u"GameFilesList")
         self.GameFilesList.setStyleSheet(u"")
         self.GameFilesList.setDragEnabled(True)
@@ -537,9 +568,9 @@ class Ui_MainWindow(object):
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.GameFilesDownButton.sizePolicy().hasHeightForWidth())
         self.GameFilesDownButton.setSizePolicy(sizePolicy6)
-        icon14 = QIcon()
-        icon14.addFile(u":/assets/img/icons/go-down.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.GameFilesDownButton.setIcon(icon14)
+        icon15 = QIcon()
+        icon15.addFile(u":/assets/img/icons/go-down.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.GameFilesDownButton.setIcon(icon15)
 
         self.gridLayout_26.addWidget(self.GameFilesDownButton, 6, 4, 1, 1)
 
@@ -563,9 +594,9 @@ class Ui_MainWindow(object):
         self.GameFilesUpButton.setObjectName(u"GameFilesUpButton")
         sizePolicy6.setHeightForWidth(self.GameFilesUpButton.sizePolicy().hasHeightForWidth())
         self.GameFilesUpButton.setSizePolicy(sizePolicy6)
-        icon15 = QIcon()
-        icon15.addFile(u":/assets/img/icons/go-up.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.GameFilesUpButton.setIcon(icon15)
+        icon16 = QIcon()
+        icon16.addFile(u":/assets/img/icons/go-up.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.GameFilesUpButton.setIcon(icon16)
 
         self.gridLayout_26.addWidget(self.GameFilesUpButton, 5, 4, 1, 1)
 
@@ -576,9 +607,9 @@ class Ui_MainWindow(object):
         self.GameFilesClearButton = QPushButton(self.groupBox_22)
         self.GameFilesClearButton.setObjectName(u"GameFilesClearButton")
         self.GameFilesClearButton.setMinimumSize(QSize(0, 28))
-        icon16 = QIcon()
-        icon16.addFile(u":/assets/img/icons/edit-delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.GameFilesClearButton.setIcon(icon16)
+        icon17 = QIcon()
+        icon17.addFile(u":/assets/img/icons/edit-delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.GameFilesClearButton.setIcon(icon17)
 
         self.gridLayout_26.addWidget(self.GameFilesClearButton, 1, 4, 1, 1)
 
@@ -586,7 +617,7 @@ class Ui_MainWindow(object):
         self.GameFilesLoadButton.setObjectName(u"GameFilesLoadButton")
         self.GameFilesLoadButton.setMinimumSize(QSize(0, 28))
         self.GameFilesLoadButton.setStyleSheet(u"")
-        self.GameFilesLoadButton.setIcon(icon11)
+        self.GameFilesLoadButton.setIcon(icon12)
 
         self.gridLayout_26.addWidget(self.GameFilesLoadButton, 2, 4, 1, 1)
 
@@ -625,7 +656,7 @@ class Ui_MainWindow(object):
         self.GameFilesExecScrBrowseButton = QPushButton(self.groupBox_21)
         self.GameFilesExecScrBrowseButton.setObjectName(u"GameFilesExecScrBrowseButton")
         self.GameFilesExecScrBrowseButton.setMinimumSize(QSize(0, 28))
-        self.GameFilesExecScrBrowseButton.setIcon(icon11)
+        self.GameFilesExecScrBrowseButton.setIcon(icon12)
 
         self.horizontalLayout_4.addWidget(self.GameFilesExecScrBrowseButton)
 
@@ -676,42 +707,71 @@ class Ui_MainWindow(object):
         self.groupBox_34.setObjectName(u"groupBox_34")
         self.verticalLayout_25 = QVBoxLayout(self.groupBox_34)
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.groupBox_31 = QGroupBox(self.groupBox_34)
-        self.groupBox_31.setObjectName(u"groupBox_31")
-        self.horizontalLayout_5 = QHBoxLayout(self.groupBox_31)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.lineEdit = QLineEdit(self.groupBox_31)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setEnabled(False)
+        self.tabWidget = QTabWidget(self.groupBox_34)
+        self.tabWidget.setObjectName(u"tabWidget")
+        sizePolicy1.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy1)
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.horizontalLayout_9 = QHBoxLayout(self.tab_3)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.SearchModsInput = QLineEdit(self.tab_3)
+        self.SearchModsInput.setObjectName(u"SearchModsInput")
+        self.SearchModsInput.setEnabled(False)
 
-        self.horizontalLayout_5.addWidget(self.lineEdit)
+        self.horizontalLayout_9.addWidget(self.SearchModsInput)
 
-        self.ModTypeCombo = QComboBox(self.groupBox_31)
+        self.SearchModHelpButton = QPushButton(self.tab_3)
+        self.SearchModHelpButton.setObjectName(u"SearchModHelpButton")
+        self.SearchModHelpButton.setIcon(icon4)
+        self.SearchModHelpButton.setFlat(True)
+
+        self.horizontalLayout_9.addWidget(self.SearchModHelpButton)
+
+        self.SearchModPageInput = QSpinBox(self.tab_3)
+        self.SearchModPageInput.setObjectName(u"SearchModPageInput")
+        self.SearchModPageInput.setMinimum(1)
+
+        self.horizontalLayout_9.addWidget(self.SearchModPageInput)
+
+        self.SearchModsButton = QPushButton(self.tab_3)
+        self.SearchModsButton.setObjectName(u"SearchModsButton")
+        self.SearchModsButton.setIcon(icon9)
+
+        self.horizontalLayout_9.addWidget(self.SearchModsButton)
+
+        self.tabWidget.addTab(self.tab_3, "")
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.horizontalLayout_10 = QHBoxLayout(self.tab_4)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.ModTypeCombo = QComboBox(self.tab_4)
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.addItem("")
         self.ModTypeCombo.setObjectName(u"ModTypeCombo")
+        sizePolicy2.setHeightForWidth(self.ModTypeCombo.sizePolicy().hasHeightForWidth())
+        self.ModTypeCombo.setSizePolicy(sizePolicy2)
 
-        self.horizontalLayout_5.addWidget(self.ModTypeCombo)
+        self.horizontalLayout_10.addWidget(self.ModTypeCombo)
 
-        self.ModPageInput = QSpinBox(self.groupBox_31)
+        self.ModPageInput = QSpinBox(self.tab_4)
         self.ModPageInput.setObjectName(u"ModPageInput")
         self.ModPageInput.setMinimum(1)
 
-        self.horizontalLayout_5.addWidget(self.ModPageInput)
+        self.horizontalLayout_10.addWidget(self.ModPageInput)
 
-        self.RefreshModsButton = QPushButton(self.groupBox_31)
+        self.RefreshModsButton = QPushButton(self.tab_4)
         self.RefreshModsButton.setObjectName(u"RefreshModsButton")
-        icon17 = QIcon()
-        icon17.addFile(u":/assets/img/icons/media-playback-start.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.RefreshModsButton.setIcon(icon17)
+        self.RefreshModsButton.setIcon(icon9)
 
-        self.horizontalLayout_5.addWidget(self.RefreshModsButton)
+        self.horizontalLayout_10.addWidget(self.RefreshModsButton)
 
+        self.tabWidget.addTab(self.tab_4, "")
 
-        self.verticalLayout_25.addWidget(self.groupBox_31)
+        self.verticalLayout_25.addWidget(self.tabWidget)
 
         self.ModsList = QListWidget(self.groupBox_34)
         __qlistwidgetitem8 = QListWidgetItem(self.ModsList)
@@ -741,7 +801,7 @@ class Ui_MainWindow(object):
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.ModDirBrowseButton = QPushButton(self.groupBox_32)
         self.ModDirBrowseButton.setObjectName(u"ModDirBrowseButton")
-        self.ModDirBrowseButton.setIcon(icon11)
+        self.ModDirBrowseButton.setIcon(icon12)
 
         self.gridLayout_12.addWidget(self.ModDirBrowseButton, 0, 1, 1, 1)
 
@@ -763,7 +823,7 @@ class Ui_MainWindow(object):
         self.scrollArea_12.setWidgetResizable(True)
         self.scrollAreaWidgetContents_16 = QWidget()
         self.scrollAreaWidgetContents_16.setObjectName(u"scrollAreaWidgetContents_16")
-        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 401, 382))
+        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 99, 99))
         self.gridLayout_44 = QGridLayout(self.scrollAreaWidgetContents_16)
         self.gridLayout_44.setObjectName(u"gridLayout_44")
         self.logfileTextarea = QPlainTextEdit(self.scrollAreaWidgetContents_16)
@@ -803,7 +863,7 @@ class Ui_MainWindow(object):
         self.scrollArea_13.setWidgetResizable(True)
         self.scrollAreaWidgetContents_18 = QWidget()
         self.scrollAreaWidgetContents_18.setObjectName(u"scrollAreaWidgetContents_18")
-        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 268, 382))
+        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 99, 99))
         self.gridLayout_46 = QGridLayout(self.scrollAreaWidgetContents_18)
         self.gridLayout_46.setObjectName(u"gridLayout_46")
         self.logfileList = QListWidget(self.scrollAreaWidgetContents_18)
@@ -822,35 +882,6 @@ class Ui_MainWindow(object):
         self.splitter.addWidget(self.GamePageContentFrame)
 
         self.gridLayout_16.addWidget(self.splitter, 0, 1, 1, 1)
-
-        self.GamePlayFrame = QFrame(self.GamePageFrame)
-        self.GamePlayFrame.setObjectName(u"GamePlayFrame")
-        self.GamePlayFrame.setMinimumSize(QSize(0, 56))
-        self.GamePlayFrame.setMaximumSize(QSize(16777215, 56))
-        self.GamePlayFrame.setFrameShape(QFrame.Shape.NoFrame)
-        self.horizontalLayout_6 = QHBoxLayout(self.GamePlayFrame)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer_3)
-
-        self.GamePlayButton = QToolButton(self.GamePlayFrame)
-        self.GamePlayButton.setObjectName(u"GamePlayButton")
-        sizePolicy4.setHeightForWidth(self.GamePlayButton.sizePolicy().hasHeightForWidth())
-        self.GamePlayButton.setSizePolicy(sizePolicy4)
-        self.GamePlayButton.setMaximumSize(QSize(240, 38))
-        self.GamePlayButton.setIcon(icon17)
-        self.GamePlayButton.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
-        self.GamePlayButton.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_6.addWidget(self.GamePlayButton)
-
-        self.horizontalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
-
-
-        self.gridLayout_16.addWidget(self.GamePlayFrame, 1, 1, 1, 1)
 
 
         self.verticalLayout_3.addWidget(self.GamePageFrame)
@@ -891,7 +922,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 676, 497))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 388, 539))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -1122,7 +1153,7 @@ class Ui_MainWindow(object):
         self.gridLayout_32.setObjectName(u"gridLayout_32")
         self.BrowseNetgameJoinButton = QPushButton(self.stackedWidgetPage1)
         self.BrowseNetgameJoinButton.setObjectName(u"BrowseNetgameJoinButton")
-        self.BrowseNetgameJoinButton.setIcon(icon17)
+        self.BrowseNetgameJoinButton.setIcon(icon9)
 
         self.gridLayout_32.addWidget(self.BrowseNetgameJoinButton, 2, 5, 1, 2)
 
@@ -1172,9 +1203,10 @@ class Ui_MainWindow(object):
         self.BrowseNetgameTable.setObjectName(u"BrowseNetgameTable")
         sizePolicy5.setHeightForWidth(self.BrowseNetgameTable.sizePolicy().hasHeightForWidth())
         self.BrowseNetgameTable.setSizePolicy(sizePolicy5)
+        self.BrowseNetgameTable.setContextMenuPolicy(Qt.ContextMenuPolicy.ActionsContextMenu)
         self.BrowseNetgameTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
         self.BrowseNetgameTable.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectItems)
+        self.BrowseNetgameTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.BrowseNetgameTable.horizontalHeader().setCascadingSectionResizes(True)
         self.BrowseNetgameTable.verticalHeader().setVisible(False)
 
@@ -1235,7 +1267,7 @@ class Ui_MainWindow(object):
 
         self.JoinAddressButton = QPushButton(self.groupBox_19)
         self.JoinAddressButton.setObjectName(u"JoinAddressButton")
-        self.JoinAddressButton.setIcon(icon17)
+        self.JoinAddressButton.setIcon(icon9)
 
         self.horizontalLayout_3.addWidget(self.JoinAddressButton)
 
@@ -1249,7 +1281,7 @@ class Ui_MainWindow(object):
         self.JoinBookmarkButton = QPushButton(self.groupBox_20)
         self.JoinBookmarkButton.setObjectName(u"JoinBookmarkButton")
         self.JoinBookmarkButton.setSizeIncrement(QSize(0, 0))
-        self.JoinBookmarkButton.setIcon(icon17)
+        self.JoinBookmarkButton.setIcon(icon9)
 
         self.gridLayout_43.addWidget(self.JoinBookmarkButton, 1, 1, 1, 1)
 
@@ -1308,7 +1340,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 658, 701))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 487, 714))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
@@ -1560,7 +1592,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 658, 862))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 449, 872))
         self.verticalLayout_30 = QVBoxLayout(self.scrollAreaWidgetContents_10)
         self.verticalLayout_30.setObjectName(u"verticalLayout_30")
         self.HostingMapGroupBox = QGroupBox(self.scrollAreaWidgetContents_10)
@@ -1915,7 +1947,7 @@ class Ui_MainWindow(object):
         self.scrollArea_9.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 679, 351))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 247, 266))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.CoopSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_9)
@@ -1998,7 +2030,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 654, 693))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 551, 702))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.RingslingerSettingsGroupbox = QGroupBox(self.scrollAreaWidgetContents_3)
@@ -2205,7 +2237,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 679, 351))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 255, 197))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.CircuitraceSettingsCheckbox = QCheckBox(self.scrollAreaWidgetContents_8)
@@ -2270,7 +2302,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 662, 1064))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 665, 1082))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.textEdit = QTextEdit(self.scrollAreaWidgetContents_7)
@@ -2757,7 +2789,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.ServerPlayButton.sizePolicy().hasHeightForWidth())
         self.ServerPlayButton.setSizePolicy(sizePolicy4)
         self.ServerPlayButton.setMaximumSize(QSize(240, 38))
-        self.ServerPlayButton.setIcon(icon17)
+        self.ServerPlayButton.setIcon(icon9)
         self.ServerPlayButton.setPopupMode(QToolButton.ToolButtonPopupMode.MenuButtonPopup)
         self.ServerPlayButton.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
 
@@ -2783,7 +2815,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1022, 522))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 100, 83))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -2816,10 +2848,7 @@ class Ui_MainWindow(object):
         __qlistwidgetitem15.setIcon(icon);
         __qlistwidgetitem16 = QListWidgetItem(self.SettingsTabList)
         __qlistwidgetitem16.setFont(font1);
-        __qlistwidgetitem16.setIcon(icon2);
-        __qlistwidgetitem17 = QListWidgetItem(self.SettingsTabList)
-        __qlistwidgetitem17.setFont(font1);
-        __qlistwidgetitem17.setIcon(icon3);
+        __qlistwidgetitem16.setIcon(icon3);
         self.SettingsTabList.setObjectName(u"SettingsTabList")
         sizePolicy5.setHeightForWidth(self.SettingsTabList.sizePolicy().hasHeightForWidth())
         self.SettingsTabList.setSizePolicy(sizePolicy5)
@@ -2882,7 +2911,7 @@ class Ui_MainWindow(object):
 
         self.MSMoveUpButton = QPushButton(self.groupBox_17)
         self.MSMoveUpButton.setObjectName(u"MSMoveUpButton")
-        self.MSMoveUpButton.setIcon(icon15)
+        self.MSMoveUpButton.setIcon(icon16)
         self.MSMoveUpButton.setFlat(True)
 
         self.gridLayout_37.addWidget(self.MSMoveUpButton, 1, 1, 1, 1)
@@ -2910,7 +2939,7 @@ class Ui_MainWindow(object):
 
         self.MSMoveDownButton = QPushButton(self.groupBox_17)
         self.MSMoveDownButton.setObjectName(u"MSMoveDownButton")
-        self.MSMoveDownButton.setIcon(icon14)
+        self.MSMoveDownButton.setIcon(icon15)
         self.MSMoveDownButton.setFlat(True)
 
         self.gridLayout_37.addWidget(self.MSMoveDownButton, 1, 2, 1, 1)
@@ -2945,7 +2974,7 @@ class Ui_MainWindow(object):
         sizePolicy7.setVerticalStretch(0)
         sizePolicy7.setHeightForWidth(self.SnitchButton.sizePolicy().hasHeightForWidth())
         self.SnitchButton.setSizePolicy(sizePolicy7)
-        self.SnitchButton.setIcon(icon17)
+        self.SnitchButton.setIcon(icon9)
 
         self.gridLayout_6.addWidget(self.SnitchButton, 2, 2, 1, 1)
 
@@ -2996,7 +3025,7 @@ class Ui_MainWindow(object):
         self.RSSMovedownButton = QPushButton(self.groupBox_8)
         self.RSSMovedownButton.setObjectName(u"RSSMovedownButton")
         self.RSSMovedownButton.setEnabled(False)
-        self.RSSMovedownButton.setIcon(icon14)
+        self.RSSMovedownButton.setIcon(icon15)
 
         self.gridLayout_39.addWidget(self.RSSMovedownButton, 2, 3, 1, 1)
 
@@ -3010,7 +3039,7 @@ class Ui_MainWindow(object):
         self.RSSMoveupButton = QPushButton(self.groupBox_8)
         self.RSSMoveupButton.setObjectName(u"RSSMoveupButton")
         self.RSSMoveupButton.setEnabled(False)
-        self.RSSMoveupButton.setIcon(icon15)
+        self.RSSMoveupButton.setIcon(icon16)
 
         self.gridLayout_39.addWidget(self.RSSMoveupButton, 2, 2, 1, 1)
 
@@ -3018,80 +3047,6 @@ class Ui_MainWindow(object):
         self.gridLayout_8.addWidget(self.groupBox_8, 0, 0, 1, 1)
 
         self.SettingsStackedWidget.addWidget(self.RSSSettingsPage)
-        self.RepositorySettingsPage = QWidget()
-        self.RepositorySettingsPage.setObjectName(u"RepositorySettingsPage")
-        self.verticalLayout_6 = QVBoxLayout(self.RepositorySettingsPage)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.scrollArea_14 = QScrollArea(self.RepositorySettingsPage)
-        self.scrollArea_14.setObjectName(u"scrollArea_14")
-        self.scrollArea_14.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_13 = QWidget()
-        self.scrollAreaWidgetContents_13.setObjectName(u"scrollAreaWidgetContents_13")
-        self.scrollAreaWidgetContents_13.setGeometry(QRect(0, 0, 691, 460))
-        self.gridLayout_42 = QGridLayout(self.scrollAreaWidgetContents_13)
-        self.gridLayout_42.setObjectName(u"gridLayout_42")
-        self.ModsourceWSBlueCheckbox = QCheckBox(self.scrollAreaWidgetContents_13)
-        self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
-        icon26 = QIcon()
-        icon26.addFile(u":/assets/img/icons/wsblue.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.ModsourceWSBlueCheckbox.setIcon(icon26)
-
-        self.gridLayout_42.addWidget(self.ModsourceWSBlueCheckbox, 3, 1, 1, 1)
-
-        self.ModsourceGamebananaCheckbox = QCheckBox(self.scrollAreaWidgetContents_13)
-        self.ModsourceGamebananaCheckbox.setObjectName(u"ModsourceGamebananaCheckbox")
-        self.ModsourceGamebananaCheckbox.setEnabled(True)
-        icon27 = QIcon()
-        icon27.addFile(u":/assets/img/icons/gamebanana.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.ModsourceGamebananaCheckbox.setIcon(icon27)
-
-        self.gridLayout_42.addWidget(self.ModsourceGamebananaCheckbox, 1, 1, 1, 1)
-
-        self.ModsourceSkybaseCheckbox = QCheckBox(self.scrollAreaWidgetContents_13)
-        self.ModsourceSkybaseCheckbox.setObjectName(u"ModsourceSkybaseCheckbox")
-        self.ModsourceSkybaseCheckbox.setEnabled(True)
-        icon28 = QIcon()
-        icon28.addFile(u":/assets/img/icons/skybase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.ModsourceSkybaseCheckbox.setIcon(icon28)
-
-        self.gridLayout_42.addWidget(self.ModsourceSkybaseCheckbox, 2, 1, 1, 1)
-
-        self.ModsourceWSRedCheckbox = QCheckBox(self.scrollAreaWidgetContents_13)
-        self.ModsourceWSRedCheckbox.setObjectName(u"ModsourceWSRedCheckbox")
-        icon29 = QIcon()
-        icon29.addFile(u":/assets/img/icons/wsred.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.ModsourceWSRedCheckbox.setIcon(icon29)
-
-        self.gridLayout_42.addWidget(self.ModsourceWSRedCheckbox, 4, 1, 1, 1)
-
-        self.ModsourceMBCheckbox = QCheckBox(self.scrollAreaWidgetContents_13)
-        self.ModsourceMBCheckbox.setObjectName(u"ModsourceMBCheckbox")
-        icon30 = QIcon()
-        icon30.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.ModsourceMBCheckbox.setIcon(icon30)
-        self.ModsourceMBCheckbox.setChecked(True)
-
-        self.gridLayout_42.addWidget(self.ModsourceMBCheckbox, 0, 1, 1, 1)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 188, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_42.addItem(self.verticalSpacer_3, 5, 1, 1, 1)
-
-        self.textBrowser = QTextBrowser(self.scrollAreaWidgetContents_13)
-        self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.MinimumExpanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy8)
-
-        self.gridLayout_42.addWidget(self.textBrowser, 0, 2, 6, 1)
-
-        self.scrollArea_14.setWidget(self.scrollAreaWidgetContents_13)
-
-        self.verticalLayout_6.addWidget(self.scrollArea_14)
-
-        self.SettingsStackedWidget.addWidget(self.RepositorySettingsPage)
         self.stackedWidget_2Page5 = QWidget()
         self.stackedWidget_2Page5.setObjectName(u"stackedWidget_2Page5")
         self.horizontalLayout_7 = QHBoxLayout(self.stackedWidget_2Page5)
@@ -3102,7 +3057,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 691, 460))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 691, 458))
         self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.scrollArea_11 = QScrollArea(self.scrollAreaWidgetContents)
@@ -3110,13 +3065,51 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 679, 448))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 658, 499))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.groupBox_18 = QGroupBox(self.scrollAreaWidgetContents_11)
+        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_18.addItem(self.verticalSpacer_12)
+
+        self.groupBox_31 = QGroupBox(self.scrollAreaWidgetContents_11)
+        self.groupBox_31.setObjectName(u"groupBox_31")
+        self.gridLayout_47 = QGridLayout(self.groupBox_31)
+        self.gridLayout_47.setObjectName(u"gridLayout_47")
+        self.CheatInput = QLineEdit(self.groupBox_31)
+        self.CheatInput.setObjectName(u"CheatInput")
+
+        self.gridLayout_47.addWidget(self.CheatInput, 1, 0, 1, 1)
+
+        self.label_26 = QLabel(self.groupBox_31)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setFont(font2)
+
+        self.gridLayout_47.addWidget(self.label_26, 2, 0, 1, 1)
+
+
+        self.verticalLayout_18.addWidget(self.groupBox_31)
+
+        self.devSettingsStackedWidget = QStackedWidget(self.scrollAreaWidgetContents_11)
+        self.devSettingsStackedWidget.setObjectName(u"devSettingsStackedWidget")
+        self.devSettingsStackedWidget.setEnabled(True)
+        self.httpDevPage = QWidget()
+        self.httpDevPage.setObjectName(u"httpDevPage")
+        self.verticalLayout_34 = QVBoxLayout(self.httpDevPage)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalSpacer_15 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_34.addItem(self.verticalSpacer_15)
+
+        self.groupBox_18 = QGroupBox(self.httpDevPage)
         self.groupBox_18.setObjectName(u"groupBox_18")
         self.gridLayout_38 = QGridLayout(self.groupBox_18)
         self.gridLayout_38.setObjectName(u"gridLayout_38")
+        self.label_19 = QLabel(self.groupBox_18)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
+
         self.UseragentInput = QLineEdit(self.groupBox_18)
         self.UseragentInput.setObjectName(u"UseragentInput")
 
@@ -3128,19 +3121,82 @@ class Ui_MainWindow(object):
 
         self.gridLayout_38.addWidget(self.label_27, 2, 1, 1, 1)
 
-        self.label_19 = QLabel(self.groupBox_18)
-        self.label_19.setObjectName(u"label_19")
 
-        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
+        self.verticalLayout_34.addWidget(self.groupBox_18)
+
+        self.verticalSpacer_16 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_34.addItem(self.verticalSpacer_16)
+
+        self.devSettingsStackedWidget.addWidget(self.httpDevPage)
+        self.modsourcesDevPage = QWidget()
+        self.modsourcesDevPage.setObjectName(u"modsourcesDevPage")
+        self.verticalLayout_35 = QVBoxLayout(self.modsourcesDevPage)
+        self.verticalLayout_35.setObjectName(u"verticalLayout_35")
+        self.groupBox_35 = QGroupBox(self.modsourcesDevPage)
+        self.groupBox_35.setObjectName(u"groupBox_35")
+        self.groupBox_35.setEnabled(True)
+        self.verticalLayout_36 = QVBoxLayout(self.groupBox_35)
+        self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.textBrowser_2 = QTextBrowser(self.groupBox_35)
+        self.textBrowser_2.setObjectName(u"textBrowser_2")
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.MinimumExpanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
+        self.textBrowser_2.setSizePolicy(sizePolicy8)
+
+        self.verticalLayout_36.addWidget(self.textBrowser_2)
+
+        self.ModsourceMBCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceMBCheckbox.setObjectName(u"ModsourceMBCheckbox")
+        icon26 = QIcon()
+        icon26.addFile(u":/assets/img/icons/srb2mb.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.ModsourceMBCheckbox.setIcon(icon26)
+        self.ModsourceMBCheckbox.setChecked(True)
+
+        self.verticalLayout_36.addWidget(self.ModsourceMBCheckbox)
+
+        self.ModsourceGamebananaCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceGamebananaCheckbox.setObjectName(u"ModsourceGamebananaCheckbox")
+        self.ModsourceGamebananaCheckbox.setEnabled(True)
+        icon27 = QIcon()
+        icon27.addFile(u":/assets/img/icons/gamebanana.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.ModsourceGamebananaCheckbox.setIcon(icon27)
+
+        self.verticalLayout_36.addWidget(self.ModsourceGamebananaCheckbox)
+
+        self.ModsourceSkybaseCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceSkybaseCheckbox.setObjectName(u"ModsourceSkybaseCheckbox")
+        self.ModsourceSkybaseCheckbox.setEnabled(True)
+        icon28 = QIcon()
+        icon28.addFile(u":/assets/img/icons/skybase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.ModsourceSkybaseCheckbox.setIcon(icon28)
+
+        self.verticalLayout_36.addWidget(self.ModsourceSkybaseCheckbox)
+
+        self.ModsourceWSBlueCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceWSBlueCheckbox.setObjectName(u"ModsourceWSBlueCheckbox")
+        icon29 = QIcon()
+        icon29.addFile(u":/assets/img/icons/wsblue.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.ModsourceWSBlueCheckbox.setIcon(icon29)
+
+        self.verticalLayout_36.addWidget(self.ModsourceWSBlueCheckbox)
+
+        self.ModsourceWSRedCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceWSRedCheckbox.setObjectName(u"ModsourceWSRedCheckbox")
+        icon30 = QIcon()
+        icon30.addFile(u":/assets/img/icons/wsred.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.ModsourceWSRedCheckbox.setIcon(icon30)
+
+        self.verticalLayout_36.addWidget(self.ModsourceWSRedCheckbox)
 
 
-        self.verticalLayout_18.addWidget(self.groupBox_18)
+        self.verticalLayout_35.addWidget(self.groupBox_35)
 
-        self.label_26 = QLabel(self.scrollAreaWidgetContents_11)
-        self.label_26.setObjectName(u"label_26")
-        self.label_26.setFont(font2)
+        self.devSettingsStackedWidget.addWidget(self.modsourcesDevPage)
 
-        self.verticalLayout_18.addWidget(self.label_26)
+        self.verticalLayout_18.addWidget(self.devSettingsStackedWidget)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3176,8 +3232,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(2)
-        self.GameContentStackedWidget.setCurrentIndex(0)
+        self.MainTabsStackedWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         self.MultiplayerStackedWidget.setCurrentIndex(0)
         self.PlayerSkinInput.setCurrentIndex(-1)
         self.PlayerColorInput.setCurrentIndex(-1)
@@ -3187,6 +3244,7 @@ class Ui_MainWindow(object):
         self.Survival_revengeCombobox.setCurrentIndex(0)
         self.Item_rateCombobox.setCurrentIndex(1)
         self.SettingsStackedWidget.setCurrentIndex(0)
+        self.devSettingsStackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -3250,6 +3308,7 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem.setText(QCoreApplication.translate("MainWindow", u"No articles. Pleas click \"Refresh\" to load some.", None));
         self.RSSArticleList.setSortingEnabled(__sortingEnabled)
 
+        self.GamePlayButton.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
 
         __sortingEnabled1 = self.SingleplayerTabList.isSortingEnabled()
         self.SingleplayerTabList.setSortingEnabled(False)
@@ -3328,8 +3387,19 @@ class Ui_MainWindow(object):
         self.groupBox_33.setTitle(QCoreApplication.translate("MainWindow", u"Mod details", None))
         self.ModStatusLabel.setText(QCoreApplication.translate("MainWindow", u"Double click a mod to view", None))
         self.groupBox_34.setTitle(QCoreApplication.translate("MainWindow", u"Available Mods", None))
-        self.groupBox_31.setTitle("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
+        self.SearchModsInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
+#if QT_CONFIG(tooltip)
+        self.SearchModHelpButton.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Search your mod sources</p><p>keywords:</p><p>category:maps<br/>category:characters<br/>category:lua<br/>category:assets<br/>category:misc</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.SearchModHelpButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.SearchModPageInput.setToolTip(QCoreApplication.translate("MainWindow", u"Page", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.SearchModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
+#endif // QT_CONFIG(tooltip)
+        self.SearchModsButton.setText("")
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Search", None))
         self.ModTypeCombo.setItemText(0, QCoreApplication.translate("MainWindow", u"Maps", None))
         self.ModTypeCombo.setItemText(1, QCoreApplication.translate("MainWindow", u"Characters", None))
         self.ModTypeCombo.setItemText(2, QCoreApplication.translate("MainWindow", u"Lua", None))
@@ -3343,6 +3413,7 @@ class Ui_MainWindow(object):
         self.RefreshModsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Mods", None))
 #endif // QT_CONFIG(tooltip)
         self.RefreshModsButton.setText("")
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Browse", None))
 
         __sortingEnabled3 = self.ModsList.isSortingEnabled()
         self.ModsList.setSortingEnabled(False)
@@ -3366,7 +3437,6 @@ class Ui_MainWindow(object):
         self.logfileRefreshButton.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh Logs", None))
 #endif // QT_CONFIG(tooltip)
         self.logfileRefreshButton.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.GamePlayButton.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
 
         __sortingEnabled4 = self.MultiplayerTabList.isSortingEnabled()
         self.MultiplayerTabList.setSortingEnabled(False)
@@ -3971,9 +4041,7 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem15 = self.SettingsTabList.item(1)
         ___qlistwidgetitem15.setText(QCoreApplication.translate("MainWindow", u"RSS Settings", None));
         ___qlistwidgetitem16 = self.SettingsTabList.item(2)
-        ___qlistwidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Repositories", None));
-        ___qlistwidgetitem17 = self.SettingsTabList.item(3)
-        ___qlistwidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Developer Settings", None));
+        ___qlistwidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Developer Settings", None));
         self.SettingsTabList.setSortingEnabled(__sortingEnabled6)
 
         self.groupBox_17.setTitle(QCoreApplication.translate("MainWindow", u"Master Servers", None))
@@ -4032,25 +4100,27 @@ class Ui_MainWindow(object):
 
         __sortingEnabled8 = self.RSSFeedList.isSortingEnabled()
         self.RSSFeedList.setSortingEnabled(False)
-        ___qlistwidgetitem18 = self.RSSFeedList.item(0)
-        ___qlistwidgetitem18.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
-        ___qlistwidgetitem19 = self.RSSFeedList.item(1)
-        ___qlistwidgetitem19.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
-        ___qlistwidgetitem20 = self.RSSFeedList.item(2)
-        ___qlistwidgetitem20.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
-        ___qlistwidgetitem21 = self.RSSFeedList.item(3)
-        ___qlistwidgetitem21.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
+        ___qlistwidgetitem17 = self.RSSFeedList.item(0)
+        ___qlistwidgetitem17.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
+        ___qlistwidgetitem18 = self.RSSFeedList.item(1)
+        ___qlistwidgetitem18.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
+        ___qlistwidgetitem19 = self.RSSFeedList.item(2)
+        ___qlistwidgetitem19.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
+        ___qlistwidgetitem20 = self.RSSFeedList.item(3)
+        ___qlistwidgetitem20.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
         self.RSSFeedList.setSortingEnabled(__sortingEnabled8)
 
         self.RSSMovedownButton.setText("")
         self.RSSAddButton.setText("")
         self.RSSMoveupButton.setText("")
-        self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
-        self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))
-        self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
-        self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
-        self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
-        self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.groupBox_31.setTitle(QCoreApplication.translate("MainWindow", u"Developer Command", None))
+        self.CheatInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ilovethemonkeyhead", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Only change these settings if you know what you're doing.", None))
+        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"HTTP Settings", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).", None))
+        self.groupBox_35.setTitle(QCoreApplication.translate("MainWindow", u"Mod Repositories", None))
+        self.textBrowser_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
@@ -4066,10 +4136,11 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'CMU Serif Medium'; font-weight:600;\">YOU HAVE BEEN WARNED!!</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;\"><br /></p></body></html>", None))
-        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"HTTP Settings", None))
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Only change these settings if you know what you're doing.", None))
-        self.SaveSettingsButton.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+        self.ModsourceMBCheckbox.setText(QCoreApplication.translate("MainWindow", u"Official SRB2 Message Board", None))
+        self.ModsourceGamebananaCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Gamebanana (unofficial)", None))
+        self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
+        self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
+        self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
+        self.SaveSettingsButton.setText(QCoreApplication.translate("MainWindow", u"Save Settings", None))
     # retranslateUi
 
