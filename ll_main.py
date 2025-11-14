@@ -388,6 +388,10 @@ class MainWindow(QMainWindow):
         #self.ui.ModsourceWadarchiveCheckbox.clicked.connect(self.update_modsources)
         self.ui.UseragentInput.textChanged.connect(lambda x: set_http_header("User-Agent", x))
 
+        from ll_cheats import run_cheat as run_cheat
+        self.ui.CheatInput.returnPressed.connect(lambda: run_cheat(self.ui.CheatInput.text(),self.ui))
+        self.ui.devSettingsStackedWidget.hide()
+
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
         self.ui.MSRemoveButton.clicked.connect(self.remove_ms_from_list)
