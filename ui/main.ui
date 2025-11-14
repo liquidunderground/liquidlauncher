@@ -86,7 +86,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="ll.qrc">
+          <iconset resource="../ll.qrc">
            <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
          </property>
          <property name="iconSize">
@@ -121,7 +121,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="ll.qrc">
+          <iconset resource="../ll.qrc">
            <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
          </property>
          <property name="iconSize">
@@ -153,7 +153,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="ll.qrc">
+          <iconset resource="../ll.qrc">
            <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
          </property>
          <property name="iconSize">
@@ -185,7 +185,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="ll.qrc">
+          <iconset resource="../ll.qrc">
            <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
          </property>
          <property name="iconSize">
@@ -214,7 +214,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="ll.qrc">
+          <iconset resource="../ll.qrc">
            <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
          </property>
          <property name="iconSize">
@@ -259,7 +259,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="ll.qrc">
+             <iconset resource="../ll.qrc">
               <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
             </property>
             <property name="flat">
@@ -276,7 +276,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="ll.qrc">
+             <iconset resource="../ll.qrc">
               <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
             </property>
             <property name="flat">
@@ -293,7 +293,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="ll.qrc">
+             <iconset resource="../ll.qrc">
               <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
             </property>
             <property name="flat">
@@ -310,7 +310,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="ll.qrc">
+             <iconset resource="../ll.qrc">
               <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
             </property>
             <property name="flat">
@@ -419,7 +419,7 @@
                   <string>Refresh</string>
                  </property>
                  <property name="icon">
-                  <iconset resource="ll.qrc">
+                  <iconset resource="../ll.qrc">
                    <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                  </property>
                 </widget>
@@ -581,7 +581,7 @@
                     <string>PLAY</string>
                    </property>
                    <property name="icon">
-                    <iconset resource="ll.qrc">
+                    <iconset resource="../ll.qrc">
                      <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                    </property>
                    <property name="popupMode">
@@ -634,7 +634,7 @@
                    </font>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
                   </property>
                  </item>
@@ -648,7 +648,7 @@
                    </font>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/filetypes/wad.png</normaloff>:/assets/img/filetypes/wad.png</iconset>
                   </property>
                  </item>
@@ -662,7 +662,7 @@
                    </font>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
                   </property>
                  </item>
@@ -676,7 +676,7 @@
                    </font>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/textfile.png</normaloff>:/assets/img/icons/textfile.png</iconset>
                   </property>
                  </item>
@@ -699,7 +699,7 @@
                          <string>Save Client Launch Script...</string>
                         </property>
                         <property name="icon">
-                         <iconset resource="ll.qrc">
+                         <iconset resource="../ll.qrc">
                           <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
                         </property>
                        </widget>
@@ -889,7 +889,7 @@ font-size: 12pt;</string>
                                 <string>Browse...</string>
                                </property>
                                <property name="icon">
-                                <iconset resource="ll.qrc">
+                                <iconset resource="../ll.qrc">
                                  <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                                </property>
                               </widget>
@@ -940,7 +940,7 @@ font-size: 12pt;</string>
                                 <string>Browse...</string>
                                </property>
                                <property name="icon">
-                                <iconset resource="ll.qrc">
+                                <iconset resource="../ll.qrc">
                                  <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                                </property>
                               </widget>
@@ -1024,7 +1024,7 @@ font-size: 12pt;</string>
                              <string>place.wad</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="ll.qrc">
+                             <iconset resource="../ll.qrc">
                               <normaloff>:/assets/img/filetypes/wad.png</normaloff>:/assets/img/filetypes/wad.png</iconset>
                             </property>
                            </item>
@@ -1033,7 +1033,7 @@ font-size: 12pt;</string>
                              <string>hold.pk3</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="ll.qrc">
+                             <iconset resource="../ll.qrc">
                               <normaloff>:/assets/img/filetypes/pk3.png</normaloff>:/assets/img/filetypes/pk3.png</iconset>
                             </property>
                            </item>
@@ -1042,7 +1042,7 @@ font-size: 12pt;</string>
                              <string>er.lua</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="ll.qrc">
+                             <iconset resource="../ll.qrc">
                               <normaloff>:/assets/img/filetypes/lua.png</normaloff>:/assets/img/filetypes/lua.png</iconset>
                             </property>
                            </item>
@@ -1063,7 +1063,7 @@ font-size: 12pt;</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
                            </property>
                           </widget>
@@ -1083,7 +1083,7 @@ font-size: 12pt;</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
                            </property>
                            <property name="flat">
@@ -1103,7 +1103,7 @@ font-size: 12pt;</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
                            </property>
                            <property name="flat">
@@ -1126,7 +1126,7 @@ font-size: 12pt;</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
                            </property>
                           </widget>
@@ -1156,7 +1156,7 @@ font-size: 12pt;</string>
                             <string>Clear list</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/edit-delete.png</normaloff>:/assets/img/icons/edit-delete.png</iconset>
                            </property>
                           </widget>
@@ -1176,7 +1176,7 @@ font-size: 12pt;</string>
                             <string>Load list...</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                            </property>
                           </widget>
@@ -1196,7 +1196,7 @@ font-size: 12pt;</string>
                             <string>Save list</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
                            </property>
                           </widget>
@@ -1207,7 +1207,7 @@ font-size: 12pt;</string>
                             <string>Save to Profile</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
                            </property>
                            <property name="checked">
@@ -1246,7 +1246,7 @@ font-size: 12pt;</string>
                             <string>Browse scripts...</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                            </property>
                           </widget>
@@ -1386,7 +1386,7 @@ font-size: 12pt;</string>
                                  <string/>
                                 </property>
                                 <property name="icon">
-                                 <iconset resource="ll.qrc">
+                                 <iconset resource="../ll.qrc">
                                   <normaloff>:/assets/img/icons/about.png</normaloff>:/assets/img/icons/about.png</iconset>
                                 </property>
                                 <property name="flat">
@@ -1413,7 +1413,7 @@ font-size: 12pt;</string>
                                  <string/>
                                 </property>
                                 <property name="icon">
-                                 <iconset resource="ll.qrc">
+                                 <iconset resource="../ll.qrc">
                                   <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                                 </property>
                                </widget>
@@ -1479,7 +1479,7 @@ font-size: 12pt;</string>
                                  <string/>
                                 </property>
                                 <property name="icon">
-                                 <iconset resource="ll.qrc">
+                                 <iconset resource="../ll.qrc">
                                   <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                                 </property>
                                </widget>
@@ -1543,7 +1543,7 @@ font-size: 12pt;</string>
                             <string>Browse...</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="ll.qrc">
+                            <iconset resource="../ll.qrc">
                              <normaloff>:/assets/img/icons/folder.png</normaloff>:/assets/img/icons/folder.png</iconset>
                            </property>
                           </widget>
@@ -1605,7 +1605,7 @@ font-size: 12pt;</string>
                          <string>Open in editor</string>
                         </property>
                         <property name="icon">
-                         <iconset resource="ll.qrc">
+                         <iconset resource="../ll.qrc">
                           <normaloff>:/assets/img/icons/edit.png</normaloff>:/assets/img/icons/edit.png</iconset>
                         </property>
                        </widget>
@@ -1626,7 +1626,7 @@ font-size: 12pt;</string>
                          <string>Refresh</string>
                         </property>
                         <property name="icon">
-                         <iconset resource="ll.qrc">
+                         <iconset resource="../ll.qrc">
                           <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                         </property>
                        </widget>
@@ -1684,7 +1684,7 @@ font-size: 12pt;</string>
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/sonic.png</normaloff>:/assets/img/sonic.png</iconset>
                </property>
               </item>
@@ -1698,7 +1698,7 @@ font-size: 12pt;</string>
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
                </property>
               </item>
@@ -1712,7 +1712,7 @@ font-size: 12pt;</string>
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/gamepad.png</normaloff>:/assets/img/icons/gamepad.png</iconset>
                </property>
               </item>
@@ -1726,7 +1726,7 @@ font-size: 12pt;</string>
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
                </property>
               </item>
@@ -1792,7 +1792,7 @@ font-size: 12pt;</string>
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap resource="ll.qrc">:/assets/img/sonic.png</pixmap>
+                          <pixmap resource="../ll.qrc">:/assets/img/sonic.png</pixmap>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -1847,7 +1847,7 @@ font-size: 12pt;</string>
                               <string>Sonic</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/sonic.png</normaloff>:/assets/img/sonic.png</iconset>
                              </property>
                             </item>
@@ -1856,7 +1856,7 @@ font-size: 12pt;</string>
                               <string>Tails</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/tails.png</normaloff>:/assets/img/tails.png</iconset>
                              </property>
                             </item>
@@ -1865,7 +1865,7 @@ font-size: 12pt;</string>
                               <string>Knuckles</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/knuckles.png</normaloff>:/assets/img/knuckles.png</iconset>
                              </property>
                             </item>
@@ -1874,7 +1874,7 @@ font-size: 12pt;</string>
                               <string>Amy</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/rosy.png</normaloff>:/assets/img/rosy.png</iconset>
                              </property>
                             </item>
@@ -1883,7 +1883,7 @@ font-size: 12pt;</string>
                               <string>Fang</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/fang.png</normaloff>:/assets/img/fang.png</iconset>
                              </property>
                             </item>
@@ -1892,7 +1892,7 @@ font-size: 12pt;</string>
                               <string>Metal Sonic</string>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/metal.png</normaloff>:/assets/img/metal.png</iconset>
                              </property>
                             </item>
@@ -2555,7 +2555,7 @@ font-size: 12pt;</string>
                    <string>Join</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                   </property>
                  </widget>
@@ -2569,7 +2569,7 @@ font-size: 12pt;</string>
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                   </property>
                  </widget>
@@ -2700,7 +2700,7 @@ font-size: 12pt;</string>
                    <string>Bookmark</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/bookmark-new.png</normaloff>:/assets/img/icons/bookmark-new.png</iconset>
                   </property>
                  </widget>
@@ -2791,7 +2791,7 @@ font-size: 12pt;</string>
                       <string>Join</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                      </property>
                     </widget>
@@ -2817,7 +2817,7 @@ font-size: 12pt;</string>
                       <string>Join Bookmark</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                      </property>
                     </widget>
@@ -2881,7 +2881,7 @@ font-size: 12pt;</string>
                       <string>Add Bookmark</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
                      </property>
                     </widget>
@@ -2892,7 +2892,7 @@ font-size: 12pt;</string>
                       <string>Remove Bookmark</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
                      </property>
                     </widget>
@@ -2976,7 +2976,7 @@ font-size: 12pt;</string>
                               <string/>
                              </property>
                              <property name="icon">
-                              <iconset resource="ll.qrc">
+                              <iconset resource="../ll.qrc">
                                <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                              </property>
                             </widget>
@@ -5361,7 +5361,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <string>Save server launch script...</string>
                   </property>
                   <property name="icon">
-                   <iconset resource="ll.qrc">
+                   <iconset resource="../ll.qrc">
                     <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
                   </property>
                  </widget>
@@ -5423,7 +5423,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  <string>LAUNCH SERVER</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="ll.qrc">
+                 <iconset resource="../ll.qrc">
                   <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                 </property>
                 <property name="popupMode">
@@ -5614,7 +5614,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
                </property>
               </item>
@@ -5628,7 +5628,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
                </property>
               </item>
@@ -5642,7 +5642,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </font>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
                </property>
               </item>
@@ -5773,7 +5773,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
                      </property>
                      <property name="flat">
@@ -5790,7 +5790,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
                      </property>
                      <property name="flat">
@@ -5804,7 +5804,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
                      </property>
                      <property name="flat">
@@ -5821,7 +5821,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
                      </property>
                      <property name="flat">
@@ -5838,7 +5838,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
                      </property>
                      <property name="flat">
@@ -5894,7 +5894,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
                      </property>
                     </widget>
@@ -5940,7 +5940,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-remove.png</normaloff>:/assets/img/icons/list-remove.png</iconset>
                      </property>
                      <property name="flat">
@@ -5994,7 +5994,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/go-down.png</normaloff>:/assets/img/icons/go-down.png</iconset>
                      </property>
                     </widget>
@@ -6005,7 +6005,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/list-add.png</normaloff>:/assets/img/icons/list-add.png</iconset>
                      </property>
                      <property name="flat">
@@ -6022,7 +6022,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="ll.qrc">
+                      <iconset resource="../ll.qrc">
                        <normaloff>:/assets/img/icons/go-up.png</normaloff>:/assets/img/icons/go-up.png</iconset>
                      </property>
                     </widget>
@@ -6220,7 +6220,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                   <string>Official SRB2 Message Board</string>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="ll.qrc">
+                                  <iconset resource="../ll.qrc">
                                    <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
                                  </property>
                                  <property name="checked">
@@ -6237,7 +6237,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                   <string>SRB2 Gamebanana (unofficial)</string>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="ll.qrc">
+                                  <iconset resource="../ll.qrc">
                                    <normaloff>:/assets/img/icons/gamebanana.png</normaloff>:/assets/img/icons/gamebanana.png</iconset>
                                  </property>
                                 </widget>
@@ -6251,7 +6251,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                   <string>SRB2 Skybase (unofficial)</string>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="ll.qrc">
+                                  <iconset resource="../ll.qrc">
                                    <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
                                  </property>
                                 </widget>
@@ -6262,7 +6262,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                   <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="ll.qrc">
+                                  <iconset resource="../ll.qrc">
                                    <normaloff>:/assets/img/icons/wsblue.png</normaloff>:/assets/img/icons/wsblue.png</iconset>
                                  </property>
                                 </widget>
@@ -6273,7 +6273,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                   <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="ll.qrc">
+                                  <iconset resource="../ll.qrc">
                                    <normaloff>:/assets/img/icons/wsred.png</normaloff>:/assets/img/icons/wsred.png</iconset>
                                  </property>
                                 </widget>
@@ -6317,7 +6317,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               <string>Save Settings</string>
              </property>
              <property name="icon">
-              <iconset resource="ll.qrc">
+              <iconset resource="../ll.qrc">
                <normaloff>:/assets/img/icons/document-save.png</normaloff>:/assets/img/icons/document-save.png</iconset>
              </property>
             </widget>
@@ -6340,7 +6340,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="ll.qrc"/>
+  <include location="../ll.qrc"/>
   <include location="ll.qrc"/>
   <include location="../../.designer/backup/ll.qrc"/>
  </resources>
