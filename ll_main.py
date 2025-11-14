@@ -2188,6 +2188,12 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+
+    # 1. Works on KDE
+    # 2. Looks okay on Windows 10
+    # 3. Supports dark mode on Windows
+    app.setStyle('fusion')
+    
     w = MainWindow(app)
     w.show()
     sys.exit(app.exec())
