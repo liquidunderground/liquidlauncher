@@ -23,9 +23,7 @@ class NetgameDialog(QDialog):
 
         self.ui.PlayersAndFiles.hide()
         text = f'<h1 align="center">{self.netgame.get("name_plain")}</h1>' \
-            f'<p align="center">' \
-            f'{self.netgame.get("ip")}:{self.netgame.get("port")}' \
-            f'</p>' \
+            f'<p align="center">{self.netgame.get("url")}</p>' \
             f'<p>' \
             f'Game: {self.netgame.get("game")} {self.netgame.get("version")}<br>' \
             f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
@@ -42,9 +40,7 @@ class NetgameDialog(QDialog):
             realfiles = [f for f in serverinfo.filesneeded if int.from_bytes(f["md5sum"], "big")]
 
             text = f'<h1 align="center">{serverinfo.servername}</h1>' \
-                f'<p align="center">' \
-                f'{self.netgame.get("ip")}:{self.netgame.get("port")}' \
-                f'</p>' \
+                f'<p align="center">{self.netgame.get("url")}</p>' \
                 f'<p align="center">' \
                 f'{"Modified" if serverinfo.modifiedgame else "Vanilla"} | ' \
                 f'{"Cheats" if serverinfo.modifiedgame else "No cheats"} | ' \

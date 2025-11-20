@@ -4,6 +4,8 @@ import requests
 import urllib.parse
 import urllib.request
 
+import ipaddress
+
 from . import srb2query
 from ll_info import http_headers as headers
 
@@ -12,8 +14,13 @@ class Netgame():
     def __init__(self, ip, port=5029, **kwargs):
         self.__dict__ = kwargs
         # Insert IP/Port combo just to be sure
-        self.ip = ip
+        self.ip = ipaddress.ip_address(ip)
         self.port = int(port)
+
+        self.url = f"{self.ip}:{self.port}"
+        if type(self.ip) == ipaddress.IPv6Address:
+            self.url = f"[{self.ip}]:{self.port}"
+        
 
         self.serverinfo = None
         self.playerinfo = None
@@ -21,7 +28,7 @@ class Netgame():
         #self.query()
 
     def __str__(self):
-        return f"{self.ip}:{self.port}"
+        return self.url
 
     def get(self, key):
         return self.__dict__[key]
