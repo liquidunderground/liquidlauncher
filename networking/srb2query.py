@@ -201,8 +201,12 @@ class SRB2Query:
     data = bytearray()
 
     def __init__(self, url="localhost", port=5029):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+        addrinfo = socket.getaddrinfo(url, port, proto=socket.IPPROTO_UDP)
+
+        self.socket = socket.socket(addrinfo[0][0], addrinfo[0][1])
         self.socket.connect((url, port))
+        self.socket.connect(addrinfo[0][4])
 
     def send(self, request):
         self.socket.sendall(request.pack())
