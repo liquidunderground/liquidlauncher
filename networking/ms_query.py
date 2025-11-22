@@ -37,13 +37,13 @@ class Netgame():
         """Fetch netgame data using SRB2Query
         """
         try:
-            print(f"Querying {self.ip}:{self.port}")
-            serverinfo,playerinfo = srb2query.SRB2Query(self.ip, int(self.port)).askinfo()
+            print(f"Querying {self.url}")
+            serverinfo,playerinfo = srb2query.SRB2Query(str(self.ip), int(self.port)).askinfo()
             self.serverinfo = serverinfo
             self.playerinfo = playerinfo
             print(f"{self.ip}:{self.port} DATA {self.__dict__}")
         except Exception as e:
-            print(f"Unable to query {self.ip}:{self.port} - {e}")
+            print(f"Unable to query {self.url} - {e}")
             # Failsafe dummy values
             self.serverinfo = None
             self.playerinfo = None
