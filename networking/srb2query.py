@@ -205,6 +205,7 @@ class SRB2Query:
         addrinfo = socket.getaddrinfo(url, port, proto=socket.IPPROTO_UDP)
 
         self.socket = socket.socket(addrinfo[0][0], addrinfo[0][1])
+        self.socket.settimeout(10)
         self.socket.connect((url, port))
         self.socket.connect(addrinfo[0][4])
 
