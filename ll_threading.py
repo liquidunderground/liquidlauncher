@@ -5,6 +5,7 @@ from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
 from networking import mb_query
+from networking.ms_query import Netgame
 from networking.ms_query import get_server_list, query_ms_rooms
 
 from packaging import version # for version checks
@@ -333,3 +334,28 @@ class ModDownloader(QtCore.QThread):
                 self.download_url = None
                 self.filepath = None
             time.sleep(1)
+
+
+class LqSignals(QtCore.QObject):
+    """Global signals dict to keep things simple
+    Treat Qt signals as essentially a global publisher-subscriber bus
+    """
+    
+    # Netgames
+    netgame_update_finish = Signal(Netgame)
+
+class NetgameThread(QtCore.QRunnable):
+  
+    def __init__(self, netgame:Netgame):
+        super(NetgameThread,self).__init__()
+
+        self.signals = LqSignals()
+
+        self.netgame = netgame
+        print(f"Created thread for netgame {self.netgame}")
+        
+    @QtCore.Slot()
+    def run(self):
+        print(f"Running thread on netgame {self.netgame}")
+        self.netgame.query()
+        self.signals.netgame_update_finish.emit(self.netgame)

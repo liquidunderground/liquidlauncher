@@ -16,7 +16,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader
+from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread
 from ui.ui_main import *
 from ui.netgamedialog import NetgameDialog
 from ll_info import product_version as versionString
@@ -49,6 +49,8 @@ class MainWindow(QMainWindow):
     def __init__(self, app):
         super().__init__()
         
+        self.thread_pool = QtCore.QThreadPool.globalInstance()
+
         # Default Launcher settings. Profiles are sourced from .liquidlauncher/profiles
         self.global_settings = {"current_profile": "default.toml",
                                 "current_ms":{
@@ -994,6 +996,10 @@ class MainWindow(QMainWindow):
         
         ui_netgame = NetgameDialog(self)
         ui_netgame.setNetgame(netgame)
+        # UPDATE: SRB2Query-based live data upon launch
+        ng_thread = NetgameThread(netgame)
+        self.thread_pool.start(ng_thread)
+        ng_thread.signals.netgame_update_finish.connect(ui_netgame.refresh)
         ui_netgame.show()
 
         return

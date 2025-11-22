@@ -1,23 +1,36 @@
-from PySide6.QtWidgets import QDialog
+from PySide6 import QtWidgets, QtCore
+
+from ll_threading import NetgameThread
+from networking.ms_query import Netgame
 
 from ui.ui_netgamedialog import Ui_NetgameDialog
 
-class NetgameDialog(QDialog):
+class NetgameDialog(QtWidgets.QDialog):
+
     def __init__(self, parent=None):
         super(NetgameDialog, self).__init__(parent)
+
+        self.thread_pool = QtCore.QThreadPool.globalInstance()
+
         self.ui = Ui_NetgameDialog()
         self.netgame = None
         self.ui.setupUi(self)
         self.setWindowTitle("Netgame")
-    
+
+        
     def setNetgame(self, netgame):
         self.netgame = netgame
-        self._netgame_update()
+        self.refresh(self.netgame)
 
     def bookmark(self):
         self.parent().bookmark(self.netgame)
 
-    def _netgame_update(self):
+    @QtCore.Slot(Netgame)
+    def refresh(self, netgame:Netgame):
+
+        # Sanity check in case the signals screw up
+        if self.netgame is not netgame:
+            pass
 
         import hashlib
 
@@ -88,5 +101,6 @@ class NetgameDialog(QDialog):
         print(f"join_netgame({self})")
 
     def query(self):
-        self.netgame.query()
-        self._netgame_update()
+        thread = NetgameThread(self.netgame)
+        thread.signals.netgame_update_finish.connect(self.refresh)
+        self.thread_pool.start(thread)
