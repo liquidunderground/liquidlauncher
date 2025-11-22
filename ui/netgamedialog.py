@@ -86,8 +86,18 @@ class NetgameDialog(QtWidgets.QDialog):
             # Refill Files Table
             self.ui.FilesTable.clear()
             for f in realfiles:
-                #if int.from_bytes(f["md5sum"], "big"):
-                self.ui.FilesTable.addItem(f"{f["filename"]} (md5: {f["md5sum"].hex()})")
+                item = QtWidgets.QListWidgetItem()
+                item.setText(f"{f["filename"]} (md5: {f["md5sum"].hex()})")
+                
+                file_type = f["filename"].split('.')
+
+                match file_type[-1]:
+                    case "wad" | "pk3" | "soc" | "lua" :
+                        item_icon = self.parent().qicons["_filetypes"][file_type[-1]]
+                        item.setIcon(item_icon)
+                    
+
+                self.ui.FilesTable.addItem(item)
 
             self.ui.PlayersAndFiles.setTabText(0, f"Players ({serverinfo.numberofplayer}/{serverinfo.maxplayer})")
             self.ui.PlayersAndFiles.setTabText(1, f"Files ({len(realfiles)})")
