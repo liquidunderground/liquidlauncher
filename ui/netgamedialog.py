@@ -19,7 +19,7 @@ class NetgameDialog(QtWidgets.QDialog):
 
         # UI setup
         
-        self.ui.FilesTable.addAction(self.parent().qicons["wsblue"], "Copy MD5 to clipboard", self.file_copy_md5)
+        self.ui.FilesTable.addAction(self.parent().qicons["wsblue"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
         #self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", self.download_file)
 
         ll_signalbus.netgame_update_finish.connect(self.refresh)
@@ -93,7 +93,7 @@ class NetgameDialog(QtWidgets.QDialog):
             self.ui.FilesTable.clear()
             for f in realfiles:
                 item = QtWidgets.QListWidgetItem()
-                item.setText(f"{f["filename"]} (md5: {f["md5sum"].hex()})")
+                item.setText(f["filename"])
                 
                 file_type = f["filename"].split('.')
 
@@ -121,10 +121,15 @@ class NetgameDialog(QtWidgets.QDialog):
         print(f"Pretending to download file {file} ...")
 
     def file_copy_md5(self, file):
-        from PySide6 import QClipboard
-        print(f"Pretending to download file {file} ...")
+        from PySide6.QtWidgets import QApplication
+        
+        if self.netgame.get("serverinfo") == None:
+            pass
 
-        QClipboard.setText(file["md5sum"].hex())
+        f = [f for f in self.netgame.get("serverinfo").filesneeded if int.from_bytes(f["md5sum"], "big")]
+        
+        clipboard = QApplication.clipboard()
+        clipboard.setText(f[file]["md5sum"].hex())
 
     def query(self):
         thread = NetgameThread([self.netgame])
