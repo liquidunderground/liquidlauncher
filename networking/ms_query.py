@@ -31,7 +31,21 @@ class Netgame():
         return self.url
 
     def get(self, key):
-        return self.__dict__[key]
+        try:
+            if self.playerinfo != None and key in self.playerinfo.__dict__.keys():
+                return self.playerinfo.__dict__[key]
+            if self.serverinfo != None and key in self.serverinfo.__dict__.keys():
+                return self.serverinfo.__dict__[key]
+
+            if key in self.__dict__.keys():
+                return self.__dict__[key]
+            
+            return None
+            
+        except Exception as e:
+            print(f"Could not get attribute \"{key}\" from {self.url} - {e}")
+            return None
+        
 
     def query(self):
         """Fetch netgame data using SRB2Query

@@ -1,6 +1,6 @@
 from PySide6 import QtWidgets, QtCore
 
-from ll_threading import NetgameThread
+from ll_threading import NetgameThread, ll_signalbus
 from networking.ms_query import Netgame
 
 from ui.ui_netgamedialog import Ui_NetgameDialog
@@ -17,19 +17,25 @@ class NetgameDialog(QtWidgets.QDialog):
         self.ui.setupUi(self)
         self.setWindowTitle("Netgame")
 
+        # UI setup
+        
+        self.ui.FilesTable.addAction(self.parent().qicons["wsblue"], "Copy MD5 to clipboard", self.file_copy_md5)
+        #self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", self.download_file)
+
+        ll_signalbus.netgame_update_finish.connect(self.refresh)
         
     def setNetgame(self, netgame):
         self.netgame = netgame
-        self.refresh(self.netgame)
+        self.refresh([self.netgame])
 
     def bookmark(self):
         self.parent().bookmark(self.netgame)
 
-    @QtCore.Slot(Netgame)
-    def refresh(self, netgame:Netgame):
-
+    @QtCore.Slot(list)
+    def refresh(self, netgames:list):
+        
         # Sanity check in case the signals screw up
-        if self.netgame is not netgame:
+        if self.netgame not in netgames:
             pass
 
         import hashlib
@@ -68,7 +74,7 @@ class NetgameDialog(QtWidgets.QDialog):
                 f'</p>' \
                 f'<h2>Game & API Info</h2>' \
                 f'<p>' \
-                f'Game: {self.netgame.get("game")} {self.netgame.get("version")}<br>' \
+                f'Game: {self.netgame.get("game")} {self.netgame.version}<br>' \
                 f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
                 f'MS API: {self.netgame.get("api")}' \
                 f'</p>'
@@ -95,11 +101,12 @@ class NetgameDialog(QtWidgets.QDialog):
                     case "wad" | "pk3" | "soc" | "lua" :
                         item_icon = self.parent().qicons["_filetypes"][file_type[-1]]
                         item.setIcon(item_icon)
+                        item.setToolTip(f"MD5 hash: {f["md5sum"].hex()}")
                     
 
                 self.ui.FilesTable.addItem(item)
 
-            self.ui.PlayersAndFiles.setTabText(0, f"Players ({serverinfo.numberofplayer}/{serverinfo.maxplayer})")
+            self.ui.PlayersAndFiles.setTabText(0, f"Players ({serverinfo.__dict__["numberofplayer"]}/{serverinfo.__dict__["maxplayer"]})")
             self.ui.PlayersAndFiles.setTabText(1, f"Files ({len(realfiles)})")
 
             self.ui.PlayersAndFiles.show()
@@ -110,7 +117,15 @@ class NetgameDialog(QtWidgets.QDialog):
     def join_netgame(self):
         print(f"join_netgame({self})")
 
+    def download_file(self, file):
+        print(f"Pretending to download file {file} ...")
+
+    def file_copy_md5(self, file):
+        from PySide6 import QClipboard
+        print(f"Pretending to download file {file} ...")
+
+        QClipboard.setText(file["md5sum"].hex())
+
     def query(self):
-        thread = NetgameThread(self.netgame)
-        thread.signals.netgame_update_finish.connect(self.refresh)
+        thread = NetgameThread([self.netgame])
         self.thread_pool.start(thread)

@@ -366,7 +366,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1733,7 +1733,7 @@ font-size: 12pt;</string>
              </widget>
              <widget class="QStackedWidget" name="MultiplayerStackedWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_2">
                <layout class="QVBoxLayout" name="verticalLayout_27">
@@ -1747,8 +1747,8 @@ font-size: 12pt;</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>388</width>
-                     <height>539</height>
+                     <width>676</width>
+                     <height>505</height>
                     </rect>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_5">
@@ -2607,12 +2607,17 @@ font-size: 12pt;</string>
                   </row>
                   <column>
                    <property name="text">
+                    <string>Status</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
                     <string>Title</string>
                    </property>
                   </column>
                   <column>
                    <property name="text">
-                    <string>Game</string>
+                    <string>Gametype</string>
                    </property>
                   </column>
                   <column>
@@ -2630,18 +2635,12 @@ font-size: 12pt;</string>
                     <string>Origin</string>
                    </property>
                   </column>
-                  <item row="0" column="0">
+                  <column>
                    <property name="text">
-                    <string>Earless Adventure</string>
+                    <string>Players</string>
                    </property>
-                   <property name="textAlignment">
-                    <set>AlignCenter</set>
-                   </property>
-                   <property name="flags">
-                    <set>ItemIsSelectable|ItemIsEnabled</set>
-                   </property>
-                  </item>
-                  <item row="0" column="1">
+                  </column>
+                  <item row="0" column="0">
                    <property name="text">
                     <string>Battle CTF</string>
                    </property>
@@ -2652,9 +2651,9 @@ font-size: 12pt;</string>
                     <set>ItemIsSelectable|ItemIsEnabled</set>
                    </property>
                   </item>
-                  <item row="0" column="2">
+                  <item row="0" column="1">
                    <property name="text">
-                    <string>2.2.10</string>
+                    <string>Earless Adventure</string>
                    </property>
                    <property name="textAlignment">
                     <set>AlignCenter</set>
@@ -2665,7 +2664,7 @@ font-size: 12pt;</string>
                   </item>
                   <item row="0" column="3">
                    <property name="text">
-                    <string>Standard</string>
+                    <string>2.2.10</string>
                    </property>
                    <property name="textAlignment">
                     <set>AlignCenter</set>
@@ -2675,6 +2674,17 @@ font-size: 12pt;</string>
                    </property>
                   </item>
                   <item row="0" column="4">
+                   <property name="text">
+                    <string>Standard</string>
+                   </property>
+                   <property name="textAlignment">
+                    <set>AlignCenter</set>
+                   </property>
+                   <property name="flags">
+                    <set>ItemIsSelectable|ItemIsEnabled</set>
+                   </property>
+                  </item>
+                  <item row="0" column="5">
                    <property name="text">
                     <string>mb.srb2.org</string>
                    </property>
@@ -2925,7 +2935,7 @@ font-size: 12pt;</string>
                          <x>0</x>
                          <y>0</y>
                          <width>487</width>
-                         <height>714</height>
+                         <height>713</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -5485,8 +5495,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>83</height>
+                <width>1022</width>
+                <height>522</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -6057,6 +6067,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      <y>0</y>
                      <width>100</width>
                      <height>95</height>
+                     <width>100</width>
+                     <height>95</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -6307,7 +6319,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
  </customwidgets>
  <resources>
   <include location="../ll.qrc"/>
-  <include location="../ll.qrc"/>
+  <include location="ll.qrc"/>
+  <include location="../../.designer/backup/ll.qrc"/>
  </resources>
  <connections/>
 </ui>

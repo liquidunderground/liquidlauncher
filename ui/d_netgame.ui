@@ -60,7 +60,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <string>Bookmark</string>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/bookmark-new.png</normaloff>:/assets/img/icons/bookmark-new.png</iconset>
                </property>
               </widget>
@@ -77,7 +77,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <string>Refresh</string>
                </property>
                <property name="icon">
-                <iconset resource="ll.qrc">
+                <iconset resource="../ll.qrc">
                  <normaloff>:/assets/img/icons/view-refresh.png</normaloff>:/assets/img/icons/view-refresh.png</iconset>
                </property>
               </widget>
@@ -107,9 +107,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <property name="currentIndex">
           <number>0</number>
          </property>
-         <widget class="QWidget" name="Players" native="true">
+         <widget class="QWidget" name="Players">
           <attribute name="icon">
-           <iconset resource="ll.qrc">
+           <iconset resource="../ll.qrc">
             <normaloff>:/assets/img/sonic.png</normaloff>:/assets/img/sonic.png</iconset>
           </attribute>
           <attribute name="title">
@@ -121,9 +121,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="Files" native="true">
+         <widget class="QWidget" name="Files">
           <attribute name="icon">
-           <iconset resource="ll.qrc">
+           <iconset resource="../ll.qrc">
             <normaloff>:/assets/img/filetypes/pk3.png</normaloff>:/assets/img/filetypes/pk3.png</iconset>
           </attribute>
           <attribute name="title">
@@ -131,7 +131,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <widget class="QListWidget" name="FilesTable"/>
+            <widget class="QListWidget" name="FilesTable">
+             <property name="contextMenuPolicy">
+              <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -169,7 +173,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <string>Join</string>
         </property>
         <property name="icon">
-         <iconset resource="ll.qrc">
+         <iconset resource="../ll.qrc">
           <normaloff>:/assets/img/icons/media-playback-start.png</normaloff>:/assets/img/icons/media-playback-start.png</iconset>
         </property>
        </widget>
@@ -209,7 +213,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </layout>
  </widget>
  <resources>
-  <include location="ll.qrc"/>
+  <include location="../ll.qrc"/>
  </resources>
  <connections>
   <connection>

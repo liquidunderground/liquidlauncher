@@ -341,16 +341,58 @@ class LqSignals(QtCore.QObject):
     Treat Qt signals as essentially a global publisher-subscriber bus
     """
     
+    # Launcher version
+    version_check_finish = Signal(object)
+    news_load_finish = Signal(object)
+    snitchmsg_update = Signal(str)
+    
+    # MS server listings
+    server_list_sig2 = Signal(object)
+    on_ms_rooms_sig = Signal(object)
+    
+    # Mod browser
+    ### Emits a string describing the mod
+    mod_description_sig1 = Signal(object)
+    ### Emits a list of mods
+    mod_list_sig1 = Signal(dict, str)
+    mod_statmsg_sig1 = Signal(str)
+    # Mod downoader
+    mod_filepath_sig1 = Signal(list)
+    
     # Netgames
+    netgame_update_finish = Signal(list)    # Emits List of Netgames to update
+    netgame_list_fetch_finish = Signal(list)    # Emits new List of Netgames
+
+ll_signalbus = LqSignals()
+
     netgame_update_finish = Signal(Netgame)
 
 class NetgameThread(QtCore.QRunnable):
-  
-    def __init__(self, netgame:Netgame):
+    
+    signalbus = ll_signalbus
+
+    def __init__(self, netgames:list):
         super(NetgameThread,self).__init__()
 
-        self.signals = LqSignals()
+        
+        self.netgames = netgames
+        print(f"Created thread for netgames {self.netgames}")
+        
+    @QtCore.Slot()
+    def run(self):
+        print(f"Running thread on netgames {self.netgames}")
+        for netgame in self.netgames:
+            print(f"[NETGAMETHREAD] querying {netgame}...")
+            netgame.query()
+            ll_signalbus.netgame_update_finish.emit([netgame])
+        
 
+class NetgameListThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+
+    def __init__(self, netgame:Netgame):
+        super(NetgameThread,self).__init__()
         self.netgame = netgame
         print(f"Created thread for netgame {self.netgame}")
         
@@ -358,4 +400,4 @@ class NetgameThread(QtCore.QRunnable):
     def run(self):
         print(f"Running thread on netgame {self.netgame}")
         self.netgame.query()
-        self.signals.netgame_update_finish.emit(self.netgame)
+        self.signalbus.netgame_list_fetch_finish.emit(self.netgame)

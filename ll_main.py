@@ -16,7 +16,8 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread
+from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread, ll_signalbus
+from networking.ms_query import Netgame
 from ui.ui_main import *
 from ui.netgamedialog import NetgameDialog
 from ll_info import product_version as versionString
@@ -86,7 +87,7 @@ class MainWindow(QMainWindow):
         self.saved_server_ips = []
 
         # Dict associate master server widget items with server data
-        self.master_server_list = {}
+        self.master_server_list = []
         self.ms_list = {}
 
         # RSS Article cache
@@ -94,6 +95,10 @@ class MainWindow(QMainWindow):
 
         # Dict associating mod list widget items with mods:
         self.mods_list = {}
+
+        # Connect Table row updater
+        ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
+        
 
         # MB Query Multithreading
         self.mb_qthread = QueryMessageBoard(self)
@@ -931,51 +936,64 @@ class MainWindow(QMainWindow):
         self.ui.BrowseNetgameTable.setRowCount(0)
         self.query_ms_sig.emit(True)
     
+    @QtCore.Slot(list)
+    def netgame_update_finish(self, netgames):
+        for i, n in [(i,n) for i,n in enumerate(self.master_server_list) if n in netgames]:
+            print(f"Updating Netgame(s) {i}: {n}")
+            if n.serverinfo != None:
+                self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
+                self.ui.BrowseNetgameTable.item(i,6).setText(f"{n.get("numberofplayer")}/{n.get("maxplayer")}")
+            else:
+                #self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
+                self.ui.BrowseNetgameTable.item(i,6).setText("-")
+        pass
+
     def on_server_list(self, server_list):
         print("on_server_list")
         del self.master_server_list
-        self.master_server_list = {}
-        for server in server_list:
-            entry_label = '{} | Room: {} | Version: {} | Origin: {}'.format(
-                server.get("name_plain"),
-                server.get("room"),
-                server.get("version"),
-                server.get("origin") 
-                )
-            new_item = QtWidgets.QListWidgetItem()
-            new_item.setText(entry_label)
-            # Create new row & fill with data
-            self.ui.BrowseNetgameTable.insertRow( self.ui.BrowseNetgameTable.rowCount() )
-            twi_name = QtWidgets.QTableWidgetItem(server.get("name_plain")[:35])
-            twi_name.setToolTip(server.get("name_plain"))
-            twi_room = QtWidgets.QTableWidgetItem(server.get("room"))
-            twi_version = QtWidgets.QTableWidgetItem(server.get("version"))
-            twi_gametype = QtWidgets.QTableWidgetItem(server.get("game"))
-            twi_origin = QtWidgets.QTableWidgetItem(server.get("origin")) 
+        self.master_server_list = []
+        for row,netgame in enumerate(server_list):
+            self.ui.BrowseNetgameTable.insertRow( row )
+            
+            twi_name = QtWidgets.QTableWidgetItem(netgame.get("name_plain")[:35])
+            twi_name.setToolTip(netgame.get("name_plain"))
+            
+            twi_status_icon = self.qicons["globe"] if netgame.serverinfo else self.qicons["wsred"]
+            twi_status = QtWidgets.QTableWidgetItem(twi_status_icon, "")
+            twi_status.setToolTip("Available" if netgame.serverinfo else "Offline")
+            
+            twi_room = QtWidgets.QTableWidgetItem(netgame.get("room"))
+            twi_players = QtWidgets.QTableWidgetItem(f"{netgame.get("players")}/{netgame.get("maxplayers")}")
+            twi_version = QtWidgets.QTableWidgetItem(netgame.get("version"))
+            twi_gametype = QtWidgets.QTableWidgetItem(netgame.get("game"))
+            twi_origin = QtWidgets.QTableWidgetItem(netgame.get("origin")) 
 
+            twi_status.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
             twi_name.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
             twi_room.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
+            twi_players.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
             twi_version.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
             twi_gametype.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
             twi_origin.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled )
 
-            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 0, twi_name )
-            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 3, twi_room )
-            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 2, twi_version )
-            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 1, twi_gametype )
-            self.ui.BrowseNetgameTable.setItem( self.ui.BrowseNetgameTable.rowCount()-1 , 4, twi_origin)
+            self.ui.BrowseNetgameTable.setItem( row, 0, twi_status )
+            self.ui.BrowseNetgameTable.setItem( row, 1, twi_name )
+            self.ui.BrowseNetgameTable.setItem( row, 4, twi_room )
+            self.ui.BrowseNetgameTable.setItem( row, 6, twi_players )
+            self.ui.BrowseNetgameTable.setItem( row, 3, twi_version )
+            self.ui.BrowseNetgameTable.setItem( row , 2, twi_gametype )
+            self.ui.BrowseNetgameTable.setItem( row, 5, twi_origin)
 
-            self.master_server_list[entry_label] = server
+            self.master_server_list.append(netgame)
+            # Query every netgame found for stats
+            # NOTE: Keep thread launch inside loop for parallelism
+            self.thread_pool.start(NetgameThread([netgame]))
 
         self.ui.BrowseNetgameTable.resizeColumnsToContents()
 
     def join_selected_netgame_browse(self):
-        selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 0).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 3).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 2).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 4).text()
-            )
+
+        selection = self.ui.BrowseNetgameTable.currentRow()
         ip_string = '{}:{}'.format(
             self.master_server_list[selection].get("ip"),
             self.master_server_list[selection].get("port") )
@@ -984,21 +1002,16 @@ class MainWindow(QMainWindow):
 
     def selected_netgame_info(self):
 
-        selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 0).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 3).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 2).text(),
-            self.ui.BrowseNetgameTable.item(self.ui.BrowseNetgameTable.currentRow(), 4).text()
-            )
+        selection = self.ui.BrowseNetgameTable.currentRow()
         netgame = self.master_server_list[selection]
         serverinfo = netgame.get("serverinfo")
         
         ui_netgame = NetgameDialog(self)
         ui_netgame.setNetgame(netgame)
         # UPDATE: SRB2Query-based live data upon launch
-        ng_thread = NetgameThread(netgame)
+        ng_thread = NetgameThread([netgame])
         self.thread_pool.start(ng_thread)
-        ng_thread.signals.netgame_update_finish.connect(ui_netgame.refresh)
+        ng_thread.signalbus.netgame_update_finish.connect(ui_netgame.refresh)
         ui_netgame.show()
 
         return
