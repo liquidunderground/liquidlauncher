@@ -1,32 +1,27 @@
 ### Cheat code functions ###
 
-def unlockHttpSettings(cheat:str, ui):
-    ui.devSettingsStackedWidget.setCurrentWidget(ui.httpDevPage)
+def gotoPage(cheat:str, page=None):
+    if page == None:
+        pass
+    ui.SettingsStackedWidget.setCurrentWidget(page)
     pass
-
-def unlockModsources(cheat:str, ui):
-    ui.devSettingsStackedWidget.setCurrentWidget(ui.modsourcesDevPage)
-    pass
-
-def _fallback(cheat:str, ui):
-    # Do whatever we need to in case there's no match
-    ui.devSettingsStackedWidget.hide()
-    pass
-
 
 ### Cheat code map ###
-
-f_cheats = {
-    "418imateapot": unlockHttpSettings,
-    "unclesonic": unlockModsources,
-}
-
 def run_cheat(cheat:str, ui):
+
+    f_cheats = {
+        "418imateapot": ui.HttpSettingsPage,
+        "ms": ui.MSSettingsPage,
+        "masterserver": ui.MSSettingsPage,
+        "masterservers": ui.MSSettingsPage,
+        "rss": ui.RSSSettingsPage,
+        "unclesonic": ui.ModSourcesSettingsPage,
+    }
+
+
     realcheat = ''.join(cheat.lower().split())
 
     if realcheat in f_cheats:
-        ui.devSettingsStackedWidget.show()
-        #ui.devSettingsStackedWidget.setEnabled(True)
-        f_cheats[realcheat](cheat, ui)
+        
+        ui.SettingsStackedWidget.setCurrentWidget(f_cheats[realcheat])
         return
-    _fallback(realcheat, ui)

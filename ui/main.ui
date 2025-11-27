@@ -5597,55 +5597,63 @@ li.checked::marker { content: &quot;\2612&quot;; }
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
-             <widget class="QListWidget" name="SettingsTabList">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+             <widget class="QFrame" name="frame">
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
               </property>
-              <item>
-               <property name="text">
-                <string>Master Servers</string>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="icon">
-                <iconset resource="../ll.qrc">
-                 <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>RSS Settings</string>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="icon">
-                <iconset resource="../ll.qrc">
-                 <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Developer Settings</string>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="icon">
-                <iconset resource="../ll.qrc">
-                 <normaloff>:/assets/img/icons/settings.png</normaloff>:/assets/img/icons/settings.png</iconset>
-               </property>
-              </item>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <widget class="QLineEdit" name="CheatInput">
+                 <property name="placeholderText">
+                  <string>Quick Access (e.g. &quot;masterserver&quot;,&quot;rss&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QListWidget" name="SettingsTabList">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Master Servers</string>
+                  </property>
+                  <property name="toolTip">
+                   <string/>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../ll.qrc">
+                    <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>RSS Settings</string>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../ll.qrc">
+                    <normaloff>:/assets/img/icons/news.png</normaloff>:/assets/img/icons/news.png</iconset>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QStackedWidget" name="SettingsStackedWidget">
               <property name="currentIndex">
@@ -6032,7 +6040,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="stackedWidget_2Page5">
+              <widget class="QWidget" name="ModSourcesSettingsPage">
                <layout class="QHBoxLayout" name="horizontalLayout_7">
                 <item>
                  <widget class="QScrollArea" name="scrollArea">
@@ -6047,8 +6055,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>691</width>
-                     <height>458</height>
+                     <width>100</width>
+                     <height>95</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -6062,8 +6070,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>658</width>
-                         <height>499</height>
+                         <width>374</width>
+                         <height>391</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -6081,123 +6089,24 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          </spacer>
                         </item>
                         <item>
-                         <widget class="QGroupBox" name="groupBox_31">
-                          <property name="title">
-                           <string>Developer Command</string>
-                          </property>
-                          <layout class="QGridLayout" name="gridLayout_47">
-                           <item row="1" column="0">
-                            <widget class="QLineEdit" name="CheatInput">
-                             <property name="placeholderText">
-                              <string>ilovethemonkeyhead</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item row="2" column="0">
-                            <widget class="QLabel" name="label_26">
-                             <property name="font">
-                              <font>
-                               <pointsize>8</pointsize>
-                              </font>
-                             </property>
-                             <property name="text">
-                              <string>Only change these settings if you know what you're doing.</string>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QStackedWidget" name="devSettingsStackedWidget">
+                         <widget class="QGroupBox" name="groupBox_35">
                           <property name="enabled">
                            <bool>true</bool>
                           </property>
-                          <property name="currentIndex">
-                           <number>0</number>
+                          <property name="title">
+                           <string>Mod Repositories</string>
                           </property>
-                          <widget class="QWidget" name="httpDevPage">
-                           <layout class="QVBoxLayout" name="verticalLayout_34">
-                            <item>
-                             <spacer name="verticalSpacer_15">
-                              <property name="orientation">
-                               <enum>Qt::Orientation::Vertical</enum>
-                              </property>
-                              <property name="sizeHint" stdset="0">
-                               <size>
-                                <width>20</width>
-                                <height>40</height>
-                               </size>
-                              </property>
-                             </spacer>
-                            </item>
-                            <item>
-                             <widget class="QGroupBox" name="groupBox_18">
-                              <property name="title">
-                               <string>HTTP Settings</string>
-                              </property>
-                              <layout class="QGridLayout" name="gridLayout_38">
-                               <item row="1" column="0">
-                                <widget class="QLabel" name="label_19">
-                                 <property name="text">
-                                  <string>User Agent</string>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item row="1" column="1">
-                                <widget class="QLineEdit" name="UseragentInput"/>
-                               </item>
-                               <item row="2" column="1">
-                                <widget class="QLabel" name="label_27">
-                                 <property name="font">
-                                  <font>
-                                   <pointsize>8</pointsize>
-                                  </font>
-                                 </property>
-                                 <property name="text">
-                                  <string>Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).</string>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                            </item>
-                            <item>
-                             <spacer name="verticalSpacer_16">
-                              <property name="orientation">
-                               <enum>Qt::Orientation::Vertical</enum>
-                              </property>
-                              <property name="sizeHint" stdset="0">
-                               <size>
-                                <width>20</width>
-                                <height>40</height>
-                               </size>
-                              </property>
-                             </spacer>
-                            </item>
-                           </layout>
-                          </widget>
-                          <widget class="QWidget" name="modsourcesDevPage">
-                           <layout class="QVBoxLayout" name="verticalLayout_35">
-                            <item>
-                             <widget class="QGroupBox" name="groupBox_35">
-                              <property name="enabled">
-                               <bool>true</bool>
-                              </property>
-                              <property name="title">
-                               <string>Mod Repositories</string>
-                              </property>
-                              <layout class="QVBoxLayout" name="verticalLayout_36">
-                               <item>
-                                <widget class="QTextBrowser" name="textBrowser_2">
-                                 <property name="sizePolicy">
-                                  <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-                                   <horstretch>0</horstretch>
-                                   <verstretch>0</verstretch>
-                                  </sizepolicy>
-                                 </property>
-                                 <property name="html">
-                                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                          <layout class="QVBoxLayout" name="verticalLayout_36">
+                           <item>
+                            <widget class="QTextBrowser" name="textBrowser_2">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="html">
+                              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
@@ -6211,78 +6120,74 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;YOU HAVE BEEN WARNED!!&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'CMU Serif Medium'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QCheckBox" name="ModsourceMBCheckbox">
-                                 <property name="text">
-                                  <string>Official SRB2 Message Board</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="../ll.qrc">
-                                   <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
-                                 </property>
-                                 <property name="checked">
-                                  <bool>true</bool>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QCheckBox" name="ModsourceGamebananaCheckbox">
-                                 <property name="enabled">
-                                  <bool>true</bool>
-                                 </property>
-                                 <property name="text">
-                                  <string>SRB2 Gamebanana (unofficial)</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="../ll.qrc">
-                                   <normaloff>:/assets/img/icons/gamebanana.png</normaloff>:/assets/img/icons/gamebanana.png</iconset>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
-                                 <property name="enabled">
-                                  <bool>true</bool>
-                                 </property>
-                                 <property name="text">
-                                  <string>SRB2 Skybase (unofficial)</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="../ll.qrc">
-                                   <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
-                                 <property name="text">
-                                  <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="../ll.qrc">
-                                   <normaloff>:/assets/img/icons/wsblue.png</normaloff>:/assets/img/icons/wsblue.png</iconset>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
-                                 <property name="text">
-                                  <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="../ll.qrc">
-                                   <normaloff>:/assets/img/icons/wsred.png</normaloff>:/assets/img/icons/wsred.png</iconset>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceMBCheckbox">
+                             <property name="text">
+                              <string>Official SRB2 Message Board</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/srb2mb.png</normaloff>:/assets/img/icons/srb2mb.png</iconset>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceGamebananaCheckbox">
+                             <property name="enabled">
+                              <bool>true</bool>
+                             </property>
+                             <property name="text">
+                              <string>SRB2 Gamebanana (unofficial)</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/gamebanana.png</normaloff>:/assets/img/icons/gamebanana.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceSkybaseCheckbox">
+                             <property name="enabled">
+                              <bool>true</bool>
+                             </property>
+                             <property name="text">
+                              <string>SRB2 Skybase (unofficial)</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/skybase.png</normaloff>:/assets/img/icons/skybase.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceWSBlueCheckbox">
+                             <property name="text">
+                              <string>SRB2 Workshop &quot;Blue Sphere&quot; (unofficial)</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/wsblue.png</normaloff>:/assets/img/icons/wsblue.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceWSRedCheckbox">
+                             <property name="text">
+                              <string>SRB2 Workshop &quot;Red Sphere&quot; (non-compliant; unofficial)</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/wsred.png</normaloff>:/assets/img/icons/wsred.png</iconset>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
                         <item>
@@ -6305,6 +6210,67 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    </layout>
                   </widget>
                  </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="HttpSettingsPage">
+               <layout class="QVBoxLayout" name="verticalLayout_37">
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_18">
+                  <property name="title">
+                   <string>HTTP Settings</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_38">
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_19">
+                     <property name="text">
+                      <string>User Agent</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="UseragentInput"/>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="label_27">
+                     <property name="font">
+                      <font>
+                       <pointsize>8</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_13">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -6341,8 +6307,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
  </customwidgets>
  <resources>
   <include location="../ll.qrc"/>
-  <include location="ll.qrc"/>
-  <include location="../../.designer/backup/ll.qrc"/>
+  <include location="../ll.qrc"/>
  </resources>
  <connections/>
 </ui>

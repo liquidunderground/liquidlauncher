@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'll.ui'
+## Form generated from reading UI file 'main.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -2839,20 +2839,31 @@ class Ui_MainWindow(object):
         self.splitter_3 = QSplitter(self.SettingsPage)
         self.splitter_3.setObjectName(u"splitter_3")
         self.splitter_3.setOrientation(Qt.Orientation.Horizontal)
-        self.SettingsTabList = QListWidget(self.splitter_3)
+        self.frame = QFrame(self.splitter_3)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.CheatInput = QLineEdit(self.frame)
+        self.CheatInput.setObjectName(u"CheatInput")
+
+        self.verticalLayout_6.addWidget(self.CheatInput)
+
+        self.SettingsTabList = QListWidget(self.frame)
         __qlistwidgetitem14 = QListWidgetItem(self.SettingsTabList)
         __qlistwidgetitem14.setFont(font1);
         __qlistwidgetitem14.setIcon(icon2);
         __qlistwidgetitem15 = QListWidgetItem(self.SettingsTabList)
         __qlistwidgetitem15.setFont(font1);
         __qlistwidgetitem15.setIcon(icon);
-        __qlistwidgetitem16 = QListWidgetItem(self.SettingsTabList)
-        __qlistwidgetitem16.setFont(font1);
-        __qlistwidgetitem16.setIcon(icon3);
         self.SettingsTabList.setObjectName(u"SettingsTabList")
         sizePolicy5.setHeightForWidth(self.SettingsTabList.sizePolicy().hasHeightForWidth())
         self.SettingsTabList.setSizePolicy(sizePolicy5)
-        self.splitter_3.addWidget(self.SettingsTabList)
+
+        self.verticalLayout_6.addWidget(self.SettingsTabList)
+
+        self.splitter_3.addWidget(self.frame)
         self.SettingsStackedWidget = QStackedWidget(self.splitter_3)
         self.SettingsStackedWidget.setObjectName(u"SettingsStackedWidget")
         self.MSSettingsPage = QWidget()
@@ -3047,17 +3058,17 @@ class Ui_MainWindow(object):
         self.gridLayout_8.addWidget(self.groupBox_8, 0, 0, 1, 1)
 
         self.SettingsStackedWidget.addWidget(self.RSSSettingsPage)
-        self.stackedWidget_2Page5 = QWidget()
-        self.stackedWidget_2Page5.setObjectName(u"stackedWidget_2Page5")
-        self.horizontalLayout_7 = QHBoxLayout(self.stackedWidget_2Page5)
+        self.ModSourcesSettingsPage = QWidget()
+        self.ModSourcesSettingsPage.setObjectName(u"ModSourcesSettingsPage")
+        self.horizontalLayout_7 = QHBoxLayout(self.ModSourcesSettingsPage)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.scrollArea = QScrollArea(self.stackedWidget_2Page5)
+        self.scrollArea = QScrollArea(self.ModSourcesSettingsPage)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setStyleSheet(u"")
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 691, 458))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 100, 95))
         self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.scrollArea_11 = QScrollArea(self.scrollAreaWidgetContents)
@@ -3065,75 +3076,14 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 658, 499))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 374, 391))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_18.addItem(self.verticalSpacer_12)
 
-        self.groupBox_31 = QGroupBox(self.scrollAreaWidgetContents_11)
-        self.groupBox_31.setObjectName(u"groupBox_31")
-        self.gridLayout_47 = QGridLayout(self.groupBox_31)
-        self.gridLayout_47.setObjectName(u"gridLayout_47")
-        self.CheatInput = QLineEdit(self.groupBox_31)
-        self.CheatInput.setObjectName(u"CheatInput")
-
-        self.gridLayout_47.addWidget(self.CheatInput, 1, 0, 1, 1)
-
-        self.label_26 = QLabel(self.groupBox_31)
-        self.label_26.setObjectName(u"label_26")
-        self.label_26.setFont(font2)
-
-        self.gridLayout_47.addWidget(self.label_26, 2, 0, 1, 1)
-
-
-        self.verticalLayout_18.addWidget(self.groupBox_31)
-
-        self.devSettingsStackedWidget = QStackedWidget(self.scrollAreaWidgetContents_11)
-        self.devSettingsStackedWidget.setObjectName(u"devSettingsStackedWidget")
-        self.devSettingsStackedWidget.setEnabled(True)
-        self.httpDevPage = QWidget()
-        self.httpDevPage.setObjectName(u"httpDevPage")
-        self.verticalLayout_34 = QVBoxLayout(self.httpDevPage)
-        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
-        self.verticalSpacer_15 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_34.addItem(self.verticalSpacer_15)
-
-        self.groupBox_18 = QGroupBox(self.httpDevPage)
-        self.groupBox_18.setObjectName(u"groupBox_18")
-        self.gridLayout_38 = QGridLayout(self.groupBox_18)
-        self.gridLayout_38.setObjectName(u"gridLayout_38")
-        self.label_19 = QLabel(self.groupBox_18)
-        self.label_19.setObjectName(u"label_19")
-
-        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
-
-        self.UseragentInput = QLineEdit(self.groupBox_18)
-        self.UseragentInput.setObjectName(u"UseragentInput")
-
-        self.gridLayout_38.addWidget(self.UseragentInput, 1, 1, 1, 1)
-
-        self.label_27 = QLabel(self.groupBox_18)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font2)
-
-        self.gridLayout_38.addWidget(self.label_27, 2, 1, 1, 1)
-
-
-        self.verticalLayout_34.addWidget(self.groupBox_18)
-
-        self.verticalSpacer_16 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_34.addItem(self.verticalSpacer_16)
-
-        self.devSettingsStackedWidget.addWidget(self.httpDevPage)
-        self.modsourcesDevPage = QWidget()
-        self.modsourcesDevPage.setObjectName(u"modsourcesDevPage")
-        self.verticalLayout_35 = QVBoxLayout(self.modsourcesDevPage)
-        self.verticalLayout_35.setObjectName(u"verticalLayout_35")
-        self.groupBox_35 = QGroupBox(self.modsourcesDevPage)
+        self.groupBox_35 = QGroupBox(self.scrollAreaWidgetContents_11)
         self.groupBox_35.setObjectName(u"groupBox_35")
         self.groupBox_35.setEnabled(True)
         self.verticalLayout_36 = QVBoxLayout(self.groupBox_35)
@@ -3192,11 +3142,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_36.addWidget(self.ModsourceWSRedCheckbox)
 
 
-        self.verticalLayout_35.addWidget(self.groupBox_35)
-
-        self.devSettingsStackedWidget.addWidget(self.modsourcesDevPage)
-
-        self.verticalLayout_18.addWidget(self.devSettingsStackedWidget)
+        self.verticalLayout_18.addWidget(self.groupBox_35)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3210,7 +3156,43 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.scrollArea)
 
-        self.SettingsStackedWidget.addWidget(self.stackedWidget_2Page5)
+        self.SettingsStackedWidget.addWidget(self.ModSourcesSettingsPage)
+        self.HttpSettingsPage = QWidget()
+        self.HttpSettingsPage.setObjectName(u"HttpSettingsPage")
+        self.verticalLayout_37 = QVBoxLayout(self.HttpSettingsPage)
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_37.addItem(self.verticalSpacer_3)
+
+        self.groupBox_18 = QGroupBox(self.HttpSettingsPage)
+        self.groupBox_18.setObjectName(u"groupBox_18")
+        self.gridLayout_38 = QGridLayout(self.groupBox_18)
+        self.gridLayout_38.setObjectName(u"gridLayout_38")
+        self.label_19 = QLabel(self.groupBox_18)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
+
+        self.UseragentInput = QLineEdit(self.groupBox_18)
+        self.UseragentInput.setObjectName(u"UseragentInput")
+
+        self.gridLayout_38.addWidget(self.UseragentInput, 1, 1, 1, 1)
+
+        self.label_27 = QLabel(self.groupBox_18)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setFont(font2)
+
+        self.gridLayout_38.addWidget(self.label_27, 2, 1, 1, 1)
+
+
+        self.verticalLayout_37.addWidget(self.groupBox_18)
+
+        self.verticalSpacer_13 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_37.addItem(self.verticalSpacer_13)
+
+        self.SettingsStackedWidget.addWidget(self.HttpSettingsPage)
         self.splitter_3.addWidget(self.SettingsStackedWidget)
 
         self.verticalLayout_12.addWidget(self.splitter_3)
@@ -3244,7 +3226,6 @@ class Ui_MainWindow(object):
         self.Survival_revengeCombobox.setCurrentIndex(0)
         self.Item_rateCombobox.setCurrentIndex(1)
         self.SettingsStackedWidget.setCurrentIndex(0)
-        self.devSettingsStackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4033,6 +4014,7 @@ class Ui_MainWindow(object):
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't ha"
                         "ve a server to place the metadata on for now.</span></p></body></html>", None))
+        self.CheatInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Quick Access (e.g. \"masterserver\",\"rss\")", None))
 
         __sortingEnabled6 = self.SettingsTabList.isSortingEnabled()
         self.SettingsTabList.setSortingEnabled(False)
@@ -4040,8 +4022,6 @@ class Ui_MainWindow(object):
         ___qlistwidgetitem14.setText(QCoreApplication.translate("MainWindow", u"Master Servers", None));
         ___qlistwidgetitem15 = self.SettingsTabList.item(1)
         ___qlistwidgetitem15.setText(QCoreApplication.translate("MainWindow", u"RSS Settings", None));
-        ___qlistwidgetitem16 = self.SettingsTabList.item(2)
-        ___qlistwidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Developer Settings", None));
         self.SettingsTabList.setSortingEnabled(__sortingEnabled6)
 
         self.groupBox_17.setTitle(QCoreApplication.translate("MainWindow", u"Master Servers", None))
@@ -4100,25 +4080,19 @@ class Ui_MainWindow(object):
 
         __sortingEnabled8 = self.RSSFeedList.isSortingEnabled()
         self.RSSFeedList.setSortingEnabled(False)
-        ___qlistwidgetitem17 = self.RSSFeedList.item(0)
-        ___qlistwidgetitem17.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
-        ___qlistwidgetitem18 = self.RSSFeedList.item(1)
-        ___qlistwidgetitem18.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
-        ___qlistwidgetitem19 = self.RSSFeedList.item(2)
-        ___qlistwidgetitem19.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
-        ___qlistwidgetitem20 = self.RSSFeedList.item(3)
-        ___qlistwidgetitem20.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
+        ___qlistwidgetitem16 = self.RSSFeedList.item(0)
+        ___qlistwidgetitem16.setText(QCoreApplication.translate("MainWindow", u"https://srb2.org/feed", None));
+        ___qlistwidgetitem17 = self.RSSFeedList.item(1)
+        ___qlistwidgetitem17.setText(QCoreApplication.translate("MainWindow", u"https://mb.srb2.org.org/forums/-/index.rss", None));
+        ___qlistwidgetitem18 = self.RSSFeedList.item(2)
+        ___qlistwidgetitem18.setText(QCoreApplication.translate("MainWindow", u"https://srb2workshop.org/forums/-/index.rss", None));
+        ___qlistwidgetitem19 = self.RSSFeedList.item(3)
+        ___qlistwidgetitem19.setText(QCoreApplication.translate("MainWindow", u"https://www.sonicstadium.org/feed/", None));
         self.RSSFeedList.setSortingEnabled(__sortingEnabled8)
 
         self.RSSMovedownButton.setText("")
         self.RSSAddButton.setText("")
         self.RSSMoveupButton.setText("")
-        self.groupBox_31.setTitle(QCoreApplication.translate("MainWindow", u"Developer Command", None))
-        self.CheatInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ilovethemonkeyhead", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Only change these settings if you know what you're doing.", None))
-        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"HTTP Settings", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).", None))
         self.groupBox_35.setTitle(QCoreApplication.translate("MainWindow", u"Mod Repositories", None))
         self.textBrowser_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
@@ -4141,6 +4115,9 @@ class Ui_MainWindow(object):
         self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
         self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
         self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
+        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"HTTP Settings", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).", None))
         self.SaveSettingsButton.setText(QCoreApplication.translate("MainWindow", u"Save Settings", None))
     # retranslateUi
 

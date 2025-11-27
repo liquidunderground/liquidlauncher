@@ -299,7 +299,6 @@ class MainWindow(QMainWindow):
 
         from ll_cheats import run_cheat as run_cheat
         self.ui.CheatInput.returnPressed.connect(lambda: run_cheat(self.ui.CheatInput.text(),self.ui))
-        self.ui.devSettingsStackedWidget.hide()
 
         # MS table buttons ======================================================== #
         self.ui.MSAddButton.clicked.connect(self.add_new_ms_to_list)
