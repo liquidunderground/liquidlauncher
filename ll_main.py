@@ -1551,6 +1551,7 @@ class MainWindow(QMainWindow):
             self.ms_list = {
                 "weissblatt.cc": {"url":"https://ms.weissblatt.cc/liquidms/snitch/" , "api":"snitch"},
                 "SRB2 Official": {"url":"https://ds.ms.srb2.org/MS/0" , "api":"v1"},
+                "SRB2Classic HTTP": {"url":"https://ms.srb2classic.net/MS/0" , "api":"v1"},
                 "SRB2Kart Official": {"url":"https://ms.kartkrew.org/ms/api/games/SRB2Kart/10" , "api":"kartv2"},
                 "Ring Racers Official": {"url":"https://ms.kartkrew.org/ms/api/games/RingRacers/4" , "api":"kartv2"},
                 }
