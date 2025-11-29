@@ -41,6 +41,8 @@ class Ui_NetgameDialog(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.ServerinfoLabel = QTextBrowser(self.widget_6)
         self.ServerinfoLabel.setObjectName(u"ServerinfoLabel")
+        self.ServerinfoLabel.setOpenExternalLinks(True)
+        self.ServerinfoLabel.setOpenLinks(False)
 
         self.verticalLayout_4.addWidget(self.ServerinfoLabel)
 
