@@ -62,7 +62,6 @@ class MainWindow(QMainWindow):
                                     "srb2mb": True,
                                     "workshop_blue": False,
                                     "workshop_red": False,
-                                    "wadarchive": False,
                                     "skybase": False,
                                     "gamebanana": False,
                                     "gameserver": True
@@ -301,7 +300,6 @@ class MainWindow(QMainWindow):
         #self.ui.ModsourceWSRedCheckbox.clicked.connect(self.update_modsources)
         #self.ui.ModsourceGamebananaCheckbox.clicked.connect(self.update_modsources)
         #self.ui.ModsourceSkybaseCheckbox.clicked.connect(self.update_modsources)
-        #self.ui.ModsourceWadarchiveCheckbox.clicked.connect(self.update_modsources)
         self.ui.UseragentInput.textChanged.connect(lambda x: set_http_header("User-Agent", x))
 
         from ll_cheats import run_cheat as run_cheat
@@ -1364,8 +1362,6 @@ class MainWindow(QMainWindow):
                 "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
                 "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked(),
                 "skybase": self.ui.ModsourceSkybaseCheckbox.isChecked(),
-                #"wadarchive": self.ui.ModsourceWadarchiveCheckbox.isChecked(),
-                "wadarchive": False, # Dummy until Wad Archive is supported (probably never; site is down)
                 "gamebanana": self.ui.ModsourceGamebananaCheckbox.isChecked(),
                 "gameserver": self.ui.ModsourceGameserverCheckbox.isChecked(),
                 })
@@ -1615,7 +1611,6 @@ class MainWindow(QMainWindow):
         self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
         self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
         self.ui.ModsourceSkybaseCheckbox.setChecked( self.global_settings["modsources"]["skybase"])
-        #self.ui.ModsourceWadarchiveCheckbox.setChecked( self.global_settings["modsources"]["wadarchive"])
         self.ui.ModsourceGamebananaCheckbox.setChecked( self.global_settings["modsources"]["gamebanana"])
 
 

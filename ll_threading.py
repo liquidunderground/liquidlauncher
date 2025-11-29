@@ -191,9 +191,6 @@ class QueryMessageBoard(QtCore.QThread):
                    modsources.append( mb_query.workshop_blue )
                 if self.host.global_settings["modsources"]["workshop_red"]:
                    modsources.append( mb_query.workshop_red )
-                # Stubbed for future implementation
-                #if self.host.global_settings["modsources"]["wadarchive"]:
-                   #modsources.append( mb_query.wadarchive )
                 if self.host.global_settings["modsources"]["skybase"]:
                    modsources.append( mb_query.skybase )
                 if self.host.global_settings["modsources"]["gamebanana"]:
