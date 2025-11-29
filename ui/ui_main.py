@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'll.ui'
+## Form generated from reading UI file 'main.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -25,6 +25,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSplitter, QStackedWidget, QTabWidget, QTableWidget,
     QTableWidgetItem, QTextBrowser, QTextEdit, QToolButton,
     QVBoxLayout, QWidget)
+import ll_rc
 import ll_rc
 import ll_rc
 import ll_rc
@@ -824,7 +825,7 @@ class Ui_MainWindow(object):
         self.scrollArea_12.setWidgetResizable(True)
         self.scrollAreaWidgetContents_16 = QWidget()
         self.scrollAreaWidgetContents_16.setObjectName(u"scrollAreaWidgetContents_16")
-        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 99, 99))
+        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 401, 380))
         self.gridLayout_44 = QGridLayout(self.scrollAreaWidgetContents_16)
         self.gridLayout_44.setObjectName(u"gridLayout_44")
         self.logfileTextarea = QPlainTextEdit(self.scrollAreaWidgetContents_16)
@@ -864,7 +865,7 @@ class Ui_MainWindow(object):
         self.scrollArea_13.setWidgetResizable(True)
         self.scrollAreaWidgetContents_18 = QWidget()
         self.scrollAreaWidgetContents_18.setObjectName(u"scrollAreaWidgetContents_18")
-        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 99, 99))
+        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 268, 380))
         self.gridLayout_46 = QGridLayout(self.scrollAreaWidgetContents_18)
         self.gridLayout_46.setObjectName(u"gridLayout_46")
         self.logfileList = QListWidget(self.scrollAreaWidgetContents_18)
@@ -923,7 +924,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 676, 505))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 388, 539))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -1345,7 +1346,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 487, 713))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 487, 714))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_4)
@@ -3073,7 +3074,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 691, 458))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 686, 458))
         self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.scrollArea_11 = QScrollArea(self.scrollAreaWidgetContents)
@@ -3081,7 +3082,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 374, 391))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 674, 446))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -3146,6 +3147,20 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_36.addWidget(self.ModsourceWSRedCheckbox)
 
+        self.line_4 = QFrame(self.groupBox_35)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setFrameShape(QFrame.Shape.HLine)
+        self.line_4.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_36.addWidget(self.line_4)
+
+        self.ModsourceGameserverCheckbox = QCheckBox(self.groupBox_35)
+        self.ModsourceGameserverCheckbox.setObjectName(u"ModsourceGameserverCheckbox")
+        self.ModsourceGameserverCheckbox.setIcon(icon2)
+        self.ModsourceGameserverCheckbox.setChecked(True)
+
+        self.verticalLayout_36.addWidget(self.ModsourceGameserverCheckbox)
+
 
         self.verticalLayout_18.addWidget(self.groupBox_35)
 
@@ -3174,21 +3189,21 @@ class Ui_MainWindow(object):
         self.groupBox_18.setObjectName(u"groupBox_18")
         self.gridLayout_38 = QGridLayout(self.groupBox_18)
         self.gridLayout_38.setObjectName(u"gridLayout_38")
-        self.label_19 = QLabel(self.groupBox_18)
-        self.label_19.setObjectName(u"label_19")
+        self.label_27 = QLabel(self.groupBox_18)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setFont(font2)
 
-        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
+        self.gridLayout_38.addWidget(self.label_27, 2, 1, 1, 1)
 
         self.UseragentInput = QLineEdit(self.groupBox_18)
         self.UseragentInput.setObjectName(u"UseragentInput")
 
         self.gridLayout_38.addWidget(self.UseragentInput, 1, 1, 1, 1)
 
-        self.label_27 = QLabel(self.groupBox_18)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font2)
+        self.label_19 = QLabel(self.groupBox_18)
+        self.label_19.setObjectName(u"label_19")
 
-        self.gridLayout_38.addWidget(self.label_27, 2, 1, 1, 1)
+        self.gridLayout_38.addWidget(self.label_19, 1, 0, 1, 1)
 
 
         self.verticalLayout_37.addWidget(self.groupBox_18)
@@ -3198,6 +3213,31 @@ class Ui_MainWindow(object):
         self.verticalLayout_37.addItem(self.verticalSpacer_13)
 
         self.SettingsStackedWidget.addWidget(self.HttpSettingsPage)
+        self.DebugSettingsPage = QWidget()
+        self.DebugSettingsPage.setObjectName(u"DebugSettingsPage")
+        self.verticalLayout_34 = QVBoxLayout(self.DebugSettingsPage)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalSpacer_14 = QSpacerItem(20, 190, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_34.addItem(self.verticalSpacer_14)
+
+        self.groupBox_31 = QGroupBox(self.DebugSettingsPage)
+        self.groupBox_31.setObjectName(u"groupBox_31")
+        self.gridLayout_48 = QGridLayout(self.groupBox_31)
+        self.gridLayout_48.setObjectName(u"gridLayout_48")
+        self.VerboseServerinfoCheckbox = QCheckBox(self.groupBox_31)
+        self.VerboseServerinfoCheckbox.setObjectName(u"VerboseServerinfoCheckbox")
+
+        self.gridLayout_48.addWidget(self.VerboseServerinfoCheckbox, 1, 0, 1, 1)
+
+
+        self.verticalLayout_34.addWidget(self.groupBox_31)
+
+        self.verticalSpacer_15 = QSpacerItem(20, 189, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_34.addItem(self.verticalSpacer_15)
+
+        self.SettingsStackedWidget.addWidget(self.DebugSettingsPage)
         self.splitter_3.addWidget(self.SettingsStackedWidget)
 
         self.verticalLayout_12.addWidget(self.splitter_3)
@@ -3219,8 +3259,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTabsStackedWidget.setCurrentIndex(2)
-        self.GameContentStackedWidget.setCurrentIndex(2)
+        self.MainTabsStackedWidget.setCurrentIndex(0)
+        self.GameContentStackedWidget.setCurrentIndex(3)
         self.tabWidget.setCurrentIndex(0)
         self.MultiplayerStackedWidget.setCurrentIndex(1)
         self.PlayerSkinInput.setCurrentIndex(-1)
@@ -4124,9 +4164,15 @@ class Ui_MainWindow(object):
         self.ModsourceSkybaseCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Skybase (unofficial)", None))
         self.ModsourceWSBlueCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Blue Sphere\" (unofficial)", None))
         self.ModsourceWSRedCheckbox.setText(QCoreApplication.translate("MainWindow", u"SRB2 Workshop \"Red Sphere\" (non-compliant; unofficial)", None))
+#if QT_CONFIG(tooltip)
+        self.ModsourceGameserverCheckbox.setToolTip(QCoreApplication.translate("MainWindow", u"Since SRB2 v2.2.15, game servers can refer HTTP servers for external downloads. This option allows LiquidLauncher to fetch addons directly from any Netgame's referenced HTTP endpoint.", None))
+#endif // QT_CONFIG(tooltip)
+        self.ModsourceGameserverCheckbox.setText(QCoreApplication.translate("MainWindow", u"Netgame-internal HTTP sources", None))
         self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"HTTP Settings", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"User Agent", None))
+        self.groupBox_31.setTitle(QCoreApplication.translate("MainWindow", u"Debug settings", None))
+        self.VerboseServerinfoCheckbox.setText(QCoreApplication.translate("MainWindow", u"Show debug data from Netgame's ServerInfo packets", None))
         self.SaveSettingsButton.setText(QCoreApplication.translate("MainWindow", u"Save Settings", None))
     # retranslateUi
 

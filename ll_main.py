@@ -64,7 +64,8 @@ class MainWindow(QMainWindow):
                                     "workshop_red": False,
                                     "wadarchive": False,
                                     "skybase": False,
-                                    "gamebanana": False
+                                    "gamebanana": False,
+                                    "gameserver": True
                                     },
                                 "rss": [
                                     "https://liquidunderground.github.io/feed.rss",
@@ -72,7 +73,8 @@ class MainWindow(QMainWindow):
                                     "https://www.sonicstadium.org/rss/5-all-sonic-news.xml/",
                                     ],
                                 "devsettings": {
-                                    "http_user_agent": http_headers["User-Agent"]
+                                    "http_user_agent": http_headers["User-Agent"],
+                                    "verbose_serverinfo": False,
                                     },
                                 }
         self.current_profile_settings = None
@@ -1365,6 +1367,7 @@ class MainWindow(QMainWindow):
                 #"wadarchive": self.ui.ModsourceWadarchiveCheckbox.isChecked(),
                 "wadarchive": False, # Dummy until Wad Archive is supported (probably never; site is down)
                 "gamebanana": self.ui.ModsourceGamebananaCheckbox.isChecked(),
+                "gameserver": self.ui.ModsourceGameserverCheckbox.isChecked(),
                 })
         print(self.global_settings["modsources"])
 
@@ -1443,6 +1446,8 @@ class MainWindow(QMainWindow):
         self.global_settings.update(toml_settings)
 
         self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
+        self.ui.ModsourceGameserverCheckbox.setChecked( self.global_settings["devsettings"]["verbose_serverinfo"])
+        
 
         # Update RSS List in UI
         self.ui.RSSFeedList.clear()
@@ -1520,7 +1525,9 @@ class MainWindow(QMainWindow):
 
     def save_settings(self):
         self.global_settings["devsettings"] = {
-            "http_user_agent": self.ui.UseragentInput.text()
+            "http_user_agent": self.ui.UseragentInput.text(),
+            "verbose_serverinfo": self.ui.VerboseServerinfoCheckbox.isChecked(),
+        
         }
         self.update_modsources()
         self.rss_commit()
@@ -1602,6 +1609,7 @@ class MainWindow(QMainWindow):
             profile TOML file
         """
         # Load modsources from global_settings
+        self.ui.ModsourceGameserverCheckbox.setChecked( self.global_settings["modsources"]["gameserver"])
         self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
         self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
         self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])

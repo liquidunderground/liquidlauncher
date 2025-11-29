@@ -16,6 +16,7 @@ def run_cheat(cheat:str, ui):
         "masterservers": ui.MSSettingsPage,
         "rss": ui.RSSSettingsPage,
         "unclesonic": ui.ModSourcesSettingsPage,
+        "debugdebugdebug": ui.DebugSettingsPage,
     }
 
 

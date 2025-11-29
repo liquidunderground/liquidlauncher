@@ -24,6 +24,7 @@ class Netgame():
 
         self.serverinfo = None
         self.playerinfo = None
+        self.http_source = None
         
         #self.query()
 
@@ -56,6 +57,12 @@ class Netgame():
             self.serverinfo = serverinfo
             self.playerinfo = playerinfo
             print(f"{self.ip}:{self.port} DATA {self.__dict__}")
+
+            metafiles = [f for f in serverinfo.filesneeded if not int.from_bytes(f["md5sum"], "big")]
+            for mf in metafiles:
+                if mf["filename"]:
+                    self.http_source = mf["filename"]
+
         except Exception as e:
             print(f"Unable to query {self.url} - {e}")
             # Failsafe dummy values

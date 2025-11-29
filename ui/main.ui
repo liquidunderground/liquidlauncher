@@ -366,7 +366,7 @@
        <item>
         <widget class="QStackedWidget" name="MainTabsStackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="NewsPage">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -689,7 +689,7 @@
                   <item row="2" column="0">
                    <widget class="QStackedWidget" name="GameContentStackedWidget">
                     <property name="currentIndex">
-                     <number>2</number>
+                     <number>3</number>
                     </property>
                     <widget class="QWidget" name="GameSettingsPage">
                      <layout class="QGridLayout" name="gridLayout_14">
@@ -1572,8 +1572,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>99</width>
-                           <height>99</height>
+                           <width>401</width>
+                           <height>380</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_44">
@@ -1641,8 +1641,8 @@ font-size: 12pt;</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>99</width>
-                           <height>99</height>
+                           <width>268</width>
+                           <height>380</height>
                           </rect>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_46">
@@ -1747,8 +1747,8 @@ font-size: 12pt;</string>
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>676</width>
-                     <height>505</height>
+                     <width>388</width>
+                     <height>539</height>
                     </rect>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_5">
@@ -2935,7 +2935,7 @@ font-size: 12pt;</string>
                          <x>0</x>
                          <y>0</y>
                          <width>487</width>
-                         <height>713</height>
+                         <height>714</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -6065,10 +6065,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>100</width>
-                     <height>95</height>
-                     <width>100</width>
-                     <height>95</height>
+                     <width>686</width>
+                     <height>458</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -6082,8 +6080,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>374</width>
-                         <height>391</height>
+                         <width>674</width>
+                         <height>446</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -6199,6 +6197,30 @@ li.checked::marker { content: &quot;\2612&quot;; }
                              </property>
                             </widget>
                            </item>
+                           <item>
+                            <widget class="Line" name="line_4">
+                             <property name="orientation">
+                              <enum>Qt::Orientation::Horizontal</enum>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="ModsourceGameserverCheckbox">
+                             <property name="toolTip">
+                              <string>Since SRB2 v2.2.15, game servers can refer HTTP servers for external downloads. This option allows LiquidLauncher to fetch addons directly from any Netgame's referenced HTTP endpoint.</string>
+                             </property>
+                             <property name="text">
+                              <string>Netgame-internal HTTP sources</string>
+                             </property>
+                             <property name="icon">
+                              <iconset resource="../ll.qrc">
+                               <normaloff>:/assets/img/icons/globe.png</normaloff>:/assets/img/icons/globe.png</iconset>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
                           </layout>
                          </widget>
                         </item>
@@ -6246,16 +6268,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <string>HTTP Settings</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_38">
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_19">
-                     <property name="text">
-                      <string>User Agent</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QLineEdit" name="UseragentInput"/>
-                   </item>
                    <item row="2" column="1">
                     <widget class="QLabel" name="label_27">
                      <property name="font">
@@ -6265,6 +6277,16 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      </property>
                      <property name="text">
                       <string>Changes how LiquidLauncher presents itself to HTTP servers (news feeds, mod sources, master servers).</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="UseragentInput"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_19">
+                     <property name="text">
+                      <string>User Agent</string>
                      </property>
                     </widget>
                    </item>
@@ -6280,6 +6302,52 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <size>
                     <width>20</width>
                     <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="DebugSettingsPage">
+               <layout class="QVBoxLayout" name="verticalLayout_34">
+                <item>
+                 <spacer name="verticalSpacer_14">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>190</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_31">
+                  <property name="title">
+                   <string>Debug settings</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_48">
+                   <item row="1" column="0">
+                    <widget class="QCheckBox" name="VerboseServerinfoCheckbox">
+                     <property name="text">
+                      <string>Show debug data from Netgame's ServerInfo packets</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_15">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>189</height>
                    </size>
                   </property>
                  </spacer>
@@ -6319,8 +6387,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
  </customwidgets>
  <resources>
   <include location="../ll.qrc"/>
-  <include location="ll.qrc"/>
+  <include location="../ll.qrc"/>
   <include location="../../.designer/backup/ll.qrc"/>
+  <include location="../../../.designer/ll.qrc"/>
  </resources>
  <connections/>
 </ui>

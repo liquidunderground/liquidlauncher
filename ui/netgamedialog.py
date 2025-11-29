@@ -18,9 +18,9 @@ class NetgameDialog(QtWidgets.QDialog):
         self.setWindowTitle("Netgame")
 
         # UI setup
-        
-        self.ui.FilesTable.addAction(self.parent().qicons["wsblue"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
-        #self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", self.download_file)
+        #self.ui.FilesTable.addAction(self.parent().qicons["copy"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
+        if self.parent().global_settings["modsources"]["gameserver"]:
+            self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", self.download_file)
 
         ll_signalbus.netgame_update_finish.connect(self.refresh)
         
@@ -57,6 +57,7 @@ class NetgameDialog(QtWidgets.QDialog):
         if serverinfo != None:
 
             realfiles = [f for f in serverinfo.filesneeded if int.from_bytes(f["md5sum"], "big")]
+            metafiles = [f for f in serverinfo.filesneeded if f not in realfiles]
 
             text = f'<h1 align="center">{serverinfo.servername}</h1>' \
                 f'<p align="center">{self.netgame.get("url")}</p>' \
@@ -78,6 +79,27 @@ class NetgameDialog(QtWidgets.QDialog):
                 f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
                 f'MS API: {self.netgame.get("api")}' \
                 f'</p>'
+
+            if self.netgame.get("http_source"):
+                text += f"<p><em>HTTP Modsource URL</em>: {self.netgame.get("http_source")}</p>"
+
+            if self.parent().global_settings["devsettings"]["verbose_serverinfo"]:
+                
+                # Print debug info if so desired
+                text += "<hr>"
+                
+                text += "<h2>ServerInfo data</h2><table>"
+                for si_i,si_v in serverinfo.__dict__.items():
+                    text += f"<tr><td>{si_i}</td><td>{si_v}</td></tr>"
+                text += "</table>"
+
+                text += "<h2>Metafiles</h2><table>"
+                for mfile in metafiles:
+                    text += f"<tr><td>{si_i}</td><td><ul>"
+                    for i,v in mfile.items():
+                        text += f"<li><em>{i}</em>: {v}</li>"
+                    text += "</ul></td></tr>"
+                text += "</table>"
 
             # Refill players table
             self.ui.PlayersTable.clear()
