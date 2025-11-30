@@ -57,31 +57,31 @@ class NetgameDialog(QtWidgets.QDialog):
         if serverinfo != None:
 
             realfiles = [f for f in serverinfo.filesneeded if int.from_bytes(f["md5sum"], "big")]
-            metafiles = [f for f in serverinfo.filesneeded if f not in realfiles]
 
             text = f'<h1 align="center">{serverinfo.servername}</h1>' \
                 f'<p align="center">{self.netgame.get("url")}</p>' \
                 f'<p align="center">' \
-                f'{"Modified" if serverinfo.modifiedgame else "Vanilla"} | ' \
-                f'{"Cheats" if serverinfo.modifiedgame else "No cheats"} | ' \
-                f'{serverinfo.gametypename}' \
+                f'{"Modified" if self.netgame.get("modifiedgame") else "Vanilla"} | ' \
+                f'{"Cheats" if self.netgame.get("modifiedgame") else "No cheats"} | ' \
+                f'{self.netgame.get("gametypename") if self.netgame.get("gametypename") != None else self.netgame.get("gametype")}' \
                 f'</p>' \
                 f'<p align="center">' \
                 f'</p>' \
                 f'<h2>Map details</h2>' \
-                f'<p>' \
-                f'Current Map: {serverinfo.maptitle}{" Zone" if serverinfo.iszone else ""}{serverinfo.actnum if serverinfo.actnum != 0 else ""} ({serverinfo.mapname})<br>' \
-                f'MD5 Hash: {serverinfo.mapmd5.hex()}<br>' \
-                f'</p>' \
+                f'<table>' \
+                f'<tr><th>Current Map</td><td>{serverinfo.maptitle}{" Zone" if serverinfo.iszone else ""}{serverinfo.actnum if serverinfo.actnum != 0 else ""} ({self.netgame.get("mapname")})</td></tr>' \
+                f'<tr><th>MD5 Hash</td><td>{serverinfo.mapmd5.hex()}</td></tr>' \
+                f'</table>' \
                 f'<h2>Game & API Info</h2>' \
-                f'<p>' \
-                f'Game: {self.netgame.get("game")} {self.netgame.version}<br>' \
-                f'Origin: {self.netgame.get("room")} @ {self.netgame.get("origin")}<br>' \
-                f'MS API: {self.netgame.get("api")}' \
-                f'</p>'
+                f'<table>' \
+                f'<tr><th>Game</th><td>{self.netgame.get("application")} {self.netgame.get("version")} {self.netgame.get("subversion")}</td></tr>' \
+                f'<tr><th>Origin</th><td>{self.netgame.get("room")} @ {self.netgame.get("origin")}</td></tr>' \
+                f'<tr><th>MS API</th><td>{self.netgame.get("api")}</td></tr>' \
 
-            if self.netgame.get("http_source"):
-                text += f"<p><em>HTTP Modsource URL</em>: {self.netgame.get("http_source")}</p>"
+            if self.netgame.get("httpsource"):
+                text += f'<tr><th>HTTP Modsource URL</th><td><a href="{self.netgame.get("httpsource")}">{self.netgame.get("httpsource")}</a></p>'
+
+            text += '</table>'
 
             if self.parent().global_settings["devsettings"]["verbose_serverinfo"]:
                 
@@ -90,12 +90,12 @@ class NetgameDialog(QtWidgets.QDialog):
                 
                 text += "<h2>ServerInfo data</h2><table>"
                 for si_i,si_v in serverinfo.__dict__.items():
-                    text += f"<tr><td>{si_i}</td><td>{si_v}</td></tr>"
+                    text += f"<tr><th>{si_i}</th><td>{si_v}</td></tr>"
                 text += "</table>"
 
-                text += "<h2>Metafiles</h2><table>"
-                for mfile in metafiles:
-                    text += f"<tr><td>{si_i}</td><td><ul>"
+                text += "<h2>File metadata</h2><table>"
+                for mf_i,mfile in enumerate(realfiles):
+                    text += f"<tr><th>{mf_i}</th><td><ul>"
                     for i,v in mfile.items():
                         text += f"<li><em>{i}</em>: {v}</li>"
                     text += "</ul></td></tr>"

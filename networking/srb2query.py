@@ -135,6 +135,29 @@ class Packet:
 
 
 class ServerInfoPacket(Packet):
+    
+    def __new__(cls, pkt):
+
+        if cls is ServerInfoPacket:
+
+            # Inspect header for application type
+            format = "<BB16sBB"
+            fields = "x_255 packetversion application version subversion"
+            t = namedtuple('Packet', fields)
+            unpacked = t._asdict(t._make(struct.unpack(format, pkt[8:28])))
+
+            match decode_string(unpacked["application"]):
+                case "SRB2":
+                    cls = SRB2ServerInfoPacket
+                case "SRB2Classic":
+                    cls = SRB2ClassicServerInfoPacket
+                case "SRB2Kart":
+                    cls = SRB2KartServerInfoPacket
+                case "RingRacers":
+                    cls = RingRacersServerInfoPacket
+        
+        return object.__new__(cls)
+
     def __init__(self, pkt):
         self.type = PacketType.PT_SERVERINFO
         self.unpack(pkt)
@@ -175,6 +198,106 @@ class ServerInfoPacket(Packet):
         }
         self._add_to_dict(unpacked)
         self.unpack_fileneeded(pkt[format_length:])
+
+
+class RingRacersServerInfoPacket(ServerInfoPacket):
+
+    def unpack(self, pkt):
+        pkt = self.unpack_common(pkt)
+        format_length = 404
+        format = "<BB16sBB4sBBB24sBBBBII32s33s16sBB256sh"
+        fields = "x_255 packetversion application version subversion commit numberofplayer maxplayer refusereason gametypename modifiedgame cheatsenabled kartvars fileneedednum time leveltime servername maptitle mapmd5 actnum iszone httpsource avgpwrlv"
+        string_fields = ["application", "gametypename", "servername", "maptitle", "httpsource"]
+        t = namedtuple('Packet', fields)
+        unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
+        for s in string_fields:
+            unpacked[s] = decode_string(unpacked[s])
+        unpacked['map'] =  {
+            'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
+        }
+        self._add_to_dict(unpacked)
+        self.unpack_fileneeded(pkt[format_length:])
+
+class SRB2ServerInfoPacket(ServerInfoPacket):
+
+    def unpack(self, pkt):
+        pkt = self.unpack_common(pkt)
+        format_length = 406
+        format = "<BB16sBBBBB24sBBBBII32s8s33s16sBB256s"
+        fields = "x_255 packetversion application version subversion numberofplayer maxplayer refusereason gametypename modifiedgame cheatsenabled isdedicated fileneedednum time leveltime servername mapname maptitle mapmd5 actnum iszone httpsource"
+        string_fields = ["application", "gametypename", "servername", "mapname", "maptitle", "httpsource"]
+        t = namedtuple('Packet', fields)
+        unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
+        for s in string_fields:
+            unpacked[s] = decode_string(unpacked[s])
+        unpacked['map'] =  {
+            'num': mapname_to_num(unpacked['mapname']),
+            'name': unpacked['mapname'],
+            'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
+        }
+        self._add_to_dict(unpacked)
+        self.unpack_fileneeded(pkt[format_length:])
+
+class SRB2ClassicServerInfoPacket(ServerInfoPacket):
+
+    def unpack(self, pkt):
+        pkt = self.unpack_common(pkt)
+        format_length = 422
+        format = "<BB16sBBBBB24sBBBBII32s24s33s16sBB256s"
+        fields = "x_255 packetversion application version subversion numberofplayer maxplayer refusereason gametypename modifiedgame cheatsenabled isdedicated fileneedednum time leveltime servername mapname maptitle mapmd5 actnum iszone httpsource"
+        string_fields = ["application", "gametypename", "servername", "mapname", "maptitle", "httpsource"]
+        t = namedtuple('Packet', fields)
+        unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
+        for s in string_fields:
+            unpacked[s] = decode_string(unpacked[s])
+        unpacked['map'] =  {
+            'num': mapname_to_num(unpacked['mapname']),
+            'name': unpacked['mapname'],
+            'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
+        }
+        self._add_to_dict(unpacked)
+        self.unpack_fileneeded(pkt[format_length:])
+
+class SRB2KartServerInfoPacket(ServerInfoPacket):
+
+    def unpack(self, pkt):
+        pkt = self.unpack_common(pkt)
+        format_length = 382
+        format = "<BB16sBBBBBBBBBII32s8s33s16sBB256s"
+        fields = "x_255 packetversion application version subversion numberofplayer maxplayer gametype modifiedgame cheatsenabled kartvars fileneedednum time leveltime servername mapname maptitle mapmd5 actnum iszone httpsource"
+        string_fields = ["application", "servername", "mapname", "maptitle", "httpsource"]
+        t = namedtuple('Packet', fields)
+        unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
+        for s in string_fields:
+            unpacked[s] = decode_string(unpacked[s])
+        unpacked['map'] =  {
+            'num': mapname_to_num(unpacked['mapname']),
+            'name': unpacked['mapname'],
+            'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
+        }
+        self._add_to_dict(unpacked)
+        self.unpack_fileneeded(pkt[format_length:])
+
+class SRB2LegacyServerInfoPacket(): 
+
+    def unpack(self, pkt):
+        pkt = self.unpack_common(pkt)
+        format_length = 109
+        format = "<IIIIIIIIIiII32s8s33s16sBB"
+        fields = "version subversion numberofplayer maxplayer gametype modifiedgame cheatsenabled isdedicated fileneedednum time leveltime servername mapname maptitle mapmd5 actnum iszone"
+        string_fields = ["servername", "mapname", "maptitle"]
+        t = namedtuple('Packet', fields)
+        unpacked = t._asdict(t._make(struct.unpack(format, pkt[:format_length])))
+        for s in string_fields:
+            unpacked[s] = decode_string(unpacked[s])
+        unpacked['map'] =  {
+            'num': mapname_to_num(unpacked['mapname']),
+            'name': unpacked['mapname'],
+            'title': get_map_title(unpacked['maptitle'], unpacked['iszone'], unpacked['actnum'])
+        }
+        self._add_to_dict(unpacked)
+        self.unpack_fileneeded(pkt[format_length:])
+
 
 class PlayerInfoPacket(Packet):
 
