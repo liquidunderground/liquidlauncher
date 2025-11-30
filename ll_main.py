@@ -943,6 +943,7 @@ class MainWindow(QMainWindow):
             print(f"Updating Netgame(s) {i}: {n}")
             if n.serverinfo != None:
                 self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
+                self.ui.BrowseNetgameTable.item(i,2).setText(n.get("gametypename"))
                 self.ui.BrowseNetgameTable.item(i,6).setText(f"{n.get("numberofplayer")}/{n.get("maxplayer")}")
             else:
                 #self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
