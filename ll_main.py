@@ -1444,7 +1444,7 @@ class MainWindow(QMainWindow):
         self.global_settings.update(toml_settings)
 
         self.ui.UseragentInput.setText(self.global_settings["devsettings"]["http_user_agent"])
-        self.ui.ModsourceGameserverCheckbox.setChecked( self.global_settings["devsettings"]["verbose_serverinfo"])
+        self.ui.VerboseServerinfoCheckbox.setChecked( self.global_settings["devsettings"]["verbose_serverinfo"])
         
 
         # Update RSS List in UI
