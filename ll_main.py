@@ -732,8 +732,9 @@ class MainWindow(QMainWindow):
         new_item = QtWidgets.QListWidgetItem()
         new_item.setText(os.path.basename(str(f)))
         filetype = str(f).split(".")[-1]
-        new_item_icon = self.qicons["_filetypes"][filetype]
-        new_item.setIcon(new_item_icon)
+        if filetype in self.qicons["_filetypes"]:
+            new_item_icon = self.qicons["_filetypes"][filetype]
+            new_item.setIcon(new_item_icon)
         self.ui.GameFilesList.addItem(new_item)
         return
 
