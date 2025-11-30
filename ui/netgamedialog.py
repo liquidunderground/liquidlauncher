@@ -120,7 +120,7 @@ class NetgameDialog(QtWidgets.QDialog):
                 file_type = f["filename"].split('.')
 
                 match file_type[-1]:
-                    case "wad" | "pk3" | "soc" | "lua" :
+                    case "wad" | "pk3" | "soc" | "lua" | "kart" :
                         item_icon = self.parent().qicons["_filetypes"][file_type[-1]]
                         item.setIcon(item_icon)
                         item.setToolTip(f"MD5 hash: {f["md5sum"].hex()}")

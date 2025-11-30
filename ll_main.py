@@ -226,6 +226,7 @@ class MainWindow(QMainWindow):
                 "pk3": QtGui.QIcon(":/assets/img/filetypes/pk3.png"),
                 "soc": QtGui.QIcon(":/assets/img/filetypes/soc.png"),
                 "wad": QtGui.QIcon(":/assets/img/filetypes/wad.png"),
+                "kart": QtGui.QIcon(":/assets/img/filetypes/kart.png"),
             },
             "_teams": {
                 "red": QtGui.QIcon(":/assets/img/knuckles.png"),
