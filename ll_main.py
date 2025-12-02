@@ -838,15 +838,8 @@ class MainWindow(QMainWindow):
     # Mods browser
     
     def open_mod_page(self):
-        mod = self.get_selected_mod().url
+        mod = self.ui.ModsList.currentItem().data(3).url
         self.open_url(mod)
-    
-    def get_selected_mod(self):
-        #selection = self.ui.ModsList.currentItem().text()
-        #mod = self.mods_list[selection]
-        #return mod
-        selection = self.ui.ModsList.currentItem().data(3)
-        return selection
 
     def set_download_path(self):
         f = QFileDialog.getExistingDirectory()
@@ -879,7 +872,7 @@ class MainWindow(QMainWindow):
     def load_mod_page(self):
         self.ui.ModStatusLabel.setText("Downloading mod description...")
         if self.mods_list:
-            mod = self.get_selected_mod().url
+            mod = self.ui.ModsList.currentItem().data(3).get_url()
             #print("Mod URL: {}".format(mod.url))
             #self.ui.ModBrowser.load(mod.url)
             print("Mod URL: {}".format(mod))
