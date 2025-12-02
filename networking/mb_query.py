@@ -84,6 +84,116 @@ headers =  {'User-Agent':
             'AppleWebKit/537.36 (KHTML, like Gecko) '
             'Chrome/39.0.2171.95 Safari/537.36'}
 
+# ===========================================
+#
+#   NEW ARCHITECTURE: Modsource classes
+#
+# ===========================================
+#
+# 1. ModSource is a quasi-virtual class from which other mod sources inherit.
+# 2. Mod sources are forked off by API type and instances can be filled with appropriate API endpoints
+# 3. Mod sources are mainly responsible for finding and displaying mods from their respective repositories
+# 4. Depending on the API, some data may be missing from the results
+#
+#
+
+class ModSource():
+    def __new__(cls, *args, **kwargs):
+        if cls is ModSource:
+            # "Virtual" Class
+            raise
+        return object.__new__(cls)
+
+    def search(self, text, page=0, num=0):
+        """Retrieves a list of mods from the ModSource matching the search string 'text'
+        """
+        pass
+
+    def show(self, text):
+        """Passes/displays the mod's repository page
+        """
+        pass
+
+class GamebananaModSource(ModSource):
+    """
+    ModSource for the Gamebanana API
+    """
+
+    def __init__(self, **kwargs):
+        self.__dict__ = {**self.__dict__, **kwargs}
+        pass
+
+    def search(self, text, page=0, num=0):
+        pass
+            
+    def show(self, text):
+        pass
+
+class NetgameModSource(ModSource):
+    """
+    This mod source queries all netgames passed into it's constructor
+    It locally searches the filenames given in the netgame's filesneeded entries.
+    It cannot display mod pages. (It may try to pass the httpsource URL instead)
+    It will download from the netgames' given httpsource
+    """
+    def __init__(self, netgames=[]):
+        self.netgames = netgames
+        pass
+
+    def search(self, text, page=0, num=0):
+        # "page" and "num" are ignored
+        out = []
+
+        for ng in self.netgames:
+            ng_files = ng.get("filesneeded")
+            httpsource = ng.get("httpsource")
+
+            if ng_files != None and httpsource != None and httpsource != "":
+                # Append mod list entries from netgames' neededfiles
+
+                out += [Mod(
+                    name=f"{f["filename"]} @ {httpsource.rstrip('/')}/",
+                    ext_url=httpsource,
+                    download_url=f"{httpsource.rstrip('/')}/{f["filename"]}",
+                    icon="server"
+                ) for f in ng_files if int.from_bytes(f["md5sum"], "big") and text.lower() in f["filename"].lower()]
+
+        print({f"[NETGAME MODSOURCE] found Netgames :\n{out}"})
+        return out
+            
+    def show(self, text):
+        pass
+
+class VbulletinModSource(ModSource):
+    """
+    ModSource for vBulletin-based forums (e.g. SRB2 Skybase)
+    """
+    def __init__(self, **kwargs):
+        self.__dict__ = {**self.__dict__, **kwargs}
+        pass
+
+    def search(self, text, page=0, num=0):
+        pass
+            
+    def show(self, text):
+        pass
+       
+class XenforoModSource(ModSource):
+    """
+    ModSource for Xenforo-based forums (e.g. SRB2 Message Board)
+    """
+
+    def __init__(self, **kwargs):
+        self.__dict__ = {**self.__dict__, **kwargs}
+        pass
+
+    def search(self, text, page=0, num=0):
+        pass
+            
+    def show(self, text):
+        pass
+         
+"""
 class Mod:
     def __init__(self, name, mb_info, thread_url):
         self.mb = mb_info
@@ -123,6 +233,47 @@ class Mod:
         self.description = '\n'.join(self.html.xpath(
             '//div[@class="bbWrapper"]/text()'))
         return self.description
+"""
+
+class Mod():
+    def __init__(self, **kwargs):
+        self.name           = kwargs.get("name", None)
+        self.ext_url        = kwargs.get("ext_url", None)
+        self.download_url   = kwargs.get("download_url", None)
+        self.icon           = kwargs.get("icon", None)
+        self.md5sum         = kwargs.get("md5sum", None)
+
+    def __str__(self):
+        if self.md5sum:
+            return self.md5sum.hex()
+        if self.download_url:
+            return hashlib.md5(self.download_url.encode('utf-8')).hexdigest()
+        return self.name
+
+    def get_url(self):
+        """
+        Display Mod in browser
+        """
+        if "ext_url" in self.__dict__.keys():
+            return self.ext_url
+        return None
+
+    def get_download_url_base(self):
+        """
+        Download Mod from download URL
+        """
+        if "download_url" in self.__dict__.keys():
+            return self.download_url
+        return None
+
+    def get_download_url(self):
+        """
+        Download Mod from download URL
+        """
+        if "download_url" in self.__dict__.keys():
+            return [self.download_url]
+        return []
+
 
 def get_mods_xenforo(addons_subforum_url, modsource, pagenum):
     """
@@ -228,7 +379,9 @@ def get_mods(addons_subforum_url, modsource, pagenum):
     for i in mod_data:
         #mod = Mod(mod_names[index], mod_links[index])
         #mod = Mod(mod_names[index], modsource, mod_links[index])
-        mod = Mod(i["name"], modsource, i["link"])
+        
+        mod = Mod(name=i["name"], icon=modsource["icon"], ext_url=i["link"])
+        
         out.append(mod)
 
     return out
@@ -287,7 +440,8 @@ def get_mod_by_name(name, mod_list):
     for mod in mod_list:
         if mod.name == name:
             return mod
-    return Mod("blank", None, "blank")  # Return a blank mod so functions that rely on this function don't crash
+    #return Mod("blank", None, "blank")  # Return a blank mod so functions that rely on this function don't crash
+    return Mod(name="[unknown]", icon=None, ext_url="about:blank", download_url="about:blank")  # Return a blank mod so functions that rely on this function don't crash
 
 def get_list_of_thread_names(parsed_html):
     """

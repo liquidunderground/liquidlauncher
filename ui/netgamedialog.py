@@ -1,6 +1,6 @@
 from PySide6 import QtWidgets, QtCore
 
-from ll_threading import NetgameThread, ll_signalbus
+from ll_threading import NetgameThread, ModDownloaderThread, ll_signalbus
 from networking.ms_query import Netgame
 
 from ui.ui_netgamedialog import Ui_NetgameDialog
@@ -20,7 +20,7 @@ class NetgameDialog(QtWidgets.QDialog):
         # UI setup
         #self.ui.FilesTable.addAction(self.parent().qicons["copy"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
         if self.parent().global_settings["modsources"]["gameserver"]:
-            self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", self.download_file)
+            self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", lambda: self.download_file(self.ui.FilesTable.currentRow()))
 
         ll_signalbus.netgame_update_finish.connect(self.refresh)
         
@@ -140,7 +140,16 @@ class NetgameDialog(QtWidgets.QDialog):
         print(f"join_netgame({self})")
 
     def download_file(self, file):
-        print(f"Pretending to download file {file} ...")
+        f = [f for f in self.netgame.get("serverinfo").filesneeded if int.from_bytes(f["md5sum"], "big")]
+        
+        if self.netgame.get("httpsource") == None:
+            pass
+        
+        addon_url = self.netgame.get("httpsource").rstrip('/') + '/' + f[file]["filename"]
+        # This is ew but necessary
+        dest = self.parent().ui.ModDirInput.text() if self.parent().ui.ModDirInput.text() != "" else os.path.join(os.path.expanduser("~"), "Downloads")
+        
+        self.thread_pool.start(ModDownloaderThread(mods=[addon_url], dest=dest))
 
     def file_copy_md5(self, file):
         from PySide6.QtWidgets import QApplication

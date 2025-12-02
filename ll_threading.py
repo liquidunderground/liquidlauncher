@@ -1,5 +1,6 @@
 import time
 import requests
+import os
 
 from PySide6 import QtCore
 from PySide6.QtCore import Signal
@@ -7,6 +8,8 @@ from PySide6.QtCore import Signal
 from networking import mb_query
 from networking.ms_query import Netgame
 from networking.ms_query import get_server_list, query_ms_rooms
+
+from parse import *
 
 from packaging import version # for version checks
 
@@ -354,7 +357,7 @@ class LqSignals(QtCore.QObject):
     mod_list_sig1 = Signal(dict, str)
     mod_statmsg_sig1 = Signal(str)
     # Mod downoader
-    mod_filepath_sig1 = Signal(list)
+    mod_download_finish = Signal(object, str)
     
     # Netgames
     netgame_update_finish = Signal(list)    # Emits List of Netgames to update
@@ -395,6 +398,68 @@ class NetgameListThread(QtCore.QRunnable):
         
     @QtCore.Slot()
     def run(self):
-        print(f"Running thread on netgame {self.netgame}")
-        self.netgame.query()
-        self.signalbus.netgame_list_fetch_finish.emit(self.netgame)
+
+class ModDownloaderThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+    
+    def __init__(self, mods=[], dest=None):
+        super(ModDownloaderThread, self).__init__()
+
+        self.mods = mods
+        self.dest = dest
+
+    @QtCore.Slot()
+    def run(self):
+        print(f"ModDownloaderThread launched:\n\tdestination: {self.dest}\n\tmods: {self.mods}")
+        if self.dest:
+            for mod in self.mods:
+                #mod.download(self.dest)    # GAH old! We'll download it ourselves!
+
+                print(f"[ModDownloaderThread]: Processing mod URL {mod}")
+                
+                # Guarantee destination folder
+                if not os.path.isdir(self.dest):
+                    os.makedirs(self.dest)
+                    
+                # NOTE the stream=True parameter below
+                with requests.get(mod, stream=True) as r:
+                    r.raise_for_status()
+                    # Safeguard in case there's no "Content-Disposition" header
+                    print("[ModDownloaderThread]: ",r.headers)
+                    if "Content-Disposition" in r.headers.keys():
+                        #filepath = '{}/{}'.format(    base_path.rstrip('/'), parse('attachment; filename="{file}"',   r.headers["Content-Disposition"])["file"]    )
+                        #filepath = base_path.rstrip('/')+download_url.split('/')[-3]
+                        
+                        filepath = f"{self.dest.rstrip('/')}/{parse('attachment; filename="{file}"',r.headers["Content-Disposition"])["file"]}"
+                        
+                    elif r.headers["Content-Type"] == 'application/octet-stream':
+                        filepath = f"{self.dest.rstrip('/')}/{mod.rstrip('/').split('/')[-1]}"
+                    
+                    print("Proceeding to download file ", mod,  "into", filepath)
+
+                    with open(filepath, 'wb') as f:
+                        for chunk in r.iter_content(chunk_size=8192):
+                            # If you have chunk encoded response uncomment if
+                            # and set chunk_size parameter to None.
+                            #if chunk:
+                            f.write(chunk)
+
+                self.signalbus.mod_download_finish.emit(mod,self.dest)
+
+
+class ModListThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+    
+    def __init__(self, modsource=None, page=0, num=0):
+        super(ModListThread, self).__init__()
+
+        self.modsource = modsource
+        self.page = page
+        self.num = num
+
+    @QtCore.Slot()
+    def run(self):
+        res = self.modsource.search(self.searchtext, self.page, self.num)
+        self.signalbus.mod_list_fetch_finish.emit(res)

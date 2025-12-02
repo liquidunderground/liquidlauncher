@@ -16,8 +16,9 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread, ll_signalbus
+from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModListThread, ll_signalbus
 from networking.ms_query import Netgame
+import networking.mb_query as mb_query
 from ui.ui_main import *
 from ui.netgamedialog import NetgameDialog
 from ll_info import product_version as versionString
@@ -249,7 +250,7 @@ class MainWindow(QMainWindow):
         # Mod context menu
         self.ui.ModsList.addAction(self.qicons["media-playback-start"], "Open", self.load_mod_page)
         self.ui.ModsList.addAction(self.qicons["view-refresh"], "Refresh", self.refresh_mods_list)
-        self.ui.ModsList.addAction(self.qicons["download"], "Download", self.download_mod)
+        self.ui.ModsList.addAction(self.qicons["download"], "Download", lambda: self.download_mod([self.ui.ModsList.currentItem().data(3)]))
         self.ui.ModsList.addAction(self.qicons["globe"], "Open in browser", self.open_mod_page)
 
 
@@ -883,6 +884,30 @@ class MainWindow(QMainWindow):
         else:
             self.ui.ModStatusLabel.setText("No mods found. Did you check your sources?")
 
+    # ======== NEW QRunnable-based mod list slots ========
+
+    @QtCore.Slot()
+    def download_mod(self, mods=[]):
+        print(f"NEW download_mod({mods})")
+        for mod in mods:
+
+            dest = self.ui.ModDirInput.text() if self.ui.ModDirInput.text() != "" else os.path.join(os.path.expanduser("~"), "Downloads")
+            mod_url = mod.get_download_url()
+
+            # Depending on the type of ModSource, any mod may return multiple download links.
+            # In this case, prompt the user to select which and create a bulk thread
+            
+            if False and mod_url.length > 1: 
+                to_download = [] # TODO: Some QDialog magic
+                to_download = mod_url # For now just grab 'em all
+            else:
+                to_download = mod_url
+
+            self.ui.ModStatusLabel.setText("Downloading mod...")
+
+            self.thread_pool.start( ModDownloaderThread(mods=to_download, dest=dest) )
+
+    #======== OLD MOD LIST FUNCTIONS ===========
     def refresh_mods_list(self):
         # TODO: multithreading to get rid of lag
         self.ui.ModStatusLabel.setText("Downloading mods list...")
