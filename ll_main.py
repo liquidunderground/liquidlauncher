@@ -100,6 +100,7 @@ class MainWindow(QMainWindow):
 
         # Connect Table row updater
         ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
+        ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
         
 
         # MB Query Multithreading
@@ -220,6 +221,8 @@ class MainWindow(QMainWindow):
 
         # modding list buttons ======================================================= #
         self.ui.RefreshModsButton.clicked.connect(self.refresh_mods_list)
+        self.ui.SearchModsButton.clicked.connect(self.search_mods)
+        self.ui.SearchModsInput.returnPressed.connect(self.search_mods)
         self.ui.ModsList.itemDoubleClicked.connect(self.load_mod_page)
         self.qicons = {
             "_filetypes": {
@@ -240,6 +243,7 @@ class MainWindow(QMainWindow):
             "gamebanana": QtGui.QIcon(":/assets/img/icons/gamebanana.png"),
             "globe": QtGui.QIcon(":/assets/img/icons/globe.png"),
             "media-playback-start": QtGui.QIcon(":/assets/img/icons/media-playback-start.png"),
+            "server": QtGui.QIcon(":/assets/img/icons/server.png"),
             "skybase": QtGui.QIcon(":/assets/img/icons/skybase.png"),
             "srb2mb": QtGui.QIcon(":/assets/img/icons/srb2mb.png"),
             "view-refresh": QtGui.QIcon(":/assets/img/icons/view-refresh.png"),
@@ -885,6 +889,53 @@ class MainWindow(QMainWindow):
             self.ui.ModStatusLabel.setText("No mods found. Did you check your sources?")
 
     # ======== NEW QRunnable-based mod list slots ========
+    @QtCore.Slot()
+    def search_mods(self):
+
+        self.mods_list = {}
+        modsources = []
+
+        st = self.ui.SearchModsInput.text()
+        p = self.ui.SearchModPageInput.value()
+
+        # Pass website data as kwargs (global netgame list for NetgameModSource)
+        if self.global_settings["modsources"]["srb2mb"]:
+            modsources.append( mb_query.XenforoModSource(**mb_query.srb2mb) )
+        if self.global_settings["modsources"]["workshop_blue"]:
+            modsources.append( mb_query.XenforoModSource(**mb_query.workshop_blue) )
+        if self.global_settings["modsources"]["workshop_red"]:
+            modsources.append( mb_query.XenforoModSource(**mb_query.workshop_red) )
+        if self.global_settings["modsources"]["skybase"]:
+            # ??? Problem ??? - Skybase locks search behind an account wall
+            modsources.append( mb_query.VbulletinModSource(**mb_query.skybase) )
+        if self.global_settings["modsources"]["gamebanana"]:
+            modsources.append( mb_query.GameBananaModSource(**mb_query.gamebanana) )
+        if self.global_settings["modsources"]["gameserver"]:
+            modsources.append( mb_query.NetgameModSource(netgames=self.master_server_list) )
+
+        self.ui.ModStatusLabel.setText("Downloading mods list...")
+        self.ui.ModsList.clear()
+        
+        for src in modsources:
+            self.thread_pool.start(ModListThread(modsource=src, searchtext=st, page=p))
+    
+    @QtCore.Slot(object)
+    def add_mods_to_list(self, mods):
+        self.ui.ModStatusLabel.setText("Click on a mod to see more "
+                                       "information.")
+        #self.mods_list.update(mods)
+        for mod in mods:
+            self.mods_list[mod] = mod
+            new_item = QtWidgets.QListWidgetItem()
+            new_item.setText(mod.name)
+            new_item.setData(3,self.mods_list[mod])
+            #new_item.setData(3,mod)
+            if mod.icon in self.qicons.keys():
+                qicon = self.qicons[mod.icon]
+                new_item.setIcon(qicon)
+
+            self.ui.ModsList.addItem(new_item)
+
 
     @QtCore.Slot()
     def download_mod(self, mods=[]):

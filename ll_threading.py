@@ -354,6 +354,7 @@ class LqSignals(QtCore.QObject):
     ### Emits a string describing the mod
     mod_description_sig1 = Signal(object)
     ### Emits a list of mods
+    mod_list_fetch_finish = Signal(object)
     mod_list_sig1 = Signal(dict, str)
     mod_statmsg_sig1 = Signal(str)
     # Mod downoader
@@ -452,10 +453,14 @@ class ModListThread(QtCore.QRunnable):
     
     signalbus = ll_signalbus
     
-    def __init__(self, modsource=None, page=0, num=0):
+    def __init__(self, modsource=None, searchtext=None, page=0, num=0):
         super(ModListThread, self).__init__()
+        
+        if type(searchtext) is not str:
+            raise
 
         self.modsource = modsource
+        self.searchtext = searchtext
         self.page = page
         self.num = num
 
