@@ -2,6 +2,7 @@ import os
 from lxml import html
 from parse import *
 import requests
+import hashlib
 
 ## Original MB values
 srb2mb = {
