@@ -392,13 +392,51 @@ class NetgameListThread(QtCore.QRunnable):
     
     signalbus = ll_signalbus
 
-    def __init__(self, netgame:Netgame):
-        super(NetgameThread,self).__init__()
-        self.netgame = netgame
-        print(f"Created thread for netgame {self.netgame}")
+    def __init__(self, ms_url, ms_api):
+        super(NetgameListThread,self).__init__()
+        self.ms_url = ms_url
+        self.ms_api = ms_api
         
     @QtCore.Slot()
     def run(self):
+        print(f"Running query thread for {self.ms_url} (API: {self.ms_api})")
+        if self.query_ms:
+            try:
+                server_list = get_server_list(
+                    self.ms_url.rstrip(),
+                    self.ms_api
+                    )
+                print(f"Successfully queried {self.ms_url}\n")
+                alertArgs = {
+                    "type" : "info",
+                    "title" : f"Query successful",
+                    "message" : f"Successfully queried {self.ms_url}",
+                }
+                self.signalbus.alert.emit(alertArgs)
+                self.signalbus.netgame_list_fetch_finish.emit(server_list)
+            except Exception as e:
+                print("Query error: {}\n".format(e))
+                #self.server_list_sig2.emit("Query error: {}".format(e))
+                alertArgs = {
+                    "type" : "warning",
+                    "title" : f"Query Error ",
+                    "message" : "Unable to query " \
+                        f"{self.ms_url} -" \
+                        "Check details to see the exact error message.",
+                    "detailedText" : str(e),
+                }
+                self.signalbus.alert.emit(alertArgs)
+                self.signalbus.netgame_list_fetch_finish.emit({})
+            self.query_ms = False                    
+        if self.query_ms_rooms:
+            print("QThread.masterserver = ", self.host.global_settings["current_ms"])
+            try:
+                rooms = query_ms_rooms(self.hostMsUrl)
+            except Exception as e:
+                rooms = {}
+            print("Queried rooms: {}".format(rooms) )
+            self.on_ms_rooms_sig.emit(rooms)
+
 
 class ModDownloaderThread(QtCore.QRunnable):
     
