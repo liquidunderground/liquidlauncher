@@ -849,7 +849,7 @@ class MainWindow(QMainWindow):
         return selection
 
     def set_download_path(self):
-        f, _ = QFileDialog.getExistingDirectory()
+        f = QFileDialog.getExistingDirectory()
         if (f):
             self.ui.ModDirInput.setText(f)
 
