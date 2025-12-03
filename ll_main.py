@@ -902,7 +902,7 @@ class MainWindow(QMainWindow):
             # ??? Problem ??? - Skybase locks search behind an account wall
             modsources.append( mb_query.VbulletinModSource(**mb_query.skybase) )
         if self.global_settings["modsources"]["gamebanana"]:
-            modsources.append( mb_query.GameBananaModSource(**mb_query.gamebanana) )
+            modsources.append( mb_query.GamebananaModSource(**mb_query.gamebanana) )
         if self.global_settings["modsources"]["gameserver"]:
             modsources.append( mb_query.NetgameModSource(netgames=self.master_server_list) )
 
