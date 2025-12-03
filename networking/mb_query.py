@@ -360,7 +360,7 @@ def get_mods(addons_subforum_url, modsource, pagenum):
     :param modsource: Internal modsource data (HTTP resources)
     :return: Returns a list containing Mod class instances
     """
-    print("mb_query.get_mods({addons_subforum_url}, {pagenum})")
+    print(f"mb_query.get_mods({addons_subforum_url}, {pagenum})")
 
     # Cut it short for unsupported forums
     if addons_subforum_url == "about:blank":
