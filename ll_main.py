@@ -838,7 +838,7 @@ class MainWindow(QMainWindow):
     # Mods browser
     
     def open_mod_page(self):
-        mod = self.ui.ModsList.currentItem().data(3).url
+        mod = self.ui.ModsList.currentItem().data(3).get_url()
         self.open_url(mod)
 
     def set_download_path(self):
