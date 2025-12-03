@@ -1073,17 +1073,23 @@ class MainWindow(QMainWindow):
 
     def selected_netgame_info(self):
 
-        selection = self.ui.BrowseNetgameTable.currentRow()
-        netgame = self.master_server_list[selection]
-        serverinfo = netgame.get("serverinfo")
+        ranges = self.ui.BrowseNetgameTable.selectedRanges()
         
-        ui_netgame = NetgameDialog(self)
-        ui_netgame.setNetgame(netgame)
-        # UPDATE: SRB2Query-based live data upon launch
-        ng_thread = NetgameThread([netgame])
-        self.thread_pool.start(ng_thread)
-        ng_thread.signalbus.netgame_update_finish.connect(ui_netgame.refresh)
-        ui_netgame.show()
+        selection = []
+        for r in ranges:
+            selection = [*selection, *range(r.topRow(),r.topRow()+r.rowCount())]
+
+        for row in selection:
+            netgame = self.master_server_list[row]
+            serverinfo = netgame.get("serverinfo")
+            
+            ui_netgame = NetgameDialog(self)
+            ui_netgame.setNetgame(netgame)
+            # UPDATE: SRB2Query-based live data upon launch
+            ng_thread = NetgameThread([netgame])
+            self.thread_pool.start(ng_thread)
+            ng_thread.signalbus.netgame_update_finish.connect(ui_netgame.refresh)
+            ui_netgame.show()
 
         return
 
