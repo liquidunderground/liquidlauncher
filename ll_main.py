@@ -846,29 +846,7 @@ class MainWindow(QMainWindow):
         if (f):
             self.ui.ModDirInput.setText(f)
 
-    def download_mod(self):
-        print("MOD LIST: {}".format(self.mods_list))
-        if self.mods_list:
-            mod = self.get_selected_mod()
-            print("SELECTED MOD: {}".format(mod))
-            #mod.set_download_url()
-            #path = os.path.join( self.ui.HomePathInput.text(), "DOWNLOAD")
-            path = self.ui.ModDirInput.text() if self.ui.ModDirInput.text() != "" else os.path.join(os.path.expanduser("~"), "Downloads")
-            self.ui.ModStatusLabel.setText("Downloading mod...")
-            self.download_mod_url_sig.emit(mod.download_url)
-            self.download_mod_path_sig.emit(path)
-
-    def append_mod_to_list(self, mod, icon=None):
-        print("append_mod_to_list({},{})".format(mod,icon))
-        new_item = QtWidgets.QListWidgetItem()
-        new_item.setText(mod)
-        new_item.setData(3,self.mods_list[mod])
-        if icon:
-            qicon = self.qicons[icon]
-            new_item.setIcon(qicon)
-
-        self.ui.ModsList.addItem(new_item)
-
+    @QtCore.Slot()
     def load_mod_page(self):
         self.ui.ModStatusLabel.setText("Downloading mod description...")
         if self.mods_list:
@@ -970,13 +948,6 @@ class MainWindow(QMainWindow):
 
     def on_mod_statmsg(self,msg):
         self.ui.ModStatusLabel.setText(msg)
-
-    def on_mod_list(self, mod_list, icon=None):
-        self.ui.ModStatusLabel.setText("Click on a mod to see more "
-                                       "information.")
-        self.mods_list.update(mod_list)
-        for item in mod_list:
-            self.append_mod_to_list(item, icon)
 
     def add_mod_to_files(self, filepaths_list):
         # Unable to download?
