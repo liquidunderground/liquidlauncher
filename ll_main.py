@@ -289,7 +289,7 @@ class MainWindow(QMainWindow):
         self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         # Context menu action
         self.ui.BrowseNetgameTable.addAction(self.qicons["media-playback-start"], "Join netgame", self.join_selected_netgame_browse)
-        self.ui.BrowseNetgameTable.addAction(self.qicons["view-refresh"], "Query netgame", self.load_mod_page)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["view-refresh"], "Query netgame", self.query_netgames)
         self.ui.BrowseNetgameTable.addAction(self.qicons["bookmark"], "Bookmark netgame", self.save_ms_selection)
         self.ui.BrowseNetgameTable.addAction(self.qicons["about"], "Netgame Info", self.selected_netgame_info)
 
@@ -1013,7 +1013,7 @@ class MainWindow(QMainWindow):
             twi_name = QtWidgets.QTableWidgetItem(netgame.get("name_plain")[:35])
             twi_name.setToolTip(netgame.get("name_plain"))
             
-            twi_status_icon = self.qicons["globe"] if netgame.serverinfo else self.qicons["wsred"]
+            twi_status_icon = self.qicons["network"]["good"] if netgame.serverinfo else self.qicons["network"]["idle"]
             twi_status = QtWidgets.QTableWidgetItem(twi_status_icon, "")
             twi_status.setToolTip("Available" if netgame.serverinfo else "Offline")
             
@@ -1054,6 +1054,22 @@ class MainWindow(QMainWindow):
             self.master_server_list[selection].get("port") )
         subprocess.Popen(self.get_client_launch_command() + ["-connect" , ip_string])
         return
+
+    def query_netgames(self):
+        """
+        Queries all netgames currently selected in the table
+        """
+        
+        ranges = self.ui.BrowseNetgameTable.selectedRanges()
+        
+        selection = []
+        for r in ranges:
+            selection = [*selection, *range(r.topRow(),r.topRow()+r.rowCount())]
+
+        for row in selection:
+            self.ui.BrowseNetgameTable.item(row,0).setIcon(self.qicons["network"]["idle"])
+            netgame = self.master_server_list[row]
+            self.thread_pool.start(NetgameThread([netgame]))
 
     def selected_netgame_info(self):
 
