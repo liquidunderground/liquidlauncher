@@ -18,7 +18,7 @@ class NetgameDialog(QtWidgets.QDialog):
         self.setWindowTitle("Netgame")
 
         # UI setup
-        #self.ui.FilesTable.addAction(self.parent().qicons["copy"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
+        self.ui.FilesTable.addAction(self.parent().qicons["copy"], "Copy MD5 to clipboard", lambda: self.file_copy_md5(self.ui.FilesTable.currentRow()))
         if self.parent().global_settings["modsources"]["gameserver"]:
             self.ui.FilesTable.addAction(self.parent().qicons["download"], "Download", lambda: self.download_file(self.ui.FilesTable.currentRow()))
 

@@ -236,13 +236,21 @@ class MainWindow(QMainWindow):
                 "red": QtGui.QIcon(":/assets/img/knuckles.png"),
                 "blue": QtGui.QIcon(":/assets/img/sonic.png"),
             },
+            "network": {
+                "idle": QtGui.QIcon(":/assets/img/icons/network-idle.png"),
+                "error": QtGui.QIcon(":/assets/img/icons/network-error.png"),
+                "good": QtGui.QIcon(":/assets/img/icons/network-good.png"),
+            },
+            "abort": QtGui.QIcon(":/assets/img/icons/abort.png"),
             "about": QtGui.QIcon(":/assets/img/icons/about.png"),
             "bookmark": QtGui.QIcon(":/assets/img/icons/bookmark.png"),
+            "copy": QtGui.QIcon(":/assets/img/icons/copy.png"),
             "document-save": QtGui.QIcon(":/assets/img/icons/document-save.png"),
             "download": QtGui.QIcon(":/assets/img/icons/download.png"),
             "gamebanana": QtGui.QIcon(":/assets/img/icons/gamebanana.png"),
             "globe": QtGui.QIcon(":/assets/img/icons/globe.png"),
             "media-playback-start": QtGui.QIcon(":/assets/img/icons/media-playback-start.png"),
+            "settings": QtGui.QIcon(":/assets/img/icons/settings.png"),
             "server": QtGui.QIcon(":/assets/img/icons/server.png"),
             "skybase": QtGui.QIcon(":/assets/img/icons/skybase.png"),
             "srb2mb": QtGui.QIcon(":/assets/img/icons/srb2mb.png"),
@@ -987,11 +995,11 @@ class MainWindow(QMainWindow):
         for i, n in [(i,n) for i,n in enumerate(self.master_server_list) if n in netgames]:
             print(f"Updating Netgame(s) {i}: {n}")
             if n.serverinfo != None:
-                self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
+                self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["network"]["good"])
                 self.ui.BrowseNetgameTable.item(i,2).setText(n.get("gametypename"))
                 self.ui.BrowseNetgameTable.item(i,6).setText(f"{n.get("numberofplayer")}/{n.get("maxplayer")}")
             else:
-                #self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["globe"])
+                self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["network"]["error"])
                 self.ui.BrowseNetgameTable.item(i,6).setText("-")
         pass
 
