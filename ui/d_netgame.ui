@@ -196,7 +196,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <string>Cancel</string>
         </property>
         <property name="icon">
-         <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+         <iconset resource="../ll.qrc">
+          <normaloff>:/assets/img/icons/abort.png</normaloff>:/assets/img/icons/abort.png</iconset>
         </property>
        </widget>
       </item>

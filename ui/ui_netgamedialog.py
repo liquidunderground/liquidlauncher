@@ -140,7 +140,8 @@ class Ui_NetgameDialog(object):
         self.CancelButton.setObjectName(u"CancelButton")
         sizePolicy.setHeightForWidth(self.CancelButton.sizePolicy().hasHeightForWidth())
         self.CancelButton.setSizePolicy(sizePolicy)
-        icon5 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WindowClose))
+        icon5 = QIcon()
+        icon5.addFile(u":/assets/img/icons/abort.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.CancelButton.setIcon(icon5)
 
         self.horizontalLayout_3.addWidget(self.CancelButton)

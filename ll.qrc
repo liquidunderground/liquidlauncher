@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="assets">
+    <file>img/icons/abort.png</file>
+    <file>img/icons/network-idle.png</file>
+    <file>img/icons/network-good.png</file>
+    <file>img/icons/network-error.png</file>
+    <file>img/icons/copy.png</file>
+    <file>img/icons/server.png</file>
     <file>img/icons/edit.png</file>
     <file>img/icons/textfile.png</file>
     <file>img/icons/wsblue.png</file>
