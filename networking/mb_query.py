@@ -4,6 +4,8 @@ from parse import *
 import requests
 import hashlib
 
+from ll_info import http_headers
+
 ## Original MB values
 srb2mb = {
     "main": "https://mb.srb2.org",
@@ -66,14 +68,8 @@ gamebanana = {
     # Useful reference links
     "main": "https://gamebanana.com",
     # gameid 6786 == SRB2
-    "maps": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
-    "characters": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
-    "lua": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
-    "misc": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&_nPerpage=50",
-    "assets": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_csvModelInclusions=Mod&__nPerpage=50",
-    "thread_link": "about:gamebanana",
-    "thread": "https://gamebanana.com/mods/{thread}",
-    "download": "https://gamebanana.com/mods/download/{thread}",
+    "search_url": "https://gamebanana.com/apiv11/Game/6786/Subfeed?_sName={query}&_nPage={pagenum}&_csvModelInclusions=Mod",
+    "download": "https://gamebanana.com/apiv11/Mod/{id}?_csvProperties=_aFiles",
     "icon": "gamebanana",
     "vendor": "gamebanana"
 }
@@ -125,7 +121,36 @@ class GamebananaModSource(ModSource):
         pass
 
     def search(self, text, page=0, num=0):
-        pass
+
+        out = []
+
+        response = requests.get(self.search_url.format(query=text, pagenum=page),
+                                stream=True,
+                                headers=http_headers)
+
+        # Thankfully Gamebanana has an actual API
+        api_data = response.json()["_aRecords"]
+        
+        for el in api_data:
+
+            # Pull download link out of separate API call, ugh
+            download_resolv = requests.get(self.download.format(id=el["_idRow"]),
+                                            stream=True,
+                                            headers=http_headers)
+
+            # One mod may have multiple downloads (e.g. older versions)
+            downloads = [ x["_sDownloadUrl"] for x in download_resolv.json()["_aFiles"] ]
+
+            print(f"[GamebananaModSource] Download links for {el["_sName"]} ({el["_idRow"]}): {downloads}")
+
+            out.append(Mod(
+                    name=el["_sName"], 
+                    ext_url=el["_sProfileUrl"],
+                    download_urls=downloads,
+                    icon=self.icon,
+                ))
+                
+        return out
             
     def show(self, text):
         pass
@@ -155,11 +180,10 @@ class NetgameModSource(ModSource):
                 out += [Mod(
                     name=f"{f["filename"]} @ {httpsource.rstrip('/')}/",
                     ext_url=httpsource,
-                    download_url=f"{httpsource.rstrip('/')}/{f["filename"]}",
+                    download_urls=[f"{httpsource.rstrip('/')}/{f["filename"]}"],
                     icon="server"
                 ) for f in ng_files if int.from_bytes(f["md5sum"], "big") and text.lower() in f["filename"].lower()]
 
-        print({f"[NETGAME MODSOURCE] found Netgames :\n{out}"})
         return out
             
     def show(self, text):
@@ -240,7 +264,7 @@ class Mod():
     def __init__(self, **kwargs):
         self.name           = kwargs.get("name", None)
         self.ext_url        = kwargs.get("ext_url", None)
-        self.download_url   = kwargs.get("download_url", None)
+        self.download_urls   = kwargs.get("download_urls", None)
         self.icon           = kwargs.get("icon", None)
         self.md5sum         = kwargs.get("md5sum", None)
 
@@ -271,8 +295,8 @@ class Mod():
         """
         Download Mod from download URL
         """
-        if "download_url" in self.__dict__.keys():
-            return [self.download_url]
+        if "download_urls" in self.__dict__.keys():
+            return self.download_urls
         return []
 
 
@@ -328,31 +352,6 @@ def get_mods_vbulletin(addons_subforum_url, modsource, pagenum):
     print("Fetched mods:", out )
     return out
 
-def get_mods_gamebanana(addons_subforum_url, modsource, pagenum):
-    """
-    Gets a list of all mods from Gamebanana
-    :param download_url: The URL of the Gamebanana Category to search
-    :param modsource: Internal modsource data (HTTP resources)
-    :param pagenum: Page number
-    :return: Returns a list containing Mod class instances
-    """
-    print(f"mb_query.get_mods_gamebanana({addons_subforum_url}, {pagenum})")
-    out = []
-    # Iterate through pages grabbing thread names and their links:
-    remote_data = get_addons_gamebanana(addons_subforum_url, pagenum)
-    # Most of the XPath stuff is not necessary here; just give good
-    # params parse some JSON. Thank uncle Sonic.
-    for el in remote_data:
-        # Get current link (just the ID for now; generate link later)
-        el_href = el["_idRow"]
-        el_name = el["_sName"]
-        out.append({
-                "name": el_name, 
-                "link": el_href
-                })
-
-    print("Fetched mods:", out )
-    return out
 
 def get_mods(addons_subforum_url, modsource, pagenum):
     """
@@ -373,8 +372,6 @@ def get_mods(addons_subforum_url, modsource, pagenum):
         mod_data = get_mods_xenforo(addons_subforum_url, modsource, pagenum)
     elif modsource["vendor"] == "skybase" :
         mod_data = get_mods_vbulletin(addons_subforum_url, modsource, pagenum)
-    elif modsource["vendor"] == "gamebanana" :
-        mod_data = get_mods_gamebanana(addons_subforum_url, modsource, pagenum)
     # Make our list of mods
     #for index in range(len(mod_names)):
     for i in mod_data:
@@ -414,23 +411,6 @@ def get_addons_page_html_vbulletin(url, page_num):
                             headers=headers)
     response.raw.decode_content = True
     return html.parse(response.raw)
-
-def get_addons_gamebanana(url, page_num):
-    """
-    Gamebanana's API paginates the results, but otherwise provides JSON
-    which makes things a bit easier. Nonetheless, this de-paginizer is needed.
-    :param url: The base download_url for the subforum, not including the specific page.
-    :param page_num: The page number as an integer
-    :return: HTML tree: the results of html.parse(requests.get(download_url))
-    """
-    try:
-        response = requests.get("{}&_nPage={}".format(url, str(page_num)),
-                                stream=True,
-                                headers=headers)
-        return response.json()["_aRecords"]
-    except requests.exceptions.JSONDecodeError as e:
-        print("Unable to fetch Gamebanana mod list: {}".format(e))
-        return None
 
 def get_mod_download_url(mod):
     if not mod.download_url:

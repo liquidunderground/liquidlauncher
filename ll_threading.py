@@ -466,14 +466,14 @@ class ModDownloaderThread(QtCore.QRunnable):
                     r.raise_for_status()
                     # Safeguard in case there's no "Content-Disposition" header
                     print("[ModDownloaderThread]: ",r.headers)
+
+                    filepath = f"{self.dest.rstrip('/')}/{mod.rstrip('/').split('/')[-1]}"
+                    
                     if "Content-Disposition" in r.headers.keys():
                         #filepath = '{}/{}'.format(    base_path.rstrip('/'), parse('attachment; filename="{file}"',   r.headers["Content-Disposition"])["file"]    )
                         #filepath = base_path.rstrip('/')+download_url.split('/')[-3]
                         
                         filepath = f"{self.dest.rstrip('/')}/{parse('attachment; filename="{file}"',r.headers["Content-Disposition"])["file"]}"
-                        
-                    elif r.headers["Content-Type"] == 'application/octet-stream':
-                        filepath = f"{self.dest.rstrip('/')}/{mod.rstrip('/').split('/')[-1]}"
                     
                     print("Proceeding to download file ", mod,  "into", filepath)
 

@@ -933,6 +933,9 @@ class MainWindow(QMainWindow):
     @QtCore.Slot()
     def download_mod(self, mods=[]):
         print(f"NEW download_mod({mods})")
+
+        self.ui.ModStatusLabel.setText("Downloading mod...")
+
         for mod in mods:
 
             dest = self.ui.ModDirInput.text() if self.ui.ModDirInput.text() != "" else os.path.join(os.path.expanduser("~"), "Downloads")
@@ -941,14 +944,15 @@ class MainWindow(QMainWindow):
             # Depending on the type of ModSource, any mod may return multiple download links.
             # In this case, prompt the user to select which and create a bulk thread
             
-            if False and mod_url.length > 1: 
+            # Failsafe: Grab 'em all
+            to_download = mod_url
+
+            if type(mod_url) == str:
+                to_download = [mod_url]
+
+            if type(mod_url) == list and mod_url.length > 1: 
                 to_download = [] # TODO: Some QDialog magic
-                to_download = mod_url # For now just grab 'em all
-            else:
-                to_download = mod_url
-
-            self.ui.ModStatusLabel.setText("Downloading mod...")
-
+                
             self.thread_pool.start( ModDownloaderThread(mods=to_download, dest=dest) )
 
     #======== OLD MOD LIST FUNCTIONS ===========
