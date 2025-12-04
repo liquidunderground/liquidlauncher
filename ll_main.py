@@ -995,10 +995,12 @@ class MainWindow(QMainWindow):
         for i, n in [(i,n) for i,n in enumerate(self.master_server_list) if n in netgames]:
             print(f"Updating Netgame(s) {i}: {n}")
             if n.serverinfo != None:
+                self.ui.BrowseNetgameTable.item(i,0).setToolTip("Available")
                 self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["network"]["good"])
                 self.ui.BrowseNetgameTable.item(i,2).setText(n.get("gametypename"))
                 self.ui.BrowseNetgameTable.item(i,6).setText(f"{n.get("numberofplayer")}/{n.get("maxplayer")}")
             else:
+                self.ui.BrowseNetgameTable.item(i,0).setToolTip("Unreachable")
                 self.ui.BrowseNetgameTable.item(i,0).setIcon(self.qicons["network"]["error"])
                 self.ui.BrowseNetgameTable.item(i,6).setText("-")
         pass
@@ -1015,7 +1017,7 @@ class MainWindow(QMainWindow):
             
             twi_status_icon = self.qicons["network"]["good"] if netgame.serverinfo else self.qicons["network"]["idle"]
             twi_status = QtWidgets.QTableWidgetItem(twi_status_icon, "")
-            twi_status.setToolTip("Available" if netgame.serverinfo else "Offline")
+            twi_status.setToolTip("Available" if netgame.serverinfo else "Connection unknown")
             
             twi_room = QtWidgets.QTableWidgetItem(netgame.get("room"))
             twi_players = QtWidgets.QTableWidgetItem(f"{netgame.get("players")}/{netgame.get("maxplayers")}")
@@ -1067,6 +1069,7 @@ class MainWindow(QMainWindow):
             selection = [*selection, *range(r.topRow(),r.topRow()+r.rowCount())]
 
         for row in selection:
+            self.ui.BrowseNetgameTable.item(row,0).setToolTip("Connection unknown")
             self.ui.BrowseNetgameTable.item(row,0).setIcon(self.qicons["network"]["idle"])
             netgame = self.master_server_list[row]
             self.thread_pool.start(NetgameThread([netgame]))
