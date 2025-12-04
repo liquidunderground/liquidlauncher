@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
             },
             "abort": QtGui.QIcon(":/assets/img/icons/abort.png"),
             "about": QtGui.QIcon(":/assets/img/icons/about.png"),
-            "bookmark": QtGui.QIcon(":/assets/img/icons/bookmark.png"),
+            "bookmark": QtGui.QIcon(":/assets/img/icons/bookmark-new.png"),
             "copy": QtGui.QIcon(":/assets/img/icons/copy.png"),
             "document-save": QtGui.QIcon(":/assets/img/icons/document-save.png"),
             "download": QtGui.QIcon(":/assets/img/icons/download.png"),
@@ -285,12 +285,12 @@ class MainWindow(QMainWindow):
         self.ui.JoinAddressButton.clicked.connect(self.join_from_ip)
         self.ui.RefreshButton.clicked.connect(self.query_ms)
         #self.ui.JoinMasterServerButton.clicked.connect(self.join_ms_selection)
-        self.ui.SaveNetgameButton.clicked.connect(self.save_ms_selection)
+        self.ui.SaveNetgameButton.clicked.connect(self.bookmark_selected_netgames)
         self.ui.BrowseNetgameJoinButton.clicked.connect(self.join_selected_netgame_browse)
         # Context menu action
         self.ui.BrowseNetgameTable.addAction(self.qicons["media-playback-start"], "Join netgame", self.join_selected_netgame_browse)
-        self.ui.BrowseNetgameTable.addAction(self.qicons["view-refresh"], "Query netgame", self.query_netgames)
-        self.ui.BrowseNetgameTable.addAction(self.qicons["bookmark"], "Bookmark netgame", self.save_ms_selection)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["view-refresh"], "Refresh", self.query_netgames)
+        self.ui.BrowseNetgameTable.addAction(self.qicons["bookmark"], "Bookmark", self.bookmark_selected_netgames)
         self.ui.BrowseNetgameTable.addAction(self.qicons["about"], "Netgame Info", self.selected_netgame_info)
 
         # Logfile viewer buttons ================================================ #
@@ -1096,18 +1096,18 @@ class MainWindow(QMainWindow):
 
         return
 
-    def save_ms_selection(self):
-        for row in self.ui.BrowseNetgameTable.selectionModel().selectedRows():
-            # ID: ip:port
-            selection = '{} | Room: {} | Version: {} | Origin: {}'.format(
-                self.ui.BrowseNetgameTable.item(row.row(), 0).text(),
-                self.ui.BrowseNetgameTable.item(row.row(), 3).text(),
-                self.ui.BrowseNetgameTable.item(row.row(), 2).text(),
-                self.ui.BrowseNetgameTable.item(row.row(), 4).text()
-                )
-            server = self.master_server_list[selection]
+    def bookmark_selected_netgames(self):
+        
+        ranges = self.ui.BrowseNetgameTable.selectedRanges()
+        
+        selection = []
+        for r in ranges:
+            selection = [*selection, *range(r.topRow(),r.topRow()+r.rowCount())]
+        
+        for row in selection:
+            server = self.master_server_list[row]
             ip = server.get("ip")
-            name = self.ui.BrowseNetgameTable.item(row.row(), 0).text()
+            name = server.get("servername") if server.get("serverinfo") else server.get("name_plain")
             port = server.get("port")
             self.add_server_to_list(name, ip, port)
 
