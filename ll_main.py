@@ -59,14 +59,7 @@ class MainWindow(QMainWindow):
                                     "url": "https://ms.weissblatt.cc/liquidms/snitch",
                                     "api": "snitch",
                                 },
-                                "modsources": {
-                                    "srb2mb": True,
-                                    "workshop_blue": False,
-                                    "workshop_red": False,
-                                    "skybase": False,
-                                    "gamebanana": False,
-                                    "gameserver": True
-                                    },
+                                "modsources": ["srb2mb_srb2","srb2mb_srb2_ports","srb2mb_srb2kart","srb2mb_drrr","netgame"],
                                 "rss": [
                                     "https://liquidunderground.github.io/feed.rss",
                                     "https://srb2.org/feed",
@@ -869,15 +862,19 @@ class MainWindow(QMainWindow):
         p = self.ui.SearchModPageInput.value()
 
         # Pass website data as kwargs (global netgame list for NetgameModSource)
-        if self.global_settings["modsources"]["srb2mb"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb) )
-        if self.global_settings["modsources"]["workshop_blue"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_blue) )
-        if self.global_settings["modsources"]["workshop_red"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_red) )
-        if self.global_settings["modsources"]["gamebanana"]:
+
+        ## SRB2MB - all search links are the same so we'll check for an intersection ##
+        if set(["srb2mb_srb2","srb2mb_srb2_ports","srb2mb_srb2kart","srb2mb_drrr"]).intersection(set(self.global_settings["modsources"])):
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb_srb2) )
+        
+        ## SRB2WS - all search links are the same so we'll check for an intersection ##
+        if set(["srb2ws_srb2","srb2ws_srb2kart","srb2ws_drrr"]).intersection(set(self.global_settings["modsources"])):
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_blue_srb2) )
+
+        ## Other ModSources ##
+        if "gamebanana" in self.global_settings["modsources"]:
             modsources.append( Modsource.GamebananaModSource(**Modsource.gamebanana) )
-        if self.global_settings["modsources"]["gameserver"]:
+        if "netgame" in self.global_settings["modsources"]:
             modsources.append( Modsource.NetgameModSource(netgames=self.master_server_list) )
 
         self.ui.ModStatusLabel.setText("Downloading mods list...")
@@ -898,14 +895,31 @@ class MainWindow(QMainWindow):
         p = self.ui.ModPageInput.value()
 
         # Pass website data as kwargs (global netgame list for NetgameModSource)
-        if self.global_settings["modsources"]["srb2mb"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb) )
-        if self.global_settings["modsources"]["workshop_blue"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_blue) )
-        if self.global_settings["modsources"]["workshop_red"]:
-            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_red) )
-        if self.global_settings["modsources"]["skybase"]:
-            # ??? Problem ??? - Skybase locks search behind an account wall
+        ## SRB2MB ##
+        if "srb2mb_srb2" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb_srb2) )
+        if "srb2mb_srb2_ports" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb_srb2_ports) )
+        if "srb2mb_srb2kart" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb_srb2kart) )
+        if "srb2mb_drrr" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb_drrr) )
+        ## SRB2WS Blue ##
+        if "srb2ws_blue_srb2" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_blue_srb2) )
+        if "srb2ws_blue_srb2kart" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_blue_srb2kart) )
+        if "srb2ws_blue_drrr" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_blue_srb2) )
+        ## SRB2WS Red ##
+        if "srb2ws_red_srb2" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_red_srb2) )
+        if "srb2ws_red_srb2kart" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_red_srb2kart) )
+        if "srb2ws_red_drrr" in self.global_settings["modsources"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2ws_red_drrr) )
+
+        if "skybase" in self.global_settings["modsources"]:
             modsources.append( Modsource.VbulletinModSource(**Modsource.skybase) )
 
         for src in modsources:
@@ -1435,15 +1449,45 @@ class MainWindow(QMainWindow):
 
     def update_modsources(self):
         print("update_modsources()")
-        # kludge. dunno where else to stuff it
-        self.global_settings["modsources"].update({
-                "srb2mb": self.ui.ModsourceMBCheckbox.isChecked(),
-                "workshop_blue": self.ui.ModsourceWSBlueCheckbox.isChecked(),
-                "workshop_red": self.ui.ModsourceWSRedCheckbox.isChecked(),
-                "skybase": self.ui.ModsourceSkybaseCheckbox.isChecked(),
-                "gamebanana": self.ui.ModsourceGamebananaCheckbox.isChecked(),
-                "gameserver": self.ui.ModsourceGameserverCheckbox.isChecked(),
-                })
+
+        new_modsources = []
+
+        ## SRB2MB ##
+        if self.ui.ModsourceSrb2mbSrb2Checkbox.isChecked():
+            new_modsources += ["srb2mb_srb2"]
+        if self.ui.ModsourceSrb2mbSrb2PortsCheckbox.isChecked():
+            new_modsources += ["srb2mb_srb2_ports"]
+        if self.ui.ModsourceSrb2mbSrb2KartCheckbox.isChecked():
+            new_modsources += ["srb2mb_srb2kart"]
+        if self.ui.ModsourceSrb2mbDrrrCheckbox.isChecked():
+            new_modsources += ["srb2mb_drrr"]
+            
+        ## SRB2WS Blue ##
+        if self.ui.ModsourceWSBlueSrb2Checkbox.isChecked():
+            new_modsources += ["srb2ws_blue_srb2"]
+        if self.ui.ModsourceWSBlueSrb2KartCheckbox.isChecked():
+            new_modsources += ["srb2ws_blue_srb2kart"]
+        if self.ui.ModsourceWSBlueDrrrCheckbox.isChecked():
+            new_modsources += ["srb2ws_blue_drrr"]
+            
+        ## SRB2WS Red ##
+        if self.ui.ModsourceWSRedSrb2Checkbox.isChecked():
+            new_modsources += ["srb2ws_red_srb2"]
+        if self.ui.ModsourceWSRedSrb2KartCheckbox.isChecked():
+            new_modsources += ["srb2ws_red_srb2kart"]
+        if self.ui.ModsourceWSRedDrrrCheckbox.isChecked():
+            new_modsources += ["srb2ws_red_drrr"]
+
+        ## Other ##
+        if self.ui.ModsourceSkybaseCheckbox.isChecked():
+            new_modsources += ["skybase"]
+        if self.ui.ModsourceGamebananaCheckbox.isChecked():
+            new_modsources += ["gamebanana"]
+        if self.ui.ModsourceGameserverCheckbox.isChecked():
+            new_modsources += ["netgame"]
+
+        self.global_settings["modsources"] = new_modsources
+
         print(self.global_settings["modsources"])
 
     def set_current_profile(self, profile):
@@ -1685,12 +1729,19 @@ class MainWindow(QMainWindow):
             profile TOML file
         """
         # Load modsources from global_settings
-        self.ui.ModsourceGameserverCheckbox.setChecked( self.global_settings["modsources"]["gameserver"])
-        self.ui.ModsourceMBCheckbox.setChecked( self.global_settings["modsources"]["srb2mb"])
-        self.ui.ModsourceWSBlueCheckbox.setChecked( self.global_settings["modsources"]["workshop_blue"])
-        self.ui.ModsourceWSRedCheckbox.setChecked( self.global_settings["modsources"]["workshop_red"])
-        self.ui.ModsourceSkybaseCheckbox.setChecked( self.global_settings["modsources"]["skybase"])
-        self.ui.ModsourceGamebananaCheckbox.setChecked( self.global_settings["modsources"]["gamebanana"])
+        self.ui.ModsourceGameserverCheckbox.setChecked( "netgame" in self.global_settings["modsources"] )
+        self.ui.ModsourceSrb2mbSrb2Checkbox.setChecked( "srb2mb_srb2" in self.global_settings["modsources"] )
+        self.ui.ModsourceSrb2mbSrb2PortsCheckbox.setChecked( "srb2mb_srb2_ports" in self.global_settings["modsources"] )
+        self.ui.ModsourceSrb2mbSrb2KartCheckbox.setChecked( "srb2mb_srb2kart" in self.global_settings["modsources"] )
+        self.ui.ModsourceSrb2mbDrrrCheckbox.setChecked( "srb2mb_drrr" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSBlueSrb2Checkbox.setChecked( "srb2ws_blue_srb2" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSBlueSrb2KartCheckbox.setChecked( "srb2ws_blue_srb2kart" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSBlueDrrrCheckbox.setChecked( "srb2ws_blue_drrr" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSRedSrb2Checkbox.setChecked( "srb2ws_red_srb2" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSRedSrb2KartCheckbox.setChecked( "srb2ws_red_srb2kart" in self.global_settings["modsources"] )
+        self.ui.ModsourceWSRedDrrrCheckbox.setChecked( "srb2ws_red_drrr" in self.global_settings["modsources"] )
+        self.ui.ModsourceSkybaseCheckbox.setChecked( "skybase" in self.global_settings["modsources"] )
+        self.ui.ModsourceGamebananaCheckbox.setChecked( "gamebanana" in self.global_settings["modsources"] )
 
 
         # ===== Apply profile settings ===== #

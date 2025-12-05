@@ -6,19 +6,21 @@ import hashlib
 
 from ll_info import http_headers
 
-## Original MB values
-srb2mb = {
+### SRB2 Message Board ####
+srb2mb_srb2 = {
     "main_url": "https://mb.srb2.org",
     "search_link": "https://mb.srb2.org/search/search",
     "search_link_iterator": "https://mb.srb2.org/search/{id}?page={pagenum}",
     "search_response_pattern": "https://mb.srb2.org/search/{id}",
     "resource_path": "/addons",
     "categories": {
-        "Maps": "https://mb.srb2.org/addons/categories/maps.4?page={pagenum}",
+        "3D Models": "https://mb.srb2.org/addons/categories/3d-models.21/?page={pagenum}",
+        "Assets": "https://mb.srb2.org/addons/categories/assets.6/?page={pagenum}",
         "Characters": "https://mb.srb2.org/addons/categories/characters.5?page={pagenum}",
-        "Lua": "https://mb.srb2.org/addons/categories/lua.7?page={pagenum}",
-        "Misc": "https://mb.srb2.org/addons/categories/miscellaneous.8?page={pagenum}",
-        "Assets": "https://mb.srb2.org/addons/categories/assets.6?page={pagenum}",
+        "Lua": "https://mb.srb2.org/addons/categories/lua.7/?page={pagenum}",
+        "Maps": "https://mb.srb2.org/addons/categories/maps.4/?page={pagenum}",
+        "Misc": "https://mb.srb2.org/addons/categories/miscellaneous.8/?page={pagenum}",
+        "Player Colors": "https://mb.srb2.org/addons/categories/player-colors.11/?page={pagenum}",
     },
     "thread_link": "/addons/{thread}",
     "thread": "https://mb.srb2.org/addons/{thread}",
@@ -27,8 +29,67 @@ srb2mb = {
     "vendor": "stjr"
 }
 
-## Workshop for testing
-workshop_blue = {
+srb2mb_srb2_ports = {
+    "main_url": "https://mb.srb2.org",
+    "search_link": "https://mb.srb2.org/search/search",
+    "search_link_iterator": "https://mb.srb2.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://mb.srb2.org/search/{id}",
+    "resource_path": "/addons",
+    "categories": {
+        "3D Models": "https://mb.srb2.org/addons/categories/3d-models.30/?page={pagenum}",
+        "Assets": "https://mb.srb2.org/addons/categories/assets.27/?page={pagenum}",
+        "Characters": "https://mb.srb2.org/addons/categories/characters.26/?page={pagenum}",
+        "Lua": "https://mb.srb2.org/addons/categories/lua.28/?page={pagenum}",
+        "Maps": "https://mb.srb2.org/addons/categories/maps.25/?page={pagenum}",
+        "Misc": "https://mb.srb2.org/addons/categories/miscellaneous.29/?page={pagenum}",
+    },
+    "thread_link": "/addons/{thread}",
+    "thread": "https://mb.srb2.org/addons/{thread}",
+    "download": "https://mb.srb2.org/addons/{thread}download",
+    "icon": "srb2mb",
+    "vendor": "stjr"
+}
+
+srb2mb_srb2kart = {
+    "main_url": "https://mb.srb2.org",
+    "search_link": "https://mb.srb2.org/search/search",
+    "search_link_iterator": "https://mb.srb2.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://mb.srb2.org/search/{id}",
+    "resource_path": "/addons",
+    "categories": {
+        "Characters": "https://mb.srb2.org/addons/categories/kart-characters.13/?page={pagenum}",
+        "Maps": "https://mb.srb2.org/addons/categories/kart-maps.14/?page={pagenum}",
+        "Misc": "https://mb.srb2.org/addons/categories/kart-miscellaneous.15/?page={pagenum}",
+    },
+    "thread_link": "/addons/{thread}",
+    "thread": "https://mb.srb2.org/addons/{thread}",
+    "download": "https://mb.srb2.org/addons/{thread}download",
+    "icon": "srb2mb",
+    "vendor": "stjr"
+}
+
+srb2mb_drrr = {
+    "main_url": "https://mb.srb2.org",
+    "search_link": "https://mb.srb2.org/search/search",
+    "search_link_iterator": "https://mb.srb2.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://mb.srb2.org/search/{id}",
+    "resource_path": "/addons",
+    "categories": {
+        "Characters": "https://mb.srb2.org/addons/categories/ring-racers-characters.31/?page={pagenum}",
+        "Followers": "https://mb.srb2.org/addons/categories/ring-racers-followers.36/?page={pagenum}",
+        "Lua": "https://mb.srb2.org/addons/categories/ring-racers-lua.35/?page={pagenum}",
+        "Maps": "https://mb.srb2.org/addons/categories/ring-racers-maps.32/?page={pagenum}",
+        "Misc": "https://mb.srb2.org/addons/categories/ring-racers-miscellaneous.33/?page={pagenum}",
+    },
+    "thread_link": "/addons/{thread}",
+    "thread": "https://mb.srb2.org/addons/{thread}",
+    "download": "https://mb.srb2.org/addons/{thread}download",
+    "icon": "srb2mb",
+    "vendor": "stjr"
+}
+
+### Workshop Blue ###
+srb2ws_blue_srb2 = {
     "main_url": "https://srb2workshop.org",
     "search_link": "https://srb2workshop.org/search/search",
     "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
@@ -36,11 +97,13 @@ workshop_blue = {
     "search_link": "https://srb2workshop.org/search/{id}",
     "resource_path": "/resources",
     "categories":{
-        "Maps": "https://srb2workshop.org/resources/categories/maps.3?page={pagenum}",
-        "Characters": "https://srb2workshop.org/resources/categories/characters.19?page={pagenum}",
-        "Lua": "https://srb2workshop.org/resources/categories/lua.6?page={pagenum}",
-        "Misc": "https://srb2workshop.org/resources/categories/miscellaneous.7?page={pagenum}",
-        "Assets": "https://srb2workshop.org/resources/categories/assets.16?page={pagenum}",
+        "Assets": "https://srb2workshop.org/resources/categories/assets.16/?page={pagenum}",
+        "Characters": "https://srb2workshop.org/resources/categories/characters.4/?page={pagenum}",
+        "Custom Gametypes": "https://srb2workshop.org/resources/categories/custom-gametypes.14/?page={pagenum}",
+        "Lua": "https://srb2workshop.org/resources/categories/lua.6/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/maps.3/?page={pagenum}",
+        "Misc": "https://srb2workshop.org/resources/categories/miscellaneous.7/?page={pagenum}",
+        "Player Colors": "https://srb2workshop.org/resources/categories/player-colors.8/",
     },
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}/",
@@ -49,7 +112,7 @@ workshop_blue = {
     "vendor": "workshop"
 }
 
-workshop_red = {
+srb2ws_blue_srb2kart = {
     "main_url": "https://srb2workshop.org",
     "search_link": "https://srb2workshop.org/search/search",
     "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
@@ -57,11 +120,55 @@ workshop_red = {
     "search_link": "https://srb2workshop.org/search/{id}",
     "resource_path": "/resources",
     "categories":{
-        "Maps": "https://srb2workshop.org/resources/categories/maps.11?page={pagenum}",
-        "Characters": "https://srb2workshop.org/resources/categories/characters.13?page={pagenum}",
-        "Lua": "https://srb2workshop.org/resources/categories/lua.12?page={pagenum}",
-        "Misc": "https://srb2workshop.org/resources/categories/miscellaneous.30?page={pagenum}",
-        "Assets": "https://srb2workshop.org/resources/categories/assets.26?page={pagenum}",
+        "Characters": "https://srb2workshop.org/resources/categories/kart-characters.19/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/kart-maps.20/?page={pagenum}",
+        "Misc": "https://srb2workshop.org/resources/categories/kart-miscellaneous.21/?page={pagenum}",
+    },
+    "thread_link": "/resources/{thread}",
+    "thread": "https://srb2workshop.org/resources/{thread}/",
+    "download": "https://srb2workshop.org/resources/{thread}download",
+    "icon": "wsblue",
+    "vendor": "workshop"
+}
+
+srb2ws_blue_drrr = {
+    "main_url": "https://srb2workshop.org",
+    "search_link": "https://srb2workshop.org/search/search",
+    "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://srb2workshop.org/search/{id}",
+    "search_link": "https://srb2workshop.org/search/{id}",
+    "resource_path": "/resources",
+    "categories":{
+        "Characters": "https://srb2workshop.org/resources/categories/drrr-characters.38/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/drrr-maps.40/?page={pagenum}",
+        "Misc": "https://srb2workshop.org/resources/categories/drrr-miscellaneous.39/?page={pagenum}",
+    },
+    "thread_link": "/resources/{thread}",
+    "thread": "https://srb2workshop.org/resources/{thread}/",
+    "download": "https://srb2workshop.org/resources/{thread}download",
+    "icon": "wsblue",
+    "vendor": "workshop"
+}
+
+
+
+### Workshop Red ###
+
+srb2ws_red_srb2 = {
+    "main_url": "https://srb2workshop.org",
+    "search_link": "https://srb2workshop.org/search/search",
+    "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://srb2workshop.org/search/{id}",
+    "search_link": "https://srb2workshop.org/search/{id}",
+    "resource_path": "/resources",
+    "categories":{
+        "Assets": "https://srb2workshop.org/resources/categories/assets.26/?page={pagenum}",
+        "Characters": "https://srb2workshop.org/resources/categories/characters.13/?page={pagenum}",
+        "Custom Gametypes": "https://srb2workshop.org/resources/categories/custom-gametypes.27/?page={pagenum}",
+        "Lua": "https://srb2workshop.org/resources/categories/lua.12/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/maps.11/?page={pagenum}",
+        "Misc": "https://srb2workshop.org/resources/categories/miscellaneous.30/?page={pagenum}",
+        "Player Colors": "https://srb2workshop.org/resources/categories/player-colors.28/",
     },
     "thread_link": "/resources/{thread}",
     "thread": "https://srb2workshop.org/resources/{thread}",
@@ -69,6 +176,46 @@ workshop_red = {
     "icon": "wsred",
     "vendor": "workshop"
 }
+
+srb2ws_red_srb2kart = {
+    "main_url": "https://srb2workshop.org",
+    "search_link": "https://srb2workshop.org/search/search",
+    "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://srb2workshop.org/search/{id}",
+    "search_link": "https://srb2workshop.org/search/{id}",
+    "resource_path": "/resources",
+    "categories":{
+        "Characters": "https://srb2workshop.org/resources/categories/kart-characters.32/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/kart-maps.33/?page={pagenum}",
+        "Misc": "https://srb2workshop.org/resources/categories/kart-miscellaneous.34/?page={pagenum}",
+    },
+    "thread_link": "/resources/{thread}",
+    "thread": "https://srb2workshop.org/resources/{thread}",
+    "download": "https://srb2workshop.org/resources/{thread}download",
+    "icon": "wsred",
+    "vendor": "workshop"
+}
+
+srb2ws_red_drrr = {
+    "main_url": "https://srb2workshop.org",
+    "search_link": "https://srb2workshop.org/search/search",
+    "search_link_iterator": "https://srb2workshop.org/search/{id}?page={pagenum}",
+    "search_response_pattern": "https://srb2workshop.org/search/{id}",
+    "search_link": "https://srb2workshop.org/search/{id}",
+    "resource_path": "/resources",
+    "categories":{
+        "Characters": "https://srb2workshop.org/resources/categories/drrr-characters.44/?page={pagenum}",
+        "Maps": "https://srb2workshop.org/resources/categories/drrr-maps.45/?page={pagenum}",
+        "Misc": "hthttps://srb2workshop.org/resources/categories/drrr-miscellaneous.46/?page={pagenum}",
+    },
+    "thread_link": "/resources/{thread}",
+    "thread": "https://srb2workshop.org/resources/{thread}",
+    "download": "https://srb2workshop.org/resources/{thread}download",
+    "icon": "wsred",
+    "vendor": "workshop"
+}
+
+### Other ###
 
 skybase = {
     "main_url": "https://srb2skybase.org/mb",
