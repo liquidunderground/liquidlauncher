@@ -949,7 +949,7 @@ class MainWindow(QMainWindow):
             if type(mod_url) == str:
                 to_download = [mod_url]
 
-            if type(mod_url) == list and mod_url.length > 1: 
+            if type(mod_url) == list and len(mod_url) > 1: 
                 to_download = [] # TODO: Some QDialog magic
                 
             self.thread_pool.start( ModDownloaderThread(mods=to_download, dest=dest) )
