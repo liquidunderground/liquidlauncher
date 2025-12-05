@@ -5,7 +5,7 @@ import os
 from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
-from networking import mb_query
+from networking import modsource
 from networking.ms_query import Netgame
 from networking.ms_query import get_server_list, query_ms_rooms
 
@@ -154,87 +154,6 @@ class QueryLiquid(QtCore.QThread):
                 self.snitch = False                    
             time.sleep(1)
 
-class QueryMessageBoard(QtCore.QThread):
-    # Emits a string describing the mod
-    mod_description_sig1 = Signal(object)
-    # Emits a list of mods
-    mod_list_sig1 = Signal(dict, str)
-    mod_statmsg_sig1 = Signal(str)
-
-    def __init__(self, host, parent=None):
-        QtCore.QThread.__init__(self, parent)
-        self.mod = None
-        self.get_mod_description = False
-        self.get_mods = False
-        self.mods_type = None
-        self.host = host
-
-    def on_request_mod_list(self, mods_type, pagenum):
-        print("on_request_mod_list({})".format(mods_type))
-        self.pagenum = pagenum
-        self.mods_type = mods_type
-        self.get_mods = True
-
-    def on_request_mod_desc(self, mod):
-        print("on_request_mod_desc")
-        self.mod = mod
-
-    def run(self):
-        self.running = True
-        while self.running:
-            if self.get_mods:
-                url = None
-                mods = []
-                modsources = []
-
-                # Compose mod sources
-                if self.host.global_settings["modsources"]["srb2mb"]:
-                   modsources.append( mb_query.srb2mb )
-                if self.host.global_settings["modsources"]["workshop_blue"]:
-                   modsources.append( mb_query.workshop_blue )
-                if self.host.global_settings["modsources"]["workshop_red"]:
-                   modsources.append( mb_query.workshop_red )
-                if self.host.global_settings["modsources"]["skybase"]:
-                   modsources.append( mb_query.skybase )
-                if self.host.global_settings["modsources"]["gamebanana"]:
-                   modsources.append( mb_query.gamebanana )
-
-                for src in modsources:
-                    if self.mods_type == "Maps":
-                        url = src["maps"]
-                    if self.mods_type == "Characters":
-                        url = src["characters"]
-                    if self.mods_type == "Lua":
-                        url = src["lua"]
-                    if self.mods_type == "Assets":
-                        url = src["assets"]
-                    if self.mods_type == "Misc":
-                        url = src["misc"]
-                    print("Querying forum {}".format(url))
-                    self.mod_statmsg_sig1.emit("Querying {}".format(src["main"]))
-                    try:
-                        querybuf = mb_query.get_mods(url, src, self.pagenum)
-                        #mods = mods + mb_query.get_mods(url, src)
-                        mods = mods + querybuf
-                        for mod in querybuf:
-                            self.mod_list_sig1.emit({mod.name: mod}, src["icon"])
-                    except Exception as e:
-                        print("Unable to get query modsource: {}".format(e))
-
-                # Reset variables
-                self.get_mods = False
-                self.mods_type = None
-
-            if self.mod:
-                self.mod.get_description()
-                self.mod_description_sig1.emit(self.mod)
-
-                # Reset variables
-                self.mod = None
-
-            time.sleep(1)
-
-
 class QueryMasterServer(QtCore.QThread):
     server_list_sig1 = Signal(list)
     server_list_sig2 = Signal(object)
@@ -327,7 +246,7 @@ class ModDownloader(QtCore.QThread):
         print("ModDownloader.filepath = ", self.filepath)
         while self.running:
             if self.download_url and self.filepath:
-                filepath = mb_query.download_mod(self.filepath, self.download_url)
+                filepath = modsource.download_mod(self.filepath, self.download_url)
                 # Extract files, get wads/pk3/etc to add.
 
                 self.mod_filepath_sig1.emit([filepath])
@@ -506,3 +425,27 @@ class ModListThread(QtCore.QRunnable):
     def run(self):
         res = self.modsource.search(self.searchtext, self.page, self.num)
         self.signalbus.mod_list_fetch_finish.emit(res)
+
+
+class ModCategorybrowseThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+    
+    def __init__(self, modsource, category, page=0):
+        super(ModCategorybrowseThread, self).__init__()
+        
+        self.modsource = modsource
+        self.category = category
+        self.page = page
+
+    def run(self):
+
+        if "categories" in self.modsource.__dict__.keys() and self.category in self.modsource.categories.keys():
+            
+            url = self.modsource.categories[self.category]
+
+            print("Querying forum {}".format(url.format(pagenum=self.page)))
+
+            mods = self.modsource.browse(category=self.category,page=self.page,num=50)
+            
+            self.signalbus.mod_list_fetch_finish.emit(mods)

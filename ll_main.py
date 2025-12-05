@@ -16,9 +16,9 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMessageBoard, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModListThread, ll_signalbus
+from ll_threading import QueryLiquid, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModListThread, ModCategorybrowseThread, ll_signalbus
 from networking.ms_query import Netgame
-import networking.mb_query as mb_query
+import networking.modsource as Modsource
 from ui.ui_main import *
 from ui.netgamedialog import NetgameDialog
 from ll_info import product_version as versionString
@@ -102,15 +102,6 @@ class MainWindow(QMainWindow):
         ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
         ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
         
-
-        # MB Query Multithreading
-        self.mb_qthread = QueryMessageBoard(self)
-        self.mb_qthread.start()
-        self.mod_list_sig.connect(self.mb_qthread.on_request_mod_list)
-        self.mod_description_sig.connect(self.mb_qthread.on_request_mod_desc)
-        self.mb_qthread.mod_list_sig1.connect(self.on_mod_list)
-        self.mb_qthread.mod_statmsg_sig1.connect(self.on_mod_statmsg)
-        self.mb_qthread.mod_description_sig1.connect(self.on_mod_description)
 
         # Download mod multithreading
         self.mod_download_qthread = ModDownloader()
@@ -220,7 +211,7 @@ class MainWindow(QMainWindow):
         self.ui.GameFilesExecScrBrowseButton.clicked.connect(self.set_exec_file_path)
 
         # modding list buttons ======================================================= #
-        self.ui.RefreshModsButton.clicked.connect(self.refresh_mods_list)
+        self.ui.BrowseModsButton.clicked.connect(self.browse_mods)
         self.ui.SearchModsButton.clicked.connect(self.search_mods)
         self.ui.SearchModsInput.returnPressed.connect(self.search_mods)
         self.ui.ModsList.itemDoubleClicked.connect(self.load_mod_page)
@@ -261,7 +252,7 @@ class MainWindow(QMainWindow):
         
         # Mod context menu
         self.ui.ModsList.addAction(self.qicons["media-playback-start"], "Open", self.load_mod_page)
-        self.ui.ModsList.addAction(self.qicons["view-refresh"], "Refresh", self.refresh_mods_list)
+        self.ui.ModsList.addAction(self.qicons["view-refresh"], "Refresh", self.browse_mods)
         self.ui.ModsList.addAction(self.qicons["download"], "Download", lambda: self.download_mod([self.ui.ModsList.currentItem().data(3)]))
         self.ui.ModsList.addAction(self.qicons["globe"], "Open in browser", self.open_mod_page)
 
@@ -879,24 +870,46 @@ class MainWindow(QMainWindow):
 
         # Pass website data as kwargs (global netgame list for NetgameModSource)
         if self.global_settings["modsources"]["srb2mb"]:
-            modsources.append( mb_query.XenforoModSource(**mb_query.srb2mb) )
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb) )
         if self.global_settings["modsources"]["workshop_blue"]:
-            modsources.append( mb_query.XenforoModSource(**mb_query.workshop_blue) )
+            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_blue) )
         if self.global_settings["modsources"]["workshop_red"]:
-            modsources.append( mb_query.XenforoModSource(**mb_query.workshop_red) )
-        if self.global_settings["modsources"]["skybase"]:
-            # ??? Problem ??? - Skybase locks search behind an account wall
-            modsources.append( mb_query.VbulletinModSource(**mb_query.skybase) )
+            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_red) )
         if self.global_settings["modsources"]["gamebanana"]:
-            modsources.append( mb_query.GamebananaModSource(**mb_query.gamebanana) )
+            modsources.append( Modsource.GamebananaModSource(**Modsource.gamebanana) )
         if self.global_settings["modsources"]["gameserver"]:
-            modsources.append( mb_query.NetgameModSource(netgames=self.master_server_list) )
+            modsources.append( Modsource.NetgameModSource(netgames=self.master_server_list) )
 
         self.ui.ModStatusLabel.setText("Downloading mods list...")
         self.ui.ModsList.clear()
         
         for src in modsources:
             self.thread_pool.start(ModListThread(modsource=src, searchtext=st, page=p))
+    
+    @QtCore.Slot()
+    def browse_mods(self):
+        self.ui.ModStatusLabel.setText("Downloading mods list...")
+        
+        self.ui.ModsList.clear()
+        self.mods_list = {}
+        modsources = []
+
+        cat = self.ui.ModTypeCombo.currentText()
+        p = self.ui.ModPageInput.value()
+
+        # Pass website data as kwargs (global netgame list for NetgameModSource)
+        if self.global_settings["modsources"]["srb2mb"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.srb2mb) )
+        if self.global_settings["modsources"]["workshop_blue"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_blue) )
+        if self.global_settings["modsources"]["workshop_red"]:
+            modsources.append( Modsource.XenforoModSource(**Modsource.workshop_red) )
+        if self.global_settings["modsources"]["skybase"]:
+            # ??? Problem ??? - Skybase locks search behind an account wall
+            modsources.append( Modsource.VbulletinModSource(**Modsource.skybase) )
+
+        for src in modsources:
+            self.thread_pool.start(ModCategorybrowseThread(modsource=src, category=cat, page=p))
     
     @QtCore.Slot(object)
     def add_mods_to_list(self, mods):
@@ -942,20 +955,6 @@ class MainWindow(QMainWindow):
             self.thread_pool.start( ModDownloaderThread(mods=to_download, dest=dest) )
 
     #======== OLD MOD LIST FUNCTIONS ===========
-    def refresh_mods_list(self):
-        # TODO: multithreading to get rid of lag
-        self.ui.ModStatusLabel.setText("Downloading mods list...")
-        self.ui.ModsList.clear()
-        self.mods_list = {}
-        self.mod_list_sig.emit(self.ui.ModTypeCombo.currentText(), self.ui.ModPageInput.value())
-
-    def on_mod_description(self, mod):
-        self.ui.ModStatusLabel.setText("Click on a mod to see more information.")
-        self.ui.ModBrowser.setHtml(mod.description, mod.url)
-        self.ui.ModBrowser.load(mod.url)
-
-    def on_mod_statmsg(self,msg):
-        self.ui.ModStatusLabel.setText(msg)
 
     def add_mod_to_files(self, filepaths_list):
         # Unable to download?
