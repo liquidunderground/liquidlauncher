@@ -289,8 +289,6 @@ class XenforoModSource(ModSource):
                 el_href = el.xpath('./@href')[0]
                 el_href_relative = '/'.join(el_href.split('/')[2:])
 
-                print(f'Relative Path for "{el_text}: {el_href_relative}"')
-
                 # TODO: Resolve mod download array
                 out.append(Mod(
                         name=el_text, 
@@ -298,8 +296,6 @@ class XenforoModSource(ModSource):
                         download_urls=[self.download.format(thread=el_href_relative)],
                         icon=self.icon,
                     ))
-
-        print("Fetched mods: ", out )
 
         return out
 
@@ -379,48 +375,7 @@ class XenforoModSource(ModSource):
             
     def show(self, text):
         pass
-         
-"""
-class Mod:
-    def __init__(self, name, mb_info, thread_url):
-        self.mb = mb_info
-        self.base_url = mb_info["main"]
-        self.name = name
-        self.modid = None
-        self.thread_name = thread_url
-        self.description = None
-        self.download_url = None
-        self.url = "{}{}".format(self.base_url, self.thread_name)
-        self.set_download_url()
-        self.html = None
 
-    def set_download_url(self):
-
-        self.url = self.mb["thread"].format(thread=self.thread_name, mod=self.modid)
-        if not self.thread_name:
-            return None
-
-        self.download_url = self.mb["download"].format(thread=self.thread_name, mod=self.modid)
-
-        return self.download_url
-    
-    def get_html(self):
-        url = self.url
-        response = requests.get(url,
-                                stream=True,
-                                headers=headers)
-        response.raw.decode_content = True
-        self.html = html.parse(response.raw)
-        return self.html
-
-    def get_description(self):
-        print("get_mod_description")
-        if not self.html:
-            self.get_html()
-        self.description = '\n'.join(self.html.xpath(
-            '//div[@class="bbWrapper"]/text()'))
-        return self.description
-"""
 
 class Mod():
     def __init__(self, **kwargs):
