@@ -73,12 +73,11 @@ workshop_red = {
 skybase = {
     "main_url": "https://srb2skybase.org/mb",
     "categories": {
-        "Maps": "https://srb2skybase.org/mb/forumdisplay.php?f=149",
-        "Characters": "https://srb2skybase.org/mb/forumdisplay.php?f=150",
-        "Misc": "https://srb2skybase.org/mb/forumdisplay.php?f=151",
+        "Maps": "https://srb2skybase.org/mb/forumdisplay.php?f=149&page={pagenum}",
+        "Characters": "https://srb2skybase.org/mb/forumdisplay.php?f=150&page={pagenum}",
+        "Misc": "https://srb2skybase.org/mb/forumdisplay.php?f=151&page={pagenum}",
     },
-    "thread_link": "showthread.php?t={thread}",
-    "thread": "https://srb2skybase.org/mb/showthread.php?t={thread}",
+    "thread": "https://srb2skybase.org/mb/{thread}",
     "download": "https://srb2skybase.org/mb/attachment.php?attachmentid={mod}",
     "icon": "skybase",
     "vendor": "skybase"
@@ -223,34 +222,40 @@ class VbulletinModSource(ModSource):
         pass
 
     def browse(self, category, page=0, num=0):
-        response = requests.get("{}&page={}".format(url, str(page_num)),
-                            stream=True,
-                            headers=headers)
-        response.raw.decode_content = True
-        return html.parse(response.raw)
-        
-        print(f"mb_query.get_mods_vbulletin({addons_subforum_url}, {pagenum})")
-        out = []
-        # Iterate through pages grabbing thread names and their links:
-        tree = get_addons_page_html_xenforo(addons_subforum_url, pagenum)
-        current_mod_elements = tree.xpath('.//*[@class="threadtitle"]/*[@class="title"]')
-        for el in current_mod_elements:
-            # Get current link
-            el_href = el.xpath('./@href')[0]
-            # Get current text
-            el_text = el.xpath('./text()')[0]
-            out.append({
-                    "name": el_text, 
-                    "link": parse(modsource["thread_link"],el_href)["thread"]
-                    })
-        print("Fetched mods:", out )
-        return out
 
-    def search(self, text, page=0, num=0):
-        pass
+        out = []
+
+        # Failsafe existence check
+        if "categories" in self.__dict__.keys() and category in self.categories.keys():
             
-    def show(self, text):
-        pass
+
+            print(f"[VbulletinModSource] Browsing {self.categories[category].format(pagenum=page)}" )
+
+            response = requests.get(self.categories[category].format(pagenum=page),
+                                stream=True,
+                                headers=http_headers)
+            response.raw.decode_content = True
+            tree = html.parse(response.raw)
+                
+            current_mod_elements = tree.xpath('.//*[@class="threadtitle"]/*[@class="title"]')
+            for el in current_mod_elements:
+                # Get current link
+                el_href = el.xpath('./@href')[0]
+                # Get current text
+                el_text = el.xpath('./text()')[0]
+
+                print(f'[VbulletinModSource] URL for "{el_text}: {self.thread.format(thread=el_href)}"')
+
+                # TODO: Resolve mod download array
+                out.append(Mod(
+                        name=el_text, 
+                        ext_url=self.thread.format(thread=el_href),
+                        download_urls=[],
+                        icon=self.icon,
+                ))
+            
+            print("[VbulletinModSource] Fetched mods:", out )
+        return out
        
 class XenforoModSource(ModSource):
     """
