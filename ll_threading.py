@@ -406,12 +406,20 @@ class ModDownloaderThread(QtCore.QRunnable):
                 self.signalbus.mod_download_finish.emit(mod,self.dest)
 
 
-class ModListThread(QtCore.QRunnable):
+"""There are two kinds of "searching" mods:
+1. Text search/search(text, page): Query a ModSource's "search" endpoints for mods matching a string
+2. Category browsing/browse(category, page): Each ModSource contains a string-indexed
+   collection "self.categories". When a category matches, it's data is queried and returned.
+
+Pagination support depends on the *ModSource implementation.
+"""
+
+class ModTextsearchThread(QtCore.QRunnable):
     
     signalbus = ll_signalbus
     
-    def __init__(self, modsource=None, searchtext=None, page=0, num=0):
-        super(ModListThread, self).__init__()
+    def __init__(self, modsource=None, searchtext=None, page=0, num=50):
+        super(ModTextsearchThread, self).__init__()
         
         if type(searchtext) is not str:
             raise

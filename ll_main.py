@@ -16,7 +16,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModListThread, ModCategorybrowseThread, ll_signalbus
+from ll_threading import QueryLiquid, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModTextsearchThread, ModCategorybrowseThread, ll_signalbus
 from networking.ms_query import Netgame
 import networking.modsource as Modsource
 from ui.ui_main import *
@@ -881,7 +881,7 @@ class MainWindow(QMainWindow):
         self.ui.ModsList.clear()
         
         for src in modsources:
-            self.thread_pool.start(ModListThread(modsource=src, searchtext=st, page=p))
+            self.thread_pool.start(ModTextsearchThread(modsource=src, searchtext=st, page=p))
     
     @QtCore.Slot()
     def browse_mods(self):
