@@ -5,6 +5,8 @@ import os
 from PySide6 import QtCore
 from PySide6.QtCore import Signal
 
+from packaging import version # for version checks
+
 from networking import modsource
 from networking.ms_query import Netgame
 from networking.ms_query import get_server_list, query_ms_rooms
@@ -283,9 +285,77 @@ class LqSignals(QtCore.QObject):
     netgame_update_finish = Signal(list)    # Emits List of Netgames to update
     netgame_list_fetch_finish = Signal(list)    # Emits new List of Netgames
 
+    # Alert
+    alert = Signal(object)
+
 ll_signalbus = LqSignals()
 
-    netgame_update_finish = Signal(Netgame)
+
+class CheckLauncherversionThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+    
+    def __init__(self, current_version):
+        super(CheckLauncherversionThread, self).__init__()
+        self.current_version = current_version
+
+    def run(self):
+
+        latest = None
+
+        # === Find latest versions across all version check sources === #
+        for version_check_src in version_check_url:
+            print("[CheckLauncherversionThread] Checking for updates at " + version_check_src + "...")
+
+            try:
+               f = requests.get(version_check_src, headers=http_headers, timeout=10)
+               f.raise_for_status()
+
+               # All fine -> just get the JSON data
+               f = f.json()
+
+               found = {
+                   "url": version_check_src,
+                   "version": f["tag_name"]
+               }
+               print("[CheckLauncherversionThread] Found: " + found["version"])
+               print("[CheckLauncherversionThread] Current: " + self.current_version)
+
+               if latest == None or version.parse(found["version"]) > version.parse(latest["version"]):
+                   latest = found
+                
+               print("[CheckLauncherversionThread] Latest version: " + found["version"])
+
+            except Exception as e:
+               print("[CheckLauncherversionThread] Version check error: ",e)
+
+        # === Check latest launcher version against current === #
+        if version.parse(latest["version"]) > version.parse(self.current_version):
+            alertArgs = {
+               "type" : "question",
+               "title" : f"Version {latest["version"]} available",
+               "message" : f"Your version of LiquidLauncher seems to be " \
+                           f"outdated. Please download <a href=\"{latest["url"]}\"> version {latest["version"]}</a>.",
+               "detailedText" : f"Latest version of LiquidLauncher: " \
+                   f"{latest["version"]}\nYou are currently running: " \
+                   f"{self.current_version}",
+            }
+            self.signalbus.alert.emit(alertArgs)
+        elif version.parse(latest["version"]) < version.parse(self.current_version):
+            print("Greetings, time traveller.")
+            alertArgs = {
+               "type" : "info",
+               "title" : "Greetings, time traveller.",
+               "message" : f"<p>You seem to be using an in-development " \
+                   "version of LiquidLauncher. Please note that some things " \
+                   "might not be finished yet.</p><p>If you'd like to use our current release " \
+                   f"version {latest["version"]},  please check " \
+                   f'our <a href=\"{latest["url"]}\">repository</a>.</p>',
+            }
+            self.signalbus.alert.emit(alertArgs)
+        else:
+            print("[CheckLauncherversionThread] up-to-date (" + self.current_version + ")")
+
 
 class NetgameThread(QtCore.QRunnable):
     

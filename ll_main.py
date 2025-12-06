@@ -4,7 +4,6 @@ import platform
 import sys
 import shlex
 import webbrowser
-from packaging import version # for version checks
 import toml
 from datetime import date
 from pathlib import Path
@@ -16,7 +15,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu, QInputDialog, QDialog
 from PySide6.QtCore import Signal
 
 import char_text
-from ll_threading import QueryLiquid, QueryMasterServer, ModDownloader, NetgameThread, ModDownloaderThread, ModTextsearchThread, ModCategorybrowseThread, ll_signalbus
+from ll_threading import *
 from networking.ms_query import Netgame
 import networking.modsource as Modsource
 from ui.ui_main import *
@@ -42,8 +41,6 @@ class MainWindow(QMainWindow):
     download_mod_url_sig = Signal(str)
     # Emits mod download filepath
     download_mod_path_sig = Signal(str)
-    # Emits version string
-    check_version_sig = Signal(str)
     # Emits URL for RSS query
     load_rss_sig = Signal(str)
     
@@ -51,7 +48,12 @@ class MainWindow(QMainWindow):
     def __init__(self, app):
         super().__init__()
         
+        # Hook up global thread pool and connect necessary "bus" signals
         self.thread_pool = QtCore.QThreadPool.globalInstance()
+        # Connect Table row updater
+        ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
+        ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
+        ll_signalbus.alert.connect(lambda kwargs: self.alert(**kwargs))
 
         # Default Launcher settings. Profiles are sourced from .liquidlauncher/profiles
         self.global_settings = {"current_profile": "default.toml",
@@ -90,10 +92,7 @@ class MainWindow(QMainWindow):
 
         # Dict associating mod list widget items with mods:
         self.mods_list = {}
-
-        # Connect Table row updater
-        ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
-        ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
+        
         
 
         # Download mod multithreading
@@ -106,8 +105,6 @@ class MainWindow(QMainWindow):
         # Liquid stuff multithreading
         self.query_liquid_qthread = QueryLiquid()
         self.query_liquid_qthread.start()
-        self.check_version_sig.connect(self.query_liquid_qthread.on_check_version)
-        self.query_liquid_qthread.check_version_cb_sig.connect(self.on_check_version_cb)
         self.load_rss_sig.connect(self.query_liquid_qthread.on_load_rss)
         self.query_liquid_qthread.load_news_cb_sig.connect(self.on_load_news_cb)
         self.query_liquid_qthread.update_snitchmsg_sig.connect(self.ui.SnitchmsgLabel.setText)
@@ -1422,7 +1419,7 @@ class MainWindow(QMainWindow):
 
         self.refresh_profiles()
         self.load_global_settings()
-        self.check_version_sig.emit(versionString) # Launch early for async speed
+        self.thread_pool.start(CheckLauncherversionThread(current_version=versionString))
         self.ui.RSSRefreshButton.clicked.emit() # "Virtual click" to fetch news
 
         self.load_ms_list() # Load MSes to be used
@@ -2164,33 +2161,6 @@ class MainWindow(QMainWindow):
                 f.write(out_text)
         return
 
-    def on_check_version_cb(self, latest):
-            # check launcher version ============================================= #
-            if version.parse(latest["version"]) > version.parse(versionString):
-                alertArgs = {
-                    "type" : "question",
-                    "title" : f"Version {latest["version"]} available",
-                    "message" : f"Your version of LiquidLauncher seems to be " \
-                                f"outdated. Please download <a href=\"{latest["url"]}\"> version {latest["version"]}</a>.",
-                    "detailedText" : f"Latest version of LiquidLauncher: " \
-                        f"{latest["version"]}\nYou are currently running: " \
-                        f"{versionString}",
-                }
-                self.alert(**alertArgs)
-            elif version.parse(latest["version"]) < version.parse(versionString):
-                print("Greetings, time traveller.")
-                alertArgs = {
-                    "type" : "info",
-                    "title" : "Greetings, time traveller.",
-                    "message" : f"<p>You seem to be using an in-development " \
-                        "version of LiquidLauncher. Please note that some things " \
-                        "might not be finished yet.</p><p>If you'd like to use our current release " \
-                        f"version {latest["version"]},  please check " \
-                        f'our <a href=\"{latest["url"]}\">repository</a>.</p>',
-                }
-                self.alert(**alertArgs)
-            else:
-                print("up-to-date (" + versionString + ")")
 
     def on_refresh_logfile(self):
         self.ui.logfileList.clear()
