@@ -54,6 +54,8 @@ class MainWindow(QMainWindow):
         ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
         ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
         ll_signalbus.alert.connect(lambda kwargs: self.alert(**kwargs))
+        # Qt Models for UI sync
+        self.rss_model = QtGui.QStandardItemModel()
 
         # Default Launcher settings. Profiles are sourced from .liquidlauncher/profiles
         self.global_settings = {"current_profile": "default.toml",
@@ -79,6 +81,10 @@ class MainWindow(QMainWindow):
 
         self.app = app
         self.setWindowTitle("LiquidLauncher "+versionString)
+
+        # Connect models
+        self.ui.RSSFeedCombobox.setModel(self.rss_model)
+        self.ui.RSSFeedList.setModel(self.rss_model)
 
         # server ips stored internally so u don't dox people's ips if you're streaming or smth
         self.saved_server_ips = []
@@ -310,9 +316,6 @@ class MainWindow(QMainWindow):
             self.ui.SnitchsrcCombobox.currentData(), self.ui.SnitchdestCombobox.currentText()))
 
         # RSS buttons ======================================================== #
-        self.ui.RSSFeedList.itemSelectionChanged.connect(self.rss_enable_edit)
-        #self.ui.RSSFeedList.itemChanged.connect(self.rss_commit)
-        #self.ui.RSSFeedList.dataChanged.connect(self.rss_commit)
         self.ui.RSSMoveupButton.clicked.connect(self.rss_moveup)
         self.ui.RSSMovedownButton.clicked.connect(self.rss_movedown)
         self.ui.RSSAddButton.clicked.connect(lambda: self.add_rss_to_list() )
@@ -347,20 +350,19 @@ class MainWindow(QMainWindow):
         self.ui.RSSRemoveButton.setEnabled(True)
 
     def add_rss_to_list(self, url="https://example.com/feed" ):
-        new_item = QtWidgets.QListWidgetItem()
+        new_item = QtGui.QStandardItem()
         new_item.setText(url)
         new_item.setFlags(  QtCore.Qt.ItemIsSelectable | 
                             QtCore.Qt.ItemIsEditable |
                             QtCore.Qt.ItemIsDragEnabled |
-                            QtCore.Qt.ItemIsDropEnabled |
                             QtCore.Qt.ItemIsEnabled
                             )
-        self.ui.RSSFeedList.addItem(new_item)
-        self.ui.RSSFeedList.setCurrentRow(self.ui.RSSFeedList.count()-1)
-
+        self.rss_model.appendRow(new_item)
+        
     def remove_rss_from_list(self):
-        # QListWidget.takeItem bc Qt is weird
-        self.ui.RSSFeedList.takeItem( self.ui.RSSFeedList.currentRow() )
+        # We only enable single selection, but iterate because Qt doesn't provide the method
+        for row in {x.row() for x in self.ui.RSSFeedList.selectedIndexes()}:
+            self.rss_model.removeRow(row)
 
     def rss_moveup(self):
         reservedItems = []
@@ -1566,7 +1568,6 @@ class MainWindow(QMainWindow):
         
 
         # Update RSS List in UI
-        self.ui.RSSFeedList.clear()
         if self.global_settings["rss"] != None:
             for feed in self.global_settings["rss"]:
                 self.add_rss_to_list(feed)
@@ -1646,16 +1647,9 @@ class MainWindow(QMainWindow):
         
         }
         self.update_modsources()
-        self.rss_commit()
         self.save_global_settings_file()
-    
-    def rss_commit(self):
-        feeds = []
-        self.ui.RSSFeedCombobox.clear()
-        for i in range(self.ui.RSSFeedList.count()):
-            self.ui.RSSFeedCombobox.addItem(self.ui.RSSFeedList.item(i).text())
-            feeds.append(self.ui.RSSFeedList.item(i).text())
-        self.global_settings["rss"] = feeds
+
+    # === Default settings ===
 
     def create_default_settings(self):
         if not os.path.isfile(os.path.join(os.getcwd(), ".liquidlauncher", "config.toml")):
