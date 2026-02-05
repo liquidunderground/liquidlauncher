@@ -1563,6 +1563,7 @@ class MainWindow(QMainWindow):
         
 
         # Update RSS List in UI
+        self.rss_model.clear()
         if self.global_settings["rss"] != None:
             for feed in self.global_settings["rss"]:
                 self.add_rss_to_list(feed)
