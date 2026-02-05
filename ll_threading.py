@@ -356,6 +356,46 @@ class CheckLauncherversionThread(QtCore.QRunnable):
         else:
             print("[CheckLauncherversionThread] up-to-date (" + self.current_version + ")")
 
+class QueryRSSThread(QtCore.QRunnable):
+    
+    signalbus = ll_signalbus
+    
+    def __init__(self, url):
+        super(QueryRSSThread, self).__init__()
+        self.url = url
+
+    def run(self):
+        print(f"[QueryRSSThread]: Querying RSS feed {self.url}")
+        try:
+            feed = requests.get(self.url, headers=http_headers)
+            feed.raise_for_status()
+            feed_parsed = feed.text
+
+            news = feedparser.parse(feed_parsed)["items"]
+
+            self.signalbus.news_load_finish.emit(news)
+
+            alertArgs = {
+                "type" : "info",
+                "title" : f"RSS Fetch successful",
+                "message" :  "News feed successfully loaded." if len(feed_parsed) > 0  else  "No news found. Did you check the URL?",
+            }
+            self.signalbus.alert.emit(alertArgs)
+        except Exception as e:
+            print("News fetch error: ",e)
+            alertArgs = {
+                "type" : "warning",
+                "title" : f"Query Error ",
+                "message" : f'Unable to query <a href="{self.url}">{self.url}</a>',
+                "detailedText" : str(e),
+            }
+            self.signalbus.alert.emit(alertArgs)
+
+"""Types of netgame/master server-related threads:
+1. NetgameThread: Queries individual netgames for live metadata through their UDP protocol
+2. NetgameListThread: Retrieves lists of netgames from a Master Server
+3. NetgameRoomlistThread: Retrieves the rooms of room-based Master Server protocols
+"""
 
 class NetgameThread(QtCore.QRunnable):
     

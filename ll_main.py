@@ -50,6 +50,8 @@ class MainWindow(QMainWindow):
         
         # Hook up global thread pool and connect necessary "bus" signals
         self.thread_pool = QtCore.QThreadPool.globalInstance()
+        # RSS news Feed signal
+        ll_signalbus.news_load_finish.connect(self.news_load_finish)
         # Connect Table row updater
         ll_signalbus.netgame_update_finish.connect(self.netgame_update_finish)
         ll_signalbus.mod_list_fetch_finish.connect(self.add_mods_to_list)
@@ -112,7 +114,6 @@ class MainWindow(QMainWindow):
         self.query_liquid_qthread = QueryLiquid()
         self.query_liquid_qthread.start()
         self.load_rss_sig.connect(self.query_liquid_qthread.on_load_rss)
-        self.query_liquid_qthread.load_news_cb_sig.connect(self.on_load_news_cb)
         self.query_liquid_qthread.update_snitchmsg_sig.connect(self.ui.SnitchmsgLabel.setText)
 
         # Emits mod download filepath
@@ -396,23 +397,17 @@ class MainWindow(QMainWindow):
         # ok lets uh, get the news feed or something?
         print("load_news({})".format(feed))
         self.ui.RSSStatusLabel.setText("Querying RSS feed...")
-        self.load_rss_sig.emit(feed)
+        self.thread_pool.start(QueryRSSThread(url=feed))
 
-    def on_load_news_cb(self, args_o):
-        if "type" in args_o: # Emergency error kludge
-            match args_o["type"]:
-                case "warning" | "critical":
-                    self.alert(**args_o)
-                    return
-        feed = feedparser.parse(args_o["content"])
+    @QtCore.Slot(object)
+    def news_load_finish(self, news):
 
-        self.news = feed["items"]
+        self.news = news
 
-        print("Parsing articles...")
         self.ui.RSSArticleList.clear()
         for item in self.news:
             self.ui.RSSArticleList.addItem("{} (by {})".format(getattr(item,"title", "[UNKNOWN]"), getattr(item,"author", "[ANONYMOUS]")))
-        self.ui.RSSStatusLabel.setText(args_o["message"])
+        self.ui.RSSStatusLabel.setText(f"Fetched {len(self.news)} articles")
 
     def load_article_text(self):
         index = self.ui.RSSArticleList.currentRow()
