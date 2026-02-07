@@ -238,6 +238,7 @@ class MainWindow(QMainWindow):
             "gamebanana": QtGui.QIcon(":/assets/img/icons/gamebanana.png"),
             "globe": QtGui.QIcon(":/assets/img/icons/globe.png"),
             "media-playback-start": QtGui.QIcon(":/assets/img/icons/media-playback-start.png"),
+            "news": QtGui.QIcon(":/assets/img/icons/news.png"),
             "settings": QtGui.QIcon(":/assets/img/icons/settings.png"),
             "server": QtGui.QIcon(":/assets/img/icons/server.png"),
             "skybase": QtGui.QIcon(":/assets/img/icons/skybase.png"),
