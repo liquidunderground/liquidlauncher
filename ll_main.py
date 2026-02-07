@@ -366,24 +366,6 @@ class MainWindow(QMainWindow):
         for row in {x.row() for x in self.ui.RSSFeedList.selectedIndexes()}:
             self.rss_model.removeRow(row)
 
-    def rss_moveup(self):
-        reservedItems = []
-        row = self.ui.RSSFeedList.currentRow()
-        item = self.ui.RSSFeedList.takeItem(row)
-        row -= 1
-        self.ui.RSSFeedList.insertItem(row, item)
-        self.ui.RSSFeedList.setCurrentRow(row)
-        return
-
-    def rss_movedown(self):
-        reservedItems = []
-        row = self.ui.RSSFeedList.currentRow()
-        item = self.ui.RSSFeedList.takeItem(row)
-        row += 1
-        self.ui.RSSFeedList.insertItem(row, item)
-        self.ui.RSSFeedList.setCurrentRow(row)
-        return
-
     # Default functions
 
     def open_url(self, url):
