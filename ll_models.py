@@ -19,7 +19,6 @@ class MasterServerAPIDelegate(QtWidgets.QItemDelegate):
 
         return w_api
 
-
 class MasterServerTableModel(QtCore.QAbstractTableModel):
     """ This class displays a table towards Qt,
         but represents an internal collection of
@@ -182,16 +181,43 @@ class MasterServerTableModel(QtCore.QAbstractTableModel):
 
 
 
-class NetgameTableModel(QtCore.QAbstractListModel):
+class NetgameTableModel(QtCore.QAbstractTableModel):
+
+    i_status_good =    QtGui.QIcon(":/assets/img/icons/network-good.png")
+    i_status_idle =    QtGui.QIcon(":/assets/img/icons/network-idle.png")
+    i_status_error =   QtGui.QIcon(":/assets/img/icons/network-error.png")
 
     def __init__(self, parent=None, netgames=None, *args):
         super(NetgameTableModel, self).__init__(parent=parent)
-
+        
         self.netgames = netgames or []
 
         self.headers = ["Status", "Name", "Gametype", "Version", "Room", "Origin"]
 
         pass
+
+
+    def insertNetgame(self, row, netgame):
+
+        if issubclass(type(netgame), ms_query.Netgame):
+            self.netgames.insert(row, netgame)
+        else:
+            self.netgames.insert(row, ms_query.Netgame(**netgame) )
+        self.layoutChanged.emit()
+
+    def appendNetgame(self, netgame):
+        last_row = self.rowCount()
+        self.insertNetgame(last_row,netgame)
+
+    def getNetgameByIndex(self, index):
+        return self.netgames[index.row()]
+
+    def getNetgameByRow(self, row):
+        if row in range(len(self.netgames)):
+            return self.netgames[row]
+        return None
+
+
 
     def data(self, index, role=Qt.ItemDataRole.DisplayRole):
         """ Depending on the index and role given, return data. If not
@@ -201,15 +227,18 @@ class NetgameTableModel(QtCore.QAbstractListModel):
         if not index.isValid():
             return None
 
-        if not 0 <= index.row() < len(self.master_servers):
+        if not 0 <= index.row() < len(self.netgames):
             return None
 
         if role == Qt.ItemDataRole.DisplayRole:
             
             ng = self.netgames[index.row()]
 
-            if index.column() in self.headers:
-                return netgame.__dict__[self.headers[index.column()]]
+            if index.column() == 0:   # Status icon
+                return self.i_status_idle
+            elif index.column() in self.headers:
+                #return netgame.__dict__[["status", "name", "gametype", "version", "room", "origin"][index.column()]]
+                return ["status", "name", "gametype", "version", "room", "origin"][index.column()]
 
         return None
     
@@ -220,8 +249,8 @@ class NetgameTableModel(QtCore.QAbstractListModel):
         if role != Qt.ItemDataRole.EditRole:
             return False
 
-        if index.isValid() and 0 <= index.row() < len(self.master_servers):
-            ms = self.master_servers[index.row()]
+        if index.isValid() and 0 <= index.row() < len(self.netgames):
+            ms = self.netgames[index.row()]
             if index.column() == 0:
                 ms["name"] = value
             elif index.column() == 1:
@@ -241,25 +270,8 @@ class NetgameTableModel(QtCore.QAbstractListModel):
             return ["Status", "Name", "Gametype", "Version", "Room", "Origin"][section]
         return super().headerData(section, orientation, role)
 
-
-    def insertNetgame(self, position, rows=1, index=QtCore.QModelIndex()):
-        """ Insert a row into the model. """
-        self.beginInsertRows(QtCore.QModelIndex(), position, position + rows - 1)
-
-        for row in range(position, position+rows):
-
-            self.netgames.insert(row, ms_query.Netgame())
-            
-        self.endInsertRows()
-        return True
-
-    def getNetgameByRow(self, row):
-        if row in range(len(self.netgames)):
-            return self.netgames[row]
-        return None
-
     def columnCount(self, index):
-        return len[self.headers]
+        return len(self.headers)
 
     def rowCount(self, parent=QtCore.QModelIndex()):
         return len(self.netgames)
