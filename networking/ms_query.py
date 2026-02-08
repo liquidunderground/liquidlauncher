@@ -176,8 +176,8 @@ class SRB2HTTPMasterServer(MasterServer):
         
         rooms = self.query_rooms()
 
-        ms_rooms = requests.get(url+"/rooms", headers=headers)
-        ms_netgames = requests.get(url+"/servers", headers=headers)
+        ms_rooms = requests.get(self.url+"/rooms", headers=headers)
+        ms_netgames = requests.get(self.url+"/servers", headers=headers)
         
         if ms_netgames.status_code != requests.codes.ok:
             raise Exception('Faulty HTTP response in /servers request ({})'.format(ms_netgames.status_code))
@@ -226,9 +226,9 @@ class SRB2HTTPMasterServer(MasterServer):
         - Returns a list of tuples (room_id, room_name)
         - If the API is not room-based, return None
         """
-        out = []
+        out = {}
 
-        ms_rooms = requests.get(url.rstrip('/')+"/rooms", headers=headers)
+        ms_rooms = requests.get(self.url.rstrip('/')+"/rooms", headers=headers)
 
         # Query sanity check
         if ms_rooms.status_code != requests.codes.ok:
@@ -265,9 +265,7 @@ class SRB2KartMasterServer(MasterServer):
         
         server_list = []
 
-        print("parse_kart_data ", url)
-
-        ms_data = requests.get(url+"/servers?v=2", headers=headers)
+        ms_data = requests.get(self.url+"/servers?v=2", headers=headers)
         if ms_data.status_code != requests.codes.ok:
             raise Exception('Faulty HTTP response ({})'.format(ms_data.status_code))
         
@@ -287,7 +285,7 @@ class SRB2KartMasterServer(MasterServer):
                 game="SRB2Kart",
                 version="kart",
                 room="",
-                origin=url,
+                origin=self.url,
                 api="kartv2",
             )
             server_list.append(netgame)
